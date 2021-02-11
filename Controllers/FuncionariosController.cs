@@ -75,13 +75,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FuncionarioId,Nome,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Funcionarios funcionarios)
         {
-            if (ModelState.IsValid)
+
+            if(!ModelState.IsValid)
             {
-                _context.Add(funcionarios);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View(funcionarios);
             }
-            return View(funcionarios);
+                       
+            _context.Add(funcionarios);
+            await _context.SaveChangesAsync();
+
+            ViewBag.Mensagem = "Funcionário adicionado com sucesso.";
+            return View("Sucesso");
         }
 
         // GET: Funcionarios/Edit/5
