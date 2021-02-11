@@ -18,6 +18,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             _logger = logger;
         }
 
+        public IActionResult Clientes()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
