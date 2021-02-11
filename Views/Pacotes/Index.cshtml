@@ -1,10 +1,9 @@
-﻿@model ServicosViewModel
+﻿@model PacotesViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 <div class="card border-info mb-4">
     <div class="card-body">
         <h5 class="card-title">Pesquisa</h5>
@@ -20,28 +19,28 @@
         </form>
     </div>
 </div>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Servicos[0].Nome)
+                @Html.DisplayNameFor(model => model.Pacotes[0].Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Servicos[0].Descricao)
+                @Html.DisplayNameFor(model => model.Pacotes[0].Descricao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Servicos[0].TipoServico)
+                @Html.DisplayNameFor(model => model.Pacotes[0].Preco)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Servicos) {
+@foreach (var item in Model.Pacotes) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
@@ -50,12 +49,12 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TipoServico)
+                @Html.DisplayFor(modelItem => item.Preco)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ServicoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ServicoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ServicoId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PacoteId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PacoteId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PacoteId">Delete</a>
             </td>
         </tr>
 }
