@@ -1,15 +1,18 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Clientes
+﻿@model Clientes
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Funcionário eliminado";
 }
 
-<h1>Create</h1>
+<div class="card text-white bg-danger mb-3">
+    <div class="card-body">
+        <h5 class="card-title">Atenção</h5>
+        <p class="card-text">O funcionário que estava a editar foi eliminado.</p>
+    </div>
+</div>
 
-<h4>Funcionarios</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-8">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -33,11 +36,6 @@
                 <span asp-validation-for="Morada" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CodigoPostal" class="control-label"></label>
-                <input asp-for="CodigoPostal" class="form-control" />
-                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Telemovel" class="control-label"></label>
                 <input asp-for="Telemovel" class="form-control" />
                 <span asp-validation-for="Telemovel" class="text-danger"></span>
@@ -48,21 +46,24 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CodigoPostal" class="control-label"></label>
+                <input asp-for="CodigoPostal" class="form-control" />
+                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Nif" class="control-label"></label>
                 <input asp-for="Nif" class="form-control" />
                 <span asp-validation-for="Nif" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-danger">Descartar</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
