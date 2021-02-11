@@ -27,6 +27,10 @@ namespace Projeto_Lab_Web_Grupo3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Projeto_Lab_WebContext>(options => options.UseSqlServer(
+            Configuration.GetConnectionString("Projeto_Lab_WebContext"))
+            );
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
