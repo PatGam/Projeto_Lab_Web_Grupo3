@@ -16,7 +16,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         {
             InserePromocoes(bd);
             InsereFuncionarios(bd);
-            //Insere(bd);
+            InsereServicos(bd);
             //Insere(bd);
             //Insere(bd);
 
@@ -232,6 +232,78 @@ namespace Projeto_Lab_Web_Grupo3.Data
             });
             bd.SaveChanges();
 
+        }
+        //-------------------SERVICOS--------------------------
+        private static void InsereServicos(Projeto_Lab_WebContext bd)
+        {
+            if (bd.Servicos.Any()) return;
+            bd.Servicos.AddRange(new Servicos[] {
+                    new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="m4o",
+                    Descricao="",
+                    TipoServico="Tv, Internet, Telemóvel",
+                },
+                     new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="m3o",
+                    Descricao="",
+                    TipoServico="Tv, Internet",
+                },
+                      new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="Pré-Pago 25",
+                    Descricao="25 gbs para levares para todo o lado",
+                    TipoServico="Internet",
+                },
+                       new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="M Gaming",
+                    Descricao="A melhor internet para jogares",
+                    TipoServico="Internet",
+                },
+                       new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="M Gaming + tv",
+                    Descricao="A melhor internet para jogares e 150 canais",
+                    TipoServico="'Tv, Internet",
+                },
+                       new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="M1 tv",
+                    Descricao="130 canais",
+                    TipoServico="Tv",
+                },
+                     new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="M1 tv",
+                    Descricao="130 canais",
+                    TipoServico="Telemóvel",
+                },
+                     new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="Serviço móvel extra",
+                    Descricao="10 gb de net e 10000 minutos de chamadas e 10000 sms para ti todos os meses",
+                    TipoServico="Telemóvel",
+                },
+                     new Servicos
+                     {
+                    //ServicoId="",
+                    Nome="TV premium",
+                    Descricao="Todos os canais desbloqueados para ti",
+                    TipoServico="Tv",
+                },
+
+            });
+            bd.SaveChanges();
         }
     }
 }
