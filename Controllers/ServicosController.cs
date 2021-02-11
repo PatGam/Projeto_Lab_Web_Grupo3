@@ -20,9 +20,25 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Servicos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar , int pagina = 1)
         {
-            return View(await _context.Servicos.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Servicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+            List<Servicos> servicos = await _context.Servicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+              .OrderBy(p => p.Nome)
+              .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+              .Take(paginacao.ItemsPorPagina)
+              .ToListAsync();
+            ServicosViewModel modelo = new ServicosViewModel
+            {
+                Paginacao = paginacao,
+                Servicos = servicos,
+                NomePesquisar = nomePesquisar
+            };
+            return base.View(modelo);
         }
 
         // GET: Servicos/Details/5
