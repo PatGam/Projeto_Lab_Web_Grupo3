@@ -18,6 +18,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InsereFuncionarios(bd);
             InsereServicos(bd);
             InsereClientes(bd);
+            InserePacotes(bd);
             //Insere(bd);
 
         }
@@ -30,7 +31,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Promocoes.AddRange(new Promocoes[] {
                 new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=1,
                     Nome="PascoaS",
                     Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes pequenos",
                     DataInicio=new DateTime(2021,03,01),
@@ -39,7 +40,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                 new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=2,
                     Nome="PascoaM",
                     Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes médios",
                     DataInicio=new DateTime(2021,03,01),
@@ -48,7 +49,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                 new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=3,
                     Nome="PascoaL",
                     Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes grandes",
                     DataInicio=new DateTime(2021,03,01),
@@ -57,7 +58,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                 new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=4,
                     Nome="VerãoS",
                     Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes pequenos",
                     DataInicio=new DateTime(2021,07,01),
@@ -66,7 +67,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                 new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=5,
                     Nome="VerãoM",
                     Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes médios",
                     DataInicio=new DateTime(2021,07,01),
@@ -75,7 +76,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                 new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=6,
                     Nome="VerãoL",
                     Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes grandes",
                     DataInicio=new DateTime(2021,07,01),
@@ -84,7 +85,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                 new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=7,
                     Nome="NatalS",
                     Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes pequenos",
                     DataInicio=new DateTime(2021,12,01),
@@ -93,7 +94,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                  new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=8,
                     Nome="NatalM",
                     Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes médios",
                     DataInicio=new DateTime(2021,12,01),
@@ -102,7 +103,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                   new Promocoes
                 {
-                    //Promocoes_Id="",
+                    PromocoesId=9,
                     Nome="NatalL",
                     Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes grandes",
                     DataInicio=new DateTime(2021,12,01),
@@ -120,7 +121,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Funcionarios.AddRange(new Funcionarios[] {
                     new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=1,
                     Nome="Nuno Forte",
                     DataNascimento=new DateTime(1998,09,29),
                     Morada="Rua das Flores",
@@ -131,7 +132,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                     new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=2,
                     Nome="João Matos",
                     DataNascimento=new DateTime(1970,04,21),
                     Morada="Rua da Maurícia Aradas",
@@ -142,7 +143,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                     new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=3,
                     Nome="Maria de Fátima",
                     DataNascimento=new DateTime(1963-02-02),
                     Morada="Rua da Prata",
@@ -153,7 +154,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                     new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=4,
                     Nome="Joana Pereira",
                     DataNascimento=new DateTime(1992-11-29),
                     Morada="Avenida Nossa Senhora de Fátima",
@@ -164,7 +165,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                     new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=5,
                     Nome="Justina Paulo",
                     DataNascimento=new DateTime(1978-07-17),
                     Morada="Rua de São Gonçalo",
@@ -175,7 +176,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                      new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=6,
                     Nome="Inês Reis",
                     DataNascimento=new DateTime(1998,03,07),
                     Morada="Rua Quinta do Fojo Canidelo",
@@ -186,7 +187,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                       new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=7,
                     Nome="Luís Madeira",
                     DataNascimento=new DateTime(1989,10,29),
                     Morada="Rua do Campo Alegre",
@@ -197,7 +198,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                     new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=8,
                     Nome="Paula Melo",
                     DataNascimento=new DateTime(1984,12,29),
                     Morada="Canada dos Melancólicos",
@@ -208,7 +209,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                     new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=9,
                     Nome="Paulo Mota",
                     DataNascimento=new DateTime(2000,06,06),
                     Morada="Rua General Humberto Delgado",
@@ -219,7 +220,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                    new Funcionarios
                 {
-                    //FuncionarioId="",
+                    FuncionarioId=10,
                     Nome="Marta Machado",
                     DataNascimento=new DateTime(2000,08,01),
                     Morada="Rua Central Mesura",
@@ -240,63 +241,63 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Servicos.AddRange(new Servicos[] {
                     new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=1,
                     Nome="m4o",
                     Descricao="",
                     TipoServico="Tv, Internet, Telemóvel",
                 },
                      new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=2,
                     Nome="m3o",
                     Descricao="",
                     TipoServico="Tv, Internet",
                 },
                       new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=3,
                     Nome="Pré-Pago 25",
                     Descricao="25 gbs para levares para todo o lado",
                     TipoServico="Internet",
                 },
                        new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=4,
                     Nome="M Gaming",
                     Descricao="A melhor internet para jogares",
                     TipoServico="Internet",
                 },
                        new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=5,
                     Nome="M Gaming + tv",
                     Descricao="A melhor internet para jogares e 150 canais",
                     TipoServico="'Tv, Internet",
                 },
                        new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=6,
                     Nome="M1 tv",
                     Descricao="130 canais",
                     TipoServico="Tv",
                 },
                      new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=7,
                     Nome="M1 tv",
                     Descricao="130 canais",
                     TipoServico="Telemóvel",
                 },
                      new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=8,
                     Nome="Serviço móvel extra",
                     Descricao="10 gb de net e 10000 minutos de chamadas e 10000 sms para ti todos os meses",
                     TipoServico="Telemóvel",
                 },
                      new Servicos
                      {
-                    //ServicoId="",
+                    ServicoId=9,
                     Nome="TV premium",
                     Descricao="Todos os canais desbloqueados para ti",
                     TipoServico="Tv",
@@ -312,7 +313,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Clientes.AddRange(new Clientes[] {
                   new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=1,
                     Nome="Pedro Machado",
                     DataNascimento=new DateTime(1971,07,14),
                     Nif=922257185,
@@ -324,7 +325,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                    new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=2,
                     Nome="Joaquim Mendez",
                     DataNascimento=new DateTime(1987,12,24),
                     Nif=920099457,
@@ -336,7 +337,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                     new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=3,
                     Nome="Sandra Vieira",
                     DataNascimento=new DateTime(1977,02,23),
                     Nif=921359357,
@@ -348,7 +349,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                      new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=4,
                     Nome="Sara Siqueira",
                     DataNascimento=new DateTime(1977,01,22),
                     Nif=929388769,
@@ -360,7 +361,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                      new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=5,
                     Nome="Nelson Ramos",
                     DataNascimento=new DateTime(1945,07,10),
                     Nif=927822662,
@@ -372,7 +373,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
                      new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=6,
                     Nome="Danilo Pires",
                     DataNascimento=new DateTime(1999,06,26),
                     Nif=925387029,
@@ -384,7 +385,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
                      new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=7,
                     Nome="Mônica Torres",
                     DataNascimento=new DateTime(197,02,05),
                     Nif=922534195,
@@ -396,7 +397,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
                      new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=8,
                     Nome="Daniela Mata",
                     DataNascimento=new DateTime(1974,03,13),
                     Nif=925581543,
@@ -408,7 +409,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
                      new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=9,
                     Nome="Virgílio Abreu",
                     DataNascimento=new DateTime(1987,04,16),
                     Nif=928360508,
@@ -420,7 +421,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
                      new Clientes
                      {
-                    //Cliente_Id="",
+                    ClienteId=10,
                     Nome="Martim Moniz",
                     DataNascimento=new DateTime(1984,08,15),
                     Nif=927251038,
@@ -432,6 +433,51 @@ namespace Projeto_Lab_Web_Grupo3.Data
             });
             bd.SaveChanges();
 
+        }
+        //-------------------PACOTES--------------------------
+        private static void InserePacotes(Projeto_Lab_WebContext bd)
+        {
+            if (bd.Pacotes.Any()) return;
+
+
+            bd.Pacotes.AddRange(new Pacotes[] {
+                 new Pacotes
+                     {
+                    PacoteId=1,
+                    Nome="TV e Telemóvel",
+                    Descricao="",
+                    Preco=25,
+                },
+                   new Pacotes
+                     {
+                    PacoteId=2,
+                    Nome="TV e Telemóvel e Internet",
+                    Descricao="5 gb , 2mil minutos e 5mil sms",
+                    Preco=50,
+                },
+                    new Pacotes
+                     {
+                    PacoteId=3,
+                    Nome="Telemóvel ,Internet",
+                    Descricao="150 canais e 5gb",
+                    Preco=30,
+                },
+                    new Pacotes
+                     {
+                    PacoteId=4,
+                    Nome="Internet",
+                    Descricao="10gb",
+                    Preco=15,
+                },
+                    new Pacotes
+                     {
+                    PacoteId=5,
+                    Nome="'Voz",
+                    Descricao="2 mil minutos",
+                    Preco=10,
+                },
+            });
+            bd.SaveChanges();
         }
     }
 }
