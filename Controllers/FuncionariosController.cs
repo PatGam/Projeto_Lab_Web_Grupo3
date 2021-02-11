@@ -20,9 +20,28 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Funcionarios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await _context.Funcionarios.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Funcionarios.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Funcionarios> funcionarios = await _context.Funcionarios.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            FuncionariosViewModel modelo = new FuncionariosViewModel
+            {
+                Paginacao = paginacao,
+                Funcionarios = funcionarios,
+                NomePesquisar = nomePesquisar
+            };
+
+            return base.View(modelo);
         }
 
         // GET: Funcionarios/Details/5
