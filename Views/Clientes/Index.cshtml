@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Projeto_Lab_Web_Grupo3.Models.Clientes>
+﻿@model ListaClientesViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,31 +14,31 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Nome)
+                        @Html.DisplayNameFor(model => model.Clientes[0].Nome)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.DataNascimento)
+                        @Html.DisplayNameFor(model => model.Clientes[0].DataNascimento)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Morada)
+                        @Html.DisplayNameFor(model => model.Clientes[0].Morada)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.CodigoPostal)
+                        @Html.DisplayNameFor(model => model.Clientes[0].CodigoPostal)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Telemovel)
+                        @Html.DisplayNameFor(model => model.Clientes[0].Telemovel)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Email)
+                        @Html.DisplayNameFor(model => model.Clientes[0].Email)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Nif)
+                        @Html.DisplayNameFor(model => model.Clientes[0].Nif)
                     </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Clientes)
                 {
                 <tr>
                     <td>
