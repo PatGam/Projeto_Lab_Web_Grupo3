@@ -125,7 +125,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(1998,09,29),
                     Morada="Rua das Flores",
                     Telemovel=925258737,
-                    Email="nuno_rpf@hotmail.com",
+                    Email="nuno_rpf@RDtelecom.com",
                     CodigoPostal="6300-706",
                     Role="Administrador",
                 },
@@ -136,7 +136,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(1970,04,21),
                     Morada="Rua da Maurícia Aradas",
                     Telemovel=965111755,
-                    Email="joao_matos@hotmail.com",
+                    Email="joao_matos@RDtelecom.com",
                     CodigoPostal="3810-433",
                     Role="Operador",
                 },
@@ -147,7 +147,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(1963-02-02),
                     Morada="Rua da Prata",
                     Telemovel=927895737,
-                    Email="m.fatima@hotmail.com",
+                    Email="m.fatima@RDtelecom.com",
                     CodigoPostal="1149-005",
                     Role="Administrador",
                 },
@@ -158,7 +158,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(1992-11-29),
                     Morada="Avenida Nossa Senhora de Fátima",
                     Telemovel=91746251,
-                    Email="J_pereira@hotmail.com",
+                    Email="J_pereira@RDtelecom.com",
                     CodigoPostal="2414-003",
                     Role="Operador",
                 },
@@ -169,7 +169,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(1978-07-17),
                     Morada="Rua de São Gonçalo",
                     Telemovel=912211797,
-                    Email="justina_paulo@hotmail.com",
+                    Email="justina_paulo@RDtelecom.com",
                     CodigoPostal="4814-508",
                     Role="Operador",
                 },
@@ -180,7 +180,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(1998,03,07),
                     Morada="Rua Quinta do Fojo Canidelo",
                     Telemovel=969193547,
-                    Email="reis_ines@hotmail.com",
+                    Email="reis_ines@RDtelecom.com",
                     CodigoPostal="4400-658",
                     Role="Operador",
                 },
@@ -191,7 +191,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(1989,10,29),
                     Morada="Rua do Campo Alegre",
                     Telemovel=915111852,
-                    Email="luis.madeira@hotmail.com",
+                    Email="luis.madeira@RDtelecom.com",
                     CodigoPostal="4169-008",
                     Role="Operador",
                 },
@@ -202,7 +202,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(1984,12,29),
                     Morada="Canada dos Melancólicos",
                     Telemovel=925897737,
-                    Email="melo.paula@hotmail.com",
+                    Email="melo.paula@RDtelecom.com",
                     CodigoPostal="9701-870",
                     Role="Operador",
                 },
@@ -213,7 +213,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(2000,06,06),
                     Morada="Rua General Humberto Delgado",
                     Telemovel=969687125,
-                    Email="paulo_mota@hotmail.com",
+                    Email="paulo_mota@RDtelecom.com",
                     CodigoPostal="1499-004",
                     Role="Operador",
                 },
@@ -224,7 +224,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataNascimento=new DateTime(2000,08,01),
                     Morada="Rua Central Mesura",
                     Telemovel=962154873,
-                    Email="m.machado@hotmail.com",
+                    Email="m.machado@RDtelecom.com",
                     CodigoPostal="3049-002",
                     Role="Operador",
                 },
@@ -305,7 +305,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             });
             bd.SaveChanges();
         }
-        //-------------------SERVICOS--------------------------
+        //-------------------CLIENTES--------------------------
         private static void InsereClientes(Projeto_Lab_WebContext bd)
         {
             if (bd.Clientes.Any()) return;
@@ -337,7 +337,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     new Clientes
                      {
                     //Cliente_Id="",
-                    Nome="Pedro Machado",
+                    Nome="Sandra Vieira",
                     DataNascimento=new DateTime(1977,02,23),
                     Nif=921359357,
                     Morada="R Poeta João Ruiz 6",
@@ -390,7 +390,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Nif=922534195,
                     Morada="Avenida Guerra Junqueiro 114",
                     Telemovel=921555922,
-                    Email="minicatorrees@gmail.com",
+                    Email="monicatorres@gmail.com",
                     CodigoPostal="2610-116",
                 },
 
@@ -402,7 +402,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Nif=925581543,
                     Morada="R Portela 64",
                     Telemovel=915551704,
-                    Email="daielamatta@gmail.com",
+                    Email="daielamata@gmail.com",
                     CodigoPostal="3550-171",
                 },
 
@@ -414,7 +414,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Nif=928360508,
                     Morada="R Padre João A L Ribeiro 88",
                     Telemovel=915559352,
-                    Email="virgabremu@outlook.com",
+                    Email="virgilio_abreu@outlook.com",
                     CodigoPostal="3440-376",
                 },
 
@@ -426,10 +426,9 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Nif=927251038,
                     Morada="R Poeta João Ruiz 90",
                     Telemovel=929455556,
-                    Email="martir_moniz@live.com",
+                    Email="martim_moniz@live.com",
                     CodigoPostal="6230-691",
                 },
-
             });
             bd.SaveChanges();
 
