@@ -1,0 +1,75 @@
+﻿@model ListaClientesViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <section class="ftco-section">
+        <h1>Cliente</h1>
+
+        <p>
+            <a asp-action="Create" class="btn btn-success">Criar Novo Cliente</a>
+        </p>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clientes[0].Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clientes[0].DataNascimento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clientes[0].Morada)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clientes[0].CodigoPostal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clientes[0].Telemovel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clientes[0].Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clientes[0].Nif)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Clientes)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataNascimento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Morada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoPostal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telemovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nif)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ClienteId" class="btn btn-warning">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ClienteId" class="btn btn-info">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ClienteId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</div>

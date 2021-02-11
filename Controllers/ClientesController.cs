@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Projeto_Lab_Web_Grupo3.Data;
-using Projeto_Lab_Web_Grupo3.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Projeto_Lab_Web_Grupo3.Data;
+using Projeto_Lab_Web_Grupo3.Models;
 
 namespace Projeto_Lab_Web_Grupo3.Controllers
 {
@@ -18,30 +19,28 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             _context = context;
         }
 
-        // GET : Clientes
-
-
-        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
+        // GET: Clientes
+        public async Task<IActionResult> Index()
         {
-            Paginacao paginacao = new Paginacao
-            {
-                TotalItems = await _context.Clientes.Where(c => nomePesquisar == null || c.Nome.Contains(nomePesquisar)).CountAsync(),
-                PaginaAtual = pagina
-            };
+            return View(await _context.Clientes.ToListAsync());
+        }
 
-            List<Clientes> clientes = await _context.Clientes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
-                .OrderBy(p => p.Nome)
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
-
-            ListaClientesViewModel modelo = new ListaClientesViewModel
+        // GET: Clientes/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
             {
-                Paginacao = paginacao,
-                Clientes = clientes,
-                NomePesquisar = nomePesquisar
-            };
-            return base.View(modelo);
+                return NotFound();
+            }
+
+            var clientes = await _context.Clientes
+                .FirstOrDefaultAsync(m => m.ClienteId == id);
+            if (clientes == null)
+            {
+                return NotFound();
+            }
+
+            return View(clientes);
         }
 
         // GET: Clientes/Create
@@ -51,24 +50,22 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // POST: Clientes/Create
-        public async Task<IActionResult> Create([Bind("ClienteId,DataNascimento,Nif,Morada,Telemovel,Email,CodigoPostal")] Clientes clientes)
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ClienteId,Nome,DataNascimento,Nif,Morada,Telemovel,Email,CodigoPostal")] Clientes clientes)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(clientes);
+                _context.Add(clientes);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-
-            _context.Add(clientes);
-            await _context.SaveChangesAsync();
-
-            ViewBag.Mensagem = "Projeto adicionado com sucesso.";
-            return View("Success");
-
-
+            return View(clientes);
         }
 
-        //GET: Clientes/Edit
-
+        // GET: Clientes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,51 +73,50 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var projetos = await _context.Clientes.FindAsync(id);
-            if (projetos == null)
+            var clientes = await _context.Clientes.FindAsync(id);
+            if (clientes == null)
             {
-                return View("Missing");
+                return NotFound();
             }
-
-            return View(projetos);
+            return View(clientes);
         }
 
-        // POST: Clientes/Edit
-
-        public async Task<IActionResult> Edit(int id, [Bind("ClienteId,DataNascimento,Nif,Morada,Telemovel,Email,CodigoPostal")] Clientes clientes)
+        // POST: Clientes/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("ClienteId,Nome,DataNascimento,Nif,Morada,Telemovel,Email,CodigoPostal")] Clientes clientes)
         {
             if (id != clientes.ClienteId)
             {
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(clientes);
-            }
-            try
-            {
-                _context.Update(clientes);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ClientesExist(clientes.ClienteId))
+                try
                 {
-                    return View("DeleteInsert", clientes);
+                    _context.Update(clientes);
+                    await _context.SaveChangesAsync();
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
-                    ModelState.AddModelError("", "Ocorreu um erro. Não foi possível guardar o produto. Tente novamente e se o problema persistir contacte a assistência.");
-                    return View(clientes);
+                    if (!ClientesExists(clientes.ClienteId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
+                return RedirectToAction(nameof(Index));
             }
-            ViewBag.Mensagem = "Cliente alterado com sucesso";
-            return View("Success");
+            return View(clientes);
         }
 
-        // GET: Clientes/Delete
-
+        // GET: Clientes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -132,28 +128,26 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.ClienteId == id);
             if (clientes == null)
             {
-                ViewBag.Mensagem = "O produto que estava a tentar apagar foi eliminado por outra pessoa.";
-                return View("Success");
+                return NotFound();
             }
 
             return View(clientes);
         }
 
-        // POST: Clientes/Delete
-
+        // POST: Clientes/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var clientes = await _context.Clientes.FindAsync(id);
             _context.Clientes.Remove(clientes);
             await _context.SaveChangesAsync();
-
-            ViewBag.Mensagem = "O cliente foi eliminado com sucesso";
-            return View("Success");
+            return RedirectToAction(nameof(Index));
         }
 
-        private bool ClientesExist(int id)
+        private bool ClientesExists(int id)
         {
-            return _context.Clientes.Any(p => p.ClienteId == id);
+            return _context.Clientes.Any(e => e.ClienteId == id);
         }
     }
 }
