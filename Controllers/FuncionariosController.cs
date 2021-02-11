@@ -99,7 +99,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var funcionarios = await _context.Funcionarios.FindAsync(id);
             if (funcionarios == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             return View(funcionarios);
         }
@@ -127,7 +127,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 {
                     if (!FuncionariosExists(funcionarios.FuncionarioId))
                     {
-                        return NotFound();
+                        return View("EliminarInserir", funcionarios);
                     }
                     else
                     {
@@ -136,7 +136,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(funcionarios);
+
+            ViewBag.Mensagem = "Funcionário alterado com sucesso";
+            return View("Sucesso");
         }
 
         // GET: Funcionarios/Delete/5
@@ -149,9 +151,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             var funcionarios = await _context.Funcionarios
                 .FirstOrDefaultAsync(m => m.FuncionarioId == id);
+
             if (funcionarios == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "O funcionário que estava a tentar apagar foi eliminado por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(funcionarios);
@@ -165,7 +169,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var funcionarios = await _context.Funcionarios.FindAsync(id);
             _context.Funcionarios.Remove(funcionarios);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            ViewBag.Mensagem = "O funcionário foi eliminado com sucesso";
+            return View("Sucesso");
         }
 
         private bool FuncionariosExists(int id)
