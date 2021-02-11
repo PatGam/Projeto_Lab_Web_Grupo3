@@ -20,9 +20,28 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Clientes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await _context.Clientes.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Clientes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Clientes> clientes = await _context.Clientes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ListaClientesViewModel modelo = new ListaClientesViewModel
+            {
+                Paginacao = paginacao,
+                Clientes = clientes,
+                NomePesquisar = nomePesquisar
+            };
+
+            return base.View(modelo);
         }
 
         // GET: Clientes/Details/5
@@ -58,11 +77,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(clientes);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View(clientes);
             }
-            return View(clientes);
+
+            _context.Add(clientes);
+            await _context.SaveChangesAsync();
+
+            ViewBag.Mensagem = "Funcionário adicionado com sucesso.";
+            return View("Sucesso");
+            
         }
 
         // GET: Clientes/Edit/5
@@ -76,7 +99,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var clientes = await _context.Clientes.FindAsync(id);
             if (clientes == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             return View(clientes);
         }
@@ -104,7 +127,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 {
                     if (!ClientesExists(clientes.ClienteId))
                     {
-                        return NotFound();
+                        return View("EliminarInserir", clientes);
                     }
                     else
                     {
@@ -113,7 +136,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(clientes);
+            ViewBag.Mensagem = "Funcionário alterado com sucesso";
+            return View("Sucesso");
         }
 
         // GET: Clientes/Delete/5
@@ -128,7 +152,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.ClienteId == id);
             if (clientes == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "O cliente que estava a tentar apagar foi eliminado por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(clientes);
