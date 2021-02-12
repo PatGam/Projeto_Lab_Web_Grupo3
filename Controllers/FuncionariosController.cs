@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
     public class FuncionariosController : Controller
     {
         private readonly Projeto_Lab_WebContext _context;
+        private readonly UserManager<IdentityUser> _gestorUtilizadores;
 
-        public FuncionariosController(Projeto_Lab_WebContext context)
+        public FuncionariosController(Projeto_Lab_WebContext context, UserManager<IdentityUser> gestorUtilizadores)
         {
             _context = context;
+            _gestorUtilizadores = gestorUtilizadores;
         }
 
         // GET: Funcionarios
