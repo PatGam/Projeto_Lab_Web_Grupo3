@@ -32,24 +32,24 @@
             <th>
                 @Html.DisplayNameFor(model => model.Clientes[0].Nome)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Clientes[0].DataNascimento)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Clientes[0].Nif)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Clientes[0].Morada)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Clientes[0].Telemovel)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Clientes[0].Email)
-            </th>
-            <th>
+            </th>*@
+            @*<th>
                 @Html.DisplayNameFor(model => model.Clientes[0].CodigoPostal)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -59,24 +59,24 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.DataNascimento)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Nif)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Morada)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Telemovel)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
+            </td>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.CodigoPostal)
-            </td>
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ClienteId">Editar</a> |
                 <a asp-action="Details" asp-route-id="@item.ClienteId">Detalhes</a> |
