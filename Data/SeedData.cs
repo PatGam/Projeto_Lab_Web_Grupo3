@@ -251,28 +251,28 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Servicos.AddRange(new Servicos[] {
                     new Servicos
                      {
-                    ServicoId=1,
+                    //ServicoId=1,
                     Nome="Canais Fibra",
                     Descricao="Temos vários Pacotes á sua escolha",
                     TipoServico="Televisão",
                 },
                      new Servicos
                      {
-                    ServicoId=2,
+                    //ServicoId=2,
                     Nome="Telémovel Pré-Pago e Pós-Pago",
                     Descricao="Temos vários Pacotes á sua escolha ",
                     TipoServico="Telémovel",
                 },
                       new Servicos
                      {
-                    ServicoId=3,
+                    //ServicoId=3,
                     Nome="Internet Fixa",
                     Descricao="A melhor internet para si , disponível em varios pacotes.",
                     TipoServico="Internet",
                 },
                        new Servicos
                      {
-                    ServicoId=4,
+                    //ServicoId=4,
                     Nome="Internet Móvel",
                     Descricao="Vários Pacotes com vários plafonds para ti",
                     TipoServico="Internet",
@@ -419,35 +419,35 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Pacotes.AddRange(new Pacotes[] {
                  new Pacotes
                      {
-                    PacoteId=1,
+                    //PacoteId=1,
                     Nome="M4o",
                     Descricao="Telémovel , internet , televisão ",
                     Preco=50,
                 },
                    new Pacotes
                      {
-                    PacoteId=2,
+                    //PacoteId=2,
                     Nome="M3O",
                     Descricao="Televisão e internet",
                     Preco=25,
                 },
                     new Pacotes
                      {
-                    PacoteId=3,
+                    //PacoteId=3,
                     Nome="Pré-Pago 25",
                     Descricao="25 gbs para levares para todo o lado",
                     Preco=25,
                 },
                     new Pacotes
                      {
-                    PacoteId=4,
+                    //PacoteId=4,
                     Nome="MGaming",
                     Descricao="A melhor internet para jogares juntamente com 15 canais só para ti.",
                     Preco=45,
                 },
                     new Pacotes
                      {
-                    PacoteId=5,
+                    //PacoteId=5,
                     Nome="TV premium + Mgaming",
                     Descricao="Todos os Canais Desbloqueados com uma internet extremamente rápida para jogares",
                     Preco=65,
