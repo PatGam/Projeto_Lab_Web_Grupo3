@@ -92,6 +92,10 @@ namespace Projeto_Lab_Web_Grupo3
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            SeedData.InsereRolesAsync(gestorRoles).Wait();
+            SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
+
             if (env.IsDevelopment())
             {
                 SeedData.PreencheDados(bd);
