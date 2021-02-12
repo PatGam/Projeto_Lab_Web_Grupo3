@@ -37,7 +37,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string Email { get; set; }
         [Required]
         [Column("Codigo_Postal")]
-        [RegularExpression(@"(\d{8}(-\d{4})?", ErrorMessage = "Código Postal Inválido")]
         [StringLength(8, MinimumLength = 8)]
         public string CodigoPostal { get; set; }
 
