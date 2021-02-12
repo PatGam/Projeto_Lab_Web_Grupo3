@@ -66,7 +66,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Funcionarios/Create
-        public IActionResult Create()
+        public IActionResult Registo()
         {
             return View();
         }
@@ -76,14 +76,40 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FuncionarioId,Nome,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Funcionarios funcionarios)
+        public async Task<IActionResult> Registo(RegistoFuncionariosViewModel infoFuncionarios)
         {
+            IdentityUser utilizador = await _gestorUtilizadores.FindByNameAsync(infoFuncionarios.Email);
 
-            if(!ModelState.IsValid)
+            if (utilizador != null)
             {
-                return View(funcionarios);
+                ModelState.AddModelError("Email", "Já existe um funcionário com o email que especificou.");
             }
-                       
+
+            utilizador = new IdentityUser(infoFuncionarios.Email);
+            IdentityResult resultado = await _gestorUtilizadores.CreateAsync(utilizador, infoFuncionarios.Password);
+
+            if (!resultado.Succeeded)
+            {
+                ModelState.AddModelError("", "Não foi possível fazer o registo. Por favor tente mais tarde novamente e se o problema persistir contacte a assistência.");
+            }
+            else
+            {
+                await _gestorUtilizadores.AddToRoleAsync(utilizador, infoFuncionarios.Role);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(infoFuncionarios);
+            }
+
+            Funcionarios funcionarios = new Funcionarios
+            {
+                Nome = infoFuncionarios.Nome,
+                Email = infoFuncionarios.Email,
+                Telemovel = infoFuncionarios.Telemovel,
+                Role = infoFuncionarios.Role
+            };
+
             _context.Add(funcionarios);
             await _context.SaveChangesAsync();
 
