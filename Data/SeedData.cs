@@ -272,7 +272,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     ServicoId=5,
                     Nome="M Gaming + tv",
                     Descricao="A melhor internet para jogares e 150 canais",
-                    TipoServico="'Tv, Internet",
+                    TipoServico="Tv, Internet",
                 },
                        new Servicos
                      {
@@ -452,7 +452,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                      {
                     PacoteId=2,
                     Nome="TV e Telemóvel e Internet",
-                    Descricao="5 gb , 2mil minutos e 5mil sms",
+                    Descricao="5 gb, 2mil minutos e 5mil sms",
                     Preco=50,
                 },
                     new Pacotes
@@ -472,7 +472,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     new Pacotes
                      {
                     PacoteId=5,
-                    Nome="'Voz",
+                    Nome="Voz",
                     Descricao="2 mil minutos",
                     Preco=10,
                 },
