@@ -251,67 +251,33 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Servicos.AddRange(new Servicos[] {
                     new Servicos
                      {
-                    //ServicoId=1,
-                    Nome="m4o",
-                    Descricao="",
-                    TipoServico="Tv, Internet, Telemóvel",
+                    ServicoId=1,
+                    Nome="Canais Fibra",
+                    Descricao="Temos vários Pacotes á sua escolha",
+                    TipoServico="Televisão",
                 },
                      new Servicos
                      {
-                    //ServicoId=2,
-                    Nome="m3o",
-                    Descricao="",
-                    TipoServico="Tv, Internet",
+                    ServicoId=2,
+                    Nome="Telémovel Pré-Pago e Pós-Pago",
+                    Descricao="Temos vários Pacotes á sua escolha ",
+                    TipoServico="Telémovel",
                 },
                       new Servicos
                      {
-                    //ServicoId=3,
-                    Nome="Pré-Pago 25",
-                    Descricao="25 gbs para levares para todo o lado",
+                    ServicoId=3,
+                    Nome="Internet Fixa",
+                    Descricao="A melhor internet para si , disponível em varios pacotes.",
                     TipoServico="Internet",
                 },
                        new Servicos
                      {
-                    //ServicoId=4,
-                    Nome="M Gaming",
-                    Descricao="A melhor internet para jogares",
+                    ServicoId=4,
+                    Nome="Internet Móvel",
+                    Descricao="Vários Pacotes com vários plafonds para ti",
                     TipoServico="Internet",
                 },
-                       new Servicos
-                     {
-                    //ServicoId=5,
-                    Nome="M Gaming + tv",
-                    Descricao="A melhor internet para jogares e 150 canais",
-                    TipoServico="Tv, Internet",
-                },
-                       new Servicos
-                     {
-                    //ServicoId=6,
-                    Nome="M1 tv",
-                    Descricao="130 canais",
-                    TipoServico="Tv",
-                },
-                     new Servicos
-                     {
-                    //ServicoId=7,
-                    Nome="M1 tv",
-                    Descricao="130 canais",
-                    TipoServico="Telemóvel",
-                },
-                     new Servicos
-                     {
-                    //ServicoId=8,
-                    Nome="Serviço móvel extra",
-                    Descricao="10 gb de net e 10000 minutos de chamadas e 10000 sms para ti todos os meses",
-                    TipoServico="Telemóvel",
-                },
-                     new Servicos
-                     {
-                    //ServicoId=9,
-                    Nome="TV premium",
-                    Descricao="Todos os canais desbloqueados para ti",
-                    TipoServico="Tv",
-                },
+              
 
             });
             bd.SaveChanges();
@@ -453,38 +419,38 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Pacotes.AddRange(new Pacotes[] {
                  new Pacotes
                      {
-                    //PacoteId=1,
-                    Nome="TV e Telemóvel",
-                    Descricao="",
-                    Preco=25,
+                    PacoteId=1,
+                    Nome="M4o",
+                    Descricao="Telémovel , internet , televisão ",
+                    Preco=50,
                 },
                    new Pacotes
                      {
-                    //PacoteId=2,
-                    Nome="TV e Telemóvel e Internet",
-                    Descricao="5 gb, 2mil minutos e 5mil sms",
-                    Preco=50,
+                    PacoteId=2,
+                    Nome="M3O",
+                    Descricao="Televisão e internet",
+                    Preco=25,
                 },
                     new Pacotes
                      {
-                    //PacoteId=3,
-                    Nome="Telemóvel ,Internet",
-                    Descricao="150 canais e 5gb",
-                    Preco=30,
+                    PacoteId=3,
+                    Nome="Pré-Pago 25",
+                    Descricao="25 gbs para levares para todo o lado",
+                    Preco=25,
                 },
                     new Pacotes
                      {
-                    //PacoteId=4,
-                    Nome="Internet",
-                    Descricao="10gb",
-                    Preco=15,
+                    PacoteId=4,
+                    Nome="MGaming",
+                    Descricao="A melhor internet para jogares juntamente com 15 canais só para ti.",
+                    Preco=45,
                 },
                     new Pacotes
                      {
-                    //PacoteId=5,
-                    Nome="Voz",
-                    Descricao="2 mil minutos",
-                    Preco=10,
+                    PacoteId=5,
+                    Nome="TV premium + Mgaming",
+                    Descricao="Todos os Canais Desbloqueados com uma internet extremamente rápida para jogares",
+                    Preco=65,
                 },
             });
             bd.SaveChanges();
