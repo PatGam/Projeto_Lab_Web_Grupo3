@@ -16,15 +16,16 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.11")
-                .HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Clientes", b =>
                 {
                     b.Property<int>("ClienteId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("Cliente_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CodigoPostal")
                         .IsRequired()
@@ -48,7 +49,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
                     b.Property<int>("Nif")
                         .HasColumnName("NIF")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasMaxLength(9);
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -56,7 +58,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasMaxLength(100);
 
                     b.Property<int>("Telemovel")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasMaxLength(9);
 
                     b.HasKey("ClienteId");
 
@@ -66,8 +69,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
                 {
                     b.Property<int>("ContratoId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("Contrato_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ClienteId")
                         .HasColumnName("Cliente_Id")
@@ -130,8 +135,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Funcionarios", b =>
                 {
                     b.Property<int>("FuncionarioId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("Funcionario_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CodigoPostal")
                         .IsRequired()
@@ -174,8 +181,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Pacotes", b =>
                 {
                     b.Property<int>("PacoteId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("Pacote_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(1000)")
@@ -197,8 +206,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Promocoes", b =>
                 {
                     b.Property<int>("PromocoesId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("Promocoes_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DataFim")
                         .HasColumnName("Data_fim")
@@ -229,8 +240,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", b =>
                 {
                     b.Property<int>("PromocoesPacotesId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("Promocoes_Pacotes_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("NomePacote")
                         .IsRequired()
@@ -264,8 +277,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Servicos", b =>
                 {
                     b.Property<int>("ServicoId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("Servico_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(1000)")
@@ -290,8 +305,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.ServicosPacotes", b =>
                 {
                     b.Property<int>("SevicoPacoteId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("Sevico_Pacote_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("PacoteId")
                         .HasColumnName("Pacote_Id")

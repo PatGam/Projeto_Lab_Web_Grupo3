@@ -11,12 +11,13 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Clientes",
                 columns: table => new
                 {
-                    Cliente_Id = table.Column<int>(nullable: false),
+                    Cliente_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
-                    NIF = table.Column<int>(nullable: false),
+                    NIF = table.Column<int>(maxLength: 9, nullable: false),
                     Morada = table.Column<string>(maxLength: 200, nullable: false),
-                    Telemovel = table.Column<int>(nullable: false),
+                    Telemovel = table.Column<int>(maxLength: 9, nullable: false),
                     Email = table.Column<string>(maxLength: 100, nullable: false),
                     Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false)
                 },
@@ -29,7 +30,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Funcionarios",
                 columns: table => new
                 {
-                    Funcionario_Id = table.Column<int>(nullable: false),
+                    Funcionario_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
                     Morada = table.Column<string>(maxLength: 500, nullable: false),
@@ -47,7 +49,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Pacotes",
                 columns: table => new
                 {
-                    Pacote_Id = table.Column<int>(nullable: false),
+                    Pacote_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Descricao = table.Column<string>(maxLength: 1000, nullable: true),
                     Preco = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
@@ -61,7 +64,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Promocoes",
                 columns: table => new
                 {
-                    Promocoes_Id = table.Column<int>(nullable: false),
+                    Promocoes_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Descricao = table.Column<string>(maxLength: 1000, nullable: true),
                     Data_inicio = table.Column<DateTime>(type: "date", nullable: false),
@@ -77,7 +81,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Servicos",
                 columns: table => new
                 {
-                    Servico_Id = table.Column<int>(nullable: false),
+                    Servico_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Descricao = table.Column<string>(maxLength: 1000, nullable: true),
                     Tipo_Servico = table.Column<string>(maxLength: 50, nullable: false)
@@ -91,7 +96,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Promocoes_Pacotes",
                 columns: table => new
                 {
-                    Promocoes_Pacotes_Id = table.Column<int>(nullable: false),
+                    Promocoes_Pacotes_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Pacote_Id = table.Column<int>(nullable: false),
                     Promocoes_Id = table.Column<int>(nullable: false),
                     Nome_Pacote = table.Column<string>(maxLength: 100, nullable: false),
@@ -118,7 +124,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Servicos_Pacotes",
                 columns: table => new
                 {
-                    Sevico_Pacote_Id = table.Column<int>(nullable: false),
+                    Sevico_Pacote_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Servico_Id = table.Column<int>(nullable: false),
                     Pacote_Id = table.Column<int>(nullable: false)
                 },
@@ -143,7 +150,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Contratos",
                 columns: table => new
                 {
-                    Contrato_Id = table.Column<int>(nullable: false),
+                    Contrato_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Cliente_Id = table.Column<int>(nullable: false),
                     Funcionario_Id = table.Column<int>(nullable: false),
                     Data_inicio = table.Column<DateTime>(type: "date", nullable: false),
