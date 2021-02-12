@@ -23,8 +23,10 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [StringLength(100)]
         public string Nome { get; set; }
         [StringLength(1000)]
+        [Display(Name ="Descrição")]
         public string Descricao { get; set; }
         [Column(TypeName = "decimal(18, 2)")]
+        [Display (Name ="Preço")]
         public decimal Preco { get; set; }
 
         [InverseProperty("Pacote")]

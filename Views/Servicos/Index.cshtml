@@ -22,7 +22,7 @@
 </div>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Novo Serviço</a>
 </p>
 
 <table class="table">
@@ -53,9 +53,9 @@
                 @Html.DisplayFor(modelItem => item.TipoServico)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ServicoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ServicoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ServicoId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ServicoId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ServicoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ServicoId">Apagar</a>
             </td>
         </tr>
 }
