@@ -105,6 +105,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             Funcionarios funcionarios = new Funcionarios
             {
                 Nome = infoFuncionarios.Nome,
+                DataNascimento = infoFuncionarios.DataNascimento,
+                Morada = infoFuncionarios.Morada,
+                CodigoPostal = infoFuncionarios.CodigoPostal,
                 Email = infoFuncionarios.Email,
                 Telemovel = infoFuncionarios.Telemovel,
                 Role = infoFuncionarios.Role
