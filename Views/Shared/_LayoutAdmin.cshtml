@@ -73,7 +73,7 @@
                 <ul class="nav pull-right top-menu">
 
                     <!-- task notificatoin start -->
-                    <li id="task_notificatoin_bar" class="dropdown">
+                    @*<li id="task_notificatoin_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="icon-task-l"></i>
                             <span class="badge bg-important">6</span>
@@ -155,10 +155,10 @@
                                 <a href="#">See All Tasks</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
                     <!-- task notificatoin end -->
                     <!-- inbox notificatoin start-->
-                    <li id="mail_notificatoin_bar" class="dropdown">
+                    @*<li id="mail_notificatoin_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="icon-envelope-l"></i>
                             <span class="badge bg-important">5</span>
@@ -220,10 +220,10 @@
                                 <a href="#">See all messages</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
                     <!-- inbox notificatoin end -->
                     <!-- alert notification start-->
-                    <li id="alert_notificatoin_bar" class="dropdown">
+                    @*<li id="alert_notificatoin_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                             <i class="icon-bell-l"></i>
@@ -266,9 +266,12 @@
                                 <a href="#">See all notifications</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
                     <!-- alert notification end-->
                     <!-- user login dropdown start-->
+
+                    @*Associar isto ao login*@
+
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
@@ -314,15 +317,15 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a class="" href="index.html">
+                        <a class="" a asp-area="" asp-controller="Home" asp-action="Index">
                             <i class="icon_house_alt"></i>
-                            <span>Dashboard</span>
+                            <span>Início</span>
                         </a>
                     </li>
                     <li class="sub-menu">
-                        <a href="javascript:;" class="">
+                        <a a asp-area="" asp-controller="Clientes" asp-action="Index">
                             <i class="icon_document_alt"></i>
-                            <span>Forms</span>
+                            <span>Gerir Clientes</span>
                             <span class="menu-arrow arrow_carrot-right"></span>
                         </a>
                         <ul class="sub">
@@ -331,9 +334,9 @@
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="javascript:;" class="">
+                        <a a asp-area="" asp-controller="Funcionarios" asp-action="Index"  class="">
                             <i class="icon_desktop"></i>
-                            <span>UI Fitures</span>
+                            <span>Gerir Funcionários</span>
                             <span class="menu-arrow arrow_carrot-right"></span>
                         </a>
                         <ul class="sub">
@@ -343,24 +346,24 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="" href="widgets.html">
+                        <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
                             <i class="icon_genius"></i>
-                            <span>Widgets</span>
+                            <span>Gerir Pacotes</span>
                         </a>
                     </li>
                     <li>
-                        <a class="" href="chart-chartjs.html">
+                        <a class=""a asp-area="" asp-controller="Promocoes" asp-action="Index">
                             <i class="icon_piechart"></i>
-                            <span>Charts</span>
+                            <span>Gerir Promoções</span>
 
                         </a>
 
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:;" class="">
+                        <a a asp-area="" asp-controller="Servicos" asp-action="Index" class="">
                             <i class="icon_table"></i>
-                            <span>Tables</span>
+                            <span>Gerir Serviços</span>
                             <span class="menu-arrow arrow_carrot-right"></span>
                         </a>
                         <ul class="sub">
@@ -368,7 +371,7 @@
                         </ul>
                     </li>
 
-                    <li class="sub-menu">
+                    @*<li class="sub-menu">
                         <a href="javascript:;" class="">
                             <i class="icon_documents_alt"></i>
                             <span>Pages</span>
@@ -381,7 +384,7 @@
                             <li><a class="" href="blank.html">Blank Page</a></li>
                             <li><a class="" href="404.html">404 Error</a></li>
                         </ul>
-                    </li>
+                    </li>*@
 
                 </ul>
                 <!-- sidebar menu end-->
@@ -389,10 +392,10 @@
         </aside>
         <!--sidebar end-->
         <!--main content start-->
-        <section id="main-content">
-            <section class="wrapper">
+        <!--<section id="main-content">
+            <section class="wrapper">-->
                 <!--overview start-->
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-12">
                         <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
                         <ol class="breadcrumb">
@@ -408,46 +411,46 @@
                             <i class="fa fa-cloud-download"></i>
                             <div class="count">6.674</div>
                             <div class="title">Download</div>
-                        </div>
+                        </div>-->
                         <!--/.info-box-->
-                    </div>
+                    <!--</div>-->
                     <!--/.col-->
 
-                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <!--<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box brown-bg">
                             <i class="fa fa-shopping-cart"></i>
                             <div class="count">7.538</div>
                             <div class="title">Purchased</div>
-                        </div>
+                        </div>-->
                         <!--/.info-box-->
-                    </div>
+                    <!--</div>-->
                     <!--/.col-->
 
-                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <!--<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box dark-bg">
                             <i class="fa fa-thumbs-o-up"></i>
                             <div class="count">4.362</div>
                             <div class="title">Order</div>
-                        </div>
+                        </div>-->
                         <!--/.info-box-->
-                    </div>
+                    <!--</div>-->
                     <!--/.col-->
 
-                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <!--<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box green-bg">
                             <i class="fa fa-cubes"></i>
                             <div class="count">1.426</div>
                             <div class="title">Stock</div>
-                        </div>
+                        </div>-->
                         <!--/.info-box-->
-                    </div>
+                    <!--</div>-->
                     <!--/.col-->
 
-                </div>
+                <!--</div>-->
                 <!--/.row-->
 
 
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-9 col-md-12">
 
                         <div class="panel panel-default">
@@ -465,15 +468,15 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3">-->
                         <!-- List starts -->
-                        <ul class="today-datas">
+                        <!--<ul class="today-datas">-->
                             <!-- List #1 -->
-                            <li>
+                            <!--<li>-->
                                 <!-- Graph -->
-                                <div><span id="todayspark1" class="spark"></span></div>
+                                <!--<div><span id="todayspark1" class="spark"></span></div>-->
                                 <!-- Text -->
-                                <div class="datas-text">11,500 visitors/day</div>
+                                <!--<div class="datas-text">11,500 visitors/day</div>
                             </li>
                             <li>
                                 <div><span id="todayspark2" class="spark"></span></div>
@@ -495,14 +498,14 @@
                     </div>
 
 
-                </div>
+                </div>-->
 
 
                 <!-- Today status end -->
 
 
 
-                <div class="row">
+                <!--<div class="row">
 
                     <div class="col-lg-9 col-md-12">
                         <div class="panel panel-default">
@@ -652,9 +655,9 @@
 
                         </div>
 
-                    </div>
+                    </div>-->
                     <!--/col-->
-                    <div class="col-md-3">
+                    <!--<div class="col-md-3">
 
                         <div class="social-box facebook">
                             <i class="fa fa-facebook"></i>
@@ -668,9 +671,9 @@
                                     <span>feeds</span>
                                 </li>
                             </ul>
-                        </div>
+                        </div>-->
                         <!--/social-box-->
-                    </div>
+                    <!--</div>
                     <div class="col-md-3">
 
                         <div class="social-box google-plus">
@@ -685,12 +688,12 @@
                                     <span>circles</span>
                                 </li>
                             </ul>
-                        </div>
+                        </div>-->
                         <!--/social-box-->
 
-                    </div>
+                    <!--</div>-->
                     <!--/col-->
-                    <div class="col-md-3">
+                    <!--<div class="col-md-3">
 
                         <div class="social-box twitter">
                             <i class="fa fa-twitter"></i>
@@ -704,22 +707,22 @@
                                     <span>tweets</span>
                                 </li>
                             </ul>
-                        </div>
+                        </div>-->
                         <!--/social-box-->
 
-                    </div>
+                    <!--</div>-->
                     <!--/col-->
 
-                </div>
+                <!--</div>-->
 
 
 
                 <!-- statics end -->
                 <!-- project team & activity start -->
-                <div class="row">
-                    <div class="col-md-4 portlets">
+                <!--<div class="row">
+                    <div class="col-md-4 portlets">-->
                         <!-- Widget -->
-                        <div class="panel panel-default">
+                        <!--<div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="pull-left">Message</div>
                                 <div class="widget-icons pull-right">
@@ -729,37 +732,37 @@
                                 <div class="clearfix"></div>
                             </div>
 
-                            <div class="panel-body">
+                            <div class="panel-body">-->
                                 <!-- Widget content -->
-                                <div class="padd sscroll">
+                                <!--<div class="padd sscroll">
 
-                                    <ul class="chats">
+                                    <ul class="chats">-->
 
                                         <!-- Chat by us. Use the class "by-me". -->
-                                        <li class="by-me">
+                                        <!--<li class="by-me">-->
                                             <!-- Use the class "pull-left" in avatar -->
-                                            <div class="avatar pull-left">
+                                            <!--<div class="avatar pull-left">
                                                 <img src="img/user.jpg" alt="" />
                                             </div>
 
-                                            <div class="chat-content">
+                                            <div class="chat-content">-->
                                                 <!-- In meta area, first include "name" and then "time" -->
-                                                <div class="chat-meta">John Smith <span class="pull-right">3 hours ago</span></div>
+                                                <!--<div class="chat-meta">John Smith <span class="pull-right">3 hours ago</span></div>
                                                 Vivamus diam elit diam, consectetur dapibus adipiscing elit.
                                                 <div class="clearfix"></div>
                                             </div>
-                                        </li>
+                                        </li>-->
 
                                         <!-- Chat by other. Use the class "by-other". -->
-                                        <li class="by-other">
+                                        <!--<li class="by-other">-->
                                             <!-- Use the class "pull-right" in avatar -->
-                                            <div class="avatar pull-right">
+                                            <!--<div class="avatar pull-right">
                                                 <img src="img/user22.png" alt="" />
                                             </div>
 
-                                            <div class="chat-content">
+                                            <div class="chat-content">-->
                                                 <!-- In the chat meta, first include "time" then "name" -->
-                                                <div class="chat-meta">3 hours ago <span class="pull-right">Jenifer Smith</span></div>
+                                                <!--<div class="chat-meta">3 hours ago <span class="pull-right">Jenifer Smith</span></div>
                                                 Vivamus diam elit diam, consectetur fconsectetur dapibus adipiscing elit.
                                                 <div class="clearfix"></div>
                                             </div>
@@ -777,15 +780,15 @@
                                             </div>
                                         </li>
 
-                                        <li class="by-other">
+                                        <li class="by-other">-->
                                             <!-- Use the class "pull-right" in avatar -->
-                                            <div class="avatar pull-right">
+                                            <!--<div class="avatar pull-right">
                                                 <img src="img/user22.png" alt="" />
                                             </div>
 
-                                            <div class="chat-content">
+                                            <div class="chat-content">-->
                                                 <!-- In the chat meta, first include "time" then "name" -->
-                                                <div class="chat-meta">3 hours ago <span class="pull-right">Jenifer Smith</span></div>
+                                                <!--<div class="chat-meta">3 hours ago <span class="pull-right">Jenifer Smith</span></div>
                                                 Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
                                                 <div class="clearfix"></div>
                                             </div>
@@ -793,9 +796,9 @@
 
                                     </ul>
 
-                                </div>
+                                </div>-->
                                 <!-- Widget footer -->
-                                <div class="widget-foot">
+                                <!--<div class="widget-foot">
 
                                     <form class="form-inline">
                                         <div class="form-group">
@@ -812,9 +815,9 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-8">-->
                         <!--Project Activity start-->
-                        <section class="panel">
+                        <!--<section class="panel">
                             <div class="panel-body progress-panel">
                                 <div class="row">
                                     <div class="col-lg-8 task-progress pull-left">
@@ -934,9 +937,9 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </section>
+                        </section>-->
                         <!--Project Activity end-->
-                    </div>
+                    <!--</div>
                 </div><br><br>
 
                 <div class="row">
@@ -950,10 +953,10 @@
                                 </div>
 
                             </div><br><br><br>
-                            <div class="panel-body">
+                            <div class="panel-body">-->
                                 <!-- Widget content -->
                                 <!-- Below line produces calendar. I am using FullCalendar plugin. -->
-                                <div id="calendar"></div>
+                                <!--<div id="calendar"></div>
 
                             </div>
                         </div>
@@ -973,25 +976,25 @@
                             <div class="panel-body">
                                 <div class="padd">
 
-                                    <div class="form quick-post">
+                                    <div class="form quick-post">-->
                                         <!-- Edit profile form (not working)-->
-                                        <form class="form-horizontal">
+                                        <!--<form class="form-horizontal">-->
                                             <!-- Title -->
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                                 <label class="control-label col-lg-2" for="title">Title</label>
                                                 <div class="col-lg-10">
                                                     <input type="text" class="form-control" id="title">
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <!-- Content -->
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                                 <label class="control-label col-lg-2" for="content">Content</label>
                                                 <div class="col-lg-10">
                                                     <textarea class="form-control" id="content"></textarea>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <!-- Cateogry -->
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                                 <label class="control-label col-lg-2">Category</label>
                                                 <div class="col-lg-10">
                                                     <select class="form-control">
@@ -1002,19 +1005,19 @@
                                                         <option value="4">Funny</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <!-- Tags -->
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                                 <label class="control-label col-lg-2" for="tags">Tags</label>
                                                 <div class="col-lg-10">
                                                     <input type="text" class="form-control" id="tags">
                                                 </div>
-                                            </div>
+                                            </div>-->
 
                                             <!-- Buttons -->
-                                            <div class="form-group">
+                                            <!--<div class="form-group">-->
                                                 <!-- Buttons -->
-                                                <div class="col-lg-offset-2 col-lg-9">
+                                                <!--<div class="col-lg-offset-2 col-lg-9">
                                                     <button type="submit" class="btn btn-primary">Publish</button>
                                                     <button type="submit" class="btn btn-danger">Save Draft</button>
                                                     <button type="reset" class="btn btn-default">Reset</button>
@@ -1025,30 +1028,30 @@
 
 
                                 </div>
-                                <div class="widget-foot">
+                                <div class="widget-foot">-->
                                     <!-- Footer goes here -->
-                                </div>
+                                <!--</div>
                             </div>
                         </div>
 
                     </div>
 
-                </div>
+                </div>-->
                 <!-- project team & activity end -->
 
-            </section>
+            <!--</section>
             <div class="text-right">
-                <div class="credits">
+                <div class="credits">-->
                     <!--
                       All the links in the footer should remain intact.
                       You can delete the links only if you purchased the pro version.
                       Licensing information: https://bootstrapmade.com/license/
                       Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
                     -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    <!--Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!--main content end-->
     </section>
     <!-- container section start -->
