@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomePacote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomePromocoes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Promocoes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomePacote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomePromocoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pacote.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Promocoes.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PromocoesPacotesId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PromocoesPacotesId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PromocoesPacotesId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
