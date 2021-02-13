@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
-    public partial class Initial : Migration
+    public partial class intString : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,9 +15,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
-                    NIF = table.Column<int>(maxLength: 9, nullable: false),
+                    NIF = table.Column<string>(maxLength: 9, nullable: true),
                     Morada = table.Column<string>(maxLength: 200, nullable: false),
-                    Telemovel = table.Column<int>(maxLength: 9, nullable: false),
+                    Telemovel = table.Column<string>(maxLength: 9, nullable: true),
                     Email = table.Column<string>(maxLength: 100, nullable: false),
                     Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false)
                 },

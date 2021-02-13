@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations.ApplicationDb
 {
-    public partial class Logins : Migration
+    public partial class logins : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
