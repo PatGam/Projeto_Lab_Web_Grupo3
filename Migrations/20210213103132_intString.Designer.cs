@@ -10,8 +10,8 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    [Migration("20210212170438_Initial")]
-    partial class Initial
+    [Migration("20210213103132_intString")]
+    partial class intString
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,9 +49,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
-                    b.Property<int>("Nif")
+                    b.Property<string>("Nif")
                         .HasColumnName("NIF")
-                        .HasColumnType("int")
+                        .HasColumnType("nvarchar(9)")
                         .HasMaxLength(9);
 
                     b.Property<string>("Nome")
@@ -59,8 +59,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("Telemovel")
-                        .HasColumnType("int")
+                    b.Property<string>("Telemovel")
+                        .HasColumnType("nvarchar(9)")
                         .HasMaxLength(9);
 
                     b.HasKey("ClienteId");

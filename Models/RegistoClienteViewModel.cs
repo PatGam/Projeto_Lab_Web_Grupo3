@@ -11,20 +11,24 @@ namespace Projeto_Lab_Web_Grupo3.Models
     {
 
         public int ClienteId { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Nome { get; set; }
+
         [Column("Data_Nascimento", TypeName = "date")]
         public DateTime DataNascimento { get; set; }
+
         [Column("NIF")]
         [StringLength(9, MinimumLength = 9)]
-        public int Nif { get; set; }
+        public string Nif { get; set; }
+
         [Required]
         [StringLength(200)]
         public string Morada { get; set; }
+
         [RegularExpression(@"(9[1236]|2\d)\d{7}", ErrorMessage = "Telefone Inválido")]
-        [StringLength(9, MinimumLength = 9)]
-        public int Telemovel { get; set; }
+        public string Telemovel { get; set; }
    
 
         [Required(ErrorMessage = "Preencha o email do cliente")]

@@ -10,8 +10,8 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210212184922_Logins")]
-    partial class Logins
+    [Migration("20210213103234_logins")]
+    partial class logins
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
