@@ -36,10 +36,10 @@
                 <h2>Reduzindo Distâncias</h2>
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bem-Vindo @User.Identity.Name!</a>
+                    <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bem-Vindo/a @User.Identity.Name!</a>
                     <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button type="submit" class="nav-link btn btn-link btn-get-started">Logout</button>
-                    </form>
+                        <a asp-area="" asp-controller="Home" asp-action="Gestao" class="nav-link btn btn-link btn-get-started">Gerir Conta</a>
+                        <button type="submit" class="nav-link btn btn-link btn-get-started">Logout</button>                    </form>
                 }
                 else
                 {
@@ -56,7 +56,7 @@
             <div class="container d-flex align-items-center justify-content-between">
                 <nav id="navbar" class="navbar">
                     <div class="logo">
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RD-Telecomunicações</a>
+                        @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RD-Telecomunicações</a>*@
                         <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@
                 </nav>
                 <nav id="navbar" class="navbar">
                     <partial name="_LoginPartial" />
-                    <ul>
+                    @*<ul>
                         <li class="nav-item">
                             <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index">Index</a>
                         </li>
@@ -81,7 +81,7 @@
                         <li class="nav-item">
                             <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços</a>
                         </li>
-                    </ul>
+                    </ul>*@
                     <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
                 </nav>
             </div>               

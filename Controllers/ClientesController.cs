@@ -50,16 +50,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            Clientes clientes;
 
-            var clientes = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.ClienteId == id);
-            if (clientes == null)
+            if (id != null)
             {
-                return NotFound();
+                clientes = await _context.Clientes.SingleOrDefaultAsync(c => c.ClienteId == id);
+
+                if (clientes == null)
+                {
+                    return NotFound();
+                }
+            }
+            else
+            {
+                if (!User.IsInRole("Cliente"))
+                {
+                    return NotFound();
+                }
+
+                clientes = await _context.Clientes.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
+
+                if (clientes == null)
+                {
+                    return NotFound();
+                }
             }
 
             return View(clientes);
