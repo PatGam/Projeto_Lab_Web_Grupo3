@@ -1,9 +1,3 @@
-/**
-* Template Name: Plato - v4.0.0
-* Template URL: https://bootstrapmade.com/plato-responsive-bootstrap-website-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function() {
   "use strict";
 
