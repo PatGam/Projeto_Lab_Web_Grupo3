@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,13 +27,26 @@
 <body>
     <div class="wrap">
         <!-- ======= Hero Section ======= -->
-         <section id="hero">
-                <div class="hero-container" data-aos="fade-up">
-                    <h1>Teste</h1>
-                    <h2>Botao Login em baixo por fazer conexão</h2>
-                    <a href="#about" class="btn-get-started scrollto">Login</a>
+        <section id="hero">
+            <div class="hero-container" data-aos="fade-up">
+                <h1>RD Telecomunicações</h1>
+                <h2>Reduzindo Distâncias</h2>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bem-Vindo @User.Identity.Name!</a>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link btn-get-started">Logout</button>
+                    </form>
+                }
+                else
+                {
+                <div class="col-md-4">
+                <a class="btn-get-started scrollto" asp-area="Identity" asp-page="/Account/Register">Registar</a>
+                <a class="btn-get-started scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a>
                 </div>
-          </section>        
+                }                
+            </div>
+        </section>
         <!-- End Hero -->
 
         <header id="header" class="d-flex align-items-center">
@@ -38,9 +55,9 @@
                     <div class="logo">
                         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Projeto_Lab_Web_Grupo3</a>
                         <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>-->
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>-->
 
                     </div>
                     <nav id="navbar" class="navbar">
