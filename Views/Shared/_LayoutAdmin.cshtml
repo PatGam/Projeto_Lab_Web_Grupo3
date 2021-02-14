@@ -316,74 +316,159 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a class="" a asp-area="" asp-controller="Home" asp-action="Index">
+                        <a class="" a asp-area="" asp-controller="Home" asp-action="Gestao">
                             <i class="icon_house_alt"></i>
                             <span>Início</span>
                         </a>
                     </li>
-                    <li class="sub-menu">
-                        <a a asp-area="" asp-controller="Clientes" asp-action="Index">
-                            <i class="icon_document_alt"></i>
-                            <span>Gerir Clientes</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="" href="form_component.html">Form Elements</a></li>
-                            <li><a class="" href="form_validation.html">Form Validation</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a a asp-area="" asp-controller="Funcionarios" asp-action="Index" class="">
-                            <i class="icon_desktop"></i>
-                            <span>Gerir Funcionários</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="" href="general.html">Elements</a></li>
-                            <li><a class="" href="buttons.html">Buttons</a></li>
-                            <li><a class="" href="grids.html">Grids</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
-                            <i class="icon_genius"></i>
-                            <span>Gerir Pacotes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" a asp-area="" asp-controller="Promocoes" asp-action="Index">
-                            <i class="icon_piechart"></i>
-                            <span>Gerir Promoções</span>
+                    @if (User.IsInRole("Administrador"))
+                    {
+                        <li class="sub-menu">
+                            <a a asp-area="" asp-controller="Clientes" asp-action="Index">
+                                <i class="icon_document_alt"></i>
+                                <span>Gerir Clientes</span>
+                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                            </a>
+                            @*<ul class="sub">
+                                <li><a class="" href="form_component.html">Form Elements</a></li>
+                                <li><a class="" href="form_validation.html">Form Validation</a></li>
+                            </ul>*@
+                        </li>
+                        <li class="sub-menu">
+                            <a a asp-area="" asp-controller="Funcionarios" asp-action="Index" class="">
+                                <i class="icon_desktop"></i>
+                                <span>Gerir Funcionários</span>
+                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                            </a>
+                            @*<ul class="sub">
+                                <li><a class="" href="general.html">Elements</a></li>
+                                <li><a class="" href="buttons.html">Buttons</a></li>
+                                <li><a class="" href="grids.html">Grids</a></li>
+                            </ul>*@
+                        </li>
+                        <li>
+                            <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
+                                <i class="icon_genius"></i>
+                                <span>Gerir Pacotes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" a asp-area="" asp-controller="Promocoes" asp-action="Index">
+                                <i class="icon_piechart"></i>
+                                <span>Gerir Promoções</span>
 
-                        </a>
+                            </a>
 
-                    </li>
+                        </li>
 
-                    <li class="sub-menu">
-                        <a a asp-area="" asp-controller="Servicos" asp-action="Index" class="">
-                            <i class="icon_table"></i>
-                            <span>Gerir Serviços</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="" href="basic_table.html">Basic Table</a></li>
-                        </ul>
-                    </li>
+                        <li class="sub-menu">
+                            <a a asp-area="" asp-controller="Servicos" asp-action="Index" class="">
+                                <i class="icon_table"></i>
+                                <span>Gerir Serviços</span>
+                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                            </a>
+                            @*<ul class="sub">
+                                <li><a class="" href="basic_table.html">Basic Table</a></li>
+                            </ul>*@
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Operador"))
+                    {
+                        <li class="sub-menu">
+                            <a a asp-area="" asp-controller="Clientes" asp-action="Index">
+                                <i class="icon_document_alt"></i>
+                                <span>Ver lista de Clientes</span>
+                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                            </a>
+                            @*<ul class="sub">
+                    <li><a class="" href="form_component.html">Form Elements</a></li>
+                    <li><a class="" href="form_validation.html">Form Validation</a></li>
+                </ul>*@
+                        </li>
+                        <li class="sub-menu">
+                            <a a asp-area="" asp-controller="Contratos" asp-action="Index" class="">
+                                <i class="icon_desktop"></i>
+                                <span>Gerir Contratos</span>
+                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                            </a>
+                            @*<ul class="sub">
+                    <li><a class="" href="general.html">Elements</a></li>
+                    <li><a class="" href="buttons.html">Buttons</a></li>
+                    <li><a class="" href="grids.html">Grids</a></li>
+                </ul>*@
+                        </li>
+                        <li>
+                            <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
+                                <i class="icon_genius"></i>
+                                <span>Pacotes disponíveis</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" a asp-area="" asp-controller="Promocoes" asp-action="Index">
+                                <i class="icon_piechart"></i>
+                                <span>Promoções em vigor</span>
+
+                            </a>
+
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Cliente"))
+                    {
+                        <li class="sub-menu">
+                            <a a asp-area="" asp-controller="Clientes" asp-action="Index">
+                                <i class="icon_document_alt"></i>
+                                <span>Dados Pessoais</span>
+                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                            </a>
+                            @*<ul class="sub">
+                    <li><a class="" href="form_component.html">Form Elements</a></li>
+                    <li><a class="" href="form_validation.html">Form Validation</a></li>
+                </ul>*@
+                        </li>
+                        <li class="sub-menu">
+                            <a a asp-area="" asp-controller="Contratos" asp-action="Index" class="">
+                                <i class="icon_desktop"></i>
+                                <span>Ver Contratos</span>
+                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                            </a>
+                            @*<ul class="sub">
+                    <li><a class="" href="general.html">Elements</a></li>
+                    <li><a class="" href="buttons.html">Buttons</a></li>
+                    <li><a class="" href="grids.html">Grids</a></li>
+                </ul>*@
+                        </li>
+                        <li>
+                            <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
+                                <i class="icon_genius"></i>
+                                <span>Pacotes disponíveis</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" a asp-area="" asp-controller="Promocoes" asp-action="Index">
+                                <i class="icon_piechart"></i>
+                                <span>Promoções em vigor</span>
+
+                            </a>
+
+                        </li>
+                    }
 
                     @*<li class="sub-menu">
-                            <a href="javascript:;" class="">
-                                <i class="icon_documents_alt"></i>
-                                <span>Pages</span>
-                                <span class="menu-arrow arrow_carrot-right"></span>
-                            </a>
-                            <ul class="sub">
-                                <li><a class="" href="profile.html">Profile</a></li>
-                                <li><a class="" href="login.html"><span>Login Page</span></a></li>
-                                <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
-                                <li><a class="" href="blank.html">Blank Page</a></li>
-                                <li><a class="" href="404.html">404 Error</a></li>
-                            </ul>
-                        </li>*@
+            <a href="javascript:;" class="">
+                <i class="icon_documents_alt"></i>
+                <span>Pages</span>
+                <span class="menu-arrow arrow_carrot-right"></span>
+            </a>
+            <ul class="sub">
+                <li><a class="" href="profile.html">Profile</a></li>
+                <li><a class="" href="login.html"><span>Login Page</span></a></li>
+                <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
+                <li><a class="" href="blank.html">Blank Page</a></li>
+                <li><a class="" href="404.html">404 Error</a></li>
+            </ul>
+        </li>*@
 
                 </ul>
                 <!-- sidebar menu end-->
