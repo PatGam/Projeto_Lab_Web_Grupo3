@@ -11,10 +11,16 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <section class="panel">
-                            <h1>Detalhes</h1>
-
+                            @if (!User.IsInRole("Cliente"))
+                            {
+                                <h1>Detalhes do Cliente</h1>
+                            }
+                            @if (User.IsInRole("Cliente"))
+                            {
+                                <h1>Dados Pessoais</h1>
+                            }
                             <div>
-                                <h4>Clientes</h4>
+
                                 <hr />
                                 <dl class="row">
                                     <dt class="col-sm-2">
