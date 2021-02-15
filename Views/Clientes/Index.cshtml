@@ -12,8 +12,8 @@
                     <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Clientes
-                        </header>
+                            <h1>Clientes</h1>
+                        </header>   
 
                         <p>
                             <a asp-action="Create" class="btn-success">Criar novo</a>
@@ -40,7 +40,7 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Clientes[0].Nome)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Clientes[0].DataNascimento)
                                     </th>
                                     <th>
@@ -48,16 +48,16 @@
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Clientes[0].Morada)
-                                    </th>
+                                    </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Clientes[0].Telemovel)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Clientes[0].Email)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Clientes[0].CodigoPostal)
-                                    </th>
+                                    </th>*@
                                     <th></th>
                                 </tr>
                             </thead>
@@ -68,7 +68,7 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Nome)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.DataNascimento)
                                         </td>
                                         <td>
@@ -76,16 +76,16 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Morada)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Telemovel)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Email)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.CodigoPostal)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             <a asp-action="Edit" asp-route-id="@item.ClienteId" class="btn btn-primary"><i class="icon_plus_alt2"></i></a> |
                                             <a asp-action="Details" asp-route-id="@item.ClienteId" class="btn btn-success"><i class="icon_check_alt2"></i></a> |
