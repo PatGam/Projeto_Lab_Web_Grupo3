@@ -57,8 +57,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public virtual ICollection<Contratos> Contratos { get; set; }
 
         [Display(Name = "Cargo")]
-
         public int RolesId { get; set; }
+        public string Roles_Nome { get; set; }
         public Roles Roles { get; set; }
     }
 }

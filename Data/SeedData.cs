@@ -25,13 +25,8 @@ namespace Projeto_Lab_Web_Grupo3.Data
         internal static void PreencheDados(Projeto_Lab_WebContext bd)
         {
             InserePromocoes(bd);
-
-            InsereFuncionarios(bd);
             //InsereServicos(bd);
-
             //InsereFuncionarios(bd);
-            //InsereServicos(bd);
-
             //InsereClientes(bd);
             InserePacotes(bd);
             InsereRoles(bd);
@@ -57,8 +52,8 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         }
 
-            //-------------------PROMOÇÕES--------------------------
-            private static void InserePromocoes(Projeto_Lab_WebContext bd)
+        //-------------------PROMOÇÕES--------------------------
+        private static void InserePromocoes(Projeto_Lab_WebContext bd)
         {
             if (bd.Promocoes.Any()) return;
 
