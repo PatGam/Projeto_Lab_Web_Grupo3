@@ -3,48 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
-    public partial class intString : Migration
+    public partial class TiposServicos : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Clientes",
-                columns: table => new
-                {
-                    Cliente_Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 100, nullable: false),
-                    Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
-                    NIF = table.Column<string>(maxLength: 9, nullable: true),
-                    Morada = table.Column<string>(maxLength: 200, nullable: false),
-                    Telemovel = table.Column<string>(maxLength: 9, nullable: true),
-                    Email = table.Column<string>(maxLength: 100, nullable: false),
-                    Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clientes", x => x.Cliente_Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Funcionarios",
-                columns: table => new
-                {
-                    Funcionario_Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 100, nullable: false),
-                    Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
-                    Morada = table.Column<string>(maxLength: 500, nullable: false),
-                    Telemovel = table.Column<int>(nullable: false),
-                    Email = table.Column<string>(maxLength: 100, nullable: false),
-                    Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false),
-                    Role = table.Column<string>(maxLength: 20, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Funcionarios", x => x.Funcionario_Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Pacotes",
                 columns: table => new
@@ -78,18 +40,42 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Servicos",
+                name: "Roles",
                 columns: table => new
                 {
-                    Servico_Id = table.Column<int>(nullable: false)
+                    RolesId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 100, nullable: false),
-                    Descricao = table.Column<string>(maxLength: 1000, nullable: true),
-                    Tipo_Servico = table.Column<string>(maxLength: 50, nullable: false)
+                    Roles_Nome = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Servicos", x => x.Servico_Id);
+                    table.PrimaryKey("PK_Roles", x => x.RolesId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tipos_Clientes",
+                columns: table => new
+                {
+                    Tipos_CLientes_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tipos_Clientes", x => x.Tipos_CLientes_Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TiposServicos",
+                columns: table => new
+                {
+                    Tipo_Servico_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TiposServicos", x => x.Tipo_Servico_Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -121,28 +107,75 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Servicos_Pacotes",
+                name: "Funcionarios",
                 columns: table => new
                 {
-                    Sevico_Pacote_Id = table.Column<int>(nullable: false)
+                    Funcionario_Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Servico_Id = table.Column<int>(nullable: false),
-                    Pacote_Id = table.Column<int>(nullable: false)
+                    Nome = table.Column<string>(maxLength: 100, nullable: false),
+                    Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
+                    Morada = table.Column<string>(maxLength: 500, nullable: false),
+                    Telemovel = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
+                    Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false),
+                    Role = table.Column<string>(maxLength: 20, nullable: false),
+                    RolesId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Servicos_Pacotes", x => x.Sevico_Pacote_Id);
+                    table.PrimaryKey("PK_Funcionarios", x => x.Funcionario_Id);
                     table.ForeignKey(
-                        name: "FK_Servicos_Pacotes_Pacotes",
-                        column: x => x.Pacote_Id,
-                        principalTable: "Pacotes",
-                        principalColumn: "Pacote_Id",
+                        name: "FK_Funcionarios_Roles",
+                        column: x => x.RolesId,
+                        principalTable: "Roles",
+                        principalColumn: "RolesId",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Clientes",
+                columns: table => new
+                {
+                    Cliente_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(maxLength: 100, nullable: false),
+                    Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
+                    NIF = table.Column<string>(maxLength: 9, nullable: true),
+                    Morada = table.Column<string>(maxLength: 200, nullable: false),
+                    Telemovel = table.Column<string>(maxLength: 9, nullable: true),
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
+                    Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false),
+                    TipoClienteId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clientes", x => x.Cliente_Id);
                     table.ForeignKey(
-                        name: "FK_Servicos_Pacotes_Servicos",
-                        column: x => x.Servico_Id,
-                        principalTable: "Servicos",
-                        principalColumn: "Servico_Id",
+                        name: "FK_Clientes_TiposClientes",
+                        column: x => x.TipoClienteId,
+                        principalTable: "Tipos_Clientes",
+                        principalColumn: "Tipos_CLientes_Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Servicos",
+                columns: table => new
+                {
+                    Servico_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(maxLength: 100, nullable: false),
+                    Descricao = table.Column<string>(maxLength: 1000, nullable: true),
+                    Tipo_Servico = table.Column<int>(maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Servicos", x => x.Servico_Id);
+                    table.ForeignKey(
+                        name: "FK_Servicos_TipoServicos",
+                        column: x => x.Tipo_Servico,
+                        principalTable: "TiposServicos",
+                        principalColumn: "Tipo_Servico_Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -187,6 +220,37 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Servicos_Pacotes",
+                columns: table => new
+                {
+                    Sevico_Pacote_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Servico_Id = table.Column<int>(nullable: false),
+                    Pacote_Id = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Servicos_Pacotes", x => x.Sevico_Pacote_Id);
+                    table.ForeignKey(
+                        name: "FK_Servicos_Pacotes_Pacotes",
+                        column: x => x.Pacote_Id,
+                        principalTable: "Pacotes",
+                        principalColumn: "Pacote_Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Servicos_Pacotes_Servicos",
+                        column: x => x.Servico_Id,
+                        principalTable: "Servicos",
+                        principalColumn: "Servico_Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Clientes_TipoClienteId",
+                table: "Clientes",
+                column: "TipoClienteId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Contratos_Cliente_Id",
                 table: "Contratos",
@@ -203,6 +267,11 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 column: "Promocoes_Pacotes");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Funcionarios_RolesId",
+                table: "Funcionarios",
+                column: "RolesId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Promocoes_Pacotes_Pacote_Id",
                 table: "Promocoes_Pacotes",
                 column: "Pacote_Id");
@@ -211,6 +280,11 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "IX_Promocoes_Pacotes_Promocoes_Id",
                 table: "Promocoes_Pacotes",
                 column: "Promocoes_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Servicos_Tipo_Servico",
+                table: "Servicos",
+                column: "Tipo_Servico");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Servicos_Pacotes_Pacote_Id",
@@ -244,10 +318,19 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Servicos");
 
             migrationBuilder.DropTable(
+                name: "Tipos_Clientes");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
                 name: "Pacotes");
 
             migrationBuilder.DropTable(
                 name: "Promocoes");
+
+            migrationBuilder.DropTable(
+                name: "TiposServicos");
         }
     }
 }
