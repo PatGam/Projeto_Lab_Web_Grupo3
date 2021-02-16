@@ -49,5 +49,11 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [InverseProperty("Cliente")]
         public virtual ICollection<Contratos> Contratos { get; set; }
+
+        [Display(Name = "Tipo de Cliente")]
+
+
+        public int TipoClienteId { get; set; }
+        public Tipos_Clientes TiposClientes { get; set; }
     }
 }
