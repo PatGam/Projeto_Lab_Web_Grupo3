@@ -1,4 +1,4 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Servicos
+﻿@model Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos
 
 @{
     Layout = "_LayoutAdmin";
@@ -18,7 +18,7 @@
                             </header>
 
                             <div>
-                                <h4>Serviços</h4>
+                                <h4>Tipos_Sevicos</h4>
                                 <hr />
                                 <dl class="row">
                                     <dt class="col-sm-2">
@@ -27,23 +27,11 @@
                                     <dd class="col-sm-10">
                                         @Html.DisplayFor(model => model.Nome)
                                     </dd>
-                                    <dt class="col-sm-2">
-                                        @Html.DisplayNameFor(model => model.Descricao)
-                                    </dt>
-                                    <dd class="col-sm-10">
-                                        @Html.DisplayFor(model => model.Descricao)
-                                    </dd>
-                                    <dt class="col-sm-2">
-                                        @Html.DisplayNameFor(model => model.TipoServicos)
-                                    </dt>
-                                    <dd class="col-sm-10">
-                                        @Html.DisplayFor(model => model.TipoServicos.Nome)
-                                    </dd>
                                 </dl>
                             </div>
                             <div>
-                                <a asp-action="Edit" asp-route-id="@Model.ServicoId">Editar</a> |
-                                <a asp-action="Index">Voltar Atrás</a>
+                                <a asp-action="Edit" asp-route-id="@Model.TipoServicoId">Edit</a> |
+                                <a asp-action="Index">Back to List</a>
                             </div>
                         </section>
                     </div>

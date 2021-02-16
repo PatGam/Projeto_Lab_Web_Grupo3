@@ -29,6 +29,11 @@ namespace Projeto_Lab_Web_Grupo3.Data
             public virtual DbSet<ServicosPacotes> ServicosPacotes { get; set; }
             public virtual DbSet<Roles> Roles { get; set; }
 
+
+            public virtual DbSet<Tipos_Sevicos> TiposServicos { get; set; }
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
                 if (!optionsBuilder.IsConfigured)
@@ -105,11 +110,23 @@ namespace Projeto_Lab_Web_Grupo3.Data
                         .HasConstraintName("FK_Servicos_Pacotes_Servicos");
                 });
 
+
+            modelBuilder.Entity<Servicos>(entity =>
+            {
+                entity.HasOne(d => d.TipoServicos)
+                    .WithMany(p => p.Servicos)
+                    .HasForeignKey(d => d.TipoServicoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Servicos_TipoServicos");
+
+            });
+
                 modelBuilder.Entity<Funcionarios>() // Lado N
                    .HasOne(p => p.Roles) // um produto tem uma categoria
                    .WithMany(c => c.Funcionarios) // que por sua vez tem vários produtos
                    .HasForeignKey(p => p.RolesId) // chave estrangeira
                    .OnDelete(DeleteBehavior.Restrict); // não permitir o cascade delete
+
 
             OnModelCreatingPartial(modelBuilder);
             }

@@ -1,4 +1,4 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Servicos
+﻿@model Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos
 
 @{
     Layout = "_LayoutAdmin";
@@ -17,9 +17,9 @@
                                 <h1>Apagar</h1>
                             </header>
 
-                            <h3>Tem a certeza que quer apagar?</h3>
+                            <h3>Are you sure you want to delete this?</h3>
                             <div>
-                                <h4>Serviços</h4>
+                                <h4>Tipos_Sevicos</h4>
                                 <hr />
                                 <dl class="row">
                                     <dt class="col-sm-2">
@@ -28,24 +28,12 @@
                                     <dd class="col-sm-10">
                                         @Html.DisplayFor(model => model.Nome)
                                     </dd>
-                                    <dt class="col-sm-2">
-                                        @Html.DisplayNameFor(model => model.Descricao)
-                                    </dt>
-                                    <dd class="col-sm-10">
-                                        @Html.DisplayFor(model => model.Descricao)
-                                    </dd>
-                                    <dt class="col-sm-2">
-                                        @Html.DisplayNameFor(model => model.TipoServicos)
-                                    </dt>
-                                    <dd class="col-sm-10">
-                                        @Html.DisplayFor(model => model.TipoServicos.Nome)
-                                    </dd>
                                 </dl>
 
                                 <form asp-action="Delete">
-                                    <input type="hidden" asp-for="ServicoId" />
-                                    <input type="submit" value="Apagar" class="btn btn-danger" /> |
-                                    <a asp-action="Index">Voltar Atrás</a>
+                                    <input type="hidden" asp-for="TipoServicoId" />
+                                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                                    <a asp-action="Index">Back to List</a>
                                 </form>
                             </div>
                         </section>

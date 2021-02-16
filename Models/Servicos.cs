@@ -28,7 +28,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Column("Tipo_Servico")]
         [StringLength(50)]
         [Display(Name ="Tipo Serviço")]
-        public string TipoServico { get; set; }
+        public int TipoServicoId { get; set; }
+        public Tipos_Sevicos TipoServicos { get; set; }
+       
 
         [InverseProperty("Servico")]
         public virtual ICollection<ServicosPacotes> ServicosPacotes { get; set; }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projeto_Lab_Web_Grupo3.Data;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    partial class Projeto_Lab_WebContextModelSnapshot : ModelSnapshot
+    [Migration("20210216112504_TiposServicos")]
+    partial class TiposServicos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,18 +172,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<int>("RolesId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Roles_Nome")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Telemovel")
                         .HasColumnType("int");
 
                     b.HasKey("FuncionarioId");
-
-                    b.HasIndex("RolesId");
 
                     b.ToTable("Funcionarios");
                 });
@@ -282,21 +276,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.ToTable("Promocoes_Pacotes");
                 });
 
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Roles", b =>
-                {
-                    b.Property<int>("RolesId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Roles_Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RolesId");
-
-                    b.ToTable("Roles");
-                });
-
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Servicos", b =>
                 {
                     b.Property<int>("ServicoId")
@@ -387,15 +366,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .WithMany("Contratos")
                         .HasForeignKey("PromocoesPacotes")
                         .HasConstraintName("FK_Contratos_Promocoes_Pacotes")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Funcionarios", b =>
-                {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Roles", "Roles")
-                        .WithMany("Funcionarios")
-                        .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
