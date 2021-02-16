@@ -69,7 +69,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Funcionarios/Create
         public IActionResult Registo()
         {
-            ViewData["RolesId"] = new SelectList(_context.Roles, "RolesId", "Roles_Nome");
+            ViewData["Roles_Nome"] = new SelectList(_context.Roles, "Roles_Nome", "Roles_Nome");
             return View();
         }
 
@@ -96,12 +96,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
             else
             {
-                await _gestorUtilizadores.AddToRoleAsync(utilizador, infoFuncionarios.Role);
+                await _gestorUtilizadores.AddToRoleAsync(utilizador, infoFuncionarios.Roles_Nome);
             }
 
             if (!ModelState.IsValid)
             {
-                ViewData["RolesId"] = new SelectList(_context.Roles, "RolesId", "Roles_Nome");
+                ViewData["Roles_Nome"] = new SelectList(_context.Roles, "Roles_Nome", "Roles_Nome");
                 return View(infoFuncionarios);
             }
             
@@ -114,7 +114,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 CodigoPostal = infoFuncionarios.CodigoPostal,
                 Email = infoFuncionarios.Email,
                 Telemovel = infoFuncionarios.Telemovel,
-                Role = infoFuncionarios.Role,
+                Roles_Nome = infoFuncionarios.Roles_Nome,
                 //RolesId = infoFuncionarios.RolesId
             };
 
