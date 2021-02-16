@@ -125,8 +125,15 @@ namespace Projeto_Lab_Web_Grupo3.Data
                    .HasOne(p => p.Roles) // um produto tem uma categoria
                    .WithMany(c => c.Funcionarios) // que por sua vez tem vários produtos
                    .HasForeignKey(p => p.RolesId) // chave estrangeira
-                   .OnDelete(DeleteBehavior.Restrict); // não permitir o cascade delete
+                   .OnDelete(DeleteBehavior.Restrict) // não permitir o cascade delete
+                   .HasConstraintName("FK_Funcionarios_Roles");
 
+            modelBuilder.Entity<Clientes>() // Lado N
+                  .HasOne(p => p.TiposClientes) // um produto tem uma categoria
+                  .WithMany(c => c.Clientes) // que por sua vez tem vários produtos
+                  .HasForeignKey(p => p.TipoClienteId) // chave estrangeira
+                  .OnDelete(DeleteBehavior.Restrict) // não permitir o cascade delete
+                  .HasConstraintName("FK_Clientes_TiposClientes");
 
             OnModelCreatingPartial(modelBuilder);
             }

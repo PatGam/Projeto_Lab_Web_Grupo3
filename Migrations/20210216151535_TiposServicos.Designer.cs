@@ -10,8 +10,8 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    [Migration("20210216104625_Roles2")]
-    partial class Roles2
+    [Migration("20210216151535_TiposServicos")]
+    partial class TiposServicos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -63,7 +63,12 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(9)")
                         .HasMaxLength(9);
 
+                    b.Property<int>("TipoClienteId")
+                        .HasColumnType("int");
+
                     b.HasKey("ClienteId");
+
+                    b.HasIndex("TipoClienteId");
 
                     b.ToTable("Clientes");
                 });
@@ -174,9 +179,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
                     b.Property<int>("RolesId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Roles_Nome")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Telemovel")
                         .HasColumnType("int");
@@ -316,13 +318,14 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<string>("TipoServico")
-                        .IsRequired()
+                    b.Property<int>("TipoServicoId")
                         .HasColumnName("Tipo_Servico")
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("int")
                         .HasMaxLength(50);
 
                     b.HasKey("ServicoId");
+
+                    b.HasIndex("TipoServicoId");
 
                     b.ToTable("Servicos");
                 });
@@ -352,6 +355,52 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.ToTable("Servicos_Pacotes");
                 });
 
+            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Tipos_Clientes", b =>
+                {
+                    b.Property<int>("TipoClienteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Tipos_CLientes_Id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("TipoClienteId");
+
+                    b.ToTable("Tipos_Clientes");
+                });
+
+            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos", b =>
+                {
+                    b.Property<int>("TipoServicoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Tipo_Servico_Id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("TipoServicoId");
+
+                    b.ToTable("TiposServicos");
+                });
+
+            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Clientes", b =>
+                {
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Tipos_Clientes", "TiposClientes")
+                        .WithMany("Clientes")
+                        .HasForeignKey("TipoClienteId")
+                        .HasConstraintName("FK_Clientes_TiposClientes")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
                 {
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.Clientes", "Cliente")
@@ -378,6 +427,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.Roles", "Roles")
                         .WithMany("Funcionarios")
                         .HasForeignKey("RolesId")
+                        .HasConstraintName("FK_Funcionarios_Roles")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -394,6 +444,15 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .WithMany("PromocoesPacotes")
                         .HasForeignKey("PromocoesId")
                         .HasConstraintName("FK_Promocoes_Pacotes_Promocoes")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Servicos", b =>
+                {
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos", "TipoServicos")
+                        .WithMany("Servicos")
+                        .HasForeignKey("TipoServicoId")
+                        .HasConstraintName("FK_Servicos_TipoServicos")
                         .IsRequired();
                 });
 

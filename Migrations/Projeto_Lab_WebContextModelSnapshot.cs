@@ -64,12 +64,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<int>("TipoClienteId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TiposClientesTipoClienteId")
-                        .HasColumnType("int");
-
                     b.HasKey("ClienteId");
 
-                    b.HasIndex("TiposClientesTipoClienteId");
+                    b.HasIndex("TipoClienteId");
 
                     b.ToTable("Clientes");
                 });
@@ -396,7 +393,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 {
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.Tipos_Clientes", "TiposClientes")
                         .WithMany("Clientes")
-                        .HasForeignKey("TiposClientesTipoClienteId");
+                        .HasForeignKey("TipoClienteId")
+                        .HasConstraintName("FK_Clientes_TiposClientes")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
@@ -425,6 +425,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.Roles", "Roles")
                         .WithMany("Funcionarios")
                         .HasForeignKey("RolesId")
+                        .HasConstraintName("FK_Funcionarios_Roles")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
