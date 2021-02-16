@@ -41,7 +41,7 @@
                                             @Html.DisplayNameFor(model => model.Servicos[0].Descricao)
                                         </th>*@
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Servicos[0].TipoServico)
+                                        @Html.DisplayNameFor(model => model.Servicos[0].TipoServicos.Nome)
                                     </th>
                                     <th></th>
                                 </tr>
@@ -57,7 +57,7 @@
                                                 @Html.DisplayFor(modelItem => item.Descricao)
                                             </td>*@
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.TipoServico)
+                                            @Html.DisplayFor(modelItem => item.TipoServicos.Nome)
                                         </td>
                                         <td>
                                             <div class="btn-group">

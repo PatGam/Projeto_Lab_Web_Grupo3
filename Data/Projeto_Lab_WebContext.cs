@@ -28,7 +28,9 @@ namespace Projeto_Lab_Web_Grupo3.Data
             public virtual DbSet<Servicos> Servicos { get; set; }
             public virtual DbSet<ServicosPacotes> ServicosPacotes { get; set; }
 
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            public virtual DbSet<Tipos_Sevicos> TiposServicos { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
                 if (!optionsBuilder.IsConfigured)
                 {
@@ -104,7 +106,17 @@ namespace Projeto_Lab_Web_Grupo3.Data
                         .HasConstraintName("FK_Servicos_Pacotes_Servicos");
                 });
 
-                OnModelCreatingPartial(modelBuilder);
+            modelBuilder.Entity<Servicos>(entity =>
+            {
+                entity.HasOne(d => d.TipoServicos)
+                    .WithMany(p => p.Servicos)
+                    .HasForeignKey(d => d.TipoServicoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Servicos_TipoServicos");
+
+            });
+
+            OnModelCreatingPartial(modelBuilder);
             }
 
             partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

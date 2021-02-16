@@ -26,7 +26,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         {
             InserePromocoes(bd);
             InsereFuncionarios(bd);
-            InsereServicos(bd);
+            //InsereServicos(bd);
             InsereClientes(bd);
             InserePacotes(bd);
             //Insere(bd);
@@ -245,43 +245,43 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         }
         //-------------------SERVICOS--------------------------
-        private static void InsereServicos(Projeto_Lab_WebContext bd)
-        {
-            if (bd.Servicos.Any()) return;
-            bd.Servicos.AddRange(new Servicos[] {
-                    new Servicos
-                     {
-                    //ServicoId=1,
-                    Nome="Canais Fibra",
-                    Descricao="Temos vários Pacotes á sua escolha",
-                    TipoServico="Televisão",
-                },
-                     new Servicos
-                     {
-                    //ServicoId=2,
-                    Nome="Telémovel Pré-Pago e Pós-Pago",
-                    Descricao="Temos vários Pacotes á sua escolha ",
-                    TipoServico="Telémovel",
-                },
-                      new Servicos
-                     {
-                    //ServicoId=3,
-                    Nome="Internet Fixa",
-                    Descricao="A melhor internet para si , disponível em varios pacotes.",
-                    TipoServico="Internet",
-                },
-                       new Servicos
-                     {
-                    //ServicoId=4,
-                    Nome="Internet Móvel",
-                    Descricao="Vários Pacotes com vários plafonds para ti",
-                    TipoServico="Internet",
-                },
+        //private static void InsereServicos(Projeto_Lab_WebContext bd)
+        //{
+        //    if (bd.Servicos.Any()) return;
+        //    bd.Servicos.AddRange(new Servicos[] {
+        //            new Servicos
+        //             {
+        //            //ServicoId=1,
+        //            Nome="Canais Fibra",
+        //            Descricao="Temos vários Pacotes á sua escolha",
+        //            TipoServico="Televisão",
+        //        },
+        //             new Servicos
+        //             {
+        //            //ServicoId=2,
+        //            Nome="Telémovel Pré-Pago e Pós-Pago",
+        //            Descricao="Temos vários Pacotes á sua escolha ",
+        //            TipoServico="Telémovel",
+        //        },
+        //              new Servicos
+        //             {
+        //            //ServicoId=3,
+        //            Nome="Internet Fixa",
+        //            Descricao="A melhor internet para si , disponível em varios pacotes.",
+        //            TipoServico="Internet",
+        //        },
+        //               new Servicos
+        //             {
+        //            //ServicoId=4,
+        //            Nome="Internet Móvel",
+        //            Descricao="Vários Pacotes com vários plafonds para ti",
+        //            TipoServico="Internet",
+        //        },
               
 
-            });
-            bd.SaveChanges();
-        }
+        //    });
+        //    bd.SaveChanges();
+        //}
         //-------------------CLIENTES--------------------------
         private static void InsereClientes(Projeto_Lab_WebContext bd)
         {

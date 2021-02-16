@@ -1,4 +1,4 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Servicos
+﻿@model Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos
 
 @{
     Layout = "_LayoutAdmin";
@@ -17,41 +17,28 @@
                                 <h1>Editar</h1>
                             </header>
 
-                            <h4>Serviços</h4>
+                            <h4>Tipos_Sevicos</h4>
                             <hr />
                             <div class="row">
                                 <div class="col-md-4">
                                     <form asp-action="Edit">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                        <input type="hidden" asp-for="ServicoId" />
+                                        <input type="hidden" asp-for="TipoServicoId" />
                                         <div class="form-group">
                                             <label asp-for="Nome" class="control-label"></label>
                                             <input asp-for="Nome" class="form-control" />
                                             <span asp-validation-for="Nome" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="Descricao" class="control-label"></label>
-                                            <input asp-for="Descricao" class="form-control" />
-                                            <span asp-validation-for="Descricao" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="TipoServicoId" class="control-label"></label>
-                                            <select asp-for="TipoServicoId" class="form-control" asp-items="ViewBag.TipoServicoId"></select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="submit" value="Guardar" class="btn btn-primary" />
+                                            <input type="submit" value="Save" class="btn btn-primary" />
                                         </div>
                                     </form>
                                 </div>
                             </div>
 
                             <div>
-                                <a asp-action="Index">Voltar Atrás</a>
+                                <a asp-action="Index">Back to List</a>
                             </div>
-
-                            @section Scripts {
-                                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-                            }
                         </section>
                     </div>
                 </div>
@@ -59,3 +46,6 @@
         </section>
     </section>
 </body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
