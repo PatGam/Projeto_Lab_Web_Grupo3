@@ -20,9 +20,27 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Tipos_Sevicos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await _context.TiposServicos.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.TiposServicos.Where(p => nomePesquisar == null | p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Tipos_Sevicos> tipos_servicos = await _context.TiposServicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+              .OrderBy(p => p.Nome)
+              .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+              .Take(paginacao.ItemsPorPagina)
+              .ToListAsync();
+
+            TiposServicosViewModel modelo = new TiposServicosViewModel
+            {
+                Paginacao = paginacao,
+                TiposServicos = tipos_servicos,
+                NomePesquisar = nomePesquisar
+            };
+            return base.View(modelo);
         }
 
         // GET: Tipos_Sevicos/Details/5
@@ -37,7 +55,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.TipoServicoId == id);
             if (tipos_Sevicos == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
 
             return View(tipos_Sevicos);
@@ -56,13 +74,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TipoServicoId,Nome")] Tipos_Sevicos tipos_Sevicos)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(tipos_Sevicos);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View(tipos_Sevicos);
             }
-            return View(tipos_Sevicos);
+            _context.Add(tipos_Sevicos);
+            await _context.SaveChangesAsync();
+
+            ViewBag.Mensagem = "Pacote adicionado com sucesso.";
+            return View("Sucesso");
         }
 
         // GET: Tipos_Sevicos/Edit/5
@@ -76,7 +96,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var tipos_Sevicos = await _context.TiposServicos.FindAsync(id);
             if (tipos_Sevicos == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             return View(tipos_Sevicos);
         }
@@ -104,16 +124,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 {
                     if (!Tipos_SevicosExists(tipos_Sevicos.TipoServicoId))
                     {
-                        return NotFound();
+                        return View("EliminarInserir");
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                
             }
-            return View(tipos_Sevicos);
+            ViewBag.Mensagem = "Tipo de Serviço alterado com sucesso";
+            return View("Sucesso");
         }
 
         // GET: Tipos_Sevicos/Delete/5
@@ -128,7 +149,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.TipoServicoId == id);
             if (tipos_Sevicos == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "O tipo de Serviço que estava a tentar apagar foi eliminado por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(tipos_Sevicos);
@@ -142,7 +164,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var tipos_Sevicos = await _context.TiposServicos.FindAsync(id);
             _context.TiposServicos.Remove(tipos_Sevicos);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Mensagem = "O tipo de Serviço foi eliminado com sucesso";
+            return View("Sucesso");
         }
 
         private bool Tipos_SevicosExists(int id)
