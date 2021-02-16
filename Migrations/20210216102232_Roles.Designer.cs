@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projeto_Lab_Web_Grupo3.Data;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    partial class Projeto_Lab_WebContextModelSnapshot : ModelSnapshot
+    [Migration("20210216102232_Roles")]
+    partial class Roles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,9 +175,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<int>("RolesId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Roles_Nome")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Telemovel")
                         .HasColumnType("int");
 
@@ -314,14 +313,13 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("TipoServicoId")
+                    b.Property<string>("TipoServico")
+                        .IsRequired()
                         .HasColumnName("Tipo_Servico")
-                        .HasColumnType("int")
+                        .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.HasKey("ServicoId");
-
-                    b.HasIndex("TipoServicoId");
 
                     b.ToTable("Servicos");
                 });
@@ -349,24 +347,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.HasIndex("ServicoId");
 
                     b.ToTable("Servicos_Pacotes");
-                });
-
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos", b =>
-                {
-                    b.Property<int>("TipoServicoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("Tipo_Servico_Id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("TipoServicoId");
-
-                    b.ToTable("TiposServicos");
                 });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
@@ -411,15 +391,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .WithMany("PromocoesPacotes")
                         .HasForeignKey("PromocoesId")
                         .HasConstraintName("FK_Promocoes_Pacotes_Promocoes")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Servicos", b =>
-                {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos", "TipoServicos")
-                        .WithMany("Servicos")
-                        .HasForeignKey("TipoServicoId")
-                        .HasConstraintName("FK_Servicos_TipoServicos")
                         .IsRequired();
                 });
 

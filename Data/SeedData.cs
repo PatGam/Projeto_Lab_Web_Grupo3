@@ -25,15 +25,40 @@ namespace Projeto_Lab_Web_Grupo3.Data
         internal static void PreencheDados(Projeto_Lab_WebContext bd)
         {
             InserePromocoes(bd);
+
             InsereFuncionarios(bd);
             //InsereServicos(bd);
+
+            //InsereFuncionarios(bd);
+            InsereServicos(bd);
+
             InsereClientes(bd);
             InserePacotes(bd);
+            InsereRoles(bd);
             //Insere(bd);
         }
 
-        //-------------------PROMOÇÕES--------------------------
-        private static void InserePromocoes(Projeto_Lab_WebContext bd)
+
+        private static void InsereRoles(Projeto_Lab_WebContext bd)
+        {
+            if (bd.Roles.Any()) return;
+
+            bd.Roles.AddRange(new Roles[] {
+                new Roles
+                {
+                    Roles_Nome="Administrador",
+                },
+
+                 new Roles
+                {
+                    Roles_Nome="Operador",
+                },
+            });
+
+        }
+
+            //-------------------PROMOÇÕES--------------------------
+            private static void InserePromocoes(Projeto_Lab_WebContext bd)
         {
             if (bd.Promocoes.Any()) return;
 
@@ -138,7 +163,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=925258737,
                     Email="nuno_rpf@RDtelecom.com",
                     CodigoPostal="6300-706",
-                    Role="Administrador",
+                    //Role="Administrador",
                 },
                     new Funcionarios
                 {
@@ -149,7 +174,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=965111755,
                     Email="joao_matos@RDtelecom.com",
                     CodigoPostal="3810-433",
-                    Role="Operador",
+                    //Role="Operador",
                 },
                     new Funcionarios
                 {
@@ -160,7 +185,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=927895737,
                     Email="m.fatima@RDtelecom.com",
                     CodigoPostal="1149-005",
-                    Role="Administrador",
+                    //Role="Administrador",
                 },
                     new Funcionarios
                 {
@@ -171,7 +196,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=91746251,
                     Email="J_pereira@RDtelecom.com",
                     CodigoPostal="2414-003",
-                    Role="Operador",
+                    //Role="Operador",
                 },
                     new Funcionarios
                 {
@@ -182,7 +207,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=912211797,
                     Email="justina_paulo@RDtelecom.com",
                     CodigoPostal="4814-508",
-                    Role="Operador",
+                    //Role="Operador",
                 },
                      new Funcionarios
                 {
@@ -193,7 +218,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=969193547,
                     Email="reis_ines@RDtelecom.com",
                     CodigoPostal="4400-658",
-                    Role="Operador",
+                    //Role="Operador",
                 },
                       new Funcionarios
                 {
@@ -204,7 +229,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=915111852,
                     Email="luis.madeira@RDtelecom.com",
                     CodigoPostal="4169-008",
-                    Role="Operador",
+                    //Role="Operador",
                 },
                     new Funcionarios
                 {
@@ -215,7 +240,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=925897737,
                     Email="melo.paula@RDtelecom.com",
                     CodigoPostal="9701-870",
-                    Role="Operador",
+                    //Role="Operador",
                 },
                     new Funcionarios
                 {
@@ -226,7 +251,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=969687125,
                     Email="paulo_mota@RDtelecom.com",
                     CodigoPostal="1499-004",
-                    Role="Operador",
+                    //Role="Operador",
                 },
                    new Funcionarios
                 {
@@ -237,7 +262,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel=962154873,
                     Email="m.machado@RDtelecom.com",
                     CodigoPostal="3049-002",
-                    Role="Operador",
+                    //Role="Operador",
                 },
 
             });
