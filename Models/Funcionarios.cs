@@ -50,9 +50,15 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Required(ErrorMessage = "Especifique o cargo do funcionário")]
         [StringLength(20)]
         [Display(Name = "Cargo")]
+
         public string Role { get; set; }
 
         [InverseProperty("Funcionario")]
         public virtual ICollection<Contratos> Contratos { get; set; }
+
+        [Display(Name = "Cargo")]
+
+        public int RolesId { get; set; }
+        public Roles Roles { get; set; }
     }
 }
