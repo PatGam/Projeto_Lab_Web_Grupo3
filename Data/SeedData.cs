@@ -30,9 +30,9 @@ namespace Projeto_Lab_Web_Grupo3.Data
             //InsereServicos(bd);
 
             //InsereFuncionarios(bd);
-            InsereServicos(bd);
+            //InsereServicos(bd);
 
-            InsereClientes(bd);
+            //InsereClientes(bd);
             InserePacotes(bd);
             InsereRoles(bd);
             //Insere(bd);
@@ -308,133 +308,134 @@ namespace Projeto_Lab_Web_Grupo3.Data
         //    bd.SaveChanges();
         //}
         //-------------------CLIENTES--------------------------
-        private static void InsereClientes(Projeto_Lab_WebContext bd)
-        {
-            if (bd.Clientes.Any()) return;
-            bd.Clientes.AddRange(new Clientes[] {
-                  new Clientes
-                     {
-                    //ClienteId=1,
-                    Nome="Pedro Machado",
-                    DataNascimento=new DateTime(1971,07,14),
-                    Nif="922257185",
-                    Morada="Colónia Agrícola Casal 63",
-                    Telemovel="935559453",
-                    Email="pedromachado@gmail.com",
-                    CodigoPostal="3870-358",
+        //private static void InsereClientes(Projeto_Lab_WebContext bd)
+        //{
+        //    if (bd.Clientes.Any()) return;
+        //    bd.Clientes.AddRange(new Clientes[] {
+        //          new Clientes
+        //             {
+        //            //ClienteId=1,
+        //            Nome="Pedro Machado",
+        //            DataNascimento=new DateTime(1971,07,14),
+        //            Nif="922257185",
+        //            Morada="Colónia Agrícola Casal 63",
+        //            Telemovel="935559453",
+        //            Email="pedromachado@gmail.com",
+        //            CodigoPostal="3870-358",
+                    
 
-                },
-                   new Clientes
-                     {
-                    //ClienteId=2,
-                    Nome="Joaquim Mendez",
-                    DataNascimento=new DateTime(1987,12,24),
-                    Nif="920099457",
-                    Morada="R Indústria Porta 47",
-                    Telemovel="915556899",
-                    Email="joaquimmendez@outlook.com",
-                    CodigoPostal="3300-040",
+        //        },
+        //           new Clientes
+        //             {
+        //            //ClienteId=2,
+        //            Nome="Joaquim Mendez",
+        //            DataNascimento=new DateTime(1987,12,24),
+        //            Nif="920099457",
+        //            Morada="R Indústria Porta 47",
+        //            Telemovel="915556899",
+        //            Email="joaquimmendez@outlook.com",
+        //            CodigoPostal="3300-040",
 
-                },
-                    new Clientes
-                     {
-                    //ClienteId=3,
-                    Nome="Sandra Vieira",
-                    DataNascimento=new DateTime(1977,02,23),
-                    Nif="921359357",
-                    Morada="R Poeta João Ruiz 6",
-                    Telemovel="929355531",
-                    Email="sandravieira@gmail.com",
-                    CodigoPostal="6230-355",
+        //        },
+        //            new Clientes
+        //             {
+        //            //ClienteId=3,
+        //            Nome="Sandra Vieira",
+        //            DataNascimento=new DateTime(1977,02,23),
+        //            Nif="921359357",
+        //            Morada="R Poeta João Ruiz 6",
+        //            Telemovel="929355531",
+        //            Email="sandravieira@gmail.com",
+        //            CodigoPostal="6230-355",
 
-                },
-                     new Clientes
-                     {
-                    //ClienteId=4,
-                    Nome="Sara Siqueira",
-                    DataNascimento=new DateTime(1977,01,22),
-                    Nif="929388769",
-                    Morada="R Doutor Alfredo Freitas 108",
-                    Telemovel="915551820",
-                    Email="sarasiqueiraa@gmail.com",
-                    CodigoPostal="3700-501",
+        //        },
+        //             new Clientes
+        //             {
+        //            //ClienteId=4,
+        //            Nome="Sara Siqueira",
+        //            DataNascimento=new DateTime(1977,01,22),
+        //            Nif="929388769",
+        //            Morada="R Doutor Alfredo Freitas 108",
+        //            Telemovel="915551820",
+        //            Email="sarasiqueiraa@gmail.com",
+        //            CodigoPostal="3700-501",
 
-                },
-                     new Clientes
-                     {
-                    //ClienteId=5,
-                    Nome="Nelson Ramos",
-                    DataNascimento=new DateTime(1945,07,10),
-                    Nif="927822662",
-                    Morada="R Indústria Porta 56",
-                    Telemovel="929455563",
-                    Email="nelsonramos@outlook.com",
-                    CodigoPostal="3220-066",
+        //        },
+        //             new Clientes
+        //             {
+        //            //ClienteId=5,
+        //            Nome="Nelson Ramos",
+        //            DataNascimento=new DateTime(1945,07,10),
+        //            Nif="927822662",
+        //            Morada="R Indústria Porta 56",
+        //            Telemovel="929455563",
+        //            Email="nelsonramos@outlook.com",
+        //            CodigoPostal="3220-066",
 
-                },
-                     new Clientes
-                     {
-                    //ClienteId=6,
-                    Nome="Danilo Pires",
-                    DataNascimento=new DateTime(1999,06,26),
-                    Nif="925387029",
-                    Morada="Rua Jorge Sena 99",
-                    Telemovel="965559604",
-                    Email="danilopires@live.com",
-                    CodigoPostal="2650-499",
-                },
+        //        },
+        //             new Clientes
+        //             {
+        //            //ClienteId=6,
+        //            Nome="Danilo Pires",
+        //            DataNascimento=new DateTime(1999,06,26),
+        //            Nif="925387029",
+        //            Morada="Rua Jorge Sena 99",
+        //            Telemovel="965559604",
+        //            Email="danilopires@live.com",
+        //            CodigoPostal="2650-499",
+        //        },
 
-                     new Clientes
-                     {
-                    //ClienteId=7,
-                    Nome="Mônica Torres",
-                    DataNascimento=new DateTime(197,02,05),
-                    Nif="922534195",
-                    Morada="Avenida Guerra Junqueiro 114",
-                    Telemovel="921555922",
-                    Email="monicatorres@gmail.com",
-                    CodigoPostal="2610-116",
-                },
+        //             new Clientes
+        //             {
+        //            //ClienteId=7,
+        //            Nome="Mônica Torres",
+        //            DataNascimento=new DateTime(197,02,05),
+        //            Nif="922534195",
+        //            Morada="Avenida Guerra Junqueiro 114",
+        //            Telemovel="921555922",
+        //            Email="monicatorres@gmail.com",
+        //            CodigoPostal="2610-116",
+        //        },
 
-                     new Clientes
-                     {
-                    //ClienteId=8,
-                    Nome="Daniela Mata",
-                    DataNascimento=new DateTime(1974,03,13),
-                    Nif="925581543",
-                    Morada="R Portela 64",
-                    Telemovel="915551704",
-                    Email="daielamata@gmail.com",
-                    CodigoPostal="3550-171",
-                },
+        //             new Clientes
+        //             {
+        //            //ClienteId=8,
+        //            Nome="Daniela Mata",
+        //            DataNascimento=new DateTime(1974,03,13),
+        //            Nif="925581543",
+        //            Morada="R Portela 64",
+        //            Telemovel="915551704",
+        //            Email="daielamata@gmail.com",
+        //            CodigoPostal="3550-171",
+        //        },
 
-                     new Clientes
-                     {
-                    //ClienteId=9,
-                    Nome="Virgílio Abreu",
-                    DataNascimento=new DateTime(1987,04,16),
-                    Nif="928360508",
-                    Morada="R Padre João A L Ribeiro 88",
-                    Telemovel="915559352",
-                    Email="virgilio_abreu@outlook.com",
-                    CodigoPostal="3440-376",
-                },
+        //             new Clientes
+        //             {
+        //            //ClienteId=9,
+        //            Nome="Virgílio Abreu",
+        //            DataNascimento=new DateTime(1987,04,16),
+        //            Nif="928360508",
+        //            Morada="R Padre João A L Ribeiro 88",
+        //            Telemovel="915559352",
+        //            Email="virgilio_abreu@outlook.com",
+        //            CodigoPostal="3440-376",
+        //        },
 
-                     new Clientes
-                     {
-                    //ClienteId=10,
-                    Nome="Martim Moniz",
-                    DataNascimento=new DateTime(1984,08,15),
-                    Nif="927251038",
-                    Morada="R Poeta João Ruiz 90",
-                    Telemovel="929455556",
-                    Email="martim_moniz@live.com",
-                    CodigoPostal="6230-691",
-                },
-            });
-            bd.SaveChanges();
+        //             new Clientes
+        //             {
+        //            //ClienteId=10,
+        //            Nome="Martim Moniz",
+        //            DataNascimento=new DateTime(1984,08,15),
+        //            Nif="927251038",
+        //            Morada="R Poeta João Ruiz 90",
+        //            Telemovel="929455556",
+        //            Email="martim_moniz@live.com",
+        //            CodigoPostal="6230-691",
+        //        },
+        //    });
+        //    bd.SaveChanges();
 
-        }
+        //}
         //-------------------PACOTES--------------------------
         private static void InserePacotes(Projeto_Lab_WebContext bd)
         {
