@@ -30,6 +30,8 @@ namespace Projeto_Lab_Web_Grupo3.Data
             //InsereClientes(bd);
             InserePacotes(bd);
             InsereRoles(bd);
+            InsereTiposServicos(bd);
+            InsereTiposClientes(bd);
             //Insere(bd);
         }
 
@@ -477,6 +479,64 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.SaveChanges();
         }
 
+        //-------------------TIPOS DE SERVIÇOS--------------------------
+        private static void InsereTiposServicos(Projeto_Lab_WebContext bd)
+        {
+            if (bd.TiposServicos.Any()) return;
+
+
+            bd.TiposServicos.AddRange(new Tipos_Sevicos[] {
+                      new Tipos_Sevicos
+                     {
+                    TipoServicoId=1,
+                    Nome="Internet",
+                },
+                      new Tipos_Sevicos
+                     {
+                    TipoServicoId=2,
+                    Nome="Telemóvel",
+                },
+                      new Tipos_Sevicos
+                     {
+                    TipoServicoId=3,
+                    Nome="Televisão",
+                },
+                      new Tipos_Sevicos
+                     {
+                    TipoServicoId=4,
+                    Nome="Telefone Fixo",
+                },
+                      new Tipos_Sevicos
+                     {
+                    TipoServicoId=5,
+                    Nome="Internet Móvel",
+                },
+            });
+            bd.SaveChanges();
+        }
+
+        //-------------------TIPOS DE CLIENTES--------------------------
+
+        private static void InsereTiposClientes(Projeto_Lab_WebContext bd)
+        {
+            if (bd.Tipos_Clientes.Any()) return;
+
+
+            bd.Tipos_Clientes.AddRange(new Tipos_Clientes[] {
+                     new Tipos_Clientes
+                     {
+                    TipoClienteId=1,
+                    Nome="Particular",
+                },
+                     new Tipos_Clientes
+                     {
+                    TipoClienteId=2,
+                    Nome="Empresa",
+                },    
+            });
+            bd.SaveChanges();
+        }
+       
         internal static async Task InsereUtilizadoresFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
         {
             IdentityUser cliente = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_CLIENTE_FICTICIO, "Secret123$");
