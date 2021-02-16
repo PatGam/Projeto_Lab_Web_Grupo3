@@ -10,7 +10,7 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    [Migration("20210216135711_TiposClientes")]
+    [Migration("20210216142506_TiposClientes")]
     partial class TiposClientes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,12 +63,15 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(9)")
                         .HasMaxLength(9);
 
-                    b.Property<int?>("Tipos_ClientesTipoClienteId")
+                    b.Property<int>("TipoClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TiposClientesTipoClienteId")
                         .HasColumnType("int");
 
                     b.HasKey("ClienteId");
 
-                    b.HasIndex("Tipos_ClientesTipoClienteId");
+                    b.HasIndex("TiposClientesTipoClienteId");
 
                     b.ToTable("Clientes");
                 });
@@ -393,9 +396,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Clientes", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Tipos_Clientes", null)
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Tipos_Clientes", "TiposClientes")
                         .WithMany("Clientes")
-                        .HasForeignKey("Tipos_ClientesTipoClienteId");
+                        .HasForeignKey("TiposClientesTipoClienteId");
                 });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
