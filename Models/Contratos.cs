@@ -40,6 +40,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Column("Nome_Funcionario")]
         [StringLength(100)]
         public string NomeFuncionario { get; set; }
+        [Column("Telefone")]
+        [RegularExpression(@"(2\d{8})", ErrorMessage = "Telefone Inválido")]
         public int Telefone { get; set; }
 
         [ForeignKey(nameof(ClienteId))]
