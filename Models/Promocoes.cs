@@ -28,6 +28,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Column("Data_fim", TypeName = "date")]
         public DateTime DataFim { get; set; }
         [Column("Promocao_desc", TypeName = "decimal(18, 2)")]
+        [RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage = "O valor tem ser superior a 0")]
         public decimal PromocaoDesc { get; set; }
 
         [InverseProperty("Promocoes")]

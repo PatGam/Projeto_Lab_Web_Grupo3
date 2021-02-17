@@ -35,6 +35,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string Morada { get; set; }
 
         [Display(Name = "Contacto de telemóvel")]
+        [RegularExpression(@"9[1236]|\d{2})\d{7}", ErrorMessage = "Telefone Inválido")]
         public int Telemovel { get; set; }
 
         [Required(ErrorMessage = "Preencha o email do funcionário")]
@@ -44,6 +45,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Required(ErrorMessage = "Preencha o código postal do funcionário")]
         [Column("Codigo_Postal")]
+        [RegularExpression(@"(\d{4})[-](\d{3})", ErrorMessage = "Código Postal Inválido")]
         [StringLength(8, MinimumLength = 8)]
         [Display(Name = "Código Postal")]
         public string CodigoPostal { get; set; }

@@ -20,14 +20,17 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Column("Data_inicio", TypeName = "date")]
         public DateTime DataInicio { get; set; }
         [Column("Preco_Final", TypeName = "decimal(18, 2)")]
+        [RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage = "O valor tem ser superior a 0")]
         public decimal PrecoFinal { get; set; }
         [Column("Data_Fim", TypeName = "date")]
         public DateTime DataFim { get; set; }
         [Column("Promocoes_Pacotes")]
         public int PromocoesPacotes { get; set; }
         [Column("Preco_pacote", TypeName = "decimal(18, 2)")]
+        [RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage = "O valor tem ser superior a 0")]
         public decimal PrecoPacote { get; set; }
         [Column("Promocao_desc", TypeName = "decimal(18, 2)")]
+        [RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage = "O valor tem ser superior a 0")]
         public decimal PromocaoDesc { get; set; }
         [Required]
         [Column("Nome_Cliente")]
