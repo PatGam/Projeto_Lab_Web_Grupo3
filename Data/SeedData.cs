@@ -545,42 +545,42 @@ namespace Projeto_Lab_Web_Grupo3.Data
             {
                 new PromocoesPacotes
                 {
-                    PacoteId = 12,
+                    PacoteId = 4,
                     PromocoesId= 1,
                     NomePacote = "M30",
                     NomePromocoes="PáscoaS"
                 },
                 new PromocoesPacotes
                 {
-                    PacoteId=11,
+                    PacoteId=5,
                     PromocoesId=2,
                     NomePacote="M4O",
                     NomePromocoes="PáscoaM"
                 },
                 new PromocoesPacotes
                 {
-                    PacoteId=15,
+                    PacoteId=1,
                     PromocoesId=3,
                     NomePacote="Tv Premium + Mgaming",
                     NomePromocoes="PáscoaL"
                 },
                 new PromocoesPacotes
                 {
-                    PacoteId=13,
+                    PacoteId=3,
                     PromocoesId=4,
                     NomePacote="Pré-Pago 25",
                     NomePromocoes="VerãoS"
                 },
                 new PromocoesPacotes
                 {
-                    PacoteId=14,
+                    PacoteId=2,
                     PromocoesId=5,
                     NomePacote="MGaming",
                     NomePromocoes="VerãoM"
                 },
                 new PromocoesPacotes
                 {
-                    PacoteId=15,
+                    PacoteId=1,
                     PromocoesId=6,
                     NomePacote="TvPremium + MGaming",
                     NomePromocoes="VerãoL"
