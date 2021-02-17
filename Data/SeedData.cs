@@ -33,6 +33,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InsereTiposServicos(bd);
             InsereTiposClientes(bd);
             //Insere(bd);
+            InserePromocoesPacotes(bd);
         }
 
 
@@ -488,31 +489,31 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.TiposServicos.AddRange(new Tipos_Sevicos[] {
                       new Tipos_Sevicos
                      {
-                    TipoServicoId=1,
+                   // TipoServicoId=1,
                     Nome="Internet",
                 },
                       new Tipos_Sevicos
                      {
-                    TipoServicoId=2,
+                   // TipoServicoId=2,
                     Nome="Telemóvel",
                 },
                       new Tipos_Sevicos
                      {
-                    TipoServicoId=3,
+                   // TipoServicoId=3,
                     Nome="Televisão",
                 },
                       new Tipos_Sevicos
                      {
-                    TipoServicoId=4,
+                    //TipoServicoId=4,
                     Nome="Telefone Fixo",
                 },
                       new Tipos_Sevicos
                      {
-                    TipoServicoId=5,
+                    //TipoServicoId=5,
                     Nome="Internet Móvel",
                 },
             });
-            bd.SaveChanges();
+         bd.SaveChanges();
         }
 
         //-------------------TIPOS DE CLIENTES--------------------------
@@ -525,14 +526,67 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Tipos_Clientes.AddRange(new Tipos_Clientes[] {
                      new Tipos_Clientes
                      {
-                    TipoClienteId=1,
+                   // TipoClienteId=1,
                     Nome="Particular",
                 },
                      new Tipos_Clientes
                      {
-                    TipoClienteId=2,
+                   // TipoClienteId=2,
                     Nome="Empresa",
                 },    
+            });
+         bd.SaveChanges();
+        }
+        //---------------------------------PromocoesPacotes------------------------------
+        private static void InserePromocoesPacotes(Projeto_Lab_WebContext bd)
+        {
+            if(bd.PromocoesPacotes.Any()) return;
+            bd.PromocoesPacotes.AddRange(new PromocoesPacotes[]
+            {
+                new PromocoesPacotes
+                {
+                    PacoteId = 12,
+                    PromocoesId= 1,
+                    NomePacote = "M30",
+                    NomePromocoes="PáscoaS"
+                },
+                new PromocoesPacotes
+                {
+                    PacoteId=11,
+                    PromocoesId=2,
+                    NomePacote="M4O",
+                    NomePromocoes="PáscoaM"
+                },
+                new PromocoesPacotes
+                {
+                    PacoteId=15,
+                    PromocoesId=3,
+                    NomePacote="Tv Premium + Mgaming",
+                    NomePromocoes="PáscoaL"
+                },
+                new PromocoesPacotes
+                {
+                    PacoteId=13,
+                    PromocoesId=4,
+                    NomePacote="Pré-Pago 25",
+                    NomePromocoes="VerãoS"
+                },
+                new PromocoesPacotes
+                {
+                    PacoteId=14,
+                    PromocoesId=5,
+                    NomePacote="MGaming",
+                    NomePromocoes="VerãoM"
+                },
+                new PromocoesPacotes
+                {
+                    PacoteId=15,
+                    PromocoesId=6,
+                    NomePacote="TvPremium + MGaming",
+                    NomePromocoes="VerãoL"
+                },
+
+
             });
             bd.SaveChanges();
         }
