@@ -12,17 +12,33 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 {
     public class Tipos_ClientesController : Controller
     {
-        private readonly Projeto_Lab_WebContext _context;
+        private readonly Projeto_Lab_WebContext bd;
 
         public Tipos_ClientesController(Projeto_Lab_WebContext context)
         {
-            _context = context;
+            bd = context;
         }
 
         // GET: Tipos_Clientes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await _context.Tipos_Clientes.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await bd.Tipos_Clientes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+            List<Tipos_Clientes> tipos_Clientes = await bd.Tipos_Clientes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+              .OrderBy(p => p.Nome)
+              .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+              .Take(paginacao.ItemsPorPagina)
+              .ToListAsync();
+            TiposClientesViewModel modelo = new TiposClientesViewModel
+            {
+                Paginacao = paginacao,
+                Tipos_Clientes = tipos_Clientes,
+                NomePesquisar = nomePesquisar
+            };
+            return base.View(modelo);
         }
 
         // GET: Tipos_Clientes/Details/5
@@ -33,7 +49,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var tipos_Clientes = await _context.Tipos_Clientes
+            var tipos_Clientes = await bd.Tipos_Clientes
                 .FirstOrDefaultAsync(m => m.TipoClienteId == id);
             if (tipos_Clientes == null)
             {
@@ -58,8 +74,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tipos_Clientes);
-                await _context.SaveChangesAsync();
+                bd.Add(tipos_Clientes);
+                await bd.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(tipos_Clientes);
@@ -73,7 +89,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var tipos_Clientes = await _context.Tipos_Clientes.FindAsync(id);
+            var tipos_Clientes = await bd.Tipos_Clientes.FindAsync(id);
             if (tipos_Clientes == null)
             {
                 return NotFound();
@@ -97,8 +113,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 try
                 {
-                    _context.Update(tipos_Clientes);
-                    await _context.SaveChangesAsync();
+                    bd.Update(tipos_Clientes);
+                    await bd.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,7 +140,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var tipos_Clientes = await _context.Tipos_Clientes
+            var tipos_Clientes = await bd.Tipos_Clientes
                 .FirstOrDefaultAsync(m => m.TipoClienteId == id);
             if (tipos_Clientes == null)
             {
@@ -139,15 +155,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var tipos_Clientes = await _context.Tipos_Clientes.FindAsync(id);
-            _context.Tipos_Clientes.Remove(tipos_Clientes);
-            await _context.SaveChangesAsync();
+            var tipos_Clientes = await bd.Tipos_Clientes.FindAsync(id);
+            bd.Tipos_Clientes.Remove(tipos_Clientes);
+            await bd.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool Tipos_ClientesExists(int id)
         {
-            return _context.Tipos_Clientes.Any(e => e.TipoClienteId == id);
+            return bd.Tipos_Clientes.Any(e => e.TipoClienteId == id);
         }
     }
 }
