@@ -20,9 +20,25 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Promocoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await bd.Promocoes.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await bd.Promocoes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+            List<Promocoes> promocoes = await bd.Promocoes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+              .OrderBy(p => p.Nome)
+              .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+              .Take(paginacao.ItemsPorPagina)
+              .ToListAsync();
+            PromocoesViewModel modelo = new PromocoesViewModel
+            {
+                Paginacao = paginacao,
+                Promocoes=promocoes,
+                NomePesquisar = nomePesquisar
+            };
+            return base.View(modelo);
         }
 
         // GET: Promocoes/Details/5

@@ -12,18 +12,33 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 {
     public class ServicosPacotesController : Controller
     {
-        private readonly Projeto_Lab_WebContext _context;
+        private readonly Projeto_Lab_WebContext bd;
 
         public ServicosPacotesController(Projeto_Lab_WebContext context)
         {
-            _context = context;
+            bd = context;
         }
 
         // GET: ServicosPacotes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            var projeto_Lab_WebContext = _context.ServicosPacotes.Include(s => s.Pacote).Include(s => s.Servico);
-            return View(await projeto_Lab_WebContext.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await bd.ServicosPacotes.Where(p => nomePesquisar == null || p.Servico.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+            List<ServicosPacotes> servicosPacotes = await bd.ServicosPacotes.Where(p => nomePesquisar == null || p.Servico.Nome.Contains(nomePesquisar))
+              .OrderBy(p => p.Servico.Nome)
+              .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+              .Take(paginacao.ItemsPorPagina)
+              .ToListAsync();
+            ServicosPacotesViewModel modelo = new ServicosPacotesViewModel
+            {
+                Paginacao = paginacao,
+                ServicosPacotes= servicosPacotes,
+                NomePesquisar = nomePesquisar
+            };
+            return base.View(modelo);
         }
 
         // GET: ServicosPacotes/Details/5
@@ -34,7 +49,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicosPacotes = await _context.ServicosPacotes
+            var servicosPacotes = await bd.ServicosPacotes
                 .Include(s => s.Pacote)
                 .Include(s => s.Pacote.Nome)
                 .Include(s => s.Servico)
@@ -51,8 +66,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: ServicosPacotes/Create
         public IActionResult Create()
         {
-            ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome");
-            ViewData["ServicoId"] = new SelectList(_context.Servicos, "ServicoId", "Nome");
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+            ViewData["ServicoId"] = new SelectList(bd.Servicos, "ServicoId", "Nome");
             return View();
         }
 
@@ -65,12 +80,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(servicosPacotes);
-                await _context.SaveChangesAsync();
+                bd.Add(servicosPacotes);
+                await bd.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
-            ViewData["ServicoId"] = new SelectList(_context.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
+            ViewData["ServicoId"] = new SelectList(bd.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
             return View(servicosPacotes);
         }
 
@@ -82,13 +97,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicosPacotes = await _context.ServicosPacotes.FindAsync(id);
+            var servicosPacotes = await bd.ServicosPacotes.FindAsync(id);
             if (servicosPacotes == null)
             {
                 return NotFound();
             }
-            ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
-            ViewData["ServicoId"] = new SelectList(_context.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
+            ViewData["ServicoId"] = new SelectList(bd.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
             return View(servicosPacotes);
         }
 
@@ -108,8 +123,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 try
                 {
-                    _context.Update(servicosPacotes);
-                    await _context.SaveChangesAsync();
+                    bd.Update(servicosPacotes);
+                    await bd.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +139,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
-            ViewData["ServicoId"] = new SelectList(_context.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
+            ViewData["ServicoId"] = new SelectList(bd.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
             return View(servicosPacotes);
         }
 
@@ -137,7 +152,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicosPacotes = await _context.ServicosPacotes
+            var servicosPacotes = await bd.ServicosPacotes
                 .Include(s => s.Pacote)
                 .Include(s => s.Servico)
                 .FirstOrDefaultAsync(m => m.SevicoPacoteId == id);
@@ -154,15 +169,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var servicosPacotes = await _context.ServicosPacotes.FindAsync(id);
-            _context.ServicosPacotes.Remove(servicosPacotes);
-            await _context.SaveChangesAsync();
+            var servicosPacotes = await bd.ServicosPacotes.FindAsync(id);
+            bd.ServicosPacotes.Remove(servicosPacotes);
+            await bd.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ServicosPacotesExists(int id)
         {
-            return _context.ServicosPacotes.Any(e => e.SevicoPacoteId == id);
+            return bd.ServicosPacotes.Any(e => e.SevicoPacoteId == id);
         }
     }
 }

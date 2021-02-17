@@ -12,18 +12,33 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 {
     public class PromocoesPacotesController : Controller
     {
-        private readonly Projeto_Lab_WebContext _context;
+        private readonly Projeto_Lab_WebContext bd;
 
         public PromocoesPacotesController(Projeto_Lab_WebContext context)
         {
-            _context = context;
+            bd = context;
         }
 
         // GET: PromocoesPacotes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            var projeto_Lab_WebContext = _context.PromocoesPacotes.Include(p => p.Pacote).Include(p => p.Promocoes);
-            return View(await projeto_Lab_WebContext.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await bd.PromocoesPacotes.Where(p => nomePesquisar == null || p.NomePacote.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+            List<PromocoesPacotes> promocoesPacotes = await bd.PromocoesPacotes.Where(p => nomePesquisar == null || p.NomePacote.Contains(nomePesquisar))
+              .OrderBy(p => p.NomePacote)
+              .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+              .Take(paginacao.ItemsPorPagina)
+              .ToListAsync();
+            PromocoesPacotesViewModel modelo = new PromocoesPacotesViewModel
+            {
+                Paginacao = paginacao,
+                PromocoesPacotes=promocoesPacotes,
+                NomePesquisar = nomePesquisar
+            };
+            return base.View(modelo);
         }
 
         // GET: PromocoesPacotes/Details/5
@@ -34,7 +49,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var promocoesPacotes = await _context.PromocoesPacotes
+            var promocoesPacotes = await bd.PromocoesPacotes
                 .Include(p => p.Pacote)
                 .Include(p => p.Promocoes)
                 .FirstOrDefaultAsync(m => m.PromocoesPacotesId == id);
@@ -49,8 +64,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: PromocoesPacotes/Create
         public IActionResult Create()
         {
-            ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocoesId"] = new SelectList(_context.Promocoes, "PromocoesId", "Nome");
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
             return View();
         }
 
@@ -63,12 +78,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(promocoesPacotes);
-                await _context.SaveChangesAsync();
+                bd.Add(promocoesPacotes);
+                await bd.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome", promocoesPacotes.PacoteId);
-            ViewData["PromocoesId"] = new SelectList(_context.Promocoes, "PromocoesId", "Nome", promocoesPacotes.PromocoesId);
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", promocoesPacotes.PacoteId);
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", promocoesPacotes.PromocoesId);
             return View(promocoesPacotes);
         }
 
@@ -80,13 +95,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var promocoesPacotes = await _context.PromocoesPacotes.FindAsync(id);
+            var promocoesPacotes = await bd.PromocoesPacotes.FindAsync(id);
             if (promocoesPacotes == null)
             {
                 return NotFound();
             }
-            ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome", promocoesPacotes.PacoteId);
-            ViewData["PromocoesId"] = new SelectList(_context.Promocoes, "PromocoesId", "Nome", promocoesPacotes.PromocoesId);
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", promocoesPacotes.PacoteId);
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", promocoesPacotes.PromocoesId);
             return View(promocoesPacotes);
         }
 
@@ -106,8 +121,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 try
                 {
-                    _context.Update(promocoesPacotes);
-                    await _context.SaveChangesAsync();
+                    bd.Update(promocoesPacotes);
+                    await bd.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -122,8 +137,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome", promocoesPacotes.PacoteId);
-            ViewData["PromocoesId"] = new SelectList(_context.Promocoes, "PromocoesId", "Nome", promocoesPacotes.PromocoesId);
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", promocoesPacotes.PacoteId);
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", promocoesPacotes.PromocoesId);
             return View(promocoesPacotes);
         }
 
@@ -135,7 +150,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var promocoesPacotes = await _context.PromocoesPacotes
+            var promocoesPacotes = await bd.PromocoesPacotes
                 .Include(p => p.Pacote)
                 .Include(p => p.Promocoes)
                 .FirstOrDefaultAsync(m => m.PromocoesPacotesId == id);
@@ -152,15 +167,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var promocoesPacotes = await _context.PromocoesPacotes.FindAsync(id);
-            _context.PromocoesPacotes.Remove(promocoesPacotes);
-            await _context.SaveChangesAsync();
+            var promocoesPacotes = await bd.PromocoesPacotes.FindAsync(id);
+            bd.PromocoesPacotes.Remove(promocoesPacotes);
+            await bd.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PromocoesPacotesExists(int id)
         {
-            return _context.PromocoesPacotes.Any(e => e.PromocoesPacotesId == id);
+            return bd.PromocoesPacotes.Any(e => e.PromocoesPacotesId == id);
         }
     }
 }
