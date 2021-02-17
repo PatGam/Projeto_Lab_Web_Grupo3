@@ -28,7 +28,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 PaginaAtual = pagina
             };
             List<Servicos> servicos = await bd.Servicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
-              //.Include(p => p.TipoServicoId)
+              .Include(p => p.TipoServicos)
               .OrderBy(p => p.Nome)
               .Skip(paginacao.ItemsPorPagina * (pagina - 1))
               .Take(paginacao.ItemsPorPagina)
@@ -50,7 +50,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicos = await bd.Servicos.Include(p => p.TipoServicoId)
+            var servicos = await bd.Servicos.Include(p => p.TipoServicos)
                 .SingleOrDefaultAsync(m => m.ServicoId == id);
             if (servicos == null)
             {

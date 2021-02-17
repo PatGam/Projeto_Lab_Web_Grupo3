@@ -25,7 +25,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         internal static void PreencheDados(Projeto_Lab_WebContext bd)
         {
             InserePromocoes(bd);
-            //InsereServicos(bd);
+            InsereServicos(bd);
             //InsereFuncionarios(bd);
             //InsereClientes(bd);
             InserePacotes(bd);
@@ -269,43 +269,117 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         }
         //-------------------SERVICOS--------------------------
-        //private static void InsereServicos(Projeto_Lab_WebContext bd)
-        //{
-        //    if (bd.Servicos.Any()) return;
-        //    bd.Servicos.AddRange(new Servicos[] {
-        //            new Servicos
-        //             {
-        //            //ServicoId=1,
-        //            Nome="Canais Fibra",
-        //            Descricao="Temos vários Pacotes á sua escolha",
-        //            TipoServico="Televisão",
-        //        },
-        //             new Servicos
-        //             {
-        //            //ServicoId=2,
-        //            Nome="Telémovel Pré-Pago e Pós-Pago",
-        //            Descricao="Temos vários Pacotes á sua escolha ",
-        //            TipoServico="Telémovel",
-        //        },
-        //              new Servicos
-        //             {
-        //            //ServicoId=3,
-        //            Nome="Internet Fixa",
-        //            Descricao="A melhor internet para si , disponível em varios pacotes.",
-        //            TipoServico="Internet",
-        //        },
-        //               new Servicos
-        //             {
-        //            //ServicoId=4,
-        //            Nome="Internet Móvel",
-        //            Descricao="Vários Pacotes com vários plafonds para ti",
-        //            TipoServico="Internet",
-        //        },
-              
+        private static void InsereServicos(Projeto_Lab_WebContext bd)
+        {
+            if (bd.Servicos.Any()) return;
 
-        //    });
-        //    bd.SaveChanges();
-        //}
+         
+            bd.Servicos.AddRange(new Servicos[] {
+                    new Servicos
+                     {
+                    //ServicoId=1,
+                    Nome="Canais Fibra",
+                    Descricao="Temos vários Pacotes á sua escolha",
+                    TipoServicoId= 3,
+                },
+                     new Servicos
+                     {
+                    //ServicoId=2,
+                    Nome="Telémovel Pré-Pago e Pós-Pago",
+                    Descricao="Temos vários Pacotes á sua escolha ",
+                     TipoServicoId= 4,
+                },
+                      new Servicos
+                     {
+                    //ServicoId=3,
+                    Nome="Internet Fixa",
+                    Descricao="A melhor internet para si , disponível em varios pacotes.",
+                     TipoServicoId= 5,
+                },
+                       new Servicos
+                     {
+                    //ServicoId=4,
+                    Nome="Internet Móvel",
+                    Descricao="Vários Pacotes com vários plafonds para ti",
+                    TipoServicoId= 5,
+                },
+
+                       new Servicos
+                     {
+                    
+                    Nome="Internet 100/100mbps",
+                    Descricao="A velocidade da internet é medida e certificada no dia da instalação.",
+                    TipoServicoId= 5,
+                },
+
+                    new Servicos
+                     {
+                    Nome="Internet 1.000/400 Mbps",
+                    Descricao="Somos a única operadora a nível mundial com uma rede própria de circuitos de internet internacionais, garantindo sempre a largura de banda necessária.",
+                    TipoServicoId= 5,
+                },
+
+                    new Servicos
+                     {
+                    Nome="1 cartão, 500 minutos + 500 SMS por cartão",
+                    Descricao="Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.",
+                    TipoServicoId= 4,
+                },
+                        
+                    new Servicos
+                     {
+                    Nome="1 cartão, 3.500 minutos + 3.500 SMS",
+                    Descricao="Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.",
+                    TipoServicoId= 4,
+                },
+
+                    new Servicos
+                     {
+                    Nome="Pack standard 150 canais",
+                    Descricao="O melhor entretenimento num só lugar.",
+                    TipoServicoId= 3,
+                },
+
+                         new Servicos
+                     {
+                    Nome="Pack standard 200 canais",
+                    Descricao="A televisão do futuro em sua casa.",
+                    TipoServicoId= 3,
+                },
+
+                    new Servicos
+                     {
+                    Nome="Chamadas telefónicas World",
+                    Descricao="Redes fixas nacionais 24h + 50 destinos internacionais (noite, 1.000 min)",
+                    TipoServicoId= 2,
+                },
+
+                    new Servicos
+                     {
+                    Nome="Chamadas telefónicas Light",
+                    Descricao="Redes fixas nacionais 24h + 20 destinos internacionais (noite, 100 min)",
+                    TipoServicoId= 2,
+                },
+
+                    new Servicos
+                     {
+                    Nome="Internet móvel 500MB",
+                    Descricao="Ativa no teu smartphone, a qualquer hora e em qualquer lugar 500 MB de dados",
+                    TipoServicoId= 1,
+                },
+
+                    new Servicos
+                     {
+                    Nome="Internet móvel 1GB",
+                    Descricao="Ativa no teu smartphone, a qualquer hora e em qualquer lugar 1 GB de dados",
+                    TipoServicoId= 1,
+                },
+
+            });
+            bd.SaveChanges();
+
+        }
+
         //-------------------CLIENTES--------------------------
         //private static void InsereClientes(Projeto_Lab_WebContext bd)
         //{
@@ -321,7 +395,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         //            Telemovel="935559453",
         //            Email="pedromachado@gmail.com",
         //            CodigoPostal="3870-358",
-                    
+
 
         //        },
         //           new Clientes
