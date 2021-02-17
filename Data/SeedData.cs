@@ -95,7 +95,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Nome="VerãoS",
                     Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes pequenos",
                     DataInicio=new DateTime(2021,07,01),
-                    DataFim=new DateTime(2021-08-31),
+                    DataFim=new DateTime(2021,08,31),
                     PromocaoDesc=1.99m,
                 },
                 new Promocoes
@@ -104,7 +104,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Nome="VerãoM",
                     Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes médios",
                     DataInicio=new DateTime(2021,07,01),
-                    DataFim=new DateTime(2021-08-31),
+                    DataFim=new DateTime(2021,08,31),
                     PromocaoDesc=2.59m,
                 },
                 new Promocoes
@@ -113,7 +113,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Nome="VerãoL",
                     Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes grandes",
                     DataInicio=new DateTime(2021,07,01),
-                    DataFim=new DateTime(2021-08-31),
+                    DataFim=new DateTime(2021,08,31),
                     PromocaoDesc=3.99m,
                 },
                 new Promocoes
