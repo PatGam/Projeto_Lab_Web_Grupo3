@@ -1,7 +1,8 @@
 ﻿@model Projeto_Lab_Web_Grupo3.Models.ServicosPacotes
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Apagar";
+    Layout = "_LayoutAdmin";
 }
 
 <body>
@@ -37,8 +38,8 @@
 
                                 <form asp-action="Delete">
                                     <input type="hidden" asp-for="SevicoPacoteId" />
-                                    <input type="submit" value="Delete" class="btn btn-danger" /> |
-                                    <a asp-action="Index">Back to List</a>
+                                    <input type="submit" value="Guardar" class="btn btn-danger" /> |
+                                    <a asp-action="Index">Voltar Atrás</a>
                                 </form>
                             </div>
                         </section>

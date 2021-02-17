@@ -1,53 +1,64 @@
 ﻿@model Projeto_Lab_Web_Grupo3.Models.Promocoes
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
+    Layout = "_LayoutAdmin";
 }
 
-<h1>Edit</h1>
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Editar Promoção</h4>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form asp-action="Edit">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="PromocoesId" />
+                                <div class="form-group">
+                                    <label asp-for="Nome" class="control-label"></label>
+                                    <input asp-for="Nome" class="form-control" />
+                                    <span asp-validation-for="Nome" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Descricao" class="control-label"></label>
+                                    <input asp-for="Descricao" class="form-control" />
+                                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DataInicio" class="control-label"></label>
+                                    <input asp-for="DataInicio" class="form-control" />
+                                    <span asp-validation-for="DataInicio" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DataFim" class="control-label"></label>
+                                    <input asp-for="DataFim" class="form-control" />
+                                    <span asp-validation-for="DataFim" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PromocaoDesc" class="control-label"></label>
+                                    <input asp-for="PromocaoDesc" class="form-control" />
+                                    <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-<h4>Promocoes</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PromocoesId" />
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                    <div>
+                        <a asp-action="Index">Voltar Atrás</a>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataInicio" class="control-label"></label>
-                <input asp-for="DataInicio" class="form-control" />
-                <span asp-validation-for="DataInicio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataFim" class="control-label"></label>
-                <input asp-for="DataFim" class="form-control" />
-                <span asp-validation-for="DataFim" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PromocaoDesc" class="control-label"></label>
-                <input asp-for="PromocaoDesc" class="form-control" />
-                <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+        </section>
+    </section>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

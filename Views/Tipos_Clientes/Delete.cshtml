@@ -1,7 +1,8 @@
 ﻿@model Projeto_Lab_Web_Grupo3.Models.Tipos_Clientes
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Apagar";
+    Layout = "_LayoutAdmin";
 }
 
 <section id="container" class="">
@@ -28,7 +29,7 @@
                         <form asp-action="Delete">
                             <input type="hidden" asp-for="TipoClienteId" />
                             <input type="submit" value="Apagar" class="btn btn-danger" /> |
-                            <a asp-action="Index">Voltar à lista</a>
+                            <a asp-action="Index">Voltar Atrás</a>
                         </form>
                     </div>
                 </div>
