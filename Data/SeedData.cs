@@ -30,6 +30,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             //InsereClientes(bd);
             InserePacotes(bd);
             InsereRoles(bd);
+            InsereServicosPacotes(bd);
             InsereTiposServicos(bd);
             InsereTiposClientes(bd);
             //Insere(bd);
@@ -268,12 +269,13 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.SaveChanges();
 
         }
+
         //-------------------SERVICOS--------------------------
         private static void InsereServicos(Projeto_Lab_WebContext bd)
         {
             if (bd.Servicos.Any()) return;
 
-         
+
             bd.Servicos.AddRange(new Servicos[] {
                     new Servicos
                      {
@@ -306,7 +308,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
                        new Servicos
                      {
-                    
+
                     Nome="Internet 100/100mbps",
                     Descricao="A velocidade da internet é medida e certificada no dia da instalação.",
                     TipoServicoId= 5,
@@ -325,7 +327,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Descricao="Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.",
                     TipoServicoId= 4,
                 },
-                        
+
                     new Servicos
                      {
                     Nome="1 cartão, 3.500 minutos + 3.500 SMS",
@@ -380,188 +382,254 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         }
 
-        //-------------------CLIENTES--------------------------
-        //private static void InsereClientes(Projeto_Lab_WebContext bd)
-        //{
-        //    if (bd.Clientes.Any()) return;
-        //    bd.Clientes.AddRange(new Clientes[] {
-        //          new Clientes
-        //             {
-        //            //ClienteId=1,
-        //            Nome="Pedro Machado",
-        //            DataNascimento=new DateTime(1971,07,14),
-        //            Nif="922257185",
-        //            Morada="Colónia Agrícola Casal 63",
-        //            Telemovel="935559453",
-        //            Email="pedromachado@gmail.com",
-        //            CodigoPostal="3870-358",
-
-
-        //        },
-        //           new Clientes
-        //             {
-        //            //ClienteId=2,
-        //            Nome="Joaquim Mendez",
-        //            DataNascimento=new DateTime(1987,12,24),
-        //            Nif="920099457",
-        //            Morada="R Indústria Porta 47",
-        //            Telemovel="915556899",
-        //            Email="joaquimmendez@outlook.com",
-        //            CodigoPostal="3300-040",
-
-        //        },
-        //            new Clientes
-        //             {
-        //            //ClienteId=3,
-        //            Nome="Sandra Vieira",
-        //            DataNascimento=new DateTime(1977,02,23),
-        //            Nif="921359357",
-        //            Morada="R Poeta João Ruiz 6",
-        //            Telemovel="929355531",
-        //            Email="sandravieira@gmail.com",
-        //            CodigoPostal="6230-355",
-
-        //        },
-        //             new Clientes
-        //             {
-        //            //ClienteId=4,
-        //            Nome="Sara Siqueira",
-        //            DataNascimento=new DateTime(1977,01,22),
-        //            Nif="929388769",
-        //            Morada="R Doutor Alfredo Freitas 108",
-        //            Telemovel="915551820",
-        //            Email="sarasiqueiraa@gmail.com",
-        //            CodigoPostal="3700-501",
-
-        //        },
-        //             new Clientes
-        //             {
-        //            //ClienteId=5,
-        //            Nome="Nelson Ramos",
-        //            DataNascimento=new DateTime(1945,07,10),
-        //            Nif="927822662",
-        //            Morada="R Indústria Porta 56",
-        //            Telemovel="929455563",
-        //            Email="nelsonramos@outlook.com",
-        //            CodigoPostal="3220-066",
-
-        //        },
-        //             new Clientes
-        //             {
-        //            //ClienteId=6,
-        //            Nome="Danilo Pires",
-        //            DataNascimento=new DateTime(1999,06,26),
-        //            Nif="925387029",
-        //            Morada="Rua Jorge Sena 99",
-        //            Telemovel="965559604",
-        //            Email="danilopires@live.com",
-        //            CodigoPostal="2650-499",
-        //        },
-
-        //             new Clientes
-        //             {
-        //            //ClienteId=7,
-        //            Nome="Mônica Torres",
-        //            DataNascimento=new DateTime(197,02,05),
-        //            Nif="922534195",
-        //            Morada="Avenida Guerra Junqueiro 114",
-        //            Telemovel="921555922",
-        //            Email="monicatorres@gmail.com",
-        //            CodigoPostal="2610-116",
-        //        },
-
-        //             new Clientes
-        //             {
-        //            //ClienteId=8,
-        //            Nome="Daniela Mata",
-        //            DataNascimento=new DateTime(1974,03,13),
-        //            Nif="925581543",
-        //            Morada="R Portela 64",
-        //            Telemovel="915551704",
-        //            Email="daielamata@gmail.com",
-        //            CodigoPostal="3550-171",
-        //        },
-
-        //             new Clientes
-        //             {
-        //            //ClienteId=9,
-        //            Nome="Virgílio Abreu",
-        //            DataNascimento=new DateTime(1987,04,16),
-        //            Nif="928360508",
-        //            Morada="R Padre João A L Ribeiro 88",
-        //            Telemovel="915559352",
-        //            Email="virgilio_abreu@outlook.com",
-        //            CodigoPostal="3440-376",
-        //        },
-
-        //             new Clientes
-        //             {
-        //            //ClienteId=10,
-        //            Nome="Martim Moniz",
-        //            DataNascimento=new DateTime(1984,08,15),
-        //            Nif="927251038",
-        //            Morada="R Poeta João Ruiz 90",
-        //            Telemovel="929455556",
-        //            Email="martim_moniz@live.com",
-        //            CodigoPostal="6230-691",
-        //        },
-        //    });
-        //    bd.SaveChanges();
-
-        //}
-        //-------------------PACOTES--------------------------
-        private static void InserePacotes(Projeto_Lab_WebContext bd)
+        private static void InsereServicosPacotes(Projeto_Lab_WebContext bd)
         {
-            if (bd.Pacotes.Any()) return;
+            if (bd.ServicosPacotes.Any()) return;
 
+            bd.ServicosPacotes.AddRange(new ServicosPacotes[] {
+                  new ServicosPacotes
+                     {
+                    PacoteId=1,
+                    ServicoId=13,
+                },
 
-            bd.Pacotes.AddRange(new Pacotes[] {
-                 new Pacotes
+                  new ServicosPacotes
                      {
-                    //PacoteId=1,
-                    Nome="M4o",
-                    Descricao="Telémovel , internet , televisão ",
-                    Preco=50,
+                    PacoteId=1,
+                    ServicoId=9,
                 },
-                   new Pacotes
+
+                  new ServicosPacotes
                      {
-                    //PacoteId=2,
-                    Nome="M3O",
-                    Descricao="Televisão e internet",
-                    Preco=25,
+                    PacoteId=1,
+                    ServicoId=17,
                 },
-                    new Pacotes
+
+                  new ServicosPacotes
                      {
-                    //PacoteId=3,
-                    Nome="Pré-Pago 25",
-                    Descricao="25 gbs para levares para todo o lado",
-                    Preco=25,
+                    PacoteId=1,
+                    ServicoId=11,
                 },
-                    new Pacotes
+
+                   new ServicosPacotes
                      {
-                    //PacoteId=4,
-                    Nome="MGaming",
-                    Descricao="A melhor internet para jogares juntamente com 15 canais só para ti.",
-                    Preco=45,
+                    PacoteId=1,
+                    ServicoId=15,
                 },
-                    new Pacotes
+
+                   new ServicosPacotes
                      {
-                    //PacoteId=5,
-                    Nome="TV premium + Mgaming",
-                    Descricao="Todos os Canais Desbloqueados com uma internet extremamente rápida para jogares",
-                    Preco=65,
+                    PacoteId=2,
+                    ServicoId=13,
                 },
+
+                   new ServicosPacotes
+                     {
+                    PacoteId=2,
+                    ServicoId=10,
+                },
+
+                   new ServicosPacotes
+                     {
+                    PacoteId=2,
+                    ServicoId=16,
+                },
+
             });
             bd.SaveChanges();
         }
 
-        //-------------------TIPOS DE SERVIÇOS--------------------------
-        private static void InsereTiposServicos(Projeto_Lab_WebContext bd)
-        {
-            if (bd.TiposServicos.Any()) return;
+            //-------------------CLIENTES--------------------------
+            private static void InsereClientes(Projeto_Lab_WebContext bd)
+            {
+                if (bd.Clientes.Any()) return;
+                bd.Clientes.AddRange(new Clientes[] {
+                  new Clientes
+                     {
+                    //ClienteId=1,
+                    Nome="Pedro Machado",
+                    DataNascimento=new DateTime(1971,07,14),
+                    Nif="922257185",
+                    Morada="Colónia Agrícola Casal 63",
+                    Telemovel="935559453",
+                    Email="pedromachado@gmail.com",
+                    CodigoPostal="3870-358",
 
 
-            bd.TiposServicos.AddRange(new Tipos_Sevicos[] {
+                },
+                   new Clientes
+                     {
+                    //ClienteId=2,
+                    Nome="Joaquim Mendez",
+                    DataNascimento=new DateTime(1987,12,24),
+                    Nif="920099457",
+                    Morada="R Indústria Porta 47",
+                    Telemovel="915556899",
+                    Email="joaquimmendez@outlook.com",
+                    CodigoPostal="3300-040",
+
+                },
+                    new Clientes
+                     {
+                    //ClienteId=3,
+                    Nome="Sandra Vieira",
+                    DataNascimento=new DateTime(1977,02,23),
+                    Nif="921359357",
+                    Morada="R Poeta João Ruiz 6",
+                    Telemovel="929355531",
+                    Email="sandravieira@gmail.com",
+                    CodigoPostal="6230-355",
+
+                },
+                     new Clientes
+                     {
+                    //ClienteId=4,
+                    Nome="Sara Siqueira",
+                    DataNascimento=new DateTime(1977,01,22),
+                    Nif="929388769",
+                    Morada="R Doutor Alfredo Freitas 108",
+                    Telemovel="915551820",
+                    Email="sarasiqueiraa@gmail.com",
+                    CodigoPostal="3700-501",
+
+                },
+                     new Clientes
+                     {
+                    //ClienteId=5,
+                    Nome="Nelson Ramos",
+                    DataNascimento=new DateTime(1945,07,10),
+                    Nif="927822662",
+                    Morada="R Indústria Porta 56",
+                    Telemovel="929455563",
+                    Email="nelsonramos@outlook.com",
+                    CodigoPostal="3220-066",
+
+                },
+                     new Clientes
+                     {
+                    //ClienteId=6,
+                    Nome="Danilo Pires",
+                    DataNascimento=new DateTime(1999,06,26),
+                    Nif="925387029",
+                    Morada="Rua Jorge Sena 99",
+                    Telemovel="965559604",
+                    Email="danilopires@live.com",
+                    CodigoPostal="2650-499",
+                },
+
+                     new Clientes
+                     {
+                    //ClienteId=7,
+                    Nome="Mônica Torres",
+                    DataNascimento=new DateTime(197,02,05),
+                    Nif="922534195",
+                    Morada="Avenida Guerra Junqueiro 114",
+                    Telemovel="921555922",
+                    Email="monicatorres@gmail.com",
+                    CodigoPostal="2610-116",
+                },
+
+                     new Clientes
+                     {
+                    //ClienteId=8,
+                    Nome="Daniela Mata",
+                    DataNascimento=new DateTime(1974,03,13),
+                    Nif="925581543",
+                    Morada="R Portela 64",
+                    Telemovel="915551704",
+                    Email="daielamata@gmail.com",
+                    CodigoPostal="3550-171",
+                },
+
+                     new Clientes
+                     {
+                    //ClienteId=9,
+                    Nome="Virgílio Abreu",
+                    DataNascimento=new DateTime(1987,04,16),
+                    Nif="928360508",
+                    Morada="R Padre João A L Ribeiro 88",
+                    Telemovel="915559352",
+                    Email="virgilio_abreu@outlook.com",
+                    CodigoPostal="3440-376",
+                },
+
+                     new Clientes
+                     {
+                    //ClienteId=10,
+                    Nome="Martim Moniz",
+                    DataNascimento=new DateTime(1984,08,15),
+                    Nif="927251038",
+                    Morada="R Poeta João Ruiz 90",
+                    Telemovel="929455556",
+                    Email="martim_moniz@live.com",
+                    CodigoPostal="6230-691",
+                },
+            });
+                bd.SaveChanges();
+
+            }
+            //-------------------PACOTES--------------------------
+            private static void InserePacotes(Projeto_Lab_WebContext bd)
+            {
+                if (bd.Pacotes.Any()) return;
+
+
+                bd.Pacotes.AddRange(new Pacotes[] {
+                 new Pacotes
+                     {
+                    //PacoteId=1,
+                    Nome="Pacote RD4",
+                    Descricao="O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade",
+                    Preco=55,
+                },
+                   new Pacotes
+                     {
+                    //PacoteId=2,
+                    Nome="Pacote RD3",
+                    Descricao="O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.",
+                    Preco=45,
+                },
+                    new Pacotes
+                     {
+                    //PacoteId=3,
+                    Nome="Pacote RD - Gaming",
+                    Descricao="A oferta Pacote RD - Gaming é ideal para",
+                    Preco=55,
+                },
+                    new Pacotes
+                     {
+                    //PacoteId=4,
+                    Nome="Pacote RD - TV Premium + gaming",
+                    Descricao="A oferta Pacote RD - TV Premium + gaming destacou-se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico  (canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.",
+                    Preco=65,
+                },
+                    new Pacotes
+                     {
+                    //PacoteId=5,
+                    Nome="RD TV e Voz",
+                    Descricao="Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão",
+                    Preco=25,
+                },
+
+                    new Pacotes
+                     {
+                    //PacoteId=5,
+                    Nome="RD Familiar",
+                    Descricao="Pacote ideal para os momentos de lazer em família.",
+                    Preco=45,
+                },
+
+            });
+                bd.SaveChanges();
+            }
+
+            //-------------------TIPOS DE SERVIÇOS--------------------------
+            private static void InsereTiposServicos(Projeto_Lab_WebContext bd)
+            {
+                if (bd.TiposServicos.Any()) return;
+
+
+                bd.TiposServicos.AddRange(new Tipos_Sevicos[] {
                       new Tipos_Sevicos
                      {
                    // TipoServicoId=1,
@@ -588,17 +656,17 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Nome="Internet Móvel",
                 },
             });
-         bd.SaveChanges();
-        }
+                bd.SaveChanges();
+            }
 
-        //-------------------TIPOS DE CLIENTES--------------------------
+            //-------------------TIPOS DE CLIENTES--------------------------
 
-        private static void InsereTiposClientes(Projeto_Lab_WebContext bd)
-        {
-            if (bd.Tipos_Clientes.Any()) return;
+            private static void InsereTiposClientes(Projeto_Lab_WebContext bd)
+            {
+                if (bd.Tipos_Clientes.Any()) return;
 
 
-            bd.Tipos_Clientes.AddRange(new Tipos_Clientes[] {
+                bd.Tipos_Clientes.AddRange(new Tipos_Clientes[] {
                      new Tipos_Clientes
                      {
                    // TipoClienteId=1,
@@ -608,16 +676,16 @@ namespace Projeto_Lab_Web_Grupo3.Data
                      {
                    // TipoClienteId=2,
                     Nome="Empresa",
-                },    
+                },
             });
-         bd.SaveChanges();
-        }
-        //---------------------------------PromocoesPacotes------------------------------
-        private static void InserePromocoesPacotes(Projeto_Lab_WebContext bd)
-        {
-            if(bd.PromocoesPacotes.Any()) return;
-            bd.PromocoesPacotes.AddRange(new PromocoesPacotes[]
+                bd.SaveChanges();
+            }
+            //---------------------------------PromocoesPacotes------------------------------
+            private static void InserePromocoesPacotes(Projeto_Lab_WebContext bd)
             {
+                if (bd.PromocoesPacotes.Any()) return;
+                bd.PromocoesPacotes.AddRange(new PromocoesPacotes[]
+                {
                 new PromocoesPacotes
                 {
                     PacoteId = 4,
@@ -662,221 +730,222 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 },
 
 
-            });
-            bd.SaveChanges();
-        }
+                });
+                bd.SaveChanges();
+            }
 
-//        private static void InsereContratos(Projeto_Lab_WebContext bd)
-//        {
-//            if (bd.Contratos.Any()) return;
-//            bd.Contratos.AddRange(new Contratos[] {
-//                    new Contratos
-//                {
-//                    //ContratoId=1,
-//                    ClienteId=1,
-//                    FuncionarioId=3,
-//                    DataInicio=new DateTime(2021,07,02),
-//                    PrecoFinal=61.01m,
-//                    DataFim=new DateTime(2023,07,02),
-//                    PromocoesPacotes=1,
-//                    PrecoPacote=65.00m,
-//                    PromocaoDesc=3.99m,
-//                    NomeCliente="Pedro Machado",
-//                    NomeFuncionario="Maria de Fátima",
-//                    Telefone=213695748,
-//                },
-//            new Contratos
-//                {
-//                    //ContratoId=2,
-//                    ClienteId=2,
-//                    FuncionarioId=5,
-//                    DataInicio=new DateTime(2021,07,03),
-//                    PrecoFinal=23.01m,
-//                    DataFim=new DateTime(2023,07,03),
-//                    PromocoesPacotes=3,
-//                    PrecoPacote=25.00m,
-//                    PromocaoDesc=1.99m,
-//                    NomeCliente="Joaquim Mendez",
-//                    NomeFuncionario="Justina Paulo",
-//                    Telefone=214569874,
-//                },
-//             new Contratos
-//                {
-//                    //ContratoId=3,
-//                    ClienteId=3,
-//                    FuncionarioId=7,
-//                    DataInicio=new DateTime(2021,07,02),
-//                    PrecoFinal=61.01m,
-//                    DataFim=new DateTime(2023,07,02),
-//                    PromocoesPacotes=1,
-//                    PrecoPacote=65.00m,
-//                    PromocaoDesc=3.99m,
-//                    NomeCliente="Sandra Vieira",
-//                    NomeFuncionario="Luís Madeira",
-//                    Telefone=215421367,
-//                },
-//             new Contratos
-//                {
-//                    //ContratoId=4,
-//                    ClienteId=4,
-//                    FuncionarioId=8,
-//                    DataInicio=new DateTime(2021,07,03),
-//                    PrecoFinal=42.41m,
-//                    DataFim=new DateTime(2023,07,03),
-//                    PromocoesPacotes=2,
-//                    PrecoPacote=45.00m,
-//                    PromocaoDesc=2.59m,
-//                    NomeCliente="Sara Siqueira",
-//                    NomeFuncionario="Paula Melo",
-//                    Telefone=219632541,
-//                },
-//             new Contratos
-//                {
-//                    //ContratoId=5,
-//                    ClienteId=5,
-//                    FuncionarioId=7,
-//                    DataInicio=new DateTime(2021,03,05),
-//                    PrecoFinal=60.01m,
-//                    DataFim=new DateTime(2023,03,05),
-//                    PromocoesPacotes=4,
-//                    PrecoPacote=65.00m,
-//                    PromocaoDesc=4.99m,
-//                    NomeCliente="Nelson Ramos",
-//                    NomeFuncionario="Luís Madeira",
-//                    Telefone=213564789,
-//                },
-//             new Contratos
-//                {
-//                    //ContratoId=6,
-//                    ClienteId=6,
-//                    FuncionarioId=7,
-//                    DataInicio=new DateTime(2021,03,25),
-//                    PrecoFinal=51.01m,
-//                    DataFim=new DateTime(2023,03,25),
-//                    PromocoesPacotes=5,
-//                    PrecoPacote=50.00m,
-//                    PromocaoDesc=3.99m,
-//                    NomeCliente="Danilo Pires",
-//                    NomeFuncionario="Luís Madeira",
-//                    Telefone=215632123,
-//                },
-//             new Contratos
-//                {
-//                    //ContratoId=7,
-//                    ClienteId=7,
-//                    FuncionarioId=6,
-//                    DataInicio=new DateTime(2021,04,01),
-//                    PrecoFinal=22.01m,
-//                    DataFim=new DateTime(2023,04,01),
-//                    PromocoesPacotes=6,
-//                    PrecoPacote=25.00m,
-//                    PromocaoDesc=2.99m,
-//                    NomeCliente="Mônica Torres",
-//                    NomeFuncionario="Inês Reis",
-//                    Telefone=213154689,
-//                },
-//             new Contratos
-//                {
-//                    //ContratoId=8,
-//                    ClienteId=8,
-//                    FuncionarioId=10,
-//                    DataInicio=new DateTime(2021,07,03),
-//                    PrecoFinal=42.41m,
-//                    DataFim=new DateTime(2023,07,03),
-//                    PromocoesPacotes=2,
-//                    PrecoPacote=45.00m,
-//                    PromocaoDesc=2.59m,
-//                    NomeCliente="Daniela Mata",
-//                    NomeFuncionario="Marta Machado",
-//                    Telefone=216335559,
-//                },
-//             new Contratos
-//                {
-//                    //ContratoId=9,
-//                    ClienteId=9,
-//                    FuncionarioId=1,
-//                    DataInicio=new DateTime(2021,08,01),
-//                    PrecoFinal=61.01m,
-//                    DataFim=new DateTime(2023,08,01),
-//                    PromocoesPacotes=1,
-//                    PrecoPacote=65.00m,
-//                    PromocaoDesc=3.99m,
-//                    NomeCliente="Virgílio Abreu",
-//                    NomeFuncionario="Nuno Forte",
-//                    Telefone=211145965,
-//                },
-//             new Contratos
-//                {
-//                    //ContratoId=10,
-//                    ClienteId=10,
-//                    FuncionarioId=3,
-//                    DataInicio=new DateTime(2021,08,04),
-//                    PrecoFinal=61.01m,
-//                    DataFim=new DateTime(2023,08,04),
-//                    PromocoesPacotes=1,
-//                    PrecoPacote=65.00m,
-//                    PromocaoDesc=3.99m,
-//                    NomeCliente="Martim Moniz",
-//                    NomeFuncionario="Maria de Fátima",
-//                    Telefone=215648565,
-//                },
-//});
-//            bd.SaveChanges();
-//        }
+            private static void InsereContratos(Projeto_Lab_WebContext bd)
+            {
+                if (bd.Contratos.Any()) return;
+                bd.Contratos.AddRange(new Contratos[] {
+                    new Contratos
+                {
+                    //ContratoId=1,
+                    ClienteId=1,
+                    FuncionarioId=3,
+                    DataInicio=new DateTime(2021,07,02),
+                    PrecoFinal=61.01m,
+                    DataFim=new DateTime(2023,07,02),
+                    PromocoesPacotes=1,
+                    PrecoPacote=65.00m,
+                    PromocaoDesc=3.99m,
+                    NomeCliente="Pedro Machado",
+                    NomeFuncionario="Maria de Fátima",
+                    Telefone=213695748,
+                },
+            new Contratos
+                {
+                    //ContratoId=2,
+                    ClienteId=2,
+                    FuncionarioId=5,
+                    DataInicio=new DateTime(2021,07,03),
+                    PrecoFinal=23.01m,
+                    DataFim=new DateTime(2023,07,03),
+                    PromocoesPacotes=3,
+                    PrecoPacote=25.00m,
+                    PromocaoDesc=1.99m,
+                    NomeCliente="Joaquim Mendez",
+                    NomeFuncionario="Justina Paulo",
+                    Telefone=214569874,
+                },
+             new Contratos
+                {
+                    //ContratoId=3,
+                    ClienteId=3,
+                    FuncionarioId=7,
+                    DataInicio=new DateTime(2021,07,02),
+                    PrecoFinal=61.01m,
+                    DataFim=new DateTime(2023,07,02),
+                    PromocoesPacotes=1,
+                    PrecoPacote=65.00m,
+                    PromocaoDesc=3.99m,
+                    NomeCliente="Sandra Vieira",
+                    NomeFuncionario="Luís Madeira",
+                    Telefone=215421367,
+                },
+             new Contratos
+                {
+                    //ContratoId=4,
+                    ClienteId=4,
+                    FuncionarioId=8,
+                    DataInicio=new DateTime(2021,07,03),
+                    PrecoFinal=42.41m,
+                    DataFim=new DateTime(2023,07,03),
+                    PromocoesPacotes=2,
+                    PrecoPacote=45.00m,
+                    PromocaoDesc=2.59m,
+                    NomeCliente="Sara Siqueira",
+                    NomeFuncionario="Paula Melo",
+                    Telefone=219632541,
+                },
+             new Contratos
+                {
+                    //ContratoId=5,
+                    ClienteId=5,
+                    FuncionarioId=7,
+                    DataInicio=new DateTime(2021,03,05),
+                    PrecoFinal=60.01m,
+                    DataFim=new DateTime(2023,03,05),
+                    PromocoesPacotes=4,
+                    PrecoPacote=65.00m,
+                    PromocaoDesc=4.99m,
+                    NomeCliente="Nelson Ramos",
+                    NomeFuncionario="Luís Madeira",
+                    Telefone=213564789,
+                },
+             new Contratos
+                {
+                    //ContratoId=6,
+                    ClienteId=6,
+                    FuncionarioId=7,
+                    DataInicio=new DateTime(2021,03,25),
+                    PrecoFinal=51.01m,
+                    DataFim=new DateTime(2023,03,25),
+                    PromocoesPacotes=5,
+                    PrecoPacote=50.00m,
+                    PromocaoDesc=3.99m,
+                    NomeCliente="Danilo Pires",
+                    NomeFuncionario="Luís Madeira",
+                    Telefone=215632123,
+                },
+             new Contratos
+                {
+                    //ContratoId=7,
+                    ClienteId=7,
+                    FuncionarioId=6,
+                    DataInicio=new DateTime(2021,04,01),
+                    PrecoFinal=22.01m,
+                    DataFim=new DateTime(2023,04,01),
+                    PromocoesPacotes=6,
+                    PrecoPacote=25.00m,
+                    PromocaoDesc=2.99m,
+                    NomeCliente="Mônica Torres",
+                    NomeFuncionario="Inês Reis",
+                    Telefone=213154689,
+                },
+             new Contratos
+                {
+                    //ContratoId=8,
+                    ClienteId=8,
+                    FuncionarioId=10,
+                    DataInicio=new DateTime(2021,07,03),
+                    PrecoFinal=42.41m,
+                    DataFim=new DateTime(2023,07,03),
+                    PromocoesPacotes=2,
+                    PrecoPacote=45.00m,
+                    PromocaoDesc=2.59m,
+                    NomeCliente="Daniela Mata",
+                    NomeFuncionario="Marta Machado",
+                    Telefone=216335559,
+                },
+             new Contratos
+                {
+                    //ContratoId=9,
+                    ClienteId=9,
+                    FuncionarioId=1,
+                    DataInicio=new DateTime(2021,08,01),
+                    PrecoFinal=61.01m,
+                    DataFim=new DateTime(2023,08,01),
+                    PromocoesPacotes=1,
+                    PrecoPacote=65.00m,
+                    PromocaoDesc=3.99m,
+                    NomeCliente="Virgílio Abreu",
+                    NomeFuncionario="Nuno Forte",
+                    Telefone=211145965,
+                },
+             new Contratos
+                {
+                    //ContratoId=10,
+                    ClienteId=10,
+                    FuncionarioId=3,
+                    DataInicio=new DateTime(2021,08,04),
+                    PrecoFinal=61.01m,
+                    DataFim=new DateTime(2023,08,04),
+                    PromocoesPacotes=1,
+                    PrecoPacote=65.00m,
+                    PromocaoDesc=3.99m,
+                    NomeCliente="Martim Moniz",
+                    NomeFuncionario="Maria de Fátima",
+                    Telefone=215648565,
+                },
+          });
+                bd.SaveChanges();
+            }
 
             internal static async Task InsereUtilizadoresFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
-        {
-            IdentityUser cliente = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_CLIENTE_FICTICIO, "Secret123$");
-            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, cliente, ROLE_CLIENTE);
-
-            IdentityUser gestor = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "maria@ipg.pt", "Secret123$");
-            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, gestor, ROLE_OPERADOR);
-        }
-
-        //---------------------ADMINISTRADORES-----------------------
-
-        internal static async Task InsereRolesAsync(RoleManager<IdentityRole> gestorRoles)
-        {
-            await CriaRoleSeNecessario(gestorRoles, ROLE_ADIMINISTRADOR);
-            await CriaRoleSeNecessario(gestorRoles, ROLE_CLIENTE);
-            await CriaRoleSeNecessario(gestorRoles, ROLE_OPERADOR);
-            //await CriaRoleSeNecessario(gestorRoles, "PodeAlterarPrecoProdutos");
-        }
-
-        private static async Task CriaRoleSeNecessario(RoleManager<IdentityRole> gestorRoles, string funcao)
-        {
-            if (!await gestorRoles.RoleExistsAsync(funcao))
             {
-                IdentityRole role = new IdentityRole(funcao);
-                await gestorRoles.CreateAsync(role);
-            }
-        }
+                IdentityUser cliente = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_CLIENTE_FICTICIO, "Secret123$");
+                await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, cliente, ROLE_CLIENTE);
 
-        internal static async Task InsereAdministradorPadraoAsync(UserManager<IdentityUser> gestorUtilizadores)
-        {
-            IdentityUser utilizador = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_ADMIN_PADRAO, PASSWORD_UTILIZADOR_ADMIN_PADRAO);
-            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, utilizador, ROLE_ADIMINISTRADOR);
-        }
-
-        private static async Task AdicionaUtilizadorRoleSeNecessario(UserManager<IdentityUser> gestorUtilizadores, IdentityUser utilizador, string role)
-        {
-            if (!await gestorUtilizadores.IsInRoleAsync(utilizador, role))
-            {
-                await gestorUtilizadores.AddToRoleAsync(utilizador, role);
-            }
-        }
-
-        private static async Task<IdentityUser> CriaUtilizadorSeNaoExiste(UserManager<IdentityUser> gestorUtilizadores, string nomeUtilizador, string password)
-        {
-            IdentityUser utilizador = await gestorUtilizadores.FindByNameAsync(nomeUtilizador);
-
-            if (utilizador == null)
-            {
-                utilizador = new IdentityUser(nomeUtilizador);
-                await gestorUtilizadores.CreateAsync(utilizador, password);
+                IdentityUser gestor = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "maria@ipg.pt", "Secret123$");
+                await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, gestor, ROLE_OPERADOR);
             }
 
-            return utilizador;
+            //---------------------ADMINISTRADORES-----------------------
+
+            internal static async Task InsereRolesAsync(RoleManager<IdentityRole> gestorRoles)
+            {
+                await CriaRoleSeNecessario(gestorRoles, ROLE_ADIMINISTRADOR);
+                await CriaRoleSeNecessario(gestorRoles, ROLE_CLIENTE);
+                await CriaRoleSeNecessario(gestorRoles, ROLE_OPERADOR);
+                //await CriaRoleSeNecessario(gestorRoles, "PodeAlterarPrecoProdutos");
+            }
+
+            private static async Task CriaRoleSeNecessario(RoleManager<IdentityRole> gestorRoles, string funcao)
+            {
+                if (!await gestorRoles.RoleExistsAsync(funcao))
+                {
+                    IdentityRole role = new IdentityRole(funcao);
+                    await gestorRoles.CreateAsync(role);
+                }
+            }
+
+            internal static async Task InsereAdministradorPadraoAsync(UserManager<IdentityUser> gestorUtilizadores)
+            {
+                IdentityUser utilizador = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_ADMIN_PADRAO, PASSWORD_UTILIZADOR_ADMIN_PADRAO);
+                await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, utilizador, ROLE_ADIMINISTRADOR);
+            }
+
+            private static async Task AdicionaUtilizadorRoleSeNecessario(UserManager<IdentityUser> gestorUtilizadores, IdentityUser utilizador, string role)
+            {
+                if (!await gestorUtilizadores.IsInRoleAsync(utilizador, role))
+                {
+                    await gestorUtilizadores.AddToRoleAsync(utilizador, role);
+                }
+            }
+
+            private static async Task<IdentityUser> CriaUtilizadorSeNaoExiste(UserManager<IdentityUser> gestorUtilizadores, string nomeUtilizador, string password)
+            {
+                IdentityUser utilizador = await gestorUtilizadores.FindByNameAsync(nomeUtilizador);
+
+                if (utilizador == null)
+                {
+                    utilizador = new IdentityUser(nomeUtilizador);
+                    await gestorUtilizadores.CreateAsync(utilizador, password);
+                }
+
+                return utilizador;
+            }
         }
     }
-}
+
