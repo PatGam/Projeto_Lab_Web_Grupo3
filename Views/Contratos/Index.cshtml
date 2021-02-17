@@ -104,9 +104,9 @@
                                             @Html.DisplayFor(modelItem => item.PromocoesPacotesNavigation.NomePacote)
                                         </td>
                                         <td>
-                                            <a asp-action="Edit" asp-route-id="@item.ContratoId">Edit</a> |
-                                            <a asp-action="Details" asp-route-id="@item.ContratoId">Details</a> |
-                                            <a asp-action="Delete" asp-route-id="@item.ContratoId">Delete</a>
+                                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ContratoId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.ContratoId"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ContratoId"><i class="icon_close_alt2"></i></a>
                                         </td>
                                     </tr>
                                 }

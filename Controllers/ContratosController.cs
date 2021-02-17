@@ -12,17 +12,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 {
     public class ContratosController : Controller
     {
-        private readonly Projeto_Lab_WebContext _context;
+        private readonly Projeto_Lab_WebContext bd;
 
         public ContratosController(Projeto_Lab_WebContext context)
         {
-            _context = context;
+            bd = context;
         }
 
         // GET: Contratos
         public async Task<IActionResult> Index()
         {
-            var projeto_Lab_WebContext = _context.Contratos.Include(c => c.Cliente).Include(c => c.Funcionario).Include(c => c.PromocoesPacotesNavigation);
+            var projeto_Lab_WebContext = bd.Contratos.Include(c => c.Cliente).Include(c => c.Funcionario).Include(c => c.PromocoesPacotesNavigation);
             return View(await projeto_Lab_WebContext.ToListAsync());
         }
 
@@ -34,14 +34,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var contratos = await _context.Contratos
+            var contratos = await bd.Contratos
                 .Include(c => c.Cliente)
                 .Include(c => c.Funcionario)
                 .Include(c => c.PromocoesPacotesNavigation)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
             {
-                return NotFound();
+                return View("Inexistente") ;
             }
 
             return View(contratos);
@@ -50,9 +50,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Contratos/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "CodigoPostal");
-            ViewData["FuncionarioId"] = new SelectList(_context.Funcionarios, "FuncionarioId", "CodigoPostal");
-            ViewData["PromocoesPacotes"] = new SelectList(_context.PromocoesPacotes, "PromocoesPacotesId", "NomePacote");
+            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal");
+            ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal");
+            ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote");
             return View();
         }
 
@@ -63,16 +63,18 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ContratoId,ClienteId,FuncionarioId,DataInicio,PrecoFinal,DataFim,PromocoesPacotes,PrecoPacote,PromocaoDesc,NomeCliente,NomeFuncionario,Telefone")] Contratos contratos)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(contratos);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
+                ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
+                ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
+                return View(contratos);
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-            ViewData["PromocoesPacotes"] = new SelectList(_context.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
-            return View(contratos);
+            bd.Add(contratos);
+            await bd.SaveChangesAsync();
+
+            ViewBag.Mensagem = "Contrato adicionado com sucesso.";
+            return View("Sucesso");
         }
 
         // GET: Contratos/Edit/5
@@ -83,14 +85,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var contratos = await _context.Contratos.FindAsync(id);
+            var contratos = await bd.Contratos.FindAsync(id);
             if (contratos == null)
             {
-                return NotFound();
+                return View ("Inexistente");
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-            ViewData["PromocoesPacotes"] = new SelectList(_context.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
+            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
+            ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
+            ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
             return View(contratos);
         }
 
@@ -110,14 +112,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 try
                 {
-                    _context.Update(contratos);
-                    await _context.SaveChangesAsync();
+                    bd.Update(contratos);
+                    await bd.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ContratosExists(contratos.ContratoId))
                     {
-                        return NotFound();
+                        return View ("EliminarInserir");
                     }
                     else
                     {
@@ -126,10 +128,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-            ViewData["PromocoesPacotes"] = new SelectList(_context.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
-            return View(contratos);
+            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
+            ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
+            ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
+            return View("Sucesso");
         }
 
         // GET: Contratos/Delete/5
@@ -140,14 +142,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var contratos = await _context.Contratos
+            var contratos = await bd.Contratos
                 .Include(c => c.Cliente)
                 .Include(c => c.Funcionario)
                 .Include(c => c.PromocoesPacotesNavigation)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "O Contrato que estava a tentar apagar foi eliminado por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(contratos);
@@ -158,15 +161,16 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var contratos = await _context.Contratos.FindAsync(id);
-            _context.Contratos.Remove(contratos);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var contratos = await bd.Contratos.FindAsync(id);
+            bd.Contratos.Remove(contratos);
+            await bd.SaveChangesAsync();
+            ViewBag.Mensagem = "O Contrato foi eliminado com sucesso";
+            return View("Sucesso");
         }
 
         private bool ContratosExists(int id)
         {
-            return _context.Contratos.Any(e => e.ContratoId == id);
+            return bd.Contratos.Any(e => e.ContratoId == id);
         }
     }
 }

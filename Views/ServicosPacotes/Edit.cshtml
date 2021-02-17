@@ -1,7 +1,8 @@
 ﻿@model Projeto_Lab_Web_Grupo3.Models.ServicosPacotes
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
+    Layout = "_LayoutAdmin";
 }
 <body>
     <!-- container section start -->
@@ -15,7 +16,7 @@
                                 <h1>Editar</h1>
                             </header>
 
-                            <h4>ServicosPacotes</h4>
+
                             <hr />
                             <div class="row">
                                 <div class="col-md-4">
@@ -33,14 +34,14 @@
                                         </div>
                                         <input type="hidden" asp-for="SevicoPacoteId" />
                                         <div class="form-group">
-                                            <input type="submit" value="Save" class="btn btn-primary" />
+                                            <input type="submit" value="Guardar" class="btn btn-primary" />
                                         </div>
                                     </form>
                                 </div>
                             </div>
 
                             <div>
-                                <a asp-action="Index">Back to List</a>
+                                <a asp-action="Index">Voltar Atrás</a>
                             </div>
 
                             @section Scripts {

@@ -1,7 +1,8 @@
 ﻿@model Projeto_Lab_Web_Grupo3.Models.ServicosPacotes
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
+    Layout = "_LayoutAdmin";
 }
 
 <body>
@@ -17,7 +18,7 @@
                             </header>
 
                             <div>
-                                <h4>ServicosPacotes</h4>
+
                                 <hr />
                                 <dl class="row">
                                     <dt class="col-sm-2">
@@ -35,8 +36,8 @@
                                 </dl>
                             </div>
                             <div>
-                                <a asp-action="Edit" asp-route-id="@Model.SevicoPacoteId">Edit</a> |
-                                <a asp-action="Index">Back to List</a>
+                                <a asp-action="Edit" asp-route-id="@Model.SevicoPacoteId">Editar</a> |
+                                <a asp-action="Index">Voltar Atrás</a>
                             </div>
                         </section>
                     </div>

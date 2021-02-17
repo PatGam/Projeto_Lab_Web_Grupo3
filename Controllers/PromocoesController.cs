@@ -12,17 +12,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 {
     public class PromocoesController : Controller
     {
-        private readonly Projeto_Lab_WebContext _context;
+        private readonly Projeto_Lab_WebContext bd;
 
         public PromocoesController(Projeto_Lab_WebContext context)
         {
-            _context = context;
+            bd = context;
         }
 
         // GET: Promocoes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Promocoes.ToListAsync());
+            return View(await bd.Promocoes.ToListAsync());
         }
 
         // GET: Promocoes/Details/5
@@ -33,11 +33,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var promocoes = await _context.Promocoes
+            var promocoes = await bd.Promocoes
                 .FirstOrDefaultAsync(m => m.PromocoesId == id);
             if (promocoes == null)
             {
-                return NotFound();
+                return View ("Inexistente");
             }
 
             return View(promocoes);
@@ -56,13 +56,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PromocoesId,Nome,Descricao,DataInicio,DataFim,PromocaoDesc")] Promocoes promocoes)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(promocoes);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                return View(promocoes);
             }
-            return View(promocoes);
+            bd.Add(promocoes);
+            await bd.SaveChangesAsync();
+            ViewBag.Mensagem = "Promoção adicionada com sucesso.";
+            return View("Sucesso");
         }
 
         // GET: Promocoes/Edit/5
@@ -73,10 +75,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var promocoes = await _context.Promocoes.FindAsync(id);
+            var promocoes = await bd.Promocoes.FindAsync(id);
             if (promocoes == null)
             {
-                return NotFound();
+                return View ("Inexistente");
             }
             return View(promocoes);
         }
@@ -97,23 +99,24 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 try
                 {
-                    _context.Update(promocoes);
-                    await _context.SaveChangesAsync();
+                    bd.Update(promocoes);
+                    await bd.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!PromocoesExists(promocoes.PromocoesId))
                     {
-                        return NotFound();
+                        return View ("EliminarInserir");
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                
             }
-            return View(promocoes);
+            ViewBag.Mensagem = "Promoção alterada com sucesso";
+            return View("Sucesso");
         }
 
         // GET: Promocoes/Delete/5
@@ -124,11 +127,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var promocoes = await _context.Promocoes
+            var promocoes = await bd.Promocoes
                 .FirstOrDefaultAsync(m => m.PromocoesId == id);
             if (promocoes == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "A Promoção que estava a tentar apagar foi eliminada por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(promocoes);
@@ -139,15 +143,16 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var promocoes = await _context.Promocoes.FindAsync(id);
-            _context.Promocoes.Remove(promocoes);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var promocoes = await bd.Promocoes.FindAsync(id);
+            bd.Promocoes.Remove(promocoes);
+            await bd.SaveChangesAsync();
+            ViewBag.Mensagem = "A Promoção foi eliminada com sucesso";
+            return View("Sucesso");
         }
 
         private bool PromocoesExists(int id)
         {
-            return _context.Promocoes.Any(e => e.PromocoesId == id);
+            return bd.Promocoes.Any(e => e.PromocoesId == id);
         }
     }
 }

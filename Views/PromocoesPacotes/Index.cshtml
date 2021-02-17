@@ -2,12 +2,13 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_LayoutAdmin";
 }
 
-<h1>Index</h1>
+
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Nova</a>
 </p>
 <table class="table">
     <thead>
@@ -43,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Promocoes.Nome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PromocoesPacotesId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PromocoesPacotesId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PromocoesPacotesId">Delete</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PromocoesPacotesId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>|
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.PromocoesPacotesId"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PromocoesPacotesId"><i class="icon_close_alt2"></i></a>
             </td>
         </tr>
 }

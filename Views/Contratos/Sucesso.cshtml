@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Inexistente";
+    ViewData["Title"] = "Sucesso";
     Layout = "_LayoutAdmin";
 }
 <body>
@@ -12,16 +12,16 @@
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                @*<h1>Editar</h1>*@
+                              
                             </header>
-                            <div class="card text-white bg-warning mb-3">
+                            <div class="card text-white bg-success mb-3">
                                 <div class="card-body">
                                     <h5 class="card-title">@ViewBag.Title</h5>
-                                    <p class="card-text">O Pacote que selecionou já não existe.</p>
+                                    <p class="card-text">@ViewBag.Mensagem</p>
 
                                     <div>
                                         <a class="btn btn-primary" asp-action="Index">
-                                            Voltar aos Pacotes
+                                            Voltar aos Contratos.
                                         </a>
                                     </div>
                                 </div>
