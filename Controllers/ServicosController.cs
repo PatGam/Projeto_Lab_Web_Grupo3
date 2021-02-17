@@ -28,6 +28,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 PaginaAtual = pagina
             };
             List<Servicos> servicos = await bd.Servicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+              //.Include(p => p.TipoServicoId)
               .OrderBy(p => p.Nome)
               .Skip(paginacao.ItemsPorPagina * (pagina - 1))
               .Take(paginacao.ItemsPorPagina)
@@ -49,7 +50,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicos = await bd.Servicos
+            var servicos = await bd.Servicos.Include(p => p.TipoServicoId)
                 .SingleOrDefaultAsync(m => m.ServicoId == id);
             if (servicos == null)
             {
@@ -62,6 +63,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Servicos/Create
         public IActionResult Create()
         {
+            ViewData["TipoServicoId"] = new SelectList(bd.TiposServicos, "TipoServicoId", "Nome");
             return View();
         }
 
@@ -70,10 +72,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServicoId,Nome,Descricao,TipoServico")] Servicos servicos)
+        public async Task<IActionResult> Create([Bind("ServicoId,Nome,Descricao,TipoServicoId")] Servicos servicos)
         {
             if (!ModelState.IsValid)
             {
+                ViewData["TipoServicoId"] = new SelectList(bd.TiposServicos, "TipoServicoId", "Nome");
                 return View(servicos);
              
                
@@ -98,6 +101,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 return View ("Inexistente");
             }
+
+            ViewData["TipoServicoId"] = new SelectList(bd.TiposServicos, "TipoServicoId", "Nome");
             return View(servicos);
         }
 
@@ -106,7 +111,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,Descricao,TipoServico")] Servicos servicos)
+        public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,Descricao,TipoServicoId")] Servicos servicos)
         {
             if (id != servicos.ServicoId)
             {
