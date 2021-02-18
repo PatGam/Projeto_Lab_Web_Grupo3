@@ -72,6 +72,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TipoClienteId,Nome")] Tipos_Clientes tipos_Clientes)
         {
+            bool IsTypeServiceNameExist = bd.Tipos_Clientes.Any
+         (x => x.Nome == tipos_Clientes.Nome && x.TipoClienteId != tipos_Clientes.TipoClienteId);
+            if (IsTypeServiceNameExist == true)
+            {
+                ModelState.AddModelError("Nome", "Tipo de Cliente já existe");
+            }
+
             if (ModelState.IsValid)
             {
                 bd.Add(tipos_Clientes);
@@ -104,6 +111,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("TipoClienteId,Nome")] Tipos_Clientes tipos_Clientes)
         {
+            bool IsTypeServiceNameExist = bd.Tipos_Clientes.Any
+         (x => x.Nome == tipos_Clientes.Nome && x.TipoClienteId != tipos_Clientes.TipoClienteId);
+            if (IsTypeServiceNameExist == true)
+            {
+                ModelState.AddModelError("Nome", "Tipo de Cliente já existe");
+            }
+
             if (id != tipos_Clientes.TipoClienteId)
             {
                 return NotFound();
