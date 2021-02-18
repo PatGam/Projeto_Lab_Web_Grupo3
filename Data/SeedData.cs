@@ -25,16 +25,16 @@ namespace Projeto_Lab_Web_Grupo3.Data
         internal static void PreencheDados(Projeto_Lab_WebContext bd)
         {
             InserePromocoes(bd);
+            InsereTiposServicos(bd);
             InsereServicos(bd);
             //InsereFuncionarios(bd);
+            InsereTiposClientes(bd);
             //InsereClientes(bd);
             InserePacotes(bd);
             InsereRoles(bd);
-            InsereServicosPacotes(bd);
-            InsereTiposServicos(bd);
-            InsereTiposClientes(bd);
+            //InsereServicosPacotes(bd);
             //Insere(bd);
-            InserePromocoesPacotes(bd);
+            //InserePromocoesPacotes(bd);
             //InsereContratos(bd);
         }
 

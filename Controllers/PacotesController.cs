@@ -51,6 +51,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             var pacotes = await bd.Pacotes
                 .SingleOrDefaultAsync(m => m.PacoteId == id);
+            var servicos = await bd.ServicosPacotes.Where(s => s.PacoteId == id)
+                .Include(s => s.Servico)
+                .ToListAsync();
+
             if (pacotes == null)
             {
                 return View ("Inexistente");
