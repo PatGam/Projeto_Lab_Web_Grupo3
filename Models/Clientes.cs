@@ -22,10 +22,10 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Required]
         [StringLength(100)]
         public string Nome { get; set; }
-
+        [Display(Name ="Data de Nascimento")]
         [Column("Data_Nascimento", TypeName = "date")]
         public DateTime DataNascimento { get; set; }
-
+        [Display(Name ="NIF")]
         [Column("NIF")]
         [StringLength(9, MinimumLength = 9)]
         public string Nif { get; set; }
@@ -33,7 +33,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Required]
         [StringLength(200)]
         public string Morada { get; set; }
-
+        [Display(Name = "Telemóvel")]
         [RegularExpression(@"9[1236]|\d{2})\d{7}", ErrorMessage = "Telefone Inválido")]
         [StringLength(9, MinimumLength = 9)]
         public string Telemovel { get; set; }
@@ -43,6 +43,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name ="Código Postal")]
         [Column("Codigo_Postal")]
         [RegularExpression(@"(\d{4})[-](\d{3})", ErrorMessage = "Código Postal Inválido")]
         [StringLength(8, MinimumLength = 8)]
