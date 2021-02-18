@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Projeto_Lab_Web_Grupo3.Models
 {
@@ -15,6 +16,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Required]
         [StringLength(50)]
         [Display(Name = "Tipo de cliente")]
+        [Remote("IsTypeClientNameExist", "Tipos_Clientes", AdditionalFields = "TipoClienteId",
+                ErrorMessage = "Tipo de Cliente já existe")]
         public string Nome { get; set; }
 
         public ICollection<Clientes>Clientes  { get; set; }

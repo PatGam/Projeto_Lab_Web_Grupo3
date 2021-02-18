@@ -74,6 +74,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TipoServicoId,Nome")] Tipos_Sevicos tipos_Sevicos)
         {
+            bool IsTypeServiceNameExist = _context.TiposServicos.Any
+         (x => x.Nome == tipos_Sevicos.Nome && x.TipoServicoId != tipos_Sevicos.TipoServicoId);
+            if (IsTypeServiceNameExist == true)
+            {
+                ModelState.AddModelError("Nome", "Tipo de Serviço já existe");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View(tipos_Sevicos);
@@ -108,6 +115,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("TipoServicoId,Nome")] Tipos_Sevicos tipos_Sevicos)
         {
+            bool IsTypeServiceNameExist = _context.TiposServicos.Any
+         (x => x.Nome == tipos_Sevicos.Nome && x.TipoServicoId != tipos_Sevicos.TipoServicoId);
+            if (IsTypeServiceNameExist == true)
+            {
+                ModelState.AddModelError("Nome", "Tipo de Serviço já existe");
+            }
+
             if (id != tipos_Sevicos.TipoServicoId)
             {
                 return NotFound();
