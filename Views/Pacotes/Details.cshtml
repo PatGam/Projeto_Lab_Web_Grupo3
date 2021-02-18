@@ -1,4 +1,4 @@
-@model Projeto_Lab_Web_Grupo3.Models.Pacotes
+@model ServicosPacotesViewModel
 
 @{
     Layout = "_LayoutAdmin";
@@ -17,38 +17,36 @@
                     <hr />
                     <dl class="row">
                         <dt class="col-sm-2">
-                            @Html.DisplayNameFor(model => model.Nome)
+                            @Html.DisplayNameFor(model => model.Pacotes[0].Nome)
                         </dt>
                         <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.Nome)
+                            @Html.DisplayFor(model => model.Pacotes[0].Nome)
                         </dd>
                         <dt class="col-sm-2">
-                            @Html.DisplayNameFor(model => model.Descricao)
+                            @Html.DisplayNameFor(model => model.Pacotes[0].Descricao)
                         </dt>
                         <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.Descricao)
+                            @Html.DisplayFor(model => model.Pacotes[0].Descricao)
                         </dd>
                         <dt class="col-sm-2">
-                            @Html.DisplayNameFor(model => model.Preco)
+                            @Html.DisplayNameFor(model => model.Pacotes[0].Preco)
                         </dt>
                         <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.Preco)
+                            @Html.DisplayFor(model => model.Pacotes[0].Preco)
                         </dd>
                         <dt class="col-sm-2">
-                            @Html.DisplayNameFor(model => model.ServicosPacotes)
+                            @Html.DisplayNameFor(model => model.Pacotes[0].ServicosPacotes)
                         </dt>
                         <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.ServicosPacotes)
+                            @Html.DisplayFor(model => model.Pacotes[0].ServicosPacotes)
                         </dd>
                     </dl>
                 </div>
                 <div>
-                    <a asp-action="Edit" asp-route-id="@Model.PacoteId">Editar</a> |
+                    <a asp-action="Edit" asp-route-id="@Model.Pacotes[0].PacoteId">Editar</a> |
                     <a asp-action="Index">Voltar Atrás</a>
                 </div>
             </div>
-
-
         </section>
     </section>
 </section>
