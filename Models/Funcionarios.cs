@@ -49,6 +49,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [StringLength(8, MinimumLength = 8)]
         [Display(Name = "Código Postal")]
         public string CodigoPostal { get; set; }
+
         [Required(ErrorMessage = "Especifique o cargo do funcionário")]
         [StringLength(20)]
         [Display(Name = "Cargo")]
@@ -58,9 +59,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [InverseProperty("Funcionario")]
         public virtual ICollection<Contratos> Contratos { get; set; }
 
-        [Display(Name = "Cargo")]
-        public int RolesId { get; set; }
-        public string Roles_Nome { get; set; }
-        public Roles Roles { get; set; }
+        //    [Display(Name = "Cargo")]
+        //    public int RolesId { get; set; }
+        //    public string Roles_Nome { get; set; }
+        //    public Roles Roles { get; set; }
     }
 }

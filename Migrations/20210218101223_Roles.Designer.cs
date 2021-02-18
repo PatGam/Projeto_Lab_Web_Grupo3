@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projeto_Lab_Web_Grupo3.Data;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    partial class Projeto_Lab_WebContextModelSnapshot : ModelSnapshot
+    [Migration("20210218101223_Roles")]
+    partial class Roles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,13 +173,11 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
-
-                    b.Property<int?>("RolesId")
+                    b.Property<int>("RolesId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Roles_Nome")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Telemovel")
                         .HasColumnType("int");
@@ -423,9 +423,12 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Funcionarios", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Roles", null)
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Roles", "Roles")
                         .WithMany("Funcionarios")
-                        .HasForeignKey("RolesId");
+                        .HasForeignKey("RolesId")
+                        .HasConstraintName("FK_Funcionarios_Roles")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", b =>

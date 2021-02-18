@@ -20,8 +20,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
         private const string ROLE_CLIENTE = "Cliente";
         private const string ROLE_OPERADOR = "Operador";
 
-
-
         internal static void PreencheDados(Projeto_Lab_WebContext bd)
         {
             InserePromocoes(bd);
