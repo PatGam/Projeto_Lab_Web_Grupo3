@@ -64,9 +64,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Contratos/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal");
-            ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal");
-            ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote");
+
+            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "Nome");
+            ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "Nome");
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+
             return View();
         }
 
@@ -75,15 +78,25 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId,FuncionarioId,DataInicio,PrecoFinal,DataFim,PromocoesPacotes,PrecoPacote,PromocaoDesc,NomeCliente,NomeFuncionario,Telefone")] Contratos contratos)
+        public async Task<IActionResult> Create(ContratosViewModel infoContratos)
         {
             if (!ModelState.IsValid)
             {
-                ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
-                ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-                ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
-                return View(contratos);
+                return View(infoContratos);
             }
+
+            var funcionario = bd.Funcionarios.SingleOrDefault(c => c.Email == User.Identity.Name);
+            var funcionarioEmail = bd.Funcionarios.SingleOrDefault(d => d.Email == funcionario.Email);
+            var funcionarioId = funcionarioEmail.FuncionarioId;
+
+            infoContratos.FuncionarioId = funcionarioId;
+
+            Contratos contratos = new Contratos
+            {
+                DataInicio = infoContratos.DataInicio,
+                DataFim = infoContratos.DataFim,
+            };
+
             bd.Add(contratos);
             await bd.SaveChangesAsync();
 

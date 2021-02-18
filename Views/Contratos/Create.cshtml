@@ -1,4 +1,4 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Contratos
+﻿@model ContratosViewModel
 
 @{
     Layout = "_LayoutAdmin";
@@ -17,13 +17,14 @@
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group">
-                            <label asp-for="ClienteId" class="control-label"></label>
+                            @*<label asp-for="ClienteId" class="control-label"></label>*@
+                            Nome do Cliente
                             <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="FuncionarioId" class="control-label"></label>
-                            <select asp-for="FuncionarioId" class="form-control" asp-items="ViewBag.FuncionarioId"></select>
-                        </div>
+                        @*<div class="form-group">
+            <label asp-for="FuncionarioId" class="control-label"></label>
+            <select asp-for="FuncionarioId" class="form-control" asp-items="ViewBag.FuncionarioId"></select>
+        </div>*@
                         <div class="form-group">
                             <label asp-for="DataInicio" class="control-label"></label>
                             <input asp-for="DataInicio" class="form-control" />
@@ -40,29 +41,33 @@
                             <span asp-validation-for="DataFim" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="PromocoesPacotes" class="control-label"></label>
-                            <select asp-for="PromocoesPacotes" class="form-control" asp-items="ViewBag.PromocoesPacotes"></select>
+                            <label asp-for="PacoteId" class="control-label"></label>
+                            <select asp-for="PacoteId" class="form-control" asp-items="ViewBag.PacoteId"></select>
                         </div>
                         <div class="form-group">
-                            <label asp-for="PrecoPacote" class="control-label"></label>
-                            <input asp-for="PrecoPacote" class="form-control" />
-                            <span asp-validation-for="PrecoPacote" class="text-danger"></span>
+                            <label asp-for="PromocoesId" class="control-label"></label>
+                            <select asp-for="PromocoesId" class="form-control" asp-items="ViewBag.PromocoesId"></select>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="PromocaoDesc" class="control-label"></label>
-                            <input asp-for="PromocaoDesc" class="form-control" />
-                            <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="NomeCliente" class="control-label"></label>
-                            <input asp-for="NomeCliente" class="form-control" />
-                            <span asp-validation-for="NomeCliente" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="NomeFuncionario" class="control-label"></label>
-                            <input asp-for="NomeFuncionario" class="form-control" />
-                            <span asp-validation-for="NomeFuncionario" class="text-danger"></span>
-                        </div>
+                                    @*<div class="form-group">
+                        <label asp-for="PrecoPacote" class="control-label"></label>
+                        <input asp-for="PrecoPacote" class="form-control" />
+                        <span asp-validation-for="PrecoPacote" class="text-danger"></span>
+                    </div>*@
+                                    @*<div class="form-group">
+                        <label asp-for="PromocaoDesc" class="control-label"></label>
+                        <input asp-for="PromocaoDesc" class="form-control" />
+                        <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
+                    </div>*@
+                                    @*<div class="form-group">
+                        <label asp-for="NomeCliente" class="control-label"></label>
+                        <input asp-for="NomeCliente" class="form-control" />
+                        <span asp-validation-for="NomeCliente" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NomeFuncionario" class="control-label"></label>
+                        <input asp-for="NomeFuncionario" class="form-control" />
+                        <span asp-validation-for="NomeFuncionario" class="text-danger"></span>
+                    </div>*@
                         <div class="form-group">
                             <label asp-for="Telefone" class="control-label"></label>
                             <input asp-for="Telefone" class="form-control" />

@@ -27,7 +27,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InsereServicos(bd);
             //InsereFuncionarios(bd);
             InsereTiposClientes(bd);
-            //InsereClientes(bd);
+            InsereClientes(bd);
             InserePacotes(bd);
             InsereRoles(bd);
             //InsereServicosPacotes(bd);
@@ -452,6 +452,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="935559453",
                     Email="pedromachado@gmail.com",
                     CodigoPostal="3870-358",
+                    TipoClienteId = 2,
 
 
                 },
@@ -465,6 +466,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="915556899",
                     Email="joaquimmendez@outlook.com",
                     CodigoPostal="3300-040",
+                    TipoClienteId = 2,
 
                 },
                     new Clientes
@@ -477,6 +479,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="929355531",
                     Email="sandravieira@gmail.com",
                     CodigoPostal="6230-355",
+                    TipoClienteId = 2,
 
                 },
                      new Clientes
@@ -489,6 +492,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="915551820",
                     Email="sarasiqueiraa@gmail.com",
                     CodigoPostal="3700-501",
+                    TipoClienteId = 2,
 
                 },
                      new Clientes
@@ -501,6 +505,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="929455563",
                     Email="nelsonramos@outlook.com",
                     CodigoPostal="3220-066",
+                    TipoClienteId = 2,
 
                 },
                      new Clientes
@@ -513,6 +518,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="965559604",
                     Email="danilopires@live.com",
                     CodigoPostal="2650-499",
+                    TipoClienteId = 2,
                 },
 
                      new Clientes
@@ -525,6 +531,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="921555922",
                     Email="monicatorres@gmail.com",
                     CodigoPostal="2610-116",
+                    TipoClienteId = 2,
                 },
 
                      new Clientes
@@ -537,6 +544,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="915551704",
                     Email="daielamata@gmail.com",
                     CodigoPostal="3550-171",
+                    TipoClienteId = 2,
                 },
 
                      new Clientes
@@ -549,6 +557,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="915559352",
                     Email="virgilio_abreu@outlook.com",
                     CodigoPostal="3440-376",
+                    TipoClienteId = 2,
                 },
 
                      new Clientes
@@ -561,6 +570,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     Telemovel="929455556",
                     Email="martim_moniz@live.com",
                     CodigoPostal="6230-691",
+                    TipoClienteId = 2,
                 },
             });
                 bd.SaveChanges();
