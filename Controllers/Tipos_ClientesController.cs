@@ -53,7 +53,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.TipoClienteId == id);
             if (tipos_Clientes == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
 
             return View(tipos_Clientes);
@@ -79,13 +79,16 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 ModelState.AddModelError("Nome", "Tipo de Cliente já existe");
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                bd.Add(tipos_Clientes);
-                await bd.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                return View(tipos_Clientes);
             }
-            return View(tipos_Clientes);
+            bd.Add(tipos_Clientes);
+            await bd.SaveChangesAsync();
+            ViewBag.Mensagem = "Dados adicionados com sucesso.";
+            return View("Sucesso");
+
         }
 
         // GET: Tipos_Clientes/Edit/5
@@ -99,7 +102,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var tipos_Clientes = await bd.Tipos_Clientes.FindAsync(id);
             if (tipos_Clientes == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             return View(tipos_Clientes);
         }
@@ -134,16 +137,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 {
                     if (!Tipos_ClientesExists(tipos_Clientes.TipoClienteId))
                     {
-                        return NotFound();
+                        return View("EliminarInserir");
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+
             }
-            return View(tipos_Clientes);
+            ViewBag.Mensagem = "Dados alterados com sucesso";
+            return View("Sucesso");
         }
 
         // GET: Tipos_Clientes/Delete/5
@@ -158,7 +162,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.TipoClienteId == id);
             if (tipos_Clientes == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "Os dados que estava a tentar apagar foram eliminados por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(tipos_Clientes);
@@ -172,7 +177,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var tipos_Clientes = await bd.Tipos_Clientes.FindAsync(id);
             bd.Tipos_Clientes.Remove(tipos_Clientes);
             await bd.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Mensagem = "Dados eliminados com sucesso";
+            return View("Sucesso");
         }
 
         private bool Tipos_ClientesExists(int id)

@@ -57,7 +57,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.SevicoPacoteId == id);
             if (servicosPacotes == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
 
             return View(servicosPacotes);
@@ -78,15 +78,19 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ServicoId,PacoteId,SevicoPacoteId")] ServicosPacotes servicosPacotes)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                bd.Add(servicosPacotes);
-                await bd.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View(servicosPacotes);
+
+
             }
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
             ViewData["ServicoId"] = new SelectList(bd.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
-            return View(servicosPacotes);
+            bd.Add(servicosPacotes);
+            await bd.SaveChangesAsync();
+            ViewBag.Mensagem = "Os dados foram adicionados com sucesso.";
+            return View("Sucesso");
+
         }
 
         // GET: ServicosPacotes/Edit/5
@@ -100,7 +104,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var servicosPacotes = await bd.ServicosPacotes.FindAsync(id);
             if (servicosPacotes == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
             ViewData["ServicoId"] = new SelectList(bd.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
@@ -130,14 +134,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 {
                     if (!ServicosPacotesExists(servicosPacotes.SevicoPacoteId))
                     {
-                        return NotFound();
+                        return View("EliminarInserir");
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                ViewBag.Mensagem = "Dados alterados com sucesso";
+                return View("Sucesso");
             }
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome", servicosPacotes.PacoteId);
             ViewData["ServicoId"] = new SelectList(bd.Servicos, "ServicoId", "Nome", servicosPacotes.ServicoId);
@@ -158,7 +163,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.SevicoPacoteId == id);
             if (servicosPacotes == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "Os dados que estava a tentar apagar foram eliminados por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(servicosPacotes);
@@ -172,7 +178,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var servicosPacotes = await bd.ServicosPacotes.FindAsync(id);
             bd.ServicosPacotes.Remove(servicosPacotes);
             await bd.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Mensagem = "Os dados foram eliminados com sucesso";
+            return View("Sucesso");
         }
 
         private bool ServicosPacotesExists(int id)
