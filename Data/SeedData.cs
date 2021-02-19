@@ -286,7 +286,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GaranteExistenciaServico(bd, "Internet móvel 500MB", "Ativa no teu smartphone, a qualquer hora e em qualquer lugar 500 MB de dados", 5);
             GaranteExistenciaServico(bd, "Internet móvel 1GB", "Ativa no teu smartphone, a qualquer hora e em qualquer lugar 1 GB de dados", 5);
         }
-        private static void GaranteExistenciaServico(Projeto_Lab_WebContext bd, string nome , string descricao, int tiposervicoId)
+        private static Servicos GaranteExistenciaServico(Projeto_Lab_WebContext bd, string nome , string descricao, int tiposervicoId)
         {
             Servicos servicos = bd.Servicos.FirstOrDefault(c => c.Nome == nome);
             if (servicos == null)
@@ -295,6 +295,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 bd.Servicos.Add(servicos);
                 bd.SaveChanges();
             }
+            return servicos;
         }
 
         //if (bd.Servicos.Any()) return;
@@ -410,53 +411,78 @@ namespace Projeto_Lab_Web_Grupo3.Data
         {
             if (bd.ServicosPacotes.Any()) return;
 
+           
+            var pacoteRD4 = GarantePacotes(bd, "Pacote RD4", 55, "O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade");
+            var pacoteRD3 = GarantePacotes(bd, "Pacote RD3", 45, "O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.");
+            var pacoteRDGaming = GarantePacotes(bd, "Pacote RD - Gaming", 55, "A oferta Pacote RD - Gaming é ideal para");
+            var pacoteRDGPremium = GarantePacotes(bd, "Pacote RD - TV Premium + gaming", 65, "A oferta Pacote RD - TV Premium + gaming destacou - se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico(canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.");
+            var pacoteTvVoz = GarantePacotes(bd, "RD TV e Voz", 25, "Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão");      
+            var pacoteRDFamiliar = GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.");
+
+            var fibra = GaranteExistenciaServico(bd, "Canais Fibra", "Temos vários Pacotes á sua escolha", 3);
+            var tlm = GaranteExistenciaServico(bd, "Telémovel Pré-Pago e Pós-Pago", "Temos vários Pacotes á sua escolha", 4);
+            var internetfixa = GaranteExistenciaServico(bd, "Internet Fixa", "A melhor internet para si , disponível em varios pacotes.", 5);
+            var internetmovel = GaranteExistenciaServico(bd, "Internet Móvel", "Vários Pacotes com vários plafonds para ti", 5);
+            var internet100 = GaranteExistenciaServico(bd, "Internet 100/100mbps", "A velocidade da internet é medida e certificada no dia da instalação.", 5);
+            var internet400 = GaranteExistenciaServico(bd, "Internet 1.000/400 Mbps", "Somos a única operadora a nível mundial com uma rede própria de circuitos de internet internacionais, garantindo sempre a largura de banda necessária.", 5);
+            var tlm500 = GaranteExistenciaServico(bd, "1 cartão, 500 minutos + 500 SMS por cartão", "Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.", 4);
+            var tlm3500 = GaranteExistenciaServico(bd, "1 cartão, 3.500 minutos + 3.500 SMS", "Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.", 4);
+            var TV150 = GaranteExistenciaServico(bd, "Pack standard 150 canais", "O melhor entretenimento num só lugar.", 3);
+            var TV200 = GaranteExistenciaServico(bd, "Pack standard 200 canais", "A televisão do futuro em sua casa.", 3);
+            var tlfWorld = GaranteExistenciaServico(bd, "Chamadas telefónicas World", "Redes fixas nacionais 24h + 50 destinos internacionais (noite, 1.000 min)", 2);
+            var tlfLight = GaranteExistenciaServico(bd, "Chamadas telefónicas Light", "Redes fixas nacionais 24h + 20 destinos internacionais (noite, 100 min)", 2);
+            var intMovel500 = GaranteExistenciaServico(bd, "Internet móvel 500MB", "Ativa no teu smartphone, a qualquer hora e em qualquer lugar 500 MB de dados", 1);
+            var intMovel1GB = GaranteExistenciaServico(bd, "Internet móvel 1GB", "Ativa no teu smartphone, a qualquer hora e em qualquer lugar 1 GB de dados", 1);
+
+
+
             bd.ServicosPacotes.AddRange(new ServicosPacotes[] {
                   new ServicosPacotes
                      {
-                    PacoteId=1,
-                    ServicoId=13,
+                    PacoteId=pacoteRD4.PacoteId,
+                    ServicoId=TV150.ServicoId,
                 },
 
                   new ServicosPacotes
                      {
-                    PacoteId=1,
-                    ServicoId=9,
+                    PacoteId=pacoteRD4.PacoteId,
+                    ServicoId=internet100.ServicoId,
                 },
 
                   new ServicosPacotes
                      {
-                    PacoteId=1,
-                    ServicoId=17,
+                    PacoteId=pacoteRD4.PacoteId,
+                    ServicoId=intMovel500.ServicoId,
                 },
 
                   new ServicosPacotes
                      {
-                    PacoteId=1,
-                    ServicoId=11,
+                    PacoteId=pacoteRD4.PacoteId,
+                    ServicoId=tlm500.ServicoId,
                 },
 
                    new ServicosPacotes
                      {
-                    PacoteId=1,
-                    ServicoId=15,
+                    PacoteId=pacoteRD4.PacoteId,
+                    ServicoId=tlfWorld.ServicoId,
                 },
 
                    new ServicosPacotes
                      {
-                    PacoteId=2,
-                    ServicoId=13,
+                    PacoteId=pacoteRD3.PacoteId,
+                    ServicoId=TV150.ServicoId,
                 },
 
                    new ServicosPacotes
                      {
-                    PacoteId=2,
-                    ServicoId=10,
+                    PacoteId=pacoteRD3.PacoteId,
+                    ServicoId=tlfWorld.ServicoId,
                 },
 
                    new ServicosPacotes
                      {
-                    PacoteId=2,
-                    ServicoId=16,
+                    PacoteId=pacoteRD3.PacoteId,
+                    ServicoId=internet400.ServicoId,
                 },
 
             });
@@ -669,7 +695,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.");
 
             }
-        private static void GarantePacotes(Projeto_Lab_WebContext bd, string nome, decimal preco, string descricao)
+        private static Pacotes GarantePacotes(Projeto_Lab_WebContext bd, string nome, decimal preco, string descricao)
         {
             Pacotes pacotes = bd.Pacotes.FirstOrDefault(c => c.Nome == nome);
             if (pacotes == null)
@@ -683,6 +709,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 bd.Pacotes.Add(pacotes);
                 bd.SaveChanges();
             }
+            return pacotes;
         }
 
         //-------------------TIPOS DE SERVIÇOS--------------------------
