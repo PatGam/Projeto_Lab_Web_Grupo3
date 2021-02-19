@@ -54,6 +54,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var servicos = await bd.ServicosPacotes.Where(s => s.PacoteId == id)
                 .Include(s => s.Servico)
                 .ToListAsync();
+            var promocoes = await bd.PromocoesPacotes.Where(m => m.PacoteId == id)
+                .Include(l => l.Promocoes)
+                .ToListAsync();
 
             if (pacotes == null)
             {
@@ -64,9 +67,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 Pacotes = pacotes,
                 ServicosPacotes = servicos,
-
+                PromocoesPacotes = promocoes,
             };
+            
+           
+            
             return base.View(modelo);
+            
         }
 
         // GET: Pacotes/Create

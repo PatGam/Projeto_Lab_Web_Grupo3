@@ -51,12 +51,22 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             var promocoes = await bd.Promocoes
                 .FirstOrDefaultAsync(m => m.PromocoesId == id);
+            var pacotes = await bd.PromocoesPacotes.Where(s => s.PromocoesId == id)
+               .Include(s => s.Pacote)
+               .ToListAsync();
+
             if (promocoes == null)
             {
                 return View ("Inexistente");
             }
 
-            return View(promocoes);
+            PromocoesPacotesViewModel modelo = new PromocoesPacotesViewModel
+            {
+                 Promocoes = promocoes,
+                 PromocoesPacotes = pacotes, 
+
+            };
+            return base.View(modelo);
         }
 
         // GET: Promocoes/Create
