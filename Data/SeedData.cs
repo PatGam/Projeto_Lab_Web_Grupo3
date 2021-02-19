@@ -603,63 +603,90 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
             }
             //-------------------PACOTES--------------------------
-            private static void InserePacotes(Projeto_Lab_WebContext bd)
+            //private static void InserePacotes(Projeto_Lab_WebContext bd)
+            //{
+            //    if (bd.Pacotes.Any()) return;
+
+
+            //    bd.Pacotes.AddRange(new Pacotes[] {
+            //     new Pacotes
+            //         {
+            //        //PacoteId=1,
+            //        Nome="Pacote RD4",
+            //        Descricao="O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade",
+            //        Preco=55,
+            //    },
+            //       new Pacotes
+            //         {
+            //        //PacoteId=2,
+            //        Nome="Pacote RD3",
+            //        Descricao="O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.",
+            //        Preco=45,
+            //    },
+            //        new Pacotes
+            //         {
+            //        //PacoteId=3,
+            //        Nome="Pacote RD - Gaming",
+            //        Descricao="A oferta Pacote RD - Gaming é ideal para",
+            //        Preco=55,
+            //    },
+            //        new Pacotes
+            //         {
+            //        //PacoteId=4,
+            //        Nome="Pacote RD - TV Premium + gaming",
+            //        Descricao="A oferta Pacote RD - TV Premium + gaming destacou-se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico  (canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.",
+            //        Preco=65,
+            //    },
+            //        new Pacotes
+            //         {
+            //        //PacoteId=5,
+            //        Nome="RD TV e Voz",
+            //        Descricao="Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão",
+            //        Preco=25,
+            //    },
+
+            //        new Pacotes
+            //         {
+            //        //PacoteId=5,
+            //        Nome="RD Familiar",
+            //        Descricao="Pacote ideal para os momentos de lazer em família.",
+            //        Preco=45,
+            //    },
+
+            //});
+            //    bd.SaveChanges();
+            //}
+
+        private static void InserePacotes(Projeto_Lab_WebContext bd)
+        {
+
+
+            GarantePacotes(bd, "Pacote RD4", 55, "O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade");
+            GarantePacotes(bd, "Pacote RD3", 45, "O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.");
+            GarantePacotes(bd, "Pacote RD - Gaming", 55, "A oferta Pacote RD - Gaming é ideal para");
+            GarantePacotes(bd, "Pacote RD - TV Premium + gaming", 65, "A oferta Pacote RD - TV Premium + gaming destacou - se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico(canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.");
+            GarantePacotes(bd, "RD TV e Voz", 25, "Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão");
+            GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.");
+
+            }
+        private static void GarantePacotes(Projeto_Lab_WebContext bd, string nome, decimal preco, string descricao)
+        {
+            Pacotes pacotes = bd.Pacotes.FirstOrDefault(c => c.Nome == nome);
+            if (pacotes == null)
             {
-                if (bd.Pacotes.Any()) return;
-
-
-                bd.Pacotes.AddRange(new Pacotes[] {
-                 new Pacotes
-                     {
-                    //PacoteId=1,
-                    Nome="Pacote RD4",
-                    Descricao="O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade",
-                    Preco=55,
-                },
-                   new Pacotes
-                     {
-                    //PacoteId=2,
-                    Nome="Pacote RD3",
-                    Descricao="O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.",
-                    Preco=45,
-                },
-                    new Pacotes
-                     {
-                    //PacoteId=3,
-                    Nome="Pacote RD - Gaming",
-                    Descricao="A oferta Pacote RD - Gaming é ideal para",
-                    Preco=55,
-                },
-                    new Pacotes
-                     {
-                    //PacoteId=4,
-                    Nome="Pacote RD - TV Premium + gaming",
-                    Descricao="A oferta Pacote RD - TV Premium + gaming destacou-se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico  (canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.",
-                    Preco=65,
-                },
-                    new Pacotes
-                     {
-                    //PacoteId=5,
-                    Nome="RD TV e Voz",
-                    Descricao="Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão",
-                    Preco=25,
-                },
-
-                    new Pacotes
-                     {
-                    //PacoteId=5,
-                    Nome="RD Familiar",
-                    Descricao="Pacote ideal para os momentos de lazer em família.",
-                    Preco=45,
-                },
-
-            });
+                pacotes = new Pacotes { 
+                    Nome = nome,
+                    Descricao = descricao,
+                    Preco = preco,
+                    
+                };
+                bd.Pacotes.Add(pacotes);
                 bd.SaveChanges();
             }
+        }
 
         //-------------------TIPOS DE SERVIÇOS--------------------------
         private static void InsereTiposServicos(Projeto_Lab_WebContext bd)
-
         {
             GaranteExistenciaTiposServicos(bd, "Internet");
             GaranteExistenciaTiposServicos(bd, "Telémovel");
