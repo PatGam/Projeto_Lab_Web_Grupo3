@@ -35,7 +35,32 @@ namespace Projeto_Lab_Web_Grupo3.Data
             //InserePromocoesPacotes(bd);
             //InsereContratos(bd);
         }
+        private static void InsereFuncionarios(Projeto_Lab_WebContext bd)
+        {
+            GaranteFuncinoarios(bd, "Nuno Forte", new DateTime(1998, 09, 29), "Rua das Flores", "925258737", "nuno_rpf@RDtelecom.com", "6300-706");
+            GaranteFuncinoarios(bd, "João Matos", new DateTime(1970, 04, 21), "Rua da Maurícia Aradas", "965111755", "joao_matos@RDtelecom.com", "3810-433");
+            GaranteFuncinoarios(bd, "Maria de Fátima", new DateTime(1963, 02, 02), "Rua da Prata", "927895737", "m.fatima@RDtelecom.com", "1149-005");
+            GaranteFuncinoarios(bd, "Joana Pereira", new DateTime(1992, 11, 29), "Avenida Nossa Senhora de Fátima", "91746251", "J_pereira@RDtelecom.com", "2414-003");
+            GaranteFuncinoarios(bd, "Justina Paulo", new DateTime(1978, 07, 17), "Rua de São Gonçalo", "912211797", "justina_paulo@RDtelecom.com", "4814-508");
+            GaranteFuncinoarios(bd, "Inês Reis", new DateTime(1998, 03, 07), "Rua Quinta do Fojo Canidelo", "969193547", "reis_ines@RDtelecom.com", "4400-658");
+            GaranteFuncinoarios(bd, "Luís Madeira", new DateTime(1989, 10, 29), "Rua do Campo Alegre", "915111852", "luis.madeira@RDtelecom.com", "4169-008");
+            GaranteFuncinoarios(bd, "Paula Melo", new DateTime(1984, 12, 29), "Canada dos Melancólicos", "925897737", "melo.paula@RDtelecom.com", "9701-870");
+            GaranteFuncinoarios(bd, "Paulo Mota", new DateTime(2000, 06, 06), "Rua General Humberto Delgado", "969687125", "paulo_mota@RDtelecom.com", "1499-004");
+            GaranteFuncinoarios(bd, "Marta Machado", new DateTime(2000, 08, 01), "Rua Central Mesura", "962154873", "m.machado@RDtelecom.com", "3049-002");
 
+        }
+
+        private static void GaranteFuncinoarios(Projeto_Lab_WebContext bd, string nome, DateTime datanascimento,
+            string morada, string telemovel, string email, string codigopostal)
+        {
+            Funcionarios funcionarios = bd.Funcionarios.FirstOrDefault(c => c.Nome == nome);
+            if (funcionarios == null)
+            {
+                funcionarios = new Funcionarios { Nome = nome };
+                bd.Funcionarios.Add(funcionarios);
+                bd.SaveChanges();
+            }
+        }
 
         private static void InsereRoles(Projeto_Lab_WebContext bd)
         {
@@ -148,125 +173,125 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.SaveChanges();
         }
         //-------------------FUNCIONARIOS--------------------------
-        private static void InsereFuncionarios(Projeto_Lab_WebContext bd)
-        {
-            if (bd.Funcionarios.Any()) return;
-            bd.Funcionarios.AddRange(new Funcionarios[] {
-                    new Funcionarios
-                {
-                    //FuncionarioId=1,
-                    Nome="Nuno Forte",
-                    DataNascimento=new DateTime(1998,09,29),
-                    Morada="Rua das Flores",
-                    Telemovel=925258737,
-                    Email="nuno_rpf@RDtelecom.com",
-                    CodigoPostal="6300-706",
-                    //Role="Administrador",
-                },
-                    new Funcionarios
-                {
-                    //FuncionarioId=2,
-                    Nome="João Matos",
-                    DataNascimento=new DateTime(1970,04,21),
-                    Morada="Rua da Maurícia Aradas",
-                    Telemovel=965111755,
-                    Email="joao_matos@RDtelecom.com",
-                    CodigoPostal="3810-433",
-                    //Role="Operador",
-                },
-                    new Funcionarios
-                {
-                    //FuncionarioId=3,
-                    Nome="Maria de Fátima",
-                    DataNascimento=new DateTime(1963-02-02),
-                    Morada="Rua da Prata",
-                    Telemovel=927895737,
-                    Email="m.fatima@RDtelecom.com",
-                    CodigoPostal="1149-005",
-                    //Role="Administrador",
-                },
-                    new Funcionarios
-                {
-                    //FuncionarioId=4,
-                    Nome="Joana Pereira",
-                    DataNascimento=new DateTime(1992-11-29),
-                    Morada="Avenida Nossa Senhora de Fátima",
-                    Telemovel=91746251,
-                    Email="J_pereira@RDtelecom.com",
-                    CodigoPostal="2414-003",
-                    //Role="Operador",
-                },
-                    new Funcionarios
-                {
-                    //FuncionarioId=5,
-                    Nome="Justina Paulo",
-                    DataNascimento=new DateTime(1978-07-17),
-                    Morada="Rua de São Gonçalo",
-                    Telemovel=912211797,
-                    Email="justina_paulo@RDtelecom.com",
-                    CodigoPostal="4814-508",
-                    //Role="Operador",
-                },
-                     new Funcionarios
-                {
-                    //FuncionarioId=6,
-                    Nome="Inês Reis",
-                    DataNascimento=new DateTime(1998,03,07),
-                    Morada="Rua Quinta do Fojo Canidelo",
-                    Telemovel=969193547,
-                    Email="reis_ines@RDtelecom.com",
-                    CodigoPostal="4400-658",
-                    //Role="Operador",
-                },
-                      new Funcionarios
-                {
-                    //FuncionarioId=7,
-                    Nome="Luís Madeira",
-                    DataNascimento=new DateTime(1989,10,29),
-                    Morada="Rua do Campo Alegre",
-                    Telemovel=915111852,
-                    Email="luis.madeira@RDtelecom.com",
-                    CodigoPostal="4169-008",
-                    //Role="Operador",
-                },
-                    new Funcionarios
-                {
-                    //FuncionarioId=8,
-                    Nome="Paula Melo",
-                    DataNascimento=new DateTime(1984,12,29),
-                    Morada="Canada dos Melancólicos",
-                    Telemovel=925897737,
-                    Email="melo.paula@RDtelecom.com",
-                    CodigoPostal="9701-870",
-                    //Role="Operador",
-                },
-                    new Funcionarios
-                {
-                    //FuncionarioId=9,
-                    Nome="Paulo Mota",
-                    DataNascimento=new DateTime(2000,06,06),
-                    Morada="Rua General Humberto Delgado",
-                    Telemovel=969687125,
-                    Email="paulo_mota@RDtelecom.com",
-                    CodigoPostal="1499-004",
-                    //Role="Operador",
-                },
-                   new Funcionarios
-                {
-                    //FuncionarioId=10,
-                    Nome="Marta Machado",
-                    DataNascimento=new DateTime(2000,08,01),
-                    Morada="Rua Central Mesura",
-                    Telemovel=962154873,
-                    Email="m.machado@RDtelecom.com",
-                    CodigoPostal="3049-002",
-                    //Role="Operador",
-                },
+        //private static void InsereFuncionarios(Projeto_Lab_WebContext bd)
+        //{
+        //    if (bd.Funcionarios.Any()) return;
+        //    bd.Funcionarios.AddRange(new Funcionarios[] {
+        //            new Funcionarios
+        //        {
+        //            //FuncionarioId=1,
+        //            Nome="Nuno Forte",
+        //            DataNascimento=new DateTime(1998,09,29),
+        //            Morada="Rua das Flores",
+        //            Telemovel=925258737,
+        //            Email="nuno_rpf@RDtelecom.com",
+        //            CodigoPostal="6300-706",
+        //            //Role="Administrador",
+        //        },
+        //            new Funcionarios
+        //        {
+        //            //FuncionarioId=2,
+        //            Nome="João Matos",
+        //            DataNascimento=new DateTime(1970,04,21),
+        //            Morada="Rua da Maurícia Aradas",
+        //            Telemovel=965111755,
+        //            Email="joao_matos@RDtelecom.com",
+        //            CodigoPostal="3810-433",
+        //            //Role="Operador",
+        //        },
+        //            new Funcionarios
+        //        {
+        //            //FuncionarioId=3,
+        //            Nome="Maria de Fátima",
+        //            DataNascimento=new DateTime(1963-02-02),
+        //            Morada="Rua da Prata",
+        //            Telemovel=927895737,
+        //            Email="m.fatima@RDtelecom.com",
+        //            CodigoPostal="1149-005",
+        //            //Role="Administrador",
+        //        },
+        //            new Funcionarios
+        //        {
+        //            //FuncionarioId=4,
+        //            Nome="Joana Pereira",
+        //            DataNascimento=new DateTime(1992-11-29),
+        //            Morada="Avenida Nossa Senhora de Fátima",
+        //            Telemovel=91746251,
+        //            Email="J_pereira@RDtelecom.com",
+        //            CodigoPostal="2414-003",
+        //            //Role="Operador",
+        //        },
+        //            new Funcionarios
+        //        {
+        //            //FuncionarioId=5,
+        //            Nome="Justina Paulo",
+        //            DataNascimento=new DateTime(1978-07-17),
+        //            Morada="Rua de São Gonçalo",
+        //            Telemovel=912211797,
+        //            Email="justina_paulo@RDtelecom.com",
+        //            CodigoPostal="4814-508",
+        //            //Role="Operador",
+        //        },
+        //             new Funcionarios
+        //        {
+        //            //FuncionarioId=6,
+        //            Nome="Inês Reis",
+        //            DataNascimento=new DateTime(1998,03,07),
+        //            Morada="Rua Quinta do Fojo Canidelo",
+        //            Telemovel=969193547,
+        //            Email="reis_ines@RDtelecom.com",
+        //            CodigoPostal="4400-658",
+        //            //Role="Operador",
+        //        },
+        //              new Funcionarios
+        //        {
+        //            //FuncionarioId=7,
+        //            Nome="Luís Madeira",
+        //            DataNascimento=new DateTime(1989,10,29),
+        //            Morada="Rua do Campo Alegre",
+        //            Telemovel=915111852,
+        //            Email="luis.madeira@RDtelecom.com",
+        //            CodigoPostal="4169-008",
+        //            //Role="Operador",
+        //        },
+        //            new Funcionarios
+        //        {
+        //            //FuncionarioId=8,
+        //            Nome="Paula Melo",
+        //            DataNascimento=new DateTime(1984,12,29),
+        //            Morada="Canada dos Melancólicos",
+        //            Telemovel=925897737,
+        //            Email="melo.paula@RDtelecom.com",
+        //            CodigoPostal="9701-870",
+        //            //Role="Operador",
+        //        },
+        //            new Funcionarios
+        //        {
+        //            //FuncionarioId=9,
+        //            Nome="Paulo Mota",
+        //            DataNascimento=new DateTime(2000,06,06),
+        //            Morada="Rua General Humberto Delgado",
+        //            Telemovel=969687125,
+        //            Email="paulo_mota@RDtelecom.com",
+        //            CodigoPostal="1499-004",
+        //            //Role="Operador",
+        //        },
+        //           new Funcionarios
+        //        {
+        //            //FuncionarioId=10,
+        //            Nome="Marta Machado",
+        //            DataNascimento=new DateTime(2000,08,01),
+        //            Morada="Rua Central Mesura",
+        //            Telemovel=962154873,
+        //            Email="m.machado@RDtelecom.com",
+        //            CodigoPostal="3049-002",
+        //            //Role="Operador",
+        //        },
 
-            });
-            bd.SaveChanges();
+        //    });
+        //    bd.SaveChanges();
 
-        }
+        //}
 
         //-------------------SERVICOS--------------------------
         private static void InsereServicos(Projeto_Lab_WebContext bd)
