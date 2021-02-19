@@ -1,8 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link rel="stylesheet" href="~/TemplMain/assets/css/style.css" />
-
+    
     <!--Icons-->
     <script src="https://kit.fontawesome.com/9bc32df3ad.js"></script>
 
@@ -29,88 +25,37 @@
 
 <body>
     <div class="wrap">
-        <!-- ======= Hero Section ======= -->
-        <section id="hero">
-            <div class="hero-container" data-aos="fade-up">
-                <h1>RD Telecomunicações</h1>
-                <h2>Reduzindo Distâncias</h2>
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bem-Vindo @User.Identity.Name!</a>
-                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button type="submit" class="nav-link btn btn-link btn-get-started">Logout</button>
-                    </form>
-                }
-                else
-                {
-                <div class="col-md-4">
-                <a class="btn-get-started scrollto" asp-area="Identity" asp-page="/Account/Register">Registar</a>
-                <a class="btn-get-started scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                </div>
-                }                
-            </div>
-        </section>
-        <!-- End Hero -->
-
-        <header id="header" class="d-flex align-items-center">            
+        <header id="header" class="d-flex align-items-center">
             <div class="container d-flex align-items-center justify-content-between">
                 <nav id="navbar" class="navbar">
                     <div class="logo">
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RD-Telecomunicações</a>
-                        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>-->
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Projeto_Lab_Web_Grupo3</a>                        
                     </div>
-                </nav>                
-                <nav id="navbar" class="navbar">
-                    <partial name="_LoginPartial" />
-                    @if (SignInManager.IsSignedIn(User))
-                    {
+                    <nav id="navbar" class="navbar">
+                        <partial name="_LoginPartial" />
                         <ul>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index">Index</a>
+                                <i class="fas fa-cube"></i>"><a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Pacotes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Gerir Clientes</a>
+                                <i class="fas fa-wifi"></i><a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gerir Funcionários</a>
+                                <i class="fas fa-tv"></i><a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Gerir Pacotes</a>
+                                <i class="fas fa-mobile-alt"></i><a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços</a>
+                                <i class="fas fa-question"></i><a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda</a>
                             </li>
-                        </ul>                    
-                    }
-                    else
-                    {
-                <ul>                    
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Pacotes   <i class="fas fa-cube"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão <i class="fas fa-tv"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
-                    </li>
-                </ul>
-                }                      
-                    <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
-                  </nav>
-                </div>               
+                        </ul>
+                        <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel--> 
+                        </nav>
+                </nav>
+            </div>
         </header>
     </div>
-    
 
     <div class="container">
         <main role="main" class="pb-3">
