@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
-    public partial class TiposServicos : Migration
+    public partial class Initial2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -119,13 +119,13 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     Email = table.Column<string>(maxLength: 100, nullable: false),
                     Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false),
                     Role = table.Column<string>(maxLength: 20, nullable: false),
-                    RolesId = table.Column<int>(nullable: false)
+                    RolesId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Funcionarios", x => x.Funcionario_Id);
                     table.ForeignKey(
-                        name: "FK_Funcionarios_Roles",
+                        name: "FK_Funcionarios_Roles_RolesId",
                         column: x => x.RolesId,
                         principalTable: "Roles",
                         principalColumn: "RolesId",
@@ -185,36 +185,34 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 {
                     Contrato_Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Cliente_Id = table.Column<int>(nullable: false),
-                    Funcionario_Id = table.Column<int>(nullable: false),
+                    ClienteId = table.Column<int>(nullable: false),
+                    FuncionarioId = table.Column<int>(nullable: false),
                     Data_inicio = table.Column<DateTime>(type: "date", nullable: false),
-                    Preco_Final = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Data_Fim = table.Column<DateTime>(type: "date", nullable: false),
-                    Promocoes_Pacotes = table.Column<int>(nullable: false),
+                    Telefone = table.Column<int>(nullable: false),
                     Preco_pacote = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Promocao_desc = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    Nome_Cliente = table.Column<string>(maxLength: 100, nullable: false),
-                    Nome_Funcionario = table.Column<string>(maxLength: 100, nullable: false),
-                    Telefone = table.Column<int>(nullable: false)
+                    Preco_Final = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    PromocoesPacotesId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contratos", x => x.Contrato_Id);
                     table.ForeignKey(
                         name: "FK_Contratos_Clientes",
-                        column: x => x.Cliente_Id,
+                        column: x => x.ClienteId,
                         principalTable: "Clientes",
                         principalColumn: "Cliente_Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Contratos_Funcionarios",
-                        column: x => x.Funcionario_Id,
+                        column: x => x.FuncionarioId,
                         principalTable: "Funcionarios",
                         principalColumn: "Funcionario_Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Contratos_Promocoes_Pacotes",
-                        column: x => x.Promocoes_Pacotes,
+                        name: "FK_Contratos_Promocoes_Pacotes_PromocoesPacotesId",
+                        column: x => x.PromocoesPacotesId,
                         principalTable: "Promocoes_Pacotes",
                         principalColumn: "Promocoes_Pacotes_Id",
                         onDelete: ReferentialAction.Restrict);
@@ -252,19 +250,19 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 column: "TipoClienteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contratos_Cliente_Id",
+                name: "IX_Contratos_ClienteId",
                 table: "Contratos",
-                column: "Cliente_Id");
+                column: "ClienteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contratos_Funcionario_Id",
+                name: "IX_Contratos_FuncionarioId",
                 table: "Contratos",
-                column: "Funcionario_Id");
+                column: "FuncionarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contratos_Promocoes_Pacotes",
+                name: "IX_Contratos_PromocoesPacotesId",
                 table: "Contratos",
-                column: "Promocoes_Pacotes");
+                column: "PromocoesPacotesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Funcionarios_RolesId",

@@ -80,7 +80,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ClienteId")
-                        .HasColumnName("Cliente_Id")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DataFim")
@@ -92,20 +91,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("date");
 
                     b.Property<int>("FuncionarioId")
-                        .HasColumnName("Funcionario_Id")
                         .HasColumnType("int");
-
-                    b.Property<string>("NomeCliente")
-                        .IsRequired()
-                        .HasColumnName("Nome_Cliente")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("NomeFuncionario")
-                        .IsRequired()
-                        .HasColumnName("Nome_Funcionario")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
 
                     b.Property<decimal>("PrecoFinal")
                         .HasColumnName("Preco_Final")
@@ -119,8 +105,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnName("Promocao_desc")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.Property<int>("PromocoesPacotes")
-                        .HasColumnName("Promocoes_Pacotes")
+                    b.Property<int?>("PromocoesPacotesId")
                         .HasColumnType("int");
 
                     b.Property<int>("Telefone")
@@ -133,7 +118,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
                     b.HasIndex("FuncionarioId");
 
-                    b.HasIndex("PromocoesPacotes");
+                    b.HasIndex("PromocoesPacotesId");
 
                     b.ToTable("Contratos");
                 });
@@ -402,23 +387,21 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Clientes", "Cliente")
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Clientes", "Clientes")
                         .WithMany("Contratos")
                         .HasForeignKey("ClienteId")
                         .HasConstraintName("FK_Contratos_Clientes")
                         .IsRequired();
 
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Funcionarios", "Funcionario")
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Funcionarios", "Funcionarios")
                         .WithMany("Contratos")
                         .HasForeignKey("FuncionarioId")
                         .HasConstraintName("FK_Contratos_Funcionarios")
                         .IsRequired();
 
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", "PromocoesPacotesNavigation")
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", null)
                         .WithMany("Contratos")
-                        .HasForeignKey("PromocoesPacotes")
-                        .HasConstraintName("FK_Contratos_Promocoes_Pacotes")
-                        .IsRequired();
+                        .HasForeignKey("PromocoesPacotesId");
                 });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Funcionarios", b =>

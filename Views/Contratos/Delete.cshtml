@@ -15,7 +15,7 @@
                     <h3>Tem a certeza que deseja apagar este contrato?</h3>
                     <div>
 
-                        <hr />
+                        @*<hr />
                         <dl class="row">
                             <dt class="col-sm-2">
                                 @Html.DisplayNameFor(model => model.DataInicio)
@@ -83,7 +83,7 @@
                             <dd class="col-sm-10">
                                 @Html.DisplayFor(model => model.PromocoesPacotesNavigation.NomePacote)
                             </dd>
-                        </dl>
+                        </dl>*@
 
                         <form asp-action="Delete">
                             <input type="hidden" asp-for="ContratoId" />

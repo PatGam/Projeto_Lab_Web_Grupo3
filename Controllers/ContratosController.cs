@@ -24,11 +24,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             Paginacao paginacao = new Paginacao
             {
-                TotalItems = await bd.Contratos.Where(p => nomePesquisar == null || p.NomeCliente.Contains(nomePesquisar)).CountAsync(),
+                TotalItems = await bd.Contratos.Where(p => nomePesquisar == null || p.Clientes.Nome.Contains(nomePesquisar)).CountAsync(),
                 PaginaAtual = pagina
             };
-            List<Contratos> contratos = await bd.Contratos.Where(p => nomePesquisar == null || p.NomeCliente.Contains(nomePesquisar))
-              .OrderBy(p => p.NomeCliente)
+            List<Contratos> contratos = await bd.Contratos.Where(p => nomePesquisar == null || p.Clientes.Nome.Contains(nomePesquisar))
+              .OrderBy(p => p.Clientes.Nome)
               .Skip(paginacao.ItemsPorPagina * (pagina - 1))
               .Take(paginacao.ItemsPorPagina)
               .ToListAsync();
@@ -49,9 +49,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
 
             var contratos = await bd.Contratos
-                .Include(c => c.Cliente)
-                .Include(c => c.Funcionario)
-                .Include(c => c.PromocoesPacotesNavigation)
+                .Include(c => c.Clientes)
+                .Include(c => c.Funcionarios)
+                //.Include(c => c.PromocoesPacotesNavigation)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
             {
@@ -78,7 +78,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ContratosViewModel infoContratos)
+        public async Task<IActionResult> Create(NovoContratoViewModel infoContratos)
         {
             if (!ModelState.IsValid)
             {
@@ -89,12 +89,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var funcionarioEmail = bd.Funcionarios.SingleOrDefault(d => d.Email == funcionario.Email);
             var funcionarioId = funcionarioEmail.FuncionarioId;
 
-            infoContratos.FuncionarioId = funcionarioId;
-
             Contratos contratos = new Contratos
             {
-                DataInicio = infoContratos.DataInicio,
-                DataFim = infoContratos.DataFim,
+                ClienteId = infoContratos.Contratos.ClienteId,
+                FuncionarioId = funcionarioId,
+                DataInicio = infoContratos.Contratos.DataInicio,
+                DataFim = infoContratos.Contratos.DataFim,
+                PrecoPacote = infoContratos.Contratos.PrecoPacote,
+                PromocaoDesc = infoContratos.Contratos.PromocaoDesc,
+                Telefone = infoContratos.Contratos.Telefone,
+                PrecoFinal = infoContratos.Contratos.PrecoPacote - infoContratos.Contratos.PromocaoDesc,
+
             };
 
             bd.Add(contratos);
@@ -119,7 +124,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
             ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
             ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-            ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
+            //ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
             return View(contratos);
         }
 
@@ -157,7 +162,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
             ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
             ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-            ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
+            //ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
             return View("Sucesso");
         }
 
@@ -170,9 +175,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
 
             var contratos = await bd.Contratos
-                .Include(c => c.Cliente)
-                .Include(c => c.Funcionario)
-                .Include(c => c.PromocoesPacotesNavigation)
+                .Include(c => c.Clientes)
+                .Include(c => c.Funcionarios)
+                //.Include(c => c.PromocoesPacotesNavigation)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
             {
