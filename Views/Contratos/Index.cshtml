@@ -55,16 +55,16 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Contratos[0].PromocaoDesc)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Contratos[0].NomeCliente)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Contratos[0].NomeFuncionario)
-                                    </th>
+                                    </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Contratos[0].Telefone)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Contratos[0].Cliente)
                                     </th>
                                     <th>
@@ -72,7 +72,7 @@
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Contratos[0].PromocoesPacotesNavigation)
-                                    </th>
+                                    </th>*@
                                     <th></th>
                                 </tr>
                             </thead>
@@ -95,16 +95,16 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.PromocaoDesc)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.NomeCliente)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.NomeFuncionario)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Telefone)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Cliente.CodigoPostal)
                                         </td>
                                         <td>
@@ -112,7 +112,7 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.PromocoesPacotesNavigation.NomePacote)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ContratoId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.ContratoId"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
