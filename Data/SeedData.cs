@@ -32,7 +32,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InsereRoles(bd);
             InsereServicosPacotes(bd);
             //Insere(bd);
-            //InserePromocoesPacotes(bd);
+            InserePromocoesPacotes(bd);
             //InsereContratos(bd);
         }
         private static void InsereFuncionarios(Projeto_Lab_WebContext bd)
