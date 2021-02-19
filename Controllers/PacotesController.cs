@@ -60,7 +60,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return View ("Inexistente");
             }
 
-            return View(pacotes);
+            ServicosPacotesViewModel modelo = new ServicosPacotesViewModel
+            {
+                Pacotes = pacotes,
+                ServicosPacotes = servicos,
+
+            };
+            return base.View(modelo);
         }
 
         // GET: Pacotes/Create

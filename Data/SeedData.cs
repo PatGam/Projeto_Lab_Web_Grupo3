@@ -30,7 +30,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InsereClientes(bd);
             InserePacotes(bd);
             InsereRoles(bd);
-            //InsereServicosPacotes(bd);
+            InsereServicosPacotes(bd);
             //Insere(bd);
             //InserePromocoesPacotes(bd);
             //InsereContratos(bd);
