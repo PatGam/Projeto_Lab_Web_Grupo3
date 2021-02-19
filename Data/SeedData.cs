@@ -271,114 +271,140 @@ namespace Projeto_Lab_Web_Grupo3.Data
         //-------------------SERVICOS--------------------------
         private static void InsereServicos(Projeto_Lab_WebContext bd)
         {
-            if (bd.Servicos.Any()) return;
-
-
-            bd.Servicos.AddRange(new Servicos[] {
-                    new Servicos
-                     {
-                    //ServicoId=1,
-                    Nome="Canais Fibra",
-                    Descricao="Temos vários Pacotes á sua escolha",
-                    TipoServicoId= 3,
-                },
-                     new Servicos
-                     {
-                    //ServicoId=2,
-                    Nome="Telémovel Pré-Pago e Pós-Pago",
-                    Descricao="Temos vários Pacotes á sua escolha ",
-                     TipoServicoId= 4,
-                },
-                      new Servicos
-                     {
-                    //ServicoId=3,
-                    Nome="Internet Fixa",
-                    Descricao="A melhor internet para si , disponível em varios pacotes.",
-                     TipoServicoId= 5,
-                },
-                       new Servicos
-                     {
-                    //ServicoId=4,
-                    Nome="Internet Móvel",
-                    Descricao="Vários Pacotes com vários plafonds para ti",
-                    TipoServicoId= 5,
-                },
-
-                       new Servicos
-                     {
-
-                    Nome="Internet 100/100mbps",
-                    Descricao="A velocidade da internet é medida e certificada no dia da instalação.",
-                    TipoServicoId= 5,
-                },
-
-                    new Servicos
-                     {
-                    Nome="Internet 1.000/400 Mbps",
-                    Descricao="Somos a única operadora a nível mundial com uma rede própria de circuitos de internet internacionais, garantindo sempre a largura de banda necessária.",
-                    TipoServicoId= 5,
-                },
-
-                    new Servicos
-                     {
-                    Nome="1 cartão, 500 minutos + 500 SMS por cartão",
-                    Descricao="Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.",
-                    TipoServicoId= 4,
-                },
-
-                    new Servicos
-                     {
-                    Nome="1 cartão, 3.500 minutos + 3.500 SMS",
-                    Descricao="Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.",
-                    TipoServicoId= 4,
-                },
-
-                    new Servicos
-                     {
-                    Nome="Pack standard 150 canais",
-                    Descricao="O melhor entretenimento num só lugar.",
-                    TipoServicoId= 3,
-                },
-
-                         new Servicos
-                     {
-                    Nome="Pack standard 200 canais",
-                    Descricao="A televisão do futuro em sua casa.",
-                    TipoServicoId= 3,
-                },
-
-                    new Servicos
-                     {
-                    Nome="Chamadas telefónicas World",
-                    Descricao="Redes fixas nacionais 24h + 50 destinos internacionais (noite, 1.000 min)",
-                    TipoServicoId= 2,
-                },
-
-                    new Servicos
-                     {
-                    Nome="Chamadas telefónicas Light",
-                    Descricao="Redes fixas nacionais 24h + 20 destinos internacionais (noite, 100 min)",
-                    TipoServicoId= 2,
-                },
-
-                    new Servicos
-                     {
-                    Nome="Internet móvel 500MB",
-                    Descricao="Ativa no teu smartphone, a qualquer hora e em qualquer lugar 500 MB de dados",
-                    TipoServicoId= 1,
-                },
-
-                    new Servicos
-                     {
-                    Nome="Internet móvel 1GB",
-                    Descricao="Ativa no teu smartphone, a qualquer hora e em qualquer lugar 1 GB de dados",
-                    TipoServicoId= 1,
-                },
-
-            });
-            bd.SaveChanges();
-
+            GaranteExistenciaServico(bd, "Canais Fibra", "Temos vários Pacotes á sua escolha", 3);
+            GaranteExistenciaServico(bd, "Telémovel Pré-Pago e Pós-Pago", "Temos vários Pacotes á sua escolha", 4);
+            GaranteExistenciaServico(bd, "Internet Fixa", "A melhor internet para si , disponível em varios pacotes.", 5);
+            GaranteExistenciaServico(bd, "Internet Móvel", "Vários Pacotes com vários plafonds para ti", 5);
+            GaranteExistenciaServico(bd, "Internet 100/100mbps", "A velocidade da internet é medida e certificada no dia da instalação.", 5);
+            GaranteExistenciaServico(bd, "Internet 1.000/400 Mbps", "Somos a única operadora a nível mundial com uma rede própria de circuitos de internet internacionais, garantindo sempre a largura de banda necessária.", 5);
+            GaranteExistenciaServico(bd, "1 cartão, 500 minutos + 500 SMS por cartão", "Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.", 4);
+            GaranteExistenciaServico(bd, "1 cartão, 3.500 minutos + 3.500 SMS", "Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.", 4);
+            GaranteExistenciaServico(bd, "Pack standard 150 canais", "O melhor entretenimento num só lugar.", 3);
+            GaranteExistenciaServico(bd, "Pack standard 200 canais", "A televisão do futuro em sua casa.", 3);
+            GaranteExistenciaServico(bd, "Chamadas telefónicas World", "Redes fixas nacionais 24h + 50 destinos internacionais (noite, 1.000 min)", 2);
+            GaranteExistenciaServico(bd, "Chamadas telefónicas Light", "Redes fixas nacionais 24h + 20 destinos internacionais (noite, 100 min)", 2);
+            GaranteExistenciaServico(bd, "Internet móvel 500MB", "Ativa no teu smartphone, a qualquer hora e em qualquer lugar 500 MB de dados", 1);
+            GaranteExistenciaServico(bd, "Internet móvel 1GB", "Ativa no teu smartphone, a qualquer hora e em qualquer lugar 1 GB de dados", 1);
         }
+        private static void GaranteExistenciaServico(Projeto_Lab_WebContext bd, string nome , string descricao, int tiposervicoId)
+        {
+            Servicos servicos = bd.Servicos.FirstOrDefault(c => c.Nome == nome);
+            if (servicos == null)
+            {
+                servicos = new Servicos{ Nome = nome , Descricao = descricao , TipoServicoId = tiposervicoId};
+                bd.Servicos.Add(servicos);
+                bd.SaveChanges();
+            }
+        }
+
+        //if (bd.Servicos.Any()) return;
+
+
+        //bd.Servicos.AddRange(new Servicos[] {
+        //        new Servicos
+        //         {
+        //        //ServicoId=1,
+        //        Nome="Canais Fibra",
+        //        Descricao="Temos vários Pacotes á sua escolha",
+        //        TipoServicoId= 3,
+        //    },
+        //         new Servicos
+        //         {
+        //        //ServicoId=2,
+        //        Nome="Telémovel Pré-Pago e Pós-Pago",
+        //        Descricao="Temos vários Pacotes á sua escolha ",
+        //         TipoServicoId= 4,
+        //    },
+        //          new Servicos
+        //         {
+        //        //ServicoId=3,
+        //        Nome="Internet Fixa",
+        //        Descricao="A melhor internet para si , disponível em varios pacotes.",
+        //         TipoServicoId= 5,
+        //    },
+        //           new Servicos
+        //         {
+        //        //ServicoId=4,
+        //        Nome="Internet Móvel",
+        //        Descricao="Vários Pacotes com vários plafonds para ti",
+        //        TipoServicoId= 5,
+        //    },
+
+        //           new Servicos
+        //         {
+
+        //        Nome="Internet 100/100mbps",
+        //        Descricao="A velocidade da internet é medida e certificada no dia da instalação.",
+        //        TipoServicoId= 5,
+        //    },
+
+        //        new Servicos
+        //         {
+        //        Nome="Internet 1.000/400 Mbps",
+        //        Descricao="Somos a única operadora a nível mundial com uma rede própria de circuitos de internet internacionais, garantindo sempre a largura de banda necessária.",
+        //        TipoServicoId= 5,
+        //    },
+
+        //        new Servicos
+        //         {
+        //        Nome="1 cartão, 500 minutos + 500 SMS por cartão",
+        //        Descricao="Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.",
+        //        TipoServicoId= 4,
+        //    },
+
+        //        new Servicos
+        //         {
+        //        Nome="1 cartão, 3.500 minutos + 3.500 SMS",
+        //        Descricao="Tenha uma experiência de voz sem falhas, com qualidade superior nas suas chamadas.",
+        //        TipoServicoId= 4,
+        //    },
+
+        //        new Servicos
+        //         {
+        //        Nome="Pack standard 150 canais",
+        //        Descricao="O melhor entretenimento num só lugar.",
+        //        TipoServicoId= 3,
+        //    },
+
+        //             new Servicos
+        //         {
+        //        Nome="Pack standard 200 canais",
+        //        Descricao="A televisão do futuro em sua casa.",
+        //        TipoServicoId= 3,
+        //    },
+
+        //        new Servicos
+        //         {
+        //        Nome="Chamadas telefónicas World",
+        //        Descricao="Redes fixas nacionais 24h + 50 destinos internacionais (noite, 1.000 min)",
+        //        TipoServicoId= 2,
+        //    },
+
+        //        new Servicos
+        //         {
+        //        Nome="Chamadas telefónicas Light",
+        //        Descricao="Redes fixas nacionais 24h + 20 destinos internacionais (noite, 100 min)",
+        //        TipoServicoId= 2,
+        //    },
+
+        //        new Servicos
+        //         {
+        //        Nome="Internet móvel 500MB",
+        //        Descricao="Ativa no teu smartphone, a qualquer hora e em qualquer lugar 500 MB de dados",
+        //        TipoServicoId= 1,
+        //    },
+
+        //        new Servicos
+        //         {
+        //        Nome="Internet móvel 1GB",
+        //        Descricao="Ativa no teu smartphone, a qualquer hora e em qualquer lugar 1 GB de dados",
+        //        TipoServicoId= 1,
+        //    },
+
+        //});
+        //bd.SaveChanges();
+
+
 
         private static void InsereServicosPacotes(Projeto_Lab_WebContext bd)
         {
@@ -661,63 +687,96 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         //-------------------TIPOS DE SERVIÇOS--------------------------
         private static void InsereTiposServicos(Projeto_Lab_WebContext bd)
+        {
+            GaranteExistenciaTiposServicos(bd, "Internet");
+            GaranteExistenciaTiposServicos(bd, "Telémovel");
+            GaranteExistenciaTiposServicos(bd, "Televisão");
+            GaranteExistenciaTiposServicos(bd, "Telefone Fixo");
+            GaranteExistenciaTiposServicos(bd, "Internet Móvel"); 
+        }
+        internal static void GaranteExistenciaTiposServicos(Projeto_Lab_WebContext bd, string nome)
+        {
+            Tipos_Sevicos tipos_Sevicos = bd.TiposServicos.FirstOrDefault(s => s.Nome == nome);
+            if (tipos_Sevicos == null)
             {
-                if (bd.TiposServicos.Any()) return;
-
-
-                bd.TiposServicos.AddRange(new Tipos_Sevicos[] {
-                      new Tipos_Sevicos
-                     {
-                   // TipoServicoId=1,
-                    Nome="Internet",
-                },
-                      new Tipos_Sevicos
-                     {
-                   // TipoServicoId=2,
-                    Nome="Telemóvel",
-                },
-                      new Tipos_Sevicos
-                     {
-                   // TipoServicoId=3,
-                    Nome="Televisão",
-                },
-                      new Tipos_Sevicos
-                     {
-                    //TipoServicoId=4,
-                    Nome="Telefone Fixo",
-                },
-                      new Tipos_Sevicos
-                     {
-                    //TipoServicoId=5,
-                    Nome="Internet Móvel",
-                },
-            });
+                tipos_Sevicos = new Tipos_Sevicos { Nome = nome };
+                bd.TiposServicos.Add(tipos_Sevicos);
                 bd.SaveChanges();
             }
+        }
 
-            //-------------------TIPOS DE CLIENTES--------------------------
+        //    if (bd.TiposServicos.Any()) return;
 
-            private static void InsereTiposClientes(Projeto_Lab_WebContext bd)
+
+        //    bd.TiposServicos.AddRange(new Tipos_Sevicos[] {
+        //          new Tipos_Sevicos
+        //         {
+        //       // TipoServicoId=1,
+        //        Nome="Internet",
+        //    },
+        //          new Tipos_Sevicos
+        //         {
+        //       // TipoServicoId=2,
+        //        Nome="Telemóvel",
+        //    },
+        //          new Tipos_Sevicos
+        //         {
+        //       // TipoServicoId=3,
+        //        Nome="Televisão",
+        //    },
+        //          new Tipos_Sevicos
+        //         {
+        //        //TipoServicoId=4,
+        //        Nome="Telefone Fixo",
+        //    },
+        //          new Tipos_Sevicos
+        //         {
+        //        //TipoServicoId=5,
+        //        Nome="Internet Móvel",
+        //    },
+        //});
+        //    bd.SaveChanges();
+        //}
+
+        //-------------------TIPOS DE CLIENTES--------------------------
+
+        private static void InsereTiposClientes(Projeto_Lab_WebContext bd)
+
+        {
+            GaranteExistenciaTiposClientes(bd, "Particular");
+            GaranteExistenciaTiposClientes(bd, "Empresa");
+        }
+        internal static void GaranteExistenciaTiposClientes(Projeto_Lab_WebContext bd, string nome)
+        {
+            Tipos_Clientes tipos_Clientes = bd.Tipos_Clientes.FirstOrDefault(c => c.Nome == nome);
+            if (tipos_Clientes == null)
             {
-                if (bd.Tipos_Clientes.Any()) return;
-
-
-                bd.Tipos_Clientes.AddRange(new Tipos_Clientes[] {
-                     new Tipos_Clientes
-                     {
-                   // TipoClienteId=1,
-                    Nome="Particular",
-                },
-                     new Tipos_Clientes
-                     {
-                   // TipoClienteId=2,
-                    Nome="Empresa",
-                },
-            });
+                tipos_Clientes = new Tipos_Clientes{ Nome = nome };
+                bd.Tipos_Clientes.Add(tipos_Clientes);
                 bd.SaveChanges();
             }
-            //---------------------------------PromocoesPacotes------------------------------
-            private static void InserePromocoesPacotes(Projeto_Lab_WebContext bd)
+        }
+        //private static void InsereTiposClientes(Projeto_Lab_WebContext bd)
+        //    {
+        //        if (bd.Tipos_Clientes.Any()) return;
+
+
+        //        bd.Tipos_Clientes.AddRange(new Tipos_Clientes[] {
+        //             new Tipos_Clientes
+        //             {
+        //           // TipoClienteId=1,
+        //            Nome="Particular",
+        //        },
+        //             new Tipos_Clientes
+        //             {
+        //           // TipoClienteId=2,
+        //            Nome="Empresa",
+        //        },
+        //    });
+        //        bd.SaveChanges();
+        //    }
+        //---------------------------------PromocoesPacotes------------------------------
+        private static void InserePromocoesPacotes(Projeto_Lab_WebContext bd)
             {
                 if (bd.PromocoesPacotes.Any()) return;
                 bd.PromocoesPacotes.AddRange(new PromocoesPacotes[]
