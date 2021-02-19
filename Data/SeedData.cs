@@ -22,15 +22,15 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         internal static void PreencheDados(Projeto_Lab_WebContext bd)
         {
-            InserePromocoes(bd);
-            InsereTiposServicos(bd);
-            InsereServicos(bd);
-            //InsereFuncionarios(bd);
-            InsereTiposClientes(bd);
-            InsereClientes(bd);
-            InserePacotes(bd);
-            InsereRoles(bd);
-            InsereServicosPacotes(bd);
+            //InserePromocoes(bd);
+            //InsereTiposServicos(bd);
+            //InsereServicos(bd);
+            ////InsereFuncionarios(bd);
+            //InsereTiposClientes(bd);
+            //InsereClientes(bd);
+            //InserePacotes(bd);
+            //InsereRoles(bd);
+            //InsereServicosPacotes(bd);
             //Insere(bd);
             //InserePromocoesPacotes(bd);
             //InsereContratos(bd);
@@ -916,163 +916,163 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 bd.SaveChanges();
             }
 
-            private static void InsereContratos(Projeto_Lab_WebContext bd)
-            {
-                if (bd.Contratos.Any()) return;
-                bd.Contratos.AddRange(new Contratos[] {
-                    new Contratos
-                {
-                    //ContratoId=1,
-                    ClienteId=1,
-                    FuncionarioId=3,
-                    DataInicio=new DateTime(2021,07,02),
-                    PrecoFinal=61.01m,
-                    DataFim=new DateTime(2023,07,02),
-                    PromocoesPacotes=1,
-                    PrecoPacote=65.00m,
-                    PromocaoDesc=3.99m,
-                    NomeCliente="Pedro Machado",
-                    NomeFuncionario="Maria de Fátima",
-                    Telefone=213695748,
-                },
-            new Contratos
-                {
-                    //ContratoId=2,
-                    ClienteId=2,
-                    FuncionarioId=5,
-                    DataInicio=new DateTime(2021,07,03),
-                    PrecoFinal=23.01m,
-                    DataFim=new DateTime(2023,07,03),
-                    PromocoesPacotes=3,
-                    PrecoPacote=25.00m,
-                    PromocaoDesc=1.99m,
-                    NomeCliente="Joaquim Mendez",
-                    NomeFuncionario="Justina Paulo",
-                    Telefone=214569874,
-                },
-             new Contratos
-                {
-                    //ContratoId=3,
-                    ClienteId=3,
-                    FuncionarioId=7,
-                    DataInicio=new DateTime(2021,07,02),
-                    PrecoFinal=61.01m,
-                    DataFim=new DateTime(2023,07,02),
-                    PromocoesPacotes=1,
-                    PrecoPacote=65.00m,
-                    PromocaoDesc=3.99m,
-                    NomeCliente="Sandra Vieira",
-                    NomeFuncionario="Luís Madeira",
-                    Telefone=215421367,
-                },
-             new Contratos
-                {
-                    //ContratoId=4,
-                    ClienteId=4,
-                    FuncionarioId=8,
-                    DataInicio=new DateTime(2021,07,03),
-                    PrecoFinal=42.41m,
-                    DataFim=new DateTime(2023,07,03),
-                    PromocoesPacotes=2,
-                    PrecoPacote=45.00m,
-                    PromocaoDesc=2.59m,
-                    NomeCliente="Sara Siqueira",
-                    NomeFuncionario="Paula Melo",
-                    Telefone=219632541,
-                },
-             new Contratos
-                {
-                    //ContratoId=5,
-                    ClienteId=5,
-                    FuncionarioId=7,
-                    DataInicio=new DateTime(2021,03,05),
-                    PrecoFinal=60.01m,
-                    DataFim=new DateTime(2023,03,05),
-                    PromocoesPacotes=4,
-                    PrecoPacote=65.00m,
-                    PromocaoDesc=4.99m,
-                    NomeCliente="Nelson Ramos",
-                    NomeFuncionario="Luís Madeira",
-                    Telefone=213564789,
-                },
-             new Contratos
-                {
-                    //ContratoId=6,
-                    ClienteId=6,
-                    FuncionarioId=7,
-                    DataInicio=new DateTime(2021,03,25),
-                    PrecoFinal=51.01m,
-                    DataFim=new DateTime(2023,03,25),
-                    PromocoesPacotes=5,
-                    PrecoPacote=50.00m,
-                    PromocaoDesc=3.99m,
-                    NomeCliente="Danilo Pires",
-                    NomeFuncionario="Luís Madeira",
-                    Telefone=215632123,
-                },
-             new Contratos
-                {
-                    //ContratoId=7,
-                    ClienteId=7,
-                    FuncionarioId=6,
-                    DataInicio=new DateTime(2021,04,01),
-                    PrecoFinal=22.01m,
-                    DataFim=new DateTime(2023,04,01),
-                    PromocoesPacotes=6,
-                    PrecoPacote=25.00m,
-                    PromocaoDesc=2.99m,
-                    NomeCliente="Mônica Torres",
-                    NomeFuncionario="Inês Reis",
-                    Telefone=213154689,
-                },
-             new Contratos
-                {
-                    //ContratoId=8,
-                    ClienteId=8,
-                    FuncionarioId=10,
-                    DataInicio=new DateTime(2021,07,03),
-                    PrecoFinal=42.41m,
-                    DataFim=new DateTime(2023,07,03),
-                    PromocoesPacotes=2,
-                    PrecoPacote=45.00m,
-                    PromocaoDesc=2.59m,
-                    NomeCliente="Daniela Mata",
-                    NomeFuncionario="Marta Machado",
-                    Telefone=216335559,
-                },
-             new Contratos
-                {
-                    //ContratoId=9,
-                    ClienteId=9,
-                    FuncionarioId=1,
-                    DataInicio=new DateTime(2021,08,01),
-                    PrecoFinal=61.01m,
-                    DataFim=new DateTime(2023,08,01),
-                    PromocoesPacotes=1,
-                    PrecoPacote=65.00m,
-                    PromocaoDesc=3.99m,
-                    NomeCliente="Virgílio Abreu",
-                    NomeFuncionario="Nuno Forte",
-                    Telefone=211145965,
-                },
-             new Contratos
-                {
-                    //ContratoId=10,
-                    ClienteId=10,
-                    FuncionarioId=3,
-                    DataInicio=new DateTime(2021,08,04),
-                    PrecoFinal=61.01m,
-                    DataFim=new DateTime(2023,08,04),
-                    PromocoesPacotes=1,
-                    PrecoPacote=65.00m,
-                    PromocaoDesc=3.99m,
-                    NomeCliente="Martim Moniz",
-                    NomeFuncionario="Maria de Fátima",
-                    Telefone=215648565,
-                },
-          });
-                bd.SaveChanges();
-            }
+          //  private static void InsereContratos(Projeto_Lab_WebContext bd)
+          //  {
+          //      if (bd.Contratos.Any()) return;
+          //      bd.Contratos.AddRange(new Contratos[] {
+          //          new Contratos
+          //      {
+          //          //ContratoId=1,
+          //          ClienteId=1,
+          //          FuncionarioId=3,
+          //          DataInicio=new DateTime(2021,07,02),
+          //          PrecoFinal=61.01m,
+          //          DataFim=new DateTime(2023,07,02),
+          //          PromocoesPacotes=1,
+          //          PrecoPacote=65.00m,
+          //          PromocaoDesc=3.99m,
+          //          NomeCliente="Pedro Machado",
+          //          NomeFuncionario="Maria de Fátima",
+          //          Telefone=213695748,
+          //      },
+          //  new Contratos
+          //      {
+          //          //ContratoId=2,
+          //          ClienteId=2,
+          //          FuncionarioId=5,
+          //          DataInicio=new DateTime(2021,07,03),
+          //          PrecoFinal=23.01m,
+          //          DataFim=new DateTime(2023,07,03),
+          //          PromocoesPacotes=3,
+          //          PrecoPacote=25.00m,
+          //          PromocaoDesc=1.99m,
+          //          NomeCliente="Joaquim Mendez",
+          //          NomeFuncionario="Justina Paulo",
+          //          Telefone=214569874,
+          //      },
+          //   new Contratos
+          //      {
+          //          //ContratoId=3,
+          //          ClienteId=3,
+          //          FuncionarioId=7,
+          //          DataInicio=new DateTime(2021,07,02),
+          //          PrecoFinal=61.01m,
+          //          DataFim=new DateTime(2023,07,02),
+          //          PromocoesPacotes=1,
+          //          PrecoPacote=65.00m,
+          //          PromocaoDesc=3.99m,
+          //          NomeCliente="Sandra Vieira",
+          //          NomeFuncionario="Luís Madeira",
+          //          Telefone=215421367,
+          //      },
+          //   new Contratos
+          //      {
+          //          //ContratoId=4,
+          //          ClienteId=4,
+          //          FuncionarioId=8,
+          //          DataInicio=new DateTime(2021,07,03),
+          //          PrecoFinal=42.41m,
+          //          DataFim=new DateTime(2023,07,03),
+          //          PromocoesPacotes=2,
+          //          PrecoPacote=45.00m,
+          //          PromocaoDesc=2.59m,
+          //          NomeCliente="Sara Siqueira",
+          //          NomeFuncionario="Paula Melo",
+          //          Telefone=219632541,
+          //      },
+          //   new Contratos
+          //      {
+          //          //ContratoId=5,
+          //          ClienteId=5,
+          //          FuncionarioId=7,
+          //          DataInicio=new DateTime(2021,03,05),
+          //          PrecoFinal=60.01m,
+          //          DataFim=new DateTime(2023,03,05),
+          //          PromocoesPacotes=4,
+          //          PrecoPacote=65.00m,
+          //          PromocaoDesc=4.99m,
+          //          NomeCliente="Nelson Ramos",
+          //          NomeFuncionario="Luís Madeira",
+          //          Telefone=213564789,
+          //      },
+          //   new Contratos
+          //      {
+          //          //ContratoId=6,
+          //          ClienteId=6,
+          //          FuncionarioId=7,
+          //          DataInicio=new DateTime(2021,03,25),
+          //          PrecoFinal=51.01m,
+          //          DataFim=new DateTime(2023,03,25),
+          //          PromocoesPacotes=5,
+          //          PrecoPacote=50.00m,
+          //          PromocaoDesc=3.99m,
+          //          NomeCliente="Danilo Pires",
+          //          NomeFuncionario="Luís Madeira",
+          //          Telefone=215632123,
+          //      },
+          //   new Contratos
+          //      {
+          //          //ContratoId=7,
+          //          ClienteId=7,
+          //          FuncionarioId=6,
+          //          DataInicio=new DateTime(2021,04,01),
+          //          PrecoFinal=22.01m,
+          //          DataFim=new DateTime(2023,04,01),
+          //          PromocoesPacotes=6,
+          //          PrecoPacote=25.00m,
+          //          PromocaoDesc=2.99m,
+          //          NomeCliente="Mônica Torres",
+          //          NomeFuncionario="Inês Reis",
+          //          Telefone=213154689,
+          //      },
+          //   new Contratos
+          //      {
+          //          //ContratoId=8,
+          //          ClienteId=8,
+          //          FuncionarioId=10,
+          //          DataInicio=new DateTime(2021,07,03),
+          //          PrecoFinal=42.41m,
+          //          DataFim=new DateTime(2023,07,03),
+          //          PromocoesPacotes=2,
+          //          PrecoPacote=45.00m,
+          //          PromocaoDesc=2.59m,
+          //          NomeCliente="Daniela Mata",
+          //          NomeFuncionario="Marta Machado",
+          //          Telefone=216335559,
+          //      },
+          //   new Contratos
+          //      {
+          //          //ContratoId=9,
+          //          ClienteId=9,
+          //          FuncionarioId=1,
+          //          DataInicio=new DateTime(2021,08,01),
+          //          PrecoFinal=61.01m,
+          //          DataFim=new DateTime(2023,08,01),
+          //          PromocoesPacotes=1,
+          //          PrecoPacote=65.00m,
+          //          PromocaoDesc=3.99m,
+          //          NomeCliente="Virgílio Abreu",
+          //          NomeFuncionario="Nuno Forte",
+          //          Telefone=211145965,
+          //      },
+          //   new Contratos
+          //      {
+          //          //ContratoId=10,
+          //          ClienteId=10,
+          //          FuncionarioId=3,
+          //          DataInicio=new DateTime(2021,08,04),
+          //          PrecoFinal=61.01m,
+          //          DataFim=new DateTime(2023,08,04),
+          //          PromocoesPacotes=1,
+          //          PrecoPacote=65.00m,
+          //          PromocaoDesc=3.99m,
+          //          NomeCliente="Martim Moniz",
+          //          NomeFuncionario="Maria de Fátima",
+          //          Telefone=215648565,
+          //      },
+          //});
+          //      bd.SaveChanges();
+          //  }
 
             internal static async Task InsereUtilizadoresFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
             {

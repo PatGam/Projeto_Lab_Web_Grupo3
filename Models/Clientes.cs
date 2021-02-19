@@ -49,8 +49,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [StringLength(8, MinimumLength = 8)]
         public string CodigoPostal { get; set; }
 
-        [InverseProperty("Cliente")]
-        public virtual ICollection<Contratos> Contratos { get; set; }
+        //[InverseProperty("Cliente")]
+       public virtual ICollection<Contratos> Contratos { get; set; }
 
         [Display(Name = "Tipo de Cliente")]
 

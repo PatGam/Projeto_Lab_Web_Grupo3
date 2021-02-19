@@ -47,29 +47,30 @@ namespace Projeto_Lab_Web_Grupo3.Data
             {
                 modelBuilder.Entity<Contratos>(entity =>
                 {
-                    entity.HasIndex(e => e.ClienteId);
+                    //entity.HasIndex(e => e.ClienteId);
 
-                    entity.HasIndex(e => e.FuncionarioId);
+                    //entity.HasIndex(e => e.FuncionarioId);
 
-                    entity.HasIndex(e => e.PromocoesPacotes);
+                    //entity.HasIndex(e => e.PromocoesPacotes);
 
-                    entity.HasOne(d => d.Cliente)
+
+                    entity.HasOne(d => d.Clientes)
                         .WithMany(p => p.Contratos)
                         .HasForeignKey(d => d.ClienteId)
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_Contratos_Clientes");
 
-                    entity.HasOne(d => d.Funcionario)
+                    entity.HasOne(d => d.Funcionarios)
                         .WithMany(p => p.Contratos)
                         .HasForeignKey(d => d.FuncionarioId)
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_Contratos_Funcionarios");
 
-                    entity.HasOne(d => d.PromocoesPacotesNavigation)
-                        .WithMany(p => p.Contratos)
-                        .HasForeignKey(d => d.PromocoesPacotes)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Contratos_Promocoes_Pacotes");
+                    //entity.HasOne(d => d.PromocoesPacotesNavigation)
+                    //    .WithMany(p => p.Contratos)
+                    //    .HasForeignKey(d => d.PromocoesPacotes)
+                    //    .OnDelete(DeleteBehavior.ClientSetNull)
+                    //    .HasConstraintName("FK_Contratos_Promocoes_Pacotes");
                 });
 
                 modelBuilder.Entity<PromocoesPacotes>(entity =>

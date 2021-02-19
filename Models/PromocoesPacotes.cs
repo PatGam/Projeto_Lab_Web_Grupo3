@@ -41,7 +41,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [InverseProperty("PromocoesPacotes")]
         [Display(Name = "Promoções")]
         public virtual Promocoes Promocoes { get; set; }
-        [InverseProperty("PromocoesPacotesNavigation")]
+        //[InverseProperty("PromocoesPacotesNavigation")]
         public virtual ICollection<Contratos> Contratos { get; set; }
     }
 }

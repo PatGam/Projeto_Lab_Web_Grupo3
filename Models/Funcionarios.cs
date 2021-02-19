@@ -56,7 +56,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public string Role { get; set; }
 
-        [InverseProperty("Funcionario")]
+        //[InverseProperty("Funcionario")]
         public virtual ICollection<Contratos> Contratos { get; set; }
 
         //    [Display(Name = "Cargo")]
