@@ -56,96 +56,123 @@ namespace Projeto_Lab_Web_Grupo3.Data
         }
 
         //-------------------PROMOÇÕES--------------------------
+        //private static void InserePromocoes(Projeto_Lab_WebContext bd)
+        //{
+        //    if (bd.Promocoes.Any()) return;
+
+
+        //    bd.Promocoes.AddRange(new Promocoes[] {
+        //        new Promocoes
+        //        {
+        //            //PromocoesId=1,
+        //            Nome="PascoaS",
+        //            Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes pequenos",
+        //            DataInicio=new DateTime(2021,03,01),
+        //            DataFim=new DateTime(2021,04,30),
+        //            PromocaoDesc=2.99m,
+        //        },
+        //        new Promocoes
+        //        {
+        //            //PromocoesId=2,
+        //            Nome="PascoaM",
+        //            Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes médios",
+        //            DataInicio=new DateTime(2021,03,01),
+        //            DataFim=new DateTime(2021,04,30),
+        //            PromocaoDesc=3.99m,
+        //        },
+        //        new Promocoes
+        //        {
+        //            //PromocoesId=3,
+        //            Nome="PascoaL",
+        //            Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes grandes",
+        //            DataInicio=new DateTime(2021,03,01),
+        //            DataFim=new DateTime(2021,04,30),
+        //            PromocaoDesc=4.99m,
+        //        },
+        //        new Promocoes
+        //        {
+        //            //PromocoesId=4,
+        //            Nome="VerãoS",
+        //            Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes pequenos",
+        //            DataInicio=new DateTime(2021,07,01),
+        //            DataFim=new DateTime(2021,08,31),
+        //            PromocaoDesc=1.99m,
+        //        },
+        //        new Promocoes
+        //        {
+        //            //PromocoesId=5,
+        //            Nome="VerãoM",
+        //            Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes médios",
+        //            DataInicio=new DateTime(2021,07,01),
+        //            DataFim=new DateTime(2021,08,31),
+        //            PromocaoDesc=2.59m,
+        //        },
+        //        new Promocoes
+        //        {
+        //            //PromocoesId=6,
+        //            Nome="VerãoL",
+        //            Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes grandes",
+        //            DataInicio=new DateTime(2021,07,01),
+        //            DataFim=new DateTime(2021,08,31),
+        //            PromocaoDesc=3.99m,
+        //        },
+        //        new Promocoes
+        //        {
+        //            //PromocoesId=7,
+        //            Nome="NatalS",
+        //            Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes pequenos",
+        //            DataInicio=new DateTime(2021,12,01),
+        //            DataFim=new DateTime(2022,01,31),
+        //            PromocaoDesc=3.99m,
+        //        },
+        //         new Promocoes
+        //        {
+        //            //PromocoesId=8,
+        //            Nome="NatalM",
+        //            Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes médios",
+        //            DataInicio=new DateTime(2021,12,01),
+        //            DataFim=new DateTime(2022,01,31),
+        //            PromocaoDesc=4.99m,
+        //        },
+        //          new Promocoes
+        //        {
+        //            //PromocoesId=9,
+        //            Nome="NatalL",
+        //            Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes grandes",
+        //            DataInicio=new DateTime(2021,12,01),
+        //            DataFim=new DateTime(2022,01,31),
+        //            PromocaoDesc=5.99m,
+        //        },
+
+        //    });
+        //    bd.SaveChanges();
+
+        //}
         private static void InserePromocoes(Projeto_Lab_WebContext bd)
         {
-            if (bd.Promocoes.Any()) return;
+            GaranteExistenciaPromocoes(bd, "PascoaS", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes pequenos", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 2,99m);
+            GaranteExistenciaPromocoes(bd, "PascoaM", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes médios", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 3,99m);
+            GaranteExistenciaPromocoes(bd, "PascoaL", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes grandes", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 4,99m);
+            GaranteExistenciaPromocoes(bd, "VerãoS", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes pequenos", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 1,99m);
+            GaranteExistenciaPromocoes(bd, "VerãoM", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes médio", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 2,59m);
+            GaranteExistenciaPromocoes(bd, "VerãoL", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes grandes", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 3,99m);
+            GaranteExistenciaPromocoes(bd, "NatalS", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes pequenos", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 3,99m);
+            GaranteExistenciaPromocoes(bd, "NatalM", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes médios", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 4,99m);
+            GaranteExistenciaPromocoes(bd, "NatalL", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes grandes", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 5,99m);
+
+        }
 
 
-            bd.Promocoes.AddRange(new Promocoes[] {
-                new Promocoes
-                {
-                    //PromocoesId=1,
-                    Nome="PascoaS",
-                    Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes pequenos",
-                    DataInicio=new DateTime(2021,03,01),
-                    DataFim=new DateTime(2021,04,30),
-                    PromocaoDesc=2.99m,
-                },
-                new Promocoes
-                {
-                    //PromocoesId=2,
-                    Nome="PascoaM",
-                    Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes médios",
-                    DataInicio=new DateTime(2021,03,01),
-                    DataFim=new DateTime(2021,04,30),
-                    PromocaoDesc=3.99m,
-                },
-                new Promocoes
-                {
-                    //PromocoesId=3,
-                    Nome="PascoaL",
-                    Descricao="Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes grandes",
-                    DataInicio=new DateTime(2021,03,01),
-                    DataFim=new DateTime(2021,04,30),
-                    PromocaoDesc=4.99m,
-                },
-                new Promocoes
-                {
-                    //PromocoesId=4,
-                    Nome="VerãoS",
-                    Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes pequenos",
-                    DataInicio=new DateTime(2021,07,01),
-                    DataFim=new DateTime(2021,08,31),
-                    PromocaoDesc=1.99m,
-                },
-                new Promocoes
-                {
-                    //PromocoesId=5,
-                    Nome="VerãoM",
-                    Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes médios",
-                    DataInicio=new DateTime(2021,07,01),
-                    DataFim=new DateTime(2021,08,31),
-                    PromocaoDesc=2.59m,
-                },
-                new Promocoes
-                {
-                    //PromocoesId=6,
-                    Nome="VerãoL",
-                    Descricao="Desconto aplicável durante a época de Verão para novas adesões, para pacotes grandes",
-                    DataInicio=new DateTime(2021,07,01),
-                    DataFim=new DateTime(2021,08,31),
-                    PromocaoDesc=3.99m,
-                },
-                new Promocoes
-                {
-                    //PromocoesId=7,
-                    Nome="NatalS",
-                    Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes pequenos",
-                    DataInicio=new DateTime(2021,12,01),
-                    DataFim=new DateTime(2022,01,31),
-                    PromocaoDesc=3.99m,
-                },
-                 new Promocoes
-                {
-                    //PromocoesId=8,
-                    Nome="NatalM",
-                    Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes médios",
-                    DataInicio=new DateTime(2021,12,01),
-                    DataFim=new DateTime(2022,01,31),
-                    PromocaoDesc=4.99m,
-                },
-                  new Promocoes
-                {
-                    //PromocoesId=9,
-                    Nome="NatalL",
-                    Descricao="Desconto aplicável durante a época de Natal para novas adesões, para pacotes grandes",
-                    DataInicio=new DateTime(2021,12,01),
-                    DataFim=new DateTime(2022,01,31),
-                    PromocaoDesc=5.99m,
-                },
-
-            });
-            bd.SaveChanges();
+        private static Promocoes GaranteExistenciaPromocoes(Projeto_Lab_WebContext bd, string nome, string descricao, DateTime dataInicio, DateTime datafim, int promocaoDesc, decimal v)
+        {
+            Promocoes promocoes = bd.Promocoes.FirstOrDefault(c => c.Nome == nome);
+            if (promocoes == null)
+            {
+                promocoes = new Promocoes { Nome = nome, Descricao = descricao, DataInicio = dataInicio, DataFim = datafim, PromocaoDesc = promocaoDesc };
+                bd.Promocoes.Add(promocoes);
+                bd.SaveChanges();
+            }
+            return (promocoes);
         }
         //-------------------FUNCIONARIOS--------------------------
         private static void InsereFuncionarios(Projeto_Lab_WebContext bd)
@@ -438,146 +465,175 @@ namespace Projeto_Lab_Web_Grupo3.Data
         }
 
             //-------------------CLIENTES--------------------------
-            private static void InsereClientes(Projeto_Lab_WebContext bd)
+            //private static void InsereClientes(Projeto_Lab_WebContext bd)
+            //{
+            //    if (bd.Clientes.Any()) return;
+            //    bd.Clientes.AddRange(new Clientes[] {
+            //      new Clientes
+            //         {
+            //        //ClienteId=1,
+            //        Nome="Pedro Machado",
+            //        DataNascimento=new DateTime(1971,07,14),
+            //        Nif="922257185",
+            //        Morada="Colónia Agrícola Casal 63",
+            //        Telemovel="935559453",
+            //        Email="pedromachado@gmail.com",
+            //        CodigoPostal="3870-358",
+            //        TipoClienteId = 2,
+
+
+            //    },
+            //       new Clientes
+            //         {
+            //        //ClienteId=2,
+            //        Nome="Joaquim Mendez",
+            //        DataNascimento=new DateTime(1987,12,24),
+            //        Nif="920099457",
+            //        Morada="R Indústria Porta 47",
+            //        Telemovel="915556899",
+            //        Email="joaquimmendez@outlook.com",
+            //        CodigoPostal="3300-040",
+            //        TipoClienteId = 2,
+
+            //    },
+            //        new Clientes
+            //         {
+            //        //ClienteId=3,
+            //        Nome="Sandra Vieira",
+            //        DataNascimento=new DateTime(1977,02,23),
+            //        Nif="921359357",
+            //        Morada="R Poeta João Ruiz 6",
+            //        Telemovel="929355531",
+            //        Email="sandravieira@gmail.com",
+            //        CodigoPostal="6230-355",
+            //        TipoClienteId = 2,
+
+            //    },
+            //         new Clientes
+            //         {
+            //        //ClienteId=4,
+            //        Nome="Sara Siqueira",
+            //        DataNascimento=new DateTime(1977,01,22),
+            //        Nif="929388769",
+            //        Morada="R Doutor Alfredo Freitas 108",
+            //        Telemovel="915551820",
+            //        Email="sarasiqueiraa@gmail.com",
+            //        CodigoPostal="3700-501",
+            //        TipoClienteId = 2,
+
+            //    },
+            //         new Clientes
+            //         {
+            //        //ClienteId=5,
+            //        Nome="Nelson Ramos",
+            //        DataNascimento=new DateTime(1945,07,10),
+            //        Nif="927822662",
+            //        Morada="R Indústria Porta 56",
+            //        Telemovel="929455563",
+            //        Email="nelsonramos@outlook.com",
+            //        CodigoPostal="3220-066",
+            //        TipoClienteId = 2,
+
+            //    },
+            //         new Clientes
+            //         {
+            //        //ClienteId=6,
+            //        Nome="Danilo Pires",
+            //        DataNascimento=new DateTime(1999,06,26),
+            //        Nif="925387029",
+            //        Morada="Rua Jorge Sena 99",
+            //        Telemovel="965559604",
+            //        Email="danilopires@live.com",
+            //        CodigoPostal="2650-499",
+            //        TipoClienteId = 2,
+            //    },
+
+            //         new Clientes
+            //         {
+            //        //ClienteId=7,
+            //        Nome="Mônica Torres",
+            //        DataNascimento=new DateTime(197,02,05),
+            //        Nif="922534195",
+            //        Morada="Avenida Guerra Junqueiro 114",
+            //        Telemovel="921555922",
+            //        Email="monicatorres@gmail.com",
+            //        CodigoPostal="2610-116",
+            //        TipoClienteId = 2,
+            //    },
+
+            //         new Clientes
+            //         {
+            //        //ClienteId=8,
+            //        Nome="Daniela Mata",
+            //        DataNascimento=new DateTime(1974,03,13),
+            //        Nif="925581543",
+            //        Morada="R Portela 64",
+            //        Telemovel="915551704",
+            //        Email="daielamata@gmail.com",
+            //        CodigoPostal="3550-171",
+            //        TipoClienteId = 2,
+            //    },
+
+            //         new Clientes
+            //         {
+            //        //ClienteId=9,
+            //        Nome="Virgílio Abreu",
+            //        DataNascimento=new DateTime(1987,04,16),
+            //        Nif="928360508",
+            //        Morada="R Padre João A L Ribeiro 88",
+            //        Telemovel="915559352",
+            //        Email="virgilio_abreu@outlook.com",
+            //        CodigoPostal="3440-376",
+            //        TipoClienteId = 2,
+            //    },
+
+            //         new Clientes
+            //         {
+            //        //ClienteId=10,
+            //        Nome="Martim Moniz",
+            //        DataNascimento=new DateTime(1984,08,15),
+            //        Nif="927251038",
+            //        Morada="R Poeta João Ruiz 90",
+            //        Telemovel="929455556",
+            //        Email="martim_moniz@live.com",
+            //        CodigoPostal="6230-691",
+            //        TipoClienteId = 2,
+            //    },
+            //});
+            //    bd.SaveChanges();
+
+            //}
+
+
+        private static void InsereClientes(Projeto_Lab_WebContext bd)
+        {
+            GaranteExistenciaClientes(bd, "Pedro Machado", new DateTime(1971, 07, 14), "922257185", "Colónia Agrícola Casal 63", "935559453", "pedromachado@gmail.com", "3870-358", 2);
+            GaranteExistenciaClientes(bd, "Joaquim Mendez", new DateTime(1987, 12, 24), "920099457", "R Indústria Porta 47", "915556899", "joaquimmendez@outlook.com", "3300-040", 2);
+            GaranteExistenciaClientes(bd, "Sandra Vieira", new DateTime(1977, 02, 23), "921359357", "R Poeta João Ruiz 6", "929355531", "sandravieira@gmail.com", "6230-355", 2);
+            GaranteExistenciaClientes(bd, "Sara Siqueira", new DateTime(1977, 01, 22), "929388769", "R Doutor Alfredo Freitas 108", "915551820", "sarasiqueiraa@gmail.com", "3700-501", 2);
+            GaranteExistenciaClientes(bd, "Nelson Ramos", new DateTime(1945, 07, 10), "927822662", "R Indústria Porta 56", "929455563", "nelsonramos@outlook.com", "3220-066", 2);
+            GaranteExistenciaClientes(bd, "Danilo Pires", new DateTime(1999, 06, 26), "925387029", "Rua Jorge Sena 99", "965559604", "danilopires@live.com", "2650-499", 2);
+            GaranteExistenciaClientes(bd, "Mônica Torres", new DateTime(197, 02, 05), "922534195", "Avenida Guerra Junqueiro 114", "921555922", "monicatorres@gmail.com", "2610-116", 2);
+            GaranteExistenciaClientes(bd, "Daniela Mata", new DateTime(1974, 03, 13), "925581543", "R Portela 64", "915551704", "daielamata@gmail.com", "3550-171", 2);
+            GaranteExistenciaClientes(bd, "Virgílio Abreu", new DateTime(1987, 04, 16), "928360508", "R Padre João A L Ribeiro 88", "915559352", "virgilio_abreu@outlook.com", "3440-376", 2);
+            GaranteExistenciaClientes(bd, "Martim Moniz", new DateTime(1984, 08, 15), "927251038", "R Poeta João Ruiz 90", "929455556", "martim_moniz@live.com", "6230-691", 2);
+
+        }
+
+
+        private static Clientes GaranteExistenciaClientes(Projeto_Lab_WebContext bd, string nome, DateTime dataNascimento, string nif, string morada, string telemovel, string email, string codigoPostal, int tipoClienteId)
+        {
+            Clientes clientes = bd.Clientes.FirstOrDefault(c => c.Nome == nome);
+            if (clientes == null)
             {
-                if (bd.Clientes.Any()) return;
-                bd.Clientes.AddRange(new Clientes[] {
-                  new Clientes
-                     {
-                    //ClienteId=1,
-                    Nome="Pedro Machado",
-                    DataNascimento=new DateTime(1971,07,14),
-                    Nif="922257185",
-                    Morada="Colónia Agrícola Casal 63",
-                    Telemovel="935559453",
-                    Email="pedromachado@gmail.com",
-                    CodigoPostal="3870-358",
-                    TipoClienteId = 2,
-
-
-                },
-                   new Clientes
-                     {
-                    //ClienteId=2,
-                    Nome="Joaquim Mendez",
-                    DataNascimento=new DateTime(1987,12,24),
-                    Nif="920099457",
-                    Morada="R Indústria Porta 47",
-                    Telemovel="915556899",
-                    Email="joaquimmendez@outlook.com",
-                    CodigoPostal="3300-040",
-                    TipoClienteId = 2,
-
-                },
-                    new Clientes
-                     {
-                    //ClienteId=3,
-                    Nome="Sandra Vieira",
-                    DataNascimento=new DateTime(1977,02,23),
-                    Nif="921359357",
-                    Morada="R Poeta João Ruiz 6",
-                    Telemovel="929355531",
-                    Email="sandravieira@gmail.com",
-                    CodigoPostal="6230-355",
-                    TipoClienteId = 2,
-
-                },
-                     new Clientes
-                     {
-                    //ClienteId=4,
-                    Nome="Sara Siqueira",
-                    DataNascimento=new DateTime(1977,01,22),
-                    Nif="929388769",
-                    Morada="R Doutor Alfredo Freitas 108",
-                    Telemovel="915551820",
-                    Email="sarasiqueiraa@gmail.com",
-                    CodigoPostal="3700-501",
-                    TipoClienteId = 2,
-
-                },
-                     new Clientes
-                     {
-                    //ClienteId=5,
-                    Nome="Nelson Ramos",
-                    DataNascimento=new DateTime(1945,07,10),
-                    Nif="927822662",
-                    Morada="R Indústria Porta 56",
-                    Telemovel="929455563",
-                    Email="nelsonramos@outlook.com",
-                    CodigoPostal="3220-066",
-                    TipoClienteId = 2,
-
-                },
-                     new Clientes
-                     {
-                    //ClienteId=6,
-                    Nome="Danilo Pires",
-                    DataNascimento=new DateTime(1999,06,26),
-                    Nif="925387029",
-                    Morada="Rua Jorge Sena 99",
-                    Telemovel="965559604",
-                    Email="danilopires@live.com",
-                    CodigoPostal="2650-499",
-                    TipoClienteId = 2,
-                },
-
-                     new Clientes
-                     {
-                    //ClienteId=7,
-                    Nome="Mônica Torres",
-                    DataNascimento=new DateTime(197,02,05),
-                    Nif="922534195",
-                    Morada="Avenida Guerra Junqueiro 114",
-                    Telemovel="921555922",
-                    Email="monicatorres@gmail.com",
-                    CodigoPostal="2610-116",
-                    TipoClienteId = 2,
-                },
-
-                     new Clientes
-                     {
-                    //ClienteId=8,
-                    Nome="Daniela Mata",
-                    DataNascimento=new DateTime(1974,03,13),
-                    Nif="925581543",
-                    Morada="R Portela 64",
-                    Telemovel="915551704",
-                    Email="daielamata@gmail.com",
-                    CodigoPostal="3550-171",
-                    TipoClienteId = 2,
-                },
-
-                     new Clientes
-                     {
-                    //ClienteId=9,
-                    Nome="Virgílio Abreu",
-                    DataNascimento=new DateTime(1987,04,16),
-                    Nif="928360508",
-                    Morada="R Padre João A L Ribeiro 88",
-                    Telemovel="915559352",
-                    Email="virgilio_abreu@outlook.com",
-                    CodigoPostal="3440-376",
-                    TipoClienteId = 2,
-                },
-
-                     new Clientes
-                     {
-                    //ClienteId=10,
-                    Nome="Martim Moniz",
-                    DataNascimento=new DateTime(1984,08,15),
-                    Nif="927251038",
-                    Morada="R Poeta João Ruiz 90",
-                    Telemovel="929455556",
-                    Email="martim_moniz@live.com",
-                    CodigoPostal="6230-691",
-                    TipoClienteId = 2,
-                },
-            });
+                clientes = new Clientes { Nome = nome, DataNascimento = dataNascimento, Nif = nif, Morada = morada, Telemovel = telemovel, Email = email, CodigoPostal = codigoPostal, TipoClienteId= tipoClienteId};
+                bd.Clientes.Add(clientes);
                 bd.SaveChanges();
-
             }
-            //-------------------PACOTES--------------------------
-            private static void InserePacotes(Projeto_Lab_WebContext bd)
+            return (clientes);
+        }
+        //-------------------PACOTES--------------------------
+        private static void InserePacotes(Projeto_Lab_WebContext bd)
             {
                 if (bd.Pacotes.Any()) return;
 
