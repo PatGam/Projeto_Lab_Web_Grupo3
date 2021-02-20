@@ -33,7 +33,7 @@
             <thead>
                 <tr>
                     <th>
-                        <i class="icon_profile"></i>  @Html.DisplayNameFor(model => model.Funcionarios[0].Nome)
+                        @Html.DisplayNameFor(model => model.Funcionarios[0].Nome)
                     </th>
                     @*<th>
                             @Html.DisplayNameFor(model => model.Funcionarios[0].DataNascimento)
@@ -45,13 +45,13 @@
                             @Html.DisplayNameFor(model => model.Funcionarios[0].Telemovel)
                         </th>*@
                     <th>
-                        <i class="icon_mail_alt"></i>  @Html.DisplayNameFor(model => model.Funcionarios[0].Email)
+                        @Html.DisplayNameFor(model => model.Funcionarios[0].Email)
                     </th>
                     @*<th>
                             @Html.DisplayNameFor(model => model.Funcionarios[0].CodigoPostal)
                         </th>*@
                     <th>
-                        <i class="fas fa-user-tag"></i>  @Html.DisplayNameFor(model => model.Funcionarios[0].Role)
+                        @Html.DisplayNameFor(model => model.Funcionarios[0].Role)
                     </th>
                     <th></th>
                 </tr>
@@ -82,11 +82,17 @@
                             @Html.DisplayFor(modelItem => item.Role)
                         </td>
                         <td>
+<<<<<<< HEAD
                             <div class="btn-group">
                                 <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.FuncionarioId"><span class="far fa-edit"></span> Editar</a>
                                 <a class="btn btn-info" asp-action="Details" asp-route-id="@item.FuncionarioId"><span class="fas fa-info-circle"></span> Detalhes</a>
                                 <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.FuncionarioId"><span class="fas fa-times"></span> Apagar</a>
                                 </div>
+=======
+                            <a asp-action="Edit" asp-route-id="@item.FuncionarioId">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.FuncionarioId">Detalhes</a> |
+                            <a asp-action="Delete" asp-route-id="@item.FuncionarioId">Apagar</a>
+>>>>>>> parent of d12a482 (Correção Tabela Funcionarios)
                         </td>
                     </tr>
                 }
