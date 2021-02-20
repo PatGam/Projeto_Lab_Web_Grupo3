@@ -31,13 +31,13 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Pacotes[0].Nome)
+                        <i class="icon_profile"></i> @Html.DisplayNameFor(model => model.Pacotes[0].Nome)
                     </th>
                     @*<th>
                             @Html.DisplayNameFor(model => model.Pacotes[0].Descricao)
                         </th>*@
                     <th>
-                        @Html.DisplayNameFor(model => model.Pacotes[0].Preco)
+                        <i class="fas fa-dollar-sign"></i> @Html.DisplayNameFor(model => model.Pacotes[0].Preco)
                     </th>
                     <th></th>
                 </tr>
@@ -56,9 +56,9 @@
                             @Html.DisplayFor(modelItem => item.Preco)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.PacoteId">Editar</a> |
-                            <a asp-action="Details" asp-route-id="@item.PacoteId">Detalhes</a> |
-                            <a asp-action="Delete" asp-route-id="@item.PacoteId">Apagar</a>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PacoteId"><span class="far fa-edit"></span> Editar</a>
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PacoteId"><span class="fas fa-info-circle"></span> Detalhes</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PacoteId"><span class="fas fa-times"></span> Apagar</a>
                         </td>
                     </tr>
                 }
