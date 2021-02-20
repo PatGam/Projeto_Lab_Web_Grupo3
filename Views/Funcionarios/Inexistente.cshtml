@@ -4,16 +4,20 @@
     ViewData["Title"] = "Funcionário inexistente";
 }
 
-<div class="card text-white bg-warning mb-3">
-    <div class="card-body">
-        <h5 class="card-title">@ViewBag.Title</h5>
-        <p class="card-text">O funcionário que selecionou já não existe. Possivelmente alguém eliminou o mesmo.</p>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">@ViewBag.Title</h5>
+                <p class="card-text">O funcionário que selecionou já não existe. Possivelmente alguém eliminou o mesmo.</p>
 
-        <div>
-            <a class="btn btn-primary" asp-action="Index">
-                Ver lista de funcionários
-            </a>
+                <div>
+                    <a class="btn btn-primary" asp-action="Index">
+                        Ver lista de funcionários
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+        </section>
+    </section>
 
