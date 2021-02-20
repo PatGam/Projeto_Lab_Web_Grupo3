@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Lab_Web_Grupo3.Data;
 using Projeto_Lab_Web_Grupo3.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Projeto_Lab_Web_Grupo3.Controllers
 {
@@ -32,6 +33,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             };
 
             List<Funcionarios> funcionarios = await _context.Funcionarios.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+                //.Include(p => p.Roles)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                 .Take(paginacao.ItemsPorPagina)
@@ -55,7 +57,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var funcionarios = await _context.Funcionarios
+            var funcionarios = await _context.Funcionarios/*.Include(p => p.Roles)*/
                 .FirstOrDefaultAsync(m => m.FuncionarioId == id);
             if (funcionarios == null)
             {
@@ -68,6 +70,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Funcionarios/Create
         public IActionResult Registo()
         {
+            //ViewData["Roles_Nome"] = new SelectList(_context.Roles, "Roles_Nome", "Roles_Nome");
             return View();
         }
 
@@ -99,18 +102,21 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             if (!ModelState.IsValid)
             {
+                //ViewData["Roles_Nome"] = new SelectList(_context.Roles, "Roles_Nome", "Roles_Nome");
                 return View(infoFuncionarios);
             }
-
+            
             Funcionarios funcionarios = new Funcionarios
             {
+
                 Nome = infoFuncionarios.Nome,
                 DataNascimento = infoFuncionarios.DataNascimento,
                 Morada = infoFuncionarios.Morada,
                 CodigoPostal = infoFuncionarios.CodigoPostal,
                 Email = infoFuncionarios.Email,
                 Telemovel = infoFuncionarios.Telemovel,
-                Role = infoFuncionarios.Role
+                Role = infoFuncionarios.Role,
+                //RolesId = infoFuncionarios.RolesId
             };
 
             _context.Add(funcionarios);
@@ -133,6 +139,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 return View("Inexistente");
             }
+
+            //ViewData["Roles_Nome"] = new SelectList(_context.Roles, "Roles_Nome", "Roles_Nome");
             return View(funcionarios);
         }
 
@@ -141,7 +149,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FuncionarioId,Nome,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Funcionarios funcionarios)
+        public async Task<IActionResult> Edit(int id, [Bind("FuncionarioId,Nome,DataNascimento,Morada,Telemovel,Email,CodigoPostal")] Funcionarios funcionarios)
         {
             if (id != funcionarios.FuncionarioId)
             {

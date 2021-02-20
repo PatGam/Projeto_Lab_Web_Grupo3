@@ -39,3 +39,51 @@
         </div>
         </section>
     </section>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h1>Detalhes</h1>
+                            </header>
+
+                            <div>
+                                <h4>Serviços</h4>
+                                <hr />
+                                <dl class="row">
+                                    <dt class="col-sm-2">
+                                        @Html.DisplayNameFor(model => model.Nome)
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                        @Html.DisplayFor(model => model.Nome)
+                                    </dd>
+                                    <dt class="col-sm-2">
+                                        @Html.DisplayNameFor(model => model.Descricao)
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                        @Html.DisplayFor(model => model.Descricao)
+                                    </dd>
+                                    <dt class="col-sm-2">
+                                        @Html.DisplayNameFor(model => model.TipoServicos)
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                        @Html.DisplayFor(model => model.TipoServicos.Nome)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@Model.ServicoId">Editar</a> |
+                                <a asp-action="Index">Voltar Atrás</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</body>

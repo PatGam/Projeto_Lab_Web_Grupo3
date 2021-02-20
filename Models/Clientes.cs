@@ -18,29 +18,43 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Key]
         [Column("Cliente_Id")]
         public int ClienteId { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Nome { get; set; }
+        [Display(Name ="Data de Nascimento")]
         [Column("Data_Nascimento", TypeName = "date")]
         public DateTime DataNascimento { get; set; }
+        [Display(Name ="NIF")]
         [Column("NIF")]
         [StringLength(9, MinimumLength = 9)]
-        public int Nif { get; set; }
+        public string Nif { get; set; }
+
         [Required]
         [StringLength(200)]
         public string Morada { get; set; }
-        [RegularExpression(@"(9[1236]|2\d)\d{7}", ErrorMessage = "Telefone Inválido")]
+        [Display(Name = "Telemóvel")]
+        [RegularExpression(@"9[1236]|\d{2})\d{7}", ErrorMessage = "Telefone Inválido")]
         [StringLength(9, MinimumLength = 9)]
-        public int Telemovel { get; set; }
+        public string Telemovel { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Email { get; set; }
+
         [Required]
+        [Display(Name ="Código Postal")]
         [Column("Codigo_Postal")]
+        [RegularExpression(@"(\d{4})[-](\d{3})", ErrorMessage = "Código Postal Inválido")]
         [StringLength(8, MinimumLength = 8)]
         public string CodigoPostal { get; set; }
 
-        [InverseProperty("Cliente")]
-        public virtual ICollection<Contratos> Contratos { get; set; }
+        //[InverseProperty("Cliente")]
+       public virtual ICollection<Contratos> Contratos { get; set; }
+
+        [Display(Name = "Tipo de Cliente")]
+
+        public int TipoClienteId { get; set; }
+        public Tipos_Clientes TiposClientes { get; set; }
     }
 }

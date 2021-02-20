@@ -49,6 +49,14 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Cargo")]
         public string Role { get; set; }
 
+
+        //[Required(ErrorMessage = "Especifique o cargo do funcionário")]
+        //[Display(Name = "Cargo")]
+        //public int RolesId { get; set; }
+        //public string Roles_Nome { get; set; }
+        //public Roles Roles { get; set; }
+
+
         [Required]
         [StringLength(256)]
         [DataType(DataType.Password)]

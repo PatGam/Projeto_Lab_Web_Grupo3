@@ -1,0 +1,42 @@
+﻿@model Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Detalhes";
+}
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h1>Detalhes</h1>
+                            </header>
+
+                            <div>
+
+                                <hr />
+                                <dl class="row">
+                                    <dt class="col-sm-2">
+                                        @Html.DisplayNameFor(model => model.Nome)
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                        @Html.DisplayFor(model => model.Nome)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@Model.TipoServicoId">Editar</a> |
+                                <a asp-action="Index">Voltar Atrás</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</body>

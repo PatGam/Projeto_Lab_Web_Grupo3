@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "EliminarInserir";
+    Layout = "_LayoutAdmin";
+}
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                @*<h1>Editar</h1>*@
+                            </header>
+                            <div class="card text-white bg-danger mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Atenção</h5>
+                                    <p class="card-text">A promoção que estava a editar foi eliminada por outra pessoa.</p>
+                                    <div class="form-group">
+                                        <input type="submit" value="Adicionar" class="btn btn-primary" />
+                                        <a asp-action="Index" class="btn btn-danger">Descartar</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @section Scripts {
+                                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                            }
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</body>
+

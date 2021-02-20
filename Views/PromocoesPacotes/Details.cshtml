@@ -1,0 +1,53 @@
+﻿@model Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "_LayoutAdmin";
+}
+
+
+
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.NomePacote)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.NomePacote)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.NomePromocoes)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.NomePromocoes)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Pacote)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Pacote.Nome)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Promocoes)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Promocoes.Nome)
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.PromocoesPacotesId">Editar</a> |
+                    <a asp-action="Index">Voltar Atrás</a>
+                </div>
+
+
+            </div>
+        </section>
+    </section>
+</section>

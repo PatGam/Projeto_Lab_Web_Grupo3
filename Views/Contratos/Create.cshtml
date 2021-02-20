@@ -1,0 +1,86 @@
+﻿@model NovoContratoViewModel
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Criar";
+}
+
+
+
+<h4>Contratos</h4>
+<hr />
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            Nome do Cliente
+                            <select asp-for="Contratos.ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                        </div>
+                      
+                        <div class="form-group">
+                            <label asp-for="Contratos.DataInicio" class="control-label"></label>
+                            <input asp-for="Contratos.DataInicio" class="form-control" />
+                            <span asp-validation-for="Contratos.DataInicio" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Contratos.DataFim" class="control-label"></label>
+                            <input asp-for="Contratos.DataFim" class="form-control" />
+                            <span asp-validation-for="Contratos.DataFim" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Pacotes" class="control-label"></label>
+                            <select asp-for="Pacotes" class="form-control" asp-items="ViewBag.PacoteId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Promocoes" class="control-label"></label>
+                            <select asp-for="Promocoes" class="form-control" asp-items="ViewBag.PromocoesId"></select>
+                        </div>
+                                    @*<div class="form-group">
+                        <label asp-for="PrecoPacote" class="control-label"></label>
+                        <input asp-for="PrecoPacote" class="form-control" />
+                        <span asp-validation-for="PrecoPacote" class="text-danger"></span>
+                    </div>*@
+                                    @*<div class="form-group">
+                        <label asp-for="PromocaoDesc" class="control-label"></label>
+                        <input asp-for="PromocaoDesc" class="form-control" />
+                        <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
+                    </div>*@
+                                    @*<div class="form-group">
+                        <label asp-for="NomeCliente" class="control-label"></label>
+                        <input asp-for="NomeCliente" class="form-control" />
+                        <span asp-validation-for="NomeCliente" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NomeFuncionario" class="control-label"></label>
+                        <input asp-for="NomeFuncionario" class="form-control" />
+                        <span asp-validation-for="NomeFuncionario" class="text-danger"></span>
+                    </div>*@
+                        <div class="form-group">
+                            <label asp-for="Contratos.Telefone" class="control-label"></label>
+                            <input asp-for="Contratos.Telefone" class="form-control" />
+                            <span asp-validation-for="Contratos.Telefone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" class="btn btn-primary" />
+                        </div>
+                    </form>
+
+
+                    <div>
+                        <a asp-action="Index">Voltar Atrás</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

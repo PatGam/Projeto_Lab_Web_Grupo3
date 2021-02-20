@@ -1,0 +1,45 @@
+﻿@model Projeto_Lab_Web_Grupo3.Models.Tipos_Sevicos
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Apagar";
+}
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <h1>Apagar</h1>
+                            </header>
+
+                            <h3>Tem a certeza que deseja Apagar?</h3>
+                            <div>
+
+                                <hr />
+                                <dl class="row">
+                                    <dt class="col-sm-2">
+                                        @Html.DisplayNameFor(model => model.Nome)
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                        @Html.DisplayFor(model => model.Nome)
+                                    </dd>
+                                </dl>
+
+                                <form asp-action="Delete">
+                                    <input type="hidden" asp-for="TipoServicoId" />
+                                    <input type="submit" value="Apagar" class="btn btn-danger" /> |
+                                    <a asp-action="Index">Voltar Atrás</a>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</body>
