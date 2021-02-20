@@ -33,7 +33,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Column("Telefone")]
         [RegularExpression(@"(2\d{8})", ErrorMessage = "Telefone Inválido")]
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
 
 
 
