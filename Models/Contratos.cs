@@ -21,13 +21,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public Funcionarios Funcionarios { get; set; }
 
-        public int PacoteId { get; set; }
-
-        public Pacotes Pacotes { get; set; }
-
-        public int PromocoesPacotesId { get; set; }
-        public PromocoesPacotes PromocoesPacotes { get; set; }
-
         [Column("Data_inicio", TypeName = "date")]
         [Display(Name = "Data de Início")]
         public DateTime DataInicio { get; set; }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
-    public partial class Contratos : Migration
+    public partial class Initial2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -187,14 +187,13 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ClienteId = table.Column<int>(nullable: false),
                     FuncionarioId = table.Column<int>(nullable: false),
-                    PacoteId = table.Column<int>(nullable: false),
-                    PromocoesPacotesId = table.Column<int>(nullable: false),
                     Data_inicio = table.Column<DateTime>(type: "date", nullable: false),
                     Data_Fim = table.Column<DateTime>(type: "date", nullable: false),
                     Telefone = table.Column<int>(nullable: false),
                     Preco_pacote = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Promocao_desc = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    Preco_Final = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
+                    Preco_Final = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    PromocoesPacotesId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -212,13 +211,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         principalColumn: "Funcionario_Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Contratos_Pacotes",
-                        column: x => x.PacoteId,
-                        principalTable: "Pacotes",
-                        principalColumn: "Pacote_Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Contratos_Promocoes_Pacotes",
+                        name: "FK_Contratos_Promocoes_Pacotes_PromocoesPacotesId",
                         column: x => x.PromocoesPacotesId,
                         principalTable: "Promocoes_Pacotes",
                         principalColumn: "Promocoes_Pacotes_Id",
@@ -265,11 +258,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "IX_Contratos_FuncionarioId",
                 table: "Contratos",
                 column: "FuncionarioId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Contratos_PacoteId",
-                table: "Contratos",
-                column: "PacoteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Contratos_PromocoesPacotesId",
