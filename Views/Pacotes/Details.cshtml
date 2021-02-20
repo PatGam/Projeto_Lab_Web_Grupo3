@@ -5,40 +5,6 @@
     ViewData["Title"] = "Details";
 }
 
-<section id="main-content">
-    <section class="wrapper">
-        <h1>Detalhes</h1>
-
-        <div>
-            <h4>Pacotes</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Nome)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Nome)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Descricao)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Descricao)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Preco)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Preco)
-                </dd>
-            </dl>
-        </div>
-        <div>
-            <a asp-action="Edit" asp-route-id="@Model.PacoteId">Editar</a> |
-            <a asp-action="Index">Voltar Atrás</a>
-        </div>
-        </section>
-    </section>
 
 <section id="container" class="">
     <section id="main-content">
@@ -67,11 +33,11 @@
                             @Html.DisplayFor(model => model.Pacotes.Preco)
                         </dd>
                         @*<dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Pacotes.ServicosPacotes)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Pacotes.ServicosPacotes)
-                </dd>*@
+                                @Html.DisplayNameFor(model => model.Pacotes.ServicosPacotes)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Pacotes.ServicosPacotes)
+                            </dd>*@
                     </dl>
                 </div>
                 <div>
@@ -102,8 +68,8 @@
                                     @Html.DisplayFor(modelItem => item.Servico.Nome)
                                 </td>
                                 @*<td>
-                            @Html.DisplayFor(modelItem => item.Descricao)
-                        </td>*@
+                                        @Html.DisplayFor(modelItem => item.Descricao)
+                                    </td>*@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Servico.TipoServicos.Nome)
                                 </td>
@@ -141,8 +107,8 @@
                                     @Html.DisplayFor(modelItem => item.Promocoes.Nome)
                                 </td>
                                 <td>
-                            @Html.DisplayFor(modelItem => item.Promocoes.Descricao)
-                        </td>
+                                    @Html.DisplayFor(modelItem => item.Promocoes.Descricao)
+                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Promocoes.PromocaoDesc)
                                 </td>

@@ -5,40 +5,7 @@
     ViewData["Title"] = "Details";
 }
 
-<section id="main-content">
-    <section class="wrapper">
-        <h1>Detalhes</h1>
 
-        <div>
-            <h4>Serviços</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Nome)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Nome)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Descricao)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Descricao)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.TipoServico)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.TipoServico)
-                </dd>
-            </dl>
-        </div>
-        <div>
-            <a asp-action="Edit" asp-route-id="@Model.ServicoId">Editar</a> |
-            <a asp-action="Index">Voltar Atrás</a>
-        </div>
-        </section>
-    </section>
 
 <body>
     <!-- container section start -->
