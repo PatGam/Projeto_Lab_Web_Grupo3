@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,12 +13,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
     public class ClientesController : Controller
     {
         private readonly Projeto_Lab_WebContext _context;
-        private readonly UserManager<IdentityUser> _gestorUtilizadores;
 
-        public ClientesController(Projeto_Lab_WebContext context, UserManager<IdentityUser> gestorUtilizadores)
+        public ClientesController(Projeto_Lab_WebContext context)
         {
             _context = context;
-            _gestorUtilizadores = gestorUtilizadores; 
         }
 
         // GET: Clientes
@@ -50,37 +47,23 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            Clientes clientes;
-
-            if (id != null)
+            if (id == null)
             {
-                clientes = await _context.Clientes.SingleOrDefaultAsync(c => c.ClienteId == id);
-
-                if (clientes == null)
-                {
-                    return NotFound();
-                }
+                return NotFound();
             }
-            else
+
+            var clientes = await _context.Clientes
+                .FirstOrDefaultAsync(m => m.ClienteId == id);
+            if (clientes == null)
             {
-                if (!User.IsInRole("Cliente"))
-                {
-                    return NotFound();
-                }
-
-                clientes = await _context.Clientes.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
-
-                if (clientes == null)
-                {
-                    return NotFound();
-                }
+                return NotFound();
             }
 
             return View(clientes);
         }
 
         // GET: Clientes/Create
-        public IActionResult Registo()
+        public IActionResult Create()
         {
             return View();
         }
@@ -90,48 +73,19 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registo(RegistoClienteViewModel infoClientes)
+        public async Task<IActionResult> Create([Bind("ClienteId,Nome,DataNascimento,Nif,Morada,Telemovel,Email,CodigoPostal")] Clientes clientes)
         {
-            IdentityUser utilizador = await _gestorUtilizadores.FindByNameAsync(infoClientes.Email);
-
-            if (utilizador != null)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("Email", "Já existe um cliente com o email que especificou.");
+                return View(clientes);
             }
-
-            utilizador = new IdentityUser(infoClientes.Email);
-            IdentityResult resultado = await _gestorUtilizadores.CreateAsync(utilizador, infoClientes.Password);
-
-            if (!resultado.Succeeded)
-            {
-                ModelState.AddModelError("", "Não foi possível fazer o registo. Por favor tente mais tarde novamente e se o problema persistir contacte a assistência.");
-            }
-            else
-            {
-                await _gestorUtilizadores.AddToRoleAsync(utilizador, "Cliente");
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return View(infoClientes);
-            }
-
-            Clientes clientes = new Clientes
-            {
-                Nome = infoClientes.Nome,
-                DataNascimento = infoClientes.DataNascimento,
-                Nif =infoClientes.Nif,
-                Morada = infoClientes.Morada,
-                CodigoPostal = infoClientes.CodigoPostal,
-                Email = infoClientes.Email,
-                Telemovel = infoClientes.Telemovel,
-            };
 
             _context.Add(clientes);
             await _context.SaveChangesAsync();
 
-            ViewBag.Mensagem = "Cliente adicionado com sucesso.";
+            ViewBag.Mensagem = "Funcionário adicionado com sucesso.";
             return View("Sucesso");
+            
         }
 
         // GET: Clientes/Edit/5

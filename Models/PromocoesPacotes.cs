@@ -26,12 +26,10 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Required]
         [Column("Nome_Pacote")]
         [StringLength(100)]
-        [Display(Name = "Nome do Pacote")]
         public string NomePacote { get; set; }
         [Required]
         [Column("Nome_Promocoes")]
         [StringLength(100)]
-        [Display(Name = "Nome da Promoção")]
         public string NomePromocoes { get; set; }
 
         [ForeignKey(nameof(PacoteId))]
@@ -39,9 +37,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public virtual Pacotes Pacote { get; set; }
         [ForeignKey(nameof(PromocoesId))]
         [InverseProperty("PromocoesPacotes")]
-        [Display(Name = "Promoções")]
         public virtual Promocoes Promocoes { get; set; }
-        //[InverseProperty("PromocoesPacotesNavigation")]
+        [InverseProperty("PromocoesPacotesNavigation")]
         public virtual ICollection<Contratos> Contratos { get; set; }
     }
 }

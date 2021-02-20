@@ -12,11 +12,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 {
     public class PacotesController : Controller
     {
-        private readonly Projeto_Lab_WebContext bd;
+        private readonly Projeto_Lab_WebContext _context;
 
         public PacotesController(Projeto_Lab_WebContext context)
         {
-            bd = context;
+            _context = context;
         }
 
         // GET: Pacotes
@@ -24,10 +24,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             Paginacao paginacao = new Paginacao
             {
-                TotalItems = await bd.Pacotes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                TotalItems = await _context.Pacotes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
                 PaginaAtual = pagina
             };
-            List<Pacotes> pacotes = await bd.Pacotes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+            List<Pacotes> pacotes = await _context.Pacotes.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
               .OrderBy(p => p.Nome)
               .Skip(paginacao.ItemsPorPagina * (pagina - 1))
               .Take(paginacao.ItemsPorPagina)
@@ -49,31 +49,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var pacotes = await bd.Pacotes
-                .SingleOrDefaultAsync(m => m.PacoteId == id);
-            var servicos = await bd.ServicosPacotes.Where(s => s.PacoteId == id)
-                .Include(s => s.Servico)
-                .ToListAsync();
-            var promocoes = await bd.PromocoesPacotes.Where(m => m.PacoteId == id)
-                .Include(l => l.Promocoes)
-                .ToListAsync();
-
+            var pacotes = await _context.Pacotes
+                .FirstOrDefaultAsync(m => m.PacoteId == id);
             if (pacotes == null)
             {
-                return View ("Inexistente");
+                return NotFound();
             }
 
-            ServicosPacotesViewModel modelo = new ServicosPacotesViewModel
-            {
-                Pacotes = pacotes,
-                ServicosPacotes = servicos,
-                PromocoesPacotes = promocoes,
-            };
-            
-           
-            
-            return base.View(modelo);
-            
+            return View(pacotes);
         }
 
         // GET: Pacotes/Create
@@ -89,17 +72,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PacoteId,Nome,Descricao,Preco")] Pacotes pacotes)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(pacotes);
-
+                _context.Add(pacotes);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            bd.Add(pacotes);
-            await bd.SaveChangesAsync();
-
-            ViewBag.Mensagem = "Pacote adicionado com sucesso.";
-            return View("Sucesso");
-
+            return View(pacotes);
         }
 
         // GET: Pacotes/Edit/5
@@ -110,10 +89,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var pacotes = await bd.Pacotes.FindAsync(id);
+            var pacotes = await _context.Pacotes.FindAsync(id);
             if (pacotes == null)
             {
-                return View ("Inexistente");
+                return NotFound();
             }
             return View(pacotes);
         }
@@ -134,24 +113,23 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 try
                 {
-                    bd.Update(pacotes);
-                    await bd.SaveChangesAsync();
+                    _context.Update(pacotes);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!PacotesExists(pacotes.PacoteId))
                     {
-                        return View ("EliminarInserir");
+                        return NotFound();
                     }
                     else
                     {
                         throw;
                     }
                 }
-               
+                return RedirectToAction(nameof(Index));
             }
-            ViewBag.Mensagem = "Pacote alterado com sucesso";
-            return View("Sucesso");
+            return View(pacotes);
         }
 
         // GET: Pacotes/Delete/5
@@ -162,12 +140,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var pacotes = await bd.Pacotes
-                .SingleOrDefaultAsync(m => m.PacoteId == id);
+            var pacotes = await _context.Pacotes
+                .FirstOrDefaultAsync(m => m.PacoteId == id);
             if (pacotes == null)
             {
-                ViewBag.Mensagem = "O Pacote que estava a tentar apagar foi eliminado por outra pessoa.";
-                return View("Sucesso");
+                return NotFound();
             }
 
             return View(pacotes);
@@ -178,16 +155,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pacotes = await bd.Pacotes.FindAsync(id);
-            bd.Pacotes.Remove(pacotes);
-            await bd.SaveChangesAsync();
-            ViewBag.Mensagem = "O Pacote foi eliminado com sucesso";
-            return View("Sucesso");
+            var pacotes = await _context.Pacotes.FindAsync(id);
+            _context.Pacotes.Remove(pacotes);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         private bool PacotesExists(int id)
         {
-            return bd.Pacotes.Any(e => e.PacoteId == id);
+            return _context.Pacotes.Any(e => e.PacoteId == id);
         }
     }
 }

@@ -24,7 +24,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public virtual Pacotes Pacote { get; set; }
         [ForeignKey(nameof(ServicoId))]
         [InverseProperty(nameof(Servicos.ServicosPacotes))]
-        [Display(Name = "Serviço")]
         public virtual Servicos Servico { get; set; }
     }
 }

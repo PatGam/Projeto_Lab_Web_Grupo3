@@ -27,7 +27,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string Descricao { get; set; }
         [Column(TypeName = "decimal(18, 2)")]
         [Display (Name ="Preço")]
-        [RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage ="O valor tem ser superior a 0")]
         public decimal Preco { get; set; }
 
         [InverseProperty("Pacote")]

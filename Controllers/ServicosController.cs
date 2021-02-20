@@ -12,11 +12,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 {
     public class ServicosController : Controller
     {
-        private readonly Projeto_Lab_WebContext bd;
+        private readonly Projeto_Lab_WebContext _context;
 
         public ServicosController(Projeto_Lab_WebContext context)
         {
-            bd = context;
+            _context = context;
         }
 
         // GET: Servicos
@@ -24,11 +24,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             Paginacao paginacao = new Paginacao
             {
-                TotalItems = await bd.Servicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                TotalItems = await _context.Servicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
                 PaginaAtual = pagina
             };
-            List<Servicos> servicos = await bd.Servicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
-              .Include(p => p.TipoServicos)
+            List<Servicos> servicos = await _context.Servicos.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
               .OrderBy(p => p.Nome)
               .Skip(paginacao.ItemsPorPagina * (pagina - 1))
               .Take(paginacao.ItemsPorPagina)
@@ -50,11 +49,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicos = await bd.Servicos.Include(p => p.TipoServicos)
-                .SingleOrDefaultAsync(m => m.ServicoId == id);
+            var servicos = await _context.Servicos
+                .FirstOrDefaultAsync(m => m.ServicoId == id);
             if (servicos == null)
             {
-                return View ("Inexistente");
+                return NotFound();
             }
 
             return View(servicos);
@@ -63,7 +62,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Servicos/Create
         public IActionResult Create()
         {
-            ViewData["TipoServicoId"] = new SelectList(bd.TiposServicos, "TipoServicoId", "Nome");
             return View();
         }
 
@@ -72,20 +70,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServicoId,Nome,Descricao,TipoServicoId")] Servicos servicos)
+        public async Task<IActionResult> Create([Bind("ServicoId,Nome,Descricao,TipoServico")] Servicos servicos)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                ViewData["TipoServicoId"] = new SelectList(bd.TiposServicos, "TipoServicoId", "Nome");
-                return View(servicos);
-             
-               
+                _context.Add(servicos);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            bd.Add(servicos);
-            await bd.SaveChangesAsync();
-
-            ViewBag.Mensagem = "Serviço adicionado com sucesso.";
-            return View("Sucesso");
+            return View(servicos);
         }
 
         // GET: Servicos/Edit/5
@@ -96,13 +89,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicos = await bd.Servicos.FindAsync(id);
+            var servicos = await _context.Servicos.FindAsync(id);
             if (servicos == null)
             {
-                return View ("Inexistente");
+                return NotFound();
             }
-
-            ViewData["TipoServicoId"] = new SelectList(bd.TiposServicos, "TipoServicoId", "Nome");
             return View(servicos);
         }
 
@@ -111,7 +102,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,Descricao,TipoServicoId")] Servicos servicos)
+        public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,Descricao,TipoServico")] Servicos servicos)
         {
             if (id != servicos.ServicoId)
             {
@@ -122,24 +113,23 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 try
                 {
-                    bd.Update(servicos);
-                    await bd.SaveChangesAsync();
+                    _context.Update(servicos);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ServicosExists(servicos.ServicoId))
                     {
-                        return View ("EliminarInserir");
+                        return NotFound();
                     }
                     else
                     {
                         throw;
                     }
                 }
-                
+                return RedirectToAction(nameof(Index));
             }
-            ViewBag.Mensagem = "Serviço alterado com sucesso";
-            return View("Sucesso");
+            return View(servicos);
         }
 
         // GET: Servicos/Delete/5
@@ -150,12 +140,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicos = await bd.Servicos
-                .SingleOrDefaultAsync(m => m.ServicoId == id);
+            var servicos = await _context.Servicos
+                .FirstOrDefaultAsync(m => m.ServicoId == id);
             if (servicos == null)
             {
-                ViewBag.Mensagem = "O Serviço que estava a tentar apagar foi eliminado por outra pessoa.";
-                return View("Sucesso");
+                return NotFound();
             }
 
             return View(servicos);
@@ -166,16 +155,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var servicos = await bd.Servicos.FindAsync(id);
-            bd.Servicos.Remove(servicos);
-            await bd.SaveChangesAsync();
-            ViewBag.Mensagem = "O Serviço foi eliminado com sucesso";
-            return View("Sucesso");
+            var servicos = await _context.Servicos.FindAsync(id);
+            _context.Servicos.Remove(servicos);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         private bool ServicosExists(int id)
         {
-            return bd.Servicos.Any(e => e.ServicoId == id);
+            return _context.Servicos.Any(e => e.ServicoId == id);
         }
     }
 }
