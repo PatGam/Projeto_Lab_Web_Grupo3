@@ -63,7 +63,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return View ("Inexistente");
             }
 
-            ServicosPacotesViewModel modelo = new ServicosPacotesViewModel
+            PacotesDetalhesViewModel modelo = new PacotesDetalhesViewModel
             {
                 Pacotes = pacotes,
                 ServicosPacotes = servicos,

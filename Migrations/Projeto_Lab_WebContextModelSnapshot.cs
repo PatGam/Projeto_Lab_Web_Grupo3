@@ -15,7 +15,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.11")
+                .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -93,6 +93,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<int>("FuncionarioId")
                         .HasColumnType("int");
 
+                    b.Property<int>("PacoteId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("PrecoFinal")
                         .HasColumnName("Preco_Final")
                         .HasColumnType("decimal(18, 2)");
@@ -105,7 +108,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnName("Promocao_desc")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.Property<int?>("PromocoesPacotesId")
+                    b.Property<int>("PromocoesPacotesId")
                         .HasColumnType("int");
 
                     b.Property<int>("Telefone")
@@ -117,6 +120,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.HasIndex("ClienteId");
 
                     b.HasIndex("FuncionarioId");
+
+                    b.HasIndex("PacoteId");
 
                     b.HasIndex("PromocoesPacotesId");
 
@@ -399,9 +404,17 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasConstraintName("FK_Contratos_Funcionarios")
                         .IsRequired();
 
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", null)
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Pacotes", "Pacotes")
                         .WithMany("Contratos")
-                        .HasForeignKey("PromocoesPacotesId");
+                        .HasForeignKey("PacoteId")
+                        .HasConstraintName("FK_Contratos_Pacotes")
+                        .IsRequired();
+
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", "PromocoesPacotes")
+                        .WithMany("Contratos")
+                        .HasForeignKey("PromocoesPacotesId")
+                        .HasConstraintName("FK_Contratos_Promocoes_Pacotes")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Funcionarios", b =>
