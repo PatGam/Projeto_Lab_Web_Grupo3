@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RD Telecomunicações</title>
+    <title>@ViewData["Title"] - Projeto_Lab_Web_Grupo3</title>
 
     <!--Template-->
     <!-- Google Fonts -->
@@ -83,34 +83,11 @@
                             <li class="nav-item">
                                 <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços</a>
                             </li>
-                        </ul>
-                    }
-                    else if (User.IsInRole("Clientes"))
-                    {
-                        <ul>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Gerir os meus dados   <i class="fas fa-cube"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Pacotes   <i class="fas fa-cube"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão <i class="fas fa-tv"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
-                            </li>
-                        </ul>
+                        </ul>                    
                     }
                     else
                     {
-                <ul>
+                <ul>                    
                     <li class="nav-item">
                         <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Pacotes   <i class="fas fa-cube"></i></a>
                     </li>
@@ -126,10 +103,10 @@
                     <li class="nav-item">
                         <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
                     </li>
-                    </ul>
-                        }
-                        <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
-</nav>
+                </ul>
+                }                      
+                    <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
+                  </nav>
                 </div>               
         </header>
     </div>
