@@ -69,16 +69,19 @@
                     {
                         <ul>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Gerir Clientes  <i class="fas fa-users-cog"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index">Index</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gerir Funcionários  <i class="fas fa-people-arrows"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Gerir Clientes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Gerir Pacotes  <i class="fas fa-cubes"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gerir Funcionários</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços  <i class="fas fa-atom"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Gerir Pacotes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços</a>
                             </li>
                         </ul>
                     }
@@ -100,55 +103,33 @@
                             <li class="nav-item">
                                 <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item">
                                 <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
-                                <ul>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
-                                    </li>
-                                </ul>
                             </li>
                         </ul>
                     }
                     else
                     {
-                        <ul>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesIndex">Pacotes   <i class="fas fa-cube"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão <i class="fas fa-tv"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
-                                <ul>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    }
-                    <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
-                </nav>
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Pacotes   <i class="fas fa-cube"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão <i class="fas fa-tv"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
+                    </li>
+                    </ul>
+                        }
+                        <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
+</nav>
                 </div>               
         </header>
     </div>
