@@ -1,8 +1,9 @@
 /*-----------------------Login Page-------------------------*/
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
+/*Purple 1 - #968fef*/
+/*Purple 2 - #b224ef*/
+/*---------------------------------*/
+/*-----------# General---------*/
+/*--------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
@@ -10,12 +11,12 @@ body {
 }
 
 a {
-  color: #4eb478;
+  color: #968fef;
   text-decoration: none;
 }
 
 a:hover {
-  color: #72c393;
+  color: #b224ef;
   text-decoration: none;
 }
 
@@ -40,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #4eb478;
+  background: #968fef;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -54,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top:hover {
-  background: #6bc08e;
+  background: #b224ef;
   color: #fff;
 }
 
@@ -148,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar a:hover, .navbar .active, .navbar li:hover > a {
-  color: #72c393;
+  color: #968fef;
 }
 
 .navbar .dropdown ul {
@@ -181,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #4eb478;
+  color: #968fef;
 }
 
 .navbar .dropdown:hover > ul {
@@ -271,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #4eb478;
+  color: #968fef;
 }
 
 .navbar-mobile .getstarted {
@@ -303,7 +304,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #4eb478;
+  color: #968fef;
 }
 
 .navbar-mobile .dropdown > .dropdown-active {
@@ -316,7 +317,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/fundo2.jpg") top center;
   background-size: cover;
   position: relative;
   border-bottom: 1px solid #222;
@@ -324,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero:before {
   content: "";
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -369,13 +370,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 28px;
   border-radius: 5px;
   transition: 0.5s;
-  border: 2px solid #4eb478;
+  border: 2px solid #968fef;
   color: #fff;
 }
 
 #hero .btn-get-started:hover {
-  background: #4eb478;
-  border: 2px solid #4eb478;
+  background: #968fef;
+  border: 2px solid #968fef;
 }
 
 @media (min-width: 1024px) {
@@ -426,7 +427,7 @@ section {
   text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 0;
-  color: #4eb478;
+  color: #968fef;
   position: relative;
   z-index: 2;
 }
@@ -489,7 +490,7 @@ section {
 .about .content .icon-box i {
   font-size: 48px;
   float: left;
-  color: #4eb478;
+  color: #968fef;
 }
 
 .about .content .icon-box p {
@@ -574,7 +575,7 @@ section {
 }
 
 .features .card:hover .card-title a {
-  color: #4eb478;
+  color: #968fef;
 }
 
 @media (max-width: 1024px) {
@@ -617,8 +618,8 @@ section {
 }
 
 .cta .cta-btn:hover {
-  background: #4eb478;
-  border: 2px solid #4eb478;
+  background: #968fef;
+  border: 2px solid #968fef;
 }
 
 /*--------------------------------------------------------------
@@ -637,7 +638,7 @@ section {
 
 .services .icon-box i {
   float: left;
-  color: #4eb478;
+  color: #968fef;
   font-size: 40px;
   line-height: 0;
 }
@@ -655,7 +656,7 @@ section {
 }
 
 .services .icon-box .icon-box:hover h4 a {
-  color: #4eb478;
+  color: #968fef;
 }
 
 .services .icon-box p {
@@ -730,7 +731,7 @@ section {
 }
 
 .team .member .social a:hover {
-  color: #4eb478;
+  color: #968fef;
 }
 
 .team .member .social i {
@@ -777,7 +778,7 @@ section {
 
 .pricing h4 {
   font-size: 46px;
-  color: #4eb478;
+  color: #968fef;
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   margin-bottom: 25px;
@@ -802,7 +803,7 @@ section {
 }
 
 .pricing ul i {
-  color: #4eb478;
+  color: #968fef;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -834,14 +835,14 @@ section {
 }
 
 .pricing .get-started-btn:hover {
-  color: #4eb478;
-  border-color: #4eb478;
+  color: #968fef;
+  border-color: #968fef;
 }
 
 .pricing .featured {
   z-index: 10;
   margin: -30px -5px 0 -5px;
-  background: #4eb478;
+  background: #968fef;
 }
 
 .pricing .featured h3, .pricing .featured h4, .pricing .featured h4 span, .pricing .featured ul, .pricing .featured ul .na, .pricing .featured ul i, .pricing .featured ul .na i {
@@ -854,7 +855,7 @@ section {
 }
 
 .pricing .featured .get-started-btn:hover {
-  color: #4eb478;
+  color: #968fef;
   background: #fff;
 }
 
@@ -952,7 +953,7 @@ section {
 }
 
 .faq .faq-list a.collapsed:hover {
-  color: #4eb478;
+  color: #968fef;
 }
 
 .faq .faq-list a.collapsed .icon-show {
@@ -1073,7 +1074,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px 3px 20px;
-  background: #4eb478;
+  background: #968fef;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 5px 5px 0;
@@ -1129,7 +1130,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #4eb478;
+  color: #968fef;
   font-size: 18px;
   line-height: 1;
 }
@@ -1153,7 +1154,7 @@ section {
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #4eb478;
+  color: #968fef;
 }
 
 #footer .footer-top .social-links a {
@@ -1172,7 +1173,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #4eb478;
+  background: #968fef;
   color: #fff;
   text-decoration: none;
 }

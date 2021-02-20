@@ -4,7 +4,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +12,14 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Creative - Bootstrap Admin Template</title>
+    <title>RD Telecomunicações - Interface</title>
 
     <!-- Bootstrap CSS -->
     <link href="~/admin/css/bootstrap.min.css" rel="stylesheet">
     <!-- bootstrap theme -->
     <link href="~/admin/css/bootstrap-theme.css" rel="stylesheet">
-    <!--external css-->
+    <!--Icons-->
+    <script src="https://kit.fontawesome.com/9bc32df3ad.js"></script>
     <!-- font icon -->
     <link href="~/admin/css/elegant-icons-style.css" rel="stylesheet" />
     <link href="~/admin/css/font-awesome.min.css" rel="stylesheet" />
@@ -38,18 +38,11 @@
     <link href="~/admin/css/style-responsive.css" rel="stylesheet" />
     <link href="~/admin/css/xcharts.min.css" rel=" stylesheet">
     <link href="~/admin/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-    <!-- =======================================================
-      Theme Name: NiceAdmin
-      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-      Author: BootstrapMade
-      Author URL: https://bootstrapmade.com
-    ======================================================= -->
 </head>
 
 <body>
     <!-- container section start -->
     <section id="container" class="">
-
 
         <header class="header dark-bg">
             <div class="toggle-nav">
@@ -57,6 +50,7 @@
             </div>
 
             <!--logo start-->
+            <a href="index.html" class="logo">RD Telecomunicações <span class="lite">Interface</span></a>
             <a href="index.html" class="logo">RD <span class="lite">  Reduzindo Distâncias</span></a>
             <!--logo end-->
 
@@ -71,10 +65,40 @@
                 </ul>
                 <!--  search form end -->
             </div>
-
             <div class="top-nav notification-row">
                 <!-- notificatoin dropdown start-->
                 <ul class="nav pull-right top-menu">
+
+
+                    @*Associar isto ao login*@
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="img/avatar1_small.jpg">
+                            </span>
+                            <span class="username">@User.Identity.Name</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li class="eborder-top">
+                                <a href="#"><i class="icon_profile"></i> Perfil</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon_mail_alt"></i> Caixa de Entrada</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon_chat_alt"></i> Chats</a>
+                            </li>
+                            <li>
+                                <a href="login.html"><i class="icon_key_alt"></i> Documentação</a>
+                            </li>
+                            <li>
+                                <a href="documentation.html"><i class="icon_key_alt"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
 
                     <!-- task notificatoin start -->
                     @*<li id="task_notificatoin_bar" class="dropdown">
@@ -335,6 +359,38 @@
                             <span>Início</span>
                         </a>
                     </li>
+
+                    <li class="sub-menu">
+                        <a a asp-area="" asp-controller="Clientes" asp-action="Index">
+                            <i class="icon_document_alt"></i>
+                            <span>Gerir Clientes</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a a asp-area="" asp-controller="Funcionarios" asp-action="Index" class="">
+                            <i class="icon_desktop"></i>
+                            <span>Gerir Funcionários</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
+                            <i class="icon_genius"></i>
+                            <span>Gerir Pacotes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" a asp-area="" asp-controller="Promocoes" asp-action="Index">
+                            <i class="icon_piechart"></i>
+                            <span>Gerir Promoções</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a a asp-area="" asp-controller="Servicos" asp-action="Index" class="">
+                            <i class="icon_table"></i>
+                            <span>Gerir Serviços</span>
+                        </a>
+                    </li>
+
                     @if (User.IsInRole("Administrador"))
                     {
                         <li class="sub-menu">
@@ -484,10 +540,14 @@
                             </ul>
                         </li>*@
 
+
                 </ul>
-                <!-- sidebar menu end-->
             </div>
         </aside>
+    </section>
+    
+
+
         <!--sidebar end-->
         <!--main content start-->
         <!--<section id="main-content">
