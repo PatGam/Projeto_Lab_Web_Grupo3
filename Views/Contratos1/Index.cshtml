@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Projeto_Lab_Web_Grupo3.Models.Contratos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionarios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PacoteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PromocoesPacotes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoPacote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PromocaoDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoFinal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.CodigoPostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funcionarios.CodigoPostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PacoteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromocoesPacotes.NomePacote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoPacote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromocaoDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoFinal)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ContratoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ContratoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ContratoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

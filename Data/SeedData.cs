@@ -25,7 +25,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InserePromocoes(bd);
             InsereTiposServicos(bd);
             InsereServicos(bd);
-            InsereFuncionarios(bd);
+            //InsereFuncionarios(bd);
             InsereTiposClientes(bd);
             InsereClientes(bd);
             InserePacotes(bd);
