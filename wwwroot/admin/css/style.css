@@ -1,8 +1,15 @@
+/*
+    Theme Name: NiceAdmin
+    Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+*/
 /* Import fonts */
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 
 @import url(line-icons.css);
+
 
 
 body {
@@ -115,7 +122,7 @@ table tr th { color: #688a7e;}
 
 .lite{
 
-    color: #b224ef !important;
+    color: #00a0df !important;
 
 }
 
@@ -397,7 +404,7 @@ table tr th { color: #688a7e;}
 
     font-size: 16px;
 
-    color: #b224ef;
+    color: #00a0df;
 
 }
 
@@ -509,7 +516,7 @@ table tr th { color: #688a7e;}
 
     position: fixed;
 
-    background: #85949c;
+    background: #394a59;
 
 }
 
@@ -559,7 +566,7 @@ ul.sidebar-menu {
 
 ul.sidebar-menu li ul.sub li{
 
-    background: #85949c;
+    background: #394a59;
 
     margin-bottom: 0;
 
@@ -1047,7 +1054,7 @@ a.logo {
 
     font-weight: 300;
 
-    color: #968fef;
+    color: #fed189;
 
     float: left;
 
@@ -1119,7 +1126,7 @@ a.logo span {
 
 ul.top-menu > li > a {
 
-    color: #968fef;
+    color: #fed189;
 
     font-size: 18px;
 
@@ -1161,7 +1168,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
     padding: 3px 5px;
 
-    background: #b224ef;
+    background: #00a0df;
 
     font-weight: 400;
 
@@ -1179,7 +1186,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
     padding: 3px 5px;
 
-    background: #b224ef;
+    background: #00a0df;
 
 }
 
@@ -1341,7 +1348,7 @@ div[data-role="editor-toolbar"] {
 
 .dropdown-menu.extended li p.red {
 
-    background-color: #b224ef;
+    background-color: #00a0df;
 
     color: #fff;
 
@@ -3475,11 +3482,11 @@ div[data-role="editor-toolbar"] {
 
 .notify-arrow-red {
 
-    border-color: transparent transparent #b224ef;
+    border-color: transparent transparent #00a0df;
 
-    border-bottom-color: #b224ef !important;
+    border-bottom-color: #00a0df !important;
 
-    border-top-color: #b224ef !important;
+    border-top-color: #00a0df !important;
 
 }
 
@@ -3653,7 +3660,7 @@ div[data-role="editor-toolbar"] {
 
     padding: 0;
 
-    color: #968fef;
+    color: #fed189;
 
 }
 
@@ -3709,7 +3716,7 @@ div[data-role="editor-toolbar"] {
 
 .state-overview .red {
 
-    background: #b224ef;
+    background: #00a0df;
 
 }
 
@@ -3819,7 +3826,7 @@ div[data-role="editor-toolbar"] {
 
     padding-top: 5px;
 
-    color: #968fef;
+    color: #fed189;
 
 }
 
@@ -3943,7 +3950,7 @@ div[data-role="editor-toolbar"] {
 
 .badge.bg-important {
 
-    background: #b224ef;
+    background: #00a0df;
 
     font-family: 'Lato', sans-serif;
 
@@ -4257,7 +4264,7 @@ div[data-role="editor-toolbar"] {
 
 .flat-carousal {
 
-    background: #b224ef;
+    background: #00a0df;
 
     padding: 10px;
 
@@ -4355,7 +4362,7 @@ ul.ft-link li a {
 
 ul.ft-link li a:hover, ul.ft-link li.active a {
 
-    color: #b224ef;
+    color: #00a0df;
 
 }
 
@@ -4789,7 +4796,7 @@ ul.ft-link li a i {
 
 .social-footer ul li a:hover i.icon-twitter, .social-footer ul li.active a i.icon-twitter {
 
-    color: #b224ef;
+    color: #00a0df;
 
 }
 
@@ -5533,7 +5540,7 @@ ul.ft-link li a i {
 
     color: #fff;
 
-    text-shadow: 0px 1px 5px #968fef;
+    text-shadow: 0px 1px 5px #fed189;
 
     text-align: center;
 
@@ -5549,7 +5556,7 @@ ul.ft-link li a i {
 
     font-size: 60px;
 
-    text-shadow: 0px 1px 5px #968fef;
+    text-shadow: 0px 1px 5px #fed189;
 
     display: block;
 
@@ -5579,7 +5586,7 @@ ul.ft-link li a i {
 
     color: #ffffff;
 
-    text-shadow: 0px 1px 5px #968fef;
+    text-shadow: 0px 1px 5px #fed189;
 
     background: transparent;
 
@@ -5625,7 +5632,7 @@ ul.ft-link li a i {
 
     font-weight: 300;
 
-    text-shadow: 0px 1px 5px #968fef;
+    text-shadow: 0px 1px 5px #fed189;
 
 }
 
@@ -5639,7 +5646,7 @@ ul.ft-link li a i {
 
     color: #ffffff;
 
-    text-shadow: 0px 1px 5px #968fef;
+    text-shadow: 0px 1px 5px #fed189;
 
 }
 
@@ -5887,7 +5894,7 @@ a.mail-dropdown {
 
 .btn-compose {
 
-    background: #b224ef;
+    background: #00a0df;
 
     padding: 12px 0;
 
@@ -6755,7 +6762,7 @@ ul.inbox-pagination li {
 
 .profile-widget-danger{
 
-    background: #b224ef !important;
+    background: #00a0df !important;
 
 }
 
@@ -7857,7 +7864,7 @@ ul.amounts li {
 
 .carousel-indicators .active {
 
-    background:#b224ef;
+    background:#00a0df;
 
     height: 10px;
 
@@ -8071,7 +8078,7 @@ ul.amounts li {
 
     margin: 5px 0;
 
-    color: #b224ef;
+    color: #00a0df;
 
     font-weight: 400;
 
@@ -8081,7 +8088,7 @@ ul.amounts li {
 
 input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus, .form-validate .form-group input.error , .form-validate .form-group textarea.error{
 
-    border-color: #b224ef !important;
+    border-color: #00a0df !important;
 
 }
 
@@ -8095,7 +8102,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 
     width: auto;
 
-    color: #b224ef;
+    color: #00a0df;
 
 }
 
@@ -9261,7 +9268,7 @@ table.sliders tr td {
 
 .twt-feed.blue-bg {
 
-    background: #b224ef;
+    background: #00a0df;
 
 }
 
