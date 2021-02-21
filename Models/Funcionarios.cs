@@ -36,7 +36,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Display(Name = "Contacto de telemóvel")]
         [RegularExpression(@"9[1236]|\d{2})\d{7}", ErrorMessage = "Telefone Inválido")]
-        public int Telemovel { get; set; }
+        public string Telemovel { get; set; }
 
         [Required(ErrorMessage = "Preencha o email do funcionário")]
         [StringLength(100, ErrorMessage = "O email não pode ter mais de 100 caracteres")]
