@@ -28,7 +28,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Required(ErrorMessage = "Preencha o contacto do funcionário")]
         [Display(Name = "Contacto de telemóvel")]
-        public int Telemovel { get; set; }
+        public string Telemovel { get; set; }
 
         [Required(ErrorMessage = "Preencha o email do funcionário")]
         [StringLength(100, ErrorMessage = "O email não pode ter mais de 100 caracteres")]
