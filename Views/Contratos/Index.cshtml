@@ -44,35 +44,36 @@
                                         @Html.DisplayNameFor(model => model.Contratos[0].DataInicio)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Contratos[0].PrecoFinal)
-                                    </th>
-                                    <th>
                                         @Html.DisplayNameFor(model => model.Contratos[0].DataFim)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Contratos[0].PrecoPacote)
+                                        @Html.DisplayNameFor(model => model.Contratos[0].PrecoFinal)
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Contratos[0].PromocaoDesc)
-                                    </th>
+
                                     @*<th>
-                                        @Html.DisplayNameFor(model => model.Contratos[0].NomeCliente)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Contratos[0].NomeFuncionario)
-                                    </th>*@
+                                            @Html.DisplayNameFor(model => model.Contratos[0].PrecoPacote)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Contratos[0].PromocaoDesc)
+                                        </th>*@
+                                    @*<th>
+                                            @Html.DisplayNameFor(model => model.Contratos[0].NomeCliente)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Contratos[0].NomeFuncionario)
+                                        </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Contratos[0].Telefone)
                                     </th>
                                     @*<th>
-                                        @Html.DisplayNameFor(model => model.Contratos[0].Cliente)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Contratos[0].Funcionario)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Contratos[0].PromocoesPacotesNavigation)
-                                    </th>*@
+                                            @Html.DisplayNameFor(model => model.Contratos[0].Cliente)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Contratos[0].Funcionario)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Contratos[0].PromocoesPacotesNavigation)
+                                        </th>*@
                                     <th></th>
                                 </tr>
                             </thead>
@@ -83,36 +84,37 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.DataInicio)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PrecoFinal)
-                                        </td>
+
                                         <td>
                                             @Html.DisplayFor(modelItem => item.DataFim)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.PrecoPacote)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PromocaoDesc)
+                                            @Html.DisplayFor(modelItem => item.PrecoFinal)
                                         </td>
                                         @*<td>
-                                            @Html.DisplayFor(modelItem => item.NomeCliente)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.NomeFuncionario)
-                                        </td>*@
+                                                @Html.DisplayFor(modelItem => item.PrecoPacote)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PromocaoDesc)
+                                            </td>*@
+                                        @*<td>
+                                                @Html.DisplayFor(modelItem => item.NomeCliente)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NomeFuncionario)
+                                            </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Telefone)
                                         </td>
                                         @*<td>
-                                            @Html.DisplayFor(modelItem => item.Cliente.CodigoPostal)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Funcionario.CodigoPostal)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PromocoesPacotesNavigation.NomePacote)
-                                        </td>*@
+                                                @Html.DisplayFor(modelItem => item.Cliente.CodigoPostal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Funcionario.CodigoPostal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PromocoesPacotesNavigation.NomePacote)
+                                            </td>*@
                                         <td>
                                             <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ContratoId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.ContratoId"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
