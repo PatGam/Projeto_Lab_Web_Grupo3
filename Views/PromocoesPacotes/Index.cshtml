@@ -42,12 +42,12 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.PromocoesPacotes[0].NomePromocoes)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.PromocoesPacotes[0].Pacote)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.PromocoesPacotes[0].Promocoes)
-                                    </th>
+                                    </th>*@
                                     <th></th>
                                 </tr>
                             </thead>
@@ -61,12 +61,12 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.NomePromocoes)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Pacote.Nome)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Promocoes.Nome)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PromocoesPacotesId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>|
                                             <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.PromocoesPacotesId"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
