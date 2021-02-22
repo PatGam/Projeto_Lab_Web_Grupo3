@@ -28,70 +28,75 @@
 
                             </div>
                         </div>
-
-                        <p>
-                            <a asp-action="Create">Criar novo</a>
-                        </p>
-                        <table class="table table-striped table-advance table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Tipos_Clientes[0]. Nome)
-                                    </th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.Tipos_Clientes)
-                                {
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <p>
+                                <a asp-action="Create">Criar novo</a>
+                            </p>
+                        }
+                            <table class="table table-striped table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Tipos_Clientes[0].Nome)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Tipos_Clientes)
+                                    {
                                     <tr>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Nome)
                                         </td>
-                                        <td>
-                                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.TipoClienteId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                            <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.TipoClienteId"><i class="fa fa-info-circle" aria-hidden="true"></i></a> |
-                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TipoClienteId"><i class="icon_close_alt2"></i></a>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                        <nav>
-                            <ul class="pagination">
-                                @{
-                                    int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-                                    //int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS / 2;
-                                    if (paginaInicial < 1)
-                                    {
-                                        paginaInicial = 1;
+                                        @if (User.IsInRole("Administrador"))
+                                        {
+                                            <td>
+                                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.TipoClienteId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.TipoClienteId"><i class="fa fa-info-circle" aria-hidden="true"></i></a> |
+                                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TipoClienteId"><i class="icon_close_alt2"></i></a>
+                                            </td>
+                                        }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <nav>
+                                <ul class="pagination">
+                                    @{
+                                        int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                                        //int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS / 2;
+                                        if (paginaInicial < 1)
+                                        {
+                                            paginaInicial = 1;
+                                        }
+
+                                        int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                                        //int paginaFinal = paginaInicial + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS - 1;
+                                        if (paginaFinal > Model.Paginacao.TotalPaginas)
+                                        {
+                                            paginaFinal = Model.Paginacao.TotalPaginas;
+                                        }
                                     }
 
-                                    int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-                                    //int paginaFinal = paginaInicial + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS - 1;
-                                    if (paginaFinal > Model.Paginacao.TotalPaginas)
-                                    {
-                                        paginaFinal = Model.Paginacao.TotalPaginas;
-                                    }
-                                }
-
-                                <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-                                    <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
-                                </li>
-
-                                @for (int i = paginaInicial; i <= paginaFinal; i++)
-                                {
-                                    <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                                        <a class="page-link" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                                    <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
+                                        <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
                                     </li>
-                                }
 
-                                <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
-                                    <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </section>
+                                    @for (int i = paginaInicial; i <= paginaFinal; i++)
+                                    {
+                                        <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
+                                            <a class="page-link" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                                        </li>
+                                    }
+
+                                    <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
+                                        <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </section>
                 </div>
             </div>
         </section>
