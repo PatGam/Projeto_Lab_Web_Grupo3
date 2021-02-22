@@ -108,9 +108,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<int?>("PromocoesPacotesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Telefone")
+                    b.Property<string>("Telefone")
                         .HasColumnName("Telefone")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ContratoId");
 
@@ -164,8 +164,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<int?>("RolesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Telemovel")
-                        .HasColumnType("int");
+                    b.Property<string>("Telemovel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FuncionarioId");
 

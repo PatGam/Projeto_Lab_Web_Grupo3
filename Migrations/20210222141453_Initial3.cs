@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
-    public partial class Initial2 : Migration
+    public partial class Initial3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -115,7 +115,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
                     Morada = table.Column<string>(maxLength: 500, nullable: false),
-                    Telemovel = table.Column<int>(nullable: false),
+                    Telemovel = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 100, nullable: false),
                     Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false),
                     Role = table.Column<string>(maxLength: 20, nullable: false),
@@ -189,7 +189,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     FuncionarioId = table.Column<int>(nullable: false),
                     Data_inicio = table.Column<DateTime>(type: "date", nullable: false),
                     Data_Fim = table.Column<DateTime>(type: "date", nullable: false),
-                    Telefone = table.Column<int>(nullable: false),
+                    Telefone = table.Column<string>(nullable: true),
                     Preco_pacote = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Promocao_desc = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Preco_Final = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
