@@ -69,6 +69,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+            ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes");
+
 
             return View();
         }
@@ -78,35 +80,47 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(NovoContratoViewModel infoContratos)
+        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId,FuncionarioId,PacoteId,PromocoesPacotesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal")] Contratos contratos)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(infoContratos);
-            }
+
 
             var funcionario = bd.Funcionarios.SingleOrDefault(c => c.Email == User.Identity.Name);
             var funcionarioEmail = bd.Funcionarios.SingleOrDefault(d => d.Email == funcionario.Email);
-            var funcionarioId = funcionarioEmail.FuncionarioId;
+            contratos.FuncionarioId = funcionarioEmail.FuncionarioId;
 
-            Contratos contratos = new Contratos
-            {
-                ClienteId = infoContratos.Contratos.ClienteId,
-                FuncionarioId = funcionarioId,
-                DataInicio = infoContratos.Contratos.DataInicio,
-                DataFim = infoContratos.Contratos.DataFim,
-                PrecoPacote = infoContratos.Contratos.PrecoPacote,
-                PromocaoDesc = infoContratos.Contratos.PromocaoDesc,
-                Telefone = infoContratos.Contratos.Telefone,
-                PrecoFinal = infoContratos.Contratos.PrecoPacote - infoContratos.Contratos.PromocaoDesc,
+            //var pacoteId = contratos.PacoteId;
+            //var pacoteId2 = bd.Pacotes.SingleOrDefault(e => e.PacoteId == pacoteId);
+            //var precoPacote = bd.Pacotes.SingleOrDefault(e => e.Preco == pacoteId2.Preco);
 
-            };
+            //contratos.PrecoPacote = precoPacote.PacoteId;
+
+            //var promocaoPacoteId = contratos.PromocoesPacotesId;
+            //var promocaopacoteId = bd.PromocoesPacotes.SingleOrDefault(c => c.PromocoesPacotesId == promocaoPacoteId);
+            //var pacoteProm = bd.PromocoesPacotes.SingleOrDefault(c => c.PromocoesPacotesId == promocaopacoteId.PromocoesId);
+            //var promocaoId = bd.Promocoes.SingleOrDefault(c => c.PromocoesId == pacoteProm.PromocoesId);
+            //var desc = bd.Promocoes.SingleOrDefault(c => c.PromocoesId == promocaoId.PromocaoDesc);
+
+            //contratos.PromocaoDesc = desc.PromocoesId;
+            //contratos.PrecoFinal = contratos.PrecoPacote - contratos.PromocaoDesc;
+
+            contratos.PrecoPacote = 30m;
+            contratos.PromocaoDesc = 2.5m;
+            contratos.PrecoFinal = contratos.PrecoPacote - contratos.PromocaoDesc;
 
             bd.Add(contratos);
             await bd.SaveChangesAsync();
 
             ViewBag.Mensagem = "Contrato adicionado com sucesso.";
             return View("Sucesso");
+
+
+            if (!ModelState.IsValid)
+            {
+                ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
+                ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
+                ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes", contratos.PromocoesPacotesId);
+                return View(contratos);
+            }
         }
 
         // GET: Contratos/Edit/5
