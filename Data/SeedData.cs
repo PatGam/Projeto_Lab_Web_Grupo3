@@ -14,7 +14,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         private const string NOME_UTILIZADOR_ADMIN_PADRAO = "admin@RDtelecom.com";
         private const string PASSWORD_UTILIZADOR_ADMIN_PADRAO = "Secret123$";
-        private const string NOME_UTILIZADOR_CLIENTE_FICTICIO = "pedromachado@gmail.com";
+        private const string NOME_UTILIZADOR_CLIENTE_FICTICIO = "cliente@gmail.com";
 
         private const string ROLE_ADIMINISTRADOR = "Administrador";
         private const string ROLE_CLIENTE = "Cliente";
@@ -664,7 +664,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 IdentityUser cliente = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_CLIENTE_FICTICIO, "Secret123$");
                 await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, cliente, ROLE_CLIENTE);
 
-                IdentityUser gestor = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "maria@ipg.pt", "Secret123$");
+                IdentityUser gestor = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "utilizador@ipg.pt", "Secret123$");
                 await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, gestor, ROLE_OPERADOR);
             }
 
