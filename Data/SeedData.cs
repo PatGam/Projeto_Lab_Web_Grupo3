@@ -411,7 +411,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         private static void InsereTiposServicos(Projeto_Lab_WebContext bd)
         {
             GaranteExistenciaTiposServicos(bd, "Internet");
-            GaranteExistenciaTiposServicos(bd, "Telémovel");
+            GaranteExistenciaTiposServicos(bd, "Telemóvel");
             GaranteExistenciaTiposServicos(bd, "Televisão");
             GaranteExistenciaTiposServicos(bd, "Telefone Fixo");
             GaranteExistenciaTiposServicos(bd, "Internet Móvel"); 
