@@ -48,8 +48,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
+  
             var contratos = await bd.Contratos
                 .Include(c => c.Clientes)
+                .Include(c => c.Pacotes)
+                .Include(c => c.PromocoesPacotes)
                 .Include(c => c.Funcionarios)
                 //.Include(c => c.PromocoesPacotesNavigation)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
@@ -83,28 +86,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> Create([Bind("ContratoId,ClienteId,FuncionarioId,PacoteId,PromocoesPacotesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal")] Contratos contratos)
         {
 
+            if (!ModelState.IsValid)
+            {
+                ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "Nome", contratos.ClienteId);
+                ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
+                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+                ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes", contratos.PromocoesPacotesId);
+                return View(contratos);
+            }
 
+            //Código que vai buscar o ID do funcionário que tem login feito e atribui automaticamente ao contrato
             var funcionario = bd.Funcionarios.SingleOrDefault(c => c.Email == User.Identity.Name);
             var funcionarioEmail = bd.Funcionarios.SingleOrDefault(d => d.Email == funcionario.Email);
             contratos.FuncionarioId = funcionarioEmail.FuncionarioId;
 
-            //var pacoteId = contratos.PacoteId;
-            //var pacoteId2 = bd.Pacotes.SingleOrDefault(e => e.PacoteId == pacoteId);
-            //var precoPacote = bd.Pacotes.SingleOrDefault(e => e.Preco == pacoteId2.Preco);
+            //Código que vai buscar o preço do pacote
+            var pacoteid = bd.Pacotes.SingleOrDefault(e => e.PacoteId == contratos.PacoteId);
+            contratos.PrecoPacote = pacoteid.Preco;
 
-            //contratos.PrecoPacote = precoPacote.PacoteId;
+            //Código que vai buscar o desconto da promoção
+            var promocaopacoteid = bd.PromocoesPacotes.SingleOrDefault(e => e.PromocoesPacotesId == contratos.PromocoesPacotesId);
+            var promocaoid = bd.Promocoes.SingleOrDefault(e => e.PromocoesId == promocaopacoteid.PromocoesId);
+            contratos.PromocaoDesc = promocaoid.PromocaoDesc;
 
-            //var promocaoPacoteId = contratos.PromocoesPacotesId;
-            //var promocaopacoteId = bd.PromocoesPacotes.SingleOrDefault(c => c.PromocoesPacotesId == promocaoPacoteId);
-            //var pacoteProm = bd.PromocoesPacotes.SingleOrDefault(c => c.PromocoesPacotesId == promocaopacoteId.PromocoesId);
-            //var promocaoId = bd.Promocoes.SingleOrDefault(c => c.PromocoesId == pacoteProm.PromocoesId);
-            //var desc = bd.Promocoes.SingleOrDefault(c => c.PromocoesId == promocaoId.PromocaoDesc);
-
-            //contratos.PromocaoDesc = desc.PromocoesId;
-            //contratos.PrecoFinal = contratos.PrecoPacote - contratos.PromocaoDesc;
-
-            contratos.PrecoPacote = 30m;
-            contratos.PromocaoDesc = 2.5m;
+            //Cálculo do PrecoFinal
             contratos.PrecoFinal = contratos.PrecoPacote - contratos.PromocaoDesc;
 
             bd.Add(contratos);
@@ -114,13 +119,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View("Sucesso");
 
 
-            if (!ModelState.IsValid)
-            {
-                ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
-                ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-                ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes", contratos.PromocoesPacotesId);
-                return View(contratos);
-            }
+            
         }
 
         // GET: Contratos/Edit/5
@@ -136,9 +135,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 return View ("Inexistente");
             }
-            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
+            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "Nome", contratos.ClienteId);
             ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-            //ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+            ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes", contratos.PromocoesPacotesId);
             return View(contratos);
         }
 
@@ -154,29 +154,29 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    bd.Update(contratos);
-                    await bd.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ContratosExists(contratos.ContratoId))
-                    {
-                        return View ("EliminarInserir");
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return View(contratos);
+            }   
+            try
+
+            {
+                bd.Update(contratos);
+                await bd.SaveChangesAsync();
             }
-            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "CodigoPostal", contratos.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
-            //ViewData["PromocoesPacotes"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePacote", contratos.PromocoesPacotes);
+
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ContratosExists(contratos.ContratoId))
+                {
+                    return View ("EliminarInserir");
+                }
+                else
+                {
+                    return View(contratos);
+                }
+            }
+
             return View("Sucesso");
         }
 
