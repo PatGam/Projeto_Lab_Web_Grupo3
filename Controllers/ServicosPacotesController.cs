@@ -51,9 +51,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             var servicosPacotes = await bd.ServicosPacotes
                 .Include(s => s.Pacote)
-                .Include(s => s.Pacote.Nome)
+                //.Include(s => s.Pacote.Nome)
                 .Include(s => s.Servico)
-                .Include(s => s.Servico.Nome)
+                //.Include(s => s.Servico.Nome)
                 .FirstOrDefaultAsync(m => m.SevicoPacoteId == id);
             if (servicosPacotes == null)
             {
