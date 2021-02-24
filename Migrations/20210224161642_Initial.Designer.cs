@@ -10,7 +10,7 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    [Migration("20210224144636_Initial")]
+    [Migration("20210224161642_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -235,21 +235,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.ToTable("Promocoes_Pacotes");
                 });
 
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Roles", b =>
-                {
-                    b.Property<int>("RolesId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Roles_Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RolesId");
-
-                    b.ToTable("Roles");
-                });
-
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Servicos", b =>
                 {
                     b.Property<int>("ServicoId")
@@ -343,7 +328,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 {
                     b.Property<int>("UtilizadorId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("Funcionario_Id")
+                        .HasColumnName("Utilizador_Id")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -382,15 +367,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<int?>("RolesId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Telemovel")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UtilizadorId");
-
-                    b.HasIndex("RolesId");
 
                     b.ToTable("Utilizadores");
                 });
@@ -423,7 +403,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.Utilizadores", "Utilizadores")
                         .WithMany("Contratos")
                         .HasForeignKey("UtilizadorId")
-                        .HasConstraintName("FK_Contratos_Clientes")
+                        .HasConstraintName("FK_Contratos_Utilizadores")
                         .IsRequired();
                 });
 
@@ -464,13 +444,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasForeignKey("ServicoId")
                         .HasConstraintName("FK_Servicos_Pacotes_Servicos")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Utilizadores", b =>
-                {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Roles", null)
-                        .WithMany("Funcionarios")
-                        .HasForeignKey("RolesId");
                 });
 #pragma warning restore 612, 618
         }

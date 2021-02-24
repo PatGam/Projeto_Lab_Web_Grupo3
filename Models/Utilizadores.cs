@@ -16,7 +16,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         }
 
         [Key]
-        [Column("Funcionario_Id")]
+        [Column("Utilizador_Id")]
         public int UtilizadorId { get; set; }
 
         [Required(ErrorMessage = "Preencha o nome do funcionário")]

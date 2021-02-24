@@ -40,19 +40,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Roles",
-                columns: table => new
-                {
-                    RolesId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Roles_Nome = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Roles", x => x.RolesId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Tipos_Clientes",
                 columns: table => new
                 {
@@ -76,6 +63,26 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TiposServicos", x => x.Tipo_Servico_Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Utilizadores",
+                columns: table => new
+                {
+                    Utilizador_Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(maxLength: 100, nullable: false),
+                    NIF = table.Column<string>(maxLength: 9, nullable: true),
+                    Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
+                    Morada = table.Column<string>(maxLength: 500, nullable: false),
+                    Telemovel = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
+                    Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false),
+                    Role = table.Column<string>(maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Utilizadores", x => x.Utilizador_Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -103,33 +110,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         column: x => x.Promocoes_Id,
                         principalTable: "Promocoes",
                         principalColumn: "Promocoes_Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Utilizadores",
-                columns: table => new
-                {
-                    Funcionario_Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 100, nullable: false),
-                    NIF = table.Column<string>(maxLength: 9, nullable: true),
-                    Data_Nascimento = table.Column<DateTime>(type: "date", nullable: false),
-                    Morada = table.Column<string>(maxLength: 500, nullable: false),
-                    Telemovel = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(maxLength: 100, nullable: false),
-                    Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false),
-                    Role = table.Column<string>(maxLength: 20, nullable: false),
-                    RolesId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Utilizadores", x => x.Funcionario_Id);
-                    table.ForeignKey(
-                        name: "FK_Utilizadores_Roles_RolesId",
-                        column: x => x.RolesId,
-                        principalTable: "Roles",
-                        principalColumn: "RolesId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -222,10 +202,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         principalColumn: "Promocoes_Pacotes_Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Contratos_Clientes",
+                        name: "FK_Contratos_Utilizadores",
                         column: x => x.UtilizadorId,
                         principalTable: "Utilizadores",
-                        principalColumn: "Funcionario_Id",
+                        principalColumn: "Utilizador_Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -304,11 +284,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "IX_Servicos_Pacotes_Servico_Id",
                 table: "Servicos_Pacotes",
                 column: "Servico_Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Utilizadores_RolesId",
-                table: "Utilizadores",
-                column: "RolesId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -339,9 +314,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
             migrationBuilder.DropTable(
                 name: "Promocoes");
-
-            migrationBuilder.DropTable(
-                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "TiposServicos");

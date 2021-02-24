@@ -25,63 +25,86 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InserePromocoes(bd);
             InsereTiposServicos(bd);
             InsereServicos(bd);
-            //InsereFuncionarios(bd);
-            //InsereTiposClientes(bd);
-            //InsereClientes(bd);
+            InsereUtilizadores(bd);    
             InserePacotes(bd);
-            InsereRoles(bd);
             InsereServicosPacotes(bd);
-
-            //Insere(bd);
-          
             InserePromocoesPacotes(bd);
             //InsereContratos(bd);
+            //InsereTiposClientes(bd);
+            //InsereRoles(bd);
+
         }
-        private static void InsereFuncionarios(Projeto_Lab_WebContext bd)
+        private static void InsereUtilizadores(Projeto_Lab_WebContext bd)
         {
-            //GaranteFuncinoarios(bd, "Admin", new DateTime(1998, 09, 29), "Rua das Flores Verde", "925258739", "admin@RDtelecom.com", "6300-706", "Administrador");
-            //GaranteFuncinoarios(bd, "Nuno Forte", new DateTime(1998, 09, 29), "Rua das Flores", "925258737", "nuno_rpf@RDtelecom.com", "6300-706", "Operador");
-            //GaranteFuncinoarios(bd, "João Matos", new DateTime(1970, 04, 21), "Rua da Maurícia Aradas", "965111755", "joao_matos@RDtelecom.com", "3810-433", "Operador");
-            //GaranteFuncinoarios(bd, "Maria de Fátima", new DateTime(1963, 02, 02), "Rua da Prata", "927895737", "m.fatima@RDtelecom.com", "1149-005", "Operador");
-            //GaranteFuncinoarios(bd, "Joana Pereira", new DateTime(1992, 11, 29), "Avenida Nossa Senhora de Fátima", "91746251", "J_pereira@RDtelecom.com", "2414-003", "Operador");
-            //GaranteFuncinoarios(bd, "Justina Paulo", new DateTime(1978, 07, 17), "Rua de São Gonçalo", "912211797", "justina_paulo@RDtelecom.com", "4814-508", "Operador");
-            //GaranteFuncinoarios(bd, "Inês Reis", new DateTime(1998, 03, 07), "Rua Quinta do Fojo Canidelo", "969193547", "reis_ines@RDtelecom.com", "4400-658", "Operador");
-            //GaranteFuncinoarios(bd, "Luís Madeira", new DateTime(1989, 10, 29), "Rua do Campo Alegre", "915111852", "luis.madeira@RDtelecom.com", "4169-008", "Operador");
-            //GaranteFuncinoarios(bd, "Paula Melo", new DateTime(1984, 12, 29), "Canada dos Melancólicos", "925897737", "melo.paula@RDtelecom.com", "9701-870", "Operador");
-            //GaranteFuncinoarios(bd, "Paulo Mota", new DateTime(2000, 06, 06), "Rua General Humberto Delgado", "969687125", "paulo_mota@RDtelecom.com", "1499-004", "Operador");
-            //GaranteFuncinoarios(bd, "Marta Machado", new DateTime(2000, 08, 01), "Rua Central Mesura", "962154873", "m.machado@RDtelecom.com", "3049-002", "Operador");
+            GaranteUtilizadores(bd, "Admin", new DateTime(1998, 09, 29), "Rua das Flores Verde", "925258739", "admin@RDtelecom.com", "6300-706", "Administrador");
+            GaranteUtilizadores(bd, "Operador", new DateTime(1998, 09, 29), "Rua das Flores", "925258737", "operador@RDtelecom.com", "6300-706", "Operador");
+            GaranteUtilizadores(bd, "Cliente", new DateTime(1998, 09, 29), "Rua das Flores", "925258737", "cliente@RDtelecom.com", "6300-706", "Cliente");
+
+            GaranteUtilizadores(bd, "Nuno Forte", new DateTime(1998, 09, 29), "Rua das Flores", "925258737", "nuno_rpf@RDtelecom.com", "6300-706", "Operador");
+            GaranteUtilizadores(bd, "João Matos", new DateTime(1970, 04, 21), "Rua da Maurícia Aradas", "965111755", "joao_matos@RDtelecom.com", "3810-433", "Operador");
+            GaranteUtilizadores(bd, "Maria de Fátima", new DateTime(1963, 02, 02), "Rua da Prata", "927895737", "m.fatima@RDtelecom.com", "1149-005", "Operador");
+            GaranteUtilizadores(bd, "Joana Pereira", new DateTime(1992, 11, 29), "Avenida Nossa Senhora de Fátima", "91746251", "J_pereira@RDtelecom.com", "2414-003", "Operador");
+            GaranteUtilizadores(bd, "Justina Paulo", new DateTime(1978, 07, 17), "Rua de São Gonçalo", "912211797", "justina_paulo@RDtelecom.com", "4814-508", "Operador");
+            GaranteUtilizadores(bd, "Inês Reis", new DateTime(1998, 03, 07), "Rua Quinta do Fojo Canidelo", "969193547", "reis_ines@RDtelecom.com", "4400-658", "Operador");
+            GaranteUtilizadores(bd, "Luís Madeira", new DateTime(1989, 10, 29), "Rua do Campo Alegre", "915111852", "luis.madeira@RDtelecom.com", "4169-008", "Operador");
+            GaranteUtilizadores(bd, "Paula Melo", new DateTime(1984, 12, 29), "Canada dos Melancólicos", "925897737", "melo.paula@RDtelecom.com", "9701-870", "Operador");
+            GaranteUtilizadores(bd, "Paulo Mota", new DateTime(2000, 06, 06), "Rua General Humberto Delgado", "969687125", "paulo_mota@RDtelecom.com", "1499-004", "Operador");
+            GaranteUtilizadores(bd, "Marta Machado", new DateTime(2000, 08, 01), "Rua Central Mesura", "962154873", "m.machado@RDtelecom.com", "3049-002", "Operador");
+            GaranteUtilizadores(bd, "Pedro Machado", new DateTime(1971, 07, 14), "Colónia Agrícola Casal 63", "935559453", "pedromachado@gmail.com", "3870-358", "Cliente");
+            GaranteUtilizadores(bd, "Joaquim Mendez", new DateTime(1987, 12, 24),"R Indústria Porta 47", "915556899", "joaquimmendez@outlook.com", "3300-040", "Cliente");
+            GaranteUtilizadores(bd, "Sandra Vieira", new DateTime(1977, 02, 23), "R Poeta João Ruiz 6", "929355531", "sandravieira@gmail.com", "6230-355", "Cliente");
+            GaranteUtilizadores(bd, "Sara Siqueira", new DateTime(1977, 01, 22), "R Doutor Alfredo Freitas 108", "915551820", "sarasiqueiraa@gmail.com", "3700-501", "Cliente");
+            GaranteUtilizadores(bd, "Nelson Ramos", new DateTime(1945, 07, 10), "R Indústria Porta 56", "929455563", "nelsonramos@outlook.com", "3220-066", "Cliente");
+            GaranteUtilizadores(bd, "Danilo Pires", new DateTime(1999, 06, 26), "Rua Jorge Sena 99", "965559604", "danilopires@live.com", "2650-499", "Cliente");
+            GaranteUtilizadores(bd, "Mônica Torres", new DateTime(197, 02, 05), "Avenida Guerra Junqueiro 114", "921555922", "monicatorres@gmail.com", "2610-116", "Cliente");
+            GaranteUtilizadores(bd, "Daniela Mata", new DateTime(1974, 03, 13), "R Portela 64", "915551704", "daielamata@gmail.com", "3550-171", "Cliente");
+            GaranteUtilizadores(bd, "Virgílio Abreu", new DateTime(1987, 04, 16), "R Padre João A L Ribeiro 88", "915559352", "virgilio_abreu@outlook.com", "3440-376", "Cliente");
+            GaranteUtilizadores(bd, "Martim Moniz", new DateTime(1984, 08, 15), "R Poeta João Ruiz 90", "929455556", "martim_moniz@live.com", "6230-691", "Cliente");
+
 
         }
 
-        //private static void GaranteFuncinoarios(Projeto_Lab_WebContext bd, string nome, DateTime datanascimento,
-        //    string morada, string telemovel, string email, string codigopostal, string role)
+        private static void GaranteUtilizadores(Projeto_Lab_WebContext bd, string nome, DateTime datanascimento,
+            string morada, string telemovel, string email, string codigopostal, string role)
+        {
+            Utilizadores utilizadores = bd.Utilizadores.FirstOrDefault(c => c.Nome == nome);
+            if (utilizadores == null)
+            {
+                utilizadores = new Utilizadores { Nome = nome, DataNascimento = datanascimento, Morada = morada, Telemovel = telemovel, Email = email, CodigoPostal = codigopostal, Role = role };
+                bd.Utilizadores.Add(utilizadores);
+                bd.SaveChanges();
+            }
+        }
+
+        internal static async Task InsereUtilizadoresFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
+        {
+            IdentityUser admin = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "admin@RDtelecom.com", "Secret123$");
+            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, admin, ROLE_ADIMINISTRADOR);
+
+            IdentityUser operador = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "operador@RDtelecom.com", "Secret123$");
+            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, operador, ROLE_OPERADOR);
+
+            IdentityUser cliente = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "cliente@RDtelecom.com", "Secret123$");
+            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, cliente, ROLE_CLIENTE);
+        }
+
+        //private static void InsereRoles(Projeto_Lab_WebContext bd)
         //{
-        //    Utilizadores funcionarios = bd.Funcionarios.FirstOrDefault(c => c.Nome == nome);
-        //    if (funcionarios == null)
-        //    {
-        //        funcionarios = new Utilizadores { Nome = nome, DataNascimento = datanascimento, Morada = morada, Telemovel = telemovel, Email = email, CodigoPostal = codigopostal, Role = role };
-        //        bd.Funcionarios.Add(funcionarios);
-        //        bd.SaveChanges();
-        //    }
+        //    if (bd.Roles.Any()) return;
+
+        //    bd.Roles.AddRange(new Roles[] {
+        //        new Roles
+        //        {
+        //            Roles_Nome="Administrador",
+        //        },
+
+        //         new Roles
+        //        {
+        //            Roles_Nome="Operador",
+        //        },
+        //    });
+
         //}
-
-        private static void InsereRoles(Projeto_Lab_WebContext bd)
-        {
-            if (bd.Roles.Any()) return;
-
-            bd.Roles.AddRange(new Roles[] {
-                new Roles
-                {
-                    Roles_Nome="Administrador",
-                },
-
-                 new Roles
-                {
-                    Roles_Nome="Operador",
-                },
-            });
-
-        }
 
   
         private static void InserePromocoes(Projeto_Lab_WebContext bd)
@@ -110,126 +133,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             }
             return (promocoes);
         }
-        //-------------------FUNCIONARIOS--------------------------
-        //private static void InsereFuncionarios(Projeto_Lab_WebContext bd)
-        //{
-        //    if (bd.Funcionarios.Any()) return;
-        //    bd.Funcionarios.AddRange(new Funcionarios[] {
-        //            new Funcionarios
-        //        {
-        //            //FuncionarioId=1,
-        //            Nome="Nuno Forte",
-        //            DataNascimento=new DateTime(1998,09,29),
-        //            Morada="Rua das Flores",
-        //            Telemovel=925258737,
-        //            Email="nuno_rpf@RDtelecom.com",
-        //            CodigoPostal="6300-706",
-        //            //Role="Administrador",
-        //        },
-        //            new Funcionarios
-        //        {
-        //            //FuncionarioId=2,
-        //            Nome="João Matos",
-        //            DataNascimento=new DateTime(1970,04,21),
-        //            Morada="Rua da Maurícia Aradas",
-        //            Telemovel=965111755,
-        //            Email="joao_matos@RDtelecom.com",
-        //            CodigoPostal="3810-433",
-        //            //Role="Operador",
-        //        },
-        //            new Funcionarios
-        //        {
-        //            //FuncionarioId=3,
-        //            Nome="Maria de Fátima",
-        //            DataNascimento=new DateTime(1963-02-02),
-        //            Morada="Rua da Prata",
-        //            Telemovel=927895737,
-        //            Email="m.fatima@RDtelecom.com",
-        //            CodigoPostal="1149-005",
-        //            //Role="Administrador",
-        //        },
-        //            new Funcionarios
-        //        {
-        //            //FuncionarioId=4,
-        //            Nome="Joana Pereira",
-        //            DataNascimento=new DateTime(1992-11-29),
-        //            Morada="Avenida Nossa Senhora de Fátima",
-        //            Telemovel=91746251,
-        //            Email="J_pereira@RDtelecom.com",
-        //            CodigoPostal="2414-003",
-        //            //Role="Operador",
-        //        },
-        //            new Funcionarios
-        //        {
-        //            //FuncionarioId=5,
-        //            Nome="Justina Paulo",
-        //            DataNascimento=new DateTime(1978-07-17),
-        //            Morada="Rua de São Gonçalo",
-        //            Telemovel=912211797,
-        //            Email="justina_paulo@RDtelecom.com",
-        //            CodigoPostal="4814-508",
-        //            //Role="Operador",
-        //        },
-        //             new Funcionarios
-        //        {
-        //            //FuncionarioId=6,
-        //            Nome="Inês Reis",
-        //            DataNascimento=new DateTime(1998,03,07),
-        //            Morada="Rua Quinta do Fojo Canidelo",
-        //            Telemovel=969193547,
-        //            Email="reis_ines@RDtelecom.com",
-        //            CodigoPostal="4400-658",
-        //            //Role="Operador",
-        //        },
-        //              new Funcionarios
-        //        {
-        //            //FuncionarioId=7,
-        //            Nome="Luís Madeira",
-        //            DataNascimento=new DateTime(1989,10,29),
-        //            Morada="Rua do Campo Alegre",
-        //            Telemovel=915111852,
-        //            Email="luis.madeira@RDtelecom.com",
-        //            CodigoPostal="4169-008",
-        //            //Role="Operador",
-        //        },
-        //            new Funcionarios
-        //        {
-        //            //FuncionarioId=8,
-        //            Nome="Paula Melo",
-        //            DataNascimento=new DateTime(1984,12,29),
-        //            Morada="Canada dos Melancólicos",
-        //            Telemovel=925897737,
-        //            Email="melo.paula@RDtelecom.com",
-        //            CodigoPostal="9701-870",
-        //            //Role="Operador",
-        //        },
-        //            new Funcionarios
-        //        {
-        //            //FuncionarioId=9,
-        //            Nome="Paulo Mota",
-        //            DataNascimento=new DateTime(2000,06,06),
-        //            Morada="Rua General Humberto Delgado",
-        //            Telemovel=969687125,
-        //            Email="paulo_mota@RDtelecom.com",
-        //            CodigoPostal="1499-004",
-        //            //Role="Operador",
-        //        },
-        //           new Funcionarios
-        //        {
-        //            //FuncionarioId=10,
-        //            Nome="Marta Machado",
-        //            DataNascimento=new DateTime(2000,08,01),
-        //            Morada="Rua Central Mesura",
-        //            Telemovel=962154873,
-        //            Email="m.machado@RDtelecom.com",
-        //            CodigoPostal="3049-002",
-        //            //Role="Operador",
-        //        },
-
-        //    });
-        //    bd.SaveChanges();
-
-        //}
+        
 
         //-------------------SERVICOS--------------------------
         private static void InsereServicos(Projeto_Lab_WebContext bd)
@@ -343,39 +247,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
             });
             bd.SaveChanges();
         }
-
-
-
-
-        private static void InsereClientes(Projeto_Lab_WebContext bd)
-        {
-            //GaranteExistenciaClientes(bd, "Pedro Machado", new DateTime(1971, 07, 14), "922257185", "Colónia Agrícola Casal 63", "935559453", "pedromachado@gmail.com", "3870-358", 2);
-            //GaranteExistenciaClientes(bd, "Joaquim Mendez", new DateTime(1987, 12, 24), "920099457", "R Indústria Porta 47", "915556899", "joaquimmendez@outlook.com", "3300-040", 2);
-            //GaranteExistenciaClientes(bd, "Sandra Vieira", new DateTime(1977, 02, 23), "921359357", "R Poeta João Ruiz 6", "929355531", "sandravieira@gmail.com", "6230-355", 2);
-            //GaranteExistenciaClientes(bd, "Sara Siqueira", new DateTime(1977, 01, 22), "929388769", "R Doutor Alfredo Freitas 108", "915551820", "sarasiqueiraa@gmail.com", "3700-501", 2);
-            //GaranteExistenciaClientes(bd, "Nelson Ramos", new DateTime(1945, 07, 10), "927822662", "R Indústria Porta 56", "929455563", "nelsonramos@outlook.com", "3220-066", 2);
-            //GaranteExistenciaClientes(bd, "Danilo Pires", new DateTime(1999, 06, 26), "925387029", "Rua Jorge Sena 99", "965559604", "danilopires@live.com", "2650-499", 2);
-            //GaranteExistenciaClientes(bd, "Mônica Torres", new DateTime(197, 02, 05), "922534195", "Avenida Guerra Junqueiro 114", "921555922", "monicatorres@gmail.com", "2610-116", 2);
-            //GaranteExistenciaClientes(bd, "Daniela Mata", new DateTime(1974, 03, 13), "925581543", "R Portela 64", "915551704", "daielamata@gmail.com", "3550-171", 2);
-            //GaranteExistenciaClientes(bd, "Virgílio Abreu", new DateTime(1987, 04, 16), "928360508", "R Padre João A L Ribeiro 88", "915559352", "virgilio_abreu@outlook.com", "3440-376", 2);
-            //GaranteExistenciaClientes(bd, "Martim Moniz", new DateTime(1984, 08, 15), "927251038", "R Poeta João Ruiz 90", "929455556", "martim_moniz@live.com", "6230-691", 2);
-
-        }
-
-
-        //private static Clientes GaranteExistenciaClientes(Projeto_Lab_WebContext bd, string nome, DateTime dataNascimento, string nif, string morada, string telemovel, string email, string codigoPostal, int tipoClienteId)
-        //{
-        //    Clientes clientes = bd.Clientes.FirstOrDefault(c => c.Nome == nome);
-        //    if (clientes == null)
-        //    {
-        //        clientes = new Clientes { Nome = nome, DataNascimento = dataNascimento, Nif = nif, Morada = morada, Telemovel = telemovel, Email = email, CodigoPostal = codigoPostal, TipoClienteId= tipoClienteId};
-        //        bd.Clientes.Add(clientes);
-        //        bd.SaveChanges();
-        //    }
-
-        //    return (clientes);
-        //}
-
 
         private static void InserePacotes(Projeto_Lab_WebContext bd)
         {
@@ -659,14 +530,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
           //      bd.SaveChanges();
           //  }
 
-            internal static async Task InsereUtilizadoresFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
-            {
-                IdentityUser cliente = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_CLIENTE_FICTICIO, "Secret123$");
-                await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, cliente, ROLE_CLIENTE);
-
-                IdentityUser gestor = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, "utilizador@ipg.pt", "Secret123$");
-                await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, gestor, ROLE_OPERADOR);
-            }
+    
 
             //---------------------ADMINISTRADORES-----------------------
 
@@ -687,11 +551,11 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 }
             }
 
-            internal static async Task InsereAdministradorPadraoAsync(UserManager<IdentityUser> gestorUtilizadores)
-            {
-                IdentityUser utilizador = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_ADMIN_PADRAO, PASSWORD_UTILIZADOR_ADMIN_PADRAO);
-                await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, utilizador, ROLE_ADIMINISTRADOR);
-            }
+            //internal static async Task InsereAdministradorPadraoAsync(UserManager<IdentityUser> gestorUtilizadores)
+            //{
+            //    IdentityUser utilizador = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_ADMIN_PADRAO, PASSWORD_UTILIZADOR_ADMIN_PADRAO);
+            //    await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, utilizador, ROLE_ADIMINISTRADOR);
+            //}
 
             private static async Task AdicionaUtilizadorRoleSeNecessario(UserManager<IdentityUser> gestorUtilizadores, IdentityUser utilizador, string role)
             {
