@@ -14,7 +14,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Cargo")]
         public string Roles_Nome { get; set; }
 
-        public ICollection<Funcionarios> Funcionarios { get; set; }
+        public ICollection<Utilizadores> Funcionarios { get; set; }
 
 
 

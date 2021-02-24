@@ -34,5 +34,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public virtual ICollection<PromocoesPacotes> PromocoesPacotes { get; set; }
         [InverseProperty("Pacote")]
         public virtual ICollection<ServicosPacotes> ServicosPacotes { get; set; }
+
+        public virtual ICollection<Contratos> Contratos { get; set; }
     }
 }

@@ -8,21 +8,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Projeto_Lab_Web_Grupo3.Models
 {
-    public partial class Funcionarios
+    public partial class Utilizadores
     {
-        public Funcionarios()
+        public Utilizadores()
         {
             Contratos = new HashSet<Contratos>();
         }
 
         [Key]
         [Column("Funcionario_Id")]
-        public int FuncionarioId { get; set; }
+        public int UtilizadorId { get; set; }
 
         [Required(ErrorMessage = "Preencha o nome do funcionário")]
         [StringLength(100, ErrorMessage = "O nome não pode ter mais de 100 caracteres")]
         [Display(Name = "Nome do funcionário")]
         public string Nome { get; set; }
+
+
+        [Display(Name = "NIF")]
+        [Column("NIF")]
+        [StringLength(9, MinimumLength = 9)]
+        public string Nif { get; set; }
 
 
         [Column("Data_Nascimento", TypeName = "date")]
@@ -52,16 +58,16 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Required(ErrorMessage = "Especifique o cargo do funcionário")]
         [StringLength(20)]
-        [Display(Name = "Cargo")]
+        [Display(Name = "Role")]
 
         public string Role { get; set; }
 
         //[InverseProperty("Funcionario")]
         public virtual ICollection<Contratos> Contratos { get; set; }
-
-        //    [Display(Name = "Cargo")]
-        //    public int RolesId { get; set; }
-        //    public string Roles_Nome { get; set; }
-        //    public Roles Roles { get; set; }
     }
 }
+
+        //[Display(Name = "Tipo de Cliente")]
+
+        //public int TipoClienteId { get; set; }
+        //public Tipos_Clientes TiposClientes { get; set; }

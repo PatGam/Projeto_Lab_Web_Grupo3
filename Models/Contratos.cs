@@ -11,11 +11,10 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Key]
         [Column("Contrato_Id")]
         public int ContratoId { get; set; }
+        public int UtilizadorId { get; set; }
+        public Utilizadores Utilizadores { get; set; }
         public int ClienteId { get; set; }
-        public Clientes Clientes { get; set; }
         public int FuncionarioId { get; set; }
-
-        public Funcionarios Funcionarios { get; set; }
 
         public int PacoteId { get; set; }
 
