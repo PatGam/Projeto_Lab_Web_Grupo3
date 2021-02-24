@@ -24,7 +24,15 @@
                             @Html.DisplayNameFor(model => model.Pacotes.Descricao)
                         </dt>
                         <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.Pacotes.Descricao)
+                            @if (Html.DisplayFor(model => model.Pacotes.Descricao) == null)
+                            {
+                            <p></p>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(model => model.Pacotes.Descricao)
+                            }
+
                         </dd>
                         <dt class="col-sm-2">
                             @Html.DisplayNameFor(model => model.Pacotes.Preco)
