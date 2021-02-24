@@ -85,7 +85,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return View(infoUtilizador);
             }
 
-            Utilizadores funcionarios = new Utilizadores
+            Utilizadores utilizadores = new Utilizadores
             {
 
                 Nome = infoUtilizador.Nome,
@@ -98,7 +98,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 Role = infoUtilizador.Role,
             };
 
-            _context.Add(utilizador);
+            _context.Add(utilizadores);
             await _context.SaveChangesAsync();
 
             ViewBag.Mensagem = "Utilizador adicionado com sucesso.";

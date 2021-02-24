@@ -21,7 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <form asp-action="Registo">
+                        <form asp-action="Create">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group">
@@ -67,6 +67,16 @@
                                     <option value="Cliente">Cliente</option>
                                 </select>
                                 <br><br>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ConfirmePassword" class="control-label"></label>
+                                <input asp-for="ConfirmePassword" class="form-control" />
+                                <span asp-validation-for="ConfirmePassword" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Create" class="btn btn-primary" />
