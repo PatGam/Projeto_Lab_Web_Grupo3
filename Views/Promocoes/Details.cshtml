@@ -48,35 +48,44 @@
                             </dd>
                         </dl>
                     </div>
-                    <table class="table table-borderless">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.PromocoesPacotes[0].Pacote)
-                                </th>
+                    @if (Model.PromocoesPacotes.Count() == 0 )
 
-                                <th>
-                                    @Html.DisplayNameFor(model => model.PromocoesPacotes[0].Pacote.Preco)
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.PromocoesPacotes)
-                            {
+                    {
+                        <p>Não existem Pacotes para mostrar.</p>
+
+                    }
+                    else
+                    {
+                        <table class="table table-borderless">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pacote.Nome)
-                                    </td>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PromocoesPacotes[0].Pacote)
+                                    </th>
 
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pacote.Preco)
-                                    </td>
-
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PromocoesPacotes[0].Pacote.Preco)
+                                    </th>
+                                    <th></th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.PromocoesPacotes)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Pacote.Nome)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Pacote.Preco)
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
                     <div>
                         <a asp-action="Edit" asp-route-id="@Model.Promocoes.PromocoesId">Editar</a> |
                         <a asp-action="Index">Voltar Atrás</a>
