@@ -44,56 +44,72 @@
                             </dd>*@
                     </dl>
                 </div>
-                <table class="table table-borderless">
-                    <thead >
-                        <tr>
+                @if (Model.ServicosPacotes.Count() == 0)
+                {
+                    <p>Nao existem Serviços para mostrar.</p>
+                }
+                else
+                {
 
-
-                            <th >
-                                @Html.DisplayNameFor(model => model.ServicosPacotes[0].Servico.TipoServicos.Nome)
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.ServicosPacotes)
-                        {
+                    <table class="table table-borderless">
+                        <thead>
                             <tr>
 
 
-                                <td >
-                                    @Html.DisplayFor(modelItem => item.Servico.TipoServicos.Nome)
-                                </td>
-
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ServicosPacotes[0].Servico.TipoServicos.Nome)
+                                </th>
+                                <th></th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-                <table class="table table-borderless">
-                    <thead >
-                        <tr>
-                            <th>
-                                
-                                @Html.DisplayNameFor(model => model.PromocoesPacotes[0].Promocoes)
-                            </th>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ServicosPacotes)
+                            {
+                                <tr>
 
 
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.PromocoesPacotes)
-                        {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Servico.Nome)
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                @if (Model.PromocoesPacotes.Count == 0)
+                {
+                    <p>Não existem promoções para mostrar.</p>
+                }
+                else
+                {
+                    <table class="table table-borderless">
+                        <thead>
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Promocoes.Nome)
-                                </td>
+                                <th>
+
+                                    @Html.DisplayNameFor(model => model.PromocoesPacotes[0].Promocoes)
+                                </th>
+
 
 
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model.PromocoesPacotes)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Promocoes.Nome)
+                                    </td>
+
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
                 <div>
                     <a asp-action="Edit" asp-route-id="@Model.Pacotes.PacoteId">Editar</a> |
                     <a asp-action="Index">Voltar Atrás</a>
