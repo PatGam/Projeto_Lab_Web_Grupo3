@@ -48,17 +48,10 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Código Postal")]
         public string CodigoPostal { get; set; }
 
-        [Required(ErrorMessage = "Especifique o cargo do utilizador")]
+        [Required(ErrorMessage = "Especifique o role do utilizador")]
         [StringLength(20)]
         [Display(Name = "Role")]
         public string Role { get; set; }
-
-
-        //[Required(ErrorMessage = "Especifique o cargo do funcionário")]
-        //[Display(Name = "Cargo")]
-        //public int RolesId { get; set; }
-        //public string Roles_Nome { get; set; }
-        //public Roles Roles { get; set; }
 
 
         [Required]
