@@ -48,12 +48,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
                         .WithMany(p => p.Contratos)
                         .HasForeignKey(d => d.UtilizadorId)
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Contratos_Funcionarios");
-
-                    entity.HasOne(d => d.Utilizadores)
-                        .WithMany(p => p.Contratos)
-                        .HasForeignKey(d => d.UtilizadorId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_Contratos_Clientes");
 
                     entity.HasOne(d => d.Pacotes)

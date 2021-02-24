@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
-    public partial class Users : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -167,7 +167,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     Servico_Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
-                    Descricao = table.Column<string>(maxLength: 1000, nullable: false),
+                    Descricao = table.Column<string>(maxLength: 1000, nullable: true),
                     Tipo_Servico = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

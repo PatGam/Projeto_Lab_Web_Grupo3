@@ -85,8 +85,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.PrecoPacote = pacoteid.Preco;
 
             //Código que vai buscar o cliente
-            var utilizadorid = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
-            contratos.ClienteId = utilizadorid.UtilizadorId;
+            
+            contratos.ClienteId = contratos.UtilizadorId;
 
             //Código que vai buscar o desconto da promoção
             var promocaopacoteid = bd.PromocoesPacotes.SingleOrDefault(e => e.PromocoesPacotesId == contratos.PromocoesPacotesId);
