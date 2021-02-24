@@ -26,7 +26,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
             public virtual DbSet<PromocoesPacotes> PromocoesPacotes { get; set; }
             public virtual DbSet<Servicos> Servicos { get; set; }
             public virtual DbSet<ServicosPacotes> ServicosPacotes { get; set; }
-            public virtual DbSet<Roles> Roles { get; set; }
             public virtual DbSet<Tipos_Sevicos> TiposServicos { get; set; }
 
 
@@ -48,7 +47,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                         .WithMany(p => p.Contratos)
                         .HasForeignKey(d => d.UtilizadorId)
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Contratos_Clientes");
+                        .HasConstraintName("FK_Contratos_Utilizadores");
 
                     entity.HasOne(d => d.Pacotes)
                         .WithMany(p => p.Contratos)
