@@ -20,25 +20,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos
-        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
+        public async Task<IActionResult> Index()
         {
-            //Paginacao paginacao = new Paginacao
-            //{
-            //    TotalItems = await bd.Contratos.Where(p => nomePesquisar == null || p..Contains(nomePesquisar)).CountAsync(),
-            //    PaginaAtual = pagina
-            //};
-            //List<Contratos> contratos = await bd.Contratos.Where(p => nomePesquisar == null || p.Telefone.Nome.Contains(nomePesquisar))
-            //  .OrderBy(p => p.Clientes.Nome)
-            //  .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-            //  .Take(paginacao.ItemsPorPagina)
-            //  .ToListAsync();
-           ContratosViewModel modelo = new ContratosViewModel
-            {
-                //Paginacao = paginacao,
-                //Contratos=contratos,
-                //NomePesquisar = nomePesquisar
-            };
-            return base.View(modelo);
+            return View(await bd.Contratos.ToListAsync());
         }
         // GET: Contratos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -53,7 +37,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .Include(c => c.Pacotes)
                 .Include(c => c.PromocoesPacotes)
                 .Include(c => c.Utilizadores)
-                //.Include(c => c.PromocoesPacotesNavigation)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
             {
@@ -67,8 +50,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public IActionResult Create()
         {
 
-            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "Nome");
-            ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "Nome");
+            ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
             ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes");
@@ -82,26 +64,29 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId,FuncionarioId,PacoteId,PromocoesPacotesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal")] Contratos contratos)
+        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId, Nif, FuncionarioId,PacoteId,PromocoesPacotesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal")] Contratos contratos)
         {
 
             if (!ModelState.IsValid)
             {
-                ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "Nome", contratos.ClienteId);
-                ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
+                ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
                 ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes", contratos.PromocoesPacotesId);
                 return View(contratos);
             }
 
             //Código que vai buscar o ID do funcionário que tem login feito e atribui automaticamente ao contrato
-            var funcionario = bd.Funcionarios.SingleOrDefault(c => c.Email == User.Identity.Name);
-            var funcionarioEmail = bd.Funcionarios.SingleOrDefault(d => d.Email == funcionario.Email);
+            var funcionario = bd.Utilizadores.SingleOrDefault(c => c.Email == User.Identity.Name);
+            var funcionarioEmail = bd.Utilizadores.SingleOrDefault(d => d.Email == funcionario.Email);
             contratos.FuncionarioId = funcionarioEmail.UtilizadorId;
 
             //Código que vai buscar o preço do pacote
             var pacoteid = bd.Pacotes.SingleOrDefault(e => e.PacoteId == contratos.PacoteId);
             contratos.PrecoPacote = pacoteid.Preco;
+
+            //Código que vai buscar o cliente
+            var utilizadorid = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
+            contratos.ClienteId = utilizadorid.UtilizadorId;
 
             //Código que vai buscar o desconto da promoção
             var promocaopacoteid = bd.PromocoesPacotes.SingleOrDefault(e => e.PromocoesPacotesId == contratos.PromocoesPacotesId);
@@ -115,10 +100,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             await bd.SaveChangesAsync();
 
             ViewBag.Mensagem = "Contrato adicionado com sucesso.";
-            return View("Sucesso");
-
-
-            
+            return View("Sucesso"); 
         }
 
         // GET: Contratos/Edit/5
@@ -134,8 +116,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 return View ("Inexistente");
             }
-            ViewData["ClienteId"] = new SelectList(bd.Clientes, "ClienteId", "Nome", contratos.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(bd.Funcionarios, "FuncionarioId", "CodigoPostal", contratos.FuncionarioId);
+            ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes", contratos.PromocoesPacotesId);
             return View(contratos);
@@ -146,7 +127,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ContratoId,ClienteId,FuncionarioId,DataInicio,PrecoFinal,DataFim,PromocoesPacotes,PrecoPacote,PromocaoDesc,NomeCliente,NomeFuncionario,Telefone")] Contratos contratos)
+        public async Task<IActionResult> Edit(int id, [Bind("ContratoId,ClienteId, Nif, FuncionarioId,DataInicio,PrecoFinal,DataFim,PromocoesPacotes,PrecoPacote,PromocaoDesc,NomeCliente,NomeFuncionario,Telefone")] Contratos contratos)
         {
             if (id != contratos.ContratoId)
             {
