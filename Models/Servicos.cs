@@ -21,8 +21,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Required(ErrorMessage = "Deve preencher o nome.")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "O nome deve no mínimo 3 caracteres e não deve exceder os 100 caracteres.")]
         public string Nome { get; set; }
-        [Required(ErrorMessage = "Deve preencher a descrição.")]
-        [StringLength(1000, MinimumLength = 10, ErrorMessage = "A descrição deve no mínimo 10 caracteres e não deve exceder os 1000 caracteres.")]
+        [StringLength(1000, ErrorMessage = "A descrição não deve exceder os 1000 caracteres.")]
         [Display(Name ="Descrição")]
         public string Descricao { get; set; }
 
