@@ -1,0 +1,61 @@
+﻿@model Projeto_Lab_Web_Grupo3.Models.Contratos
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Criar";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <header class="panel-heading">
+                    <h1>Criar novo contrato</h1>
+                </header>
+                <div class="col-lg-6">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            Nome do Cliente
+                            <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                        </div>
+                        <div class="form-group">
+                            Contacto de telefone fixo
+                            <input asp-for="Telefone" class="form-control" />
+                            <span asp-validation-for="Telefone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            Pacote
+                            <select asp-for="PacoteId" class="form-control" asp-items="ViewBag.PacoteId"></select>
+
+                        </div>
+                        <div class="form-group">
+                            Promoção
+                            <select asp-for="PromocoesPacotesId" class="form-control" asp-items="ViewBag.PromocoesPacotesId"></select>
+                        </div>
+                        <div class="form-group">
+                            Data de início do contrato
+                            <input asp-for="DataInicio" class="form-control" />
+                            <span asp-validation-for="DataInicio" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            Data de fim do contrato
+                            <input asp-for="DataFim" class="form-control" />
+                            <span asp-validation-for="DataFim" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" class="btn btn-success" />
+                        </div>
+                    </form>
+                    <div>
+                        <a asp-action="Index" class="btn btn-danger" >Voltar Atrás</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

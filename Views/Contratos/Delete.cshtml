@@ -1,0 +1,71 @@
+﻿@model Projeto_Lab_Web_Grupo3.Models.Contratos
+
+@{
+    ViewData["Title"] = "Apagar";
+    Layout = "_LayoutAdmin";
+}
+
+
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <h1>Tem a certeza de que pretende apagar este contrato?</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <section class="panel">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.FuncionarioId)</th>
+                                <td>@Html.DisplayFor(model => model.Funcionarios.Nome)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.ClienteId)</th>
+                                <td>@Html.DisplayFor(model => model.Clientes.Nome)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Telefone)</th>
+                                <td>@Html.DisplayFor(model => model.Telefone)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.PacoteId)</th>
+                                <td>@Html.DisplayFor(model => model.PacoteId)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.PromocoesPacotesId)</th>
+                                <td>@Html.DisplayFor(model => model.PromocoesPacotes.NomePromocoes)</td>
+                            </tr>
+
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.PrecoPacote)</th>
+                                <td>@Html.DisplayFor(model => model.PrecoPacote)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.PromocaoDesc)</th>
+                                <td>@Html.DisplayFor(model => model.PromocaoDesc)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.PrecoFinal)</th>
+                                <td>@Html.DisplayFor(model => model.PrecoFinal)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.DataInicio)</th>
+                                <td>@Html.DisplayFor(model => model.DataInicio)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.DataFim)</th>
+                                <td>@Html.DisplayFor(model => model.DataFim)</td>
+                            </tr>
+                        </table>
+
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="ContratoId" />
+                            <input type="submit" value="Apagar" class="btn btn-danger" />
+                            <a asp-action="Index" class="btn btn-success" >Voltar Atrás</a>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
