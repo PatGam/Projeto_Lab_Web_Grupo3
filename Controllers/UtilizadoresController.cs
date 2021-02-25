@@ -29,6 +29,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(await _context.Utilizadores.ToListAsync());
         }
 
+        public async Task<IActionResult> IndexClientes()
+        {
+            return View(await _context.Utilizadores.ToListAsync());
+        }
+
         // GET: Utilizadores/Details/5
         public async Task<IActionResult> Details(int? id)
         {

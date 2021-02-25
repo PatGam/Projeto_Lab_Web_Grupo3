@@ -47,6 +47,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Preço Final")]
         public decimal PrecoFinal { get; set; }
 
+        [Display(Name = "Inactivo")]
+        public bool Inactivo { get; set; }
 
         //[ForeignKey(nameof(ClienteId))]
         //[InverseProperty(nameof(Clientes.Contratos))]

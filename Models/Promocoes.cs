@@ -37,5 +37,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [InverseProperty("Promocoes")]
         public virtual ICollection<PromocoesPacotes> PromocoesPacotes { get; set; }
+
+        [Display(Name = "Inactivo")]
+        public bool Inactivo { get; set; }
     }
 }
