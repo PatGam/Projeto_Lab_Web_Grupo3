@@ -50,6 +50,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View();
         }
 
+        public IActionResult VistaContact()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
