@@ -122,7 +122,7 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
-                   
+
 
                     @if (User.IsInRole("Administrador"))
                     {
@@ -133,53 +133,65 @@
                                 @*<span class="menu-arrow arrow_carrot-right"></span>*@
                             </a>
                             @*<ul class="sub">
-                                    <li><a class="" href="form_component.html">Form Elements</a></li>
-                                    <li><a class="" href="form_validation.html">Form Validation</a></li>
-                                </ul>*@
+                    <li><a class="" href="form_component.html">Form Elements</a></li>
+                    <li><a class="" href="form_validation.html">Form Validation</a></li>
+                </ul>*@
                         </li>
                         <li class="sub-menu">
-                            <a a asp-area="" asp-controller="Utilizadores" asp-action="Index" class="">
-                                <i class="icon_desktop"></i>
+                            <a href="javascript:;" class="">
+                                <i class="icon_group"></i>
                                 <span>Gerir Funcionários</span>
                                 @*<span class="menu-arrow arrow_carrot-right"></span>*@
                             </a>
                             @*<ul class="sub">
-                                    <li><a class="" href="general.html">Elements</a></li>
-                                    <li><a class="" href="buttons.html">Buttons</a></li>
-                                    <li><a class="" href="grids.html">Grids</a></li>
-                                </ul>*@
+                                <li><a class="" a asp-area="" asp-controller="Funcionarios" asp-action="Index">Consultar</a></li>
+                                <li><a class="" a asp-area="" asp-controller="Funcionarios" asp-action="Create">Criar</a></li>
+                            </ul>*@
+
                         </li>
 
                         <li class="sub-menu">
                             <a href="javascript:;" class="">
-                            <i class="icon_folder-open"></i>
-                            <span>Gerir Pacotes</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
+                                <i class="icon_bag"></i>
+                                <span>Gerir Pacotes</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
                                 <li><a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">Consultar</a></li>
                                 <li><a class="" a asp-area="" asp-controller="Pacotes" asp-action="Create">Criar</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a class="" a asp-area="" asp-controller="Promocoes" asp-action="Index">
-                                <i class="icon_piechart"></i>
+                        <li class="sub-menu">
+                            <a href="javascript:;" class="">
+                                <i class="icon_cart"></i>
                                 <span>Gerir Promoções</span>
-
+                                <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
+                            <ul class="sub">
+                                <li><a class="" a asp-area="" asp-controller="Promocoes" asp-action="Index">Consultar</a></li>
+                                <li><a class="" a asp-area="" asp-controller="Promocoes" asp-action="Create">Criar</a></li>
+                            </ul>
 
                         </li>
 
                         <li class="sub-menu">
-                            <a a asp-area="" asp-controller="Servicos" asp-action="Index" class="">
-                                <i class="icon_table"></i>
+                            <a href="javascript:;" class="">
+                                <i class="icon_search-2"></i> 
                                 <span>Gerir Serviços</span>
-                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                                <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
-                            @*<ul class="sub">
-                                    <li><a class="" href="basic_table.html">Basic Table</a></li>
-                                </ul>*@
+                            <ul class="sub">
+                                <li><a class="" a asp-area="" asp-controller="Servicos" asp-action="Index">Consultar</a></li>
+                                <li><a class="" a asp-area="" asp-controller="Servicos" asp-action="Create">Criar</a></li>
+                            </ul>
                         </li>
+                        @*<li>
+                <a class="" a asp-area="" asp-controller="Servicos" asp-action="Index">
+                    <i class="icon_piechart"></i>
+                    <span>Gerir Promoções</span>
+
+                </a>
+            </li>*@
                     }
 
                     @if (User.IsInRole("Operador"))
@@ -191,9 +203,9 @@
                                 @*<span class="menu-arrow arrow_carrot-right"></span>*@
                             </a>
                             @*<ul class="sub">
-                                    <li><a class="" href="form_component.html">Form Elements</a></li>
-                                    <li><a class="" href="form_validation.html">Form Validation</a></li>
-                                </ul>*@
+                    <li><a class="" href="form_component.html">Form Elements</a></li>
+                    <li><a class="" href="form_validation.html">Form Validation</a></li>
+                </ul>*@
                         </li>
                         <li class="sub-menu">
                             <a a asp-area="" asp-controller="Contratos" asp-action="Index" class="">
@@ -202,10 +214,10 @@
                                 @*<span class="menu-arrow arrow_carrot-right"></span>*@
                             </a>
                             @*<ul class="sub">
-                                    <li><a class="" href="general.html">Elements</a></li>
-                                    <li><a class="" href="buttons.html">Buttons</a></li>
-                                    <li><a class="" href="grids.html">Grids</a></li>
-                                </ul>*@
+                    <li><a class="" href="general.html">Elements</a></li>
+                    <li><a class="" href="buttons.html">Buttons</a></li>
+                    <li><a class="" href="grids.html">Grids</a></li>
+                </ul>*@
                         </li>
                         <li>
                             <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
@@ -232,9 +244,9 @@
                                 @*<span class="menu-arrow arrow_carrot-right"></span>*@
                             </a>
                             @*<ul class="sub">
-                                    <li><a class="" href="form_component.html">Form Elements</a></li>
-                                    <li><a class="" href="form_validation.html">Form Validation</a></li>
-                                </ul>*@
+                    <li><a class="" href="form_component.html">Form Elements</a></li>
+                    <li><a class="" href="form_validation.html">Form Validation</a></li>
+                </ul>*@
                         </li>
                         <li class="sub-menu">
                             <a a asp-area="" asp-controller="Contratos" asp-action="Index" class="">
@@ -243,10 +255,10 @@
                                 @*<span class="menu-arrow arrow_carrot-right"></span>*@
                             </a>
                             @*<ul class="sub">
-                                    <li><a class="" href="general.html">Elements</a></li>
-                                    <li><a class="" href="buttons.html">Buttons</a></li>
-                                    <li><a class="" href="grids.html">Grids</a></li>
-                                </ul>*@
+                    <li><a class="" href="general.html">Elements</a></li>
+                    <li><a class="" href="buttons.html">Buttons</a></li>
+                    <li><a class="" href="grids.html">Grids</a></li>
+                </ul>*@
                         </li>
                         <li>
                             <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
@@ -265,19 +277,19 @@
                     }
 
                     @*<li class="sub-menu">
-                            <a href="javascript:;" class="">
-                                <i class="icon_documents_alt"></i>
-                                <span>Pages</span>
-                                <span class="menu-arrow arrow_carrot-right"></span>
-                            </a>
-                            <ul class="sub">
-                                <li><a class="" href="profile.html">Profile</a></li>
-                                <li><a class="" href="login.html"><span>Login Page</span></a></li>
-                                <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
-                                <li><a class="" href="blank.html">Blank Page</a></li>
-                                <li><a class="" href="404.html">404 Error</a></li>
-                            </ul>
-                        </li>*@
+            <a href="javascript:;" class="">
+                <i class="icon_documents_alt"></i>
+                <span>Pages</span>
+                <span class="menu-arrow arrow_carrot-right"></span>
+            </a>
+            <ul class="sub">
+                <li><a class="" href="profile.html">Profile</a></li>
+                <li><a class="" href="login.html"><span>Login Page</span></a></li>
+                <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
+                <li><a class="" href="blank.html">Blank Page</a></li>
+                <li><a class="" href="404.html">404 Error</a></li>
+            </ul>
+        </li>*@
 
 
                 </ul>
