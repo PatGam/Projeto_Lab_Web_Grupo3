@@ -36,5 +36,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public virtual ICollection<ServicosPacotes> ServicosPacotes { get; set; }
 
         public virtual ICollection<Contratos> Contratos { get; set; }
+
+        [Display(Name = "Inactivo")]
+        public bool Inactivo { get; set; }
     }
+
 }

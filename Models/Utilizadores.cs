@@ -64,6 +64,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         //[InverseProperty("Funcionario")]
         public virtual ICollection<Contratos> Contratos { get; set; }
+
+        [Display(Name = "Inactivo")]
+        public bool Inactivo { get; set; }
     }
 }
 

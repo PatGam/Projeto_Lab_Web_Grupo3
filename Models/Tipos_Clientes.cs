@@ -20,7 +20,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
                 ErrorMessage = "Tipo de Cliente já existe")]
         public string Nome { get; set; }
 
-        public ICollection<Clientes>Clientes  { get; set; }
 
     }
 }

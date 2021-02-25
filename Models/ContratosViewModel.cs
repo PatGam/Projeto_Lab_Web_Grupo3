@@ -14,7 +14,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string NomePesquisar { get; set; }
         public List<Promocoes> Promocoes { get; set; }
         public List<Pacotes> Pacotes { get; set; }
-        public List<Clientes> Clientes { get; set; }
 
 
 

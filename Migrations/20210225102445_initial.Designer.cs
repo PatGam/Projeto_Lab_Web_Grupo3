@@ -10,8 +10,8 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    [Migration("20210224161642_Initial")]
-    partial class Initial
+    [Migration("20210225102445_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,61 +20,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Clientes", b =>
-                {
-                    b.Property<int>("ClienteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("Cliente_Id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CodigoPostal")
-                        .IsRequired()
-                        .HasColumnName("Codigo_Postal")
-                        .HasColumnType("nvarchar(8)")
-                        .HasMaxLength(8);
-
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnName("Data_Nascimento")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Morada")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<string>("Nif")
-                        .HasColumnName("NIF")
-                        .HasColumnType("nvarchar(9)")
-                        .HasMaxLength(9);
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Telemovel")
-                        .HasColumnType("nvarchar(9)")
-                        .HasMaxLength(9);
-
-                    b.Property<int>("TipoClienteId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TiposClientesTipoClienteId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ClienteId");
-
-                    b.HasIndex("TiposClientesTipoClienteId");
-
-                    b.ToTable("Clientes");
-                });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
                 {
@@ -87,9 +32,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ClientesClienteId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DataFim")
                         .HasColumnName("Data_Fim")
                         .HasColumnType("date");
@@ -100,6 +42,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
                     b.Property<int>("FuncionarioId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Inactivo")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PacoteId")
                         .HasColumnType("int");
@@ -128,8 +73,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
                     b.HasKey("ContratoId");
 
-                    b.HasIndex("ClientesClienteId");
-
                     b.HasIndex("PacoteId");
 
                     b.HasIndex("PromocoesPacotesId");
@@ -150,6 +93,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
+
+                    b.Property<bool>("Inactivo")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -183,6 +129,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
+
+                    b.Property<bool>("Inactivo")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -246,6 +195,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
+
+                    b.Property<bool>("Inactivo")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -347,6 +299,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<bool>("Inactivo")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Morada")
                         .IsRequired()
                         .HasColumnType("nvarchar(500)")
@@ -375,19 +330,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.ToTable("Utilizadores");
                 });
 
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Clientes", b =>
-                {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Tipos_Clientes", "TiposClientes")
-                        .WithMany("Clientes")
-                        .HasForeignKey("TiposClientesTipoClienteId");
-                });
-
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Clientes", null)
-                        .WithMany("Contratos")
-                        .HasForeignKey("ClientesClienteId");
-
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.Pacotes", "Pacotes")
                         .WithMany("Contratos")
                         .HasForeignKey("PacoteId")
