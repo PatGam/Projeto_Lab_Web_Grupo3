@@ -5,60 +5,72 @@
     Layout = "_LayoutAdmin";
 }
 
-<section id="container" class="">
-    <section id="main-content">
-        <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h4>Editar Promoção</h4>
-                    <hr />
-                    <div class="row">
-                        <div class="col-md-4">
-                            <form asp-action="Edit">
-                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <input type="hidden" asp-for="PromocoesId" />
-                                <div class="form-group">
-                                    <label asp-for="Nome" class="control-label"></label>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icon_cart"></i>Promoções</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Criar nova promoção
+                    </header>
+                    <div class="panel-body">
+                        <form asp-action="Edit" class="form-horizontal " method="get">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="PromocoesId" />
+                            <div class="form-group">
+                                <label asp-for="Nome" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
                                     <input asp-for="Nome" class="form-control" />
                                     <span asp-validation-for="Nome" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="Descricao" class="control-label"></label>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Descricao" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
                                     <input asp-for="Descricao" class="form-control" />
                                     <span asp-validation-for="Descricao" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="DataInicio" class="control-label"></label>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
                                     <input asp-for="DataInicio" class="form-control" />
                                     <span asp-validation-for="DataInicio" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="DataFim" class="control-label"></label>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
                                     <input asp-for="DataFim" class="form-control" />
                                     <span asp-validation-for="DataFim" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="PromocaoDesc" class="control-label"></label>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PromocaoDesc" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
                                     <input asp-for="PromocaoDesc" class="form-control" />
                                     <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <input type="submit" class="btn btn-success" value="Guardar" />
+                                    <a class="btn btn-danger" asp-action="Index">Cancelar</a>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
-
-                    <div>
-                        <a asp-action="Index">Voltar Atrás</a>
-                    </div>
-                </div>
+                </section>
             </div>
-
-
-        </section>
+        </div>
     </section>
 </section>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

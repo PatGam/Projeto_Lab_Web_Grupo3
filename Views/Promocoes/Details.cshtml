@@ -6,92 +6,86 @@
 }
 
 
-
-<section id="container" class="">
-    <section id="main-content">
-        <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div>
-                        <h1>Detalhes da promoção</h1>
-                        <hr />
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <section class="panel">
-                                    <header class="panel-heading no-border">
-                                        Detalhes da promoção @Html.DisplayFor(model => model.Promocoes.Nome)
-                                    </header>
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Promocoes.Descricao)
-                                            </th>
-                                            <td>
-                                                @Html.DisplayFor(model => model.Promocoes.Descricao)
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Promocoes.DataInicio)
-                                            </th>
-                                            <td>
-                                                @Html.DisplayFor(model => model.Promocoes.DataInicio)
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Promocoes.DataFim)
-                                            </th>
-                                            <td>
-                                                @Html.DisplayFor(model => model.Promocoes.DataFim)
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Promocoes.PromocaoDesc)
-                                            </th>
-                                            <td>
-                                                €@Html.DisplayFor(model => model.Promocoes.PromocaoDesc)
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <th>Pacotes com a promoção</th>
-
-                                            @if (Model.PromocoesPacotes.Count() == 0)
-
-                                            {
-
-                                                <td>A promoção não tem pacotes associados.</td>
-
-
-                                            }
-                                            else
-                                            {
-                                                <td>
-
-                                                    @foreach (var item in Model.PromocoesPacotes)
-                                                    {
-                                                        @Html.DisplayFor(modelItem => item.Pacote.Nome)
-                                                        <br />
-                                                    }
-
-                                                    <a class="btn btn-success" asp-area="" asp-controller="PromocoesPacotes" asp-action="Create">Adicionar pacote</a>
-
-                                                </td>
-                                            }
-                                        </tr>
-                                    </table>
-                                    <br/>
-                                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Promocoes.PromocoesId">Editar</a>
-                                    <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icon_cart"></i>Promoções</h3>
             </div>
-        </section>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <section class="panel">
+                    <header class="panel-heading no-border">
+                        Detalhes da promoção @Html.DisplayFor(model => model.Promocoes.Nome)
+                    </header>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Promocoes.Descricao)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Promocoes.Descricao)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Promocoes.DataInicio)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Promocoes.DataInicio)
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Promocoes.DataFim)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Promocoes.DataFim)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Promocoes.PromocaoDesc)
+                            </th>
+                            <td>
+                                €@Html.DisplayFor(model => model.Promocoes.PromocaoDesc)
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <th>Pacotes com a promoção</th>
+
+                            @if (Model.PromocoesPacotes.Count() == 0)
+
+                            {
+
+                                <td>A promoção não tem pacotes associados.</td>
+
+
+                            }
+                            else
+                            {
+                                <td>
+
+                                    @foreach (var item in Model.PromocoesPacotes)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Pacote.Nome)
+                                        <br />
+                                    }
+
+                                    <a class="btn btn-success" asp-area="" asp-controller="PromocoesPacotes" asp-action="Create">Adicionar pacote</a>
+
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                    <br />
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Promocoes.PromocoesId">Editar</a>
+                    <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
+                </section>
+            </div>
+        </div>
     </section>
 </section>
