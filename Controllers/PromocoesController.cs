@@ -55,6 +55,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                .Include(s => s.Pacote)
                .ToListAsync();
 
+            int count = 0;
+            foreach (var item in bd.PromocoesPacotes.ToList())
+            {
+                //SystemsCount 
+                count = bd.PromocoesPacotes.Where(x => x.PromocoesId == id).Count();
+            }
+
+            ViewData["linhas"] = count;
+
             if (promocoes == null)
             {
                 return View ("Inexistente");
