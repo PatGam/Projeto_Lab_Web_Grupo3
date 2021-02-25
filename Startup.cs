@@ -94,7 +94,6 @@ namespace Projeto_Lab_Web_Grupo3
             });
 
             SeedData.InsereRolesAsync(gestorRoles).Wait();
-            SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
 
             if (env.IsDevelopment())
             {

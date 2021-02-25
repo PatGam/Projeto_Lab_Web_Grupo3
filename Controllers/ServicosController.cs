@@ -50,8 +50,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
+
             var servicos = await bd.Servicos.Include(p => p.TipoServicos)
                 .SingleOrDefaultAsync(m => m.ServicoId == id);
+
             if (servicos == null)
             {
                 return View ("Inexistente");
@@ -150,11 +152,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var servicos = await bd.Servicos
+            var servicos = await bd.Servicos.Include(p => p.TipoServicos)
                 .SingleOrDefaultAsync(m => m.ServicoId == id);
             if (servicos == null)
             {
-                ViewBag.Mensagem = "O Serviço que estava a tentar apagar foi eliminado por outra pessoa.";
+                ViewBag.Mensagem = "O Serviço que estava a tentar apagar foi eliminado por outra pessoa";
                 return View("Sucesso");
             }
 

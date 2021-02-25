@@ -19,17 +19,13 @@ namespace Projeto_Lab_Web_Grupo3.Data
             {
             }
 
-            public virtual DbSet<Clientes> Clientes { get; set; }
             public virtual DbSet<Contratos> Contratos { get; set; }
-            public virtual DbSet<Funcionarios> Funcionarios { get; set; }
+            public virtual DbSet<Utilizadores> Utilizadores { get; set; }
             public virtual DbSet<Pacotes> Pacotes { get; set; }
             public virtual DbSet<Promocoes> Promocoes { get; set; }
             public virtual DbSet<PromocoesPacotes> PromocoesPacotes { get; set; }
             public virtual DbSet<Servicos> Servicos { get; set; }
             public virtual DbSet<ServicosPacotes> ServicosPacotes { get; set; }
-            public virtual DbSet<Roles> Roles { get; set; }
-
-
             public virtual DbSet<Tipos_Sevicos> TiposServicos { get; set; }
 
 
@@ -47,30 +43,26 @@ namespace Projeto_Lab_Web_Grupo3.Data
             {
                 modelBuilder.Entity<Contratos>(entity =>
                 {
-                    //entity.HasIndex(e => e.ClienteId);
-
-                    //entity.HasIndex(e => e.FuncionarioId);
-
-                    //entity.HasIndex(e => e.PromocoesPacotes);
-
-
-                    entity.HasOne(d => d.Clientes)
+                    entity.HasOne(d => d.Utilizadores)
                         .WithMany(p => p.Contratos)
-                        .HasForeignKey(d => d.ClienteId)
+                        .HasForeignKey(d => d.UtilizadorId)
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Contratos_Clientes");
+                        .HasConstraintName("FK_Contratos_Utilizadores");
 
-                    entity.HasOne(d => d.Funcionarios)
+                    entity.HasOne(d => d.Pacotes)
                         .WithMany(p => p.Contratos)
-                        .HasForeignKey(d => d.FuncionarioId)
+                        .HasForeignKey(d => d.PacoteId)
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Contratos_Funcionarios");
+                        .HasConstraintName("FK_Contratos_Pacotes");
 
-                    //entity.HasOne(d => d.PromocoesPacotesNavigation)
-                    //    .WithMany(p => p.Contratos)
-                    //    .HasForeignKey(d => d.PromocoesPacotes)
-                    //    .OnDelete(DeleteBehavior.ClientSetNull)
-                    //    .HasConstraintName("FK_Contratos_Promocoes_Pacotes");
+                    entity.HasOne(d => d.PromocoesPacotes)
+                        .WithMany(p => p.Contratos)
+                        .HasForeignKey(d => d.PromocoesPacotesId)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Contratos_PromocoesPacotes");
+
+
+
                 });
 
                 modelBuilder.Entity<PromocoesPacotes>(entity =>
@@ -122,19 +114,13 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
             });
 
-                //modelBuilder.Entity<Funcionarios>() // Lado N
-                //   .HasOne(p => p.Roles) // um produto tem uma categoria
-                //   .WithMany(c => c.Funcionarios) // que por sua vez tem vários produtos
-                //   .HasForeignKey(p => p.RolesId) // chave estrangeira
-                //   .OnDelete(DeleteBehavior.Restrict) // não permitir o cascade delete
-                //   .HasConstraintName("FK_Funcionarios_Roles");
 
-            modelBuilder.Entity<Clientes>() // Lado N
-                  .HasOne(p => p.TiposClientes) // um produto tem uma categoria
-                  .WithMany(c => c.Clientes) // que por sua vez tem vários produtos
-                  .HasForeignKey(p => p.TipoClienteId) // chave estrangeira
-                  .OnDelete(DeleteBehavior.Restrict) // não permitir o cascade delete
-                  .HasConstraintName("FK_Clientes_TiposClientes");
+            //modelBuilder.Entity<Clientes>() // Lado N
+            //      .HasOne(p => p.TiposClientes) // um produto tem uma categoria
+            //      .WithMany(c => c.Clientes) // que por sua vez tem vários produtos
+            //      .HasForeignKey(p => p.TipoClienteId) // chave estrangeira
+            //      .OnDelete(DeleteBehavior.Restrict) // não permitir o cascade delete
+            //      .HasConstraintName("FK_Clientes_TiposClientes");
 
             OnModelCreatingPartial(modelBuilder);
             }

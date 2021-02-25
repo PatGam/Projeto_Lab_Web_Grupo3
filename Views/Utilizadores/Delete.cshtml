@@ -1,26 +1,27 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Clientes
+﻿@model Projeto_Lab_Web_Grupo3.Models.Utilizadores
 
 @{
     Layout = "_LayoutAdmin";
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
+
+
+
 <body>
+    <!-- container section start -->
     <section id="container" class="">
         <section id="main-content">
             <section class="wrapper">
                 <div class="row">
                     <div class="col-lg-12">
                         <section class="panel">
-                            @if (!User.IsInRole("Cliente"))
-                            {
-                                <h1>Detalhes do Cliente</h1>
-                            }
-                            @if (User.IsInRole("Cliente"))
-                            {
-                                <h1>Dados Pessoais</h1>
-                            }
-                            <div>
+                            <header class="panel-heading">
+                                <h1>Apagar</h1>
+                            </header>
 
+                            <h3>Tem a certeza que quer apagar?</h3>
+                            <div>
+                                <h4>Funcionarios</h4>
                                 <hr />
                                 <dl class="row">
                                     <dt class="col-sm-2">
@@ -30,16 +31,16 @@
                                         @Html.DisplayFor(model => model.Nome)
                                     </dd>
                                     <dt class="col-sm-2">
-                                        @Html.DisplayNameFor(model => model.DataNascimento)
-                                    </dt>
-                                    <dd class="col-sm-10">
-                                        @Html.DisplayFor(model => model.DataNascimento)
-                                    </dd>
-                                    <dt class="col-sm-2">
                                         @Html.DisplayNameFor(model => model.Nif)
                                     </dt>
                                     <dd class="col-sm-10">
                                         @Html.DisplayFor(model => model.Nif)
+                                    </dd>
+                                    <dt class="col-sm-2">
+                                        @Html.DisplayNameFor(model => model.DataNascimento)
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                        @Html.DisplayFor(model => model.DataNascimento)
                                     </dd>
                                     <dt class="col-sm-2">
                                         @Html.DisplayNameFor(model => model.Morada)
@@ -65,11 +66,19 @@
                                     <dd class="col-sm-10">
                                         @Html.DisplayFor(model => model.CodigoPostal)
                                     </dd>
+                                    <dt class="col-sm-2">
+                                        @Html.DisplayNameFor(model => model.Role)
+                                    </dt>
+                                    <dd class="col-sm-10">
+                                        @Html.DisplayFor(model => model.Role)
+                                    </dd>
                                 </dl>
-                            </div>
-                            <div>
-                                <a asp-action="Edit" asp-route-id="@Model.ClienteId">Editar</a> |
-                                <a asp-action="Index">Voltar à lista</a>
+
+                                <form asp-action="Delete">
+                                    <input type="hidden" asp-for="UtilizadorId" />
+                                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                                    <a asp-action="Index">Voltar à lista</a>
+                                </form>
                             </div>
                         </section>
                     </div>
