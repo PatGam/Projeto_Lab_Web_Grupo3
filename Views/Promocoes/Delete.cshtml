@@ -5,60 +5,61 @@
     Layout = "_LayoutAdmin";
 }
 
-<section id="container" class="">
-    <section id="main-content">
-        <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <h3>Tem a certeza que deseja apagar esta promoção?</h3>
-                    <div>
-
-                        <hr />
-                        <dl class="row">
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Nome)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Nome)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Descricao)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Descricao)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.DataInicio)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.DataInicio)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.DataFim)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.DataFim)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.PromocaoDesc)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.PromocaoDesc)
-                            </dd>
-                        </dl>
-
-                        <form asp-action="Delete">
-                            <input type="hidden" asp-for="PromocoesId" />
-                            <input type="submit" value="Apagar" class="btn btn-danger" /> |
-                            <a asp-action="Index">Voltar Atrás</a>
-                        </form>
-
-                    </div>
-                </div>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icon_cart"></i>Promoções</h3>
             </div>
-        </section>
+        </div>
+        <h3>Tem a certeza que deseja apagar a promoção @Html.DisplayFor(model => model.Nome)?</h3>
+        <div class="row">
+            <div class="col-sm-6">
+                <section class="panel">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Descricao)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Descricao)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DataInicio)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.DataInicio)
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DataFim)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.DataFim)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PromocaoDesc)
+                            </th>
+                            <td>
+                                €@Html.DisplayFor(model => model.PromocaoDesc)
+                            </td>
+                        </tr>
+                    </table>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="PromocoesId" />
+                        <input type="submit" value="Apagar" class="btn btn-danger" />
+                        <a class="btn btn-success" asp-action="Index">Cancelar</a>
+                    </form>
+                    </section>
+            </div>
+        </div>
     </section>
-
-
 </section>
+
