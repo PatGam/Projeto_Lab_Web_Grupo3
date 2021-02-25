@@ -19,9 +19,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Column("Utilizador_Id")]
         public int UtilizadorId { get; set; }
 
-        [Required(ErrorMessage = "Preencha o nome do funcionário")]
+        [Required(ErrorMessage = "Preencha o nome do utilizador")]
         [StringLength(100, ErrorMessage = "O nome não pode ter mais de 100 caracteres")]
-        [Display(Name = "Nome do funcionário")]
+        [Display(Name = "Nome do utilizador")]
         public string Nome { get; set; }
 
 
