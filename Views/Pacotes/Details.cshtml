@@ -64,13 +64,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.ServicosPacotes[0].Servico.Nome)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ServicosPacotes[0].Servico.Descricao)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ServicosPacotes[0].Servico.TipoServicos.Nome)
-                        </th>
-                        <th></th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -80,18 +74,10 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Servico.Nome)
                             </td>
-                            @*<td>
-                        @Html.DisplayFor(modelItem => item.Descricao)
-                    </td>*@
+
                             <td>
-                                @Html.DisplayFor(modelItem => item.Servico.TipoServicos.Nome)
-                            </td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ServicoId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.ServicoId"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ServicoId"><i class="icon_close_alt2"></i></a>
-                                </div>
+                                <a class="btn btn-warning" asp-area="" asp-controller="ServicosPacotes" asp-action="Create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
                             </td>
                         </tr>
                     }
