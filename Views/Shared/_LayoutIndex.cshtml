@@ -53,19 +53,9 @@
         <!-- End Hero -->
 
         <header id="header" class="d-flex align-items-center">            
-            <div class="container d-flex align-items-center justify-content-between">
-                <nav id="navbar" class="navbar">
-                    <div class="logo">
-                        @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RD-Telecomunicações</a>*@
-                        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>-->
-                    </div>
-                </nav>                
+            <div class="container d-flex align-items-center justify-content-between">                               
                 <nav id="navbar" class="navbar">
                     <partial name="_LoginPartial" />
-
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <ul>
@@ -90,7 +80,7 @@
                                 <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Gerir os meus dados   <i class="fas fa-cube"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Pacotes   <i class="fas fa-cube"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
@@ -121,7 +111,10 @@
                     {
                         <ul>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesIndex">Pacotes   <i class="fas fa-cube"></i></a>
+                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/TemplMain/assets/img/LogoRD2.png"></a></nav>
+                                </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
@@ -142,30 +135,12 @@
                                         <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="VistaContact">Contacta-nos  <i class="fas fa-feather"></i></a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-                    }
-
-                    @*<ul>
-                        <li class="nav-item">
-                            <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index">Index</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Gerir Clientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scrollto active" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gerir Funcionários</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Gerir Pacotes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços</a>
-                        </li>
-                    </ul>*@
+                    }                  
 
                     <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
                 </nav>
