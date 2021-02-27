@@ -12,6 +12,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         //public List<ServicosPacotes> ServicosPacotes { get; set; }
         public Pacotes Pacotes { get; set; }
 
+        public int PacoteId { get; set; }
+
         public string Nome { get; set; }
 
         public string Descricao { get; set; }

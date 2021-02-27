@@ -1,4 +1,4 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Pacotes
+﻿@model ServicosPacotesViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -17,7 +17,7 @@
                     <header class="panel-heading">
                         Criar novo Pacote
                     </header>
-                    <form asp-action="Edit" class="form-horizontal " method="get">
+                    <form asp-action="Edit" class="form-horizontal">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="PacoteId" />
                         <div class="form-group">
@@ -43,6 +43,20 @@
                                 <span asp-validation-for="Preco" class="text-danger"></span>
                             </div>
                         </div>
+                        <table>
+                            @for (int i = 0; i < Model.ListaServicos.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.HiddenFor(x => Model.ListaServicos[i].Id)
+                                        @Html.DisplayFor(z => Model.ListaServicos[i].Nome)
+                                    </td>
+                                    <td>
+                                        @Html.CheckBoxFor(z => Model.ListaServicos[i].Selecionado)
+                                    </td>
+                                </tr>
+                            }
+                        </table>
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
 
