@@ -62,10 +62,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: PromocoesPacotes/Create
-        public IActionResult Create()
+        public IActionResult Create(int promocoesId)
         {
+
+            var promocao = bd.Promocoes.SingleOrDefault(e => e.PromocoesId == promocoesId);
+           
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+            ViewData["PromocoesId"] = promocoesId;
+            ViewData["PromocoesNome"] = promocao.Nome;
+
             return View();
         }
 
