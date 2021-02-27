@@ -11,7 +11,15 @@ namespace Projeto_Lab_Web_Grupo3.Models
     {
         //public List<ServicosPacotes> ServicosPacotes { get; set; }
         public Pacotes Pacotes { get; set; }
+
+        public string Nome { get; set; }
+
+        public string Descricao { get; set; }
+
+        public decimal Preco { get; set; }
         public List<ServicosPacotes> ServicosPacotes { get; set; }
+
+        public Tipos_Sevicos TiposServicos { get; set; }
         public List<PromocoesPacotes> PromocoesPacotes { get; set; }
         public Paginacao Paginacao { get; set; }
         public string NomePesquisar { get; set; }

@@ -83,12 +83,16 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
 
             var servicos = bd.Servicos.ToList();
+            var tiposservicos = bd.TiposServicos.ToList();
+
+
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
             servicosPacotesViewModel.ListaServicos = servicos.Select(s => new Checkbox()
             {
                 Id = s.ServicoId,
                 Nome = s.Nome,
                 TipoServico = s.TipoServicoId,
+                NomeTipoServico = s.TipoServicos.Nome,
                 Selecionado = false
             }).ToList();
 
@@ -101,15 +105,33 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PacoteId,Nome,Descricao,Preco")] Pacotes pacotes)
+        public async Task<IActionResult> Create(ServicosPacotesViewModel servicosPacotesViewModel, Pacotes pacotes, ServicosPacotes servicosPacotes)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(pacotes);
 
-            }
-            bd.Add(pacotes);
+            List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
+
+            pacotes.Nome = servicosPacotesViewModel.Nome;
+            pacotes.Descricao = servicosPacotesViewModel.Descricao;
+            pacotes.Preco = servicosPacotesViewModel.Preco;
+            pacotes.Inactivo = false;
+
+            bd.Pacotes.Add(pacotes);
             await bd.SaveChangesAsync();
+            int pacoteId = pacotes.PacoteId;
+
+            foreach (var item in servicosPacotesViewModel.ListaServicos)
+            {
+                if (item.Selecionado == true)
+                {
+                    servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = item.Id });
+                }
+            }
+            foreach (var item in servicosNosPacotes)
+            {
+                bd.ServicosPacotes.Add(item);
+            }
+            await bd.SaveChangesAsync();
+
 
             ViewBag.Mensagem = "Pacote adicionado com sucesso.";
             return View("Sucesso");
