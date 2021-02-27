@@ -83,12 +83,16 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
 
             var servicos = bd.Servicos.ToList();
+            var tiposservicos = bd.TiposServicos.ToList();
+
+
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
             servicosPacotesViewModel.ListaServicos = servicos.Select(s => new Checkbox()
             {
                 Id = s.ServicoId,
                 Nome = s.Nome,
                 TipoServico = s.TipoServicoId,
+                NomeTipoServico = s.TipoServicos.Nome,
                 Selecionado = false
             }).ToList();
 

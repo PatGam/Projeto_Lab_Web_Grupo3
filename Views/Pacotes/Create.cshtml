@@ -42,32 +42,40 @@
                                     <span asp-validation-for="Pacotes.Preco" class="text-danger"></span>
                                 </div>
                             </div>
+
                             <table>
-                                @for (int i = 0; i < Model.ListaServicos.Capacity; i++)
-                                {
-                                    if (Model.ListaServicos[i].TipoServico == 1)
+                            @for (int x = 0; x < 5; x++)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(z => Model.ListaServicos[x].NomeTipoServico)
+                                    </td>
+                                    @for (int i = 0; i < Model.ListaServicos.Capacity; i++)
                                     {
-                                        <tr>
+
+                                        if (Model.ListaServicos[i].TipoServico == Model.ListaServicos[x].TipoServico)
+                                        {
+
                                             <td>
                                                 @Html.HiddenFor(x => Model.ListaServicos[i].Id)
                                                 @Html.DisplayFor(z => Model.ListaServicos[i].Nome)
-                                                @Html.DisplayFor(z => Model.ListaServicos[i].TipoServico)
                                             </td>
                                             <td>
                                                 @Html.CheckBoxFor(z => Model.ListaServicos[i].Selecionado)
                                             </td>
-                                        </tr>
-                                    }
+                                        }
 
+                                    }
+                                    </tr>
                                 }
-                            </table>
-                            <div class="form-group">
-                                <div class="col-lg-offset-2 col-lg-10">
-                                    <input type="submit" value="Criar novo pacote" class="btn btn-success" />
-                                    <a class="btn btn-danger" asp-action="Index">Volta à lista</a>
-                                </div>
-                            </div>
-                        </form>
+                                </table>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <input type="submit" value="Criar novo pacote" class="btn btn-success" />
+                                            <a class="btn btn-danger" asp-action="Index">Volta à lista</a>
+                                        </div>
+                                    </div>
+                                </form>
 
                     </div>
                 </section>
