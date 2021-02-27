@@ -45,15 +45,20 @@
                             <table>
                                 @for (int i = 0; i < Model.ListaServicos.Capacity; i++)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.HiddenFor(x => Model.ListaServicos[i].Id)
-                                            @Html.DisplayFor(z => Model.ListaServicos[i].Nome)
-                                        </td>
-                                        <td>
-                                            @Html.CheckBoxFor(z => Model.ListaServicos[i].Selecionado)
-                                        </td>
-                                    </tr>
+                                    if (Model.ListaServicos[i].TipoServico == 1)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.HiddenFor(x => Model.ListaServicos[i].Id)
+                                                @Html.DisplayFor(z => Model.ListaServicos[i].Nome)
+                                                @Html.DisplayFor(z => Model.ListaServicos[i].TipoServico)
+                                            </td>
+                                            <td>
+                                                @Html.CheckBoxFor(z => Model.ListaServicos[i].Selecionado)
+                                            </td>
+                                        </tr>
+                                    }
+
                                 }
                             </table>
                             <div class="form-group">
