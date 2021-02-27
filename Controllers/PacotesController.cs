@@ -141,17 +141,31 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Pacotes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
 
-            var pacotes = await bd.Pacotes.FindAsync(id);
-            if (pacotes == null)
+            var pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
+                .ThenInclude(c => c.Servico)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(p => p.PacoteId == id);
+
+            var listaServicos = bd.Servicos.Select(s => new Checkbox()
             {
-                return View ("Inexistente");
-            }
-            return View(pacotes);
+                Id = s.ServicoId,
+                Nome = s.Nome,
+                TipoServico = s.TipoServicoId,
+                NomeTipoServico = s.TipoServicos.Nome,
+                Selecionado = s.ServicosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
+
+            }).ToList();
+
+
+            servicosPacotesViewModel.Nome = pacote.Nome;
+            servicosPacotesViewModel.Descricao = pacote.Descricao;
+            servicosPacotesViewModel.Preco = pacote.Preco;
+            servicosPacotesViewModel.ListaServicos = listaServicos;
+            servicosPacotesViewModel.PacoteId = (int)id;
+
+            return View(servicosPacotesViewModel);
         }
 
         // POST: Pacotes/Edit/5
@@ -159,33 +173,50 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PacoteId,Nome,Descricao,Preco")] Pacotes pacotes)
+        public async Task<IActionResult> Edit(int id, ServicosPacotesViewModel servicosPacotesViewModel)
         {
-            if (id != pacotes.PacoteId)
+
+            List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
+            Pacotes pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
+                .ThenInclude(c => c.Servico)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(p => p.PacoteId == id);
+
+            pacote.Nome = servicosPacotesViewModel.Nome;
+            pacote.Descricao = servicosPacotesViewModel.Descricao;
+            pacote.Preco = servicosPacotesViewModel.Preco;
+
+            bd.Update(pacote);
+            await bd.SaveChangesAsync();
+
+            int pacoteId = pacote.PacoteId;
+
+            foreach (var servico in servicosPacotesViewModel.ListaServicos)
             {
-                return NotFound();
+                if (servico.Selecionado == true)
+                {
+                    servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servico.Id });
+                }
             }
 
-            if (ModelState.IsValid)
+            var ListaServicosPacotes = bd.ServicosPacotes.Where(p => p.PacoteId == id).ToList();
+            var resultado = ListaServicosPacotes.Except(servicosNosPacotes).ToList();
+            foreach (var servicoPacote in resultado)
             {
-                try
+                bd.ServicosPacotes.Remove(servicoPacote);
+                await bd.SaveChangesAsync();
+            }
+            var novaListaServicosPacotes = bd.ServicosPacotes.Where(p => p.PacoteId == id).ToList();
+            foreach (var servico in servicosNosPacotes)
+            {
+                if (!novaListaServicosPacotes.Contains(servico))
                 {
-                    bd.Update(pacotes);
+                    bd.ServicosPacotes.Add(servico);
                     await bd.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PacotesExists(pacotes.PacoteId))
-                    {
-                        return View ("EliminarInserir");
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-               
             }
+
+            
             ViewBag.Mensagem = "Pacote alterado com sucesso";
             return View("Sucesso");
         }
