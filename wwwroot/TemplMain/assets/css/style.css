@@ -1,6 +1,6 @@
 /*-----------------------Login Page-------------------------*/
-/*Purple 1 - #5d6495*/
-/*Purple 2 - #524f8c*/
+/*Purple 1 - #0069a0*/
+/*Purple 2 - #39a3e7*/
 /*---------------------------------*/
 /*-----------# General---------*/
 /*--------------------------------*/
@@ -11,12 +11,12 @@ body {
 }
 
 a {
-  color: #5d6495;
+  color: #0069a0;
   text-decoration: none;
 }
 
     a:hover {
-        color: #524f8c;
+        color: #39a3e7;
         text-decoration: none;        
     }
 
@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #5d6495;
+  background: #0069a0;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top:hover {
-  background: #524f8c;
+  background: #39a3e7;
   color: #fff;
 }
 
@@ -156,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar a:hover, .navbar .active, .navbar li:hover > a {
-  color: #5d6495;
+  color: #0069a0;
 }
 
 .navbar .dropdown ul {
@@ -189,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #5d6495;
+  color: #0069a0;
 }
 
 .navbar .dropdown:hover > ul {
@@ -279,7 +279,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #5d6495;
+  color: #0069a0;
 }
 
 .navbar-mobile .getstarted {
@@ -311,7 +311,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #5d6495;
+  color: #0069a0;
 }
 
 .navbar-mobile .dropdown > .dropdown-active {
@@ -329,6 +329,15 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   border-bottom: 2px solid #222;
 }
+
+    #hero .hero-image {
+        background: url("../../../images/RD_LogoV2.png");
+        background-size: contain;
+        width: 350px;
+        height: 200px;
+        margin-top: 40px;
+        
+    }
 
 #hero:before {
   content: "";
@@ -382,8 +391,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-get-started:hover {
-  background: #5d6495;
-  border: 2px solid #5d6495;
+  background: #0069a0;
+  border: 2px solid #0069a0;
 }
 
 @media (min-width: 1024px) {
@@ -444,7 +453,7 @@ section {
   text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 0;
-  color: #5d6495;
+  color: #0069a0;
   position: relative;
   z-index: 2;
 }
@@ -508,7 +517,7 @@ section {
 .about .content .icon-box i {
   font-size: 48px;
   float: left;
-  color: #5d6495;
+  color: #0069a0;
 }
 
 .about .content .icon-box p {
@@ -594,7 +603,7 @@ section {
 }
 
 .features .card:hover .card-title a {
-  color: #5d6495;
+  color: #0069a0;
 }
 
 @media (max-width: 1024px) {
@@ -637,8 +646,8 @@ section {
 }
 
 .cta .cta-btn:hover {
-  background: #5d6495;
-  border: 2px solid #5d6495;
+  background: #0069a0;
+  border: 2px solid #0069a0;
 }
 
 /*--------------------------------------------------------------
@@ -657,7 +666,7 @@ section {
 
 .services .icon-box i {
   float: left;
-  color: #5d6495;
+  color: #0069a0;
   font-size: 40px;
   line-height: 0;
 }
@@ -675,7 +684,7 @@ section {
 }
 
 .services .icon-box .icon-box:hover h4 a {
-  color: #5d6495;
+  color: #0069a0;
 }
 
 .services .icon-box p {
@@ -750,7 +759,7 @@ section {
 }
 
 .team .member .social a:hover {
-  color: #5d6495;
+  color: #0069a0;
 }
 
 .team .member .social i {
@@ -797,7 +806,7 @@ section {
 
 .pricing h4 {
   font-size: 46px;
-  color: #5d6495;
+  color: #0069a0;
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   margin-bottom: 25px;
@@ -822,7 +831,7 @@ section {
 }
 
 .pricing ul i {
-  color: #5d6495;
+  color: #0069a0;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -854,14 +863,14 @@ section {
 }
 
 .pricing .get-started-btn:hover {
-  color: #5d6495;
-  border-color: #5d6495;
+  color: #0069a0;
+  border-color: #0069a0;
 }
 
 .pricing .featured {
   z-index: 10;
   margin: -30px -5px 0 -5px;
-  background: #5d6495;
+  background: #0069a0;
 }
 
 .pricing .featured h3, .pricing .featured h4, .pricing .featured h4 span, .pricing .featured ul, .pricing .featured ul .na, .pricing .featured ul i, .pricing .featured ul .na i {
@@ -874,7 +883,7 @@ section {
 }
 
 .pricing .featured .get-started-btn:hover {
-  color: #5d6495;
+  color: #0069a0;
   background: #fff;
 }
 
@@ -972,7 +981,7 @@ section {
 }
 
 .faq .faq-list a.collapsed:hover {
-  color: #5d6495;
+  color: #0069a0;
 }
 
 .faq .faq-list a.collapsed .icon-show {
@@ -1093,7 +1102,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px 3px 20px;
-  background: #5d6495;
+  background: #0069a0;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 5px 5px 0;
@@ -1149,7 +1158,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #5d6495;
+  color: #0069a0;
   font-size: 18px;
   line-height: 1;
 }
@@ -1173,7 +1182,7 @@ section {
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #5d6495;
+  color: #0069a0;
 }
 
 #footer .footer-top .social-links a {
@@ -1192,7 +1201,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #5d6495;
+  background: #0069a0;
   color: #fff;
   text-decoration: none;
 }
