@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace Projeto_Lab_Web_Grupo3.Models
 {
@@ -13,5 +15,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public List<PromocoesPacotes> PromocoesPacotes { get; set; }
         public Paginacao Paginacao { get; set; }
         public string NomePesquisar { get; set; }
+        public List<Checkbox> ListaServicos { get; set; }
+
     }
 }
