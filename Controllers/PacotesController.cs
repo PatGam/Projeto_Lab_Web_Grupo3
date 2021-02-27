@@ -79,7 +79,21 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Pacotes/Create
         public IActionResult Create()
         {
-            return View();
+            //return View();
+
+
+            var servicos = bd.Servicos.ToList();
+            ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
+            servicosPacotesViewModel.ListaServicos = servicos.Select(s => new Checkbox()
+            {
+                Id = s.ServicoId,
+                Nome = s.Nome,
+                TipoServico = s.TipoServicoId,
+                Selecionado = false
+            }).ToList();
+
+            return View(servicosPacotesViewModel);
+
         }
 
         // POST: Pacotes/Create
