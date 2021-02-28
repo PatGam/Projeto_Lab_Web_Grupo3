@@ -179,5 +179,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             return bd.Servicos.Any(e => e.ServicoId == id);
         }
+
+
+        #region API Calls
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var servicos = await bd.Servicos.Include(s => s.TipoServicos)
+                .Select(s => new { s.ServicoId, s.Nome, TipoServico = s.TipoServicos.Nome })
+                .ToListAsync();
+            return Json(new { data = servicos });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var servicoFromDb = await bd.Servicos.FirstOrDefaultAsync(s => s.ServicoId == id);
+            if (servicoFromDb == null)
+            {
+                return Json(new { success = false, message = "Erro ao eliminar o serviço" });
+            }
+            bd.Servicos.Remove(servicoFromDb);
+            await bd.SaveChangesAsync();
+            return Json(new { success = true, message = "O Serviço foi eliminado com sucesso" });
+        }
+        #endregion
     }
 }
