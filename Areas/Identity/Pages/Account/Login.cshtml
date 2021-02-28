@@ -9,97 +9,37 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<head>    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <link rel="stylesheet" type="text/css" href="~/TemplLog/vendor/bootstrap/css/bootstrap.min.css">    
-    <link rel="stylesheet" type="text/css" href="~/TemplLog/fonts/font-awesome-4.7.0/css/font-awesome.min.css">    
-    <link rel="stylesheet" type="text/css" href="~/TemplLog/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">    
-    <link rel="stylesheet" type="text/css" href="~/TemplLog/vendor/animate/animate.css">    
+<head>
+    <link rel="stylesheet" type="text/css" href="~/TemplLog/vendor/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplLog/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplLog/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplLog/vendor/animate/animate.css">
     <link rel="stylesheet" type="text/css" href="~/TemplLog/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplLog/vendor/animsition/css/animsition.min.css">
     <link rel="stylesheet" type="text/css" href="~/TemplLog/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplLog/vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="~/TemplLog/css/util.css">
     <link rel="stylesheet" type="text/css" href="~/TemplLog/css/main.css">
+    <!--===============================================================================================-->
 </head>
 
-<body>
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100 p-l-50 p-r-50 p-t-60 p-b-30">
-                <form class="login100-form validate-form">
-                    <span class="login100-form-title p-b-55">
-                        Login
-                    </span>
-                    <div class="form-group">
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Insere um email válido: ex@abc.xyz" asp-validation-summary="All"></div>
-                    <span class="symbol-input100">
-                        <span class="lnr lnr-envelope"></span>
-                    </span>
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control">
-                    <span asp-validation-for="Input.Email" class="focus-input100" data-placeholder="&#xf207"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password é obrigatória">
-                        <label asp-for="Input.Password"></label>
-                        <input asp-for="Input.Password" class="form-control" />
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>                      
-                        <span class="symbol-input100">
-                            <span class="lnr lnr-lock"></span>
-                        </span>
-                    </div>                    
-                        <div class="contact100-form-checkbox m-l-4">                            
-                            <label asp-for="Input.RememberMe" class="label-checkbox100">
-                                <input asp-for="Input.RememberMe" class="input-checkbox100">
-                                @Html.DisplayNameFor(m => m.Input.RememberMe)
-                            </label>
-                        </div>
-
-                        <div class="container-login100-form-btn p-t-25">
-                            <button type="submit" class="login100-form-btn">
-                                Login
-                            </button>
-                        </div>
-
-                        <div class="text-center w-full p-t-50">
-                            <span class="txt1">
-                                Não és cliente?
-                            </span>
-
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl " class="txt1 bo1 hov1">
-                                Regista-te agora!<i class="far fa-smile-wink"></i>
-                            </a>
-                        </div>
-                 </form>
-            </div>
-        </div>   
-        </div>
-
-    
-    <script src="~/TemplLog/vendor/jquery/jquery-3.2.1.min.js"></script>    
-    <script src="~/TemplLog/vendor/bootstrap/js/popper.js"></script>
-    <script src="~/TemplLog/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="~/TemplLog/vendor/select2/select2.min.js"></script>   
-    <script src="~/TemplLog/js/main.js"></script>
-</body>
-
-@*<section>
+<section>
     <form id="account" method="post">
         <div class="limiter">
-            <div class="container-login100" style="background-image: url('~/TempLog/images/bg-01.jpg');">
+            <div class="container-login100">
                 <div class="wrap-login100">
                     <span class="login100-form-logo">
-                        <i class="zmdi zmdi-landscape"></i>
+                        <i class="fas fa-globe-europe"></i>
                     </span>
                     <div class="login100-form-title p-b-34 p-t-27">
-                        <h4>Login</h4>
+                        <h3>Login</h3>
                         <div class="form-group">
                             <div class="wrap-input100 validate-input" data-validate="Enter username" asp-validation-summary="All"></div>
                             <label asp-for="Input.Email"></label>
                             <input asp-for="Input.Email" class="form-control" />
                             <span asp-validation-for="Input.Email" class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group p-t-10">
                             <label asp-for="Input.Password"></label>
                             <input asp-for="Input.Password" class="form-control" />
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -116,12 +56,12 @@
                             <div class="container-login100-form-btn">
                                 <button type="submit" class="login100-form-btn">Log in</button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group p-t-25">
                                 <p>
-                                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                                    <a id="forgot-password" asp-page="./ForgotPassword">Esqueci-me da Password!</a>
                                 </p>
                                 <p>
-                                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Regista-te!</a>
                                 </p>
                             </div>
                         </div>
@@ -130,7 +70,7 @@
             </div>
         </div>
     </form>
-</section>-->*@
+</section>
 
 
 @section Scripts {
