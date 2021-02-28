@@ -32,8 +32,8 @@
         <!-- ======= Hero Section ======= -->
         <section id="hero">
             <div class="hero-container" data-aos="fade-up">
-                <h1>RD Telecomunicações</h1>
-                <h2>Reduzindo Distâncias</h2>
+                <div class="hero-image">                    
+                </div>
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bem-Vindo/a @User.Identity.Name!</a>
@@ -58,88 +58,94 @@
                     <partial name="_LoginPartial" />
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <ul>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Gerir Clientes  <i class="fas fa-users-cog"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gerir Funcionários  <i class="fas fa-people-arrows"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Gerir Pacotes  <i class="fas fa-cubes"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços  <i class="fas fa-atom"></i></a>
-                            </li>
-                        </ul>
+                <ul>
+                    <li class="nav-item">
+                        <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo.png"></a></nav>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Gerir Clientes  <i class="fas fa-users-cog"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gerir Funcionários  <i class="fas fa-people-arrows"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Gerir Pacotes  <i class="fas fa-cubes"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços  <i class="fas fa-atom"></i></a>
+                    </li>
+                </ul>
                     }
                     else if (User.IsInRole("Clientes"))
                     {
+                <ul>
+                    <li class="nav-item">
+                        <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo.png"></a></nav>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Gerir os meus dados   <i class="fas fa-cube"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão <i class="fas fa-tv"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
                         <ul>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Gerir os meus dados   <i class="fas fa-cube"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão <i class="fas fa-tv"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
-                                <ul>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
-                                    </li>
-                                </ul>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
                             </li>
                         </ul>
+                    </li>
+                </ul>
                     }
                     else
                     {
+                <ul>
+                    <li class="nav-item">
+                        <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo.png"></a></nav>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão <i class="fas fa-tv"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
                         <ul>
                             <li class="nav-item">
-                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo.png"></a></nav>
-                                </li>                            
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Televisão <i class="fas fa-tv"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
-                                <ul>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="VistaContact">Contacta-nos  <i class="fas fa-feather"></i></a>
-                                    </li>
-                                </ul>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="VistaContact">Contacta-nos  <i class="fas fa-feather"></i></a>
                             </li>
                         </ul>
+                    </li>
+                </ul>
                     }                  
 
                     <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
