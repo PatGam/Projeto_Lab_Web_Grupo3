@@ -161,27 +161,34 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             await bd.SaveChangesAsync();
             int pacoteId = pacotes.PacoteId;
 
-            if (servicosPacotesViewModel.Servico1 != 0)
+            var servico1id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico1);
+            var servico2id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico2);
+            var servico3id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico3);
+            var servico4id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico4);
+            var servico5id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico5);
+         
+
+            if (servico1id.Nome != "---")
             {
                 servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico1 });
             }
 
-            if (servicosPacotesViewModel.Servico2 != 0)
+            if (servico2id.Nome != "---")
             {
                 servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico2 });
             }
 
-            if (servicosPacotesViewModel.Servico3 != 0)
+            if (servico3id.Nome != "---")
             {
                 servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico3 });
             }
 
-            if (servicosPacotesViewModel.Servico4 != 0)
+            if (servico4id.Nome != "---")
             {
                 servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico4 });
             }
 
-            if (servicosPacotesViewModel.Servico5 != 0)
+            if (servico5id.Nome != "---")
             {
                 servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico5 });
             }
