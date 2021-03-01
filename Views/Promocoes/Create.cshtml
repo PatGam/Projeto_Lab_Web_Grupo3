@@ -1,4 +1,4 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Promocoes
+﻿@model PromocoesPacotesViewModel
 
 @{
     ViewData["Title"] = "Criar";
@@ -35,33 +35,53 @@
                                     <span asp-validation-for="Descricao" class="text-danger"></span>
                                 </div>
                             </div>
-                                <div class="form-group">
-                                    <label asp-for="DataInicio" class="col-sm-2 control-label"></label>
-                                    <div class="col-sm-10">
-                                        <input asp-for="DataInicio" class="form-control" />
-                                        <span asp-validation-for="DataInicio" class="text-danger"></span>
-                                    </div>
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="DataInicio" class="form-control" />
+                                    <span asp-validation-for="DataInicio" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="DataFim" class="col-sm-2 control-label"></label>
-                                    <div class="col-sm-10">
-                                        <input asp-for="DataFim" class="form-control" />
-                                        <span asp-validation-for="DataFim" class="text-danger"></span>
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="DataFim" class="form-control" />
+                                    <span asp-validation-for="DataFim" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="PromocaoDesc" class="col-sm-2 control-label"></label>
-                                    <div class="col-sm-10">
-                                        <input type="text" asp-for="PromocaoDesc" class="form-control" />
-                                        <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PromocaoDesc" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input type="text" asp-for="PromocaoDesc" class="form-control" />
+                                    <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-lg-offset-2 col-lg-10">
-                                        <input type="submit" class="btn btn-success" value="Criar nova promoção" />
-                                        <a class="btn btn-danger" asp-action="Index">Volta à lista</a>
-                                    </div>
+                            </div>
+                            <table>
+                                    <tr>
+                                        <td>
+                                           Pacotes com a promoção
+                                        </td>
+                                        @for (int i = 0; i < Model.ListaPacotes.Capacity; i++)
+                                        {
+
+                           
+                                                <td>
+                                                    @Html.HiddenFor(x => Model.ListaPacotes[i].Id)
+                                                    @Html.DisplayFor(z => Model.ListaPacotes[i].NomePacote)
+                                                </td>
+                                                <td>
+                                                    @Html.CheckBoxFor(z => Model.ListaPacotes[i].Selecionado)
+                                                </td>
+                                        }
+                                    </tr>
+                                
+                            </table>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <input type="submit" class="btn btn-success" value="Criar nova promoção" />
+                                    <a class="btn btn-danger" asp-action="Index">Volta à lista</a>
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </section>
