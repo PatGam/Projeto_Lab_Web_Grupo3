@@ -41,7 +41,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string Morada { get; set; }
 
         [Display(Name = "Contacto de telemóvel")]
-        [RegularExpression(@"(9[1236]|\d{2})\d{7}", ErrorMessage = "Telefone Inválido")]
+        [RegularExpression(@"9[1236]|\d{2})\d{7}", ErrorMessage = "Telefone Inválido")]
         public string Telemovel { get; set; }
 
         [Required(ErrorMessage = "Preencha o email do funcionário")]
