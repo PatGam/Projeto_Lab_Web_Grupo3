@@ -37,20 +37,21 @@
                                     <span asp-validation-for="Descricao" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="TipoServicoId" class="col-sm-2 control-label"></label>
-                                <div class="col-sm-10">
-                                    <input asp-for="TipoServicoId" class="form-control" />
-                                    <span asp-validation-for="TipoServicoId" class="text-danger"></span>
-                                </div>
+                         
+                        <div class="form-group">
+                            <label asp-for="TipoServicoId" class="control-label col-lg-2"></label>
+                            <div class="col-lg-10">
+
+                                <select asp-for="TipoServicoId" class="form-control m-bot15" asp-items="ViewBag.TipoServicoId"></select>
                             </div>
+                        </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <input type="submit" class="btn btn-success" value="Guardar" />
                                     <a class="btn btn-danger" asp-action="Index">Cancelar</a>
                                 </div>
                             </div>
-                        </form>
+</form>
                     </div>
                 </section>
             </div>
