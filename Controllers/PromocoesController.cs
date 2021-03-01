@@ -139,17 +139,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Promocoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            PromocoesPacotesViewModel promocoesPacotesViewModel = new PromocoesPacotesViewModel();
 
-            var promocoes = await bd.Promocoes.FindAsync(id);
-            if (promocoes == null)
+            var promocao = await bd.Promocoes.Include(p => p.PromocoesPacotes)
+                .ThenInclude(c => c.Pacote)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(p => p.PromocoesId == id);
+
+            var listaPacotes = bd.Pacotes.Select(s => new Checkbox()
             {
-                return View ("Inexistente");
-            }
-            return View(promocoes);
+                Id = s.PacoteId,
+                NomePacote = s.Nome,
+                Selecionado = s.PromocoesPacotes.Any(s => s.PromocoesId == promocao.PromocoesId) ? true : false
+
+            }).ToList();
+
+            promocoesPacotesViewModel.Nome = promocao.Nome;
+            promocoesPacotesViewModel.Descricao = promocao.Descricao;
+            promocoesPacotesViewModel.DataInicio = promocao.DataInicio;
+            promocoesPacotesViewModel.DataFim = promocao.DataFim;
+            promocoesPacotesViewModel.PromocaoDesc = promocao.PromocaoDesc;
+            promocoesPacotesViewModel.ListaPacotes = listaPacotes;
+            promocoesPacotesViewModel.PromocoesId = (int)id;
+
+            return View(promocoesPacotesViewModel);
         }
 
         // POST: Promocoes/Edit/5
@@ -157,33 +170,55 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PromocoesId,Nome,Descricao,DataInicio,DataFim,PromocaoDesc")] Promocoes promocoes)
+        public async Task<IActionResult> Edit(int id, PromocoesPacotesViewModel promocoesPacotesViewModel)
         {
-            if (id != promocoes.PromocoesId)
+            List<PromocoesPacotes> promocoesDosPacotes = new List<PromocoesPacotes>();
+            
+            Promocoes promocao = await bd.Promocoes.Include(p => p.PromocoesPacotes)
+                .ThenInclude(c => c.Pacote)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(p => p.PromocoesId == id);
+
+            promocao.Nome = promocoesPacotesViewModel.Nome;
+            promocao.Descricao = promocoesPacotesViewModel.Descricao;
+            promocao.DataInicio = promocoesPacotesViewModel.DataInicio;
+            promocao.DataFim = promocoesPacotesViewModel.DataFim;
+            promocao.PromocaoDesc = promocoesPacotesViewModel.PromocaoDesc;
+      
+
+            bd.Update(promocao);
+            await bd.SaveChangesAsync();
+
+            int promocaoId = promocao.PromocoesId;
+
+            foreach (var pacote in promocoesPacotesViewModel.ListaPacotes)
             {
-                return NotFound();
+                if (pacote.Selecionado == true)
+                {
+                    promocoesDosPacotes.Add(new PromocoesPacotes() { PromocoesId = promocaoId, PacoteId = pacote.Id });
+                }
             }
 
-            if (ModelState.IsValid)
+            var ListaPromocoesPacotes = bd.PromocoesPacotes.Where(p => p.PromocoesId == id).ToList();
+            var resultado = ListaPromocoesPacotes.Except(promocoesDosPacotes).ToList();
+
+            foreach (var promocaoPacote in resultado)
             {
-                try
+                bd.PromocoesPacotes.Remove(promocaoPacote);
+                await bd.SaveChangesAsync();
+            }
+
+            var novaListaPromocoesPacotes = bd.PromocoesPacotes.Where(p => p.PromocoesId == id).ToList();
+            foreach (var pacote in promocoesDosPacotes)
+            {
+                if (!novaListaPromocoesPacotes.Contains(pacote))
                 {
-                    bd.Update(promocoes);
+                    bd.PromocoesPacotes.Add(pacote);
                     await bd.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PromocoesExists(promocoes.PromocoesId))
-                    {
-                        return View ("EliminarInserir");
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                
             }
+
+
             ViewBag.Mensagem = "Promoção alterada com sucesso";
             return View("Sucesso");
         }

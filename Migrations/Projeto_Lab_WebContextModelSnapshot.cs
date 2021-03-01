@@ -62,9 +62,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.Property<int>("PromocoesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PromocoesPacotesId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Telefone")
                         .HasColumnName("Telefone")
                         .HasColumnType("int");
@@ -77,8 +74,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.HasIndex("PacoteId");
 
                     b.HasIndex("PromocoesId");
-
-                    b.HasIndex("PromocoesPacotesId");
 
                     b.HasIndex("UtilizadorId");
 
@@ -330,15 +325,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .IsRequired();
 
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.Promocoes", "Promocoes")
-                        .WithMany()
-                        .HasForeignKey("PromocoesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", "PromocoesPacotes")
                         .WithMany("Contratos")
-                        .HasForeignKey("PromocoesPacotesId")
-                        .HasConstraintName("FK_Contratos_PromocoesPacotes")
+                        .HasForeignKey("PromocoesId")
+                        .HasConstraintName("FK_Contratos_Promocoes")
                         .IsRequired();
 
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.Utilizadores", "Utilizadores")

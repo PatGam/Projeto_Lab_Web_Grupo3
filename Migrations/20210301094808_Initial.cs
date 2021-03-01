@@ -147,7 +147,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     FuncionarioId = table.Column<int>(nullable: false),
                     PacoteId = table.Column<int>(nullable: false),
                     PromocoesId = table.Column<int>(nullable: false),
-                    PromocoesPacotesId = table.Column<int>(nullable: false),
                     Data_inicio = table.Column<DateTime>(type: "date", nullable: false),
                     Data_Fim = table.Column<DateTime>(type: "date", nullable: false),
                     Telefone = table.Column<int>(nullable: false),
@@ -166,16 +165,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         principalColumn: "Pacote_Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Contratos_Promocoes_PromocoesId",
+                        name: "FK_Contratos_Promocoes",
                         column: x => x.PromocoesId,
                         principalTable: "Promocoes",
                         principalColumn: "Promocoes_Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Contratos_PromocoesPacotes",
-                        column: x => x.PromocoesPacotesId,
-                        principalTable: "Promocoes_Pacotes",
-                        principalColumn: "Promocoes_Pacotes_Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Contratos_Utilizadores",
@@ -222,11 +215,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 column: "PromocoesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contratos_PromocoesPacotesId",
-                table: "Contratos",
-                column: "PromocoesPacotesId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Contratos_UtilizadorId",
                 table: "Contratos",
                 column: "UtilizadorId");
@@ -263,25 +251,25 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Contratos");
 
             migrationBuilder.DropTable(
+                name: "Promocoes_Pacotes");
+
+            migrationBuilder.DropTable(
                 name: "Servicos_Pacotes");
 
             migrationBuilder.DropTable(
                 name: "Tipos_Clientes");
 
             migrationBuilder.DropTable(
-                name: "Promocoes_Pacotes");
-
-            migrationBuilder.DropTable(
                 name: "Utilizadores");
 
             migrationBuilder.DropTable(
-                name: "Servicos");
+                name: "Promocoes");
 
             migrationBuilder.DropTable(
                 name: "Pacotes");
 
             migrationBuilder.DropTable(
-                name: "Promocoes");
+                name: "Servicos");
 
             migrationBuilder.DropTable(
                 name: "TiposServicos");

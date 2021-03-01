@@ -55,6 +55,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Utilizadores/Create
         public IActionResult Create(string tipoUtil)
         {
+            //string que especifica o asp-router
             ViewData["TipoUtil"] = tipoUtil;
 
             return View();
