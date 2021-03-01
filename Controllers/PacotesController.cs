@@ -85,6 +85,48 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var servicos = bd.Servicos.ToList();
             var tiposservicos = bd.TiposServicos.ToList();
 
+            //for (int i = 0; i < tiposservicos.Count; i++)
+            //{
+            //    List<Servicos> Lista = new List<Servicos>();
+            //}
+            
+            List<Servicos> Lista1 = new List<Servicos>();
+            List<Servicos> Lista2 = new List<Servicos>();
+            List<Servicos> Lista3 = new List<Servicos>();
+            List<Servicos> Lista4 = new List<Servicos>();
+            List<Servicos> Lista5 = new List<Servicos>();
+
+            foreach (var item in servicos)
+            {
+                switch (item.TipoServicoId)
+                {
+                    case 1:
+                    Lista1.Add(item);
+                    break;
+
+                    case 2:
+                    Lista2.Add(item);
+                    break;
+
+                    case 3:
+                    Lista3.Add(item);
+                    break;
+
+                    case 4:
+                    Lista4.Add(item);
+                    break;
+
+                    case 5:
+                    Lista5.Add(item);
+                    break;
+                }
+            }
+
+            ViewData["Lista1"] = new SelectList(Lista1, "ServicoId", "Nome");
+            ViewData["Lista2"] = new SelectList(Lista2, "ServicoId", "Nome");
+            ViewData["Lista3"] = new SelectList(Lista3, "ServicoId", "Nome");
+            ViewData["Lista4"] = new SelectList(Lista4, "ServicoId", "Nome");
+            ViewData["Lista5"] = new SelectList(Lista5, "ServicoId", "Nome");
 
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
             servicosPacotesViewModel.ListaServicos = servicos.Select(s => new Checkbox()
@@ -119,17 +161,45 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             await bd.SaveChangesAsync();
             int pacoteId = pacotes.PacoteId;
 
-            foreach (var item in servicosPacotesViewModel.ListaServicos)
+            if (servicosPacotesViewModel.Servico1 != 0)
             {
-                if (item.Selecionado == true)
-                {
-                    servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = item.Id });
-                }
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico1 });
             }
+
+            if (servicosPacotesViewModel.Servico2 != 0)
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico2 });
+            }
+
+            if (servicosPacotesViewModel.Servico3 != 0)
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico3 });
+            }
+
+            if (servicosPacotesViewModel.Servico4 != 0)
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico4 });
+            }
+
+            if (servicosPacotesViewModel.Servico5 != 0)
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico5 });
+            }
+
+
             foreach (var item in servicosNosPacotes)
             {
                 bd.ServicosPacotes.Add(item);
             }
+
+            //foreach (var item in servicosPacotesViewModel.ListaServicos)
+            //{
+            //    if (item.Selecionado == true)
+            //    {
+            //        servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = item.Id });
+            //    }
+            //}
+           
             await bd.SaveChangesAsync();
 
 

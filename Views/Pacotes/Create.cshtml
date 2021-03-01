@@ -42,40 +42,59 @@
                                     <span asp-validation-for="Preco" class="text-danger"></span>
                                 </div>
                             </div>
+                            <div class="form-group">
 
-                            <table>
-                            @for (int x = 0; x < 5; x++)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(z => Model.ListaServicos[x].NomeTipoServico)
-                                    </td>
-                                    @for (int i = 0; i < Model.ListaServicos.Capacity; i++)
-                                    {
+                                <select asp-for="Servico1" class="form-control" asp-items="ViewBag.Lista1"></select>
+                            </div>
+                            <div class="form-group">
 
-                                        if (Model.ListaServicos[i].TipoServico == Model.ListaServicos[x].TipoServico)
+                                <select asp-for="Servico2" class="form-control" asp-items="ViewBag.Lista2"></select>
+                            </div>
+                            <div class="form-group">
+
+                                <select asp-for="Servico3" class="form-control" asp-items="ViewBag.Lista3"></select>
+                            </div>
+                            <div class="form-group">
+
+                                <select asp-for="Servico4" class="form-control" asp-items="ViewBag.Lista4"></select>
+                            </div>
+                            <div class="form-group">
+
+                                <select asp-for="Servico5" class="form-control" asp-items="ViewBag.Lista5"></select>
+                            </div>
+                            @*<table>
+                                @for (int x = 0; x < 5; x++)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(z => Model.ListaServicos[x].NomeTipoServico)
+                                        </td>
+                                        @for (int i = 0; i < Model.ListaServicos.Capacity; i++)
                                         {
 
-                                            <td>
-                                                @Html.HiddenFor(x => Model.ListaServicos[i].Id)
-                                                @Html.DisplayFor(z => Model.ListaServicos[i].Nome)
-                                            </td>
-                                            <td>
-                                                @Html.CheckBoxFor(z => Model.ListaServicos[i].Selecionado)
-                                            </td>
-                                        }
+                                            if (Model.ListaServicos[i].TipoServico == Model.ListaServicos[x].TipoServico)
+                                            {
 
-                                    }
+                                                <td>
+                                                    @Html.HiddenFor(x => Model.ListaServicos[i].Id)
+                                                    @Html.DisplayFor(z => Model.ListaServicos[i].Nome)
+                                                </td>
+                                                <td>
+                                                    @Html.CheckBoxFor(z => Model.ListaServicos[i].Selecionado)
+                                                </td>
+                                            }
+
+                                        }
                                     </tr>
                                 }
-                                </table>
-                                    <div class="form-group">
-                                        <div class="col-lg-offset-2 col-lg-10">
-                                            <input type="submit" value="Criar novo pacote" class="btn btn-success" />
-                                            <a class="btn btn-danger" asp-action="Index">Volta à lista</a>
-                                        </div>
-                                    </div>
-                                </form>
+                            </table>*@
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <input type="submit" value="Criar novo pacote" class="btn btn-success" />
+                                    <a class="btn btn-danger" asp-action="Index">Volta à lista</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </section>
             </div>

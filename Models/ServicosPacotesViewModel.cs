@@ -27,5 +27,17 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string NomePesquisar { get; set; }
         public List<Checkbox> ListaServicos { get; set; }
 
+        public List<Servicos> ListasServicos { get; set; }
+
+        public int Servico1 { get; set; }
+
+        public int Servico2 { get; set; }
+
+        public int Servico3 { get; set; }
+        public int Servico4 { get; set; }
+        public int Servico5 { get; set; }
+
+
+
     }
 }
