@@ -334,5 +334,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             return bd.Pacotes.Any(e => e.PacoteId == id);
         }
+
+
+        #region API Calls
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var servicos = await bd.Pacotes
+                .Select(s => new { s.PacoteId, s.Nome, s.Preco})
+                .ToListAsync();
+            return Json(new { data = servicos });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var pacoteFromDb = await bd.Pacotes.FirstOrDefaultAsync(s => s.PacoteId== id);
+            if (pacoteFromDb == null)
+            {
+                return Json(new { success = false, message = "Erro ao eliminar o pacote" });
+            }
+            bd.Pacotes.Remove(pacoteFromDb);
+            await bd.SaveChangesAsync();
+            return Json(new { success = true, message = "O Pacote foi eliminado com sucesso" });
+        }
+        #endregion
     }
 }
