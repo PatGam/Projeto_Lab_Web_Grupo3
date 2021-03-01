@@ -55,11 +55,14 @@ namespace Projeto_Lab_Web_Grupo3.Data
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_Contratos_Pacotes");
 
-                    entity.HasOne(d => d.PromocoesPacotes)
-                        .WithMany(p => p.Contratos)
-                        .HasForeignKey(d => d.PromocoesPacotesId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Contratos_PromocoesPacotes");
+                    entity.HasOne(d => d.Promocoes)
+                    .WithMany(p => p.Contratos)
+                    .HasForeignKey(d => d.PromocoesId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Contratos_Promocoes");
+
+
+
 
 
 

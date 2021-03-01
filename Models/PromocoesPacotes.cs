@@ -11,10 +11,10 @@ namespace Projeto_Lab_Web_Grupo3.Models
     [Table("Promocoes_Pacotes")]
     public partial class PromocoesPacotes
     {
-        public PromocoesPacotes()
-        {
-            Contratos = new HashSet<Contratos>();
-        }
+        //public PromocoesPacotes()
+        //{
+        //    Contratos = new HashSet<Contratos>();
+        //}
 
         [Column("Pacote_Id")]
         public int PacoteId { get; set; }
@@ -33,6 +33,5 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Promoções")]
         public virtual Promocoes Promocoes { get; set; }
         //[InverseProperty("PromocoesPacotesNavigation")]
-        public virtual ICollection<Contratos> Contratos { get; set; }
     }
 }

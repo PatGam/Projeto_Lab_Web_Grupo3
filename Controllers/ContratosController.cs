@@ -35,7 +35,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
   
             var contratos = await bd.Contratos
                 .Include(c => c.Pacotes)
-                .Include(c => c.PromocoesPacotes)
+                .Include(c => c.Promocoes)
+                //.Include(c => c.PromocoesPacotes)
                 .Include(c => c.Utilizadores)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
@@ -52,8 +53,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
-            ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes");
+            ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+            //ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes");
 
 
             return View();
@@ -64,14 +66,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId, Nif, UtilizadorId, FuncionarioId,PacoteId,PromocoesPacotesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal")] Contratos contratos)
+        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId, Nif, UtilizadorId, FuncionarioId,PacoteId,PromocoesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal")] Contratos contratos)
         {
 
             if (!ModelState.IsValid)
             {
                 ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-                ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes", contratos.PromocoesPacotesId);
+                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", contratos.PromocoesId);
                 return View(contratos);
             }
 
@@ -89,8 +91,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.ClienteId = contratos.UtilizadorId;
 
             //Código que vai buscar o desconto da promoção
-            var promocaopacoteid = bd.PromocoesPacotes.SingleOrDefault(e => e.PromocoesPacotesId == contratos.PromocoesPacotesId);
-            var promocaoid = bd.Promocoes.SingleOrDefault(e => e.PromocoesId == promocaopacoteid.PromocoesId);
+            int promo = contratos.PromocoesId;
+            var promocaoid = bd.Promocoes.SingleOrDefault(e => e.PromocoesId == contratos.PromocoesId);
             contratos.PromocaoDesc = promocaoid.PromocaoDesc;
 
             //Cálculo do PrecoFinal
@@ -118,7 +120,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
             ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes", contratos.PromocoesPacotesId);
+            //ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", contratos.PromocoesPacotesId);
             return View(contratos);
         }
 
@@ -127,7 +129,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ContratoId,ClienteId, Nif, FuncionarioId,DataInicio,PrecoFinal,DataFim,PromocoesPacotes,PrecoPacote,PromocaoDesc,NomeCliente,NomeFuncionario,Telefone")] Contratos contratos)
+        public async Task<IActionResult> Edit(int id, [Bind("ContratoId,ClienteId, Nif, FuncionarioId,DataInicio,PrecoFinal,DataFim,PrecoPacote,PromocaoDesc,NomeCliente,NomeFuncionario,Telefone")] Contratos contratos)
         {
             if (id != contratos.ContratoId)
             {
