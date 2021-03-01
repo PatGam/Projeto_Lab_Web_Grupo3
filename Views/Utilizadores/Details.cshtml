@@ -7,75 +7,94 @@
 
 
 
-<body>
-    <!-- container section start -->
-    <section id="container" class="">
-        <section id="main-content">
-            <section class="wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
-                            <header class="panel-heading">
-                                <h1>Detalhes</h1>
-                            </header>
-                            <h4>Funcionarios</h4>
-                            <hr />
-                            <dl class="row">
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.Nome)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.Nome)
-                                </dd>
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.Nif)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.Nif)
-                                </dd>
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.DataNascimento)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.DataNascimento)
-                                </dd>
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.Morada)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.Morada)
-                                </dd>
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.Telemovel)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.Telemovel)
-                                </dd>
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.Email)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.Email)
-                                </dd>
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.CodigoPostal)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.CodigoPostal)
-                                </dd>
-                                <dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.Role)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.Role)
-                                </dd>
-                            </dl>
-                    </div>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icon_cart"></i>Detalhes</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <section class="panel">
+                    <header class="panel-heading no-border">
+                       Detalhes
+                    </header>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Nome)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nif)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Nif)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DataNascimento)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.DataNascimento)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Morada)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Morada)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Telemovel)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Telemovel)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Email)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CodigoPostal)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.CodigoPostal)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Role)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Role)
+                            </td>
+                        </tr>
+
+                    </table>
+
                     <div>
-                        <a asp-action="Edit" asp-route-id="@Model.UtilizadorId">Editar</a> |
-                        <a asp-action="Index">Voltar à lista</a>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Editar</a>
+                        <a class="btn btn-info" asp-action="Index">Voltar atrás</a>
                     </div>
-                    </div>
-            </section>
-        </section>
+
+                </section>
+            </div>
+        </div>
     </section>
-</body>
+</section>
