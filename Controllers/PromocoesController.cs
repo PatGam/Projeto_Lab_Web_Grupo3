@@ -81,7 +81,19 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Promocoes/Create
         public IActionResult Create()
         {
-            return View();
+            var pacotes = bd.Pacotes.ToList();
+           
+
+
+            PromocoesPacotesViewModel promocoesPacotesViewModel = new PromocoesPacotesViewModel();
+            promocoesPacotesViewModel.ListaPacotes = pacotes.Select(s => new Checkbox()
+            {
+                Id = s.PacoteId,
+                NomePacote = s.Nome,
+                Selecionado = false
+            }).ToList();
+
+            return View(promocoesPacotesViewModel);
         }
 
         // POST: Promocoes/Create
@@ -89,17 +101,39 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PromocoesId,Nome,Descricao,DataInicio,DataFim,PromocaoDesc")] Promocoes promocoes)
+        public async Task<IActionResult> Create(PromocoesPacotesViewModel promocoesPacotesViewModel, PromocoesPacotes promocoesPacotes, Promocoes promocoes)
         {
-            if (!ModelState.IsValid)
-            {
 
-                return View(promocoes);
-            }
-            bd.Add(promocoes);
+            List<PromocoesPacotes> promocoesDosPacotes = new List<PromocoesPacotes>();
+
+            promocoes.Nome = promocoesPacotesViewModel.Nome;
+            promocoes.Descricao = promocoesPacotesViewModel.Descricao;
+            promocoes.DataInicio = promocoesPacotesViewModel.DataInicio;
+            promocoes.DataFim = promocoesPacotesViewModel.DataFim;
+            promocoes.PromocaoDesc = promocoesPacotesViewModel.PromocaoDesc;
+            promocoes.Inactivo = false;
+
+            bd.Promocoes.Add(promocoes);
             await bd.SaveChangesAsync();
-            ViewBag.Mensagem = "Promoção adicionada com sucesso.";
+            int promocaoId = promocoes.PromocoesId;
+
+            foreach (var item in promocoesPacotesViewModel.ListaPacotes)
+            {
+                if (item.Selecionado == true)
+                {
+                    promocoesDosPacotes.Add(new PromocoesPacotes() { PromocoesId = promocaoId, PacoteId = item.Id });
+                }
+            }
+            foreach (var item in promocoesDosPacotes)
+            {
+                bd.PromocoesPacotes.Add(item);
+            }
+            await bd.SaveChangesAsync();
+
+
+            ViewBag.Mensagem = "Promoção adicionado com sucesso.";
             return View("Sucesso");
+
         }
 
         // GET: Promocoes/Edit/5

@@ -53,8 +53,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores/Create
-        public IActionResult Create()
+        public IActionResult Create(string tipoUtil)
         {
+            ViewData["TipoUtil"] = tipoUtil;
+
             return View();
         }
 

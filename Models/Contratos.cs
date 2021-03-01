@@ -22,6 +22,10 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public Pacotes Pacotes { get; set; }
 
+        public int PromocoesId { get; set; }
+
+        public Promocoes Promocoes { get; set; }
+
         public int PromocoesPacotesId { get; set; }
         public PromocoesPacotes PromocoesPacotes { get; set; }
 

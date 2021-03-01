@@ -130,26 +130,26 @@
                     @if (User.IsInRole("Administrador"))
                     {
                         <li class="sub-menu">
-                            <a a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes">
+                            <a href="javascript:;" class="">
                                 <i class="icon_document_alt"></i>
                                 <span>Gerir Clientes</span>
-                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                                <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
-                            @*<ul class="sub">
-                                    <li><a class="" href="form_component.html">Form Elements</a></li>
-                                    <li><a class="" href="form_validation.html">Form Validation</a></li>
-                                </ul>*@
+                            <ul class="sub">
+                                    <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes" asp-route-tipoUtil="Cliente">Consultar</a></li>
+                                    <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="Create" asp-route-tipoUtil="Cliente">Criar</a></li>
+                                </ul>
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;" class="">
                                 <i class="icon_group"></i>
                                 <span>Gerir Funcionários</span>
-                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                                <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
-                            @*<ul class="sub">
-                                    <li><a class="" a asp-area="" asp-controller="Funcionarios" asp-action="Index">Consultar</a></li>
-                                    <li><a class="" a asp-area="" asp-controller="Funcionarios" asp-action="Create">Criar</a></li>
-                                </ul>*@
+                            <ul class="sub">
+                                    <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="Index" asp-route-tipoUtil="Func">Consultar</a></li>
+                                    <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="Create" asp-route-tipoUtil="Func">Criar</a></li>
+                                </ul>
 
                         </li>
 

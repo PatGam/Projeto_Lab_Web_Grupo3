@@ -10,7 +10,15 @@
     <section class="wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header"><i class="fas fa-users"></i>Utilizadores</h3>
+                @if (ViewBag.TipoUtil == "Cliente")
+                {
+                    <h3 class="page-header"><i class="fas fa-users"></i>Clientes</h3>
+                }
+
+                else
+                {
+                    <h3 class="page-header"><i class="fas fa-users"></i>Funcionários</h3>
+                }
             </div>
         </div>
         <div class="row">
@@ -76,10 +84,16 @@
                                 <label class="control-label col-lg-2" for="Role">Role</label>
                                 <div class="col-lg-10">
                                     <select class="form-control m-bot15" name="Role" id="RoleId">
+                                        @if (ViewBag.TipoUtil != "Cliente")
+                                        {
+                                            <option value="Administrador">Administrador</option>
+                                            <option value="Operador">Operador</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="Cliente">Cliente</option>
+                                        }
 
-                                        <option value="Administrador">Administrador</option>
-                                        <option value="Operador">Operador</option>
-                                        <option value="Cliente">Cliente</option>
                                     </select>
                                     <br>
                                     <br>

@@ -10,8 +10,8 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    [Migration("20210225102445_initial")]
-    partial class initial
+    [Migration("20210301091804_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,6 +61,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnName("Promocao_desc")
                         .HasColumnType("decimal(18, 2)");
 
+                    b.Property<int>("PromocoesId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PromocoesPacotesId")
                         .HasColumnType("int");
 
@@ -74,6 +77,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.HasKey("ContratoId");
 
                     b.HasIndex("PacoteId");
+
+                    b.HasIndex("PromocoesId");
 
                     b.HasIndex("PromocoesPacotesId");
 
@@ -154,18 +159,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnName("Promocoes_Pacotes_Id")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NomePacote")
-                        .IsRequired()
-                        .HasColumnName("Nome_Pacote")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("NomePromocoes")
-                        .IsRequired()
-                        .HasColumnName("Nome_Promocoes")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
 
                     b.Property<int>("PacoteId")
                         .HasColumnName("Pacote_Id")
@@ -336,6 +329,12 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .WithMany("Contratos")
                         .HasForeignKey("PacoteId")
                         .HasConstraintName("FK_Contratos_Pacotes")
+                        .IsRequired();
+
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Promocoes", "Promocoes")
+                        .WithMany()
+                        .HasForeignKey("PromocoesId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", "PromocoesPacotes")
