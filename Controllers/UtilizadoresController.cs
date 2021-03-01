@@ -93,6 +93,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return View(infoUtilizador);
             }
 
+
+
             Utilizadores utilizadores = new Utilizadores
             {
 
@@ -104,6 +106,36 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 Email = infoUtilizador.Email,
                 Telemovel = infoUtilizador.Telemovel,
                 Role = infoUtilizador.Role,
+            };
+
+            string contribuente = utilizadores.Nif;
+
+            char firstChar = contribuente[0];
+            if (firstChar.Equals('1')
+                || firstChar.Equals('2')
+                || firstChar.Equals('3')
+                || firstChar.Equals('5')
+                || firstChar.Equals('6')
+                || firstChar.Equals('8')
+                || firstChar.Equals('9'))
+            {
+                int checkDigit = (Convert.ToInt32(firstChar.ToString()) * 9);
+                for (int i = 2; i <= 8; ++i)
+                {
+                    checkDigit += Convert.ToInt32(contribuente[i - 1].ToString()) * (10 - i);
+                }
+
+                checkDigit = 11 - (checkDigit % 11);
+                if (checkDigit >= 10)
+                {
+                    checkDigit = 0;
+                }
+
+                if (checkDigit.ToString() != contribuente[8].ToString())
+                {
+                    ModelState.AddModelError("Nif", "Contribuinte Inválido, coloque novamente");
+                    return View(infoUtilizador);
+                }
             };
 
             _context.Add(utilizadores);
