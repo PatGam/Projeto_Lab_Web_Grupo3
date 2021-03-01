@@ -138,6 +138,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         //-------------------SERVICOS--------------------------
         private static void InsereServicos(Projeto_Lab_WebContext bd)
         {
+            GaranteNulos(bd);
             GaranteExistenciaServico(bd, "Canais Fibra", "Temos vários Pacotes á sua escolha", 3, false);
             GaranteExistenciaServico(bd, "Telémovel Pré-Pago e Pós-Pago", "Temos vários Pacotes á sua escolha", 2, false);
             GaranteExistenciaServico(bd, "Internet Fixa", "A melhor internet para si , disponível em varios pacotes.", 1, false);
@@ -165,7 +166,52 @@ namespace Projeto_Lab_Web_Grupo3.Data
             return servicos;
         }
 
-       
+        private static void GaranteNulos(Projeto_Lab_WebContext bd)
+        {
+            bd.Servicos.AddRange(new Servicos[] {
+                  new Servicos
+                     {
+                    Nome="---",
+                    TipoServicoId = 1,
+                    Inactivo = false
+
+                    },
+
+                  new Servicos
+                     {
+                    Nome="---",
+                    TipoServicoId = 2,
+                    Inactivo = false
+
+                    },
+
+                   new Servicos
+                     {
+                    Nome="---",
+                    TipoServicoId = 3,
+                    Inactivo = false
+
+                    },
+
+                    new Servicos
+                     {
+                    Nome="---",
+                    TipoServicoId = 4,
+                    Inactivo = false
+
+                    },
+
+                     new Servicos
+                     {
+                    Nome="---",
+                    TipoServicoId = 5,
+                    Inactivo = false
+
+                    },
+            });
+        }
+
+
         private static void InsereServicosPacotes(Projeto_Lab_WebContext bd)
         {
             if (bd.ServicosPacotes.Any()) return;
