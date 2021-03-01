@@ -329,43 +329,43 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 {
                     PacoteId = 4,
                     PromocoesId= 1,
-                    NomePacote = "M30",
-                    NomePromocoes="PáscoaS"
+                    //NomePacote = "M30",
+                    //NomePromocoes="PáscoaS"
                 },
                 new PromocoesPacotes
                 {
                     PacoteId=5,
                     PromocoesId=2,
-                    NomePacote="M4O",
-                    NomePromocoes="PáscoaM"
+                    //NomePacote="M4O",
+                    //NomePromocoes="PáscoaM"
                 },
                 new PromocoesPacotes
                 {
                     PacoteId=1,
                     PromocoesId=3,
-                    NomePacote="Tv Premium + Mgaming",
-                    NomePromocoes="PáscoaL"
+                    //NomePacote="Tv Premium + Mgaming",
+                    //NomePromocoes="PáscoaL"
                 },
                 new PromocoesPacotes
                 {
                     PacoteId=3,
                     PromocoesId=4,
-                    NomePacote="Pré-Pago 25",
-                    NomePromocoes="VerãoS"
+                    //NomePacote="Pré-Pago 25",
+                    //NomePromocoes="VerãoS"
                 },
                 new PromocoesPacotes
                 {
                     PacoteId=2,
                     PromocoesId=5,
-                    NomePacote="MGaming",
-                    NomePromocoes="VerãoM"
+                    //NomePacote="MGaming",
+                    //NomePromocoes="VerãoM"
                 },
                 new PromocoesPacotes
                 {
                     PacoteId=1,
                     PromocoesId=6,
-                    NomePacote="TvPremium + MGaming",
-                    NomePromocoes="VerãoL"
+                    //NomePacote="TvPremium + MGaming",
+                    //NomePromocoes="VerãoL"
                 },
 
 

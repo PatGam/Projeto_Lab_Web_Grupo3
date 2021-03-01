@@ -24,11 +24,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             Paginacao paginacao = new Paginacao
             {
-                TotalItems = await bd.PromocoesPacotes.Where(p => nomePesquisar == null || p.NomePacote.Contains(nomePesquisar)).CountAsync(),
+                TotalItems = await bd.PromocoesPacotes.Where(p => nomePesquisar == null || p.Pacote.Nome.Contains(nomePesquisar)).CountAsync(),
                 PaginaAtual = pagina
             };
-            List<PromocoesPacotes> promocoesPacotes = await bd.PromocoesPacotes.Where(p => nomePesquisar == null || p.NomePacote.Contains(nomePesquisar))
-              .OrderBy(p => p.NomePacote)
+            List<PromocoesPacotes> promocoesPacotes = await bd.PromocoesPacotes.Where(p => nomePesquisar == null || p.Pacote.Nome.Contains(nomePesquisar))
+              .OrderBy(p => p.Pacote.Nome)
               .Skip(paginacao.ItemsPorPagina * (pagina - 1))
               .Take(paginacao.ItemsPorPagina)
               .ToListAsync();

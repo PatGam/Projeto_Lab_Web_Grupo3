@@ -23,16 +23,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Key]
         [Column("Promocoes_Pacotes_Id")]
         public int PromocoesPacotesId { get; set; }
-        [Required]
-        [Column("Nome_Pacote")]
-        [StringLength(100)]
-        [Display(Name = "Nome do Pacote")]
-        public string NomePacote { get; set; }
-        [Required]
-        [Column("Nome_Promocoes")]
-        [StringLength(100)]
-        [Display(Name = "Nome da Promoção")]
-        public string NomePromocoes { get; set; }
+        
 
         [ForeignKey(nameof(PacoteId))]
         [InverseProperty(nameof(Pacotes.PromocoesPacotes))]
