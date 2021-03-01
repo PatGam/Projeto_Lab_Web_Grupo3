@@ -248,7 +248,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var promocoes = await bd.Promocoes.FindAsync(id);
-            bd.Promocoes.Remove(promocoes);
+            promocoes.Inactivo = true;
+            bd.Update(promocoes);
             await bd.SaveChangesAsync();
             ViewBag.Mensagem = "A Promoção foi eliminada com sucesso";
             return View("Sucesso");

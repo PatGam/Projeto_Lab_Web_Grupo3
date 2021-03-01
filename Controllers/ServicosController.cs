@@ -169,7 +169,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var servicos = await bd.Servicos.FindAsync(id);
-            bd.Servicos.Remove(servicos);
+            servicos.Inactivo = true;
+            bd.Update(servicos);
             await bd.SaveChangesAsync();
             ViewBag.Mensagem = "O Serviço foi eliminado com sucesso";
             return View("Sucesso");

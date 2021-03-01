@@ -32,7 +32,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-  
+
             var contratos = await bd.Contratos
                 .Include(c => c.Pacotes)
                 .Include(c => c.Promocoes)
@@ -41,7 +41,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
             {
-                return View("Inexistente") ;
+                return View("Inexistente");
             }
 
             return View(contratos);
@@ -87,7 +87,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.PrecoPacote = pacoteid.Preco;
 
             //Código que vai buscar o cliente
-            
+
             contratos.ClienteId = contratos.UtilizadorId;
 
             //Código que vai buscar o desconto da promoção
@@ -102,7 +102,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             await bd.SaveChangesAsync();
 
             ViewBag.Mensagem = "Contrato adicionado com sucesso.";
-            return View("Sucesso"); 
+            return View("Sucesso");
         }
 
         // GET: Contratos/Edit/5
@@ -116,7 +116,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var contratos = await bd.Contratos.FindAsync(id);
             if (contratos == null)
             {
-                return View ("Inexistente");
+                return View("Inexistente");
             }
             ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
@@ -139,7 +139,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             if (!ModelState.IsValid)
             {
                 return View(contratos);
-            }   
+            }
             try
 
             {
@@ -151,7 +151,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 if (!ContratosExists(contratos.ContratoId))
                 {
-                    return View ("EliminarInserir");
+                    return View("EliminarInserir");
                 }
                 else
                 {
@@ -172,7 +172,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             var contratos = await bd.Contratos
                 .Include(c => c.Utilizadores)
-               
+
                 //.Include(c => c.PromocoesPacotesNavigation)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
@@ -190,7 +190,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var contratos = await bd.Contratos.FindAsync(id);
-            bd.Contratos.Remove(contratos);
+            contratos.Inactivo = true;
+            bd.Update(contratos);
             await bd.SaveChangesAsync();
             ViewBag.Mensagem = "O Contrato foi eliminado com sucesso";
             return View("Sucesso");
@@ -200,5 +201,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             return bd.Contratos.Any(e => e.ContratoId == id);
         }
+
     }
 }

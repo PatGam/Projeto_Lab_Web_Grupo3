@@ -188,8 +188,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var utilizadores = await _context.Utilizadores.FindAsync(id);
-            _context.Utilizadores.Remove(utilizadores);
-            await _context.SaveChangesAsync();
+            utilizadores.Inactivo = true;
+            _context.Update(utilizadores); await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
