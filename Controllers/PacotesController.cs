@@ -323,7 +323,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var pacotes = await bd.Pacotes.FindAsync(id);
-            bd.Pacotes.Remove(pacotes);
+            pacotes.Inactivo = true;
+            bd.Update(pacotes);
             await bd.SaveChangesAsync();
             ViewBag.Mensagem = "O Pacote foi eliminado com sucesso";
             return View("Sucesso");
