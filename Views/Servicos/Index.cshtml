@@ -36,9 +36,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Servicos[0].Nome)
                     </th>
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.Servicos[0].Descricao)
-                        </th>*@
+                   
                     <th>
                         @Html.DisplayNameFor(model => model.Servicos[0].TipoServicos.Nome)
                     </th>
@@ -48,6 +46,8 @@
             <tbody>
                 @foreach (var item in Model.Servicos)
                 {
+                    if(item.Inactivo == false)
+                    {                    
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Nome)
@@ -69,6 +69,7 @@
                             }
                         </td>
                     </tr>
+                    }
                 }
             </tbody>
         </table>
