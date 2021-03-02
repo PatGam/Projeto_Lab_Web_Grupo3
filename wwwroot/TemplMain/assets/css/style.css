@@ -793,11 +793,16 @@ section {
 }
 
 .pricing .box {
-  padding: 40px;
-  margin-bottom: 30px;
-  box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
-  background: #fff;
-  text-align: center;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
+    text-align: center;
+    background: #fff;
+    background: -webkit-linear-gradient(top, #ffffff, #e1e7f1);
+    background: -o-linear-gradient(top, #ffffff, #e1e7f1);
+    background: -moz-linear-gradient(top, #ffffff, #e1e7f1);
+    background: linear-gradient(top, #ffffff, #e1e7f1);
+    border-radius: 5px;
 }
 
 .pricing h3 {
@@ -870,9 +875,14 @@ section {
 }
 
 .pricing .featured {
-  z-index: 10;
-  margin: -30px -5px 0 -5px;
-  background: #0069a0;
+    z-index: 10;
+    margin: -30px -5px 0 -5px;
+    background: #1879aa;
+    background: -webkit-linear-gradient(top, #87c4e4, #0a76ad);
+    background: -o-linear-gradient(top, #87c4e4, #0a76ad);
+    background: -moz-linear-gradient(top, #87c4e4, #0a76ad);
+    background: linear-gradient(top, #87c4e4, #0a76ad);
+    border-radius: 20px;
 }
 
 .pricing .featured h3, .pricing .featured h4, .pricing .featured h4 span, .pricing .featured ul, .pricing .featured ul .na, .pricing .featured ul i, .pricing .featured ul .na i {
@@ -1228,12 +1238,11 @@ section {
 
 #dialog {
     position: absolute;
-    z-index: 9999;
+    z-index: 10;
     top: 0;
     left: 0;
-    width: 100%;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;    
+    height: 450%;
     background: rgba(0,0,0,0.15);
     transition: visibility 0s linear 0.5s,opacity 0.5s linear;
     opacity: 0;
@@ -1326,8 +1335,8 @@ h2#dlg-header {
     transition: all 0.5s ease-out;
 }
 
-    .dialog_state:checked ~ .main_area,
-    .main_area.dialog_open {
+.dialog_state:checked ~ .main_area,
+.main_area.dialog_open {
         filter: blur(6px);
     }
 
@@ -1401,3 +1410,47 @@ h2#dlg-header {
             font-style: none;
             font-weight: 700;
         }
+
+
+/*-----Profile-----**/
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+    .profile-button:hover {
+        background: #682773
+    }
+
+    .profile-button:focus {
+        background: #682773;
+        box-shadow: none
+    }
+
+    .profile-button:active {
+        background: #682773;
+        box-shadow: none
+    }
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}

@@ -240,6 +240,8 @@
 })()
 
 
+/*Modal Box*/
+
 $(function () {
     $(document).keypress(function (e) {
         cwrite(e.which, 'Keypress event');
@@ -252,12 +254,6 @@ function custom_dialog_toggle(title, text, buttons) {
     cwrite('Current state: ' + $('#dialog_state').prop("checked"), 'custom_dialog_toggle');
     $('#dialog_state').prop("checked", !$('#dialog_state').prop("checked"));
 }
-// Console logging function for debugging
-// cwrite(str, title)
-//      str:              string to be appended to console
-//      title (optional): title of the string
-// (c)  Tuomas Hatakka 2015
-//      http://tuomashatakka.fi
 function cwrite(str, title) {
     var ce = $('#console');
     var sg = "<p>";
