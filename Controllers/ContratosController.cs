@@ -48,9 +48,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos/Create
-        public IActionResult Create()
+        public IActionResult Create(int cliente)
         {
+            //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
+            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
 
+            ViewData["ClienteId"] = cliente;
+            //ViewData com o nome do cliente;
+            ViewData["ClienteNome"] = clienteId.Nome;
             ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
