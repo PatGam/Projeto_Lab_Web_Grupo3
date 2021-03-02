@@ -187,7 +187,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> GetAll()
         {
             var servicos = await bd.Servicos.Include(s => s.TipoServicos)
-                .Select(s => new { s.ServicoId, s.Nome, TipoServico = s.TipoServicos.Nome })
+                .Select(s => new { s.ServicoId, s.Nome, TipoServico = s.TipoServicos.Nome, s.Inactivo })
+                .Where(i => i.Inactivo == false)
                 .ToListAsync();
             return Json(new { data = servicos });
         }

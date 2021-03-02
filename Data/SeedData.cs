@@ -153,6 +153,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GaranteExistenciaServico(bd, "Chamadas telefónicas Light", "Redes fixas nacionais 24h + 20 destinos internacionais (noite, 100 min)", 4, false);
             GaranteExistenciaServico(bd, "Internet móvel 500MB", "Ativa no teu smartphone, a qualquer hora e em qualquer lugar 500 MB de dados", 5, false);
             GaranteExistenciaServico(bd, "Internet móvel 1GB", "Ativa no teu smartphone, a qualquer hora e em qualquer lugar 1 GB de dados", 5, false);
+            GaranteExistenciaServico(bd, "teste", "teste", 5, true);
         }
         private static Servicos GaranteExistenciaServico(Projeto_Lab_WebContext bd, string nome , string descricao, int tiposervicoId, bool inactivo)
         {

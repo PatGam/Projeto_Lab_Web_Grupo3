@@ -12,10 +12,11 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "nome", "width": "30%" },
-            { "data": "tipoServico", "width": "30%" },
-            {
-                "data": "servicoId",
+            
+        { "data": "nome", "width": "30%" },
+        { "data": "tipoServico", "width": "30%" },
+        {
+            "data": "servicoId",
                 "render": function (data) {
                     return `<div class="text-center">
                         <a href="/Servicos/Edit?id=${data}" class='btn btn btn-warning'>
@@ -31,7 +32,8 @@ function loadDataTable() {
                         </a>
                         </div>`;
                 }, "width": "40%"
-            }
+        }
+    
         ],
         "language": {
             "emptyTable": "no data found"
