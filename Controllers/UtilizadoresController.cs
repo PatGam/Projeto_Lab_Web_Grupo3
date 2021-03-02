@@ -24,13 +24,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string tipoUtil)
         {
-            return View(await _context.Utilizadores.ToListAsync());
-        }
-
-        public async Task<IActionResult> IndexClientes()
-        {
+            //string que especifica o asp-router
+            ViewData["TipoUtil"] = tipoUtil;
             return View(await _context.Utilizadores.ToListAsync());
         }
 
@@ -154,6 +151,16 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
 
             var utilizadores = await _context.Utilizadores.FindAsync(id);
+
+            if (utilizadores.Role == "Cliente")
+            {
+                ViewBag.Titulo = "Clientes";
+            }
+
+            if (utilizadores.Role != "Cliente")
+            {
+                ViewBag.Titulo = "Funcionários";
+            }
             if (utilizadores == null)
             {
                 return NotFound();

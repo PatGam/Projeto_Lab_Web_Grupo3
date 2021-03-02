@@ -16,8 +16,9 @@
                     <form asp-action="Create">
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group">
-                            Nome do Cliente
-                            <select asp-for="UtilizadorId" class="form-control" asp-items="ViewBag.UtilizadorId"></select>
+                            <label asp-for="UtilizadorId" class="control-label"></label>
+                            <input asp-for="UtilizadorId" class="form-control" value="@ViewBag.ClienteId">
+                            @ViewBag.ClienteNome
                         </div>
                         <div class="form-group">
                             Contacto de telefone fixo
