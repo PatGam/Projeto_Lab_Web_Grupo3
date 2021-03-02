@@ -168,6 +168,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         private static void GaranteNulos(Projeto_Lab_WebContext bd)
         {
+            if (bd.Servicos.Any()) return;
             bd.Servicos.AddRange(new Servicos[] {
                   new Servicos
                      {
