@@ -92,7 +92,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.PrecoPacote = pacoteid.Preco;
 
             //Código que vai buscar o cliente
-
             contratos.ClienteId = contratos.UtilizadorId;
 
             //Código que vai buscar o desconto da promoção
