@@ -77,7 +77,7 @@
                             </li>
                         </ul>
                     }
-                    else if (User.IsInRole("Clientes"))
+                    else if (User.IsInRole("ROLE_CLIENTE/Cliente"))
                     {
                         <ul>
                             <li class="nav-item">
@@ -157,7 +157,7 @@
 
 
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-1">
             @RenderBody()
         </main>
     </div>

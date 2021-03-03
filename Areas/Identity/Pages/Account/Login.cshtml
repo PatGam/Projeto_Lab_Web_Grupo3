@@ -23,7 +23,7 @@
     <!--===============================================================================================-->
 </head>
 
-<section>
+
     <form id="account" method="post">
         <div class="limiter">
             <div class="container-login100">
@@ -33,44 +33,46 @@
                     </span>
                     <div class="login100-form-title p-b-34 p-t-27">
                         <h3>Login</h3>
-                        <div class="form-group">
-                            <div class="wrap-input100 validate-input" data-validate="Enter username" asp-validation-summary="All"></div>
-                            <label asp-for="Input.Email"></label>
-                            <input asp-for="Input.Email" class="form-control" />
+                        <div class="form-group p-t-10">
+                            <div class="wrap-input100 validate-input" data-validate="Enter username" asp-validation-summary="All">
+                            @*<label asp-for="Input.Email"></label>*@
+                            <input asp-for="Input.Email" class="input100">
                             <span asp-validation-for="Input.Email" class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
                         <div class="form-group p-t-10">
-                            <label asp-for="Input.Password"></label>
-                            <input asp-for="Input.Password" class="form-control" />
-                            <span asp-validation-for="Input.Password" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <div class="contact100-form-checkbox">
-                                    <label asp-for="Input.RememberMe">
-                                        <input asp-for="Input.RememberMe" />
-                                        @Html.DisplayNameFor(m => m.Input.RememberMe)
-                                    </label>
+                            <div class="wrap-input100 validate-input" data-validate="Enter password" asp-validation-summary="All">
+                                @*<label asp-for="Input.Password"></label>*@
+                                <input asp-for="Input.Password" class="input100">
+                                <span asp-validation-for="Input.Password" class="focus-input100" data-placeholder="&#xf191;"></span>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <div class="contact100-form-checkbox">
+                                        <input asp-for="Input.RememberMe" id="ckb1" type="checkbox" class="input-checkbox100">
+                                        <label asp-for="Input.RememberMe" class="label-checkbox100" for="ckb1">
+                                            Lembrar-me
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="container-login100-form-btn">
+                                    <button type="submit" class="login100-form-btn">Log in</button>
+                                </div>
+                                <div class="form-group p-t-25">
+                                    <p>
+                                        <a id="forgot-password" asp-page="./ForgotPassword">Esqueci-me da Password!</a>
+                                    </p>
+                                    <p>
+                                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Regista-te!</a>
+                                    </p>
                                 </div>
                             </div>
-                            <div class="container-login100-form-btn">
-                                <button type="submit" class="login100-form-btn">Log in</button>
-                            </div>
-                            <div class="form-group p-t-25">
-                                <p>
-                                    <a id="forgot-password" asp-page="./ForgotPassword">Esqueci-me da Password!</a>
-                                </p>
-                                <p>
-                                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Regista-te!</a>
-                                </p>
-                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
+        </div>
     </form>
-</section>
 
 
 @section Scripts {
