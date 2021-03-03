@@ -67,27 +67,44 @@
             @foreach(var item in Model.Pacotes)
             {
 
-
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="info-box blue-bg">
 
-                    <div class="count"> @Html.DisplayFor(modelItem => item.Nome) </div>
-                    <div class="title">  @Html.DisplayFor(modelItem => item.Descricao) </div>
+                <div class="count"> @Html.DisplayFor(modelItem => item.Nome) </div>
 
-
-                    @foreach (var servico in Model.ServicosPacotes)
+                    @foreach (var promo in Model.PromocoesPacotes)
                     {
-                        if (servico.PacoteId == item.PacoteId)
+                        if (item.PacoteId == promo.PacoteId)
                         {
-                            @foreach (var serv in Model.Servicos)
-
-                                if (servico.ServicoId == serv.ServicoId)
+                            foreach (var promocao in Model.Promocoes)
+                            {
+                                if (promo.PromocoesId == promocao.PromocoesId)
                                 {
-                                    @Html.DisplayFor(modelItem => serv.Nome)                                }
+                                    @Html.DisplayFor(modelItem => promocao.PromocaoDesc)
+                                }
 
+                            }
                         }
                     }
-                                </div>
+                            <div class="title">  € @Html.DisplayFor(modelItem => item.Preco) </div>
+
+
+                            <div class="title">  @Html.DisplayFor(modelItem => item.Descricao) </div>
+
+
+                            @foreach (var servico in Model.ServicosPacotes)
+                            {
+                                if (servico.PacoteId == item.PacoteId)
+                                {
+                                    @foreach (var serv in Model.Servicos)
+
+                                        if (servico.ServicoId == serv.ServicoId)
+                                        {
+                                            @Html.DisplayFor(modelItem => serv.Nome)}
+
+                                }
+                            }
+                        </div>
                 <!--/.info-box-->
             </div>
             }

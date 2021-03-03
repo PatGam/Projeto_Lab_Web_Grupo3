@@ -31,15 +31,20 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             List<Servicos> servicos = await bd.Servicos
             .ToListAsync();
 
-            List<PromocoesPacotes> promocoes = await bd.PromocoesPacotes
+          
+            List<PromocoesPacotes> promocoespacotes = await bd.PromocoesPacotes
+            .ToListAsync();
+
+            List<Promocoes> promocoes = await bd.Promocoes
             .ToListAsync();
 
             HomeGestaoViewModel modelo = new HomeGestaoViewModel
             {
                 Pacotes = pacotes,
                 ServicosPacotes = servicospacotes,
-                PromocoesPacotes = promocoes,
+                PromocoesPacotes = promocoespacotes,
                 Servicos = servicos,
+                Promocoes = promocoes,
                 
 
         };
