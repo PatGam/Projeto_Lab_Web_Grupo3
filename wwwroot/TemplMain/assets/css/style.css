@@ -1076,6 +1076,8 @@ section {
   color: #d0d0d0;
   font-size: 14px;
   background: #111111;
+  z-index: 10;
+  position: relative;
 }
 
 #footer .footer-newsletter {
@@ -1584,4 +1586,99 @@ h2#dlg-header {
     border: solid 1px #BA68C8
 }
 
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#headerPData {
+    height: 700px;
+    width: 250px;
+    padding-bottom: 100px;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.5s;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    background: #0a76ad;
+    background: -webkit-linear-gradient(top, #87c4e4, #0d5e87);
+    background: -o-linear-gradient(top, #87c4e4, #0d5e87);
+    background: -moz-linear-gradient(top, #87c4e4, #0d5e87);
+    background: linear-gradient(top, #87c4e4, #0d5e87);
+}
+
+    #headerPData .logo h1 {
+        font-size: 28px;
+        margin: 0;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+        #header .logo h1 a, #header .logo h1 a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+.scrolled-offset {
+    margin-top: 70px;
+}
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.navbarPData {
+    padding: 0;   
+}
+
+
+    .navbarPData ul {
+        margin: 0;
+        padding-left: 20px;
+        display: list-item;
+        list-style: none;
+        align-items: center;
+    }
+
+    .navbarPData li {
+        position: relative;
+    }
+
+    .navbarPData a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0 10px 20px;
+        font-size: 20px;
+        font-weight: 500;
+        color: #fff;
+        white-space: nowrap;
+        transition: 0.3s;
+        margin-bottom: 50px;
+        border-bottom: solid 2px #e7e7e7;
+    }
+
+        .navbarPData a i {
+            font-size: 16px;
+            line-height: 0;
+            margin-left: 7px;
+        }
+
+        .navbarPData a:hover, .navbarPData .active, .navbarPData li:hover > a {
+            color: #e7e7e7;
+        }
+    
+@media (max-width: 1366px) {
+    .navbarPData .dropdown .dropdown ul {
+        left: -90%;
+    }
+
+    .navbarPData .dropdown .dropdown:hover > ul {
+        left: -100%;
+    }
+}
 
