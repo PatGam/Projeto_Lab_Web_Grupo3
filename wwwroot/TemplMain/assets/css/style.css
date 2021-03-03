@@ -1076,7 +1076,7 @@ section {
   color: #d0d0d0;
   font-size: 14px;
   background: #111111;
-  z-index: 10;
+  z-index: 3;
   position: relative;
 }
 
@@ -1294,8 +1294,9 @@ section {
     left: 25%;
     transform: translateY(-50%);
     width: 640px;
+    height: 200px;
     padding: 2rem;
-    border-radius: 0.25rem;
+    border-radius: 10px;
     /*border: 1px solid #969696;*/
     background: #fff;
     box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
@@ -1304,7 +1305,7 @@ section {
     padding-top: 0;
     padding-bottom: 0;
     overflow: hidden;
-    transition: all .5s;
+    transition: all .5s;    
 }
 
 #dlg-close {
@@ -1315,25 +1316,30 @@ section {
     height: 2rem;
     line-height: 2rem;
     text-align: center;
-    cursor: pointer;
+    cursor: pointer;    
 }
+    #dlg-close:hover {
+        color: #1879aa;
+    }
 
 h2#dlg-header {
     font: 200 2em/1em Raleway, Open Sans, Arial, Sans-Serif;
     text-transform: initial;
     letter-spacing: -0.025em;
     margin: 0 0 1rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 #dlg-content {
     font-weight: 300;
     font-style: italic;
     letter-spacing: 0.015em;
+    margin-bottom: 15px;
 }
 
-#dlg-prompt .button {
-    margin: 1rem 0.5rem;
-    border-radius: 1.5rem;
+#dlg-prompt {    
+    padding-top: 20px;    
 }
 
 
@@ -1381,7 +1387,7 @@ h2#dlg-header {
             border-color: #468FB6;
             color: #fff;
             background-color: #468FB6;
-        }*/
+        }*//*----Botao Antigo*/
 
     /*Button 1*/
 
@@ -1588,7 +1594,7 @@ h2#dlg-header {
 
 
 /*--------------------------------------------------------------
-# Header
+# Header Personal Data
 --------------------------------------------------------------*/
 #headerPData {
     height: 700px;
@@ -1626,7 +1632,7 @@ h2#dlg-header {
 
 
 /*--------------------------------------------------------------
-# Navigation Menu
+# Navigation Menu Personal Data
 --------------------------------------------------------------*/
 /**
 * Desktop Navigation 
@@ -1682,3 +1688,104 @@ h2#dlg-header {
     }
 }
 
+/*----Slider-----*/
+.auto-slider {
+    position: relative;
+    box-sizing: content-box;
+    display: inline-block;
+    padding: 10px 10px 20px;
+    width: 1100px;
+    height: 70px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+    background: #fff;
+    background: -webkit-linear-gradient(top, #ffffff, #e1e7f1);
+    background: -o-linear-gradient(top, #ffffff, #e1e7f1);
+    background: -moz-linear-gradient(top, #ffffff, #e1e7f1);
+    background: linear-gradient(top, #ffffff, #e1e7f1);
+}
+
+div#slider {
+    overflow: hidden;
+}
+
+    div#slider figure img {
+        width: 80px;
+        height: 60px;
+        float: left; 
+        margin-right: 40px;
+    }
+
+    div#slider figure {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        left: 0;
+        text-align: left;
+        font-size: 0;
+        animation: 10s sliding infinite;
+        padding-top: 15px;
+        padding-left: 45px;
+        padding-bottom: 15px;
+    }
+
+@keyframes sliding {
+    0% {
+        left: 100%;
+    }
+
+    50% {        
+        transform: translateX(-50%)
+    }
+
+    100% {
+        left: -30%;
+        transform: translateX(-100%);
+    }
+}
+    /*@keyframes sliding {
+    0% {
+        left: 100%;   
+        transform: translateX();
+    }
+    10%{
+        left: 85%
+    }
+    20% {
+        left: 70%;        
+        transform: translateX();
+    }
+    30%{left: 55%;
+        transform: translateX();        
+    }
+    40% {
+        left: 40%;
+        transform: translateX(-25%);
+    }
+    50%{
+        left: 25%;
+        transform: translateX();
+    }
+    60% {
+        left: 10%;
+        transform: translateX(-50%);
+    }
+    70%{
+        left: -5%;
+    }
+    80% {
+        left: -20%;
+        transform: translateX(-75%);
+    }
+    90%{
+        left: -35%;
+        transform: translateX();
+    }
+    100% {
+        left: 0%;
+        transform: translateX(-100%);
+    }
+    
+}  */    
