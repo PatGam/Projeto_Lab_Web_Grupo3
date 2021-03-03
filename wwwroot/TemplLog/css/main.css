@@ -152,6 +152,7 @@ iframe {
 .limiter {
   width: 100%;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .container-login100 {
@@ -431,7 +432,7 @@ iframe {
 	-o-transition: all 0.4s;
 	-moz-transition: all 0.4s;
 	transition: all 0.4s;
-	border: 1px solid white;
+	border: 3px solid white;
 }
 
 .login100-form-btn::before {
