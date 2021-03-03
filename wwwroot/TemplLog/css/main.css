@@ -338,7 +338,7 @@ iframe {
 
 .contact100-form-checkbox {
   padding-left: 5px;
-  padding-top: 5px;
+  padding-top: 12px;
   padding-bottom: 35px;
 }
 
@@ -383,10 +383,11 @@ iframe {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
+  margin-left: 140px;
 }
 
 .input-checkbox100:checked + .label-checkbox100::before {
-  color: #e5e5e5;
+  color: #0d5e87;
 }
 
 
