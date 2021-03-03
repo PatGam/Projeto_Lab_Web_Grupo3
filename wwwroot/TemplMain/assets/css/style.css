@@ -1345,7 +1345,7 @@ h2#dlg-header {
         filter: blur(6px);
     }
 
-.button, a.button {
+/*.button, a.button {
     display: inline-block;
     padding: 0.25em 1em;
     box-sizing: border-box;
@@ -1366,9 +1366,9 @@ h2#dlg-header {
     .button:hover, a.button:hover {
         color: #a0a0a0;
         background: #f8f8f8;
-        box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        box-shadow: 0 1px 1px rgba(0,0,0,0.05);*/
         /*transform: scale(1.01);*/
-    }
+    /*}
 
     .button.positive, a.button.positive {
         border-color: #6199B7;
@@ -1379,6 +1379,130 @@ h2#dlg-header {
             border-color: #468FB6;
             color: #fff;
             background-color: #468FB6;
+        }*/
+
+    /*Button 1*/
+
+.button-form-btn {
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    height: 50px;
+    width: 50%;
+    border-radius: 25px;
+    background: #1879aa;
+    background: -webkit-linear-gradient(top, #e1e7f1, #ffffff);
+    background: -o-linear-gradient(top, #e1e7f1, #ffffff);
+    background: -moz-linear-gradient(top, #e1e7f1, #ffffff);
+    background: linear-gradient(top, #e1e7f1, #ffffff);
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    border: 3px solid white;
+    margin-left: 75px;
+    cursor: pointer;
+}
+
+    .button-form-btn::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        background: #0069a0;
+        background: -webkit-linear-gradient(bottom, #0d5e87, #70c1eb);
+        background: -o-linear-gradient(bottom, #0d5e87, #70c1eb);
+        background: -moz-linear-gradient(bottom, #0d5e87, #70c1eb);
+        background: linear-gradient(bottom, #0d5e87, #70c1eb);
+        top: 0;
+        left: 0;
+        opacity: 1;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .button-form-btn:hover {
+        color: black;
+    }
+
+        .button-form-btn:hover:before {
+            opacity: 0;
+        }
+
+        /*Button 2*/
+
+.button-form-btn2 {
+    font-size: 16px;
+    color: #0a76ad;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    height: 50px;
+    width: 50%;
+    border-radius: 25px;
+    background: #1879aa;
+    background: -webkit-linear-gradient(top, #87c4e4, #0a76ad);
+    background: -o-linear-gradient(top, #87c4e4, #0a76ad);
+    background: -moz-linear-gradient(top, #87c4e4, #0a76ad);
+    background: linear-gradient(top, #87c4e4, #0a76ad);
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    border: 3px solid white;
+    margin-left: 75px;
+    cursor: pointer;
+}
+
+    .button-form-btn2::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .button-form-btn2:hover {
+        color: #fff;
+    }
+
+        .button-form-btn2:hover:before {
+            opacity: 0;
         }
 
 .icon {
