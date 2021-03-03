@@ -206,5 +206,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return bd.Contratos.Any(e => e.ContratoId == id);
         }
 
+
+        #region API Calls
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var contratos = await bd.Contratos
+                .Select(s => new { s.ContratoId, s.DataInicio, s.DataFim, s.PrecoFinal, s.Telefone , s.Inactivo })
+                .Where(i => i.Inactivo == false)
+                .ToListAsync();
+            return Json(new { data = contratos });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var contratoFromDb = await bd.Contratos.FirstOrDefaultAsync(s => s.ContratoId == id);
+            if (contratoFromDb == null)
+            {
+                return Json(new { success = false, message = "Erro ao eliminar o contrato" });
+            }
+            bd.Contratos.Remove(contratoFromDb);
+            await bd.SaveChangesAsync();
+            return Json(new { success = true, message = "O Contrato foi eliminado com sucesso" });
+        }
+        #endregion
     }
 }

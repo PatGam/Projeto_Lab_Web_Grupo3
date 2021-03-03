@@ -277,11 +277,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var promocaoFromDb = await bd.Promocoes.FirstOrDefaultAsync(s => s.PromocoesId == id);
             if (promocaoFromDb == null)
             {
-                return Json(new { success = false, message = "Erro ao eliminar o serviço" });
+                return Json(new { success = false, message = "Erro ao eliminar a promoção" });
             }
             bd.Promocoes.Remove(promocaoFromDb);
             await bd.SaveChangesAsync();
-            return Json(new { success = true, message = "O Serviço foi eliminado com sucesso" });
+            return Json(new { success = true, message = "A Promoção foi eliminado com sucesso" });
         }
         #endregion
     }
