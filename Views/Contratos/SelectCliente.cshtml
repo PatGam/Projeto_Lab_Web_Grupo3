@@ -1,0 +1,45 @@
+﻿@model ContratosViewModel
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Seleccionar Cliente";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <header class="panel-heading">
+                    <h1>Criar novo contrato</h1>
+                </header>
+                <div class="col-lg-6">
+                    <form asp-action="Create">
+                        <div class="form-group">
+                            <div class="form-group">
+                                Cliente
+                                <select asp-for="Utilizadores.UtilizadorId" class="form-control" asp-items="ViewBag.Clientes"></select>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <a input type="submit"class="btn btn-info" asp-area="" asp-controller="Contratos" asp-action="Create" asp-route-cliente="@ViewBag.ClienteId">Associar novo contrato</a>
+
+                        </div>
+                      
+                    </form>
+                    <div>
+                        <a asp-action="Index" class="btn btn-danger">Voltar Atrás</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
