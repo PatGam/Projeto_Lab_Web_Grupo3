@@ -239,54 +239,54 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return _context.Utilizadores.Any(e => e.UtilizadorId == id);
         }
 
-        [HttpPost]
-        public IActionResult ConfirmarMudancaPassword()
-        {
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult ConfirmarMudancaPassword()
+        //{
+        //    return View();
+        //}
 
-        public IActionResult MudarPassword()
-        {
-            return View();
-        }
+        //public IActionResult MudarPassword()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> MudarPassword(MudarPasswordViewModel model)
-        {
-            string email = User.Identity.Name;
+        //[HttpPost]
+        //public async Task<IActionResult> MudarPassword(MudarPasswordViewModel model)
+        //{
+        //    string email = User.Identity.Name;
             
 
-            IdentityUser utilizador = await _gestorUtilizadores.FindByNameAsync(email);
-            if (ModelState.IsValid)
-            {
+        //    IdentityUser utilizador = await _gestorUtilizadores.FindByNameAsync(email);
+        //    if (ModelState.IsValid)
+        //    {
 
                 
-                var user = await _gestorUtilizadores.GetUserAsync(User);
-                if (user == null)
-                {
-                    return RedirectToAction("Login");
-                }
-                var result = await _gestorUtilizadores.ChangePasswordAsync(user,
-                    model.Password, model.NovaPassword);
+        //        var user = await _gestorUtilizadores.GetUserAsync(User);
+        //        if (user == null)
+        //        {
+        //            return RedirectToAction("Login");
+        //        }
+        //        var result = await _gestorUtilizadores.ChangePasswordAsync(user,
+        //            model.Password, model.NovaPassword);
 
-                //if (!result.Succeeded)
-                //{
-                //    foreach (var error in result.Errors)
-                //    {
-                //        ModelState.AddModelError(string.Empty, error);
+        //        //if (!result.Succeeded)
+        //        //{
+        //        //    foreach (var error in result.Errors)
+        //        //    {
+        //        //        ModelState.AddModelError(string.Empty, error);
 
-                //    }
-                //    return View();
-                //}
-                await _signInManager.RefreshSignInAsync(user);
-                return View("Alteração da Password confirmada");
-            }
-            return View(model);
-        }
-        public ActionResult ChangePassword()
-        {
-            return View();
-        }
+        //        //    }
+        //        //    return View();
+        //        //}
+        //        await _signInManager.RefreshSignInAsync(user);
+        //        return View("Alteração da Password confirmada");
+        //    }
+        //    return View(model);
+        //}
+        //public ActionResult ChangePassword()
+        //{
+        //    return View();
+        //}
 
         ////
         ////Save Details of New Password using Identity
