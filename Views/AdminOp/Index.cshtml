@@ -72,10 +72,16 @@
 
                         <div class="count"> @Html.DisplayFor(modelItem => item.Pacote.Nome) </div>
 
+                        @if (item.Promocao != null)
+                        {
+                            <div class="title">  € @Html.DisplayFor(modelItem => item.Pacote.Preco) </div>
+                            <div class="title">  € @Html.DisplayFor(modelItem => item.Promocao.PromocaoDesc) </div>
+                            <div class="title">  € @(item.Pacote.Preco - item.Promocao.PromocaoDesc)  </div>
+                        }
+                        else
+                        {
                         <div class="title">  € @Html.DisplayFor(modelItem => item.Pacote.Preco) </div>
-                        <div class="title">  € @Html.DisplayFor(modelItem => item.Promocao.PromocaoDesc) </div>
-                        <div class="title">  € @(item.Pacote.Preco - item.Promocao.PromocaoDesc)  </div>
-
+                        }
                         <div class="title">  @Html.DisplayFor(modelItem => item.Pacote.Descricao) </div>
 
 
