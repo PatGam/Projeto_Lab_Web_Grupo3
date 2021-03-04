@@ -16,7 +16,10 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Descricao = table.Column<string>(maxLength: 1000, nullable: true),
                     Preco = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    Inactivo = table.Column<bool>(nullable: false)
+                    Inactivo = table.Column<bool>(nullable: false),
+                    Imagem = table.Column<byte[]>(nullable: true),
+                    DataCriacao = table.Column<DateTime>(nullable: false),
+                    DataInactivo = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

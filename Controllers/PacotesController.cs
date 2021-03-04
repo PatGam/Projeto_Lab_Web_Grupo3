@@ -79,17 +79,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Pacotes/Create
         public IActionResult Create()
         {
-            //return View();
-
 
             var servicos = bd.Servicos.ToList();
             var tiposservicos = bd.TiposServicos.ToList();
 
-            //for (int i = 0; i < tiposservicos.Count; i++)
-            //{
-            //    List<Servicos> Lista = new List<Servicos>();
-            //}
-            
             List<Servicos> Lista1 = new List<Servicos>();
             List<Servicos> Lista2 = new List<Servicos>();
             List<Servicos> Lista3 = new List<Servicos>();
@@ -156,6 +149,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             pacotes.Descricao = servicosPacotesViewModel.Descricao;
             pacotes.Preco = servicosPacotesViewModel.Preco;
             pacotes.Inactivo = false;
+            pacotes.DataCriacao = DateTime.Now;
+            
 
             bd.Pacotes.Add(pacotes);
             await bd.SaveChangesAsync();
@@ -324,6 +319,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             var pacotes = await bd.Pacotes.FindAsync(id);
             pacotes.Inactivo = true;
+            pacotes.DataInactivo = DateTime.Now;
             bd.Update(pacotes);
             await bd.SaveChangesAsync();
             ViewBag.Mensagem = "O Pacote foi eliminado com sucesso";
