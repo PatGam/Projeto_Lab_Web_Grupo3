@@ -20,6 +20,7 @@
                     <header class="panel-heading no-border">
                         Detalhes
                     </header>
+                    <a asp-area="Identity" asp-page="/Account/Manage/SetPassword">Mudar Password</a>
                     <table class="table table-bordered">
                         <tr>
                             <th>
@@ -86,9 +87,6 @@
                             </td>
                         </tr>
                         <tr>
-
-
-                            <a class="btn btn-info" asp-area="" asp-controller="Utilizadores" asp-action="MudarPassword" asp-route-email="@Model.Email">Mudar Password</a>
 
 
                             <th>Contratos deste Cliente</th>
