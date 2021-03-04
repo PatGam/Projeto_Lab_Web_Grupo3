@@ -15,7 +15,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
     {
         private readonly Projeto_Lab_WebContext _context;
         private readonly UserManager<IdentityUser> _gestorUtilizadores;
-        private readonly SignInManager<IdentityUser> _signInManager;
 
         public UtilizadoresController(Projeto_Lab_WebContext context, UserManager<IdentityUser> gestorUtilizadores)
         {
@@ -239,77 +238,5 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return _context.Utilizadores.Any(e => e.UtilizadorId == id);
         }
 
-        //[HttpPost]
-        //public IActionResult ConfirmarMudancaPassword()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult MudarPassword()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> MudarPassword(MudarPasswordViewModel model)
-        //{
-        //    string email = User.Identity.Name;
-            
-
-        //    IdentityUser utilizador = await _gestorUtilizadores.FindByNameAsync(email);
-        //    if (ModelState.IsValid)
-        //    {
-
-                
-        //        var user = await _gestorUtilizadores.GetUserAsync(User);
-        //        if (user == null)
-        //        {
-        //            return RedirectToAction("Login");
-        //        }
-        //        var result = await _gestorUtilizadores.ChangePasswordAsync(user,
-        //            model.Password, model.NovaPassword);
-
-        //        //if (!result.Succeeded)
-        //        //{
-        //        //    foreach (var error in result.Errors)
-        //        //    {
-        //        //        ModelState.AddModelError(string.Empty, error);
-
-        //        //    }
-        //        //    return View();
-        //        //}
-        //        await _signInManager.RefreshSignInAsync(user);
-        //        return View("Alteração da Password confirmada");
-        //    }
-        //    return View(model);
-        //}
-        //public ActionResult ChangePassword()
-        //{
-        //    return View();
-        //}
-
-        ////
-        ////Save Details of New Password using Identity
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> ChangePassword(MudarPasswordViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-        //    var result = await _gestorUtilizadores.ChangePasswordAsync(User.Identity.GetUserId<int>(), model.Password, model.NovaPassword);
-        //    if (result.Succeeded)
-        //    {
-        //        var user = await _gestorUtilizadores.FindByIdAsync(User.Identity.GetUserId<int>());
-        //        if (user != null)
-        //        {
-        //            await _gestorUtilizadores.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-        //        }
-        //        return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
-        //    }
-        //    AddErrors(result);
-        //    return View(model);
-        //}
     }
 }
