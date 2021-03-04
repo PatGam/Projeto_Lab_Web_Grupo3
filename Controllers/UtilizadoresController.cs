@@ -238,5 +238,46 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return _context.Utilizadores.Any(e => e.UtilizadorId == id);
         }
 
+
+        #region API Calls
+        [HttpGet]
+        public async Task<IActionResult> GetAllFuncionarios()
+        {
+            var funcionarios = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.DataNascimento, s.Morada, s.Telemovel, s.Email, s.Role, s.Inactivo })
+                .Where(i => i.Inactivo == false && i.Role == "Administrador" || i.Role == "Operador")
+                .ToListAsync();
+            return Json(new { data = funcionarios });
+        }
+        #endregion
+
+        #region API Calls
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientes()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome,s.Nif, s.DataNascimento, s.Morada, s.Telemovel, s.Email,s.Role, s.Inactivo })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente")
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+        
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var clientesFromDb = await _context.Utilizadores.FirstOrDefaultAsync(s => s.UtilizadorId == id);
+            if (clientesFromDb == null)
+            {
+                return Json(new { success = false, message = "Erro ao eliminar o cliente" });
+            }
+            _context.Utilizadores.Remove(clientesFromDb);
+            await _context.SaveChangesAsync();
+            return Json(new { success = true, message = "O Cliente foi eliminado com sucesso" });
+        }
+        #endregion
+
+        
+
     }
 }
