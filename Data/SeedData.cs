@@ -333,18 +333,18 @@ namespace Projeto_Lab_Web_Grupo3.Data
         //-------------------TIPOS DE SERVIÇOS--------------------------
         private static void InsereTiposServicos(Projeto_Lab_WebContext bd)
         {
-            GaranteExistenciaTiposServicos(bd, "Internet");
-            GaranteExistenciaTiposServicos(bd, "Telemóvel");
-            GaranteExistenciaTiposServicos(bd, "Televisão");
-            GaranteExistenciaTiposServicos(bd, "Telefone Fixo");
-            GaranteExistenciaTiposServicos(bd, "Internet Móvel"); 
+            GaranteExistenciaTiposServicos(bd, "Internet", "fa-wifi black");
+            GaranteExistenciaTiposServicos(bd, "Telemóvel", "fas fa-mobile-alt");
+            GaranteExistenciaTiposServicos(bd, "Televisão", "fas fa-tv");
+            GaranteExistenciaTiposServicos(bd, "Telefone Fixo", "fas fa-phone-alt");
+            GaranteExistenciaTiposServicos(bd, "Internet Móvel", "fas fa - paper - plane"); 
         }
-        internal static void GaranteExistenciaTiposServicos(Projeto_Lab_WebContext bd, string nome)
+        internal static void GaranteExistenciaTiposServicos(Projeto_Lab_WebContext bd, string nome, string icone)
         {
             Tipos_Sevicos tipos_Sevicos = bd.TiposServicos.FirstOrDefault(s => s.Nome == nome);
             if (tipos_Sevicos == null)
             {
-                tipos_Sevicos = new Tipos_Sevicos { Nome = nome };
+                tipos_Sevicos = new Tipos_Sevicos { Nome = nome, Icone = icone };
                 bd.TiposServicos.Add(tipos_Sevicos);
                 bd.SaveChanges();
             }

@@ -10,7 +10,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
     {
         public Pacotes Pacote { get; set; }
 
-        
+        public List<Tipos_Sevicos> TiposServicos { get; set; }
+
         public List<Servicos> Servicos { get; set; }
 
         public Promocoes Promocao { get; set; }
