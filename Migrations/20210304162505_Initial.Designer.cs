@@ -10,7 +10,7 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    [Migration("20210301094808_Initial")]
+    [Migration("20210304162505_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,9 +90,18 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataInactivo")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
+
+                    b.Property<byte[]>("Imagem")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("Inactivo")
                         .HasColumnType("bit");
@@ -253,6 +262,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnName("Tipo_Servico_Id")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Icone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .IsRequired()

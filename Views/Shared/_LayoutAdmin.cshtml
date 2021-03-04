@@ -212,16 +212,16 @@
                                 </ul>*@
                         </li>
                         <li class="sub-menu">
-                            <a a asp-area="" asp-controller="Contratos" asp-action="Index" class="">
+                            <a href="javascript:;" class="">
                                 <i class="icon_desktop"></i>
                                 <span>Gerir Contratos</span>
-                                @*<span class="menu-arrow arrow_carrot-right"></span>*@
+                                <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
-                            @*<ul class="sub">
-                                    <li><a class="" href="general.html">Elements</a></li>
-                                    <li><a class="" href="buttons.html">Buttons</a></li>
-                                    <li><a class="" href="grids.html">Grids</a></li>
-                                </ul>*@
+                 
+                            <ul class="sub">
+                                <li><a class="" a asp-area="" asp-controller="Contratos" asp-action="Index">Consultar</a></li>
+                                <li><a class=""a asp-area="" asp-controller="Utilizadores" asp-action="Index" asp-route-tipoUtil="Select">Criar</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">

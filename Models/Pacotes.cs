@@ -39,6 +39,17 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Display(Name = "Inactivo")]
         public bool Inactivo { get; set; }
+
+        [Display(Name = "Imagem ilustrativa")]
+        public byte[] Imagem { get; set; }
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Data de criação")]
+        public DateTime DataCriacao { get; set; }
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Data de inactivação")]
+        public DateTime DataInactivo { get; set; }
     }
 
 }

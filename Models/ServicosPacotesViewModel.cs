@@ -37,6 +37,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public int Servico4 { get; set; }
         public int Servico5 { get; set; }
 
+        [Display(Name = "Imagem ilustrativa")]
+        public byte[] Imagem { get; set; }
+
 
 
     }

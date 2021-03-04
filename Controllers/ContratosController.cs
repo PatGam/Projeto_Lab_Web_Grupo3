@@ -47,6 +47,20 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(contratos);
         }
 
+        public async Task<IActionResult> SelectCliente()
+        {
+            var clientes = await bd.Utilizadores
+                .Where(i => i.Role == "Cliente")
+                .ToListAsync();
+
+           
+
+            ViewData["Clientes"] = new SelectList(clientes, "UtilizadorId", "Nome");
+            
+
+            return View();
+        }
+
         // GET: Contratos/Create
         public IActionResult Create(int cliente)
         {

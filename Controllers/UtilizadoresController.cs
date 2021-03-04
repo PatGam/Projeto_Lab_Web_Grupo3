@@ -20,6 +20,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             _context = context;
             _gestorUtilizadores = gestorUtilizadores;
+            
 
         }
 
@@ -237,6 +238,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return _context.Utilizadores.Any(e => e.UtilizadorId == id);
         }
 
+
         #region API Calls
         [HttpGet]
         public async Task<IActionResult> GetAllFuncionarios()
@@ -276,5 +278,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         #endregion
 
         
+
     }
 }
