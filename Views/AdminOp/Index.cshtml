@@ -80,18 +80,21 @@
                         }
                         else
                         {
-                        <div class="title">  € @Html.DisplayFor(modelItem => item.Pacote.Preco) </div>
+                            <div class="title">  € @Html.DisplayFor(modelItem => item.Pacote.Preco) </div>
                         }
                         <div class="title">  @Html.DisplayFor(modelItem => item.Pacote.Descricao) </div>
 
+                        <ul>
+                            @foreach (var servico in item.Servicos)
+                            {
 
-                        @foreach (var servico in item.Servicos)
-                        {
-
-                            @Html.DisplayFor(modelItem => servico.Nome)
-
-                        }
-
+                            <li>
+                                <i class="@(servico.TipoServicos.Icone)"> </i>
+                                <span>@Html.DisplayFor(modelItem => servico.Nome)</span>
+                               
+                            </li>
+                            }
+                        </ul>
                     </div>
                     <!--/.info-box-->
                 </div>

@@ -63,7 +63,8 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 {
                     Tipo_Servico_Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 50, nullable: false)
+                    Nome = table.Column<string>(maxLength: 50, nullable: false),
+                    Icone = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

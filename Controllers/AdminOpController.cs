@@ -27,6 +27,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             foreach (var pacote in bd.Pacotes)
             {
                 InfoPacoteViewModel infoPacote = new InfoPacoteViewModel();
+
                 infoPacote.Pacote = pacote;
 
                 infoPacote.Promocao = await bd.PromocoesPacotes
@@ -42,31 +43,22 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                     .Select(p => p.Servico)
                     .ToListAsync();
 
-                 
-                if (infoPacote.Promocao != null)
+                foreach(var item in infoPacote.Servicos)
                 {
-                    decimal PrecoPacote = infoPacote.Pacote.Preco;
-                    decimal Desc = infoPacote.Promocao.PromocaoDesc;
-                    //esta conta não funciona :(
-                    decimal PrecoFinal = PrecoPacote - Desc; 
-                    ViewData["PrecoFinal"] = PrecoFinal;
+                    infoPacote.TiposServicos = await bd.Servicos
+                    .Include(p => p.TipoServicos)
+                    .Where(p => p.ServicoId == item.ServicoId)
+                    .Select(p => p.TipoServicos)
+                    .ToListAsync();
                 }
-                                
-                else
-                {
+                
 
-                    ViewData["PrecoFinal"] = "";               
-
-                }
-         
                 ListaPacotes.Add(infoPacote);
             }
 
             HomeGestaoViewModel modelo = new HomeGestaoViewModel
             {
                 Pacotes = ListaPacotes,
-                            
-                
             };
 
             return View(modelo);
