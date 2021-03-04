@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -79,17 +81,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Pacotes/Create
         public IActionResult Create()
         {
-            //return View();
-
 
             var servicos = bd.Servicos.ToList();
             var tiposservicos = bd.TiposServicos.ToList();
 
-            //for (int i = 0; i < tiposservicos.Count; i++)
-            //{
-            //    List<Servicos> Lista = new List<Servicos>();
-            //}
-            
             List<Servicos> Lista1 = new List<Servicos>();
             List<Servicos> Lista2 = new List<Servicos>();
             List<Servicos> Lista3 = new List<Servicos>();
@@ -147,7 +142,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ServicosPacotesViewModel servicosPacotesViewModel, Pacotes pacotes, ServicosPacotes servicosPacotes)
+        public async Task<IActionResult> Create(ServicosPacotesViewModel servicosPacotesViewModel, Pacotes pacotes, ServicosPacotes servicosPacotes, IFormFile Imagem)
         {
 
             List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
@@ -156,6 +151,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             pacotes.Descricao = servicosPacotesViewModel.Descricao;
             pacotes.Preco = servicosPacotesViewModel.Preco;
             pacotes.Inactivo = false;
+            pacotes.Imagem = servicosPacotesViewModel.Imagem;
+            AtualizaImagem(pacotes, Imagem);
+            //acrescenta data de criação
+            pacotes.DataCriacao = DateTime.Now;
+            
 
             bd.Pacotes.Add(pacotes);
             await bd.SaveChangesAsync();
@@ -199,20 +199,25 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 bd.ServicosPacotes.Add(item);
             }
 
-            //foreach (var item in servicosPacotesViewModel.ListaServicos)
-            //{
-            //    if (item.Selecionado == true)
-            //    {
-            //        servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = item.Id });
-            //    }
-            //}
-           
+
             await bd.SaveChangesAsync();
 
 
             ViewBag.Mensagem = "Pacote adicionado com sucesso.";
             return View("Sucesso");
 
+        }
+
+        private static void AtualizaImagem(Pacotes Pacotes, IFormFile Imagem)
+        {
+            if (Imagem != null && Imagem.Length > 0)
+            {
+                using (var ficheiroMemoria = new MemoryStream())
+                {
+                    Imagem.CopyTo(ficheiroMemoria);
+                    Pacotes.Imagem = ficheiroMemoria.ToArray();
+                }
+            }
         }
 
         // GET: Pacotes/Edit/5
@@ -250,7 +255,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, ServicosPacotesViewModel servicosPacotesViewModel)
+        public async Task<IActionResult> Edit(int id, ServicosPacotesViewModel servicosPacotesViewModel, IFormFile Imagem)
         {
 
             List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
@@ -262,6 +267,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             pacote.Nome = servicosPacotesViewModel.Nome;
             pacote.Descricao = servicosPacotesViewModel.Descricao;
             pacote.Preco = servicosPacotesViewModel.Preco;
+            pacote.Imagem = servicosPacotesViewModel.Imagem;
+            AtualizaImagem(pacote, Imagem);
 
             bd.Update(pacote);
             await bd.SaveChangesAsync();
@@ -324,6 +331,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             var pacotes = await bd.Pacotes.FindAsync(id);
             pacotes.Inactivo = true;
+            //atribui uma data de inactivação
+            pacotes.DataInactivo = DateTime.Now;
             bd.Update(pacotes);
             await bd.SaveChangesAsync();
             ViewBag.Mensagem = "O Pacote foi eliminado com sucesso";

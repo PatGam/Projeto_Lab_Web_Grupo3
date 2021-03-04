@@ -18,7 +18,7 @@
                         Criar novo Pacote
                     </header>
                     <div class="panel-body">
-                        <form asp-action="Create" class="form-horizontal">
+                        <form asp-action="Create" class="form-horizontal" enctype="multipart/form-data">
                             <div asp-validation-summary="All" class="text-danger"></div>
                             <div class="form-group">
                                 <label asp-for="Nome" class="col-sm-2 control-label"></label>
@@ -34,6 +34,10 @@
                                     <textarea type="text" id="exampleFormControlTextarea1" rows="3" asp-for="Descricao" class="form-control"></textarea>
                                     <span asp-validation-for="Descricao" class="text-danger"></span>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Imagem" class="control-label">Imagem (opcional) </label>
+                                <input name="Imagem" class="form-control-file" type="file" />
                             </div>
                             <div class="form-group">
                                 <label asp-for="Preco" class="col-sm-2 control-label"></label>
@@ -63,31 +67,31 @@
                                 <select asp-for="Servico5" class="form-control" asp-items="ViewBag.Lista5"></select>
                             </div>
                             @*<table>
-                                @for (int x = 0; x < 5; x++)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(z => Model.ListaServicos[x].NomeTipoServico)
-                                        </td>
-                                        @for (int i = 0; i < Model.ListaServicos.Capacity; i++)
-                                        {
+            @for (int x = 0; x < 5; x++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(z => Model.ListaServicos[x].NomeTipoServico)
+                    </td>
+                    @for (int i = 0; i < Model.ListaServicos.Capacity; i++)
+                    {
 
-                                            if (Model.ListaServicos[i].TipoServico == Model.ListaServicos[x].TipoServico)
-                                            {
+                        if (Model.ListaServicos[i].TipoServico == Model.ListaServicos[x].TipoServico)
+                        {
 
-                                                <td>
-                                                    @Html.HiddenFor(x => Model.ListaServicos[i].Id)
-                                                    @Html.DisplayFor(z => Model.ListaServicos[i].Nome)
-                                                </td>
-                                                <td>
-                                                    @Html.CheckBoxFor(z => Model.ListaServicos[i].Selecionado)
-                                                </td>
-                                            }
+                            <td>
+                                @Html.HiddenFor(x => Model.ListaServicos[i].Id)
+                                @Html.DisplayFor(z => Model.ListaServicos[i].Nome)
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(z => Model.ListaServicos[i].Selecionado)
+                            </td>
+                        }
 
-                                        }
-                                    </tr>
-                                }
-                            </table>*@
+                    }
+                </tr>
+            }
+        </table>*@
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <input type="submit" value="Criar novo pacote" class="btn btn-success" />
