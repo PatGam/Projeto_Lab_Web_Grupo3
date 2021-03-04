@@ -22,32 +22,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
          
             public async Task<IActionResult> Index()
             {
-            List<Pacotes> pacotes = await bd.Pacotes
-              .ToListAsync();
+            
 
-            List<ServicosPacotes> servicospacotes = await bd.ServicosPacotes
-            .ToListAsync();
-
-            List<Servicos> servicos = await bd.Servicos
-            .ToListAsync();
-
-          
-            List<PromocoesPacotes> promocoespacotes = await bd.PromocoesPacotes
-            .ToListAsync();
-
-            List<Promocoes> promocoes = await bd.Promocoes
-            .ToListAsync();
-
-            HomeGestaoViewModel modelo = new HomeGestaoViewModel
-            {
-                Pacotes = pacotes,
-                ServicosPacotes = servicospacotes,
-                PromocoesPacotes = promocoespacotes,
-                Servicos = servicos,
-                Promocoes = promocoes,
-                
-
-        };
+                };
 
             return base.View(modelo);
         }
