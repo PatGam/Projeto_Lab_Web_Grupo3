@@ -73,7 +73,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var contratos = await bd.Contratos
                 .Include(c => c.Pacotes)
                 .Include(c => c.Promocoes)
-                //.Include(c => c.PromocoesPacotes)
                 .Include(c => c.Utilizadores)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
@@ -105,13 +104,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
 
             ViewData["ClienteId"] = cliente;
-            //ViewData com o nome do cliente;
             ViewData["ClienteNome"] = clienteId.Nome;
             ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
             ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
-            //ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes");
 
 
             return View();
@@ -143,6 +140,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.PrecoPacote = pacoteid.Preco;
 
             //Código que vai buscar o cliente
+            
             contratos.ClienteId = contratos.UtilizadorId;
 
             //Código que vai buscar o desconto da promoção
