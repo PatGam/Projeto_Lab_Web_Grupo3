@@ -20,9 +20,31 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nifpesquisar, int pagina = 1)
         {
-            return View(await bd.Contratos.ToListAsync());
+
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar)).CountAsync(),
+                PaginaAtual = pagina
+
+            };
+
+            List<Contratos> contratos = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar))
+                .Include(p => p.Utilizadores)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ContratosViewModel modelo = new ContratosViewModel
+            {
+
+                Contratos = contratos,
+                Paginacao = paginacao,
+                NifPesquisar = nifpesquisar
+
+            };
+            return View(modelo);
         }
         // GET: Contratos/Details/5
         public async Task<IActionResult> Details(int? id)
