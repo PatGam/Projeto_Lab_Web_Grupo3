@@ -294,23 +294,89 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     ServicoId=internet400.ServicoId,
                 },
 
+                   new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDGaming.PacoteId,
+                    ServicoId=TV150.ServicoId,
+                },
+                   new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDGaming.PacoteId,
+                    ServicoId=internet400.ServicoId,
+                },
+                     new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDGaming.PacoteId,
+                    ServicoId=tlfLight.ServicoId,
+                },
+
+                             new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDGPremium.PacoteId,
+                    ServicoId=TV150.ServicoId,
+                },
+                   new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDGPremium.PacoteId,
+                    ServicoId=internet400.ServicoId,
+                },
+                     new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDGPremium.PacoteId,
+                    ServicoId=tlfLight.ServicoId,
+                },
+                     new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDGPremium.PacoteId,
+                    ServicoId=internetmovel.ServicoId,
+                },
+
+                      new ServicosPacotes
+                     {
+                    PacoteId=pacoteTvVoz.PacoteId,
+                    ServicoId=TV150.ServicoId,
+                },
+                      new ServicosPacotes
+                     {
+                    PacoteId=pacoteTvVoz.PacoteId,
+                    ServicoId=tlfLight.ServicoId,
+                },
+
+                      new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDFamiliar.PacoteId,
+                    ServicoId=TV200.ServicoId,
+                },
+                      new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDFamiliar.PacoteId,
+                    ServicoId=internet400.ServicoId,
+                },
+                      new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDFamiliar.PacoteId,
+                    ServicoId=tlfWorld.ServicoId,
+                },
+
+                      new ServicosPacotes
+                     {
+                    PacoteId=pacoteRDFamiliar.PacoteId,
+                    ServicoId=tlm3500.ServicoId,
+                },
+
             });
             bd.SaveChanges();
         }
 
         private static void InserePacotes(Projeto_Lab_WebContext bd)
         {
-
-
-
             GarantePacotes(bd, "Pacote RD4", 55, "O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade", false, new DateTime(2021, 03, 01));
             GarantePacotes(bd, "Pacote RD3", 45, "O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.", false, new DateTime(2021, 03, 01));
             GarantePacotes(bd, "Pacote RD - Gaming", 55, "A oferta Pacote RD - Gaming é ideal para", false, new DateTime(2021, 03, 01));
             GarantePacotes(bd, "Pacote RD - TV Premium + gaming", 65, "A oferta Pacote RD - TV Premium + gaming destacou - se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico(canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.", false, new DateTime(2021, 03, 01));
             GarantePacotes(bd, "RD TV e Voz", 25, "Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão", false, new DateTime(2021, 03, 01));
             GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.", false, new DateTime(2021, 03, 01));
-
-            }
+        }
         private static Pacotes GarantePacotes(Projeto_Lab_WebContext bd, string nome, decimal preco, string descricao, bool inactivo, DateTime dataInicio)
         {
             Pacotes pacotes = bd.Pacotes.FirstOrDefault(c => c.Nome == nome);
@@ -375,46 +441,139 @@ namespace Projeto_Lab_Web_Grupo3.Data
         //---------------------------------PromocoesPacotes------------------------------
         private static void InserePromocoesPacotes(Projeto_Lab_WebContext bd)
             {
-                if (bd.PromocoesPacotes.Any()) return;
+
+            var pacoteRD4 = GarantePacotes(bd, "Pacote RD4", 55, "O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade", false, new DateTime(2021, 03, 01));
+            var pacoteRD3 = GarantePacotes(bd, "Pacote RD3", 45, "O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.", false, new DateTime(2021, 03, 01));
+            var pacoteRDGaming = GarantePacotes(bd, "Pacote RD - Gaming", 55, "A oferta Pacote RD - Gaming é ideal para", false, new DateTime(2021, 03, 01));
+            var pacoteRDGPremium = GarantePacotes(bd, "Pacote RD - TV Premium + gaming", 65, "A oferta Pacote RD - TV Premium + gaming destacou - se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico(canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.", false, new DateTime(2021, 03, 01));
+            var pacoteTvVoz = GarantePacotes(bd, "RD TV e Voz", 25, "Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão", false, new DateTime(2021, 03, 01));
+            var pacoteRDFamiliar = GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.", false, new DateTime(2021, 03, 01));
+
+            var pascoaS = GaranteExistenciaPromocoes(bd, "PascoaS", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes pequenos", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 2, 99m, false);
+            var pascoaM = GaranteExistenciaPromocoes(bd, "PascoaM", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes médios", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 3, 99m, false);
+            var pascoaL = GaranteExistenciaPromocoes(bd, "PascoaL", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes grandes", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 4, 99m, false);
+            var VeraoS = GaranteExistenciaPromocoes(bd, "VerãoS", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes pequenos", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 1, 99m, false);
+            var VeraoM = GaranteExistenciaPromocoes(bd, "VerãoM", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes médio", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 2, 59m, false);
+            var VeraoL = GaranteExistenciaPromocoes(bd, "VerãoL", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes grandes", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 3, 99m, false);
+            var NatalS = GaranteExistenciaPromocoes(bd, "NatalS", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes pequenos", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 3, 99m, false);
+            var NatalM = GaranteExistenciaPromocoes(bd, "NatalM", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes médios", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 4, 99m, false);
+            var NatalL = GaranteExistenciaPromocoes(bd, "NatalL", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes grandes", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 5, 99m, false);
+
+
+            if (bd.PromocoesPacotes.Any()) return;
                 bd.PromocoesPacotes.AddRange(new PromocoesPacotes[]
                 {
                 new PromocoesPacotes
                 {
-                    PacoteId = 4,
-                    PromocoesId= 1,
-
+                    PacoteId = pacoteRD4.PacoteId,
+                    PromocoesId= pascoaM.PromocoesId,
                 },
+
                 new PromocoesPacotes
                 {
-                    PacoteId=5,
-                    PromocoesId=2,
-
+                    PacoteId = pacoteRD4.PacoteId,
+                    PromocoesId= VeraoM.PromocoesId,
                 },
+
+                  new PromocoesPacotes
+                {
+                    PacoteId = pacoteRD4.PacoteId,
+                    PromocoesId= NatalM.PromocoesId,
+                },
+                        new PromocoesPacotes
+                {
+                    PacoteId = pacoteRD3.PacoteId,
+                    PromocoesId= pascoaM.PromocoesId,
+                },
+
                 new PromocoesPacotes
                 {
-                    PacoteId=1,
-                    PromocoesId=3,
-
+                    PacoteId = pacoteRD3.PacoteId,
+                    PromocoesId= VeraoM.PromocoesId,
                 },
+
                 new PromocoesPacotes
                 {
-                    PacoteId=3,
-                    PromocoesId=4,
-
+                    PacoteId = pacoteRD3.PacoteId,
+                    PromocoesId= NatalM.PromocoesId,
                 },
+
                 new PromocoesPacotes
                 {
-                    PacoteId=2,
-                    PromocoesId=5,
-
+                    PacoteId = pacoteRDGaming.PacoteId,
+                    PromocoesId= pascoaM.PromocoesId,
                 },
+
                 new PromocoesPacotes
                 {
-                    PacoteId=1,
-                    PromocoesId=6,
-
+                    PacoteId = pacoteRDGaming.PacoteId,
+                    PromocoesId= VeraoM.PromocoesId,
                 },
 
+                 new PromocoesPacotes
+                {
+                    PacoteId = pacoteRDGaming.PacoteId,
+                    PromocoesId= NatalM.PromocoesId,
+                },
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteRDGPremium.PacoteId,
+                    PromocoesId= NatalL.PromocoesId,
+                },
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteRDGPremium.PacoteId,
+                    PromocoesId= VeraoL.PromocoesId,
+                },
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteRDGPremium.PacoteId,
+                    PromocoesId= pascoaL.PromocoesId,
+                },
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteTvVoz.PacoteId,
+                    PromocoesId= pascoaS.PromocoesId,
+                },
+
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteTvVoz.PacoteId,
+                    PromocoesId= VeraoS.PromocoesId,
+                },
+
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteTvVoz.PacoteId,
+                    PromocoesId= NatalS.PromocoesId,
+                },
+
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId= NatalL.PromocoesId,
+                },
+
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId= pascoaL.PromocoesId,
+                },
+
+
+                new PromocoesPacotes
+                {
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId= VeraoS.PromocoesId,
+                },
 
                 });
                 bd.SaveChanges();

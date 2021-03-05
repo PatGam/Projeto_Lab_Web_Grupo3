@@ -23,28 +23,43 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> Index(string nifpesquisar, int pagina = 1)
         {
 
-            Paginacao paginacao = new Paginacao
+            if (nifpesquisar != null)
             {
-                TotalItems = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar)).CountAsync(),
-                PaginaAtual = pagina
+                Paginacao paginacao = new Paginacao
+                {
+                    TotalItems = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar)).CountAsync(),
+                    PaginaAtual = pagina
 
-            };
+                };
 
-            List<Contratos> contratos = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar))
-                .Include(p => p.Utilizadores)
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
+                List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar))
+                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao.ItemsPorPagina)
+                    .ToListAsync();
 
-            ContratosViewModel modelo = new ContratosViewModel
+                ContratosViewModel modelo1 = new ContratosViewModel
+                {
+
+                    Contratos = contratos,
+                    Paginacao = paginacao,
+                    NifPesquisar = nifpesquisar
+                };
+
+                
+
+                return View(modelo1);
+            }
+            else
             {
+                ContratosViewModel modelo2 = new ContratosViewModel
+                {
 
-                Contratos = contratos,
-                Paginacao = paginacao,
-                NifPesquisar = nifpesquisar
+                    NifPesquisar = nifpesquisar
+                };
 
-            };
-            return View(modelo);
+                return View(modelo2);
+            }
+  
         }
         // GET: Contratos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -58,7 +73,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var contratos = await bd.Contratos
                 .Include(c => c.Pacotes)
                 .Include(c => c.Promocoes)
-                //.Include(c => c.PromocoesPacotes)
                 .Include(c => c.Utilizadores)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
             if (contratos == null)
@@ -90,13 +104,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
 
             ViewData["ClienteId"] = cliente;
-            //ViewData com o nome do cliente;
             ViewData["ClienteNome"] = clienteId.Nome;
             ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
             ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
-            //ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes");
 
 
             return View();
@@ -128,6 +140,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.PrecoPacote = pacoteid.Preco;
 
             //Código que vai buscar o cliente
+            
             contratos.ClienteId = contratos.UtilizadorId;
 
             //Código que vai buscar o desconto da promoção
