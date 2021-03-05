@@ -42,6 +42,16 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             var utilizadores = await _context.Utilizadores
                 .FirstOrDefaultAsync(m => m.UtilizadorId == id);
+
+            if (utilizadores.Role == "Cliente")
+            {
+                ViewBag.Titulo = "Clientes";
+            }
+
+            if (utilizadores.Role != "Cliente")
+            {
+                ViewBag.Titulo = "Funcionários";
+            }
             if (utilizadores == null)
             {
                 return NotFound();
