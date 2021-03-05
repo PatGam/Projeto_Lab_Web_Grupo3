@@ -1597,11 +1597,12 @@ h2#dlg-header {
 # Header Personal Data
 --------------------------------------------------------------*/
 #headerPData {
-    height: 700px;
-    width: 250px;
-    padding-bottom: 100px;
-    position: absolute;
-    z-index: 1;
+    height: 60px;
+    width: 830px;
+    position: fixed;
+    z-index: 100;
+    margin-top: 10px;
+    margin-left: 175px;
     transition: all 0.5s;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
     background: #0a76ad;
@@ -1609,6 +1610,7 @@ h2#dlg-header {
     background: -o-linear-gradient(top, #87c4e4, #0d5e87);
     background: -moz-linear-gradient(top, #87c4e4, #0d5e87);
     background: linear-gradient(top, #87c4e4, #0d5e87);
+    border-radius: 30% / 20%;
 }
 
     #headerPData .logo h1 {
@@ -1642,30 +1644,28 @@ h2#dlg-header {
 }
 
 
-    .navbarPData ul {
-        margin: 0;
-        padding-left: 20px;
-        display: list-item;
+    .navbarPData ul {                
+        display: inline-flex;
         list-style: none;
         align-items: center;
+        padding: 30px 0px 0px 50px;
     }
 
     .navbarPData li {
         position: relative;
+        margin-right: 30px;
     }
 
     .navbarPData a {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 20px 0 10px 20px;
-        font-size: 20px;
+        justify-content: space-between;        
+        font-size: 14px;
         font-weight: 500;
         color: #fff;
         white-space: nowrap;
-        transition: 0.3s;
-        margin-bottom: 50px;
-        border-bottom: solid 2px #e7e7e7;
+        transition: 0.3s;  
+
     }
 
         .navbarPData a i {
@@ -1674,7 +1674,7 @@ h2#dlg-header {
             margin-left: 7px;
         }
 
-        .navbarPData a:hover, .navbarPData .active, .navbarPData li:hover > a {
+        .navbarPData a:hover, .navbarPData li:hover > a {
             color: #e7e7e7;
         }
     
