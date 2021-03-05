@@ -124,10 +124,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             if (!ModelState.IsValid)
             {
+                var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
+
+                ViewData["ClienteId"] = contratos.UtilizadorId;
+                ViewData["ClienteNome"] = clienteId.Nome;
                 ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", contratos.PromocoesId);
-                return View(contratos);
+                ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+                return View();
             }
 
             //Código que vai buscar o ID do funcionário que tem login feito e atribui automaticamente ao contrato
@@ -143,6 +148,39 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             
             contratos.ClienteId = contratos.UtilizadorId;
 
+            List<PromocoesPacotes> PromocoesDisponiveis = new List<PromocoesPacotes>();
+
+            foreach(var pacote in bd.PromocoesPacotes)
+            {
+                if(contratos.PacoteId == pacote.PacoteId)
+                {
+                    PromocoesDisponiveis.Add(pacote);
+                }
+            }
+
+            bool PromoDisponivel = false;
+            foreach (var promocao in PromocoesDisponiveis)
+            {
+                if(contratos.PromocoesId == promocao.PromocoesId)
+                {
+                    PromoDisponivel = true;
+                }
+            }
+
+            if(PromoDisponivel == false)
+            {
+                var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
+
+                ViewData["ClienteId"] = contratos.UtilizadorId;
+                ViewData["ClienteNome"] = clienteId.Nome;
+                ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
+                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+                ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+
+                ViewBag.Message = "A promoção que está a tentar aplicar não está disponível para o pacote selecionado";
+                return View(contratos);
+            }
             //Código que vai buscar o desconto da promoção
             int promo = contratos.PromocoesId;
             var promocaoid = bd.Promocoes.SingleOrDefault(e => e.PromocoesId == contratos.PromocoesId);
