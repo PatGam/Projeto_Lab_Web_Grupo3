@@ -20,9 +20,46 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nifpesquisar, int pagina = 1)
         {
-            return View(await bd.Contratos.ToListAsync());
+
+            if (nifpesquisar != null)
+            {
+                Paginacao paginacao = new Paginacao
+                {
+                    TotalItems = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar)).CountAsync(),
+                    PaginaAtual = pagina
+
+                };
+
+                List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar))
+                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao.ItemsPorPagina)
+                    .ToListAsync();
+
+                ContratosViewModel modelo1 = new ContratosViewModel
+                {
+
+                    Contratos = contratos,
+                    Paginacao = paginacao,
+                    NifPesquisar = nifpesquisar
+                };
+
+                
+
+                return View(modelo1);
+            }
+            else
+            {
+                ContratosViewModel modelo2 = new ContratosViewModel
+                {
+
+                    NifPesquisar = nifpesquisar
+                };
+
+                return View(modelo2);
+            }
+  
         }
         // GET: Contratos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -32,13 +69,18 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-
             var contratos = await bd.Contratos
                 .Include(c => c.Pacotes)
                 .Include(c => c.Promocoes)
-                //.Include(c => c.PromocoesPacotes)
                 .Include(c => c.Utilizadores)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
+
+            var funcionario = await bd.Utilizadores
+                .FirstOrDefaultAsync(m => m.UtilizadorId == contratos.FuncionarioId);
+
+            ViewData["FuncionarioNome"] = funcionario.Nome;
+
+
             if (contratos == null)
             {
                 return View("Inexistente");
@@ -68,13 +110,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
 
             ViewData["ClienteId"] = cliente;
-            //ViewData com o nome do cliente;
             ViewData["ClienteNome"] = clienteId.Nome;
             ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
             ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
-            //ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes");
 
 
             return View();
@@ -90,10 +130,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             if (!ModelState.IsValid)
             {
+                var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
+
+                ViewData["ClienteId"] = contratos.UtilizadorId;
+                ViewData["ClienteNome"] = clienteId.Nome;
                 ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", contratos.PromocoesId);
-                return View(contratos);
+                ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+                return View();
             }
 
             //Código que vai buscar o ID do funcionário que tem login feito e atribui automaticamente ao contrato
@@ -106,8 +151,42 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.PrecoPacote = pacoteid.Preco;
 
             //Código que vai buscar o cliente
+            
             contratos.ClienteId = contratos.UtilizadorId;
 
+            List<PromocoesPacotes> PromocoesDisponiveis = new List<PromocoesPacotes>();
+
+            foreach(var pacote in bd.PromocoesPacotes)
+            {
+                if(contratos.PacoteId == pacote.PacoteId)
+                {
+                    PromocoesDisponiveis.Add(pacote);
+                }
+            }
+
+            bool PromoDisponivel = false;
+            foreach (var promocao in PromocoesDisponiveis)
+            {
+                if(contratos.PromocoesId == promocao.PromocoesId)
+                {
+                    PromoDisponivel = true;
+                }
+            }
+
+            if(PromoDisponivel == false)
+            {
+                var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
+
+                ViewData["ClienteId"] = contratos.UtilizadorId;
+                ViewData["ClienteNome"] = clienteId.Nome;
+                ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
+                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+                ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+
+                ViewBag.Message = "A promoção que está a tentar aplicar não está disponível para o pacote selecionado";
+                return View(contratos);
+            }
             //Código que vai buscar o desconto da promoção
             int promo = contratos.PromocoesId;
             var promocaoid = bd.Promocoes.SingleOrDefault(e => e.PromocoesId == contratos.PromocoesId);
