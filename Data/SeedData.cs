@@ -71,7 +71,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             Utilizadores utilizadores = bd.Utilizadores.FirstOrDefault(c => c.Nome == nome);
             if (utilizadores == null)
             {
-                utilizadores = new Utilizadores { Nome = nome,Nif = nif ,DataNascimento = datanascimento, Morada = morada, Telemovel = telemovel, Email = email, CodigoPostal = codigopostal, Role = role, Inactivo = inactivo };
+                utilizadores = new Utilizadores { Nome = nome, Nif = nif ,DataNascimento = datanascimento, Morada = morada, Telemovel = telemovel, Email = email, CodigoPostal = codigopostal, Role = role, Inactivo = inactivo };
                 bd.Utilizadores.Add(utilizadores);
                 bd.SaveChanges();
             }

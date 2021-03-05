@@ -30,14 +30,14 @@
                         <div class="panel-body">
                             Insira na barra de pesquisa o NIF do cliente cujo(s) contrato(s) pretende consultar
                             <br />
-                            <form class="form-horizontal " method="get">
+                            <form class="form-horizontal " asp-action="Index" method="get">
                                 <div class="form-group">
                                     <div class="col-lg-10">
-                                        <input name="nomePesquisar" type="search" value="@Model.NifPesquisar" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
+                                        <input name="NifPesquisar" type="search" value="@Model.NifPesquisar" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
                                     </div>
                                     <div class="col-lg-10">
-                                        <a class="btn btn-success btn-lg"><span class="icon_lightbulb_alt"></span> Pesquisar</a>
-                                        <a class="btn btn-primary btn-lg"><span class="icon_lightbulb_alt"></span> Limpar</a>
+                                        <input type="submit" value="Pesquisar" class="btn btn-success btn-lg">
+                                        <a asp-action="Index" class="btn btn-primary btn-lg"><span class="icon_lightbulb_alt"></span> Limpar</a>
                                     </div>
                                 </div>
 
@@ -60,18 +60,18 @@
                                     }
 
                                     <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-                                        <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NifPesquisar">Primeiro</a>
+                                        <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-NifPesquisar="@Model.NifPesquisar">Primeiro</a>
                                     </li>
 
                                     @for (int i = paginaInicial; i <= paginaFinal; i++)
                                     {
                                         <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                                            <a class="page-link" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NifPesquisar">@i</a>
+                                            <a class="page-link" asp-action="Index" asp-route-pagina="@i" asp-route-NifPesquisar="@Model.NifPesquisar">@i</a>
                                         </li>
                                     }
 
                                     <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
-                                        <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NifPesquisar">Último</a>
+                                        <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-NifPesquisar="@Model.NifPesquisar">Último</a>
                                     </li>
                                 </ul>
                             </nav>
