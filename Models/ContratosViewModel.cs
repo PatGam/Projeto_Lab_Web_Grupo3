@@ -16,6 +16,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public List<Pacotes> Pacotes { get; set; }
         public int UtilizadorId { get; set; }
 
+        public int FuncionarioId { get; set; }
+
         public Utilizadores Utilizadores { get; set; }
 
 

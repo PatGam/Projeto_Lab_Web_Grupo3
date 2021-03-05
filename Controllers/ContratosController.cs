@@ -69,12 +69,18 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-
             var contratos = await bd.Contratos
                 .Include(c => c.Pacotes)
                 .Include(c => c.Promocoes)
                 .Include(c => c.Utilizadores)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
+
+            var funcionario = await bd.Utilizadores
+                .FirstOrDefaultAsync(m => m.UtilizadorId == contratos.FuncionarioId);
+
+            ViewData["FuncionarioNome"] = funcionario.Nome;
+
+
             if (contratos == null)
             {
                 return View("Inexistente");
