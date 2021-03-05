@@ -13,6 +13,134 @@
             <section class="wrapper">
 
 
+                                @*@if (ViewBag.TipoUtil == "Select")
+                                {
+                                    <h1>Clientes</h1>
+                                    <p>Selecione o Cliente ao qual pretende associar o contrato.</p>
+                                }*@
+                                else
+                                {
+                                    <h1>Funcionários</h1>
+                                }
+                            </header>
+                            <table class="table table-striped table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nome)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nif)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataNascimento)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Morada)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Telemovel)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CodigoPostal)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Role)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (ViewBag.TipoUtil == "Cliente")
+                                    {
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                @if (item.Role == "Cliente")
+                                                {
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Nome)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Nif)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DataNascimento)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Morada)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Telemovel)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Email)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CodigoPostal)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Role)
+                                                    </td>
+                                                    <td>
+                                                        <a asp-action="Edit" asp-route-id="@item.UtilizadorId">Edit</a> |
+                                                        <a asp-action="Details" asp-route-id="@item.UtilizadorId">Details</a> |
+                                                        <a asp-action="Delete" asp-route-id="@item.UtilizadorId">Delete</a>
+                                                    </td>
+                                                }
+                                            </tr>
+                                        }
+                                    }
+                                    @if (ViewBag.TipoUtil != "Cliente")
+                                    {
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                @if (item.Role != "Cliente")
+                                                {
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Nome)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Nif)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DataNascimento)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Morada)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Telemovel)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Email)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CodigoPostal)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Role)
+                                                    </td>
+                                                    <td>
+                                                        <a asp-action="Edit" asp-route-id="@item.UtilizadorId">Edit</a> |
+                                                        <a asp-action="Details" asp-route-id="@item.UtilizadorId">Details</a> |
+                                                        <a asp-action="Delete" asp-route-id="@item.UtilizadorId">Delete</a>
+                                                    </td>
+                                                }
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+
+
                 @if (ViewBag.TipoUtil != "Cliente")
                 {
                     <div class="container row p-0 m-0">
