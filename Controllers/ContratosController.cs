@@ -23,28 +23,43 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> Index(string nifpesquisar, int pagina = 1)
         {
 
-            Paginacao paginacao = new Paginacao
+            if (nifpesquisar != null)
             {
-                TotalItems = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar)).CountAsync(),
-                PaginaAtual = pagina
+                Paginacao paginacao = new Paginacao
+                {
+                    TotalItems = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar)).CountAsync(),
+                    PaginaAtual = pagina
 
-            };
+                };
 
-            List<Contratos> contratos = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar))
-                .Include(p => p.Utilizadores)
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
+                List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar))
+                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao.ItemsPorPagina)
+                    .ToListAsync();
 
-            ContratosViewModel modelo = new ContratosViewModel
+                ContratosViewModel modelo1 = new ContratosViewModel
+                {
+
+                    Contratos = contratos,
+                    Paginacao = paginacao,
+                    NifPesquisar = nifpesquisar
+                };
+
+                
+
+                return View(modelo1);
+            }
+            else
             {
+                ContratosViewModel modelo2 = new ContratosViewModel
+                {
 
-                Contratos = contratos,
-                Paginacao = paginacao,
-                NifPesquisar = nifpesquisar
+                    NifPesquisar = nifpesquisar
+                };
 
-            };
-            return View(modelo);
+                return View(modelo2);
+            }
+  
         }
         // GET: Contratos/Details/5
         public async Task<IActionResult> Details(int? id)
