@@ -11,21 +11,9 @@
         <section id="main-content">
             <section class="wrapper">
                 <header>
-                    @if (ViewBag.TipoUtil == "Select")
-                    {
-                        <h1>Clientes</h1>
-                        <p>Selecione o Cliente ao qual pretende associar o contrato.</p>
-                    }
-
-                    @if (ViewBag.TipoUtil == "Cliente")
-                    {
-                        <h1>Clientes</h1>
-                        <p>Selecione o Cliente ao qual pretende associar o contrato.</p>
-                    }
-                    else
-                    {
+                    
                         <h1>Funcionários</h1>
-                    }
+                    
                 </header>
 
                     <div class="row">
@@ -43,14 +31,14 @@
                         <div class="panel-body">
                             Insira na barra de pesquisa o NIF do utilizador cujo utilizador pretende consultar
                             <br />
-                            <form class="form-horizontal " asp-action="Index" method="get">
+                            <form class="form-horizontal " asp-action="IndexClientes" method="get">
                                 <div class="form-group">
                                     <div class="col-lg-10">
                                         <input name="nifPesquisa" type="search" value="@Model.nifPesquisa" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
                                     </div>
                                     <div class="col-lg-10">
                                         <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
-                                        <a asp-action="Index" class="btn btn-primary btn-lg">Limpar</a>
+                                        <a asp-action="IndexClientes" class="btn btn-primary btn-lg">Limpar</a>
                                     </div>
                                 </div>
 
