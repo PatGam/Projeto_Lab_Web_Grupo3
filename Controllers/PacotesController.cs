@@ -83,7 +83,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
 
             var servicos = bd.Servicos.ToList();
-            var tiposservicos = bd.TiposServicos.ToList();
+            var tiposServicos = bd.TiposServicos.ToList();
+
+            ViewData["Tipo1"] = tiposServicos[0].Nome;
+            ViewData["Tipo2"] = tiposServicos[1].Nome;
+            ViewData["Tipo3"] = tiposServicos[2].Nome;
+            ViewData["Tipo4"] = tiposServicos[3].Nome;
+            ViewData["Tipo5"] = tiposServicos[4].Nome;
 
             List<Servicos> Lista1 = new List<Servicos>();
             List<Servicos> Lista2 = new List<Servicos>();
@@ -123,7 +129,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["Lista4"] = new SelectList(Lista4, "ServicoId", "Nome");
             ViewData["Lista5"] = new SelectList(Lista5, "ServicoId", "Nome");
 
+
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
+
             servicosPacotesViewModel.ListaServicos = servicos.Select(s => new Checkbox()
             {
                 Id = s.ServicoId,
