@@ -47,8 +47,8 @@ function loadDataTableFuncionarios() {
 
 function Delete(url) {
     swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover",
+        title: "Tem a certeza que deseja arquivar este Funcionário?",
+
         icon: "warning",
         buttons: true,
         dangerMode: true
