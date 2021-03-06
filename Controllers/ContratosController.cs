@@ -20,50 +20,85 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos
-        public async Task<IActionResult> Index(string nifpesquisar, int pagina = 1)
+        public async Task<IActionResult> Index(string nifpesquisar, bool inactivo, int pagina = 1)
         {
             if (User.IsInRole("Operador"))
             { 
                 if (nifpesquisar != null)
                 {
-                Paginacao paginacao = new Paginacao
-                {
-                    TotalItems = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar)).CountAsync(),
-                    PaginaAtual = pagina
+                    if(inactivo == false)
+                    {
+                        Paginacao paginacao = new Paginacao
+                        {
+                            TotalItems = await bd.Contratos
+                            .Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar) && p.Inactivo == false)
+                            .CountAsync(),
+                            PaginaAtual = pagina
 
-                };
+                        };
 
-                List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar))
-                    .Include(c => c.Pacotes)
-                    .Include(c => c.Utilizadores)
-                    .OrderByDescending(p => p.DataInicio)
-                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                    .Take(paginacao.ItemsPorPagina)
-                    .ToListAsync();
+                        List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar) && p.Inactivo == false)
+                            .Include(c => c.Pacotes)
+                            .Include(c => c.Utilizadores)
+                            .OrderByDescending(p => p.DataInicio)
+                            .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                            .Take(paginacao.ItemsPorPagina)
+                            .ToListAsync();
+
+                        ContratosViewModel modelo1 = new ContratosViewModel
+                        {
+                            Contratos = contratos,
+                            Paginacao = paginacao,
+                            NifPesquisar = nifpesquisar,
+                            Inactivo = inactivo,
+                        };
+
+                        return View(modelo1);
+
+                    }
+
+                    else
+                    {
+                        Paginacao paginacao = new Paginacao
+                        {
+                            TotalItems = await bd.Contratos
+                            .Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar))
+                            .CountAsync(),
+                            PaginaAtual = pagina
+
+                        };
+
+                        List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar))
+                            .Include(c => c.Pacotes)
+                            .Include(c => c.Utilizadores)
+                            .OrderByDescending(p => p.DataInicio)
+                            .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                            .Take(paginacao.ItemsPorPagina)
+                            .ToListAsync();
 
 
-                ContratosViewModel modelo1 = new ContratosViewModel
-                {
+                        ContratosViewModel modelo1 = new ContratosViewModel
+                        {
 
-                    Contratos = contratos,
-                    Paginacao = paginacao,
-                    NifPesquisar = nifpesquisar
-                };
+                            Contratos = contratos,
+                            Paginacao = paginacao,
+                            NifPesquisar = nifpesquisar,
+                            Inactivo = inactivo,
+                        };
 
+                        return View(modelo1);
+                    }
+                }
                 
-
-                return View(modelo1);
-            }
-                else
-            {
-                ContratosViewModel modelo2 = new ContratosViewModel
                 {
+                    ContratosViewModel modelo2 = new ContratosViewModel
+                    {
 
-                    NifPesquisar = nifpesquisar
-                };
+                        NifPesquisar = nifpesquisar
+                    };
 
-                return View(modelo2);
-            }
+                    return View(modelo2);
+                }
             }
             else
             {

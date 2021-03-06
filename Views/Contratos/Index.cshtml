@@ -37,12 +37,19 @@
                                             <input name="NifPesquisar" type="search" value="@Model.NifPesquisar" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
                                         </div>
                                         <div class="col-lg-10">
-                                            <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
-                                            <a asp-action="Index" class="btn btn-primary btn-lg">Limpar</a>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" asp-for="@Model.Inactivo">
+                                                    Incluir inactivos
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
+                                                <a asp-action="Index" class="btn btn-primary btn-lg">Limpar</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                </form>
+</form>
                             </div>
                         </section>
                         @if (Model.NifPesquisar != null)
