@@ -25,51 +25,91 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores
-        public async Task<IActionResult> Index(string nifPesquisa, int pagina = 1)
+        public async Task<IActionResult> Index(string tipoUtil, string nifPesquisa, int pagina = 1)
         {
 
 
-
+            
 
             //string que especifica o asp-router
             //ViewData["TipoUtil"] = tipoUtil;
             //return View(await _context.Utilizadores.ToListAsync());
-
-            if (nifPesquisa != null)
+            if (tipoUtil == "Cliente")
             {
-                Paginacao paginacao = new Paginacao
+                if (nifPesquisa != null)
                 {
-                    TotalItems = await _context.Utilizadores.Where(p => nifPesquisa == null || p.Nif.Contains(nifPesquisa)).CountAsync(),
-                    PaginaAtual = pagina
+                    Paginacao paginacao = new Paginacao
+                    {
+                        TotalItems = await _context.Utilizadores.Where(p => nifPesquisa == null || p.Nif.Contains(nifPesquisa)).CountAsync(),
+                        PaginaAtual = pagina
 
-                };
+                    };
 
-                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false)
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
+                    List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false && p.Role == "Cliente")
+                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao.ItemsPorPagina)
+                    .ToListAsync();
 
-                UtilizadoresViewModel model1 = new UtilizadoresViewModel
+                    UtilizadoresViewModel model1 = new UtilizadoresViewModel
+                    {
+                        Utilizador = utilizadores,
+                        Paginacao = paginacao,
+                        nifPesquisa = nifPesquisa
+
+                    };
+
+                    return View(model1);
+
+                }
+                else
                 {
-                    Utilizador = utilizadores,
-                    Paginacao = paginacao,
-                    nifPesquisa = nifPesquisa
+                    UtilizadoresViewModel model2 = new UtilizadoresViewModel
+                    {
+                        nifPesquisa = nifPesquisa
+                    };
 
-                };
+                    return View(model2);
 
-                return View(model1);
-
+                }
             }
             else
             {
-                UtilizadoresViewModel model2 = new UtilizadoresViewModel
+                if (nifPesquisa != null)
                 {
-                    nifPesquisa = nifPesquisa
-                };
+                    Paginacao paginacao = new Paginacao
+                    {
+                        TotalItems = await _context.Utilizadores.Where(p => nifPesquisa == null || p.Nif.Contains(nifPesquisa)).CountAsync(),
+                        PaginaAtual = pagina
 
-                return View(model2);
+                    };
 
-            }
+                    List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false && p.Role != "Cliente")
+                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao.ItemsPorPagina)
+                    .ToListAsync();
+
+                    UtilizadoresViewModel model1 = new UtilizadoresViewModel
+                    {
+                        Utilizador = utilizadores,
+                        Paginacao = paginacao,
+                        nifPesquisa = nifPesquisa
+
+                    };
+
+                    return View(model1);
+
+                }
+                else
+                {
+                    UtilizadoresViewModel model2 = new UtilizadoresViewModel
+                    {
+                        nifPesquisa = nifPesquisa
+                    };
+
+                    return View(model2);
+
+                }
+            };
 
 
         }
