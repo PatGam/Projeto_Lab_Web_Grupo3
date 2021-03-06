@@ -37,12 +37,19 @@
                                             <input name="NifPesquisar" type="search" value="@Model.NifPesquisar" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
                                         </div>
                                         <div class="col-lg-10">
-                                            <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
-                                            <a asp-action="Index" class="btn btn-primary btn-lg">Limpar</a>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" asp-for="@Model.Inactivo">
+                                                    Incluir inactivos
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
+                                                <a asp-action="Index" class="btn btn-primary btn-lg">Limpar</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                </form>
+</form>
                             </div>
                         </section>
                         @if (Model.NifPesquisar != null)
@@ -74,33 +81,46 @@
                                                         <th><i class="icon_calendar"></i> Data de fim</th>
                                                         <th><i class="icon_pin_alt"></i> Mensalidade</th>
                                                         <th><i class="icon_mobile"></i> Pacote associado</th>
+                                                        <th><i class="icon_mobile"></i> Estado</th>
 
                                                     </tr>
                                                     @foreach (var item in Model.Contratos)
                                                     {
 
-                                                        <tr>
+                                                <tr>
 
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.Utilizadores.Nome)
-                                                            </td>
-                                                            <td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Utilizadores.Nome)
+                                                    </td>
+                                                    <td>
 
-                                                                @Html.DisplayFor(modelItem => item.DataInicio)
+                                                        @Html.DisplayFor(modelItem => item.DataInicio)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DataFim)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PrecoFinal)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Pacotes.Nome)
+                                                    </td>
+                                                        @if (item.Inactivo == true)
+                                                        {
+                                                            <td style="color: red">
+                                                                Inactivo
                                                             </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.DataFim)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.PrecoFinal)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.Pacotes.Nome)
-                                                            </td>
-                                                            <td>
-                                                                <a class="btn btn-primary" asp-area="" asp-controller="Contratos" asp-action="Details" asp-route-id="@item.ContratoId"><i class="icon_plus_alt2"></i></a>
-                                                            </td>
-                                                        </tr>
+                                                        }
+                                                        else
+                                                        {
+                                                        <td>
+                                                            Activo
+                                                        </td>
+                                                        }
+                                                <td>
+                                                    <a class="btn btn-primary" asp-area="" asp-controller="Contratos" asp-action="Details" asp-route-id="@item.ContratoId"><i class="icon_plus_alt2"></i></a>
+                                                </td>
+                                                </tr>
 
                                                     }
                                                 </tbody>
