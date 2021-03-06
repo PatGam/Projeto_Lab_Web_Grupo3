@@ -45,6 +45,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             if (utilizadores.Role == "Cliente")
             {
+                utilizadores = await _context.Utilizadores.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
                 ViewBag.Titulo = "Clientes";
             }
 
