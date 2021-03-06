@@ -1725,12 +1725,13 @@ h2#dlg-header {
 
         .navbarPData a i {
             font-size: 16px;
-            line-height: 0;
+            line-height: 5;
             margin-left: 7px;
         }
 
         .navbarPData a:hover, .navbarPData li:hover > a {
             color: #e7e7e7;
+            cursor: pointer;
         }
     
 @media (max-width: 1366px) {
