@@ -11,132 +11,140 @@
     <section id="container" class="">
         <section id="main-content">
             <section class="wrapper">
+                <header>
+                @if (ViewBag.TipoUtil == "Select")
+                {
+                    <h1>Clientes</h1>
+                    <p>Selecione o Cliente ao qual pretende associar o contrato.</p>
+                }
 
+                @if (ViewBag.TipoUtil == "Cliente")
+                {
+                    <h1>Clientes</h1>
+                    <p>Selecione o Cliente ao qual pretende associar o contrato.</p>
+                }
+                else
+                {
+                    <h1>Funcionários</h1>
+                }
+                </header>
+                <table class="table table-striped table-advance table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nif)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DataNascimento)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Morada)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Telemovel)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CodigoPostal)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Role)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.TipoUtil == "Cliente" || ViewBag.TipoUtil == "Select")
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @if (item.Role == "Cliente")
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nif)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataNascimento)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Morada)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Telemovel)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodigoPostal)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Role)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.UtilizadorId">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.UtilizadorId">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.UtilizadorId">Delete</a>
+                                            <a asp-area="" asp-controller="Contratos" asp-action="Create" asp-route-cliente=@item.UtilizadorId>Associar contrato</a> |
 
-                                @*@if (ViewBag.TipoUtil == "Select")
-                                {
-                                    <h1>Clientes</h1>
-                                    <p>Selecione o Cliente ao qual pretende associar o contrato.</p>
-                                }*@
-                                else
-                                {
-                                    <h1>Funcionários</h1>
-                                }
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Nome)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Nif)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.DataNascimento)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Morada)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Telemovel)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Email)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.CodigoPostal)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Role)
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (ViewBag.TipoUtil == "Cliente")
-                                    {
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                @if (item.Role == "Cliente")
-                                                {
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Nome)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Nif)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.DataNascimento)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Morada)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Telemovel)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Email)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.CodigoPostal)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Role)
-                                                    </td>
-                                                    <td>
-                                                        <a asp-action="Edit" asp-route-id="@item.UtilizadorId">Edit</a> |
-                                                        <a asp-action="Details" asp-route-id="@item.UtilizadorId">Details</a> |
-                                                        <a asp-action="Delete" asp-route-id="@item.UtilizadorId">Delete</a>
-                                                    </td>
-                                                }
-                                            </tr>
-                                        }
+                                        </td>
                                     }
-                                    @if (ViewBag.TipoUtil != "Cliente")
+                                </tr>
+                            }
+                        }
+                        @if (ViewBag.TipoUtil != "Cliente")
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @if (item.Role != "Cliente")
                                     {
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                @if (item.Role != "Cliente")
-                                                {
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Nome)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Nif)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.DataNascimento)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Morada)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Telemovel)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Email)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.CodigoPostal)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Role)
-                                                    </td>
-                                                    <td>
-                                                        <a asp-action="Edit" asp-route-id="@item.UtilizadorId">Edit</a> |
-                                                        <a asp-action="Details" asp-route-id="@item.UtilizadorId">Details</a> |
-                                                        <a asp-action="Delete" asp-route-id="@item.UtilizadorId">Delete</a>
-                                                    </td>
-                                                }
-                                            </tr>
-                                        }
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nif)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataNascimento)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Morada)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Telemovel)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodigoPostal)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Role)
+                                        </td>
+                                        <td>
+
+                                            <a asp-action="Edit" asp-route-id="@item.UtilizadorId">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.UtilizadorId">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.UtilizadorId">Delete</a>
+                                        </td>
                                     }
-                                </tbody>
-                            </table>
-                        </section>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </section>
                     </div>
                 </div>
 

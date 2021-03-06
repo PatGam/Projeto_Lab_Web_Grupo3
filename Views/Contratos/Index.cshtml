@@ -18,132 +18,169 @@
                 </ol>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <section class="panel">
-                    <header class="panel-heading">
-                        Consultar contratos
-                    </header>
+        @if (User.IsInRole("Operador"))
+        {
+
+            <div class="row">
+                <div class="col-lg-12">
                     <section class="panel">
-                        <div class="panel-body">
-                            Insira na barra de pesquisa o NIF do cliente cujo(s) contrato(s) pretende consultar
-                            <br />
-                            <form class="form-horizontal " asp-action="Index" method="get">
-                                <div class="form-group">
-                                    <div class="col-lg-10">
-                                        <input name="NifPesquisar" type="search" value="@Model.NifPesquisar" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
+                        <header class="panel-heading">
+                            Consultar contratos
+                        </header>
+                        <section class="panel">
+                            <div class="panel-body">
+                                Insira na barra de pesquisa o NIF do cliente cujo(s) contrato(s) pretende consultar
+                                <br />
+                                <form class="form-horizontal " asp-action="Index" method="get">
+                                    <div class="form-group">
+                                        <div class="col-lg-10">
+                                            <input name="NifPesquisar" type="search" value="@Model.NifPesquisar" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
+                                            <a asp-action="Index" class="btn btn-primary btn-lg">Limpar</a>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-10">
-                                        <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
-                                        <a asp-action="Index" class="btn btn-primary btn-lg">Limpar</a>
-                                    </div>
-                                </div>
 
-                            </form>
-                        </div>
+                                </form>
+                            </div>
+                        </section>
+                        @if (Model.NifPesquisar != null)
+
+                        {
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            Resultados
+                                        </header>
+                                        @if (Model.Contratos.Count == 0)
+                                        {
+                                            <div class="alert alert-block alert-danger fade in">
+                                                <button data-dismiss="alert" class="close close-sm" type="button">
+                                                </button>
+                                                Não foram encontrados clientes com o NIF @Model.NifPesquisar
+                                            </div>
+
+                                        }
+
+                                        else
+                                        {
+                                            <table class="table table-striped table-advance table-hover">
+                                                <tbody>
+                                                    <tr>
+                                                        <th><i class="icon_profile"></i> Nome do Cliente</th>
+                                                        <th><i class="icon_calendar"></i> Data de início</th>
+                                                        <th><i class="icon_calendar"></i> Data de fim</th>
+                                                        <th><i class="icon_pin_alt"></i> Mensalidade</th>
+                                                        <th><i class="icon_mobile"></i> Pacote associado</th>
+
+                                                    </tr>
+                                                    @foreach (var item in Model.Contratos)
+                                                    {
+
+                                                        <tr>
+
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Utilizadores.Nome)
+                                                            </td>
+                                                            <td>
+
+                                                                @Html.DisplayFor(modelItem => item.DataInicio)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.DataFim)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.PrecoFinal)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Pacotes.Nome)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-primary" asp-area="" asp-controller="Contratos" asp-action="Details" asp-route-id="@item.ContratoId"><i class="icon_plus_alt2"></i></a>
+                                                            </td>
+                                                        </tr>
+
+                                                    }
+                                                </tbody>
+                                            </table>
+
+
+                                            <nav>
+                                                <ul class="pagination">
+                                                    @{
+                                                        int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                                                        if (paginaInicial < 1)
+                                                        {
+                                                            paginaInicial = 1;
+                                                        }
+
+                                                        int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                                                        if (paginaFinal > Model.Paginacao.TotalPaginas)
+                                                        {
+                                                            paginaFinal = Model.Paginacao.TotalPaginas;
+                                                        }
+                                                    }
+
+                                                    <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
+                                                        <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-NifPesquisar="@Model.NifPesquisar">Primeiro</a>
+                                                    </li>
+
+                                                    @for (int i = paginaInicial; i <= paginaFinal; i++)
+                                                    {
+                                                        <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
+                                                            <a class="page-link" asp-action="Index" asp-route-pagina="@i" asp-route-NifPesquisar="@Model.NifPesquisar">@i</a>
+                                                        </li>
+                                                    }
+
+                                                    <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas ? "disabled" : "")">
+                                                        <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-NifPesquisar="@Model.NifPesquisar">Último</a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+
+                                        }
+                                    </section>
+
+                                </div>
+                            </div>
+                        }
                     </section>
-                    @if (Model.NifPesquisar != null)
-                        
-                    {
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <section class="panel">
-                                    <header class="panel-heading">
-                                        Resultados
-                                    </header>
-                                    @if (Model.Contratos.Count == 0)
-                                    {
-                                <div class="alert alert-block alert-danger fade in">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                    </button>
-                                    Não foram encontrados clientes com o NIF @Model.NifPesquisar
-                                </div>
+                </div>
+            </div>
+        }
 
+        @if (User.IsInRole("Cliente"))
+        {
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Consultar contratos
+                        </header>
+                        <section class="panel">
+                            <div class="panel-body">
+                                <table>
+                                    @foreach(var item in Model.Contratos)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataInicio)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataFim)
+                                        </td>
+                                    </tr>
                                     }
 
-                                    else
-                                    {
-                                    <table class="table table-striped table-advance table-hover">
-                                        <tbody>
-                                            <tr>
-                                                <th><i class="icon_profile"></i> Nome do Cliente</th>
-                                                <th><i class="icon_calendar"></i> Data de início</th>
-                                                <th><i class="icon_calendar"></i> Data de fim</th>
-                                                <th><i class="icon_pin_alt"></i> Mensalidade</th>
-                                                <th><i class="icon_mobile"></i> Pacote associado</th>
-
-                                            </tr>
-                                            @foreach (var item in Model.Contratos)
-                                            {
-
-                                                <tr>
-
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Utilizadores.Nome)
-                                                    </td>
-                                                    <td>
-
-                                                        @Html.DisplayFor(modelItem => item.DataInicio)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.DataFim)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.PrecoFinal)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.Pacotes.Nome)
-                                                    </td>
-
-                                                </tr>
-
-                                            }
-                                        </tbody>
-                                    </table>
-
-
-                                    <nav>
-                                        <ul class="pagination">
-                                            @{
-                                                int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-                                                if (paginaInicial < 1)
-                                                {
-                                                    paginaInicial = 1;
-                                                }
-
-                                                int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-                                                if (paginaFinal > Model.Paginacao.TotalPaginas)
-                                                {
-                                                    paginaFinal = Model.Paginacao.TotalPaginas;
-                                                }
-                                            }
-
-                                            <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-                                                <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-NifPesquisar="@Model.NifPesquisar">Primeiro</a>
-                                            </li>
-
-                                            @for (int i = paginaInicial; i <= paginaFinal; i++)
-                                            {
-                                                <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                                                    <a class="page-link" asp-action="Index" asp-route-pagina="@i" asp-route-NifPesquisar="@Model.NifPesquisar">@i</a>
-                                                </li>
-                                            }
-
-                                            <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas ? "disabled" : "")">
-                                                <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-NifPesquisar="@Model.NifPesquisar">Último</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-
-                                                }
-                                </section>
-                                
-                            </div>
-                        </div>
-                    }
+                                </table>
+                                </div>
+                            </section>
                     </section>
+                </div>
             </div>
-        </div>
+        }
     </section>
 </section>
 
