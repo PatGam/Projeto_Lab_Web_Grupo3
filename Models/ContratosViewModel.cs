@@ -11,9 +11,17 @@ namespace Projeto_Lab_Web_Grupo3.Models
     {
         public List<Contratos> Contratos { get; set; }
         public Paginacao Paginacao { get; set; }
-        public string NomePesquisar { get; set; }
+        public string NifPesquisar { get; set; }
         public List<Promocoes> Promocoes { get; set; }
         public List<Pacotes> Pacotes { get; set; }
+        public int UtilizadorId { get; set; }
+
+        public int FuncionarioId { get; set; }
+
+        public Utilizadores Utilizadores { get; set; }
+
+        public bool Inactivo { get; set; }
+
 
 
 

@@ -1,36 +1,41 @@
-﻿var dataTable;
+﻿var dataTableFuncionarios;
 
 $(document).ready(function () {
-    loadDataTable();
+    loadDataTableFuncionarios();
 });
 
-function loadDataTable() {
-    dataTable = $('#DT_load_Pacote').DataTable({
+function loadDataTableFuncionarios() {
+    dataTableFuncionarios = $('#DT_load_Utilizadores_Funcionarios').dataTable({
         "ajax": {
-            "url": "/pacotes/getall/",
+            "url": "/utilizadores/getallfuncionarios/",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "nome", "width": "30%" },
-            { "data": "preco", "width": "30%" },
+            { "data": "nome", "width": "12%" },
+            { "data": "nif", "width": "12%" },
+            { "data": "dataNascimento", "width": "12%" },
+            { "data": "morada", "width": "12%" },
+            { "data": "telemovel", "width": "12%" },
+            { "data": "email", "width": "12%" },
+            { "data": "role", "width": "12%" },
             {
-                "data": "pacoteId",
+                "data": "utilizadorId",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/Pacotes/Edit?id=${data}" class='btn btn btn-warning'>
+                        <a href="/Utilizadores/Edit?id=${data}" class='btn btn btn-warning'>
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
                         &nbsp;
-                        <a href="/Pacotes/Details?id=${data}" class='btn btn-primary'>
+                        <a href="/Utilizadores/Details?id=${data}" class='btn btn-primary'>
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                         </a>
                         &nbsp;
-                        <a class='btn btn-danger ' onclick=Delete('/pacotes/Delete?id='+${data})>
+                        <a class='btn btn-danger ' onclick=Delete('/utilizadores/Delete?id='+${data})>
                             <i class="icon_close_alt2"></i>
                         </a>
                         </div>`;
-                }, "width": "40%"
+                }, "width": "16%"
             }
         ],
         "language": {
@@ -42,7 +47,7 @@ function loadDataTable() {
 
 function Delete(url) {
     swal({
-        title: "Tem a certeza que deseja arquivar este Pacote?",
+        title: "Tem a certeza que deseja arquivar este Funcionário?",
 
         icon: "warning",
         buttons: true,
@@ -55,7 +60,7 @@ function Delete(url) {
                 success: function (data) {
                     if (data.success) {
                         toastr.success(data.message);
-                        dataTable.ajax.reload();
+                        dataTableFuncionarios.ajax.reload();
                     }
                     else {
                         toastr.error(data.message);

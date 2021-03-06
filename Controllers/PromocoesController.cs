@@ -259,5 +259,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             return bd.Promocoes.Any(e => e.PromocoesId == id);
         }
+
+        #region API Calls
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var promocoes = await bd.Promocoes
+                .Select(s => new { s.PromocoesId, s.Nome, s.DataInicio, s.DataFim, s.PromocaoDesc, s.Inactivo })
+                .Where(i => i.Inactivo == false && i.DataInicio < DateTime.Now && i.DataFim > DateTime.Now)
+                .ToListAsync();
+            return Json(new { data = promocoes });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var promocaoFromDb = await bd.Promocoes.FirstOrDefaultAsync(s => s.PromocoesId == id);
+            if (promocaoFromDb == null)
+            {
+                return Json(new { success = false, message = "Erro ao eliminar a promoção" });
+            }
+            bd.Promocoes.Remove(promocaoFromDb);
+            await bd.SaveChangesAsync();
+            return Json(new { success = true, message = "A Promoção foi eliminado com sucesso" });
+        }
+        #endregion
     }
 }

@@ -1,38 +1,35 @@
 ﻿
 @{
-    ViewData["Title"] = "Sucesso";
+    ViewData["Title"] = "Sucesso!";
     Layout = "_LayoutAdmin";
 }
-<body>
-    <!-- container section start -->
-    <section id="container" class="">
-        <section id="main-content">
-            <section class="wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                              
-                            </header>
-                            <div class="card text-white bg-success mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">@ViewBag.Title</h5>
-                                    <p class="card-text">@ViewBag.Mensagem</p>
-
-                                    <div>
-                                        <a class="btn btn-primary" asp-action="Index">
-                                            Voltar aos Contratos.
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa-file-text-o"></i>Contratos</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                    <li><i class="icon_document_alt"></i>Contratos</li>
+                    <li><i class="fa fa-file-text-o"></i>Criar</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <div class="alert alert-success fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                        </button>
+                        <strong>@ViewBag.Title</strong> @ViewBag.Mensagem
                     </div>
-                </div>
-            </section>
-        </section>
+                    <a class="btn btn-info" asp-action="Index">Volta à lista</a>
+                </section>
+            </div>
+        </div>
     </section>
-</body>
+</section>
+
 
 
 

@@ -21,6 +21,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
                 ErrorMessage = "Tipo de Serviço já existe")]
         public string Nome { get; set; }
 
+        public string Icone { get; set; }
+
         public ICollection<Servicos> Servicos { get; set; }
 
     }

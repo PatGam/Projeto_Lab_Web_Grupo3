@@ -29,7 +29,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [RegularExpression(@"(9[1236]|2\d)\d{7}", ErrorMessage = "Telefone Inválido")]
         public string Telemovel { get; set; }
-   
+
 
         [Required(ErrorMessage = "Preencha o email do cliente")]
         [StringLength(100, ErrorMessage = "O email não pode ter mais de 100 caracteres")]
@@ -47,6 +47,11 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Required]
         [StringLength(256)]
         [DataType(DataType.Password)]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,}$", ErrorMessage = "A Password deve conter: Minímo 8 caracteres;  " +
+            "Pelo menos 1 letra maiúscula; " +
+            "Pelo menos 1 letra minúscula; " +
+            "Pelo menos 1 Número; " +
+            "1 caracter especial($ @ ! % ? &);")]
         public string Password { get; set; }
 
         [Required]

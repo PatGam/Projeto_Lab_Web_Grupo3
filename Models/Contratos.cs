@@ -15,13 +15,20 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public int UtilizadorId { get; set; }
         public Utilizadores Utilizadores { get; set; }
 
+
+        [Display(Name = "Nome do cliente")]
         public int ClienteId { get; set; }
+
+        [Display(Name = "Funcionário responsável")]
         public int FuncionarioId { get; set; }
+
+        [Display(Name = "Pacote utilizado")]
 
         public int PacoteId { get; set; }
 
         public Pacotes Pacotes { get; set; }
 
+        [Display(Name = "Promoção aplicada")]
         public int PromocoesId { get; set; }
 
         public Promocoes Promocoes { get; set; }

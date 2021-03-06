@@ -5,32 +5,34 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-    dataTable = $('#DT_load_Pacote').DataTable({
+    dataTable = $('#DT_load_Contrato').DataTable({
         "ajax": {
-            "url": "/pacotes/getall/",
+            "url": "/contratos/getall/",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "nome", "width": "30%" },
-            { "data": "preco", "width": "30%" },
+            { "data": "dataInicio", "width": "20%" },
+            { "data": "dataFim", "width": "20%" },
+            { "data": "valorFinal", "width": "20%" },
+            { "data": "telefone", "width": "20%"},
             {
-                "data": "pacoteId",
+                "data": "contratoId",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/Pacotes/Edit?id=${data}" class='btn btn btn-warning'>
+                        <a href="/Contratos/Edit?id=${data}" class='btn btn btn-warning'>
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
                         &nbsp;
-                        <a href="/Pacotes/Details?id=${data}" class='btn btn-primary'>
+                        <a href="/Contratos/Details?id=${data}" class='btn btn-primary'>
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                         </a>
                         &nbsp;
-                        <a class='btn btn-danger ' onclick=Delete('/pacotes/Delete?id='+${data})>
+                        <a class='btn btn-danger ' onclick=Delete('/contratos/Delete?id='+${data})>
                             <i class="icon_close_alt2"></i>
                         </a>
                         </div>`;
-                }, "width": "40%"
+                }, "width": "20%"
             }
         ],
         "language": {
@@ -42,8 +44,7 @@ function loadDataTable() {
 
 function Delete(url) {
     swal({
-        title: "Tem a certeza que deseja arquivar este Pacote?",
-
+        title: "Tem a certeza que deseja arquivar este Contrato?",
         icon: "warning",
         buttons: true,
         dangerMode: true

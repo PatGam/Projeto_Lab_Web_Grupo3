@@ -20,9 +20,111 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nifpesquisar, bool inactivo, int pagina = 1)
         {
-            return View(await bd.Contratos.ToListAsync());
+            if (User.IsInRole("Operador"))
+            { 
+                if (nifpesquisar != null)
+                {
+                    if(inactivo == false)
+                    {
+                        Paginacao paginacao = new Paginacao
+                        {
+                            TotalItems = await bd.Contratos
+                            .Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar) && p.Inactivo == false)
+                            .CountAsync(),
+                            PaginaAtual = pagina
+
+                        };
+
+                        List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar) && p.Inactivo == false)
+                            .Include(c => c.Pacotes)
+                            .Include(c => c.Utilizadores)
+                            .OrderByDescending(p => p.DataInicio)
+                            .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                            .Take(paginacao.ItemsPorPagina)
+                            .ToListAsync();
+
+                        ContratosViewModel modelo1 = new ContratosViewModel
+                        {
+                            Contratos = contratos,
+                            Paginacao = paginacao,
+                            NifPesquisar = nifpesquisar,
+                            Inactivo = inactivo,
+                        };
+
+                        return View(modelo1);
+
+                    }
+
+                    else
+                    {
+                        Paginacao paginacao = new Paginacao
+                        {
+                            TotalItems = await bd.Contratos
+                            .Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar))
+                            .CountAsync(),
+                            PaginaAtual = pagina
+
+                        };
+
+                        List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar))
+                            .Include(c => c.Pacotes)
+                            .Include(c => c.Utilizadores)
+                            .OrderByDescending(p => p.DataInicio)
+                            .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                            .Take(paginacao.ItemsPorPagina)
+                            .ToListAsync();
+
+
+                        ContratosViewModel modelo1 = new ContratosViewModel
+                        {
+
+                            Contratos = contratos,
+                            Paginacao = paginacao,
+                            NifPesquisar = nifpesquisar,
+                            Inactivo = inactivo,
+                        };
+
+                        return View(modelo1);
+                    }
+                }
+                
+                {
+                    ContratosViewModel modelo2 = new ContratosViewModel
+                    {
+
+                        NifPesquisar = nifpesquisar
+                    };
+
+                    return View(modelo2);
+                }
+            }
+            else
+            {
+                Paginacao paginacao2 = new Paginacao
+                {
+                    TotalItems = await bd.Contratos.Include(p => p.Utilizadores).Where(p => p.Utilizadores.Email == User.Identity.Name).CountAsync(),
+                    PaginaAtual = pagina
+                };
+
+                List<Contratos> contratos2 = await bd.Contratos
+                    .Include(c => c.Pacotes)
+                    .Include(c => c.Utilizadores)
+                    .Include(p => p.Utilizadores).Where(p => p.Utilizadores.Email == User.Identity.Name)
+                    .OrderByDescending(p => p.DataInicio)
+                    .Skip(paginacao2.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao2.ItemsPorPagina)
+                    .ToListAsync();
+
+                ContratosViewModel modelo3 = new ContratosViewModel
+                {
+                    Contratos = contratos2,
+                    Paginacao = paginacao2,
+                };
+
+                return View(modelo3);
+            }
         }
         // GET: Contratos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -32,13 +134,18 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-
             var contratos = await bd.Contratos
                 .Include(c => c.Pacotes)
                 .Include(c => c.Promocoes)
-                //.Include(c => c.PromocoesPacotes)
                 .Include(c => c.Utilizadores)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
+
+            var funcionario = await bd.Utilizadores
+                .FirstOrDefaultAsync(m => m.UtilizadorId == contratos.FuncionarioId);
+
+            ViewData["FuncionarioNome"] = funcionario.Nome;
+
+
             if (contratos == null)
             {
                 return View("Inexistente");
@@ -47,6 +154,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(contratos);
         }
 
+
         // GET: Contratos/Create
         public IActionResult Create(int cliente)
         {
@@ -54,13 +162,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
 
             ViewData["ClienteId"] = cliente;
-            //ViewData com o nome do cliente;
             ViewData["ClienteNome"] = clienteId.Nome;
             ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
             ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
-            //ViewData["PromocoesPacotesId"] = new SelectList(bd.PromocoesPacotes, "PromocoesPacotesId", "NomePromocoes");
 
 
             return View();
@@ -76,10 +182,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             if (!ModelState.IsValid)
             {
+                var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
+
+                ViewData["ClienteId"] = contratos.UtilizadorId;
+                ViewData["ClienteNome"] = clienteId.Nome;
                 ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", contratos.PromocoesId);
-                return View(contratos);
+                ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+                return View();
             }
 
             //Código que vai buscar o ID do funcionário que tem login feito e atribui automaticamente ao contrato
@@ -92,8 +203,42 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.PrecoPacote = pacoteid.Preco;
 
             //Código que vai buscar o cliente
+            
             contratos.ClienteId = contratos.UtilizadorId;
 
+            List<PromocoesPacotes> PromocoesDisponiveis = new List<PromocoesPacotes>();
+
+            foreach(var pacote in bd.PromocoesPacotes)
+            {
+                if(contratos.PacoteId == pacote.PacoteId)
+                {
+                    PromocoesDisponiveis.Add(pacote);
+                }
+            }
+
+            bool PromoDisponivel = false;
+            foreach (var promocao in PromocoesDisponiveis)
+            {
+                if(contratos.PromocoesId == promocao.PromocoesId)
+                {
+                    PromoDisponivel = true;
+                }
+            }
+
+            if(PromoDisponivel == false)
+            {
+                var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
+
+                ViewData["ClienteId"] = contratos.UtilizadorId;
+                ViewData["ClienteNome"] = clienteId.Nome;
+                ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
+                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+                ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
+                ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+
+                ViewBag.Message = "A promoção que está a tentar aplicar não está disponível para o pacote selecionado";
+                return View(contratos);
+            }
             //Código que vai buscar o desconto da promoção
             int promo = contratos.PromocoesId;
             var promocaoid = bd.Promocoes.SingleOrDefault(e => e.PromocoesId == contratos.PromocoesId);
@@ -206,5 +351,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return bd.Contratos.Any(e => e.ContratoId == id);
         }
 
+
+        #region API Calls
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var contratos = await bd.Contratos
+                .Select(s => new { s.ContratoId, s.DataInicio, s.DataFim, s.PrecoFinal, s.Telefone , s.Inactivo })
+                .Where(i => i.Inactivo == false)
+                .ToListAsync();
+            return Json(new { data = contratos });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var contratoFromDb = await bd.Contratos.FirstOrDefaultAsync(s => s.ContratoId == id);
+            if (contratoFromDb == null)
+            {
+                return Json(new { success = false, message = "Erro ao eliminar o contrato" });
+            }
+            bd.Contratos.Remove(contratoFromDb);
+            await bd.SaveChangesAsync();
+            return Json(new { success = true, message = "O Contrato foi eliminado com sucesso" });
+        }
+        #endregion
     }
 }
