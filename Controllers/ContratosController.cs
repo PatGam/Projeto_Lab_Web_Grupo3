@@ -22,9 +22,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Contratos
         public async Task<IActionResult> Index(string nifpesquisar, int pagina = 1)
         {
-
-            if (nifpesquisar != null)
-            {
+            if (User.IsInRole("Operador"))
+            { 
+                if (nifpesquisar != null)
+                {
                 Paginacao paginacao = new Paginacao
                 {
                     TotalItems = await bd.Contratos.Where(p => nifpesquisar == null || p.Utilizadores.Nif.Contains(nifpesquisar)).CountAsync(),
@@ -33,9 +34,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 };
 
                 List<Contratos> contratos = await bd.Contratos.Where(p => p.Utilizadores.Nif.Contains(nifpesquisar))
+                    .Include(c => c.Pacotes)
+                    .Include(c => c.Utilizadores)
+                    .OrderByDescending(p => p.DataInicio)
                     .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                     .Take(paginacao.ItemsPorPagina)
                     .ToListAsync();
+
 
                 ContratosViewModel modelo1 = new ContratosViewModel
                 {
@@ -49,7 +54,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
                 return View(modelo1);
             }
-            else
+                else
             {
                 ContratosViewModel modelo2 = new ContratosViewModel
                 {
@@ -59,7 +64,32 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
                 return View(modelo2);
             }
-  
+            }
+            else
+            {
+                Paginacao paginacao2 = new Paginacao
+                {
+                    TotalItems = await bd.Contratos.Include(p => p.Utilizadores).Where(p => p.Utilizadores.Email == User.Identity.Name).CountAsync(),
+                    PaginaAtual = pagina
+                };
+
+                List<Contratos> contratos2 = await bd.Contratos
+                    .Include(c => c.Pacotes)
+                    .Include(c => c.Utilizadores)
+                    .Include(p => p.Utilizadores).Where(p => p.Utilizadores.Email == User.Identity.Name)
+                    .OrderByDescending(p => p.DataInicio)
+                    .Skip(paginacao2.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao2.ItemsPorPagina)
+                    .ToListAsync();
+
+                ContratosViewModel modelo3 = new ContratosViewModel
+                {
+                    Contratos = contratos2,
+                    Paginacao = paginacao2,
+                };
+
+                return View(modelo3);
+            }
         }
         // GET: Contratos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -89,19 +119,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(contratos);
         }
 
-        public async Task<IActionResult> SelectCliente()
-        {
-            var clientes = await bd.Utilizadores
-                .Where(i => i.Role == "Cliente")
-                .ToListAsync();
-
-           
-
-            ViewData["Clientes"] = new SelectList(clientes, "UtilizadorId", "Nome");
-            
-
-            return View();
-        }
 
         // GET: Contratos/Create
         public IActionResult Create(int cliente)
