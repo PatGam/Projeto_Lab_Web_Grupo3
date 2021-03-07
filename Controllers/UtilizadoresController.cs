@@ -121,28 +121,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Utilizadores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            Utilizadores utilizadores;
+
+            if (id != null)
             {
-                return NotFound();
+                utilizadores = await _context.Utilizadores.FirstOrDefaultAsync(m => m.UtilizadorId == id);
+
+                if (utilizadores == null)
+                { return NotFound();}
+                
             }
 
-            var utilizadores = await _context.Utilizadores
-                .FirstOrDefaultAsync(m => m.UtilizadorId == id);
-
-            if (utilizadores.Role == "Cliente")
+            else
             {
-                utilizadores = await _context.Utilizadores.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
-                ViewBag.Titulo = "Clientes";
+                if (User.IsInRole("Cliente"))
+                {
+                    utilizadores = await _context.Utilizadores.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
+                    ViewBag.Titulo = "Clientes";
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-
-            if (utilizadores.Role != "Cliente")
-            {
-                ViewBag.Titulo = "Funcionários";
-            }
-            if (utilizadores == null)
-            {
-                return NotFound();
-            }
+            
 
             return View(utilizadores);
         }

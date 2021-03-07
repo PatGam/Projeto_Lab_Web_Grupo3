@@ -30,12 +30,13 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [StringLength(9, MinimumLength = 9)]
         public string Nif { get; set; }
 
-
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date)]
         [Column("Data_Nascimento", TypeName = "date")]
         [Display(Name = "Data de nascimento")]
         public DateTime DataNascimento { get; set; }
 
-        [Required(ErrorMessage = "Preencha a morada do funcionário")]
+        [Required(ErrorMessage = "Preencha a morada")]
         [StringLength(500, ErrorMessage = "A morada não pode ter mais de 500 caracteres")]
         [Display(Name = "Morada")]
         public string Morada { get; set; }
@@ -44,12 +45,12 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [RegularExpression(@"(9[1236]|\d{2})\d{7}", ErrorMessage = "Telefone Inválido")]
         public string Telemovel { get; set; }
 
-        [Required(ErrorMessage = "Preencha o email do funcionário")]
+        [Required(ErrorMessage = "Preencha o email")]
         [StringLength(100, ErrorMessage = "O email não pode ter mais de 100 caracteres")]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Preencha o código postal do funcionário")]
+        [Required(ErrorMessage = "Preencha o código postal")]
         [Column("Codigo_Postal")]
         [RegularExpression(@"(\d{4})[-](\d{3})", ErrorMessage = "Código Postal Inválido")]
         [StringLength(8, MinimumLength = 8)]
