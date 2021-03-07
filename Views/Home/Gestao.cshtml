@@ -2,58 +2,48 @@
     Layout = "_LayoutMain";
 }
 
-    <header id="headerPData" class="d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
-            <nav id="navbarPData" class="navbarPData">
-                <ul>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Dados Pessoais  <i class="fas fa-users-cog"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="Funcionarios" asp-action="Index">A minha conta  <i class="fas fa-people-arrows"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Os meus pacotes  <i class="fas fa-cubes"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Os meus serviços  <i class="fas fa-atom"></i></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+    
     <container>
         <div class="container bg-white mt-5 mb-5">
-            <div class="row">
-                <div class="col-md-3 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"><span class="font-weight-bold">@User.Identity.Name</span><span class="text-black-50">*Mostrar e-mail*</span><span> </span></div>
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Editar os meus dados</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Editar</span></div><br>
-                </div>
-                <div class="col-md-5 border-right">
-                    <div class="p-3 py-5">
+            <div class="row">                
+                <div class="col-md-5">
+                    <div class="p-3 m-t-20 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Dados Pessoais</h4>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                            <div class="col-md-6"><label class="labels">Apelido</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                            <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="Primeiro Nome" value=""></div>
+                            <div class="col-md-6"><label class="labels">Apelido</label><input type="text" class="form-control" value="" placeholder="Ultimo Nome"></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Telemóvel</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                            <div class="col-md-12"><label class="labels">Morada</label><input type="text" class="form-control" placeholder="enter address" value=""></div>
-                            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
+                            <div class="col-md-12"><label class="labels">Telemóvel</label><input type="text" class="form-control" placeholder="Contacto telefonico" value=""></div>
+                            <div class="col-md-12"><label class="labels">Morada</label><input type="text" class="form-control" placeholder="Morada Completa" value=""></div>
                         </div>
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                        <div class="mt-5 text-center"><button class="button-form-btn profile-button" type="button">Guardar</button></div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3 py-5">
-                        <div class="col-md-12"><label class="labels">Cidade</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                        <div class="col-md-12"><label class="labels">Distrito</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                        <div class="col-md-12"><label class="labels">Informação Adicional</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                    </div>
-                </div>
+                </div>              
             </div>
         </div>
     </container>
+
+
+    <footer id="headerPData">
+        <div class="container">
+            <nav id="navbarPData" class="navbarPData">
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Utilizadores" asp-action="Details">Dados Pessoais  <i class="fas fa-users-cog"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Contratos" asp-action="Index">Os meus contratos<i class="fas fa-people-arrows"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="VistaCliente">Pacotes disponíveis<i class="fas fa-cubes"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Promocoes" asp-action="VistaCliente">Promoções disponíveis<i class="fas fa-atom"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>

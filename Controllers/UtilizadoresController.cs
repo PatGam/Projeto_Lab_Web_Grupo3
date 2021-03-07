@@ -25,38 +25,126 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores
-        public async Task<IActionResult> Index(string tipoUtil)
+        public async Task<IActionResult> IndexClientes(string nifPesquisa, int pagina = 1)
         {
+
+
+
+
             //string que especifica o asp-router
-            ViewData["TipoUtil"] = tipoUtil;
-            return View(await _context.Utilizadores.ToListAsync());
+            //ViewData["TipoUtil"] = tipoUtil;
+            //return View(await _context.Utilizadores.ToListAsync());
+
+            if (nifPesquisa != null)
+            {
+                Paginacao paginacao = new Paginacao
+                {
+                    TotalItems = await _context.Utilizadores.Where(p => nifPesquisa == null || p.Nif.Contains(nifPesquisa)).CountAsync(),
+                    PaginaAtual = pagina
+
+                };
+
+                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false && p.Role == "Cliente")
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+                UtilizadoresViewModel model1 = new UtilizadoresViewModel
+                {
+                    Utilizador = utilizadores,
+                    Paginacao = paginacao,
+                    nifPesquisa = nifPesquisa
+
+                };
+
+                return View(model1);
+
+            }
+            else
+            {
+                UtilizadoresViewModel model2 = new UtilizadoresViewModel
+                {
+                    nifPesquisa = nifPesquisa
+                };
+
+                return View(model2);
+
+            }
         }
+
+
+
+
+
+
+        public async Task<IActionResult> IndexFuncionarios(string nifPesquisa, int pagina = 1)
+        {
+            if (nifPesquisa != null)
+            {
+                Paginacao paginacao = new Paginacao
+                {
+                    TotalItems = await _context.Utilizadores.Where(p => nifPesquisa == null || p.Nif.Contains(nifPesquisa)).CountAsync(),
+                    PaginaAtual = pagina
+
+                };
+
+                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false && p.Role != "Cliente")
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+                UtilizadoresViewModel model1 = new UtilizadoresViewModel
+                {
+                    Utilizador = utilizadores,
+                    Paginacao = paginacao,
+                    nifPesquisa = nifPesquisa
+
+                };
+
+                return View(model1);
+
+            }
+            else
+            {
+                UtilizadoresViewModel model2 = new UtilizadoresViewModel
+                {
+                    nifPesquisa = nifPesquisa
+                };
+
+                return View(model2);
+
+            };
+
+        }
+
 
         // GET: Utilizadores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            Utilizadores utilizadores;
+
+            if (id != null)
             {
-                return NotFound();
+                utilizadores = await _context.Utilizadores.FirstOrDefaultAsync(m => m.UtilizadorId == id);
+
+                if (utilizadores == null)
+                { return NotFound();}
+                
             }
 
-            var utilizadores = await _context.Utilizadores
-                .FirstOrDefaultAsync(m => m.UtilizadorId == id);
-
-            if (utilizadores.Role == "Cliente")
+            else
             {
-                utilizadores = await _context.Utilizadores.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
-                ViewBag.Titulo = "Clientes";
+                if (User.IsInRole("Cliente"))
+                {
+                    utilizadores = await _context.Utilizadores.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
+                    ViewBag.Titulo = "Clientes";
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-
-            if (utilizadores.Role != "Cliente")
-            {
-                ViewBag.Titulo = "Funcionários";
-            }
-            if (utilizadores == null)
-            {
-                return NotFound();
-            }
+            
 
             return View(utilizadores);
         }
@@ -251,41 +339,41 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
 
         #region API Calls
-        [HttpGet]
-        public async Task<IActionResult> GetAllFuncionarios()
-        {
-            var funcionarios = await _context.Utilizadores
-                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.DataNascimento, s.Morada, s.Telemovel, s.Email, s.Role, s.Inactivo })
-                .Where(i => i.Inactivo == false && i.Role == "Administrador" || i.Role == "Operador")
-                .ToListAsync();
-            return Json(new { data = funcionarios });
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllFuncionarios()
+        //{
+        //    var funcionarios = await _context.Utilizadores
+        //        .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.DataNascimento, s.Morada, s.Telemovel, s.Email, s.Role, s.Inactivo })
+        //        .Where(i => i.Inactivo == false && i.Role == "Administrador" || i.Role == "Operador")
+        //        .ToListAsync();
+        //    return Json(new { data = funcionarios });
+        //}
         #endregion
 
         #region API Calls
-        [HttpGet]
-        public async Task<IActionResult> GetAllClientes()
-        {
-            var clientes = await _context.Utilizadores
-                .Select(s => new { s.UtilizadorId, s.Nome,s.Nif, s.DataNascimento, s.Morada, s.Telemovel, s.Email,s.Role, s.Inactivo })
-                .Where(i => i.Inactivo == false && i.Role == "Cliente")
-                .ToListAsync();
-            return Json(new { data = clientes });
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllClientes()
+        //{
+        //    var clientes = await _context.Utilizadores
+        //        .Select(s => new { s.UtilizadorId, s.Nome,s.Nif, s.DataNascimento, s.Morada, s.Telemovel, s.Email,s.Role, s.Inactivo })
+        //        .Where(i => i.Inactivo == false && i.Role == "Cliente")
+        //        .ToListAsync();
+        //    return Json(new { data = clientes });
+        //}
         
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var clientesFromDb = await _context.Utilizadores.FirstOrDefaultAsync(s => s.UtilizadorId == id);
-            if (clientesFromDb == null)
-            {
-                return Json(new { success = false, message = "Erro ao eliminar o cliente" });
-            }
-            _context.Utilizadores.Remove(clientesFromDb);
-            await _context.SaveChangesAsync();
-            return Json(new { success = true, message = "O Cliente foi eliminado com sucesso" });
-        }
+        //[HttpDelete]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    var clientesFromDb = await _context.Utilizadores.FirstOrDefaultAsync(s => s.UtilizadorId == id);
+        //    if (clientesFromDb == null)
+        //    {
+        //        return Json(new { success = false, message = "Erro ao eliminar o cliente" });
+        //    }
+        //    _context.Utilizadores.Remove(clientesFromDb);
+        //    await _context.SaveChangesAsync();
+        //    return Json(new { success = true, message = "O Cliente foi eliminado com sucesso" });
+        //}
         #endregion
 
         

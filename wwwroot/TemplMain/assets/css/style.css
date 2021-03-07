@@ -125,13 +125,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo {
     display: inline-flex;
-    width: 275px;
+    width: 120px;
     height: 120px;
+    margin-left: 10px;
 }
 
 .navbar ul {
-  margin: 0;
-  padding: 0;
+  margin-top: 15px;  
   display: flex;
   list-style: none;
   align-items: center;  
@@ -144,14 +144,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar a {
   display: flex;
   align-items: center;  
-  justify-content: space-between;
-  padding: 10px 0 10px 20px;
+  justify-content: space-between;  
   font-size: 20px;
   font-weight: 500;
   color: #fff;
   white-space: nowrap;
-  transition: 0.3s;
-  margin-inline: 30px;
+  transition: 0.3s;  
+  margin-right: 70px;
 }
 
 .navbar a i {
@@ -337,7 +336,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
     #hero .hero-image {
-        background: url("../../../images/RD_LogoV2.png");
+        background: url("../../../images/RD_LogoV3.png");
         background-size: contain;
         width: 350px;
         height: 200px;
@@ -384,7 +383,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 22px;
 }
 
-#hero .btn-get-started {
+/*#hero .btn-get-started {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -400,7 +399,63 @@ h1, h2, h3, h4, h5, h6 {
 #hero .btn-get-started:hover {
   background: #0069a0;
   border: 2px solid #0069a0;
-}
+}*/
+
+    #hero .btn-get-started {
+        font-family: "Raleway", sans-serif;
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.2;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 120px;
+        height: 50px;
+        width: 20%;
+        border-radius: 25px;
+        position: relative;
+        z-index: 1;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        border: 3px solid white;      
+        cursor: pointer;
+    }
+
+        #hero .btn-get-started::before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;            
+            top: 0;
+            left: 0;
+            opacity: 1;
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        #hero .btn-get-started:hover {            
+            background: #0069a0;
+            background: -webkit-linear-gradient(bottom, #0d5e87, #70c1eb);
+            background: -o-linear-gradient(bottom, #0d5e87, #70c1eb);
+            background: -moz-linear-gradient(bottom, #0d5e87, #70c1eb);
+            background: linear-gradient(bottom, #0d5e87, #70c1eb);
+        }
+
+            #hero .btn-get-started:hover:before {
+                opacity: 0;
+            }
 
 @media (min-width: 1024px) {
   #hero {
@@ -1076,7 +1131,7 @@ section {
   color: #d0d0d0;
   font-size: 14px;
   background: #111111;
-  z-index: 10;
+  z-index: 3;
   position: relative;
 }
 
@@ -1294,8 +1349,9 @@ section {
     left: 25%;
     transform: translateY(-50%);
     width: 640px;
+    height: 200px;
     padding: 2rem;
-    border-radius: 0.25rem;
+    border-radius: 10px;
     /*border: 1px solid #969696;*/
     background: #fff;
     box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
@@ -1304,7 +1360,7 @@ section {
     padding-top: 0;
     padding-bottom: 0;
     overflow: hidden;
-    transition: all .5s;
+    transition: all .5s;    
 }
 
 #dlg-close {
@@ -1315,25 +1371,30 @@ section {
     height: 2rem;
     line-height: 2rem;
     text-align: center;
-    cursor: pointer;
+    cursor: pointer;    
 }
+    #dlg-close:hover {
+        color: #1879aa;
+    }
 
 h2#dlg-header {
     font: 200 2em/1em Raleway, Open Sans, Arial, Sans-Serif;
     text-transform: initial;
     letter-spacing: -0.025em;
     margin: 0 0 1rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 #dlg-content {
     font-weight: 300;
     font-style: italic;
     letter-spacing: 0.015em;
+    margin-bottom: 15px;
 }
 
-#dlg-prompt .button {
-    margin: 1rem 0.5rem;
-    border-radius: 1.5rem;
+#dlg-prompt {    
+    padding-top: 20px;    
 }
 
 
@@ -1381,7 +1442,7 @@ h2#dlg-header {
             border-color: #468FB6;
             color: #fff;
             background-color: #468FB6;
-        }*/
+        }*//*----Botao Antigo*/
 
     /*Button 1*/
 
@@ -1588,14 +1649,15 @@ h2#dlg-header {
 
 
 /*--------------------------------------------------------------
-# Header
+# Header Personal Data
 --------------------------------------------------------------*/
 #headerPData {
-    height: 700px;
-    width: 250px;
-    padding-bottom: 100px;
-    position: absolute;
-    z-index: 1;
+    height: 70px;
+    width: 830px;
+    position: fixed;
+    z-index: 5;
+    margin-top: 10px;
+    margin-left: 175px;
     transition: all 0.5s;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
     background: #0a76ad;
@@ -1603,6 +1665,7 @@ h2#dlg-header {
     background: -o-linear-gradient(top, #87c4e4, #0d5e87);
     background: -moz-linear-gradient(top, #87c4e4, #0d5e87);
     background: linear-gradient(top, #87c4e4, #0d5e87);
+    border-radius: 50% / 30%;
 }
 
     #headerPData .logo h1 {
@@ -1626,7 +1689,7 @@ h2#dlg-header {
 
 
 /*--------------------------------------------------------------
-# Navigation Menu
+# Navigation Menu Personal Data
 --------------------------------------------------------------*/
 /**
 * Desktop Navigation 
@@ -1636,40 +1699,38 @@ h2#dlg-header {
 }
 
 
-    .navbarPData ul {
-        margin: 0;
-        padding-left: 20px;
-        display: list-item;
+    .navbarPData ul {                
+        display: flex;
         list-style: none;
-        align-items: center;
+        align-items: center;        
     }
 
     .navbarPData li {
         position: relative;
+        margin-right: 30px;
     }
 
     .navbarPData a {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 20px 0 10px 20px;
-        font-size: 20px;
+        justify-content: space-between;        
+        font-size: 14px;
         font-weight: 500;
         color: #fff;
         white-space: nowrap;
-        transition: 0.3s;
-        margin-bottom: 50px;
-        border-bottom: solid 2px #e7e7e7;
+        transition: 0.3s;  
+
     }
 
         .navbarPData a i {
             font-size: 16px;
-            line-height: 0;
+            line-height: 5;
             margin-left: 7px;
         }
 
-        .navbarPData a:hover, .navbarPData .active, .navbarPData li:hover > a {
+        .navbarPData a:hover, .navbarPData li:hover > a {
             color: #e7e7e7;
+            cursor: pointer;
         }
     
 @media (max-width: 1366px) {
@@ -1682,3 +1743,104 @@ h2#dlg-header {
     }
 }
 
+/*----Slider-----*/
+.auto-slider {
+    position: relative;
+    box-sizing: content-box;
+    display: inline-block;
+    padding: 10px 10px 20px;
+    width: 1100px;
+    height: 70px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+    background: #fff;
+    background: -webkit-linear-gradient(top, #ffffff, #e1e7f1);
+    background: -o-linear-gradient(top, #ffffff, #e1e7f1);
+    background: -moz-linear-gradient(top, #ffffff, #e1e7f1);
+    background: linear-gradient(top, #ffffff, #e1e7f1);
+}
+
+div#slider {
+    overflow: hidden;
+}
+
+    div#slider figure img {
+        width: 80px;
+        height: 60px;
+        float: left; 
+        margin-right: 40px;
+    }
+
+    div#slider figure {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        left: 0;
+        text-align: left;
+        font-size: 0;
+        animation: 10s sliding infinite;
+        padding-top: 15px;
+        padding-left: 45px;
+        padding-bottom: 15px;
+    }
+
+@keyframes sliding {
+    0% {
+        left: 100%;
+    }
+
+    50% {        
+        transform: translateX(-50%)
+    }
+
+    100% {
+        left: -30%;
+        transform: translateX(-100%);
+    }
+}
+    /*@keyframes sliding {
+    0% {
+        left: 100%;   
+        transform: translateX();
+    }
+    10%{
+        left: 85%
+    }
+    20% {
+        left: 70%;        
+        transform: translateX();
+    }
+    30%{left: 55%;
+        transform: translateX();        
+    }
+    40% {
+        left: 40%;
+        transform: translateX(-25%);
+    }
+    50%{
+        left: 25%;
+        transform: translateX();
+    }
+    60% {
+        left: 10%;
+        transform: translateX(-50%);
+    }
+    70%{
+        left: -5%;
+    }
+    80% {
+        left: -20%;
+        transform: translateX(-75%);
+    }
+    90%{
+        left: -35%;
+        transform: translateX();
+    }
+    100% {
+        left: 0%;
+        transform: translateX(-100%);
+    }
+    
+}  */    
