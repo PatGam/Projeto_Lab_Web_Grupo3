@@ -129,7 +129,12 @@
 
                     @if (User.IsInRole("Administrador"))
                     {
-                        @*<li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="Index" asp-route-tipoUtil="Cliente">Consultar</a></li>*@
+                    @*<li class="sub-menu">
+                        <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="AdminOp.Index.cshtml">
+                            <i class="icon_house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>*@
                         <li class="sub-menu">
                             <a href="javascript:;" class="">
                                 <i class="icon_document_alt"></i>
@@ -201,10 +206,15 @@
 
                     @if (User.IsInRole("Operador"))
                     {
+                @*<li class="sub-menu">
+                    <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="AdminOp.Index">
+                        <i class="icon_house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>*@
 
-                        @*<li><a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PacoteId"><i class="icon_house" aria-hidden="true"></i></a></li>*@
                         <li>
-                            <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="Index" asp-route-tipoUtil="Cliente">
+                            <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="Index">
                                 <i class="icon_contacts_alt"></i>
                                 <span>Ver lista de Clientes</span>
                             </a>
