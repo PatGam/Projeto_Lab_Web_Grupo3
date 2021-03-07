@@ -2,8 +2,33 @@
     Layout = "_LayoutMain";
 }
 
-    <header id="headerPData" class="d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
+    
+    <container>
+        <div class="container bg-white mt-5 mb-5">
+            <div class="row">                
+                <div class="col-md-5">
+                    <div class="p-3 m-t-20 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Dados Pessoais</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="Primeiro Nome" value=""></div>
+                            <div class="col-md-6"><label class="labels">Apelido</label><input type="text" class="form-control" value="" placeholder="Ultimo Nome"></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Telemóvel</label><input type="text" class="form-control" placeholder="Contacto telefonico" value=""></div>
+                            <div class="col-md-12"><label class="labels">Morada</label><input type="text" class="form-control" placeholder="Morada Completa" value=""></div>
+                        </div>
+                        <div class="mt-5 text-center"><button class="button-form-btn profile-button" type="button">Guardar</button></div>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </container>
+
+
+    <footer id="headerPData">
+        <div class="container">
             <nav id="navbarPData" class="navbarPData">
                 <ul>
                     <li class="nav-item">
@@ -21,34 +46,4 @@
                 </ul>
             </nav>
         </div>
-    </header>
-
-    <container>
-        <div class="container bg-white mt-5 mb-5">
-            <div class="row">                
-                <div class="col-md-5">
-                    <div class="p-3 py-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="text-right">Dados Pessoais</h4>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="Primeiro Nome" value=""></div>
-                            <div class="col-md-6"><label class="labels">Apelido</label><input type="text" class="form-control" value="" placeholder="Ultimo Nome"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Telemóvel</label><input type="text" class="form-control" placeholder="Contacto telefonico" value=""></div>
-                            <div class="col-md-12"><label class="labels">Morada</label><input type="text" class="form-control" placeholder="Morada Completa" value=""></div>
-                        </div>
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3 py-5">
-                        <div class="col-md-12"><label class="labels">Cidade</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                        <div class="col-md-12"><label class="labels">Distrito</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                        <div class="col-md-12"><label class="labels">Informação Adicional</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </container>
+    </footer>

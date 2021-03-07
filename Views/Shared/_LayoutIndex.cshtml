@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RD Telecomunicações</title>
 
-    <!--Template-->
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Template Main CSS File -->
@@ -65,28 +64,10 @@
                     <li class="nav-item">
                         <a asp-area="" asp-controller="Home" asp-action="Gestao" class="nav-link scrollto active">Gerir Conta</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Gerir RD Telecomunicações  <i class="fas fa-question"></i></a>
-
-                        <ul>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Gerir Clientes  <i class="far fa-question-circle"></i></a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes">Gerir Clientes  <i class="fas fa-users-cog"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Utilizadores" asp-action="IndexFuncionarios">Gerir Funcionários  <i class="fas fa-people-arrows"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Gerir Pacotes  <i class="fas fa-cubes"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços  <i class="fas fa-atom"></i></a>
-                            </li>
-                        </ul>
-
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="AdminOp" asp-action="Index">Gerir RD Telecomunicações  <i class="fas fa-question"></i></a>
+                        </li>
+                </ul>
                     }
                     else if (User.IsInRole("Cliente"))
                     {
@@ -159,7 +140,6 @@
                             </li>
                         </ul>
                     }
-
                     <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
                 </nav>
             </div>
