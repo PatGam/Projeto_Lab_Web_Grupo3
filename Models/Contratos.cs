@@ -33,9 +33,16 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public Promocoes Promocoes { get; set; }
 
+
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date)]
         [Column("Data_inicio", TypeName = "date")]
         [Display(Name = "Data de Início")]
         public DateTime DataInicio { get; set; }
+
+
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date)]
         [Column("Data_Fim", TypeName = "date")]
         [Display(Name = "Data de Fim")]
         public DateTime DataFim { get; set; }
