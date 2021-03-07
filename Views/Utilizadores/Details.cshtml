@@ -54,7 +54,7 @@
 
                     <div class="mt-5 text-center">
                         <a class="button-form-btn profile-button" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
-
+                        <a class="button-form-btn profile-button" asp-area="Identity" asp-page="/Account/Manage/SetPassword">Mudar Password</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ else
                     <header class="panel-heading no-border">
                         Detalhes @Html.DisplayFor(model => model.Nome)
                     </header>
-                    <a asp-area="Identity" asp-page="/Account/Manage/SetPassword">Mudar Password</a>
+                    
                     <table class="table table-bordered">
                         <tr>
                             <th>
