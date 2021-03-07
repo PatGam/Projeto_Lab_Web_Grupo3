@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link rel="stylesheet" href="~/TemplMain/assets/css/style.css" />
-    
+
     <!--Icons-->
     <script src="https://kit.fontawesome.com/9bc32df3ad.js"></script>
 
@@ -28,38 +32,104 @@
         <header id="header" class="d-flex align-items-center">
             <div class="container d-flex align-items-center justify-content-between">
                 <nav id="navbar" class="navbar">
-                    <div class="logo">
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Projeto_Lab_Web_Grupo3</a>
-                        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>-->
-
-                    </div>
-                    <!--<nav id="navbar" class="navbar">
-                        <partial name="_LoginPartial" />
+                    <partial name="_LoginPartial" />
+                    @if (User.IsInRole("Administrador"))
+                    {
                         <ul>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index">Index</a>
+                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Clientes" asp-action="Index">Gerir Clientes</a>
+                                <a asp-area="" asp-controller="Home" asp-action="Gestao" class="nav-link scrollto active">Gerir Conta   <i class="far fa-user"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gerir Funcionários</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Gerir Pacotes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Gerir Serviços</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="AdminOp" asp-action="Index">Gerir RD Telecomunicações  <i class="fas fa-registered"></i></a>
                             </li>
                         </ul>
-                        <i class="bi bi-list mobile-nav-toggle"></i>--><!--Vista Telemovel-->
-                    <!--</nav>-->
+                    }
+                    @if (User.IsInRole("Operador"))
+                    {
+                        <ul>
+                            <li class="nav-item">
+                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Home" asp-action="Gestao" class="nav-link scrollto active">Gerir Conta   <i class="far fa-user"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="AdminOp" asp-action="Index">Gerir RD Telecomunicações  <i class="fas fa-registered"></i></a>
+                            </li>
+                        </ul>
+                    }
+                    @if (User.IsInRole("Cliente"))
+                    {
+                        <ul>
+                            <li class="nav-item">
+                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Home" asp-action="Gestao" class="nav-link scrollto active">Gerir Conta   <i class="far fa-user"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="TVBase">Televisão <i class="fas fa-tv"></i></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
+                                <ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <ul>
+                            <li class="nav-item">
+                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="TVBase">Televisão <i class="fas fa-tv"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
+                                <ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="VistaContact">Contacta-nos  <i class="fas fa-feather"></i></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    <i class="bi bi-list mobile-nav-toggle"></i><!--Vista Telemovel-->
                 </nav>
             </div>
         </header>
@@ -73,36 +143,41 @@
 
     <!--Footer-->
     <footer id="footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
                     <div class="col-lg-6 col-md-6 footer-links">
-                    <h4>Encontra-nos nas nossas redes sociais</h4>
-                    <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        <h4>Encontra-nos nas nossas redes sociais</h4>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container py-4">
-        <div class="copyright">
-            &copy; 2021 - Projeto_Lab_Web_Grupo3 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container py-4">
+            <div class="copyright">
+                &copy; 2021 - Projeto_Lab_Web_Grupo3 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+            <div class="credits">
+                <a>Designed by Grupo3 - Upskill</a>
+            </div>
         </div>
-        <div class="credits">
-        <a>Designed by Grupo3 - Upskill</a>
-        </div>
-    </div>
-    </footer>    
+    </footer>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-angle-up"></i></a>
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Vendor JS Files -->
     <script src="~/TemplMain/assets/vendor/aos/aos.js"></script>
     <script src="~/TemplMain/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -114,10 +189,11 @@
     <!-- Template Main JS File -->
     <script src="~/TemplMain/assets/js/main.js"></script>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
     <!--<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script> POR VERIFICAR-->
 
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
