@@ -1,112 +1,45 @@
 ﻿@model PacotesViewModel
 
-@if (User.IsInRole("Cliente"))
-{
-    <main id="main">
-        <section id="features" class="features">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="card" data-aos="fade-up">
-                        <img src="~/TemplMain/assets/img/img1.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <i class="bx bx-tachometer"></i>
-                            <h5 class="card-title align-content-lg-center"><a href="">RD - TV &amp; Voz</a></h5>
-                            <p class="card-text">Um pack simples seja para ter acesso aos nossos canais exclusivos ou beneficiar das nossas incriveis promoções em chamadas! </p>
-                        </div>
-                    </div>
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+@*container section start*@
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+
+
+            <div class="container row p-0 m-0">
+                <div class="col-6">
+                    <h2 class="text-info">Pacotes</h2>
                 </div>
-                <div class="col-lg-4 col-md-6 mt-5 mt-md-0 d-flex align-items-stretch">
-                    <div class="card" data-aos="fade-up" data-aos-delay="150">
-                        <img src="~/TemplMain/assets/img/img3.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <i class="bx bx-file"></i>
-                            <h5 class="card-title center"><a href="">RD Familiar</a></h5>
-                            <p class="card-text">O pacote indicado para toda a familia! Desde uma variedade de canais, até à melhor velocidade de internet no mercado, até aos diferentes plafonds de telemovel que procura, este é o pacote ideal! </p>
-                        </div>
-                    </div>
+                <div class="col-3 offset-3">
                 </div>
-                <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <div class="card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="~/TemplMain/assets/img/img2.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <i class="bx bx-show"></i>
-                            <h5 class="card-title"><a href="">Pack RD3</a></h5>
-                            <p class="card-text">O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="card" data-aos="fade-up">
-                        <img src="~/TemplMain/assets/img/img4.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <i class="bx bx-tachometer"></i>
-                            <h5 class="card-title"><a href="">Pack RD4</a></h5>
-                            <p class="card-text">O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-5 mt-md-0 d-flex align-items-stretch">
-                    <div class="card" data-aos="fade-up" data-aos-delay="150">
-                        <img src="~/TemplMain/assets/img/img7.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">RD Gaming</a></h5>
-                            <p class="card-text">O pacote indicado para quem procura uma internet forte e estável. Sem LAG! Sem delay! Apenas, a melhor internet ao preço mais acessivel! </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <div class="card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="~/TemplMain/assets/img/img6.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Pack Premium</a></h5>
-                            <p class="card-text">O pack Premium é o pacote mais completo que temos! Tendo mais de 180 canais disponiveis, velocidades de Download e Upload imabtíveis, chamadas fixas e para numeros estrangeiros sem custos associados e ainda até 4 cartões de telemovel associados que podem ter até 10GB de dados móveis cada! </p>
-                        </div>
-                    </div>
+                <div class="col-12 border p-3">
+                    <table id="DT_load_Pacote" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </section>
-
-
-
-    </main>
-
-}
-else
-{
-
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-
-
-    @*container section start*@
-    <section id="container" class="">
-        <section id="main-content">
-            <section class="wrapper">
-
-
-                <div class="container row p-0 m-0">
-                    <div class="col-6">
-                        <h2 class="text-info">Pacotes</h2>
-                    </div>
-                    <div class="col-3 offset-3">
-                    </div>
-                    <div class="col-12 border p-3">
-                        <table id="DT_load_Pacote" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Preço</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </section>
-        </section>
     </section>
-    @section Scripts{
-        <script src="~/js/PacotesList.js"></script>
-    }
+</section>
 
+@section Scripts{
+    <script src="~/js/PacotesList.js"></script>
 }
+
+

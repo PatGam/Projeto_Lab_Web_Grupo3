@@ -43,6 +43,21 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return base.View(modelo);
         }
 
+        public async Task<IActionResult> VistaCliente()
+        {
+
+            List<Pacotes> pacotes = await bd.Pacotes
+               .Where(i => i.Inactivo == false)
+              .OrderBy(p => p.Nome)
+              .ToListAsync();
+
+            PacotesViewModel modelo = new PacotesViewModel
+            {
+                Pacotes = pacotes,
+            };
+            return base.View(modelo);
+        }
+
         // GET: Pacotes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
