@@ -1,0 +1,36 @@
+﻿@model HomeGestaoViewModel
+
+@{
+    Layout = "_LayoutMain";
+}
+
+<section id="pricing" class="pricing">
+    <div class="container">
+        <div class="section-title" data-aos="fade-down">
+            <span>Promoções</span>
+            <h2>Promoções</h2>
+            <p>Veja que pacotes estão em promoção e aproveite os descontos!</p>
+        </div>
+        <div class="row no-gutters">
+            @foreach (var item in Model.Pacotes)
+            { 
+            <div class="col-lg-4 box" data-aos="zoom-in" data-aos-delay="200">
+                <h3>@Html.DisplayFor(modelItem => item.Pacote.Nome)</h3>
+                <h3><del>€ @Html.DisplayFor(modelItem => item.Pacote.Preco)</del></h3><p>- @Html.DisplayFor(modelItem => item.Promocao.PromocaoDesc)</p>
+                <h4>€ @(item.Pacote.Preco - item.Promocao.PromocaoDesc)<span>/mês</span></h4>
+                <ul>
+                    @foreach (var servico in item.Servicos)
+                    {
+
+                    <li><i class="@(servico.TipoServicos.Icone)"></i>@Html.DisplayFor(modelItem => servico.Nome)</li>
+                    }
+                </ul>
+                <label class="button-form-btn" for="dialog_state">
+                    <i class="icon ion-ios-upload-outline"></i> Aderir
+                </label>
+            </div>
+            }
+            
+        </div>
+    </div>
+</section>

@@ -41,6 +41,56 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return base.View(modelo);
         }
 
+        public async Task<IActionResult> VistaCliente()
+        {
+            List<InfoPacoteViewModel> ListaPacotes = new List<InfoPacoteViewModel>();
+
+            foreach (var pacote in bd.Pacotes)
+            {
+               
+
+                InfoPacoteViewModel infoPacote = new InfoPacoteViewModel();
+
+                infoPacote.Pacote = pacote;
+
+                infoPacote.Promocao = await bd.PromocoesPacotes
+                    .Include(p => p.Promocoes)
+                    .Where(p => p.PacoteId == pacote.PacoteId)
+                    .Select(p => p.Promocoes)
+                    .Where(p => p.DataInicio < DateTime.Now && p.DataFim > DateTime.Now)
+                    .FirstOrDefaultAsync();
+
+                infoPacote.Servicos = await bd.ServicosPacotes
+                    .Include(p => p.Servico)
+                    .Where(p => p.PacoteId == pacote.PacoteId)
+                    .Select(p => p.Servico)
+                    .ToListAsync();
+
+                foreach (var item in infoPacote.Servicos)
+                {
+                    infoPacote.TiposServicos = await bd.Servicos
+                    .Include(p => p.TipoServicos)
+                    .Where(p => p.ServicoId == item.ServicoId)
+                    .Select(p => p.TipoServicos)
+                    .ToListAsync();
+                }
+
+                if(infoPacote.Promocao != null)
+                {
+                    ListaPacotes.Add(infoPacote);
+
+                }
+            }
+
+            HomeGestaoViewModel modelo = new HomeGestaoViewModel
+            {
+                Pacotes = ListaPacotes,
+            };
+
+            return View(modelo);
+        
+        }
+
         // GET: Promocoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
