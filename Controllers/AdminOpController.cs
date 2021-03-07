@@ -56,10 +56,30 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 ListaPacotes.Add(infoPacote);
             }
 
+            var Funcionarios = bd.Utilizadores.Where(p => p.Role != "Cliente").ToList();
+            int contagemFunc = Funcionarios.Count();
+
+            var Clientes = bd.Utilizadores.Where(p => p.Role == "Cliente").ToList();
+            int contagemClientes = Clientes.Count();
+
+            var Contratos = bd.Contratos.ToList();
+            int contagemContratos = Contratos.Count();
+
+            decimal receita = 0;
+            foreach (var item in Contratos)
+            {
+                receita += item.PrecoFinal;
+            }
+
             HomeGestaoViewModel modelo = new HomeGestaoViewModel
             {
                 Pacotes = ListaPacotes,
             };
+
+            ViewData["clientes"] = contagemClientes;
+            ViewData["contratos"] = contagemContratos;
+            ViewData["receita"] = receita;
+            ViewData["func"] = contagemFunc;
 
             return View(modelo);
         }

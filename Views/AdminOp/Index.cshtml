@@ -11,92 +11,46 @@
         <!--overview start-->
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
-                <ol class="breadcrumb">
-                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                    <li><i class="fa fa-laptop"></i>Dashboard</li>
-                </ol>
+                <h3 class="page-header"><i class="fa fa-laptop"></i> Bem-vindo/a</h3>
             </div>
         </div>
-
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <div class="info-box blue-bg">
-                    <i class="fa fa-cloud-download"></i>
-                    <div class="count">6.674</div>
-                    <div class="title">Download</div>
+                <div class="info-box purple-bg">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="count">@ViewBag.func</div>
+                    <div class="title">Funcionários</div>
                 </div>
-                <!--/.info-box-->
             </div>
-            <!--/.col-->
-
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="info-box blue-bg">
+                    <i class="fas fa-users"></i>
+                    <div class="count">@ViewBag.clientes</div>
+                    <div class="title">Clientes</div>
+                </div>
+            </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="info-box brown-bg">
-                    <i class="fa fa-shopping-cart"></i>
-                    <div class="count">7.538</div>
-                    <div class="title">Purchased</div>
+                    <i class="far fa-file-alt"></i>
+                    <div class="count">@ViewBag.contratos</div>
+                    <div class="title">Contratos</div>
                 </div>
-                <!--/.info-box-->
             </div>
-            <!--/.col-->
-
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <div class="info-box dark-bg">
-                    <i class="fa fa-thumbs-o-up"></i>
-                    <div class="count">4.362</div>
-                    <div class="title">Order</div>
-                </div>
-                <!--/.info-box-->
-            </div>
-            <!--/.col-->
 
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="info-box green-bg">
-                    <i class="fa fa-cubes"></i>
-                    <div class="count">1.426</div>
-                    <div class="title">Stock</div>
+                    <i class="fas fa-money-check-alt"></i>
+                    <div class="count">€ @ViewBag.receita</div>
+                    <div class="title">Receita</div>
+
                 </div>
-                <!--/.info-box-->
             </div>
-            <!--/.col-->
+
 
         </div>
-        <!--/.row-->
-
         <div class="row">
-            @foreach (var item in Model.Pacotes)
-            {
-
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div class="info-box blue-bg">
-
-                        <div class="count"> @Html.DisplayFor(modelItem => item.Pacote.Nome) </div>
-
-                        @if (item.Promocao != null)
-                        {
-                            <div class="title">  € @Html.DisplayFor(modelItem => item.Pacote.Preco) </div>
-                            <div class="title">  € @Html.DisplayFor(modelItem => item.Promocao.PromocaoDesc) </div>
-                            <div class="title">  € @(item.Pacote.Preco - item.Promocao.PromocaoDesc)  </div>
-                        }
-                        else
-                        {
-                            <div class="title">  € @Html.DisplayFor(modelItem => item.Pacote.Preco) </div>
-                        }
-                        <div class="title">  @Html.DisplayFor(modelItem => item.Pacote.Descricao) </div>
-
-                        <ul>
-                            @foreach (var servico in item.Servicos)
-                            {
-
-                            <li>
-                                <i class="@(servico.TipoServicos.Icone)"> </i>
-                                <span>@Html.DisplayFor(modelItem => servico.Nome)</span>
-                               
-                            </li>
-                            }
-                        </ul>
-                    </div>
-                    <!--/.info-box-->
-                </div>
-            }
+            <h4 style="text-align:center">Contamos consigo todos os dias para aumentar estes números. Bom trabalho!</h4>
         </div>
+        </section>
+    </section>
+
