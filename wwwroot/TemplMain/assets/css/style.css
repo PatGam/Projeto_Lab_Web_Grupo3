@@ -681,7 +681,7 @@ section {
 .cta {
   background: linear-gradient(rgba(2, 2, 2, 0.6), rgba(0, 0, 0, 0.8)), url("../img/cta-bg.jpg") fixed center center;
   background-size: cover;
-  padding: 60px 0;
+  padding: 60px 0;  
 }
 
 .cta h3 {
@@ -1798,7 +1798,7 @@ div#slider {
     }
 
     100% {
-        left: -30%;
+        left: -15%;
         transform: translateX(-100%);
     }
 }
@@ -1845,4 +1845,66 @@ div#slider {
         transform: translateX(-100%);
     }
     
-}  */    
+}  */
+
+/*--------------------------------------------------------------
+# Clients
+--------------------------------------------------------------*/
+.clients {
+    background: #1879aa;
+    background: -webkit-linear-gradient(top, #11a1ed, #0a4d70);
+    background: -o-linear-gradient(top, #11a1ed, #0a4d70);
+    background: -moz-linear-gradient(top, #11a1ed, #0a4d70);
+    background: linear-gradient(top, #11a1ed, #0a4d70);
+    border-radius: 15px;
+    padding: 15px 0;
+    text-align: center;
+    color: #e7e7e7;
+}
+
+    .clients a {        
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.86);
+    }
+
+        .clients a::before {
+            color: #e7e7e7;
+            cursor: pointer;
+        }
+
+    .clients i {
+        font-size: 50px;
+        align-items: center;
+        color: white;        
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+        .clients i::before {
+            color: #e7e7e7;            
+        }
+
+    .clients img {
+        width: 50%;
+        filter: grayscale(100);
+        transition: all 0.4s ease-in-out;
+        display: inline-block;
+        padding: 15px 0;
+    }
+
+        .clients img:hover {
+            filter: none;
+            transform: scale(1.2);
+        }
+
+@media (max-width: 768px) {
+    .clients img {
+        width: 40%;
+    }
+}
+
+@media (max-width: 575px) {
+    .clients img {
+        width: 50%;
+    }
+}
