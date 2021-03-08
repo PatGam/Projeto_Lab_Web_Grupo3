@@ -206,10 +206,23 @@
 
                     @if (User.IsInRole("Operador"))
                     {
-                        <li class="sub-menu">
-                            <a class="" a asp-area="" asp-controller="AdminOp" asp-action="Index">
-                                <i class="icon_house"></i>
-                                <span>Home</span>
+
+                @*<li class="sub-menu">
+                    <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="AdminOp.Index">
+                        <i class="icon_house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>*@
+
+                        <li>
+ botoes_funcionar_cliente_operador_HOME
+                            <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="Index">
+</a>
+                            <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes" asp-route-tipoUtil="Cliente">
+
+                                <i class="icon_contacts_alt"></i>
+                                <span>Ver lista de Clientes</span>
+
                             </a>
                         </li>
 
