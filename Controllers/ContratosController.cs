@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -156,6 +157,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
 
         // GET: Contratos/Create
+        [Authorize(Roles = "Operador")]
         public IActionResult Create(int cliente)
         {
             //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
@@ -177,6 +179,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Operador")]
         public async Task<IActionResult> Create([Bind("ContratoId,ClienteId, Nif, UtilizadorId, FuncionarioId,PacoteId,PromocoesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal")] Contratos contratos)
         {
 
@@ -255,6 +258,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos/Edit/5
+        [Authorize(Roles = "Operador")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -278,6 +282,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Operador")]
         public async Task<IActionResult> Edit(int id, [Bind("ContratoId,ClienteId, Nif, FuncionarioId,DataInicio,PrecoFinal,DataFim,PrecoPacote,PromocaoDesc,NomeCliente,NomeFuncionario,Telefone")] Contratos contratos)
         {
             if (id != contratos.ContratoId)
@@ -312,6 +317,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos/Delete/5
+        [Authorize(Roles = "Operador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -336,6 +342,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // POST: Contratos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Operador")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var contratos = await bd.Contratos.FindAsync(id);

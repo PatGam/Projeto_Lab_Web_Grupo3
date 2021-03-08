@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,6 +23,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Pacotes
+        [Authorize(Roles = "Administrador,Operador")]
         public async Task<IActionResult> Index(string nomePesquisar , int pagina = 1)
         {
             Paginacao paginacao = new Paginacao
@@ -59,6 +61,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Pacotes/Details/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -94,6 +97,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Pacotes/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
 
@@ -165,6 +169,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create(ServicosPacotesViewModel servicosPacotesViewModel, Pacotes pacotes, ServicosPacotes servicosPacotes, IFormFile Imagem)
         {
 
@@ -244,6 +249,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Pacotes/Edit/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
@@ -278,6 +284,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, ServicosPacotesViewModel servicosPacotesViewModel, IFormFile Imagem)
         {
 
@@ -329,6 +336,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Pacotes/Delete/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -350,6 +358,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // POST: Pacotes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var pacotes = await bd.Pacotes.FindAsync(id);
@@ -370,6 +379,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         #region API Calls
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> GetAll()
         {
             var servicos = await bd.Pacotes
@@ -380,6 +390,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             var pacoteFromDb = await bd.Pacotes.FirstOrDefaultAsync(s => s.PacoteId== id);

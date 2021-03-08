@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -25,6 +26,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores
+        [Authorize(Roles = "Administrador,Operador")]
         public async Task<IActionResult> IndexClientes(string nifPesquisa, int pagina = 1)
         {
 
@@ -76,7 +78,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
 
 
-
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> IndexFuncionarios(string nifPesquisa, int pagina = 1)
         {
             if (nifPesquisa != null)
@@ -150,6 +152,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create(string tipoUtil)
         {
             //string que especifica o asp-router
@@ -163,6 +166,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create(RegistoUtilizadoresViewModel infoUtilizador)
         {
             IdentityUser utilizador = await _gestorUtilizadores.FindByNameAsync(infoUtilizador.Email);
@@ -243,6 +247,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores/Edit/5
+        [Authorize(Roles = "Administrador,Cliente")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -273,6 +278,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador,Cliente")]
         public async Task<IActionResult> Edit(int id, [Bind("UtilizadorId,Nome,Nif,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Utilizadores utilizadores)
         {
             if (id != utilizadores.UtilizadorId)
@@ -304,6 +310,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores/Delete/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -324,6 +331,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // POST: Utilizadores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var utilizadores = await _context.Utilizadores.FindAsync(id);
