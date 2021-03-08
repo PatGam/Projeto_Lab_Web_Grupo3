@@ -193,17 +193,19 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return Json(new { data = servicos });
         }
 
-        [HttpDelete]
+        [HttpPut]
         public async Task<IActionResult> Delete(int id)
         {
             var servicoFromDb = await bd.Servicos.FirstOrDefaultAsync(s => s.ServicoId == id);
             if (servicoFromDb == null)
             {
-                return Json(new { success = false, message = "Erro ao eliminar o serviço" });
+                return Json(new { success = false, message = "Erro ao arquivado o serviço" });
             }
-            bd.Servicos.Remove(servicoFromDb);
+            servicoFromDb.Inactivo = true;
+
+            bd.Servicos.Update(servicoFromDb);
             await bd.SaveChangesAsync();
-            return Json(new { success = true, message = "O Serviço foi eliminado com sucesso" });
+            return Json(new { success = true, message = "O Serviço foi arquivado com sucesso" });
         }
         #endregion
     }
