@@ -379,7 +379,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         #region API Calls
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador, Operador")]
         public async Task<IActionResult> GetAll()
         {
             var servicos = await bd.Pacotes
