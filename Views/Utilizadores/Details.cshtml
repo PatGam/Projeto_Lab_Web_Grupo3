@@ -2,92 +2,66 @@
 
 @if (User.IsInRole("Cliente"))
 {
-    Layout = "_LayoutMain";
+    Layout = "_LayoutPData";    
+
+    <container>
+        <div class="container bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="p-3 m-t-20 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Dados Pessoais</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">@Html.DisplayNameFor(model => model.Nome)</label>
+                                <p>@Html.DisplayFor(model => model.Nome)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">@Html.DisplayNameFor(model => model.DataNascimento)</label>
+                                <p>@Html.DisplayFor(model => model.DataNascimento, "{0:dd/MM/yyyy}")</p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">@Html.DisplayNameFor(model => model.Morada)</label>
+                                <p>@Html.DisplayFor(model => model.Morada)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">@Html.DisplayNameFor(model => model.CodigoPostal)</label>
+                                <p>@Html.DisplayFor(model => model.CodigoPostal)</p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">@Html.DisplayNameFor(model => model.Nif)</label>
+                                <p>@Html.DisplayFor(model => model.Nif)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">@Html.DisplayNameFor(model => model.Telemovel)</label>
+                                <p>@Html.DisplayFor(model => model.Telemovel)</p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">@Html.DisplayNameFor(model => model.Email)</label>
+                                <p>@Html.DisplayFor(model => model.Email)</p>
+                            </div>
+                        </div>
 
 
-
-<container>
-    <div class="container bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="p-3 m-t-20 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Dados Pessoais</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label class="labels">@Html.DisplayNameFor(model => model.Nome)</label>
-                            <p>@Html.DisplayFor(model => model.Nome)</p>
+                        <div class="mt-5 text-center">
+                            <a class="button-form-btn" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
+                            <a class="button-form-btn" asp-area="Identity" asp-page="/Account/Manage/SetPassword">Mudar Password</a>
                         </div>
-                        <div class="col-md-6">
-                            <label class="labels">@Html.DisplayNameFor(model => model.DataNascimento)</label>
-                            <p>@Html.DisplayFor(model => model.DataNascimento, "{0:dd/MM/yyyy}")</p>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label class="labels">@Html.DisplayNameFor(model => model.Morada)</label>
-                            <p>@Html.DisplayFor(model => model.Morada)</p>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="labels">@Html.DisplayNameFor(model => model.CodigoPostal)</label>
-                            <p>@Html.DisplayFor(model => model.CodigoPostal)</p>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label class="labels">@Html.DisplayNameFor(model => model.Nif)</label>
-                            <p>@Html.DisplayFor(model => model.Nif)</p>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="labels">@Html.DisplayNameFor(model => model.Telemovel)</label>
-                            <p>@Html.DisplayFor(model => model.Telemovel)</p>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label class="labels">@Html.DisplayNameFor(model => model.Email)</label>
-                            <p>@Html.DisplayFor(model => model.Email)</p>
-                        </div>
-                    </div>
-
-
-                    <div class="mt-5 text-center">
-                        <a class="button-form-btn" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
-                        <a class="button-form-btn" asp-area="Identity" asp-page="/Account/Manage/SetPassword">Mudar Password</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</container>
-
-
-<footer id="headerPData">
-    <div class="container">
-        <nav id="navbarPData" class="navbarPData">
-            <ul>
-                <li class="nav-item">
-                    <a class="nav-link scrollto active" asp-area="" asp-controller="Utilizadores" asp-action="Details">Dados Pessoais  <i class="fas fa-users-cog"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto active" asp-area="" asp-controller="Contratos" asp-action="Index">Os meus contratos<i class="fas fa-people-arrows"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto active" asp-area="" asp-controller="Pacotes" asp-action="Index">Pacotes disponíveis<i class="fas fa-cubes"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto active" asp-area="" asp-controller="Servicos" asp-action="Index">Promoções disponíveis<i class="fas fa-atom"></i></a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</footer>
-
+    </container> 
 }
 else
-{ 
-
+{
 
     Layout = "_LayoutAdmin";
     ViewData["Title"] = "Details";
@@ -95,140 +69,140 @@ else
 
 
 
-<section id="main-content">
-    <section class="wrapper">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="page-header"><i class="icon_document_alt"></i>@ViewBag.Titulo</h3>
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="icon_document_alt"></i>@ViewBag.Titulo</h3>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <section class="panel">
-                    <header class="panel-heading no-border">
-                        Detalhes @Html.DisplayFor(model => model.Nome)
-                    </header>
-                    
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Nome)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Nome)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Nif)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Nif)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DataNascimento)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.DataNascimento)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Morada)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Morada)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Telemovel)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Telemovel)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Email)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Email)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.CodigoPostal)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.CodigoPostal)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Role)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Role)
-                            </td>
-                        </tr>
-                        <tr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <section class="panel">
+                        <header class="panel-heading no-border">
+                            Detalhes @Html.DisplayFor(model => model.Nome)
+                        </header>
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nome)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Nome)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nif)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Nif)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DataNascimento)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.DataNascimento)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Morada)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Morada)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Telemovel)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Telemovel)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Email)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CodigoPostal)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.CodigoPostal)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Role)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Role)
+                                </td>
+                            </tr>
+                            <tr>
 
 
-                            <th>Contratos deste Cliente</th>
-                            @if (Model.Contratos.Count() == 0)
-                            {
-                                <td>Este cliente nao tem contratos associados</td>
+                                <th>Contratos deste Cliente</th>
+                                @if (Model.Contratos.Count() == 0)
+                                {
+                                    <td>Este cliente nao tem contratos associados</td>
 
-                            }
-                            else
-                            {
-
-                                @foreach (var item in Model.Contratos)
+                                }
+                                else
                                 {
 
-
-
-                                    <th>@Html.DisplayNameFor(Model => item.DataInicio)</th>
-
-                                    <td>@Html.DisplayFor(modelItem => item.DataInicio)</td>
+                                    @foreach (var item in Model.Contratos)
+                                    {
 
 
 
-                                    <th>@Html.DisplayNameFor(Model => item.DataFim)</th>
-                                    <td>  @Html.DisplayFor(modelItem => item.DataFim)</td>
+                                        <th>@Html.DisplayNameFor(Model => item.DataInicio)</th>
 
-                                    <th>@Html.DisplayNameFor(Model => item.PrecoFinal)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.PrecoFinal)</td>
-                                    <th>@Html.DisplayNameFor(Model => item.Telefone)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.DataInicio)</td>
 
 
 
-                                    <td>  <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.ContratoId">Detalhes do Contrato</a> </td>
+                                        <th>@Html.DisplayNameFor(Model => item.DataFim)</th>
+                                        <td>  @Html.DisplayFor(modelItem => item.DataFim)</td>
+
+                                        <th>@Html.DisplayNameFor(Model => item.PrecoFinal)</th>
+                                        <td>@Html.DisplayFor(modelItem => item.PrecoFinal)</td>
+                                        <th>@Html.DisplayNameFor(Model => item.Telefone)</th>
+                                        <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
+
+
+
+                                        <td>  <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.ContratoId">Detalhes do Contrato</a> </td>
+
+                                    }
+
 
                                 }
 
+                            </tr>
 
-                            }
+                        </table>
 
-                        </tr>
+                        <div>
+                            @*Vai para a vista Create de um Contrato, com o Id deste cliente*@
+                            <a class="btn btn-info" asp-area="" asp-controller="Contratos" asp-action="Create" asp-route-cliente="@Model.UtilizadorId">Associar novo contrato</a>
 
-                    </table>
+                            @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Editar</a>*@
+                            <a class="btn btn-info" asp-action="Index">Voltar atrás</a>
+                        </div>
 
-                    <div>
-                        @*Vai para a vista Create de um Contrato, com o Id deste cliente*@
-                        <a class="btn btn-info" asp-area="" asp-controller="Contratos" asp-action="Create" asp-route-cliente="@Model.UtilizadorId">Associar novo contrato</a>
-
-                        @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Editar</a>*@
-                        <a class="btn btn-info" asp-action="Index">Voltar atrás</a>
-                    </div>
-
-                </section>
+                    </section>
+                </div>
             </div>
-        </div>
+        </section>
     </section>
-</section>
-    }
+}
