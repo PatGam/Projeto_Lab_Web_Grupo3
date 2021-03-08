@@ -55,58 +55,69 @@
             <div class="container d-flex align-items-center justify-content-between">
                 <nav id="navbar" class="navbar">
                     <partial name="_LoginPartial" />
-                    @if (SignInManager.IsSignedIn(User))
+                    @if (User.IsInRole("Administrador"))
                     {
-                <ul>
-                    <li class="nav-item">
-                        <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Home" asp-action="Gestao" class="nav-link scrollto active">Gerir Conta</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="AdminOp" asp-action="Index">Gerir RD Telecomunicações  <i class="fas fa-question"></i></a>
-                        </li>
-                </ul>
-                    }
-                    else if (User.IsInRole("Cliente"))
-                    {
-                <ul>
-                    <li class="nav-item">
-                        <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Home" asp-action="Gestao" class="nav-link scrollto active">Gerir Conta</a>
-                    </li>                    
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="TVBase">Televisão <i class="fas fa-tv"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Telefone  <i class="fas fa-mobile-alt"></i></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
                         <ul>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
+                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
+                            </li>                            
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" class="nav-link scrollto active">Gerir Conta   <i class="far fa-user"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="AdminOp" asp-action="Index">Gerir RD Telecomunicações  <i class="fas fa-registered"></i></a>
                             </li>
                         </ul>
-                    </li>
-                </ul>
                     }
-                    else
+                    @if (User.IsInRole("Operador"))
+                    {
+                        <ul>
+                            <li class="nav-item">
+                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
+                            </li>                            
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" class="nav-link scrollto active">Gerir Conta   <i class="far fa-user"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="AdminOp" asp-action="Index">Gerir RD Telecomunicações  <i class="fas fa-registered"></i></a>
+                            </li>
+                        </ul>
+                    }
+                    @if (User.IsInRole("Cliente"))
+                    {
+                        <ul>
+                            <li class="nav-item">
+                                <nav class="logo"><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a></nav>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" class="nav-link scrollto active">Gerir Conta   <i class="far fa-user"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="PacotesBase">Pacotes   <i class="fas fa-cube"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Internet   <i class="fas fa-wifi"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="TVBase">Televisão <i class="fas fa-tv"></i></a>
+                            </li>                           
+                            <li class="nav-item dropdown">
+                                <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
+                                <ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Questões Frequentes  <i class="far fa-question-circle"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Trabalha Conosco  <i class="fas fa-hands-helping"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
                     {
                         <ul>
                             <li class="nav-item">
