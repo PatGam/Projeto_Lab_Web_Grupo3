@@ -385,11 +385,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var pacoteFromDb = await bd.Pacotes.FirstOrDefaultAsync(s => s.PacoteId== id);
             if (pacoteFromDb == null)
             {
-                return Json(new { success = false, message = "Erro ao eliminar o pacote" });
+                return Json(new { success = false, message = "Erro ao arquivar o pacote" });
             }
-            bd.Pacotes.Remove(pacoteFromDb);
+            pacoteFromDb.Inactivo = true;
+            bd.Pacotes.Update(pacoteFromDb);
             await bd.SaveChangesAsync();
-            return Json(new { success = true, message = "O Pacote foi eliminado com sucesso" });
+            return Json(new { success = true, message = "O Pacote foi arquivado com sucesso" });
         }
         #endregion
     }
