@@ -371,7 +371,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 return Json(new { success = false, message = "Erro ao eliminar o contrato" });
             }
-            bd.Contratos.Remove(contratoFromDb);
+            contratoFromDb.Inactivo = true;
+            bd.Update(contratoFromDb);
             await bd.SaveChangesAsync();
             return Json(new { success = true, message = "O Contrato foi eliminado com sucesso" });
         }
