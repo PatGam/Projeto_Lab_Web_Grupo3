@@ -197,7 +197,19 @@ else
                             <a class="btn btn-info" asp-area="" asp-controller="Contratos" asp-action="Create" asp-route-cliente="@Model.UtilizadorId">Associar novo contrato</a>
 
                             @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Editar</a>*@
-                            <a class="btn btn-info" asp-action="Index">Voltar atrás</a>
+
+                            @if (Model.Role == "Cliente")
+                            {
+                            <a class="btn btn-info" asp-action="IndexClientes">Voltar atrás</a>
+
+                            }
+                            else
+                            {
+                            <a class="btn btn-info" asp-action="IndexFuncionarios">Voltar atrás</a>
+                            }
+
+
+
                         </div>
 
                     </section>
