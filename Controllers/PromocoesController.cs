@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Promocoes
+        [Authorize(Roles = "Administrador,Operador")]
         public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
             Paginacao paginacao = new Paginacao
@@ -40,7 +42,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             };
             return base.View(modelo);
         }
-
+        [Authorize(Roles = "Cliente")]
         public async Task<IActionResult> VistaCliente()
         {
             List<InfoPacoteViewModel> ListaPacotes = new List<InfoPacoteViewModel>();
@@ -92,6 +94,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Promocoes/Details/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -129,6 +132,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Promocoes/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             var pacotes = bd.Pacotes.ToList();
@@ -151,6 +155,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create(PromocoesPacotesViewModel promocoesPacotesViewModel, PromocoesPacotes promocoesPacotes, Promocoes promocoes)
         {
 
@@ -187,6 +192,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Promocoes/Edit/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             PromocoesPacotesViewModel promocoesPacotesViewModel = new PromocoesPacotesViewModel();
@@ -220,6 +226,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, PromocoesPacotesViewModel promocoesPacotesViewModel)
         {
             List<PromocoesPacotes> promocoesDosPacotes = new List<PromocoesPacotes>();
@@ -276,6 +283,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Promocoes/Delete/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -297,6 +305,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // POST: Promocoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var promocoes = await bd.Promocoes.FindAsync(id);
@@ -314,6 +323,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         #region API Calls
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> GetAll()
         {
             var promocoes = await bd.Promocoes
@@ -324,6 +334,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             var promocaoFromDb = await bd.Promocoes.FirstOrDefaultAsync(s => s.PromocoesId == id);

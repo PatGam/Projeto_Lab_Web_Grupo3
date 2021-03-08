@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Servicos
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Index(string nomePesquisar , int pagina = 1)
         {
             Paginacao paginacao = new Paginacao
@@ -43,6 +45,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Servicos/Details/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -63,6 +66,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Servicos/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             ViewData["TipoServicoId"] = new SelectList(bd.TiposServicos, "TipoServicoId", "Nome");
@@ -74,6 +78,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create([Bind("ServicoId,Nome,Descricao,TipoServicoId")] Servicos servicos)
         {
             if (!ModelState.IsValid)
@@ -91,6 +96,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Servicos/Edit/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -113,6 +119,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,Descricao,TipoServicoId")] Servicos servicos)
         {
             if (id != servicos.ServicoId)
@@ -145,6 +152,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Servicos/Delete/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -166,6 +174,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // POST: Servicos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var servicos = await bd.Servicos.FindAsync(id);
@@ -184,6 +193,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         #region API Calls
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> GetAll()
         {
             var servicos = await bd.Servicos.Include(s => s.TipoServicos)
@@ -194,6 +204,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             var servicoFromDb = await bd.Servicos.FirstOrDefaultAsync(s => s.ServicoId == id);
