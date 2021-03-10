@@ -231,12 +231,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             List<PromocoesPacotes> promocoesDosPacotes = new List<PromocoesPacotes>();
 
-            Promocoes promocao = new Promocoes();
-            promocao.PromocoesId = id;
-            //Promocoes promocao = await bd.Promocoes.Include(p => p.PromocoesPacotes)
-            //    .ThenInclude(c => c.Pacote)
-            //    .AsNoTracking()
-            //    .SingleOrDefaultAsync(p => p.PromocoesId == id);
+
+            Promocoes promocao = await bd.Promocoes.Include(p => p.PromocoesPacotes)
+                .ThenInclude(c => c.Pacote)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(p => p.PromocoesId == id);
 
             promocao.Nome = promocoesPacotesViewModel.Nome;
             promocao.Descricao = promocoesPacotesViewModel.Descricao;
@@ -245,7 +244,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             promocao.PromocaoDesc = promocoesPacotesViewModel.PromocaoDesc;
       
 
-            bd.Update(promocao);
+            bd.Promocoes.Update(promocao);
             await bd.SaveChangesAsync();
 
             int promocaoId = promocao.PromocoesId;
