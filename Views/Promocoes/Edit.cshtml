@@ -57,82 +57,24 @@
                                     <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
                                 </div>
                             </div>
-                            <section class="panel">
-                                <div class="panel-body">
-                                    <form class="form-horizontal " method="get">
-                                        <div class="form-group">
-                                            <label class="control-label col-lg-2" for="inputSuccess">Pacotes com a promoção</label>
-                                            <div class="col-lg-10">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        Pacote RD4
-                                                    </label>
-                                                </div>
 
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        Pacote RD3
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        Pacote RD - Gaming
-                                                    </label>
-                                                </div>
-
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        Pacote RD - TV Premium + gaming
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        RD TV e Voz
-                                                    </label>
-                                                </div>
-
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        RD Familiar
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        Pacote RD - TV Premium
-                                                    </label>
-                                                </div>
-                                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-lg-2" for="inputSuccess">Pacotes com a promoção</label>
+                                <div class="col-lg-10">
+                                    @for (int i = 0; i <  Model.ListaPacotes.Count; i++)
+                                    {
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                @Html.DisplayFor(z => Model.ListaPacotes[i].NomePacote)
+                                            </label>
+                                            @Html.HiddenFor(x => Model.ListaPacotes[i].Id)
+                                            @Html.CheckBoxFor(z => Model.ListaPacotes[i].Selecionado)
                                         </div>
-                                    </form>
+                                    }
                                 </div>
-                            </section>
-                            @*<table>
-            <tr>
-                <td>
-                    Pacotes com a promoção
-                </td>
-                @for (int i = 0; i < Model.ListaPacotes.Count; i++)
-                {
-
-
-                    <td>
-                        @Html.HiddenFor(x => Model.ListaPacotes[i].Id)
-                        @Html.DisplayFor(z => Model.ListaPacotes[i].NomePacote)
-                    </td>
-                    <td>
-                        @Html.CheckBoxFor(z => Model.ListaPacotes[i].Selecionado)
-                    </td>
-                }
-            </tr>
-
-        </table>*@
+                            </div>
+                         
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <input type="submit" class="btn btn-success" value="Guardar" />
