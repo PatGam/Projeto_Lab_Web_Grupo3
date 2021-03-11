@@ -166,18 +166,43 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         // GET: Contratos/Create
         [Authorize(Roles = "Operador")]
-
-        public IActionResult Create(int cliente)
+        public async Task<IActionResult> Create(string nifPesquisa, int pagina = 1)
         {
-            //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
-            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
+            if (nifPesquisa != null)
+            {
+                Paginacao paginacao = new Paginacao
+                {
+                    TotalItems = await bd.Utilizadores.Where(p => nifPesquisa == null || p.Nif.Contains(nifPesquisa)).CountAsync(),
+                    PaginaAtual = pagina
 
-            ViewData["ClienteId"] = cliente;
-            ViewData["ClienteNome"] = clienteId.Nome;
-            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+                };
 
-            return View();
+                List<Utilizadores> utilizadores = await bd.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false && p.Role == "Cliente")
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+                UtilizadoresViewModel model1 = new UtilizadoresViewModel
+                {
+                    Utilizador = utilizadores,
+                    Paginacao = paginacao,
+                    nifPesquisa = nifPesquisa
+
+                };
+
+                return View(model1);
+
+            }
+            else
+            {
+                UtilizadoresViewModel model2 = new UtilizadoresViewModel
+                {
+                    nifPesquisa = nifPesquisa
+                };
+
+                return View(model2);
+
+            }
         }
         public IActionResult Create2(int cliente)
         {
@@ -186,31 +211,35 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ViewData["ClienteId"] = cliente;
             ViewData["ClienteNome"] = clienteId.Nome;
-            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
 
-            return View();
+            ContratosViewModel contratosViewModel = new ContratosViewModel();
+
+            Contratos contratos = new Contratos
+            { 
+              ClienteId = cliente,  
+              Morada = contratosViewModel.Morada,
+              CodigoPostal = contratosViewModel.CodigoPostal
+            };
+
+            return View(contratos);
         }
 
-        public IActionResult Create3(int cliente)
+        public IActionResult Create3(Contratos contratos)
         {
-            //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
-            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
-
-            ViewData["ClienteId"] = cliente;
-            ViewData["ClienteNome"] = clienteId.Nome;
+            ContratosViewModel contratosViewModel = new ContratosViewModel();
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
 
-            return View();
+            contratos.PacoteId = contratosViewModel.PacoteId;
+            contratos.DataInicio = contratosViewModel.DataInicio;
+            contratos.DataFim = contratosViewModel.DataFim;
+
+            return View(contratos);
         }
 
-        public IActionResult Create4(int cliente)
+        public IActionResult Create4(Contratos contratos)
         {
             //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
-            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
-
-            ViewData["ClienteId"] = cliente;
+            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.ClienteId);
             ViewData["ClienteNome"] = clienteId.Nome;
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
             ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");

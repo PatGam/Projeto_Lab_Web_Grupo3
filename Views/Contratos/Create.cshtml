@@ -25,14 +25,14 @@
                     <div class="panel-body">
                         Insira na barra de pesquisa o NIF do utilizador cujo utilizador pretende consultar
                         <br />
-                        <form class="form-horizontal " asp-action="IndexClientes" method="get">
+                        <form class="form-horizontal " asp-action="Create" method="get">
                             <div class="form-group">
                                 <div class="col-lg-10">
                                     <input name="nifPesquisa" type="search" value="@Model.nifPesquisa" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
                                 </div>
                                 <div class="col-lg-10">
                                     <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
-                                    <a asp-action="IndexClientes" class="btn btn-primary btn-lg">Limpar</a>
+                                    <a asp-action="Create" class="btn btn-primary btn-lg">Limpar</a>
                                 </div>
                             </div>
 

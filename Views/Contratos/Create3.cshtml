@@ -1,4 +1,4 @@
-﻿@model Projeto_Lab_Web_Grupo3.Models.Contratos
+﻿@model ContratosViewModel
 
 @{
     Layout = "_LayoutAdmin";
@@ -54,7 +54,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
-                                    <a class="btn-primary" asp-area="" asp-controller="Contratos" asp-action="Create4" asp-route-cliente=@item.UtilizadorId>Seguinte</a>
+                                    @*<a class="btn-primary" asp-area="" asp-controller="Contratos" asp-action="Create4" asp-route-cliente=@item.UtilizadorId>Seguinte</a>*@
                                     <a class="btn btn-danger" asp-action="Index">Cancelar</a>
                                 </div>
                             </div>
