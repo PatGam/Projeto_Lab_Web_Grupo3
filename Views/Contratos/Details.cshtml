@@ -34,16 +34,27 @@
                             <th>@Html.DisplayNameFor(model => model.ClienteId)</th>
                             <td>@Html.DisplayFor(model => model.Utilizadores.Nome)</td>
                         </tr>
-                        <th>@Html.DisplayNameFor(model => model.DataInicio)</th>
-                        <td>@Html.DisplayFor(model => model.DataInicio)</td>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.DataInicio)</th>
+                            <td>@Html.DisplayFor(model => model.DataInicio)</td>
                         </tr>
                         <tr>
                             <th>@Html.DisplayNameFor(model => model.DataFim)</th>
                             <td>@Html.DisplayFor(model => model.DataFim)</td>
 
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.PacoteId)</th>
-                            <td>@Html.DisplayFor(model => model.Pacotes.Nome)</td>
+                            <th>Pacote utilizado</th>
+                            <td>@Html.DisplayFor(model => model.NomePacote)</td>
+                        </tr>
+                        <tr>
+                            <th>Serviços disponíveis</th>
+                            <td>
+
+                                    @foreach (var item in Model.ServicosContratos)
+                                    {
+                                        @item.Servicos.Nome <br/>
+                                    }
+                            </td>
                         </tr>
                         <tr>
                             <th>@Html.DisplayNameFor(model => model.PromocoesId)</th>

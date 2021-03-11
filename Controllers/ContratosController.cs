@@ -139,10 +139,18 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .Include(c => c.Pacotes)
                 .Include(c => c.Promocoes)
                 .Include(c => c.Utilizadores)
+                .Include(c => c.ServicosContratos)
+                .ThenInclude(c => c.Servicos)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
 
             var funcionario = await bd.Utilizadores
                 .FirstOrDefaultAsync(m => m.UtilizadorId == contratos.FuncionarioId);
+
+            var servicos = await bd.ServicosContratos
+                .Include(c => c.Contratos)
+                .Include(c => c.Servicos)
+                .Where(c => c.ContratoId == id)
+                .ToListAsync();
 
             ViewData["FuncionarioNome"] = funcionario.Nome;
 
@@ -264,12 +272,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
             }
 
-
             foreach (var item in servicosNoPacote)
             {
-
                 servicosNoContrato.Add(new ServicosContratos() { ServicoId = item.ServicoId, ContratoId = contratos.ContratoId });
-
             }
             foreach (var item in servicosNoContrato)
             {
