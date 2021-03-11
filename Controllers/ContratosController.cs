@@ -166,6 +166,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         // GET: Contratos/Create
         [Authorize(Roles = "Operador")]
+
         public IActionResult Create(int cliente)
         {
             //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
@@ -178,6 +179,45 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             return View();
         }
+        public IActionResult Create2(int cliente)
+        {
+            //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
+            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
+
+            ViewData["ClienteId"] = cliente;
+            ViewData["ClienteNome"] = clienteId.Nome;
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+
+            return View();
+        }
+
+        public IActionResult Create3(int cliente)
+        {
+            //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
+            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
+
+            ViewData["ClienteId"] = cliente;
+            ViewData["ClienteNome"] = clienteId.Nome;
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+
+            return View();
+        }
+
+        public IActionResult Create4(int cliente)
+        {
+            //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
+            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
+
+            ViewData["ClienteId"] = cliente;
+            ViewData["ClienteNome"] = clienteId.Nome;
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+
+            return View();
+        }
+
 
         // POST: Contratos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 

@@ -1,0 +1,72 @@
+﻿@model Projeto_Lab_Web_Grupo3.Models.Contratos
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Criar";
+}
+
+
+@*Aqui seleciona o pacote, a data de início e a data de fim;*@
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa-file-text-o"></i>Contratos</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                    <li><i class="icon_document_alt"></i>Contratos</li>
+                    <li><i class="fa fa-file-text-o"></i>Criar</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Criar novo contrato
+                    </header>
+                    <div class="panel-body">
+                        <form asp-action="Create" class="form-horizontal">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            @ViewBag.Message
+
+                            <div class="form-group">
+                                <label asp-for="PacoteId" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <select asp-for="PacoteId" class="form-control" asp-items="ViewBag.PacoteId"></select>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="DataInicio" class="form-control" />
+                                    <span asp-validation-for="DataInicio" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="DataFim" class="form-control" />
+                                    <span asp-validation-for="DataFim" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <a class="btn-primary" asp-area="" asp-controller="Contratos" asp-action="Create4" asp-route-cliente=@item.UtilizadorId>Seguinte</a>
+                                    <a class="btn btn-danger" asp-action="Index">Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </section>
+            </div>
+        </div>
+   </section>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
