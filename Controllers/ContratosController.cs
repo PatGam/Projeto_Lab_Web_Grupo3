@@ -165,11 +165,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ViewData["ClienteId"] = cliente;
             ViewData["ClienteNome"] = clienteId.Nome;
-            ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
             ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
-
 
             return View();
         }
@@ -180,7 +177,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Operador")]
-        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId, Nif, UtilizadorId, FuncionarioId,PacoteId,PromocoesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal")] Contratos contratos)
+        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId, Nif, UtilizadorId, FuncionarioId,PacoteId,PromocoesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal, Morada, CodigoPostal")] Contratos contratos)
         {
 
             if (!ModelState.IsValid)
@@ -189,9 +186,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
                 ViewData["ClienteId"] = contratos.UtilizadorId;
                 ViewData["ClienteNome"] = clienteId.Nome;
-                ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-                ViewData["PromocaoDesc"] = new SelectList(bd.Promocoes, "PromocoesId", "PromocaoDesc");
                 ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
                 return View();
             }
@@ -205,8 +200,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var pacoteid = bd.Pacotes.SingleOrDefault(e => e.PacoteId == contratos.PacoteId);
             contratos.PrecoPacote = pacoteid.Preco;
 
+            //Código que vai buscar o nome do pacote
+            contratos.NomePacote = pacoteid.Nome;
+
             //Código que vai buscar o cliente
-            
+
             contratos.ClienteId = contratos.UtilizadorId;
 
             List<PromocoesPacotes> PromocoesDisponiveis = new List<PromocoesPacotes>();
@@ -242,6 +240,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 ViewBag.Message = "A promoção que está a tentar aplicar não está disponível para o pacote selecionado";
                 return View(contratos);
             }
+
             //Código que vai buscar o desconto da promoção
             int promo = contratos.PromocoesId;
             var promocaoid = bd.Promocoes.SingleOrDefault(e => e.PromocoesId == contratos.PromocoesId);
@@ -252,6 +251,33 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             bd.Add(contratos);
             await bd.SaveChangesAsync();
+
+
+            List<ServicosPacotes> servicosNoPacote = new List<ServicosPacotes>();
+            List<ServicosContratos> servicosNoContrato = new List<ServicosContratos>();
+
+            foreach (var item in bd.ServicosPacotes)
+            {
+                if (item.PacoteId == pacoteid.PacoteId)
+                {
+                    servicosNoPacote.Add(item);
+                }
+            }
+
+
+            foreach (var item in servicosNoPacote)
+            {
+
+                servicosNoContrato.Add(new ServicosContratos() { ServicoId = item.ServicoId, ContratoId = contratos.ContratoId });
+
+            }
+            foreach (var item in servicosNoContrato)
+            {
+                bd.ServicosContratos.Add(item);
+            }
+
+            await bd.SaveChangesAsync();
+
 
             ViewBag.Mensagem = "Contrato adicionado com sucesso.";
             return View("Sucesso");

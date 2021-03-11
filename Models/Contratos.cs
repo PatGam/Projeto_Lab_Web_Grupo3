@@ -28,6 +28,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public Pacotes Pacotes { get; set; }
 
+        public string NomePacote { get; set; }
+
+
         [Display(Name = "Promoção aplicada")]
         public int PromocoesId { get; set; }
 
