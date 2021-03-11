@@ -28,6 +28,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public Pacotes Pacotes { get; set; }
 
+        public string NomePacote { get; set; }
+
+
         [Display(Name = "Promoção aplicada")]
         public int PromocoesId { get; set; }
 
@@ -64,6 +67,21 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Display(Name = "Inactivo")]
         public bool Inactivo { get; set; }
+
+        [Required(ErrorMessage = "Preencha a morada")]
+        [StringLength(500, ErrorMessage = "A morada não pode ter mais de 500 caracteres")]
+        [Display(Name = "Morada")]
+        public string Morada { get; set; }
+
+        [Required(ErrorMessage = "Preencha o código postal")]
+        [Column("Codigo_Postal")]
+        [RegularExpression(@"(\d{4})[-](\d{3})", ErrorMessage = "Código Postal Inválido")]
+        [StringLength(8, MinimumLength = 8)]
+        [Display(Name = "Código Postal")]
+        public string CodigoPostal { get; set; }
+
+        public virtual ICollection<ServicosContratos> ServicosContratos { get; set; }
+
 
         //[ForeignKey(nameof(ClienteId))]
         //[InverseProperty(nameof(Clientes.Contratos))]
