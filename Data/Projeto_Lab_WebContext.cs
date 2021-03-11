@@ -28,6 +28,9 @@ namespace Projeto_Lab_Web_Grupo3.Data
             public virtual DbSet<ServicosPacotes> ServicosPacotes { get; set; }
             public virtual DbSet<Tipos_Sevicos> TiposServicos { get; set; }
 
+            public virtual DbSet<ServicosContratos> ServicosContratos { get; set; }
+
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -60,12 +63,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     .HasForeignKey(d => d.PromocoesId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Contratos_Promocoes");
-
-
-
-
-
-
                 });
 
                 modelBuilder.Entity<PromocoesPacotes>(entity =>
@@ -105,6 +102,25 @@ namespace Projeto_Lab_Web_Grupo3.Data
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_Servicos_Pacotes_Servicos");
                 });
+
+            modelBuilder.Entity<ServicosContratos>(entity =>
+            {
+                entity.HasIndex(e => e.ContratoId);
+
+                entity.HasIndex(e => e.ServicoId);
+
+                entity.HasOne(d => d.Contratos)
+                    .WithMany(p => p.ServicosContratos)
+                    .HasForeignKey(d => d.ContratoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Servicos_Contratos_Contratos");
+
+                entity.HasOne(d => d.Servicos)
+                    .WithMany(p => p.ServicosContratos)
+                    .HasForeignKey(d => d.ServicoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Servicos_Contratos_Servicos");
+            });
 
 
             modelBuilder.Entity<Servicos>(entity =>
