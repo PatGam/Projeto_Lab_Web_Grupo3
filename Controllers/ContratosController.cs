@@ -233,7 +233,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(novoContrato);
         }
 
-        public IActionResult Create4(NovoContratoViewModel novoContrato)
+        public async Task<IActionResult> Create4(NovoContratoViewModel novoContrato)
         {
             ViewData["ClienteId"] = novoContrato.ClienteId;
             var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == novoContrato.ClienteId);
@@ -247,23 +247,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["DataInicio"] = novoContrato.DataInicio;
             ViewData["DataFim"] = novoContrato.DataFim;
 
-            List<Promocoes> promosDisponiveis = new List<Promocoes>();
-            List<PromocoesPacotes> promoPacote = new List<PromocoesPacotes>();
 
-            foreach ( var item in bd.PromocoesPacotes)
-            {
-                if(item.PacoteId == novoContrato.PacoteId)
-                {
-                    promoPacote.Add(item);
-                }
-            }
+            List<Promocoes> promocoes = await bd.PromocoesPacotes.Where(p => p.PacoteId == novoContrato.PacoteId)
+                            .Include(c => c.Promocoes)
+                            .Select(c => c.Promocoes)
+                            .Where(c => c.DataInicio < DateTime.Now && c.DataFim > DateTime.Now)
+                            .ToListAsync();
 
-            //para mudar, está a mostrar todas as promos independentemente da data;
-            foreach (var item in promoPacote)
-            {
-                promosDisponiveis.Add(new Promocoes() { PromocoesId = item.PromocoesId});
-            }
-            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+            ViewData["PromocoesId"] = new SelectList(promocoes, "PromocoesId", "Nome");
 
             return View(novoContrato);
         }

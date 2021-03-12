@@ -29,12 +29,9 @@
                     <div class="panel-body">
                         <form asp-action="Create5" class="form-horizontal">
                             <div asp-validation-summary="All" class="text-danger"></div>
-                            @ViewBag.Message
-                            <div class="form-group">
-                                <div class="col-sm-10">
-                                    <input type="hidden" asp-for="UtilizadorId" value="@ViewBag.ClienteId">
-                                </div>
-                            </div>
+                            Confirme se todos os dados que introduziu estão corretos e verifique a promoção a ser aplicada.
+                            <input type="hidden" asp-for="UtilizadorId" value="@ViewBag.ClienteId">
+                            <input type="hidden" class="form-control" asp-for="PacoteId" value="@ViewBag.PacoteId" />
                             <div class="form-group">
                                 <div class="col-sm-10">
                                     <input type="hidden" asp-for="ClienteId" value="@ViewBag.ClienteId">
@@ -49,28 +46,28 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" asp-for="Morada"></label>
                                 <div class="col-sm-10">
-                                    <input asp-for="Morada" class="form-control" value="@ViewBag.Morada" />
+                                    <input asp-for="Morada" class="form-control" value="@ViewBag.Morada" readonly="readonly"/>
                                     <span asp-validation-for="Morada" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" asp-for="CodigoPostal"></label>
                                 <div class="col-sm-10">
-                                    <input asp-for="CodigoPostal" class="form-control" value="@ViewBag.CodigoPostal" />
+                                    <input asp-for="CodigoPostal" class="form-control" value="@ViewBag.CodigoPostal" readonly="readonly"/>
                                     <span asp-validation-for="CodigoPostal" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Telefone" class="col-sm-2 control-label"></label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" asp-for="Telefone" value="@ViewBag.Telefone" />
+                                    <input type="text" class="form-control" asp-for="Telefone" value="@ViewBag.Telefone" readonly="readonly"/>
                                     <span asp-validation-for="Telefone" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label asp-for="PacoteId" class="col-sm-2 control-label"></label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" asp-for="PacoteId" value="@ViewBag.PacoteId" />
+                                    <input id="disabledInput" class="form-control" value="@ViewBag.PacoteNome" readonly="readonly"/>
                                     <span asp-validation-for="PacoteId" class="text-danger"></span>
                                 </div>
                             </div>
@@ -85,12 +82,12 @@
                             <div class="form-group">
                                 <label asp-for="DataFim" class="col-sm-2 control-label"></label>
                                 <div class="col-sm-10">
-                                    <input asp-for="DataFim" class="form-control" value="@ViewBag.DataFim" />
+                                    <input asp-for="DataFim" class="form-control" value="@Model.DataFim" />
                                     <span asp-validation-for="DataFim" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label asp-for="PromocoesId" class="col-sm-2 control-label"></label>
+                                <label class="col-sm-2 control-label">Promoção em vigor</label>
                                 <div class="col-sm-10">
                                     <select asp-for="PromocoesId" class="form-control" asp-items="ViewBag.PromocoesId"></select>
                                 </div>
