@@ -30,8 +30,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [StringLength(9, MinimumLength = 9)]
         public string Nif { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = false)]
         [Column("Data_Nascimento", TypeName = "date")]
         [Display(Name = "Data de nascimento")]
         public DateTime DataNascimento { get; set; }
