@@ -94,7 +94,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Promocoes/Details/5
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
