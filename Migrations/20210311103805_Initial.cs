@@ -150,6 +150,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     ClienteId = table.Column<int>(nullable: false),
                     FuncionarioId = table.Column<int>(nullable: false),
                     PacoteId = table.Column<int>(nullable: false),
+                    NomePacote = table.Column<string>(nullable: true),
                     PromocoesId = table.Column<int>(nullable: false),
                     Data_inicio = table.Column<DateTime>(type: "date", nullable: false),
                     Data_Fim = table.Column<DateTime>(type: "date", nullable: false),
@@ -157,7 +158,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     Preco_pacote = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Promocao_desc = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Preco_Final = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    Inactivo = table.Column<bool>(nullable: false)
+                    Inactivo = table.Column<bool>(nullable: false),
+                    Morada = table.Column<string>(maxLength: 500, nullable: false),
+                    Codigo_Postal = table.Column<string>(maxLength: 8, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -208,6 +211,32 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ServicosContratos",
+                columns: table => new
+                {
+                    ServicosContratosId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ContratoId = table.Column<int>(nullable: false),
+                    ServicoId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServicosContratos", x => x.ServicosContratosId);
+                    table.ForeignKey(
+                        name: "FK_Servicos_Contratos_Contratos",
+                        column: x => x.ContratoId,
+                        principalTable: "Contratos",
+                        principalColumn: "Contrato_Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Servicos_Contratos_Servicos",
+                        column: x => x.ServicoId,
+                        principalTable: "Servicos",
+                        principalColumn: "Servico_Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Contratos_PacoteId",
                 table: "Contratos",
@@ -247,13 +276,20 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "IX_Servicos_Pacotes_Servico_Id",
                 table: "Servicos_Pacotes",
                 column: "Servico_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServicosContratos_ContratoId",
+                table: "ServicosContratos",
+                column: "ContratoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServicosContratos_ServicoId",
+                table: "ServicosContratos",
+                column: "ServicoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Contratos");
-
             migrationBuilder.DropTable(
                 name: "Promocoes_Pacotes");
 
@@ -261,19 +297,25 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                 name: "Servicos_Pacotes");
 
             migrationBuilder.DropTable(
+                name: "ServicosContratos");
+
+            migrationBuilder.DropTable(
                 name: "Tipos_Clientes");
 
             migrationBuilder.DropTable(
-                name: "Utilizadores");
+                name: "Contratos");
 
             migrationBuilder.DropTable(
-                name: "Promocoes");
+                name: "Servicos");
 
             migrationBuilder.DropTable(
                 name: "Pacotes");
 
             migrationBuilder.DropTable(
-                name: "Servicos");
+                name: "Promocoes");
+
+            migrationBuilder.DropTable(
+                name: "Utilizadores");
 
             migrationBuilder.DropTable(
                 name: "TiposServicos");

@@ -227,14 +227,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> Edit(int id, PromocoesPacotesViewModel promocoesPacotesViewModel)
+        public async Task<IActionResult> Edit( PromocoesPacotesViewModel promocoesPacotesViewModel)
         {
             List<PromocoesPacotes> promocoesDosPacotes = new List<PromocoesPacotes>();
-
-
+            int id = promocoesPacotesViewModel.PromocoesId;
             Promocoes promocao = await bd.Promocoes.Include(p => p.PromocoesPacotes)
                 .ThenInclude(c => c.Pacote)
-                .AsNoTracking()
+                //.AsNoTracking()
                 .SingleOrDefaultAsync(p => p.PromocoesId == id);
 
             promocao.Nome = promocoesPacotesViewModel.Nome;
@@ -242,7 +241,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             promocao.DataInicio = promocoesPacotesViewModel.DataInicio;
             promocao.DataFim = promocoesPacotesViewModel.DataFim;
             promocao.PromocaoDesc = promocoesPacotesViewModel.PromocaoDesc;
-      
 
             bd.Promocoes.Update(promocao);
             await bd.SaveChangesAsync();
