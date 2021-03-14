@@ -345,6 +345,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [Authorize(Roles = "Administrador,Cliente")]
         public async Task<IActionResult> EditClientes(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -376,32 +377,64 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [Authorize(Roles = "Administrador,Cliente")]
         public async Task<IActionResult> EditClientes(int id, [Bind("UtilizadorId,Nome,Nif,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Utilizadores utilizadores)
         {
-            if (id != utilizadores.UtilizadorId)
-            {
-                return NotFound();
-            }
+            var login = await _context.Utilizadores.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
 
-            if (ModelState.IsValid)
+            if (login.Role != "Cliente")
             {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(utilizadores);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UtilizadoresExists(utilizadores.UtilizadorId))
+                    try
                     {
-                        return NotFound();
+                        utilizadores.Role = "Cliente";
+                        _context.Update(utilizadores);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!UtilizadoresExists(utilizadores.UtilizadorId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return View("SucessoClientes");
             }
-            return View("SucessoClientes");
+            else
+            {
+                if (id != login.UtilizadorId)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        utilizadores.Role = "Cliente";
+                        _context.Update(utilizadores);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!UtilizadoresExists(utilizadores.UtilizadorId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                }
+                return View("SucessoClientes");
+            }
+                
+
+            
         }
 
         // GET: Utilizadores/Edit/5
