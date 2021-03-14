@@ -247,7 +247,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["DataInicio"] = novoContrato.DataInicio;
             ViewData["DataFim"] = novoContrato.DataFim;
 
-
             List<Promocoes> promocoes = await bd.PromocoesPacotes.Where(p => p.PacoteId == novoContrato.PacoteId)
                             .Include(c => c.Promocoes)
                             .Select(c => c.Promocoes)
@@ -444,13 +443,27 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
 
             var contratos = await bd.Contratos
+                .Include(c => c.Pacotes)
+                .Include(c => c.Promocoes)
                 .Include(c => c.Utilizadores)
-
-                //.Include(c => c.PromocoesPacotesNavigation)
+                .Include(c => c.ServicosContratos)
+                .ThenInclude(c => c.Servicos)
                 .FirstOrDefaultAsync(m => m.ContratoId == id);
+
+            var funcionario = await bd.Utilizadores
+                .FirstOrDefaultAsync(m => m.UtilizadorId == contratos.FuncionarioId);
+
+            var servicos = await bd.ServicosContratos
+                .Include(c => c.Contratos)
+                .Include(c => c.Servicos)
+                .Where(c => c.ContratoId == id)
+                .ToListAsync();
+
+            ViewData["FuncionarioNome"] = funcionario.Nome;
+
             if (contratos == null)
             {
-                ViewBag.Mensagem = "O Contrato que estava a tentar apagar foi eliminado por outra pessoa.";
+                ViewBag.Mensagem = "O Contrato que estava a tentar apagar foi arquivado por outra pessoa.";
                 return View("Sucesso");
             }
 
@@ -467,7 +480,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.Inactivo = true;
             bd.Update(contratos);
             await bd.SaveChangesAsync();
-            ViewBag.Mensagem = "O Contrato foi eliminado com sucesso";
+            ViewBag.Mensagem = "O Contrato foi arquivado com sucesso";
             return View("Sucesso");
         }
 
