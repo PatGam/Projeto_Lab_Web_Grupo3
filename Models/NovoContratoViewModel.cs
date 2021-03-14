@@ -12,8 +12,49 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public Contratos Contratos { get; set; }
         //public List<Pacotes> Pacotes { get; set; }
 
-        public Pacotes Pacotes { get; set; }
+        public int UtilizadorId { get; set; }
+
         public List<Promocoes> Promocoes { get; set; }
-        public List<PromocoesPacotes> PromocoesPacotes { get; set; }
+
+        public List<Pacotes> Pacotes { get; set; }
+
+
+        [DataType(DataType.Date)]
+        [Column("Data_inicio", TypeName = "date")]
+        [Display(Name = "Data de Início")]
+        public DateTime DataInicio { get; set; }
+
+
+        [DataType(DataType.Date)]
+        [Column("Data_Fim", TypeName = "date")]
+        [Display(Name = "Data de Fim")]
+        public DateTime DataFim { get; set; }
+
+        [Column("Telefone")]
+        [RegularExpression(@"(2\d{8})", ErrorMessage = "Telefone Inválido")]
+        public int Telefone { get; set; }
+
+        [Required(ErrorMessage = "Preencha a morada")]
+        [StringLength(500, ErrorMessage = "A morada não pode ter mais de 500 caracteres")]
+        [Display(Name = "Morada")]
+        public string Morada { get; set; }
+
+        [Required(ErrorMessage = "Preencha o código postal")]
+        [Column("Codigo_Postal")]
+        [RegularExpression(@"(\d{4})[-](\d{3})", ErrorMessage = "Código Postal Inválido")]
+        [StringLength(8, MinimumLength = 8)]
+        [Display(Name = "Código Postal")]
+        public string CodigoPostal { get; set; }
+
+        [Display(Name = "Nome do cliente")]
+        public int ClienteId { get; set; }
+
+        [Display(Name = "Pacote utilizado")]
+
+        public int PacoteId { get; set; }
+
+        public int PromocoesId { get; set; }
+
+
     }
 }
