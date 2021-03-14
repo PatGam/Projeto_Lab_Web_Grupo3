@@ -1,8 +1,8 @@
 ﻿@model Projeto_Lab_Web_Grupo3.Models.Servicos
 
 @{
-    Layout = "_LayoutAdmin";
     ViewData["Title"] = "Edit";
+    Layout = "_LayoutAdmin";
 }
 
 
@@ -20,7 +20,7 @@
                         Criar novo serviço
                     </header>
                     <div class="panel-body">
-                        <form asp-action="Edit" class="form-horizontal " method="get">
+                        <form asp-action="Edit" class="form-horizontal">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="ServicoId" />
                             <div class="form-group">
@@ -41,16 +41,15 @@
                         <div class="form-group">
                             <label asp-for="TipoServicoId" class="control-label col-lg-2"></label>
                             <div class="col-lg-10">
-
                                 <select asp-for="TipoServicoId" class="form-control m-bot15" asp-items="ViewBag.TipoServicoId"></select>
                             </div>
                         </div>
-                            <div class="form-group">
-                                <div class="col-lg-offset-2 col-lg-10">
-                                    <input type="submit" class="btn btn-success" value="Guardar" />
-                                    <a class="btn btn-danger" asp-action="Index">Cancelar</a>
-                                </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <input type="submit" class="btn btn-success" value="Guardar" />
+                                <a class="btn btn-danger" asp-action="Index">Cancelar</a>
                             </div>
+                        </div>
 </form>
                     </div>
                 </section>

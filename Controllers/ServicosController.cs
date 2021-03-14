@@ -119,7 +119,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,Descricao,TipoServicoId")] Servicos servicos)
         {
             if (id != servicos.ServicoId)
