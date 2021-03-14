@@ -12,18 +12,18 @@
             <section class="wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header"><i class="fa fa-file-text-o"></i>Clientes</h3>
+                        <h3 class="page-header"><i class="fa fa-file-text-o"></i>Contratos</h3>
                         <ol class="breadcrumb">
                             <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                            <li><i class="icon_document_alt"></i>Gerir Clientes</li>
-                            <li><i class="fa fa-file-text-o"></i>Consultar</li>
+                            <li><i class="icon_document_alt"></i>Gerir Contratos</li>
+                            <li><i class="fa fa-file-text-o"></i>Criar</li>
                         </ol>
                     </div>
                 </div>
 
                 <section class="panel">
                     <div class="panel-body">
-                        Insira na barra de pesquisa o NIF do utilizador cujo utilizador pretende consultar
+                        Insira na barra de pesquisa o NIF do cliente a que pretende associar um novo contrato.
                         <br />
                         <form class="form-horizontal " asp-action="Create" method="get">
                             <div class="form-group">
@@ -97,8 +97,7 @@
                                                     </td>
 
                                                     <td>
-                                                        <a class="btn-primary" asp-area="" asp-controller="Contratos" asp-action="Create2" asp-route-cliente=@item.UtilizadorId>Associar contrato</a>
-                                                        <a class="btn btn-danger" asp-action="Index">Cancelar</a>
+                                                        <a class="btn btn-primary" asp-area="" asp-controller="Contratos" asp-action="Create2" asp-route-cliente=@item.UtilizadorId>Associar contrato</a>
 
                                                     </td>
 
