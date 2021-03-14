@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        </div>            
+        </div>
     </container>
 }
 else
@@ -177,6 +177,7 @@ else
                                                                 }
                                                                 <td>
                                                                     <a class="btn btn-primary" asp-area="" asp-controller="Contratos" asp-action="Details" asp-route-id="@item.ContratoId"><i class="icon_plus_alt2"></i></a>
+                                                                    <a class="btn btn-danger" asp-area="" asp-controller="Contratos" asp-action="Delete" asp-route-id="@item.ContratoId"><i class="icon_archive_alt"></i></a>
                                                                 </td>
                                                             </tr>
 
@@ -218,16 +219,16 @@ else
                                                     </ul>
                                                 </nav>
 
-                                                            }
+                                            }
                                         </section>
 
                                     </div>
                                 </div>
-                                                            }
+                            }
                         </section>
                     </div>
                 </div>
-                                                            }
+            }
 
             @if (User.IsInRole("Cliente"))
             {
@@ -262,6 +263,6 @@ else
         </section>
     </section>
 }
-    @section Scripts {
-        <script src="~/js/Contratos.js"></script>
-    }
+@section Scripts {
+    <script src="~/js/Contratos.js"></script>
+}
