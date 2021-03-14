@@ -24,10 +24,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> Index(string nifpesquisar, bool inactivo, int pagina = 1)
         {
             if (User.IsInRole("Operador"))
-            { 
+            {
                 if (nifpesquisar != null)
                 {
-                    if(inactivo == false)
+                    if (inactivo == false)
                     {
                         Paginacao paginacao = new Paginacao
                         {
@@ -90,7 +90,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                         return View(modelo1);
                     }
                 }
-                
+
                 {
                     ContratosViewModel modelo2 = new ContratosViewModel
                     {
@@ -211,40 +211,52 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ViewData["ClienteId"] = cliente;
             ViewData["ClienteNome"] = clienteId.Nome;
-
-            ContratosViewModel contratosViewModel = new ContratosViewModel();
-
-            Contratos contratos = new Contratos
-            { 
-              ClienteId = cliente,  
-              Morada = contratosViewModel.Morada,
-              CodigoPostal = contratosViewModel.CodigoPostal
+            Contratos contratos = new Contratos();
+            NovoContratoViewModel novoContrato = new NovoContratoViewModel
+            {
+                Contratos = contratos,
             };
 
-            return View(contratos);
+            return View(novoContrato);
         }
 
-        public IActionResult Create3(Contratos contratos)
+        public IActionResult Create3(NovoContratoViewModel novoContrato)
         {
-            ContratosViewModel contratosViewModel = new ContratosViewModel();
+            ViewData["ClienteId"] = novoContrato.ClienteId;
+            ViewData["Morada"] = novoContrato.Morada;
+            ViewData["CodigoPostal"] = novoContrato.CodigoPostal;
+            ViewData["Telefone"] = novoContrato.Telefone;
+
+            int id = novoContrato.UtilizadorId;
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
 
-            contratos.PacoteId = contratosViewModel.PacoteId;
-            contratos.DataInicio = contratosViewModel.DataInicio;
-            contratos.DataFim = contratosViewModel.DataFim;
-
-            return View(contratos);
+            return View(novoContrato);
         }
 
-        public IActionResult Create4(Contratos contratos)
+        public async Task<IActionResult> Create4(NovoContratoViewModel novoContrato)
         {
-            //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
-            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.ClienteId);
+            ViewData["ClienteId"] = novoContrato.ClienteId;
+            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == novoContrato.ClienteId);
             ViewData["ClienteNome"] = clienteId.Nome;
-            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
+            ViewData["PacoteId"] = novoContrato.PacoteId;
+            var pacoteId = bd.Pacotes.SingleOrDefault(e => e.PacoteId == novoContrato.PacoteId);
+            ViewData["PacoteNome"] = pacoteId.Nome;
+            ViewData["Morada"] = novoContrato.Morada;
+            ViewData["CodigoPostal"] = novoContrato.CodigoPostal;
+            ViewData["Telefone"] = novoContrato.Telefone;
+            ViewData["DataInicio"] = novoContrato.DataInicio;
+            ViewData["DataFim"] = novoContrato.DataFim;
 
-            return View();
+
+            List<Promocoes> promocoes = await bd.PromocoesPacotes.Where(p => p.PacoteId == novoContrato.PacoteId)
+                            .Include(c => c.Promocoes)
+                            .Select(c => c.Promocoes)
+                            .Where(c => c.DataInicio < DateTime.Now && c.DataFim > DateTime.Now)
+                            .ToListAsync();
+
+            ViewData["PromocoesId"] = new SelectList(promocoes, "PromocoesId", "Nome");
+
+            return View(novoContrato);
         }
 
 
@@ -254,14 +266,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Operador")]
-        public async Task<IActionResult> Create([Bind("ContratoId,ClienteId, Nif, UtilizadorId, FuncionarioId,PacoteId,PromocoesId,DataInicio,DataFim,Telefone,PrecoPacote,PromocaoDesc,PrecoFinal, Morada, CodigoPostal")] Contratos contratos)
+        public async Task<IActionResult> Create5(NovoContratoViewModel novoContrato, Contratos contratos)
         {
-
             if (!ModelState.IsValid)
             {
                 var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
 
-                ViewData["ClienteId"] = contratos.UtilizadorId;
+                ViewData["ClienteId"] = contratos.ClienteId;
                 ViewData["ClienteNome"] = clienteId.Nome;
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
                 ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome");
@@ -274,36 +285,38 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.FuncionarioId = funcionarioEmail.UtilizadorId;
 
             //Código que vai buscar o preço do pacote
+            contratos.PacoteId = novoContrato.PacoteId;
             var pacoteid = bd.Pacotes.SingleOrDefault(e => e.PacoteId == contratos.PacoteId);
             contratos.PrecoPacote = pacoteid.Preco;
 
             //Código que vai buscar o nome do pacote
             contratos.NomePacote = pacoteid.Nome;
 
-            //Código que vai buscar o cliente
-
-            contratos.ClienteId = contratos.UtilizadorId;
+            ////Código que vai buscar o cliente
+            //contratos.ClienteId = contratos.UtilizadorId;
 
             List<PromocoesPacotes> PromocoesDisponiveis = new List<PromocoesPacotes>();
 
-            foreach(var pacote in bd.PromocoesPacotes)
+            foreach (var pacote in bd.PromocoesPacotes)
             {
-                if(contratos.PacoteId == pacote.PacoteId)
+                if (contratos.PacoteId == pacote.PacoteId)
                 {
                     PromocoesDisponiveis.Add(pacote);
                 }
             }
 
+            contratos.PromocoesId = novoContrato.PromocoesId;
+
             bool PromoDisponivel = false;
             foreach (var promocao in PromocoesDisponiveis)
             {
-                if(contratos.PromocoesId == promocao.PromocoesId)
+                if (contratos.PromocoesId == promocao.PromocoesId)
                 {
                     PromoDisponivel = true;
                 }
             }
 
-            if(PromoDisponivel == false)
+            if (PromoDisponivel == false)
             {
                 var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratos.UtilizadorId);
 
@@ -326,9 +339,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             //Cálculo do PrecoFinal
             contratos.PrecoFinal = contratos.PrecoPacote - contratos.PromocaoDesc;
 
+            contratos.ClienteId = novoContrato.ClienteId;
+            contratos.CodigoPostal = novoContrato.CodigoPostal;
+            contratos.DataFim = novoContrato.DataFim;
+            contratos.DataInicio = novoContrato.DataInicio;
+            contratos.Morada = novoContrato.Morada;
+
             bd.Add(contratos);
             await bd.SaveChangesAsync();
-
 
             List<ServicosPacotes> servicosNoPacote = new List<ServicosPacotes>();
             List<ServicosContratos> servicosNoContrato = new List<ServicosContratos>();
@@ -464,7 +482,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> GetAll()
         {
             var contratos = await bd.Contratos
-                .Select(s => new { s.ContratoId, s.DataInicio, s.DataFim, s.PrecoFinal, s.Telefone , s.Inactivo })
+                .Select(s => new { s.ContratoId, s.DataInicio, s.DataFim, s.PrecoFinal, s.Telefone, s.Inactivo })
                 .Where(i => i.Inactivo == false)
                 .ToListAsync();
             return Json(new { data = contratos });
