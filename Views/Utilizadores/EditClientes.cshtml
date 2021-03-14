@@ -3,14 +3,14 @@
 @if (User.IsInRole("Cliente"))
 {
     Layout = "_LayoutPData";
-
+    ViewData["Title"] = "Edit";
 
 
     <container>
         <div class="container bg-white mt-5 mb-5">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="p-3 m-t-20 py-5">
+            <div class="row offset-3">
+                <div class="col-lg-7">
+                    <div class="p-3 m-t-25 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Dados Pessoais</h4>
                         </div>
@@ -67,26 +67,26 @@
                                         <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                 </div>
-                            
-                            <div class="mt-5 text-center">
-                                <input type="submit" value="Guardar" class="button-form-btn2" />
-                                <a class="button-form-btn" asp-action="Details">Cancelar</a>
+
+                                <div class="mt-5 text-center">
+                                    <input type="submit" value="Guardar" class="button-form-btn2" />
+                                    <a class="button-form-btn" asp-action="Details">Cancelar</a>
+                                </div>
                             </div>
-                        </div>
                         </form>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </container> 
+    </container>
 
 }
 else
 {
 
-        Layout = "_LayoutAdmin";
-        ViewData["Title"] = "Edit";
-    
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Edit";
+
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
@@ -184,8 +184,8 @@ else
         </section>
     </section>
 
-        }
+}
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
