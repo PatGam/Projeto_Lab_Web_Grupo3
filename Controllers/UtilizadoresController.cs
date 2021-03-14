@@ -343,7 +343,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         // GET: Utilizadores/Edit/5
         [Authorize(Roles = "Administrador,Cliente")]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> EditClientes(int? id)
         {
             if (id == null)
             {
@@ -374,7 +374,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrador,Cliente")]
-        public async Task<IActionResult> Edit(int id, [Bind("UtilizadorId,Nome,Nif,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Utilizadores utilizadores)
+        public async Task<IActionResult> EditClientes(int id, [Bind("UtilizadorId,Nome,Nif,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Utilizadores utilizadores)
         {
             if (id != utilizadores.UtilizadorId)
             {
@@ -401,8 +401,72 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            return View("SucessoClientes");
+        }
+
+        // GET: Utilizadores/Edit/5
+        [Authorize(Roles = "Administrador,Cliente")]
+        public async Task<IActionResult> EditFuncionarios(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var utilizadores = await _context.Utilizadores.FindAsync(id);
+
+            if (utilizadores.Role == "Cliente")
+            {
+                ViewBag.Titulo = "Clientes";
+            }
+
+            if (utilizadores.Role != "Cliente")
+            {
+                ViewBag.Titulo = "Funcionários";
+            }
+            if (utilizadores == null)
+            {
+                return NotFound();
+            }
             return View(utilizadores);
         }
+
+        // POST: Utilizadores/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador,Cliente")]
+        public async Task<IActionResult> EditFuncionarios(int id, [Bind("UtilizadorId,Nome,Nif,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Utilizadores utilizadores)
+        {
+            if (id != utilizadores.UtilizadorId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(utilizadores);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UtilizadoresExists(utilizadores.UtilizadorId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View("SucessoFuncionarios");
+        }
+
 
         // GET: Utilizadores/Delete/5
         [Authorize(Roles = "Administrador")]
