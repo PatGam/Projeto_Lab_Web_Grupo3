@@ -136,8 +136,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public IActionResult Create()
         {
             var pacotes = bd.Pacotes.ToList();
-           
-
 
             PromocoesPacotesViewModel promocoesPacotesViewModel = new PromocoesPacotesViewModel();
             promocoesPacotesViewModel.ListaPacotes = pacotes.Select(s => new Checkbox()
@@ -158,6 +156,20 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create(PromocoesPacotesViewModel promocoesPacotesViewModel, PromocoesPacotes promocoesPacotes, Promocoes promocoes)
         {
+
+            if (!ModelState.IsValid)
+            {
+                var pacotes = bd.Pacotes.ToList();
+
+                promocoesPacotesViewModel.ListaPacotes = pacotes.Select(s => new Checkbox()
+                {
+                    Id = s.PacoteId,
+                    NomePacote = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                return View(promocoesPacotesViewModel);
+            }
 
             List<PromocoesPacotes> promocoesDosPacotes = new List<PromocoesPacotes>();
 
