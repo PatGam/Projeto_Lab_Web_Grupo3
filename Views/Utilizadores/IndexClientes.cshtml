@@ -120,8 +120,10 @@
                                                         <td>
                                                             <a asp-action="EditClientes" asp-route-id="@item.UtilizadorId">Editar</a> |
                                                             <a asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a> |
-                                                            <a asp-action="Delete" asp-route-id="@item.UtilizadorId">Arquivar</a> |
+                                                            <a asp-action="DeleteClientes" asp-route-id="@item.UtilizadorId">Arquivar</a> 
+                                                            @if(User.IsInRole("Operador")) {
                                                             <a asp-area="" asp-controller="Contratos" asp-action="Create" asp-route-cliente=@item.UtilizadorId>Associar contrato</a>
+                                                            }
                                                         </td>
 
                                                     </tr>
@@ -135,61 +137,8 @@
                         </div>
                     }
 
-                @*@if (ViewBag.TipoUtil != "Cliente")
-        {
-            <div class="container row p-0 m-0">
-                <div class="col-3 offset-3">
-                </div>
-                <div class="col-12 border p-3">
-                    <table id="DT_load_Utilizadores_Funcionarios" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>NIF</th>
-                                <th>Data Nascimento</th>
-                                <th>Morada</th>
-                                <th>Telemovel</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-        }
-
-        @if (ViewBag.TipoUtil == "Cliente")
-        {
-            <div class="container row p-0 m-0">
-                <div class="col-3 offset-3">
-                </div>
-                <div class="col-12 border p-3">
-                    <table id="DT_load_Utilizadores_Clientes" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>NIF</th>
-                                <th>Data Nascimento</th>
-                                <th>Morada</th>
-                                <th>Telemovel</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-        }*@
-
 
             </section>
                     </section>
     </section>
 </body>
-@*@section Scripts {
-    <script src="~/js/UtilizadoresClientesList.js"></script>
-    <script src="~/js/UtilizadoresFuncionariosList.js"></script>
-
-}*@
