@@ -199,17 +199,23 @@ else
 
 
                             @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Editar</a>*@
-
-                            @if (Model.Role == "Cliente")
+                            @if (User.IsInRole("Administrador"))
                             {
-                                <a class="btn btn-info" asp-action="EditClientes" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
-                                <a class="btn btn-info" asp-action="IndexClientes">Voltar atrás</a>
+                                @if (Model.Role == "Cliente")
+                                {
+                                    <a class="btn btn-info" asp-action="EditClientes" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
+                                    <a class="btn btn-info" asp-action="IndexClientes">Voltar atrás</a>
 
+                                }
+                                else
+                                {
+                                    <a class="btn btn-info" asp-action="EditFuncionarios" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
+                                    <a class="btn btn-info" asp-action="IndexFuncionarios">Voltar atrás</a>
+                                }
                             }
-                            else
+                            @if (User.IsInRole("Operador"))
                             {
-                                <a class="btn btn-info" asp-action="EditFuncionarios" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
-                                <a class="btn btn-info" asp-action="IndexFuncionarios">Voltar atrás</a>
+                                <a class="btn btn-info" asp-action="IndexClientes">Voltar atrás</a>
                             }
 
 
