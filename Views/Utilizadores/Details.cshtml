@@ -150,7 +150,8 @@ else
                             </tr>
                             <tr>
 
-
+                                @if (Model.Role == "Cliente")
+                                {
                                 <th>Contratos deste Cliente</th>
                                 @if (Model.Contratos.Count() == 0)
                                 {
@@ -186,6 +187,7 @@ else
                                     }
 
 
+                                }
                                 }
 
                             </tr>
