@@ -202,13 +202,13 @@ else
 
                             @if (Model.Role == "Cliente")
                             {
-                                <a class="button-form-btn" asp-action="EditClientes" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
+                                <a class="btn btn-info" asp-action="EditClientes" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
                                 <a class="btn btn-info" asp-action="IndexClientes">Voltar atrás</a>
 
                             }
                             else
                             {
-                                <a class="button-form-btn" asp-action="EditFuncionarios" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
+                                <a class="btn btn-info" asp-action="EditFuncionarios" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
                                 <a class="btn btn-info" asp-action="IndexFuncionarios">Voltar atrás</a>
                             }
 
