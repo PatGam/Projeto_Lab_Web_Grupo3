@@ -193,18 +193,20 @@ else
                         </table>
 
                         <div>
-                            @*Vai para a vista Create de um Contrato, com o Id deste cliente*@
-                            <a class="button-form-btn" asp-action="EditClientes" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
+
+
 
                             @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.UtilizadorId">Editar</a>*@
 
                             @if (Model.Role == "Cliente")
                             {
+                                <a class="button-form-btn" asp-action="EditClientes" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
                                 <a class="btn btn-info" asp-action="IndexClientes">Voltar atrás</a>
 
                             }
                             else
                             {
+                                <a class="button-form-btn" asp-action="EditFuncionarios" asp-route-id="@Model.UtilizadorId">Alterar dados pessoais</a>
                                 <a class="btn btn-info" asp-action="IndexFuncionarios">Voltar atrás</a>
                             }
 
