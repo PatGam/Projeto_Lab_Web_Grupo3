@@ -215,6 +215,7 @@ else
                             }
                             @if (User.IsInRole("Operador"))
                             {
+                                <a class="btn btn-info" asp-controller="Contratos" asp-action="Create" asp-route-cliente="@Model.UtilizadorId">Associar novo contrato</a>
                                 <a class="btn btn-info" asp-action="IndexClientes">Voltar atrás</a>
                             }
 
