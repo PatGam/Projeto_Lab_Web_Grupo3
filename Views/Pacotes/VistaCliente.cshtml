@@ -15,7 +15,7 @@
                         }
                         <div class="card-body">
                             <i class="bx bx-tachometer"></i>
-                            <h5 class="card-title align-content-lg-center"><a href="">@Html.DisplayFor(modelItem => item.Nome)</a></h5>
+                            <h5 class="card-title align-content-lg-center"><a action="dialog_state">@Html.DisplayFor(modelItem => item.Nome)</a></h5>
                             <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
                         </div>
                     </div>
@@ -27,3 +27,18 @@
     </section>
 </main>
 
+
+@*@foreach (var item in Model.Pacotes)
+{
+    <input type="checkbox" name="dialog_state" id="dialog_state" class="dialog_state">
+    <div id='dialog'>
+        <label id="dlg-back" for="dialog_state"></label>
+        <div id='dlg-wrap'>
+            <label id="dlg-close" for="dialog_state"><i class="fas fa-times-circle"></i></label>
+            <h2 id='dlg-header'>@Html.DisplayFor(modelItem => item.Nome)</h2>
+            <div id='dlg-content col-lg-2'>@Html.DisplayFor(modelItem => item.Descricao)</div>
+            <div id='dlg-prompt'>                
+            </div>
+        </div>
+    </div>
+}*@

@@ -1,143 +1,244 @@
 ﻿@model ServicosPacotesViewModel
 
-@{
+@*@if (User.IsInRole("Cliente"))
+{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+
+
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="icon_bag"></i>Pacotes</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <section class="panel">
+                        <header class="panel-heading no-border">
+                            Detalhes do Pacote @Html.DisplayFor(model => model.Pacotes.Nome)
+                        </header>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Pacotes.Nome)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Pacotes.Nome)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Pacotes.Descricao)
+                                </th>
+                                <td>
+                                    @if (Html.DisplayFor(model => model.Pacotes.Descricao) == null)
+                                    {
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(model => model.Pacotes.Descricao)
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Pacotes.Preco)
+                                </th>
+
+                                <td>
+                                    @Html.DisplayFor(model => model.Pacotes.Preco)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Serviços neste Pacote</th>
+                                @if (Model.ServicosPacotes.Count() == 0)
+                                {
+                                    <td>Nao existem Serviços para mostrar.</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @foreach (var item in Model.ServicosPacotes)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Servico.Nome)
+                                            <br />
+                                        }
+                                        <a class="btn btn-success" asp-area="" asp-controller="ServicosPacotes" asp-action="Create">Adicionar Servico</a>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <th>Promoções neste Pacote</th>
+                                @if (Model.PromocoesPacotes.Count == 0)
+                                {
+                                    <td>Não existem promoções para mostrar.</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @foreach (var item in Model.PromocoesPacotes)
+                                        {
+
+                                            @Html.DisplayFor(modelItem => item.Promocoes.Nome)
+                                            <br />
+                                        }
+                                        <a class="btn btn-success" asp-area="" asp-controller="PromocoesPacotes" asp-action="Create">Adicionar Promoção</a>
+                                    </td>
+                                }
+                            </tr>
+                        </table>
+                        <div>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Pacotes.PacoteId">Editar</a>
+                            <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+}
+else*@
+{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<section id="main-content">
-    <section class="wrapper">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="page-header"><i class="icon_bag"></i>Pacotes</h3>
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="icon_bag"></i>Pacotes</h3>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <section class="panel">
-                    <header class="panel-heading no-border">
-                        Detalhes do Pacote @Html.DisplayFor(model => model.Pacotes.Nome)
-                    </header>
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Pacotes.Nome)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Pacotes.Nome)
-                            </td>
+            <div class="row">
+                <div class="col-sm-6">
+                    <section class="panel">
+                        <header class="panel-heading no-border">
+                            Detalhes do Pacote @Html.DisplayFor(model => model.Pacotes.Nome)
+                        </header>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Pacotes.Nome)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Pacotes.Nome)
+                                </td>
 
 
 
-                        </tr>
-                        <tr>
-                            <th>
+                            </tr>
+                            <tr>
+                                <th>
 
 
-                                @Html.DisplayNameFor(model => model.Pacotes.Descricao)
-                            </th>
-                            <td>
+                                    @Html.DisplayNameFor(model => model.Pacotes.Descricao)
+                                </th>
+                                <td>
 
-                                @if (Html.DisplayFor(model => model.Pacotes.Descricao) == null)
+                                    @if (Html.DisplayFor(model => model.Pacotes.Descricao) == null)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(model => model.Pacotes.Descricao)
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Pacotes.Preco)
+                                </th>
+
+                                <td>
+                                    @Html.DisplayFor(model => model.Pacotes.Preco)
+                                </td>
+                            </tr>
+
+
+
+
+
+
+
+
+
+                            @*<dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.Pacotes.ServicosPacotes)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.Pacotes.ServicosPacotes)
+                                </dd>*@
+                            <tr>
+                                <th>Serviços neste Pacote</th>
+                                @if (Model.ServicosPacotes.Count() == 0)
                                 {
-
+                                    <td>Nao existem Serviços para mostrar.</td>
                                 }
                                 else
                                 {
-                                    @Html.DisplayFor(model => model.Pacotes.Descricao)
+
+
+
+                                    <td>
+
+                                        @foreach (var item in Model.ServicosPacotes)
+                                        {
+
+
+                                            @Html.DisplayFor(modelItem => item.Servico.Nome)
+                                            <br />
+
+
+
+                                        }
+                                        <a class="btn btn-success" asp-area="" asp-controller="ServicosPacotes" asp-action="Create">Adicionar Servico</a>
+                                    </td>
                                 }
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Pacotes.Preco)
-                            </th>
+                            </tr>
 
-                            <td>
-                                @Html.DisplayFor(model => model.Pacotes.Preco)
-                            </td>
-                        </tr>
+                            <tr>
 
+                                <th>Promoções neste Pacote</th>
 
-
+                                @if (Model.PromocoesPacotes.Count == 0)
+                                {
+                                    <td>Não existem promoções para mostrar.</td>
+                                }
+                                else
+                                {
 
 
 
+                                    <td>
 
 
+                                        @foreach (var item in Model.PromocoesPacotes)
+                                        {
 
-                        @*<dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Pacotes.ServicosPacotes)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Pacotes.ServicosPacotes)
-                            </dd>*@
-                        <tr>
-                            <th>Serviços neste Pacote</th>
-                            @if (Model.ServicosPacotes.Count() == 0)
-                            {
-                                <td>Nao existem Serviços para mostrar.</td>
-                            }
-                            else
-                            {
+                                            @Html.DisplayFor(modelItem => item.Promocoes.Nome)
+                                            <br />
 
 
+                                        }
+                                        <a class="btn btn-success" asp-area="" asp-controller="PromocoesPacotes" asp-action="Create">Adicionar Promoção</a>
+                                    </td>
 
-                                <td>
-
-                                    @foreach (var item in Model.ServicosPacotes)
-                                    {
-
-
-                                        @Html.DisplayFor(modelItem => item.Servico.Nome)
-                                        <br />
-
-
-
-                                    }
-                                    <a class="btn btn-success" asp-area="" asp-controller="ServicosPacotes" asp-action="Create">Adicionar Servico</a>
-                                </td>
-                            }
-                        </tr>
-
-                        <tr>
-
-                            <th>Promoções neste Pacote</th>
-
-                            @if (Model.PromocoesPacotes.Count == 0)
-                            {
-                                <td>Não existem promoções para mostrar.</td>
-                            }
-                            else
-                            {
+                                }
+                            </tr>
+                        </table>
+                        <div>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Pacotes.PacoteId">Editar</a>
+                            <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
+                        </div>
 
 
-
-                        <td>
-
-
-                            @foreach (var item in Model.PromocoesPacotes)
-                            {
-
-                                @Html.DisplayFor(modelItem => item.Promocoes.Nome)
-                                <br />
-
-
-                            }
-                            <a class="btn btn-success" asp-area="" asp-controller="PromocoesPacotes" asp-action="Create">Adicionar Promoção</a>
-                        </td>
-
-                            }
-                        </tr>
-                    </table>
-                    <div>
-                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Pacotes.PacoteId">Editar</a> 
-                        <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
-                    </div>
-
-
-                </section>
+                    </section>
+                </div>
             </div>
-        </div>
+        </section>
     </section>
-</section>
