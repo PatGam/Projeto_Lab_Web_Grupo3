@@ -401,6 +401,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                         }
                     }
                 }
+                ViewBag.Mensagem = "Informação do Cliente editada com sucesso";
                 return View("SucessoClientes");
             }
             else
@@ -430,6 +431,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                         }
                     }
                 }
+                ViewBag.Mensagem = "Informação do Cliente editada com sucesso.";
                 return View("SucessoClientes");
             }
                 
@@ -497,13 +499,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Mensagem = "Informação do Funcionario editada com sucesso.";
             return View("SucessoFuncionarios");
         }
 
 
         // GET: Utilizadores/Delete/5
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> DeleteClientes(int? id)
         {
             if (id == null)
             {
@@ -521,15 +524,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // POST: Utilizadores/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Arquive")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteClientes(int id)
         {
             var utilizadores = await _context.Utilizadores.FindAsync(id);
             utilizadores.Inactivo = true;
-            _context.Update(utilizadores); await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            _context.Update(utilizadores);
+            await _context.SaveChangesAsync();
+            ViewBag.Mensagem = "O Cliente foi arquivado com sucesso";
+            return View("SucessoClientes");
         }
 
         private bool UtilizadoresExists(int id)
@@ -560,7 +565,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         //        .ToListAsync();
         //    return Json(new { data = clientes });
         //}
-        
+
 
         //[HttpDelete]
         //public async Task<IActionResult> Delete(int id)
@@ -576,7 +581,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         //}
         #endregion
 
-        
+
 
     }
 }
