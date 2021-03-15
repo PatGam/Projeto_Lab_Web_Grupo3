@@ -537,6 +537,38 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View("SucessoClientes");
         }
 
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> DeleteFuncionarios(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var utilizadores = await _context.Utilizadores
+                .FirstOrDefaultAsync(m => m.UtilizadorId == id);
+            if (utilizadores == null)
+            {
+                return NotFound();
+            }
+
+            return View(utilizadores);
+        }
+
+        // POST: Utilizadores/Delete/5
+        [HttpPost, ActionName("Arquive")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> DeleteFuncionarios(int id)
+        {
+            var utilizadores = await _context.Utilizadores.FindAsync(id);
+            utilizadores.Inactivo = true;
+            _context.Update(utilizadores);
+            await _context.SaveChangesAsync();
+            ViewBag.Mensagem = "O Cliente foi arquivado com sucesso";
+            return View("SucessoClientes");
+        }
+
         private bool UtilizadoresExists(int id)
         {
             return _context.Utilizadores.Any(e => e.UtilizadorId == id);
