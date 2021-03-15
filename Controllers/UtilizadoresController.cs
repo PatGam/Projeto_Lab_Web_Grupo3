@@ -497,7 +497,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                
             }
             ViewBag.Mensagem = "Informação do Funcionario editada com sucesso.";
             return View("SucessoFuncionarios");
