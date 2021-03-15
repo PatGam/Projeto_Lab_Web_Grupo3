@@ -68,22 +68,7 @@
                                                         Nif
                                                     </th>
                                                     <th>
-                                                        Data Nascimento
-                                                    </th>
-                                                    <th>
-                                                        Morada
-                                                    </th>
-                                                    <th>
                                                         Telemovel
-                                                    </th>
-                                                    <th>
-                                                        Email
-                                                    </th>
-                                                    <th>
-                                                        CodigoPostal
-                                                    </th>
-                                                    <th>
-                                                        Role
                                                     </th>
                                                     <th></th>
                                                 </tr>
@@ -100,27 +85,14 @@
                                                             @Html.DisplayFor(modelItem => item.Nif)
                                                         </td>
                                                         <td>
-                                                            @Html.DisplayFor(modelItem => item.DataNascimento)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayFor(modelItem => item.Morada)
-                                                        </td>
-                                                        <td>
                                                             @Html.DisplayFor(modelItem => item.Telemovel)
                                                         </td>
                                                         <td>
-                                                            @Html.DisplayFor(modelItem => item.Email)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayFor(modelItem => item.CodigoPostal)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayFor(modelItem => item.Role)
-                                                        </td>
-                                                        <td>
-                                                            <a asp-action="EditClientes" asp-route-id="@item.UtilizadorId">Editar</a> |
-                                                            <a asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a> |
-                                                            <a asp-action="DeleteClientes" asp-route-id="@item.UtilizadorId">Arquivar</a> 
+                                                            @if (User.IsInRole("Administrador")) {
+                                                            <a asp-action="EditClientes" asp-route-id="@item.UtilizadorId">Editar |</a>  
+                                                                                                                                      }
+                                                            <a asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a> 
+                                                            <a asp-action="DeleteClientes" asp-route-id="@item.UtilizadorId">Arquivar |</a> 
                                                             @if(User.IsInRole("Operador")) {
                                                             <a asp-area="" asp-controller="Contratos" asp-action="Create" asp-route-cliente=@item.UtilizadorId>Associar contrato</a>
                                                             }
