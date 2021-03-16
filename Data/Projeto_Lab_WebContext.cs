@@ -42,66 +42,73 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 }
             }
 
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Contratos>(entity =>
             {
-                modelBuilder.Entity<Contratos>(entity =>
-                {
-                    entity.HasOne(d => d.Utilizadores)
-                        .WithMany(p => p.Contratos)
-                        .HasForeignKey(d => d.UtilizadorId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Contratos_Utilizadores");
-
-                    entity.HasOne(d => d.Pacotes)
-                        .WithMany(p => p.Contratos)
-                        .HasForeignKey(d => d.PacoteId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Contratos_Pacotes");
-
-                    entity.HasOne(d => d.Promocoes)
+                entity.HasOne(d => d.Utilizadores)
                     .WithMany(p => p.Contratos)
+                    .HasForeignKey(d => d.UtilizadorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Contratos_Utilizadores");
+
+                entity.HasOne(d => d.Pacotes)
+                    .WithMany(p => p.Contratos)
+                    .HasForeignKey(d => d.PacoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Contratos_Pacotes");
+
+                entity.HasOne(d => d.Promocoes)
+                .WithMany(p => p.Contratos)
+                .HasForeignKey(d => d.PromocoesId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Contratos_Promocoes");
+
+                entity.HasOne(d => d.Distritos)
+                        .WithMany(p => p.Contratos)
+                        .HasForeignKey(d => d.DistritosId)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Distritos_Contratos");
+            });
+
+
+            modelBuilder.Entity<PromocoesPacotes>(entity =>
+            {
+                entity.HasIndex(e => e.PacoteId);
+
+                entity.HasIndex(e => e.PromocoesId);
+
+                entity.HasOne(d => d.Pacote)
+                    .WithMany(p => p.PromocoesPacotes)
+                    .HasForeignKey(d => d.PacoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Promocoes_Pacotes_Pacotes");
+
+                entity.HasOne(d => d.Promocoes)
+                    .WithMany(p => p.PromocoesPacotes)
                     .HasForeignKey(d => d.PromocoesId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Contratos_Promocoes");
-                });
+                    .HasConstraintName("FK_Promocoes_Pacotes_Promocoes");
+            });
 
-                modelBuilder.Entity<PromocoesPacotes>(entity =>
-                {
-                    entity.HasIndex(e => e.PacoteId);
+            modelBuilder.Entity<ServicosPacotes>(entity =>
+            {
+                entity.HasIndex(e => e.PacoteId);
 
-                    entity.HasIndex(e => e.PromocoesId);
+                entity.HasIndex(e => e.ServicoId);
 
-                    entity.HasOne(d => d.Pacote)
-                        .WithMany(p => p.PromocoesPacotes)
-                        .HasForeignKey(d => d.PacoteId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Promocoes_Pacotes_Pacotes");
+                entity.HasOne(d => d.Pacote)
+                    .WithMany(p => p.ServicosPacotes)
+                    .HasForeignKey(d => d.PacoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Servicos_Pacotes_Pacotes");
 
-                    entity.HasOne(d => d.Promocoes)
-                        .WithMany(p => p.PromocoesPacotes)
-                        .HasForeignKey(d => d.PromocoesId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Promocoes_Pacotes_Promocoes");
-                });
-
-                modelBuilder.Entity<ServicosPacotes>(entity =>
-                {
-                    entity.HasIndex(e => e.PacoteId);
-
-                    entity.HasIndex(e => e.ServicoId);
-
-                    entity.HasOne(d => d.Pacote)
-                        .WithMany(p => p.ServicosPacotes)
-                        .HasForeignKey(d => d.PacoteId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Servicos_Pacotes_Pacotes");
-
-                    entity.HasOne(d => d.Servico)
-                        .WithMany(p => p.ServicosPacotes)
-                        .HasForeignKey(d => d.ServicoId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Servicos_Pacotes_Servicos");
-                });
+                entity.HasOne(d => d.Servico)
+                    .WithMany(p => p.ServicosPacotes)
+                    .HasForeignKey(d => d.ServicoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Servicos_Pacotes_Servicos");
+            });
 
             modelBuilder.Entity<ServicosContratos>(entity =>
             {
@@ -132,6 +139,50 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     .HasConstraintName("FK_Servicos_TipoServicos");
 
             });
+
+            modelBuilder.Entity<Reclamacoes>(entity =>
+            {
+                entity.HasOne(d => d.Cliente)
+                    .WithMany(p => p.ReclamacoesCliente)
+                    .HasForeignKey(d => d.ClienteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Cliente_Reclamacoes");
+
+                entity.HasOne(d => d.Funcionario)
+                    .WithMany(p => p.ReclamacoesFuncionario)
+                    .HasForeignKey(d => d.FuncionarioId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Funcionarios_Reclamacoes");
+            });
+
+            modelBuilder.Entity<Utilizadores>(entity =>
+            {
+                entity.HasOne(d => d.Distritos)
+                        .WithMany(p => p.Utilizadores)
+                        .HasForeignKey(d => d.DistritosId)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Distritos_Utilizadores");
+            });
+
+            modelBuilder.Entity<Promocoes>(entity =>
+            {
+                entity.HasOne(d => d.Distritos)
+                        .WithMany(p => p.Promocoes)
+                        .HasForeignKey(d => d.DistritosId)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Distritos_Promocoes");
+            });
+
+            modelBuilder.Entity<Pacotes>(entity =>
+            {
+                entity.HasOne(d => d.Distritos)
+                        .WithMany(p => p.Pacotes)
+                        .HasForeignKey(d => d.DistritosId)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Distritos_Pacotes");
+            });
+
+
 
 
             //modelBuilder.Entity<Clientes>() // Lado N

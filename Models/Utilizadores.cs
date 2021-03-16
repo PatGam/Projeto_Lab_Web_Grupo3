@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Projeto_Lab_Web_Grupo3.ModeloER;
 
 #nullable disable
 
@@ -40,11 +41,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Morada")]
         public string Morada { get; set; }
 
-        [Required(ErrorMessage = "Preencha o distrito")]
-        [StringLength(50, ErrorMessage = "A distrito não pode ter mais de 50 caracteres")]
-        [Display(Name = "Distrito")]
-        public string Distrito { get; set; }
-
+  
         [Required(ErrorMessage = "Preencha o concelho")]
         [StringLength(50, ErrorMessage = "A concelho não pode ter mais de 50 caracteres")]
         [Display(Name = "Concelho")]
@@ -86,6 +83,15 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Display(Name = "Inactivo")]
         public bool Inactivo { get; set; }
+
+        [InverseProperty(nameof(Reclamacoes.Cliente))]
+        public virtual ICollection<Reclamacoes> ReclamacoesCliente { get; set; }
+
+        [InverseProperty(nameof(Reclamacoes.Funcionario))]
+        public virtual ICollection<Reclamacoes> ReclamacoesFuncionario { get; set; }
+
+        public int DistritosId { get; set; }
+        public Distritos Distritos { get; set; }
     }
 }
 
