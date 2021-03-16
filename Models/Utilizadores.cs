@@ -40,6 +40,17 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Morada")]
         public string Morada { get; set; }
 
+        [Required(ErrorMessage = "Preencha o distrito")]
+        [StringLength(50, ErrorMessage = "A distrito não pode ter mais de 50 caracteres")]
+        [Display(Name = "Distrito")]
+        public string Distrito { get; set; }
+
+        [Required(ErrorMessage = "Preencha o concelho")]
+        [StringLength(50, ErrorMessage = "A concelho não pode ter mais de 50 caracteres")]
+        [Display(Name = "Concelho")]
+        public string Concelho { get; set; }
+
+
         [Display(Name = "Contacto de telemóvel")]
         [RegularExpression(@"(9[1236]|\d{2})\d{7}", ErrorMessage = "Telefone Inválido")]
         public string Telemovel { get; set; }
@@ -56,11 +67,19 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Código Postal")]
         public string CodigoPostal { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = false)]
+        [Column("Data_Ativacao", TypeName = "date")]
+        [Display(Name = "Data de ativação")]
+        public DateTime DataAtivacao { get; set; }
+
         [Required(ErrorMessage = "Especifique o role do utilizador")]
         [StringLength(20)]
         [Display(Name = "Role")]
 
         public string Role { get; set; }
+
+        [Display(Name ="Pontos")]
+        public int Pontos { get; set; }
 
         //[InverseProperty("Funcionario")]
         public virtual ICollection<Contratos> Contratos { get; set; }

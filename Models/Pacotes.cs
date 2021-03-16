@@ -25,6 +25,12 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [StringLength(1000)]
         [Display(Name ="Descrição")]
         public string Descricao { get; set; }
+
+        [Required(ErrorMessage = "Preencha o distrito")]
+        [StringLength(50, ErrorMessage = "A distrito não pode ter mais de 50 caracteres")]
+        [Display(Name = "Distrito")]
+        public string Distrito { get; set; }
+
         [Column(TypeName = "decimal(18, 2)")]
         [Display (Name ="Preço")]
         [RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage ="O valor tem ser superior a 0")]
