@@ -27,7 +27,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             public virtual DbSet<Servicos> Servicos { get; set; }
             public virtual DbSet<ServicosPacotes> ServicosPacotes { get; set; }
             public virtual DbSet<Tipos_Sevicos> TiposServicos { get; set; }
-
+            public virtual DbSet<Distritos> Distritos { get; set; }
             public virtual DbSet<ServicosContratos> ServicosContratos { get; set; }
 
 
