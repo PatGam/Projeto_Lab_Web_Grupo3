@@ -29,6 +29,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InserePacotes(bd);
             InsereServicosPacotes(bd);
             InserePromocoesPacotes(bd);
+            InsereDistritos(bd);
             //InsereContratos(bd);
             //InsereTiposClientes(bd);
             //InsereRoles(bd);
@@ -418,7 +419,51 @@ namespace Projeto_Lab_Web_Grupo3.Data
             }
         }
 
-        
+
+        //-------------------DISTRITOS-----------------------------------
+
+
+        private static void InsereDistritos(Projeto_Lab_WebContext bd)
+        {
+            GaranteDistritos(bd, 1, "Aveiro");
+            GaranteDistritos(bd, 2, "Beja");
+            GaranteDistritos(bd, 3, "Braga");
+            GaranteDistritos(bd, 4, "Bragança");
+            GaranteDistritos(bd, 5, "Castelo Branco");
+            GaranteDistritos(bd, 6, "Coimbra");
+            GaranteDistritos(bd, 7, "Évora");
+            GaranteDistritos(bd, 8, "Faro");
+            GaranteDistritos(bd, 9, "Guarda");
+            GaranteDistritos(bd, 10, "Leiria");
+            GaranteDistritos(bd, 11, "Lisboa");
+            GaranteDistritos(bd, 12, "Portalegre");
+            GaranteDistritos(bd, 13, "Porto");
+            GaranteDistritos(bd, 14, "Santarém");
+            GaranteDistritos(bd, 15, "Setúbal");
+            GaranteDistritos(bd, 16, "Viana do Castelo");
+            GaranteDistritos(bd, 17, "Vila Real");
+            GaranteDistritos(bd, 18, "Viseu");
+            GaranteDistritos(bd, 19, "Açores");
+            GaranteDistritos(bd, 20, "Madeira");
+        }
+
+        private static Distritos GaranteDistritos(Projeto_Lab_WebContext bd, int distritoId, string nome)
+        {
+            Distritos distritos = bd.Distritos.FirstOrDefault(e => e.Nome == nome);
+            if(distritos ==null) 
+            {
+                distritos = new Distritos()
+                {
+                    DistritosId = distritoId,
+                    Nome = nome
+                };
+                bd.Distritos.Add(distritos);
+                bd.SaveChanges();
+            }
+            return distritos;
+
+        }
+
         //-------------------TIPOS DE CLIENTES--------------------------
 
         private static void InsereTiposClientes(Projeto_Lab_WebContext bd)
