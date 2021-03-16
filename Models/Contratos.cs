@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Projeto_Lab_Web_Grupo3.ModeloER;
 #nullable disable
 namespace Projeto_Lab_Web_Grupo3.Models
 {
@@ -82,7 +83,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public virtual ICollection<ServicosContratos> ServicosContratos { get; set; }
 
-
+        public int DistritosId { get; set; }
+        public Distritos Distritos { get; set; }
         //[ForeignKey(nameof(ClienteId))]
         //[InverseProperty(nameof(Clientes.Contratos))]
         //public virtual Clientes Cliente { get; set; }

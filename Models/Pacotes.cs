@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Projeto_Lab_Web_Grupo3.ModeloER;
 
 #nullable disable
 
@@ -26,10 +27,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name ="Descrição")]
         public string Descricao { get; set; }
 
-        [Required(ErrorMessage = "Preencha o distrito")]
-        [StringLength(50, ErrorMessage = "A distrito não pode ter mais de 50 caracteres")]
-        [Display(Name = "Distrito")]
-        public string Distrito { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
         [Display (Name ="Preço")]
@@ -56,6 +53,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [DataType(DataType.Date)]
         [Display(Name = "Data de inactivação")]
         public DateTime DataInactivo { get; set; }
+
+        public int DistritosId { get; set; }
+        public Distritos Distritos { get; set; }
     }
 
 }
