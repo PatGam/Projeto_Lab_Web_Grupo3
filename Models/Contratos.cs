@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-using Projeto_Lab_Web_Grupo3.ModeloER;
+using Projeto_Lab_Web_Grupo3.Models;
 #nullable disable
 namespace Projeto_Lab_Web_Grupo3.Models
 {
