@@ -198,5 +198,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
             public DbSet<Projeto_Lab_Web_Grupo3.Models.Tipos_Clientes> Tipos_Clientes { get; set; }
+
+            public DbSet<Projeto_Lab_Web_Grupo3.Models.Reclamacoes> Reclamacoes { get; set; }
         }
     }
