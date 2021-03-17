@@ -2,71 +2,107 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "_LayoutAdmin";
 }
 
-<h1>Details</h1>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">Detalhes da reclamação</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <section class="panel">
 
-<div>
-    <h4>Reclamacoes</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataReclamacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataReclamacao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Resposta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Resposta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataResposta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataResposta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EstadoResposta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EstadoResposta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EstadoResolução)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EstadoResolução)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataResolucao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataResolucao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cliente)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cliente.CodigoPostal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Funcionario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Funcionario.CodigoPostal)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ReclamacaoId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Descricao)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Descricao)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DataReclamacao)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.DataReclamacao)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Resposta)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Resposta)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DataResposta)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.DataResposta)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EstadoResposta)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.EstadoResposta)
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EstadoResolução)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.EstadoResolução)
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DataResolucao)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.DataResolucao)
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cliente)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Cliente.CodigoPostal)
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Funcionario)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Funcionario.CodigoPostal)
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+                    <br />
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.ReclamacaoId">Editar</a> |
+                    <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
+
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
