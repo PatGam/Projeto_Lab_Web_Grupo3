@@ -49,8 +49,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Reclamacoes/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "CodigoPostal");
-            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "CodigoPostal");
+            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome");
+            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "CodigoPostal", reclamacoes.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "CodigoPostal", reclamacoes.FuncionarioId);
+            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
+            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
             return View(reclamacoes);
         }
 
@@ -85,8 +85,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "CodigoPostal", reclamacoes.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "CodigoPostal", reclamacoes.FuncionarioId);
+            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
+            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
             return View(reclamacoes);
         }
 
@@ -122,8 +122,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "CodigoPostal", reclamacoes.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "CodigoPostal", reclamacoes.FuncionarioId);
+            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
+            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
             return View(reclamacoes);
         }
 
