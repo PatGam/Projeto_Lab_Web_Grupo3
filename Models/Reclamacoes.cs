@@ -18,7 +18,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string Descricao { get; set; }
 
         [DataType(DataType.Date)]
-        [Display(Name = "Data de Recalamação")]
+        [Display(Name = "Data de Reclamação")]
         public DateTime DataReclamacao { get; set; }
 
         [Display(Name = "Resposta do Operador")]
