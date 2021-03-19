@@ -123,101 +123,102 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GaranteUtilizadores(bd, "João Ferreira", "233333231", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "929154121", "joao.ferreira@RDtelecom.com", "3084-501", "Operador", false, 6);
             GaranteUtilizadores(bd, "Tânia Sousa", "233259627", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "927854121", "tania-sousa@RDtelecom.com", "3400-215", "Operador", false, 6);
             GaranteUtilizadores(bd, "Rute Martins", "221639896", new DateTime(1979, 10, 30), "Cruz de Ferro", "929154199", "rute.martins@RDtelecom.com", "3000-295", "Operador", false, 6);
-            GaranteUtilizadores(bd, "Paulo Pedra", "215922158", new DateTime(1999, 07, 01), "Rua do Norte", "929154121", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 6);
-            GaranteUtilizadores(bd, "Helder Copeto", "209281472", new DateTime(1999, 07, 01), "Rua do Norte", "929154121", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 6);
+            GaranteUtilizadores(bd, "Paulo Pedra", "215922158", new DateTime(1999, 07, 01), "Rua do Norte", "929154121", "paulo.pedra@RDtelecom.com", "3000-295", "Operador", false, 6);
+            GaranteUtilizadores(bd, "Helder Copeto", "209281472", new DateTime(1999, 07, 01), "Rua do Norte", "929154121", "helder.copeto@RDtelecom.com", "3000-295", "Operador", false, 6);
             GaranteUtilizadores(bd, "Miriam Falcão", "218052421", new DateTime(2000, 01, 01), "Vale Derradeiro", "929154121", "miriam.falcao@RDtelecom.com", "3320-002", "Operador", false, 6);
             GaranteUtilizadores(bd, "Célia Tomate", "224046284", new DateTime(1980, 09, 11), "Seladinhas", "929154121", "celia.tomate@RDtelecom.com", "3320-367", "Operador", false, 6);
             GaranteUtilizadores(bd, "Tadeu Leão", "294178775", new DateTime(1975, 02, 08), "Flor da Rosa", "929154121", "tadeu.leao@RDtelecom.com", "3040-471", "Operador", false, 6);
             GaranteUtilizadores(bd, "Harley Guerra", "230936679", new DateTime(1955, 12, 24), "Beco da Alegria", "929154121", "harley.guerra@RDtelecom.com", "3025-129", "Operador", false, 6);
             GaranteUtilizadores(bd, "Afonso Freira", "271671130", new DateTime(1956, 12, 05), "Beco das Cruzes", "929154121", "afonso.freira@RDtelecom.com", "3000-133 ", "Operador", false, 6);
 
-            //------------------------------------------------------
+           
             //-------------------------- 7 EVORA-----------------
-            GaranteUtilizadores(bd, "Patrícia Gomes", "238122549", new DateTime(1999, 07, 01), "Rua do Norte", "921456654", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Marlene Santos", "270613994", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "936825714", "marlene.satos@RDtelecom.com", "3030-253", "Operador", false, 7);
-            GaranteUtilizadores(bd, "João Ferreira", "205118615", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "920147963", "joao.ferreira@RDtelecom.com", "3084-501", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Tânia Sousa", "278968724", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "927369148", "tania-sousa@RDtelecom.com", "3400-215", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Rute Martins", "220236410", new DateTime(1979, 10, 30), "Cruz de Ferro", "928741147", "rute.martins@RDtelecom.com", "3000-295", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Paulo Pedra", "201957060", new DateTime(1999, 07, 01), "Rua do Norte", "926951753", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Helder Copeto", "246386339", new DateTime(1999, 07, 01), "Rua do Norte", "920147895", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Miriam Falcão", "269577556", new DateTime(2000, 01, 01), "Vale Derradeiro", "922333698", "miriam.falcao@RDtelecom.com", "3320-002", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Célia Tomate", "253854040", new DateTime(1980, 09, 11), "Seladinhas", "920032147", "celia.tomate@RDtelecom.com", "3320-367", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Tadeu Leão", "281567182", new DateTime(1975, 02, 08), "Flor da Rosa", "931456321", "tadeu.leao@RDtelecom.com", "3040-471", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Harley Guerra", "286365723", new DateTime(1955, 12, 24), "Beco da Alegria", "966333210", "harley.guerra@RDtelecom.com", "3025-129", "Operador", false, 7);
-            GaranteUtilizadores(bd, "Afonso Freira", "278661610", new DateTime(1956, 12, 05), "Beco das Cruzes", "933225871", "afonso.freira@RDtelecom.com", "3000-133 ", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Andreia Alves", "238122549", new DateTime(2001, 07, 01), "Vale de Pegas", "921456654", "andreia.alves@RDtelecom.com", "7490-120", "Operador", false, 7);
+            GaranteUtilizadores(bd, "João Correia", "270613994", new DateTime(1999, 11, 21), "Rua João de Deus", "936825714", "joao.correia@RDtelecom.com", "7250-142", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Ricardo da Gama", "205118615", new DateTime(1975, 07, 01), "Rua da Liberdade", "920147963", "ricardo.gama@RDtelecom.com", "7220-002", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Inês Castro", "278968724", new DateTime(1969, 06, 08), "Rua dos Irmãos", "927369148", "ines.castro@RDtelecom.com", "7220-003", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Andressa Ribeiro", "220236410", new DateTime(1962, 03, 30), "Praceta do Brasil", "928741147", "andressa.ribeiro@RDtelecom.com", "7200-479", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Pablo Abrunhosa", "201957060", new DateTime(1980, 07, 01), "Rua Projectada à Avenida Tomás Alcaide", "926951753", "pablo.abrunhosa@RDtelecom.com", "7100-130", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Ramon Marques", "246386339", new DateTime(1999, 07, 01), "Travessa das Amendoeiras", "920147895", "ramon.marques@RDtelecom.com", "7090-006", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Mariana da Serenidade", "269577556", new DateTime(1999, 01, 01), "Bairro Ferragolo", "922333698", "mariana.serenidade@RDtelecom.com", "7080-109", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Dilma Rosas", "253854040", new DateTime(1958, 09, 21), "Casa de Pau", "920032147", "dilma.rosas@RDtelecom.com", "7050-634", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Vicente Silva", "281567182", new DateTime(1965, 02, 08), "Largo das Alterações", "931456321", "vicente.silva@RDtelecom.com", "7000-502", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Flascotter Pereira", "286365723", new DateTime(1995, 03, 24), "Rua Francisco Soares Lusitano", "966333210", "flascotter.pereira@RDtelecom.com", "7004-511", "Operador", false, 7);
+            GaranteUtilizadores(bd, "Sara Moedas", "278661610", new DateTime(1956, 05, 05), "Largo dos Colegiais 2", "933225871", "sara.moedas@RDtelecom.com", "7004-516", "Operador", false, 7);
 
             //-------------------------- 8 FARO-----------------
-            GaranteUtilizadores(bd, "Patrícia Gomes", "298933896", new DateTime(1999, 07, 01), "Rua do Norte", "925874100", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Marlene Santos", "290825091", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "933302145", "marlene.satos@RDtelecom.com", "3030-253", "Operador", false, 8);
-            GaranteUtilizadores(bd, "João Ferreira", "256438676", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "932587410", "joao.ferreira@RDtelecom.com", "3084-501", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Tânia Sousa", "200101447", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "933666520", "tania-sousa@RDtelecom.com", "3400-215", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Rute Martins", "213627736", new DateTime(1979, 10, 30), "Cruz de Ferro", "921230002", "rute.martins@RDtelecom.com", "3000-295", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Paulo Pedra", "254704085", new DateTime(1999, 07, 01), "Rua do Norte", "925666417", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Helder Copeto", "261746227", new DateTime(1999, 07, 01), "Rua do Norte", "936254102", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Miriam Falcão", "255512546", new DateTime(2000, 01, 01), "Vale Derradeiro", "920320001", "miriam.falcao@RDtelecom.com", "3320-002", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Célia Tomate", "203265424", new DateTime(1980, 09, 11), "Seladinhas", "967369874", "celia.tomate@RDtelecom.com", "3320-367", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Tadeu Leão", "299944611", new DateTime(1975, 02, 08), "Flor da Rosa", "921321111", "tadeu.leao@RDtelecom.com", "3040-471", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Harley Guerra", "226395324", new DateTime(1955, 12, 24), "Beco da Alegria", "917854123", "harley.guerra@RDtelecom.com", "3025-129", "Operador", false, 8);
-            GaranteUtilizadores(bd, "Afonso Freira", "231898975", new DateTime(1956, 12, 05), "Beco das Cruzes", "917364825", "afonso.freira@RDtelecom.com", "3000-133 ", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Miguel Rossi", "298933896", new DateTime(1999, 07, 01), "Rua da Viola ", "925874100", "miguel.rossi@RDtelecom.com", "8000-274", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Martina Castilho", "290825091", new DateTime(1988, 11, 21), "Rua do Bocage", "933302145", "martina.castilho@RDtelecom.com", "8004-002", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Romeo Ximenes", "256438676", new DateTime(1978, 07, 01), "Areal Gordo", "932587410", "romeo.ximenes@RDtelecom.com", "8005-409", "Operador", false, 8);
+            GaranteUtilizadores(bd, "John Pitt", "200101447", new DateTime(1969, 06, 06), "Travessa do Borrego", "933666520", "john.pitt@RDtelecom.com", "8125-002", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Zézinho Camarrinha", "213627736", new DateTime(1979, 10, 30), "Beco das Palmeiras", "921230002", "zezinho.camarrinha@RDtelecom.com", "8125-609", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Luna Smith", "254704085", new DateTime(1999, 07, 01), "Beco Condestável", "925666417", "luna.smith@RDtelecom.com", "8125-636", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Luísa Salvador", "261746227", new DateTime(1999, 06, 01), "Beco dos Bitas", "936254102", "luisa.salvador@RDtelecom.com", "8200-002", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Ana Cacho", "255512546", new DateTime(2000, 01, 01), "Rua das Telecomunicações", "920320001", "ana.cacho@RDtelecom.com", "8201-871", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Fernando Rock", "203265424", new DateTime(1980, 09, 11), "Caminho Municipal", "967369874", "fernando.rock@RDtelecom.com", "8201-877", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Miguel Feliz", "299944611", new DateTime(1975, 02, 08), "Avenida dos Descobrimentos", "921321111", "miguel.feliz@RDtelecom.com", "8601-852", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Maria Ferrari", "226395324", new DateTime(1955, 12, 24), "Rua 25 de Abril", "917854123", "maria.ferrari@RDtelecom.com", "8801-005", "Operador", false, 8);
+            GaranteUtilizadores(bd, "Bruno da Câmara Pereira", "231898975", new DateTime(1956, 12, 05), "Monte Olimpio", "917364825", "bruno.pereira@RDtelecom.com", "8900-106", "Operador", false, 8);
 
 
             //-------------------------- 9 GUARDA-----------------
-            GaranteUtilizadores(bd, "Patrícia Gomes", "240315170", new DateTime(1999, 07, 01), "Rua do Norte", "926999852", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Marlene Santos", "216994918", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "933022589", "marlene.satos@RDtelecom.com", "3030-253", "Operador", false, 9);
-            GaranteUtilizadores(bd, "João Ferreira", "262339374", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "922557410", "joao.ferreira@RDtelecom.com", "3084-501", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Tânia Sousa", "281167222", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "923654789", "tania-sousa@RDtelecom.com", "3400-215", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Rute Martins", "253533643", new DateTime(1979, 10, 30), "Cruz de Ferro", "966968749", "rute.martins@RDtelecom.com", "3000-295", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Paulo Pedra", "254138349", new DateTime(1999, 07, 01), "Rua do Norte", "923456987", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Helder Copeto", "263953840", new DateTime(1999, 07, 01), "Rua do Norte", "910002658", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Miriam Falcão", "281900361", new DateTime(2000, 01, 01), "Vale Derradeiro", "92888632", "miriam.falcao@RDtelecom.com", "3320-002", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Célia Tomate", "206569327", new DateTime(1980, 09, 11), "Seladinhas", "963011456", "celia.tomate@RDtelecom.com", "3320-367", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Tadeu Leão", "220640610", new DateTime(1975, 02, 08), "Flor da Rosa", "925666874", "tadeu.leao@RDtelecom.com", "3040-471", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Harley Guerra", "210346760", new DateTime(1955, 12, 24), "Beco da Alegria", "91025800", "harley.guerra@RDtelecom.com", "3025-129", "Operador", false, 9);
-            GaranteUtilizadores(bd, "Afonso Freira", "215494725", new DateTime(1956, 12, 05), "Beco das Cruzes", "936058777", "afonso.freira@RDtelecom.com", "3000-133 ", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Alicia Sancho", "240315170", new DateTime(1988, 07, 01), "Ponte do Abade", "926999852", "alicia.sancho@RDtelecom.com", "3570-191", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Mateo Jesus", "216994918", new DateTime(1964, 11, 21), "Rua Quebra Costas", "933022589", "mateo.jesus@RDtelecom.com", "5155-003", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Antonnella Conti", "262339374", new DateTime(1954, 08, 01), "Zurrão", "922557410", "antonnella.conti@RDtelecom.com", "6260-196", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Nuno Gatti", "281167222", new DateTime(1970, 02, 06), "Carvalhal da Louça", "923654789", "nuno.gatti@RDtelecom.com", "6270-131", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Patrícia Carbone", "253533643", new DateTime(1980, 03, 30), "Rua Amadeus Mozart", "966968749", "patricia.carbone@RDtelecom.com", "6300-509", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Pedro Guerra", "254138349", new DateTime(1999, 08, 01), "Muxagata", "923456987", "pedro.guerra@RDtelecom.com", "6370-361", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Célia Valente", "263953840", new DateTime(1999, 07, 01), "Juncais", "910002658", "celia.valente@RDtelecom.com", "6370-332", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Rosa Serra", "281900361", new DateTime(2000, 01, 01), "Quinta da Costa", "92888632", "rosa.serra@RDtelecom.com", "6324-004", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Ricardo Estrela", "206569327", new DateTime(1987, 09, 17), "Parada", "963011456", "ricardo.estrla@RDtelecom.com", "6355-142", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Carlos Fechaduras", "220640610", new DateTime(1859, 05, 08), "Senouras", "925666874", "carlos.fechaduras@RDtelecom.com", "6355-170", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Álvaro Bruxelas", "210346760", new DateTime(1958, 12, 31), "Beco da Alegria", "91025800", "alvaro.bruxelas@RDtelecom.com", "6355-170", "Operador", false, 9);
+            GaranteUtilizadores(bd, "Isamara Lobão", "215494725", new DateTime(1956, 12, 05), "Lajeosa", "936058777", "isamara.lobao@RDtelecom.com", "6320-161", "Operador", false, 9);
 
             //-------------------------- 10 LEIRIA-----------------
-            GaranteUtilizadores(bd, "Patrícia Gomes", "119888068", new DateTime(1999, 07, 01), "Rua do Norte", "923600144", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Marlene Santos", "131092812", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "930054711", "marlene.satos@RDtelecom.com", "3030-253", "Operador", false, 10);
-            GaranteUtilizadores(bd, "João Ferreira", "161270441", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "925632008", "joao.ferreira@RDtelecom.com", "3084-501", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Tânia Sousa", "140129375", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "963012547", "tania-sousa@RDtelecom.com", "3400-215", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Rute Martins", "161728219", new DateTime(1979, 10, 30), "Cruz de Ferro", "921456920", "rute.martins@RDtelecom.com", "3000-295", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Paulo Pedra", "175938652", new DateTime(1999, 07, 01), "Rua do Norte", "923001458", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Helder Copeto", "163520500", new DateTime(1999, 07, 01), "Rua do Norte", "931478569", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Miriam Falcão", "103294708", new DateTime(2000, 01, 01), "Vale Derradeiro", "968547000", "miriam.falcao@RDtelecom.com", "3320-002", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Célia Tomate", "109509552", new DateTime(1980, 09, 11), "Seladinhas", "922365009", "celia.tomate@RDtelecom.com", "3320-367", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Tadeu Leão", "163600937", new DateTime(1975, 02, 08), "Flor da Rosa", "967896333", "tadeu.leao@RDtelecom.com", "3040-471", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Harley Guerra", "195614313", new DateTime(1955, 12, 24), "Beco da Alegria", "910258963", "harley.guerra@RDtelecom.com", "3025-129", "Operador", false, 10);
-            GaranteUtilizadores(bd, "Afonso Freira", "116386428", new DateTime(1956, 12, 05), "Beco das Cruzes", "939391250", "afonso.freira@RDtelecom.com", "3000-133 ", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Amílcar Malho", "119888068", new DateTime(1967, 03, 01), "Rua dos Inácios", "923600144", "amilcar.malho@RDtelecom.com", "2400-773", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Joana de Sá", "131092812", new DateTime(1966, 11, 21), "Rua do Futuro", "930054711", "joana.sa@RDtelecom.com", "2400-760", "Operador", false, 10);
+            GaranteUtilizadores(bd, "João Cabral", "161270441", new DateTime(2000, 06, 01), "Moinho do Rato", "925632008", "joao.cabral@RDtelecom.com", "2410-528", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Ilídio Brazeta", "140129375", new DateTime(1999, 06, 09), "Rua de Saint-Maur-Des-Fosses", "963012547", "ilidio.brazeta@RDtelecom.com", "2414-001", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Ricardo Caramelo", "161728219", new DateTime(1984, 02, 30), "Estrada da Mata Marrazes", "921456920", "ricardo.caramelo@RDtelecom.com", "2419-001", "Operador", false, 10);
+            GaranteUtilizadores(bd, "João Figo", "175938652", new DateTime(1999, 07, 11), "Rua de Santa Margarida", "923001458", "joao.figo@RDtelecom.com", "2420-999", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Romina Santos", "163520500", new DateTime(1999, 07, 01), "Beco Grilo", "931478569", "romina.santos@RDtelecom.com", "2460-005", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Rui Rosa", "103294708", new DateTime(2000, 01, 01), "Rua Mercedes e Carlos Campeão", "968547000", "rui.rosa@RDtelecom.com", "2460-006", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Vanda Ruivo", "109509552", new DateTime(1980, 10, 11), "Bolo", "922365009", "vanda.ruivo@RDtelecom.com", "3280-113", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Tiago Andrade", "163600937", new DateTime(1975, 08, 08), "Sapateira", "967896333", "tiago.andrade@RDtelecom.com", "3280-123", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Marta Martinelli", "195614313", new DateTime(1988, 12, 24), "Rua dos Lavadouros", "910258963", "marta.martinelli@RDtelecom.com", "2525-123", "Operador", false, 10);
+            GaranteUtilizadores(bd, "Joaquim Vitale", "116386428", new DateTime(1996, 12, 05), "Picha", "939391250", "joaquim.vitale@RDtelecom.com", "3270-143", "Operador", false, 10);
 
 
             //-------------------------- 11 LISBOA-----------------
-            GaranteUtilizadores(bd, "Patrícia Gomes", "126914966", new DateTime(1999, 07, 01), "Rua do Norte", "924141230", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Marlene Santos", "196656087", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "937182456", "marlene.satos@RDtelecom.com", "3030-253", "Operador", false, 11);
-            GaranteUtilizadores(bd, "João Ferreira", "176965173", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "931773910", "joao.ferreira@RDtelecom.com", "3084-501", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Tânia Sousa", "110466721", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "917182935", "tania-sousa@RDtelecom.com", "3400-215", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Rute Martins", "171941195", new DateTime(1979, 10, 30), "Cruz de Ferro", "961455620", "rute.martins@RDtelecom.com", "3000-295", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Paulo Pedra", "164398112", new DateTime(1999, 07, 01), "Rua do Norte", "967410226", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Helder Copeto", "133792285", new DateTime(1999, 07, 01), "Rua do Norte", "937852013", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Miriam Falcão", "141553898", new DateTime(2000, 01, 01), "Vale Derradeiro", "931456110", "miriam.falcao@RDtelecom.com", "3320-002", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Célia Tomate", "177572280", new DateTime(1980, 09, 11), "Seladinhas", "969391789", "celia.tomate@RDtelecom.com", "3320-367", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Tadeu Leão", "150336322", new DateTime(1975, 02, 08), "Flor da Rosa", "919320365", "tadeu.leao@RDtelecom.com", "3040-471", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Harley Guerra", "153510340", new DateTime(1955, 12, 24), "Beco da Alegria", "932514789", "harley.guerra@RDtelecom.com", "3025-129", "Operador", false, 11);
-            GaranteUtilizadores(bd, "Afonso Freira", "170633977", new DateTime(1956, 12, 05), "Beco das Cruzes", "930258789", "afonso.freira@RDtelecom.com", "3000-133 ", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Geraldo Fraga", "126914966", new DateTime(1968, 08, 01), "Rua Brito Aranha", "924141230", "geraldo.fraga@RDtelecom.com", "1000-007", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Celeste Djata", "196656087", new DateTime(1969, 11, 28), "Avenida dos Defensores de Chaves", "937182456", "celeste.djata@RDtelecom.com", "1049-004", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Carla Costa", "176965173", new DateTime(1978, 05, 01), "Largo das Palmeiras", "931773910", "carla.costa@RDtelecom.com", "1050-168", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Daniele Lucas", "110466721", new DateTime(1973, 08, 06), "Avenida de Berna", "917182935", "daniele.lucas@RDtelecom.com", "1067-001", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Davide Ramos", "171941195", new DateTime(1986, 10, 30), "Vila Celeste Rua Garcia", "961455620", "davide.ramos@RDtelecom.com", "1070-136", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Diana Leite", "164398112", new DateTime(1999, 07, 01), "Beco Benformoso", "967410226", "diana.leite@RDtelecom.com", "1100-008", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Dunildo Fernandes", "133792285", new DateTime(1988, 07, 01), "Largo Cabeço da Bola", "937852013", "dunildo.fernandes@RDtelecom.com", "1150-008", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Beatriz Testa", "141553898", new DateTime(2000, 01, 01), "Beco da Bempostinha", "931456110", "beatriz.testa@RDtelecom.com", "1150-006", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Pedro Farina", "177572280", new DateTime(2000, 09, 29), "Rua dos Anjos", "969391789", "pedro.farina@RDtelecom.com", "1169-004", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Bernardino Caputo", "150336322", new DateTime(1975, 02, 08), "Rua dos Lusíadas", "919320365", "bernardino.caputo@RDtelecom.com", "1349-006", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Pablo Medina", "153510340", new DateTime(1955, 08, 24), "Cabeça Gorda", "932514789", "pablo.medina@RDtelecom.com", "2565-001", "Operador", false, 11);
+            GaranteUtilizadores(bd, "Eva Simões", "170633977", new DateTime(1969, 12, 18), "Avenida João de Belas", "930258789", "eva.simoes@RDtelecom.com", "2605-203", "Operador", false, 11);
 
             //-------------------------- 12 PORTALEGRE-----------------
-            GaranteUtilizadores(bd, "Patrícia Gomes", "246991585", new DateTime(1999, 07, 01), "Rua do Norte", "969691321", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Marlene Santos", "207370133", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "936285714", "marlene.satos@RDtelecom.com", "3030-253", "Operador", false, 12);
-            GaranteUtilizadores(bd, "João Ferreira", "258078286", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "921326554", "joao.ferreira@RDtelecom.com", "3084-501", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Tânia Sousa", "292120265", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "925632214", "tania-sousa@RDtelecom.com", "3400-215", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Rute Martins", "210764333", new DateTime(1979, 10, 30), "Cruz de Ferro", "960321123", "rute.martins@RDtelecom.com", "3000-295", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Paulo Pedra", "246103230", new DateTime(1999, 07, 01), "Rua do Norte", "911233698", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Helder Copeto", "247266221", new DateTime(1999, 07, 01), "Rua do Norte", "936200145", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Miriam Falcão", "265156343", new DateTime(2000, 01, 01), "Vale Derradeiro", "968574123", "miriam.falcao@RDtelecom.com", "3320-002", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Célia Tomate", "284225959", new DateTime(1980, 09, 11), "Seladinhas", "961425632", "celia.tomate@RDtelecom.com", "3320-367", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Tadeu Leão", "256300291", new DateTime(1975, 02, 08), "Flor da Rosa", "916914785", "tadeu.leao@RDtelecom.com", "3040-471", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Harley Guerra", "274980398", new DateTime(1955, 12, 24), "Beco da Alegria", "923654782", "harley.guerra@RDtelecom.com", "3025-129", "Operador", false, 12);
-            GaranteUtilizadores(bd, "Afonso Freira", "270511059", new DateTime(1956, 12, 05), "Beco das Cruzes", "923654741", "afonso.freira@RDtelecom.com", "3000-133 ", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Paula Neves", "246991585", new DateTime(1987, 05, 01), "Torre Cimeira", "969691321", "paula.neves@RDtelecom.com", "6040-003", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Filipe Pinto", "207370133", new DateTime(1988, 10, 21), "Rua do Poço", "936285714", "filipe.pinto@RDtelecom.com", "6050-106", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Ryan Vieira", "258078286", new DateTime(1968, 07, 13), "Ribeiro do Buraco", "921326554", "ryan.vieira@RDtelecom.com", "7300-351", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Rodrigo Amarelo", "292120265", new DateTime(1970, 06, 28), "Cubos", "925632214", "rodrigo.amarelo@RDtelecom.com", "7300-316", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Rita Abrantes", "210764333", new DateTime(1984, 10, 07), "Praça do Município", "960321123", "rita.abrantes@RDtelecom.com", "7301-855", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Luís Rico", "246103230", new DateTime(1982, 07, 18), "Travessa da Rua do Comércio", "911233698", "luis.rico@RDtelecom.com", "7301-857", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Helder Conceição", "247266221", new DateTime(1973, 07, 01), "Rua das Encruzilhadas", "936200145", "helder.conceicao@RDtelecom.com", "7320-123", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Mariza Falcão", "265156343", new DateTime(2000, 01, 01), "Portas do Sol", "968574123", "mariza.falcao@RDtelecom.com", "7350-002", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Lúcio Junior", "284225959", new DateTime(1980, 09, 16), "Rua da Guarda", "961425632", "lucio.junior@RDtelecom.com", "7350-002", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Tiago Silva", "256300291", new DateTime(1975, 02, 24), "Rua do Escorregadio", "916914785", "tiago.silva@RDtelecom.com", "7350-002", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Ana Godinho", "274980398", new DateTime(1968, 12, 19), "Rua do Emigrante", "923654782", "ana.godinho@RDtelecom.com", "7370-001", "Operador", false, 12);
+            GaranteUtilizadores(bd, "Filipa Oliveira", "270511059", new DateTime(1956, 12, 05), "Rua Marciano Cipriano", "923654741", "filipa.oliveira@RDtelecom.com", "7370-002", "Operador", false, 12);
 
+            //------------------------------------------------
             //-------------------------- 13 PORTO-----------------
             GaranteUtilizadores(bd, "Patrícia Gomes", "232501173", new DateTime(1999, 07, 01), "Rua do Norte", "968574000", "patricia.gomes@RDtelecom.com", "3000-295", "Operador", false, 13);
             GaranteUtilizadores(bd, "Marlene Santos", "255170262", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "933220655", "marlene.satos@RDtelecom.com", "3030-253", "Operador", false, 13);
