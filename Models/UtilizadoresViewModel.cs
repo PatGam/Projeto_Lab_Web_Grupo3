@@ -10,5 +10,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public List<Utilizadores> Utilizador { get; set; }
         public Paginacao Paginacao { get; set; }
         public string nifPesquisa { get; set; }
+        public string distrito { get; set; }
+        public Distritos Distritos { get; set; }
     }
 }
