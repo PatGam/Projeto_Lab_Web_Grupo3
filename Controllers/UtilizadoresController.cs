@@ -25,6 +25,54 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         }
 
+        [Authorize(Roles = "Administrador,Operador")]
+        public async Task<IActionResult> IndexAdministradores(string nifPesquisa, int pagina = 1)
+        {
+
+
+
+
+            //string que especifica o asp-router
+            //ViewData["TipoUtil"] = tipoUtil;
+            //return View(await _context.Utilizadores.ToListAsync());
+
+            if (nifPesquisa != null)
+            {
+                Paginacao paginacao = new Paginacao
+                {
+                    TotalItems = await _context.Utilizadores.Where(p => nifPesquisa == null || p.Nif.Contains(nifPesquisa)).CountAsync(),
+                    PaginaAtual = pagina
+
+                };
+
+                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false && p.Role == "Administrador")
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+                UtilizadoresViewModel model1 = new UtilizadoresViewModel
+                {
+                    Utilizador = utilizadores,
+                    Paginacao = paginacao,
+                    nifPesquisa = nifPesquisa
+
+                };
+
+                return View(model1);
+
+            }
+            else
+            {
+                UtilizadoresViewModel model2 = new UtilizadoresViewModel
+                {
+                    nifPesquisa = nifPesquisa
+                };
+
+                return View(model2);
+
+            }
+        }
+
         // GET: Utilizadores
         [Authorize(Roles = "Administrador,Operador")]
         public async Task<IActionResult> IndexClientes(string nifPesquisa, int pagina = 1)
@@ -138,7 +186,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
                 };
 
-                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false && p.Role != "Cliente")
+                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Nif.Contains(nifPesquisa) && p.Inactivo == false && p.Role == "Operador")
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                 .Take(paginacao.ItemsPorPagina)
                 .ToListAsync();
@@ -187,7 +235,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
                 };
 
-                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Distritos.Nome.Contains(distrito) && p.Inactivo == false && p.Role != "Cliente")
+                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Distritos.Nome.Contains(distrito) && p.Inactivo == false && p.Role == "Operador")
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                 .Take(paginacao.ItemsPorPagina)
                 .ToListAsync();
@@ -257,6 +305,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
         [Authorize(Roles = "Administrador")]
         public IActionResult CreateFuncionarios()
+        {
+            //string que especifica o asp-router
+            //ViewData["TipoUtil"] = tipoUtil;
+
+            return View();
+        }
+
+        public IActionResult CreateAdiministrador()
         {
             //string que especifica o asp-router
             //ViewData["TipoUtil"] = tipoUtil;
@@ -428,6 +484,90 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             };
 
            
+
+            _context.Add(utilizadores);
+            await _context.SaveChangesAsync();
+
+            ViewBag.Mensagem = "Utilizador adicionado com sucesso.";
+            return View("SucessoFuncionarios");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> CreateAdiministrador(RegistoUtilizadoresViewModel infoUtilizador)
+        {
+            IdentityUser utilizador = await _gestorUtilizadores.FindByNameAsync(infoUtilizador.Email);
+
+            if (utilizador != null)
+            {
+                ModelState.AddModelError("Email", "Já existe um funcionário com o email que especificou.");
+            }
+
+            utilizador = new IdentityUser(infoUtilizador.Email);
+            IdentityResult resultado = await _gestorUtilizadores.CreateAsync(utilizador, infoUtilizador.Password);
+
+            if (!resultado.Succeeded)
+            {
+                ModelState.AddModelError("", "Não foi possível fazer o registo. Por favor tente mais tarde novamente e se o problema persistir contacte a assistência.");
+            }
+            else
+            {
+                await _gestorUtilizadores.AddToRoleAsync(utilizador, infoUtilizador.Role);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                //ViewData["Roles_Nome"] = new SelectList(_context.Roles, "Roles_Nome", "Roles_Nome");
+                return View(infoUtilizador);
+            }
+
+
+
+            Utilizadores utilizadores = new Utilizadores
+            {
+
+                Nome = infoUtilizador.Nome,
+                DataNascimento = infoUtilizador.DataNascimento,
+                Morada = infoUtilizador.Morada,
+                Nif = infoUtilizador.Nif,
+                CodigoPostal = infoUtilizador.CodigoPostal,
+                Email = infoUtilizador.Email,
+                Telemovel = infoUtilizador.Telemovel,
+                Role = infoUtilizador.Role,
+            };
+
+            string contribuente = utilizadores.Nif;
+
+            char firstChar = contribuente[0];
+            if (firstChar.Equals('1')
+                || firstChar.Equals('2')
+                || firstChar.Equals('3')
+                || firstChar.Equals('5')
+                || firstChar.Equals('6')
+                || firstChar.Equals('8')
+                || firstChar.Equals('9'))
+            {
+                int checkDigit = (Convert.ToInt32(firstChar.ToString()) * 9);
+                for (int i = 2; i <= 8; ++i)
+                {
+                    checkDigit += Convert.ToInt32(contribuente[i - 1].ToString()) * (10 - i);
+                }
+
+                checkDigit = 11 - (checkDigit % 11);
+                if (checkDigit >= 10)
+                {
+                    checkDigit = 0;
+                }
+
+                if (checkDigit.ToString() != contribuente[8].ToString())
+                {
+                    ModelState.AddModelError("Nif", "Contribuinte Inválido, coloque novamente");
+                    return View(infoUtilizador);
+                }
+            };
+
+
 
             _context.Add(utilizadores);
             await _context.SaveChangesAsync();
