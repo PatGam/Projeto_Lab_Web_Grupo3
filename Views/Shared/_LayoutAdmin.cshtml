@@ -150,6 +150,18 @@
                         <li class="sub-menu">
                             <a href="javascript:;" class="">
                                 <i class="icon_group"></i>
+                                <span>Gerir Administradores</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                            <ul class="sub">
+                                <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexAdministradores" asp-route-tipoUtil="Func">Consultar</a></li>
+                                <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="CreateAdiministrador" asp-route-tipoUtil="Func">Criar</a></li>
+                            </ul>
+
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" class="">
+                                <i class="icon_group"></i>
                                 <span>Gerir Funcionários</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
@@ -207,20 +219,20 @@
                     @if (User.IsInRole("Operador"))
                     {
 
-                <li class="sub-menu">
-                    <a class="" a asp-area="" asp-controller="AdminOp" asp-action="Index">
-                        <i class="icon_house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
+                        <li class="sub-menu">
+                            <a class="" a asp-area="" asp-controller="AdminOp" asp-action="Index">
+                                <i class="icon_house"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
 
-                <li class="sub-menu">
-                    <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes" asp-route-tipoUtil="Cliente">
-                        <i class="icon_contacts_alt"></i>
-                        <span>Ver lista de Clientes</span>
+                        <li class="sub-menu">
+                            <a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes" asp-route-tipoUtil="Cliente">
+                                <i class="icon_contacts_alt"></i>
+                                <span>Ver lista de Clientes</span>
 
-                    </a>
-                </li>
+                            </a>
+                        </li>
 
                         <li class="sub-menu">
                             <a href="javascript:;" class="">
