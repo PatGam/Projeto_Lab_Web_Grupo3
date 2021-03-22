@@ -22,10 +22,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             bd = context;
         }
 
-        public async Task<IActionResult> Index(string nifpesquisar, bool inactivo, int pagina = 1)
+        public async Task<IActionResult> Top10Antigos()
         {
           
                 List<Utilizadores> clientesAntigos = await bd.Utilizadores
+                    .Where(p => p.Role == "Cliente")
                     .OrderByDescending(p => p.DataAtivacao)
                     .Take(10)
                     .ToListAsync();
@@ -33,7 +34,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             Top10ViewModel top10clientesAntigos = new Top10ViewModel
             {
                    Utilizadores  = clientesAntigos,
-                             };
+            };
                 return View(top10clientesAntigos);
             }
         
