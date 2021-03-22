@@ -24,26 +24,26 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         public async Task<IActionResult> Top10Antigos()
         {
-          
-                List<Utilizadores> clientesAntigos = await bd.Utilizadores
-                    .Where(p => p.Role == "Cliente")
-                    .OrderByDescending(p => p.DataAtivacao)
-                    .Take(10)
-                    .ToListAsync();
+
+            List<Utilizadores> clientesAntigos = await bd.Utilizadores
+                .Where(p => p.Role == "Cliente")
+                .OrderByDescending(p => p.DataAtivacao)
+                .Take(10)
+                .ToListAsync();
 
             Top10ViewModel top10clientesAntigos = new Top10ViewModel
             {
-                   Utilizadores  = clientesAntigos,
+                Utilizadores = clientesAntigos,
             };
-                return View(top10clientesAntigos);
-            }
+            return View(top10clientesAntigos);
+        }
 
-        public async Task<IActionResult> Top10Operadores()
+        public async Task<IActionResult> Top10OperadoresAsync()
         {
 
             List<LucroClienteOperador> operadores = new List<LucroClienteOperador>();
             decimal lucro = 0;
-            foreach(var operador in bd.Utilizadores)
+            foreach (var operador in bd.Utilizadores)
             {
                 if (operador.Role == "Operador")
                 {
@@ -58,6 +58,69 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                     lucro = 0;
                 }
             }
+
+            var nomeDistrito1 = await bd.Distritos
+                .FirstOrDefaultAsync(m => m.DistritosId == 1);
+            var nomeDistrito2 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 2);
+            var nomeDistrito3 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 3);
+            var nomeDistrito4 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 4);
+            var nomeDistrito5 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 5);
+            var nomeDistrito6 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 6);
+            var nomeDistrito7 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 7);
+            var nomeDistrito8 = await bd.Distritos
+                .FirstOrDefaultAsync(m => m.DistritosId == 8);
+            var nomeDistrito9 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 9);
+            var nomeDistrito10 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 10);
+            var nomeDistrito11 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 11);
+            var nomeDistrito12 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 12);
+            var nomeDistrito13 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 13);
+            var nomeDistrito14 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 14);
+            var nomeDistrito15 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 15);
+            var nomeDistrito16 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 16);
+            var nomeDistrito17 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 17);
+            var nomeDistrito18 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 18);
+            var nomeDistrito19 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 19);
+            var nomeDistrito20 = await bd.Distritos
+              .FirstOrDefaultAsync(m => m.DistritosId == 20);
+
+            ViewData["Distrito1"] = nomeDistrito1.Nome;
+            ViewData["Distrito2"] = nomeDistrito2.Nome;
+            ViewData["Distrito3"] = nomeDistrito3.Nome;
+            ViewData["Distrito4"] = nomeDistrito4.Nome;
+            ViewData["Distrito5"] = nomeDistrito5.Nome;
+            ViewData["Distrito6"] = nomeDistrito6.Nome;
+            ViewData["Distrito7"] = nomeDistrito7.Nome;
+            ViewData["Distrito8"] = nomeDistrito8.Nome;
+            ViewData["Distrito9"] = nomeDistrito9.Nome;
+            ViewData["Distrito10"] = nomeDistrito10.Nome;
+            ViewData["Distrito11"] = nomeDistrito11.Nome;
+            ViewData["Distrito12"] = nomeDistrito12.Nome;
+            ViewData["Distrito13"] = nomeDistrito13.Nome;
+            ViewData["Distrito14"] = nomeDistrito14.Nome;
+            ViewData["Distrito15"] = nomeDistrito15.Nome;
+            ViewData["Distrito16"] = nomeDistrito16.Nome;
+            ViewData["Distrito17"] = nomeDistrito17.Nome;
+            ViewData["Distrito18"] = nomeDistrito18.Nome;
+            ViewData["Distrito19"] = nomeDistrito19.Nome;
+            ViewData["Distrito20"] = nomeDistrito20.Nome;
+
 
             List<LucroClienteOperador> operadoresAveiro = operadores
                 .Where(p => p.DistritosId == 1)
@@ -78,9 +141,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
              .Take(10)
              .ToList();
 
-
             List<LucroClienteOperador> operadoresBraganca = operadores
-             .Where(p => p.DistritosId ==  4)
+             .Where(p => p.DistritosId == 4)
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
@@ -123,7 +185,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
-                
+
             List<LucroClienteOperador> operadoresLisboa = operadores
              .Where(p => p.DistritosId == 11)
              .OrderByDescending(p => p.Lucro)
@@ -189,7 +251,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
              .Take(10)
              .ToList();
 
-            Top10ViewModel top10clientesAntigos = new Top10ViewModel
+            Top10ViewModel top10operadores = new Top10ViewModel
             {
                 operadoresAveiro = operadoresAveiro,
                 operadoresBeja = operadoresBeja,
@@ -211,10 +273,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 operadoresViseu = operadoresViseu,
                 operadoresAcores = operadoresAcores,
                 operadoresMadeira = operadoresMadeira,
-                
+
             };
-            return View(top10clientesAntigos);
+            return View(top10operadores);
         }
+
 
     }
 }
