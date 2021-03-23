@@ -17,83 +17,95 @@
                 <section class="panel">
 
                     <table class="table table-bordered">
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Descricao)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Descricao)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DataReclamacao)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.DataReclamacao)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Resposta)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Resposta)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DataResposta)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.DataResposta)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.EstadoResposta)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.EstadoResposta)
-                            </td>
+                        @if (User.IsInRole("Operador"))
+                        {
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Descricao)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Descricao)
+                                </td>
+                            </tr>
 
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.EstadoResolução)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.EstadoResolução)
-                            </td>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DataReclamacao)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.DataReclamacao)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Resposta)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Resposta)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Cliente)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Cliente.Nome)
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DataResolucao)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.DataResolucao)
-                            </td>
+                            </tr>
 
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Cliente)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Cliente.Nome)
-                            </td>
+                        }
+                        @if (User.IsInRole("CLiente"))
+                        {
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DataResposta)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.DataResposta)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EstadoResposta)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.EstadoResposta)
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Funcionario)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Funcionario.Nome)
-                            </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EstadoResolução)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.EstadoResolução)
+                                </td>
 
-                        </tr>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DataResolucao)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.DataResolucao)
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Funcionario)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.Funcionario.Nome)
+                                </td>
+
+                            </tr>
+                        }
+
+
+
 
 
                     </table>

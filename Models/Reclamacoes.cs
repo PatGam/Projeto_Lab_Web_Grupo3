@@ -49,6 +49,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [InverseProperty(nameof(Utilizadores.ReclamacoesFuncionario))]
         public virtual Utilizadores Funcionario { get; set; }
 
+        public bool Inactivo { get; set; }
+
 
     }
 }

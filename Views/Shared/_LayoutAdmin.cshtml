@@ -143,11 +143,12 @@
                             </a>
                             <ul class="sub">
                                 @*Especificar aqui o asp-route, para diferenciar as páginas*@
-                                <li>Consultar
-                                <ul>
-                                    <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes" asp-route-tipoUtil="Cliente">NIF</a></li>
-                                    <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientesDistritos" asp-route-tipoUtil="Cliente">Distrito</a></li>
-                                </ul>
+                                <li>
+                                    Consultar
+                                    <ul>
+                                        <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes" asp-route-tipoUtil="Cliente">NIF</a></li>
+                                        <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientesDistritos" asp-route-tipoUtil="Cliente">Distrito</a></li>
+                                    </ul>
                                 </li>
                                 <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="CreateClientes" asp-route-tipoUtil="Cliente">Criar</a></li>
                             </ul>
@@ -171,7 +172,8 @@
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li>Consultar
+                                <li>
+                                    Consultar
                                     <ul>
                                         <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexFuncionarios" asp-route-tipoUtil="Func">NIF</a></li>
                                         <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexFuncionariosDistritos" asp-route-tipoUtil="Func">Distritos</a></li>
@@ -269,6 +271,19 @@
 
                             </a>
 
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" class="">
+                                <i class="fa fa-inbox" aria-hidden="true"></i>
+                                <span>Reclamações</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+
+                            <ul class="sub">
+                                <li><a class="" a asp-area="" asp-controller="Reclamacoes" asp-action="Index">Reclamações Ativas</a></li>
+                                <li><a class="" a asp-area="" asp-controller="Reclamacoes" asp-action="Create">Reclamações Arquivadas</a></li>
+                            </ul>
                         </li>
                     }
 
