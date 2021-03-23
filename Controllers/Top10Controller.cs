@@ -38,7 +38,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(top10clientesAntigos);
         }
 
-        public async Task<IActionResult> Top10OperadoresAsync()
+        public async Task<IActionResult> Top10Operadores()
         {
 
             List<LucroClienteOperador> operadores = new List<LucroClienteOperador>();
@@ -278,7 +278,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(top10operadores);
         }
 
-        public async Task<IActionResult> Top10ClientesAsync()
+        public async Task<IActionResult> Top10Clientes()
         {
 
             List<LucroClienteOperador> clientes = new List<LucroClienteOperador>();
@@ -294,7 +294,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                             lucro += contrato.PrecoFinal;
                         }
                     }
-                    clientes.Add(new LucroClienteOperador() { UtilizadorId = cliente.UtilizadorId, DistritosId = cliente.DistritosId, Lucro = lucro, OperadorNome = cliente.Nome });
+                    clientes.Add(new LucroClienteOperador() { UtilizadorId = cliente.UtilizadorId, DistritosId = cliente.DistritosId, Lucro = lucro, ClienteNome = cliente.Nome });
                     lucro = 0;
                 }
             }
