@@ -823,15 +823,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         #endregion
 
         #region API Calls
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllClientes()
-        //{
-        //    var clientes = await _context.Utilizadores
-        //        .Select(s => new { s.UtilizadorId, s.Nome,s.Nif, s.DataNascimento, s.Morada, s.Telemovel, s.Email,s.Role, s.Inactivo })
-        //        .Where(i => i.Inactivo == false && i.Role == "Cliente")
-        //        .ToListAsync();
-        //    return Json(new { data = clientes });
-        //}
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesVC()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 16)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
 
 
         //[HttpDelete]
@@ -850,5 +850,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
 
 
+        public IActionResult Viana_do_Castelo()
+        {
+            return View();
+        }
     }
+
+    
 }

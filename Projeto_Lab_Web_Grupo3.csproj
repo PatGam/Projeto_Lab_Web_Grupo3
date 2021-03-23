@@ -13,6 +13,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\portugalhtmlmap\bulkconfig.php" />
+    <None Include="wwwroot\portugalhtmlmap\editgroupsconfig.php" />
+    <None Include="wwwroot\portugalhtmlmap\editmainconfig.php" />
+    <None Include="wwwroot\portugalhtmlmap\editpointsconfig.php" />
+    <None Include="wwwroot\portugalhtmlmap\editstatesconfig.php" />
+    <None Include="wwwroot\portugalhtmlmap\mapslist.php" />
+    <None Include="wwwroot\portugalhtmlmap\maptools.php" />
+    <None Include="wwwroot\portugalhtmlmap\popupbuilder.php" />
+    <None Include="wwwroot\portugalhtmlmap\portugalhtmlmap.php" />
+    <None Include="wwwroot\portugalhtmlmap\static\js\jquery.nicescroll.js" />
+    <None Include="wwwroot\portugalhtmlmap\static\js\jquery.tipsy.js" />
+    <None Include="wwwroot\portugalhtmlmap\static\js\map.js" />
+    <None Include="wwwroot\portugalhtmlmap\static\js\raphael.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.11" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.11" />
@@ -23,6 +39,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\portugalhtmlmap\languages\" />
   </ItemGroup>
 
 </Project>
