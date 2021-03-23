@@ -21,7 +21,15 @@
                         <form asp-action="Create" class="form-horizontal">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1"  class="col-sm-2 control-label" asp-for="Descricao" ></label>
+                                <label asp-for="ClienteId" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                                </div>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1" class="col-sm-2 control-label" asp-for="Descricao"></label>
                                 <div class="col-sm-10">
                                     <textarea type="text" id="exampleFormControlTextarea1" rows="3" asp-for="Descricao" class="form-control"></textarea>
                                     <span asp-validation-for="Descricao" class="text-danger"></span>
@@ -32,61 +40,55 @@
                                 <div class="col-sm-10">
                                     <input asp-for="DataReclamacao" class="form-control" />
                                     <span asp-validation-for="DataReclamacao" class="text-danger"></span>
+
                                 </div>
 
                             </div>
-                            <div class="form-group">
-                                <label asp-for="Resposta" class="col-sm-2 control-label"></label>
-                                <div  class="col-sm-10">
-                                    <input asp-for="Resposta" class="form-control" />
-                                    <span asp-validation-for="Resposta" class="text-danger"></span>
-                                </div>
+                            @*<div class="form-group">
+            <label asp-for="Resposta" class="col-sm-2 control-label"></label>
+            <div  class="col-sm-10">
+                <input asp-for="Resposta" class="form-control" />
+                <span asp-validation-for="Resposta" class="text-danger"></span>
+            </div>
 
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="DataResposta"  class="col-sm-2 control-label"></label>
-                                <div class="col-sm-10">
-                                    <input asp-for="DataResposta" class="form-control" />
-                                    <span asp-validation-for="DataResposta" class="text-danger"></span>
-                                </div>
+        </div>*@
+                            @*<div class="form-group">
+            <label asp-for="DataResposta"  class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="DataResposta" class="form-control" />
+                <span asp-validation-for="DataResposta" class="text-danger"></span>
+            </div>
 
-                            </div>
-                            <div class="form-group form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" asp-for="EstadoResposta" /> @Html.DisplayNameFor(model => model.EstadoResposta)
-                                </label>
-                            </div>
-                            <div class="form-group form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" asp-for="EstadoResolução" /> @Html.DisplayNameFor(model => model.EstadoResolução)
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="DataResolucao"  class="col-sm-2 control-label"></label>
-                                <div class="col-sm-10">
-                                    <input asp-for="DataResolucao" class="form-control" />
-                                    <span asp-validation-for="DataResolucao" class="text-danger"></span>
-                                </div>
+        </div>*@
+                            @*<div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="EstadoResposta" /> @Html.DisplayNameFor(model => model.EstadoResposta)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="EstadoResolução" /> @Html.DisplayNameFor(model => model.EstadoResolução)
+            </label>
+        </div>*@
+                            @*<div class="form-group">
+            <label asp-for="DataResolucao"  class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="DataResolucao" class="form-control" />
+                <span asp-validation-for="DataResolucao" class="text-danger"></span>
+            </div>
 
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="ClienteId" class="col-sm-2 control-label"></label>
-                                <div class="col-sm-10">
-                                    <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
-                                </div>
+        </div>*@
 
-                                
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="FuncionarioId" class="col-sm-2 control-label"></label>
-                                <div>
-                                    <select asp-for="FuncionarioId" class="form-control" asp-items="ViewBag.FuncionarioId"></select>
-                                </div>
-                                
-                            </div>
+                            @*<div class="form-group">
+            <label asp-for="FuncionarioId" class="col-sm-2 control-label"></label>
+            <div>
+                <select asp-for="FuncionarioId" class="form-control" asp-items="ViewBag.FuncionarioId"></select>
+            </div>
+
+        </div>*@
                             <div class="col-lg-offset-2 col-lg-10">
-                                <input type="submit" class="btn btn-success" value="Adicionar reclamação" />
-                                <a class="btn btn-danger" asp-action="Index">Voltar Atrás</a>
+                                <input type="submit" class="btn btn-primary" value="Enviar Reclamação" />
+                                <a class="btn btn-danger" asp-action="Index">Cancelar</a>
                             </div>
                         </form>
                     </div>

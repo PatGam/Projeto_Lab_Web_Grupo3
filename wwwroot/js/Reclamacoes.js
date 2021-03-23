@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-    dataTable = $('#DT_load_Reclamacao').DataTable({
+    dataTable = $('#DT_load').DataTable({
         "ajax": {
             "url": "/Reclamacoes/getall/",
             "type": "GET",
@@ -24,7 +24,7 @@ function loadDataTable() {
             { "data": "FuncionarioId", "width": "30%" },
             
             {
-                "data": "ReclamacaoId",
+                "data": "reclamacaoId",
                 "render": function (data) {
                     return `<div class="text-center">
                         <a href="/Reclamacoes/Edit?id=${data}" class='btn btn btn-warning'>
