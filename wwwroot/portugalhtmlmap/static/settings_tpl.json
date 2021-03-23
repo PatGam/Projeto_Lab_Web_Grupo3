@@ -1,0 +1,182 @@
+{
+    "st1": {
+        "id": "1",
+        "name": "Aveiro",
+        "shortname": "Aveiro",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st2": {
+        "id": "2",
+        "name": "Beja",
+        "shortname": "Beja",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st3": {
+        "id": "3",
+        "name": "Braga",
+        "shortname": "Braga",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st4": {
+        "id": "4",
+        "name": "Bragança",
+        "shortname": "Bragança",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st5": {
+        "id": "5",
+        "name": "Castelo Branco",
+        "shortname": "Castelo\nBranco",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st6": {
+        "id": "6",
+        "name": "Coimbra",
+        "shortname": "Coimbra",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st7": {
+        "id": "7",
+        "name": "Évora",
+        "shortname": "Évora",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st8": {
+        "id": "8",
+        "name": "Faro",
+        "shortname": "Faro",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st9": {
+        "id": "9",
+        "name": "Guarda",
+        "shortname": "Guarda",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st10": {
+        "id": "10",
+        "name": "Leiria",
+        "shortname": "Leiria",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st11": {
+        "id": "11",
+        "name": "Lisbon",
+        "shortname": "Lisbon",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st12": {
+        "id": "12",
+        "name": "Portalegre",
+        "shortname": "Portalegre",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st13": {
+        "id": "13",
+        "name": "Porto",
+        "shortname": "Porto",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st14": {
+        "id": "14",
+        "name": "Santarém",
+        "shortname": "Santarém",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st15": {
+        "id": "15",
+        "name": "Setúbal",
+        "shortname": "Setúbal",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st16": {
+        "id": "16",
+        "name": "Viana do Castelo",
+        "shortname": "Viana do\nCastelo",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st17": {
+        "id": "17",
+        "name": "Vila Real",
+        "shortname": "Vila Real",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    },
+    "st18": {
+        "id": "18",
+        "name": "Viseu",
+        "shortname": "Viseu",
+        "link": "",
+        "comment": "",
+        "image": "",
+        "color_map": "#7798bb",
+        "color_map_over": "#366CA3"
+    }
+}

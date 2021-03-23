@@ -1,0 +1,40 @@
+﻿var dataTable;
+
+
+
+function loadDataTable() {
+    dataTable = $('#DT_load_ClientesDistritos').DataTable({
+        "ajax": {
+            "url": "/utilizadores/getallclientesvc/",
+            "type": "GET",
+            "datatype": "json"
+        },
+        "columns": [
+            { "data": "nome", "width": "20%" },
+            { "data": "nif", "width": "20%" },
+            { "data": "telefone", "width": "20%" },
+            {
+                "data": "contratoId",
+                "render": function (data) {
+                    return `<div class="text-center">
+                        <a href="/Contratos/Edit?id=${data}" class='btn btn btn-warning'>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        &nbsp;
+                        <a href="/Contratos/Details?id=${data}" class='btn btn-primary'>
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </a>
+                        &nbsp;
+                        <a class='btn btn-danger ' onclick=Delete('/contratos/Delete?id='+${data})>
+                            <i class="icon_close_alt2"></i>
+                        </a>
+                        </div>`;
+                }, "width": "40%"
+            }
+        ],
+        "language": {
+            "emptyTable": "no data found"
+        },
+        "width": "100%"
+    });
+}
