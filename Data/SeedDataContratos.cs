@@ -10,9 +10,327 @@ namespace Projeto_Lab_Web_Grupo3.Data
     public class SeedDataContratos
     {
 
+
+
+        internal static void InsereContratosAveiro(Projeto_Lab_WebContext bd)
+        {
+            var pascoaS = GaranteExistenciaPromocoes(bd, "PascoaS", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes pequenos", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 2, 99m, false, 1);
+            var pascoaM = GaranteExistenciaPromocoes(bd, "PascoaM", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes médios", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 3, 99m, false, 2);
+            var pascoaL = GaranteExistenciaPromocoes(bd, "PascoaL", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes grandes", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 4, 99m, false, 4);
+            var veraoS = GaranteExistenciaPromocoes(bd, "VerãoS", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes pequenos", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 1, 99m, false, 5);
+            var veraoM = GaranteExistenciaPromocoes(bd, "VerãoM", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes médio", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 2, 59m, false, 3);
+            var veraoL = GaranteExistenciaPromocoes(bd, "VerãoL", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes grandes", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 3, 99m, false, 9);
+            var natalS = GaranteExistenciaPromocoes(bd, "NatalS", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes pequenos", new DateTime(2020, 12, 01), new DateTime(2021, 01, 31), 3, 99m, false, 7);
+            var natalM = GaranteExistenciaPromocoes(bd, "NatalM", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes médios", new DateTime(2020, 12, 01), new DateTime(2021, 01, 31), 4, 99m, false, 19);
+            var natalL = GaranteExistenciaPromocoes(bd, "NatalL", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes grandes", new DateTime(2020, 12, 01), new DateTime(2021, 01, 31), 5, 99m, false, 5);
+
+            //Clientes de Aveiro
+            var aveirocliente1 = GaranteUtilizadores(bd, "Eduardo Pires", "237051974", new DateTime(2000, 01, 19), "Sargento Mor", "921233367", "eduardo.pires@gmail.com", "3020-740", "Cliente", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
+            var aveirocliente2 = GaranteUtilizadores(bd, "Glória da Ascenção", "220613710", new DateTime(1988, 09, 21), "Rua Fernando Caldeira", "937654441", "gloria.ascencao@gmail.com", "3754-501", "Cliente", false, "Aveiro", new DateTime(2020, 12, 12), 0, 1);
+            var aveirocliente3 = GaranteUtilizadores(bd, "Maria Aparecida", "287253333", new DateTime(1977, 10, 01), "Rua Doutor Tomás Aquino", "927411189", "maria.aparecida@gmail.com", "3800-523", "Cliente", false, "Aveiro", new DateTime(2020, 10, 15), 0, 1);
+            var aveirocliente4 = GaranteUtilizadores(bd, "Bernardo Ribeiro", "291231438", new DateTime(1969, 03, 25), "Avenida Manuel Álvaro Lopes Pereira", "929662587", "bernado.ribeiro@gmail.com", "3800-625", "Cliente", false, "Aveiro", new DateTime(2020, 10, 17), 0, 1);
+            var aveirocliente5 = GaranteUtilizadores(bd, "Amadeu Almeida", "249861585", new DateTime(1979, 07, 16), "Avenida do Doutor Lourenço Peixinho", "921212245", "amadeu.almeida@gmail.com", "3804-501", "Cliente", false, "Aveiro", new DateTime(2020, 12, 28), 0, 1);
+            var aveirocliente6 = GaranteUtilizadores(bd, "José Socrates", "269768807", new DateTime(1958, 05, 05), "Viela da Capela", "920128801", "jose.socrates@gmail.com", "3810-002", "Cliente", false, "Aveiro", new DateTime(2020, 08, 17), 0, 1);
+            var aveirocliente7  = GaranteUtilizadores(bd, "Ana Brito", "243552530", new DateTime(2000, 09, 04), "Rua do Jardim", "929630030", "ana.brito@gmail.com", "3054-001", "Cliente", false, "Aveiro", new DateTime(2020, 08, 19), 0, 1);
+            var aveirocliente8 = GaranteUtilizadores(bd, "Luís Neto", "205291546", new DateTime(1985, 04, 04), "Avenida Comendador Augusto Martins Pereira", "920256647", "luis.neto@gmail.com", "3744-002", "Cliente", false, "Aveiro", new DateTime(2020, 08, 28), 0, 1);
+            var aveirocliente9 = GaranteUtilizadores(bd, "Freitas do Mondego", "286228831", new DateTime(1975, 02, 08), "Rua do Murtório Rochico ", "961557784", "freitas.mondego@gmail.com", "3865-299", "Cliente", false, "Aveiro", new DateTime(2020, 10, 02), 0, 1);
+            var aveirocliente10 = GaranteUtilizadores(bd, "João Cardoso", "266992528", new DateTime(1958, 12, 27), "Travessa da Lomba", "923298822", "joao.cardoso@gmail.com", "3865-003", "Cliente", false, "Aveiro", new DateTime(2021, 01, 05), 0, 1); ;
+            var aveirocliente11 = GaranteUtilizadores(bd, "Rita de Brandão", "204161746", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985574", "rita.brandao1@gmail.com", "3880-006", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
+            var aveirocliente12 = GaranteUtilizadores(bd, "Rita de Brandão2", "510065112", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985575", "rita.brandao2@gmail.com", "3880-007", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
+            var aveirocliente13 = GaranteUtilizadores(bd, "Rita de Brandão3", "509688977", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985576", "rita.brandao3@gmail.com", "3880-008", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
+            var aveirocliente14 = GaranteUtilizadores(bd, "Rita de Brandão4", "508948576", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985577", "rita.brandao4@gmail.com", "3880-009", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
+
+            //Operadores de Aveiro
+            var aveirooperador1 = GaranteUtilizadores(bd, "Eduardo", "286714957", new DateTime(2000, 01, 19), "Sargento Mor", "921234567", "eduardo.pires@RDtelecom.com", "3020-740", "Operador", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
+            var aveirooperador2 = GaranteUtilizadores(bd, "Glória", "218120460", new DateTime(1988, 09, 21), "Rua Fernando Caldeira", "937654321", "gloria.ascencao@RDtelecom.com", "3754-501", "Operador", false, "Aveiro", new DateTime(2020, 12, 12), 0, 1);
+            var aveirooperador3 = GaranteUtilizadores(bd, "Maria", "206602448", new DateTime(1977, 10, 01), "Rua Doutor Tomás Aquino", "927412589", "maria.aparecida@RDtelecom.com", "3800-523", "Operador", false, "Aveiro", new DateTime(2020, 10, 15), 0, 1);
+            var aveirooperador4 = GaranteUtilizadores(bd, "Bernardo", "292565798", new DateTime(1969, 03, 25), "Avenida Manuel Álvaro Lopes Pereira", "929632587", "bernado.ribeiro@RDtelecom.com", "3800-625", "Operador", false, "Aveiro", new DateTime(2020, 10, 17), 0, 1);
+            var aveirooperador5 = GaranteUtilizadores(bd, "Amadeu", "292565798", new DateTime(1979, 07, 16), "Avenida do Doutor Lourenço Peixinho", "921212145", "amadeu.almeida@RDtelecom.com", "3804-501", "Operador", false, "Aveiro", new DateTime(2020, 12, 28), 0, 1);
+            var aveirooperador6 = GaranteUtilizadores(bd, "José", "250559102", new DateTime(1958, 05, 05), "Viela da Capela", "920123201", "jose.socrates@RDtelecom.com", "3810-002", "Operador", false, "Aveiro", new DateTime(2020, 08, 17), 0, 1);
+            var aveirooperador7 = GaranteUtilizadores(bd, "Ana", "275433641", new DateTime(2000, 09, 04), "Rua do Jardim", "929633230", "ana.brito@RDtelecom.com", "3054-001", "Operador", false, "Aveiro", new DateTime(2020, 08, 19), 0, 1);
+            var aveirooperador8 = GaranteUtilizadores(bd, "Luís", "142518093", new DateTime(1985, 04, 04), "Avenida Comendador Augusto Martins Pereira", "920258847", "luis.neto@RDtelecom.com", "3744-002", "Operador", false, "Aveiro", new DateTime(2020, 08, 28), 0, 1);
+            var aveirooperador9 = GaranteUtilizadores(bd, "Freitas", "172501482", new DateTime(1975, 02, 08), "Rua do Murtório Rochico ", "961477784", "freitas.mondego@RDtelecom.com", "3865-299", "Operador", false, "Aveiro", new DateTime(2020, 10, 02), 0, 1);
+            var aveirooperador10 = GaranteUtilizadores(bd, "João", "265371988", new DateTime(1958, 12, 27), "Travessa da Lomba", "923212322", "joao.cardoso@RDtelecom.com", "3865-003", "Operador", false, "Aveiro", new DateTime(2021, 01, 05), 0, 1); ;
+            var aveirooperador11 = GaranteUtilizadores(bd, "Rita", "244225834", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929988774", "rita.brandao@RDtelecom.com", "3880-006", "Operador", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
+
+            var aveiro = GaranteDistritos(bd, "Aveiro");
+
+            var pacoteRD4 = GarantePacotes(bd, "Pacote RD4", 55, "O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade", false, new DateTime(2021, 03, 01), 1);
+            var pacoteRD3 = GarantePacotes(bd, "Pacote RD3", 45, "O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.", false, new DateTime(2021, 03, 01), 1);
+            var pacoteRDGaming = GarantePacotes(bd, "Pacote RD - Gaming", 55, "A oferta Pacote RD - Gaming é ideal para", false, new DateTime(2021, 03, 01), 1);
+            var pacoteRDGPremium = GarantePacotes(bd, "Pacote RD - TV Premium + gaming", 65, "A oferta Pacote RD - TV Premium + gaming destacou - se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico(canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.", false, new DateTime(2021, 03, 01), 1);
+            var pacoteTvVoz = GarantePacotes(bd, "RD TV e Voz", 25, "Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão", false, new DateTime(2021, 03, 01), 1);
+            var pacoteRDFamiliar = GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.", false, new DateTime(2021, 03, 01), 1);
+
+
+            bd.Contratos.AddRange(new Contratos[] {
+                  new Contratos
+                     {
+                    UtilizadorId = aveirocliente1.UtilizadorId,
+                    ClienteId = aveirocliente1.UtilizadorId,
+                    FuncionarioId = aveirooperador1.UtilizadorId,
+                    PacoteId = pacoteRD4.PacoteId,
+                    PromocoesId = natalM.PromocoesId,
+                    DataInicio = natalM.DataInicio,
+                    DataFim = natalM.DataInicio.AddYears(2),
+                    Telefone = 236111111,
+                    PrecoPacote = pacoteRD4.Preco,
+                    NomePacote = pacoteRD4.Nome,
+                    PromocaoDesc = natalM.PromocaoDesc,
+                    PrecoFinal = pacoteRD4.Preco - natalM.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente1.Morada,
+                    CodigoPostal = aveirocliente1.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+                  new Contratos
+                     {
+                    UtilizadorId = aveirocliente2.UtilizadorId,
+                    ClienteId = aveirocliente2.UtilizadorId,
+                    FuncionarioId = aveirooperador1.UtilizadorId,
+                    PacoteId = pacoteRD4.PacoteId,
+                    PromocoesId = natalM.PromocoesId,
+                    DataInicio = natalM.DataInicio,
+                    DataFim = natalM.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRD4.Preco,
+                    NomePacote = pacoteRD4.Nome,
+                    PromocaoDesc = natalM.PromocaoDesc,
+                    PrecoFinal = pacoteRD4.Preco - natalM.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente2.Morada,
+                    CodigoPostal = aveirocliente2.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+                  new Contratos
+                     {
+                    UtilizadorId = aveirocliente3.UtilizadorId,
+                    ClienteId = aveirocliente3.UtilizadorId,
+                    FuncionarioId = aveirooperador1.UtilizadorId,
+                    PacoteId = pacoteRD4.PacoteId,
+                    PromocoesId = natalM.PromocoesId,
+                    DataInicio = natalM.DataInicio,
+                    DataFim = natalM.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRD4.Preco,
+                    NomePacote = pacoteRD4.Nome,
+                    PromocaoDesc = natalM.PromocaoDesc,
+                    PrecoFinal = pacoteRD4.Preco - natalM.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente3.Morada,
+                    CodigoPostal = aveirocliente3.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+                  new Contratos
+                     {
+                    UtilizadorId = aveirocliente4.UtilizadorId,
+                    ClienteId = aveirocliente4.UtilizadorId,
+                    FuncionarioId = aveirooperador2.UtilizadorId,
+                    PacoteId = pacoteRD3.PacoteId,
+                    PromocoesId = natalM.PromocoesId,
+                    DataInicio = natalM.DataInicio,
+                    DataFim = natalM.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRD3.Preco,
+                    NomePacote = pacoteRD3.Nome,
+                    PromocaoDesc = natalM.PromocaoDesc,
+                    PrecoFinal = pacoteRD3.Preco - natalM.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente4.Morada,
+                    CodigoPostal = aveirocliente4.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+            new Contratos
+                     {
+                    UtilizadorId = aveirocliente5.UtilizadorId,
+                    ClienteId = aveirocliente5.UtilizadorId,
+                    FuncionarioId = aveirooperador3.UtilizadorId,
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId = natalL.PromocoesId,
+                    DataInicio = natalL.DataInicio,
+                    DataFim = natalL.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDFamiliar.Preco,
+                    NomePacote = pacoteRDFamiliar.Nome,
+                    PromocaoDesc = natalL.PromocaoDesc,
+                    PrecoFinal = pacoteRDFamiliar.Preco - natalL.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente5.Morada,
+                    CodigoPostal = aveirocliente5.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+            new Contratos
+                     {
+                    UtilizadorId = aveirocliente6.UtilizadorId,
+                    ClienteId = aveirocliente6.UtilizadorId,
+                    FuncionarioId = aveirooperador4.UtilizadorId,
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId = natalL.PromocoesId,
+                    DataInicio = natalL.DataInicio,
+                    DataFim = natalL.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDFamiliar.Preco,
+                    NomePacote = pacoteRDFamiliar.Nome,
+                    PromocaoDesc = natalL.PromocaoDesc,
+                    PrecoFinal = pacoteRDFamiliar.Preco - natalL.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente6.Morada,
+                    CodigoPostal = aveirocliente6.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+            new Contratos
+                     {
+                    UtilizadorId = aveirocliente7.UtilizadorId,
+                    ClienteId = aveirocliente7.UtilizadorId,
+                    FuncionarioId = aveirooperador5.UtilizadorId,
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId = natalL.PromocoesId,
+                    DataInicio = natalL.DataInicio,
+                    DataFim = natalL.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDFamiliar.Preco,
+                    NomePacote = pacoteRDFamiliar.Nome,
+                    PromocaoDesc = natalL.PromocaoDesc,
+                    PrecoFinal = pacoteRDFamiliar.Preco - natalL.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente7.Morada,
+                    CodigoPostal = aveirocliente7.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+                      new Contratos
+                     {
+                    UtilizadorId = aveirocliente8.UtilizadorId,
+                    ClienteId = aveirocliente8.UtilizadorId,
+                    FuncionarioId = aveirooperador6.UtilizadorId,
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId = natalL.PromocoesId,
+                    DataInicio = natalL.DataInicio,
+                    DataFim = natalL.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDFamiliar.Preco,
+                    NomePacote = pacoteRDFamiliar.Nome,
+                    PromocaoDesc = natalL.PromocaoDesc,
+                    PrecoFinal = pacoteRDFamiliar.Preco - natalL.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente8.Morada,
+                    CodigoPostal = aveirocliente8.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+                       new Contratos
+                     {
+                    UtilizadorId = aveirocliente9.UtilizadorId,
+                    ClienteId = aveirocliente9.UtilizadorId,
+                    FuncionarioId = aveirooperador7.UtilizadorId,
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId = natalL.PromocoesId,
+                    DataInicio = natalL.DataInicio,
+                    DataFim = natalL.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDFamiliar.Preco,
+                    NomePacote = pacoteRDFamiliar.Nome,
+                    PromocaoDesc = natalL.PromocaoDesc,
+                    PrecoFinal = pacoteRDFamiliar.Preco - natalL.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente9.Morada,
+                    CodigoPostal = aveirocliente9.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+                        new Contratos
+                     {
+                    UtilizadorId = aveirocliente10.UtilizadorId,
+                    ClienteId = aveirocliente10.UtilizadorId,
+                    FuncionarioId = aveirooperador8.UtilizadorId,
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId = natalL.PromocoesId,
+                    DataInicio = natalL.DataInicio,
+                    DataFim = natalL.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDFamiliar.Preco,
+                    NomePacote = pacoteRDFamiliar.Nome,
+                    PromocaoDesc = natalL.PromocaoDesc,
+                    PrecoFinal = pacoteRDFamiliar.Preco - natalL.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente10.Morada,
+                    CodigoPostal = aveirocliente10.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+                         new Contratos
+                     {
+                    UtilizadorId = aveirocliente11.UtilizadorId,
+                    ClienteId = aveirocliente11.UtilizadorId,
+                    FuncionarioId = aveirooperador9.UtilizadorId,
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId = natalL.PromocoesId,
+                    DataInicio = natalL.DataInicio,
+                    DataFim = natalL.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDFamiliar.Preco,
+                    NomePacote = pacoteRDFamiliar.Nome,
+                    PromocaoDesc = natalL.PromocaoDesc,
+                    PrecoFinal = pacoteRDFamiliar.Preco - natalL.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente11.Morada,
+                    CodigoPostal = aveirocliente11.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+
+                         },
+                new Contratos
+                     {
+                    UtilizadorId = aveirocliente12.UtilizadorId,
+                    ClienteId = aveirocliente12.UtilizadorId,
+                    FuncionarioId = aveirooperador10.UtilizadorId,
+                    PacoteId = pacoteRDFamiliar.PacoteId,
+                    PromocoesId = natalL.PromocoesId,
+                    DataInicio = natalL.DataInicio,
+                    DataFim = natalL.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDFamiliar.Preco,
+                    NomePacote = pacoteRDFamiliar.Nome,
+                    PromocaoDesc = natalL.PromocaoDesc,
+                    PrecoFinal = pacoteRDFamiliar.Preco - natalL.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente12.Morada,
+                    CodigoPostal = aveirocliente12.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                          },
+                new Contratos
+                     {
+                    UtilizadorId = aveirocliente13.UtilizadorId,
+                    ClienteId = aveirocliente13.UtilizadorId,
+                    FuncionarioId = aveirooperador11.UtilizadorId,
+                    PacoteId = pacoteRDGaming.PacoteId,
+                    PromocoesId = natalM.PromocoesId,
+                    DataInicio = natalM.DataInicio,
+                    DataFim = natalM.DataInicio.AddYears(2),
+                    Telefone = 236111112,
+                    PrecoPacote = pacoteRDGaming.Preco,
+                    NomePacote = pacoteRDGaming.Nome,
+                    PromocaoDesc = natalM.PromocaoDesc,
+                    PrecoFinal = pacoteRDGaming.Preco - natalM.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente13.Morada,
+                    CodigoPostal = aveirocliente13.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                          },
+            });
+            bd.SaveChanges();
+        }
+        private static Utilizadores GaranteUtilizadores(Projeto_Lab_WebContext bd, string nome, string nif, DateTime datanascimento,
+            string morada, string telemovel, string email, string codigopostal, string role, bool inactivo, string concelho, DateTime dataativacao, int pontos, int distrito)
+        {
+            Utilizadores utilizadores = bd.Utilizadores.FirstOrDefault(c => c.Nome == nome);
+            if (utilizadores == null)
+            {
+                utilizadores = new Utilizadores { Nome = nome, Nif = nif, DataNascimento = datanascimento, Morada = morada, Concelho = concelho, Telemovel = telemovel, Email = email, CodigoPostal = codigopostal, Role = role, Inactivo = inactivo, DataAtivacao = dataativacao, Pontos = pontos, DistritosId = distrito };
+                bd.Utilizadores.Add(utilizadores);
+                bd.SaveChanges();
+            }
+
+            return utilizadores;
+        }
+
         private static void InsereUtilizadores(Projeto_Lab_WebContext bd)
         {
-
             //---------------CLIENTES--------------------
 
             //    //-------------------------- 1 AVEIRO------------------
@@ -574,5 +892,56 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GaranteUtilizadores(bd, "Joaquim Alves", "158218310", new DateTime(1956, 01, 05), "Cruz", "932165420", "joaquim.alves@RDtelecom.com", "9225-007", "Operador", false, "Madeira", new DateTime(2020, 12, 12), 0, 20);
 
         }
+
+        private static Distritos GaranteDistritos(Projeto_Lab_WebContext bd, string nome)
+        {
+            Distritos distritos = bd.Distritos.FirstOrDefault(e => e.Nome == nome);
+            if (distritos == null)
+            {
+                distritos = new Distritos() { Nome = nome };
+                bd.Distritos.Add(distritos);
+                bd.SaveChanges();
+            }
+            return distritos;
+
+        }
+
+        private static Pacotes GarantePacotes(Projeto_Lab_WebContext bd, string nome, decimal preco, string descricao, bool inactivo, DateTime dataInicio, int distrito)
+        {
+            Pacotes pacotes = bd.Pacotes.FirstOrDefault(c => c.Nome == nome);
+            if (pacotes == null)
+            {
+                pacotes = new Pacotes
+                {
+                    Nome = nome,
+                    Descricao = descricao,
+                    Preco = preco,
+                    Inactivo = inactivo,
+                    DataCriacao = dataInicio,
+                    DataInactivo = new DateTime(2020, 12, 30),
+                    Imagem = new byte[0],
+                    DistritosId = distrito
+
+                };
+                bd.Pacotes.Add(pacotes);
+                bd.SaveChanges();
+            }
+            return pacotes;
+        }
+
+        private static Promocoes GaranteExistenciaPromocoes(Projeto_Lab_WebContext bd, string nome, string descricao, DateTime dataInicio, DateTime datafim, int promocaoDesc, decimal v, bool inactivo, int distritos)
+        {
+            Promocoes promocoes = bd.Promocoes.FirstOrDefault(c => c.Nome == nome);
+            if (promocoes == null)
+            {
+                promocoes = new Promocoes { Nome = nome, Descricao = descricao, DataInicio = dataInicio, DataFim = datafim, PromocaoDesc = promocaoDesc, Inactivo = inactivo, DistritosId = distritos };
+                bd.Promocoes.Add(promocoes);
+                bd.SaveChanges();
+            }
+            return (promocoes);
+        }
+
+
+
     }
 }

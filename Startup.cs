@@ -98,6 +98,7 @@ namespace Projeto_Lab_Web_Grupo3
             if (env.IsDevelopment())
             {
                 SeedData.PreencheDados(bd);
+                SeedDataContratos.InsereContratosAveiro(bd);
                 SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
             }
         }
