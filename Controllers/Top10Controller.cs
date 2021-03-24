@@ -27,7 +27,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             List<Utilizadores> clientesAntigos = await bd.Utilizadores
                 .Where(p => p.Role == "Cliente")
-                .OrderByDescending(p => p.DataAtivacao)
+                .OrderBy(p => p.DataAtivacao)
                 .Take(10)
                 .ToListAsync();
 
