@@ -4487,8 +4487,25 @@ namespace Projeto_Lab_Web_Grupo3.Data
           });
             bd.SaveChanges();
         }
+        private static void InsereReclamcoes(Projeto_Lab_WebContext bd)
+        {
 
+            if (bd.Reclamacoes.Any()) return;
 
+            bd.Reclamacoes.AddRange(new Reclamacoes[] {
+            new Reclamacoes
+            {
+                Descricao = "Falha no telefone",
+                DataReclamacao =new DateTime(2021,02,03),
+                Resposta = "Falha resolvida",
+                EstadoResposta = true,
+                DataResolucao =new DateTime(2021,02,05),
+
+            },
+
+        });
+            bd.SaveChanges();
+        }
 
         //---------------------ADMINISTRADORES-----------------------
 
