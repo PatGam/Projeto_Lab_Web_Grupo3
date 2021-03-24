@@ -13,10 +13,12 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Column("Contrato_Id")]
         public int ContratoId { get; set; }
 
+        //UtilizadorId = ClienteId
         public int UtilizadorId { get; set; }
         public Utilizadores Utilizadores { get; set; }
 
 
+        //UtilizadorId = ClienteId
         [Display(Name = "Nome do cliente")]
         public int ClienteId { get; set; }
 

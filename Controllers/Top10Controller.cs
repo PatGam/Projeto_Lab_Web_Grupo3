@@ -49,7 +49,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 {
                     foreach (var contrato in bd.Contratos)
                     {
-                        if (contrato.UtilizadorId == operador.UtilizadorId)
+                        if (contrato.FuncionarioId == operador.UtilizadorId)
                         {
                             lucro += contrato.PrecoFinal;
                         }
