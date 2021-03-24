@@ -4458,6 +4458,33 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
             if (bd.Reclamacoes.Any()) return;
 
+            var aveirocliente1 = GaranteUtilizadores(bd, "Eduardo Pires", "237051974", new DateTime(2000, 01, 19), "Sargento Mor", "921233367", "eduardo.pires@gmail.com", "3020-740", "Cliente", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
+            var aveirooperador2 = GaranteUtilizadores(bd, "Glória Aveiro", "218120460", new DateTime(1988, 09, 21), "Rua Fernando Caldeira", "937654321", "gloria.ascencao@RDtelecom.com", "3754-501", "Operador", false, "Aveiro", new DateTime(2020, 12, 12), 0, 1);
+
+            var bejacliente4 = GaranteUtilizadores(bd, "Vasco Barreiros", "296928135", new DateTime(1962, 02, 25), "Avenida Manuel Álvaro Lopes Pereira", "927477781", "bernado.ribeiro@gmail.com", "3800-625", "Cliente", false, "Beja", new DateTime(2020, 12, 05), 0, 2);
+            var bejaoperador5 = GaranteUtilizadores(bd, "Mário RD Beja", "292565798", new DateTime(1987, 07, 16), "Albergaria dos Fusos", "923148620", "amadeu.almeida@RDtelecom.com", "7940-411", "Operador", false, "Beja", new DateTime(2020, 08, 26), 0, 2);
+
+            var bragacliente7 = GaranteUtilizadores(bd, "Marizete Gillot", "351103988", new DateTime(1956, 10, 04), "Rua dos Caixoteiros", "922008889", "marizete.gillot@gmail.com", "4705-001", "Cliente", false, "Braga", new DateTime(2020, 10, 07), 0, 3);
+            var bragaoperador6 = GaranteUtilizadores(bd, "Ryan RD Braga", "240442571", new DateTime(1988, 03, 05), "Rua das Oliveiras", "920322333", "ryan.oliveira@RDtelecom.com", "4705-790", "Operador", false, "Braga", new DateTime(2020, 11, 28), 0, 3);
+
+            var bragancacliente11 = GaranteUtilizadores(bd, "Feitosa Pauleta", "235592650", new DateTime(1972, 10, 27), "Rotunda do Lavrador Bairro da Braguinha ", "921038825", "feitosa.pauleta@gmail.com", "5300-420", "Cliente", false, "Bragança", new DateTime(2021, 02, 21), 0, 4);
+            var bragancaoperador1 = GaranteUtilizadores(bd, "Natally RD Bragança", "239833252", new DateTime(1974, 06, 19), "Bairro Moinho de Vento", "939007258", "natally.domingues@RDtelecom.com", "5140-005", "Operador", false, "Bragança", new DateTime(2020, 11, 13), 0, 4);
+
+            var castelobrancocliente7 = GaranteUtilizadores(bd, "Maria Pedroso", "179189093", new DateTime(2000, 10, 04), "Travessa das Trapas", "924688158", "maria.pedroso@gmail.com", "6200-237", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 17), 0, 5);
+            var castelobrancoperador7 = GaranteUtilizadores(bd, "António RD Castelo Branco", "111712580", new DateTime(1974, 05, 31), "Rua Marquês de Ávila e Bolama", "928328961", "antonio.antunes@RDtelecom.com", "6201-001", "Operador", false, "Castelo Branco", new DateTime(2020, 12, 22), 0, 5);
+
+            var coimbracliente7 = GaranteUtilizadores(bd, "Helder Copeto", "145533590", new DateTime(1999, 07, 01), "Rua do Norte", "929122221", "helder.copeto@gmail.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 10, 11), 0, 6);
+            var coimbraoperador10 = GaranteUtilizadores(bd, "Tadeu Coimbra RD", "294178775", new DateTime(1975, 02, 08), "Flor da Rosa", "929100021", "tadeu.leao@RDtelecom.com", "3040-471", "Operador", false, "Coimbra", new DateTime(2021, 03, 11), 0, 6);
+
+            var evoracliente12 = GaranteUtilizadores(bd, "Sara Moedas", "254578870", new DateTime(1956, 05, 05), "Largo dos Colegiais 2", "933299871", "sara.moedas@gmail.com", "7004-516", "Cliente", false, "Évora", new DateTime(2021, 02, 26), 0, 7);
+            var evoraoperador3 = GaranteUtilizadores(bd, "Ricardo RD Évora", "205118615", new DateTime(1975, 07, 01), "Rua da Liberdade", "920147963", "ricardo.gama@RDtelecom.com", "7220-002", "Operador", false, "Évora", new DateTime(2020, 09, 26), 0, 7);
+
+            var farocliente1 = GaranteUtilizadores(bd, "Miguel Rossi", "253871166", new DateTime(1999, 07, 01), "Rua da Viola ", "925874990", "miguel.rossi@gmail.com", "8000-274", "Cliente", false, "Faro", new DateTime(2020, 12, 28), 0, 8);
+            var farooperador10 = GaranteUtilizadores(bd, "Miguel RD Faro", "299944611", new DateTime(1975, 02, 08), "Avenida dos Descobrimentos", "921321111", "miguel.feliz@RDtelecom.com", "8601-852", "Operador", false, "Faro", new DateTime(2021, 02, 17), 0, 8);
+
+            var guardacliente9 = GaranteUtilizadores(bd, "Ricardo Estrela", "138133743", new DateTime(1987, 09, 17), "Parada", "963991456", "ricardo.estrla@gmail.com", "6355-142", "Cliente", false, "Guarda", new DateTime(2021, 02, 28), 0, 9);
+            var guardaoperador12 = GaranteUtilizadores(bd, "Isamara RD Guarda", "215494725", new DateTime(1956, 12, 05), "Lajeosa", "936058777", "isamara.lobao@RDtelecom.com", "6320-161", "Operador", false, "Guarda", new DateTime(2021, 01, 28), 0, 9);
+
             bd.Reclamacoes.AddRange(new Reclamacoes[] {
             new Reclamacoes
             {
@@ -4465,9 +4492,121 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 DataReclamacao =new DateTime(2021,02,03),
                 Resposta = "Falha resolvida",
                 EstadoResposta = true,
-                DataResolucao =new DateTime(2021,02,05),
+                DataResolucao = new DateTime(2021,02,06),
+                EstadoResolução = true,
+                ClienteId=aveirocliente1.UtilizadorId,
+                FuncionarioId=aveirooperador2.UtilizadorId,
 
             },
+             new Reclamacoes
+            {
+                Descricao = "Falha na internet",
+                DataReclamacao =new DateTime(2021,02,03),
+                Resposta = "Falha resolvida",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2021,02,03),
+                EstadoResolução = true,
+                ClienteId=bejacliente4.UtilizadorId,
+                FuncionarioId=bejaoperador5.UtilizadorId,
+
+            },
+              new Reclamacoes
+            {
+                Descricao = "Instalação de pacote errado",
+                DataReclamacao =new DateTime(2021,01,03),
+                Resposta = "REtificação do pacote instalado",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2021,01,05),
+                EstadoResolução = true,
+                ClienteId=bragacliente7.UtilizadorId,
+                FuncionarioId=bragaoperador6.UtilizadorId,
+
+            },
+               new Reclamacoes
+            {
+                Descricao = "Pacote de canais não corresponde ao soliticado",
+                DataReclamacao =new DateTime(2020,10,25),
+                Resposta = "Problema resolvido",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2020,10,25),
+                EstadoResolução = true,
+                ClienteId=bragancacliente11.UtilizadorId,
+                FuncionarioId=bragancaoperador1.UtilizadorId,
+
+            },
+                new Reclamacoes
+            {
+                Descricao = "Falha no serviço RD3",
+                DataReclamacao =new DateTime(2021,02,03),
+                Resposta = "Falha resolvida",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2021,02,03),
+                EstadoResolução = true,
+                ClienteId=castelobrancocliente7.UtilizadorId,
+                FuncionarioId=castelobrancoperador7.UtilizadorId,
+
+            },
+                 new Reclamacoes
+            {
+                Descricao = "Mudança de titularidade",
+                DataReclamacao =new DateTime(2021,01,07),
+                Resposta = "Mudança resolvida",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2021,01,17),
+                EstadoResolução = true,
+                ClienteId=coimbracliente7.UtilizadorId,
+                FuncionarioId=coimbraoperador10.UtilizadorId,
+
+            },
+                  new Reclamacoes
+            {
+                Descricao = "Telefone fixo sem funcionar",
+                DataReclamacao =new DateTime(2020,11,25),
+                Resposta = "Telefone a funcionar corretamente",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2020,11,30),
+                EstadoResolução = true,
+                ClienteId=evoracliente12.UtilizadorId,
+                FuncionarioId=evoraoperador3.UtilizadorId,
+
+            },
+                   new Reclamacoes
+            {
+                Descricao = "Má prestação de serviço",
+                DataReclamacao =new DateTime(2021,02,03),
+                Resposta = "Problema resolvido",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2021,02,08),
+                EstadoResolução = true,
+                ClienteId=farocliente1.UtilizadorId,
+                FuncionarioId=farooperador10.UtilizadorId,
+
+            },
+                    new Reclamacoes
+            {
+                Descricao = "Falha na Internet",
+                DataReclamacao =new DateTime(2021,02,01),
+                Resposta = "Falha resolvida",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2021,02,02),
+                EstadoResolução = true,
+                ClienteId=aveirocliente1.UtilizadorId,
+                FuncionarioId=aveirooperador2.UtilizadorId,
+
+            },
+                     new Reclamacoes
+            {
+                Descricao = "Fatura incorreta",
+                DataReclamacao =new DateTime(2021,02,03),
+                Resposta = "Erro retificado",
+                EstadoResposta = true,
+                DataResolucao = new DateTime(2021,02,06),
+                EstadoResolução = true,
+                ClienteId=guardacliente9.UtilizadorId,
+                FuncionarioId=guardaoperador12.UtilizadorId,
+
+            },
+
 
         });
             bd.SaveChanges();
