@@ -12,8 +12,10 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
 
 
-        internal static void InsereContratosAveiro(Projeto_Lab_WebContext bd)
+        internal static void InsereContratos(Projeto_Lab_WebContext bd)
         {
+            if (bd.Contratos.Any()) return;
+
             var pascoaS = GaranteExistenciaPromocoes(bd, "PascoaS", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes pequenos", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 2, 99m, false, 1);
             var pascoaM = GaranteExistenciaPromocoes(bd, "PascoaM", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes médios", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 3, 99m, false, 2);
             var pascoaL = GaranteExistenciaPromocoes(bd, "PascoaL", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes grandes", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 4, 99m, false, 4);
@@ -624,6 +626,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             var pacoteTvVoz = GarantePacotes(bd, "RD TV e Voz", 25, "Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão", false, new DateTime(2021, 03, 01), 1);
             var pacoteRDFamiliar = GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.", false, new DateTime(2021, 03, 01), 1);
 
+         
 
             bd.Contratos.AddRange(new Contratos[] {
 
@@ -5143,27 +5146,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
             return utilizadores;
         }
 
-        private static void InsereUtilizadores(Projeto_Lab_WebContext bd)
-        {
-           
-            //---------------OPERADORES--------------------
-
-            //    //-------------------------- 1 AVEIRO------------------
-            GaranteUtilizadores(bd, "Eduardo Pires", "286714957", new DateTime(2000, 01, 19), "Sargento Mor", "921234567", "eduardo.pires@RDtelecom.com", "3020-740", "Operador", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
-            GaranteUtilizadores(bd, "Glória da Ascenção", "218120460", new DateTime(1988, 09, 21), "Rua Fernando Caldeira", "937654321", "gloria.ascencao@RDtelecom.com", "3754-501", "Operador", false, "Aveiro", new DateTime(2020, 12, 12), 0, 1);
-            GaranteUtilizadores(bd, "Maria Aparecida", "206602448", new DateTime(1977, 10, 01), "Rua Doutor Tomás Aquino", "927412589", "maria.aparecida@RDtelecom.com", "3800-523", "Operador", false, "Aveiro", new DateTime(2020, 10, 15), 0, 1);
-            GaranteUtilizadores(bd, "Bernardo Ribeiro", "292565798", new DateTime(1969, 03, 25), "Avenida Manuel Álvaro Lopes Pereira", "929632587", "bernado.ribeiro@RDtelecom.com", "3800-625", "Operador", false, "Aveiro", new DateTime(2020, 10, 17), 0, 1);
-            GaranteUtilizadores(bd, "Amadeu Almeida", "292565798", new DateTime(1979, 07, 16), "Avenida do Doutor Lourenço Peixinho", "921212145", "amadeu.almeida@RDtelecom.com", "3804-501", "Operador", false, "Aveiro", new DateTime(2020, 12, 28), 0, 1);
-            GaranteUtilizadores(bd, "José Socrates", "250559102", new DateTime(1958, 05, 05), "Viela da Capela", "920123201", "jose.socrates@RDtelecom.com", "3810-002", "Operador", false, "Aveiro", new DateTime(2020, 08, 17), 0, 1);
-            GaranteUtilizadores(bd, "Ana Brito", "275433641", new DateTime(2000, 09, 04), "Rua do Jardim", "929633230", "ana.brito@RDtelecom.com", "3054-001", "Operador", false, "Aveiro", new DateTime(2020, 08, 19), 0, 1);
-            GaranteUtilizadores(bd, "Luís Neto", "142518093", new DateTime(1985, 04, 04), "Avenida Comendador Augusto Martins Pereira", "920258847", "luis.neto@RDtelecom.com", "3744-002", "Operador", false, "Aveiro", new DateTime(2020, 08, 28), 0, 1);
-            GaranteUtilizadores(bd, "Freitas do Mondego", "172501482", new DateTime(1975, 02, 08), "Rua do Murtório Rochico ", "961477784", "freitas.mondego@RDtelecom.com", "3865-299", "Operador", false, "Aveiro", new DateTime(2020, 10, 02), 0, 1);
-            GaranteUtilizadores(bd, "João Cardoso", "265371988", new DateTime(1958, 12, 27), "Travessa da Lomba", "923212322", "joao.cardoso@RDtelecom.com", "3865-003", "Operador", false, "Aveiro", new DateTime(2021, 01, 05), 0, 1); ;
-            GaranteUtilizadores(bd, "Rita de Brandão", "244225834", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929988774", "rita.brandao@RDtelecom.com", "3880-006", "Operador", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
-
-           
-        }
-
         private static Distritos GaranteDistritos(Projeto_Lab_WebContext bd, string nome)
         {
             Distritos distritos = bd.Distritos.FirstOrDefault(e => e.Nome == nome);
@@ -5212,7 +5194,36 @@ namespace Projeto_Lab_Web_Grupo3.Data
             return (promocoes);
         }
 
+        internal static void InsereServicosContratos(Projeto_Lab_WebContext bd)
+        {
+            if (bd.ServicosContratos.Any()) return;
+            List<ServicosPacotes> servicosNoPacote = new List<ServicosPacotes>();
+            List<ServicosContratos> servicosNosContratos = new List<ServicosContratos>();
 
+            foreach (var contrato in bd.Contratos)
+            {
+                foreach (var pacote in bd.ServicosPacotes)
+                {
+                    if (contrato.PacoteId == pacote.PacoteId)
+                    {
+                        servicosNoPacote.Add(pacote);
+                    }
+                }
+
+                foreach (var item in servicosNoPacote)
+                {
+                    servicosNosContratos.Add(new ServicosContratos() { ServicoId = item.ServicoId, ContratoId = contrato.ContratoId });
+                }
+                servicosNoPacote.Clear();
+            }
+            foreach (var item in servicosNosContratos)
+            {
+                bd.ServicosContratos.Add(item);
+            }
+            bd.SaveChanges();
+
+
+        }
 
     }
 }
