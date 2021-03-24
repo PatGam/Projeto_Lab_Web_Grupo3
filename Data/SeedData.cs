@@ -55,268 +55,268 @@ namespace Projeto_Lab_Web_Grupo3.Data
             //    GaranteUtilizadores(bd, "Marta Machado", "201101321", new DateTime(2000, 08, 01), "Rua Central Mesura", "962154873", "m.machado@RDtelecom.com", "3049-002", "Operador", false, 13);
 
             //    //-------------------------- 1 AVEIRO------------------
-            GaranteUtilizadores(bd, "Eduardo Pires", "237051974", new DateTime(2000, 01, 19), "Sargento Mor", "921233367", "eduardo.pires@RDtelecom.com", "3020-740", "Cliente", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
-            GaranteUtilizadores(bd, "Glória da Ascenção", "220613710", new DateTime(1988, 09, 21), "Rua Fernando Caldeira", "937654441", "gloria.ascencao@RDtelecom.com", "3754-501", "Cliente", false, "Aveiro", new DateTime(2020, 12, 12), 0, 1);
-            GaranteUtilizadores(bd, "Maria Aparecida", "287253333", new DateTime(1977, 10, 01), "Rua Doutor Tomás Aquino", "927411189", "maria.aparecida@RDtelecom.com", "3800-523", "Cliente", false, "Aveiro", new DateTime(2020, 10, 15), 0, 1);
-            GaranteUtilizadores(bd, "Bernardo Ribeiro", "291231438", new DateTime(1969, 03, 25), "Avenida Manuel Álvaro Lopes Pereira", "929662587", "bernado.ribeiro@RDtelecom.com", "3800-625", "Cliente", false, "Aveiro", new DateTime(2020, 10, 17), 0, 1);
-            GaranteUtilizadores(bd, "Amadeu Almeida", "249861585", new DateTime(1979, 07, 16), "Avenida do Doutor Lourenço Peixinho", "921212245", "amadeu.almeida@RDtelecom.com", "3804-501", "Cliente", false, "Aveiro", new DateTime(2020, 12, 28), 0, 1);
-            GaranteUtilizadores(bd, "José Socrates", "269768807", new DateTime(1958, 05, 05), "Viela da Capela", "920128801", "jose.socrates@RDtelecom.com", "3810-002", "Cliente", false, "Aveiro", new DateTime(2020, 08, 17), 0, 1);
-            GaranteUtilizadores(bd, "Ana Brito", "243552530", new DateTime(2000, 09, 04), "Rua do Jardim", "929630030", "ana.brito@RDtelecom.com", "3054-001", "Cliente", false, "Aveiro", new DateTime(2020, 08, 19), 0, 1);
-            GaranteUtilizadores(bd, "Luís Neto", "205291546", new DateTime(1985, 04, 04), "Avenida Comendador Augusto Martins Pereira", "920256647", "luis.neto@RDtelecom.com", "3744-002", "Cliente", false, "Aveiro", new DateTime(2020, 08, 28), 0, 1);
-            GaranteUtilizadores(bd, "Freitas do Mondego", "286228831", new DateTime(1975, 02, 08), "Rua do Murtório Rochico ", "961557784", "freitas.mondego@RDtelecom.com", "3865-299", "Cliente", false, "Aveiro", new DateTime(2020, 10, 02), 0, 1);
-            GaranteUtilizadores(bd, "João Cardoso", "266992528", new DateTime(1958, 12, 27), "Travessa da Lomba", "923298822", "joao.cardoso@RDtelecom.com", "3865-003", "Cliente", false, "Aveiro", new DateTime(2021, 01, 05), 0, 1); ;
-            GaranteUtilizadores(bd, "Rita de Brandão", "204161746", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985574", "rita.brandao@RDtelecom.com", "3880-006", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
+            GaranteUtilizadores(bd, "Eduardo Pires", "237051974", new DateTime(2000, 01, 19), "Sargento Mor", "921233367", "eduardo.pires@gmail.com", "3020-740", "Cliente", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
+            GaranteUtilizadores(bd, "Glória da Ascenção", "220613710", new DateTime(1988, 09, 21), "Rua Fernando Caldeira", "937654441", "gloria.ascencao@gmail.com", "3754-501", "Cliente", false, "Aveiro", new DateTime(2020, 12, 12), 0, 1);
+            GaranteUtilizadores(bd, "Maria Aparecida", "287253333", new DateTime(1977, 10, 01), "Rua Doutor Tomás Aquino", "927411189", "maria.aparecida@gmail.com", "3800-523", "Cliente", false, "Aveiro", new DateTime(2020, 10, 15), 0, 1);
+            GaranteUtilizadores(bd, "Bernardo Ribeiro", "291231438", new DateTime(1969, 03, 25), "Avenida Manuel Álvaro Lopes Pereira", "929662587", "bernado.ribeiro@gmail.com", "3800-625", "Cliente", false, "Aveiro", new DateTime(2020, 10, 17), 0, 1);
+            GaranteUtilizadores(bd, "Amadeu Almeida", "249861585", new DateTime(1979, 07, 16), "Avenida do Doutor Lourenço Peixinho", "921212245", "amadeu.almeida@gmail.com", "3804-501", "Cliente", false, "Aveiro", new DateTime(2020, 12, 28), 0, 1);
+            GaranteUtilizadores(bd, "José Socrates", "269768807", new DateTime(1958, 05, 05), "Viela da Capela", "920128801", "jose.socrates@gmail.com", "3810-002", "Cliente", false, "Aveiro", new DateTime(2020, 08, 17), 0, 1);
+            GaranteUtilizadores(bd, "Ana Brito", "243552530", new DateTime(2000, 09, 04), "Rua do Jardim", "929630030", "ana.brito@gmail.com", "3054-001", "Cliente", false, "Aveiro", new DateTime(2020, 08, 19), 0, 1);
+            GaranteUtilizadores(bd, "Luís Neto", "205291546", new DateTime(1985, 04, 04), "Avenida Comendador Augusto Martins Pereira", "920256647", "luis.neto@gmail.com", "3744-002", "Cliente", false, "Aveiro", new DateTime(2020, 08, 28), 0, 1);
+            GaranteUtilizadores(bd, "Freitas do Mondego", "286228831", new DateTime(1975, 02, 08), "Rua do Murtório Rochico ", "961557784", "freitas.mondego@gmail.com", "3865-299", "Cliente", false, "Aveiro", new DateTime(2020, 10, 02), 0, 1);
+            GaranteUtilizadores(bd, "João Cardoso", "266992528", new DateTime(1958, 12, 27), "Travessa da Lomba", "923298822", "joao.cardoso@gmail.com", "3865-003", "Cliente", false, "Aveiro", new DateTime(2021, 01, 05), 0, 1); ;
+            GaranteUtilizadores(bd, "Rita de Brandão", "204161746", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985574", "rita.brandao@gmail.com", "3880-006", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
 
             //    //-------------------------- 2 BEJA------------------
-            GaranteUtilizadores(bd, "Ramos de Oliveira", "234325003", new DateTime(2001, 01, 19), "Beco da Rua Acima", "963125884", "eduardo.pires@RDtelecom.com", "7960-002", "Cliente", false, "Beja", new DateTime(2021, 01, 05), 0, 2);
-            GaranteUtilizadores(bd, "Catarina Alves", "274113490", new DateTime(1995, 09, 21), "Marmelar", "932789991", "gloria.ascencao@RDtelecom.com", "7960-001", "Cliente", false, "Beja", new DateTime(2020, 10, 17), 0, 2);
-            GaranteUtilizadores(bd, "Rui del Nascimiento", "255721188", new DateTime(1965, 10, 11), "Rua Longa", "921029661", "maria.aparecida@RDtelecom.com", "7940-160", "Cliente", false, "Beja", new DateTime(2020, 10, 25), 0, 2);
-            GaranteUtilizadores(bd, "Vasco Barreiros", "296928135", new DateTime(1962, 02, 25), "Avenida Manuel Álvaro Lopes Pereira", "927477781", "bernado.ribeiro@RDtelecom.com", "3800-625", "Cliente", false, "Beja", new DateTime(2020, 12, 05), 0, 2);
-            GaranteUtilizadores(bd, "Mário Botelho", "222784261", new DateTime(1987, 07, 16), "Albergaria dos Fusos", "923148000", "amadeu.almeida@RDtelecom.com", "7940-411", "Cliente", false, "Beja", new DateTime(2020, 08, 26), 0, 2);
-            GaranteUtilizadores(bd, "Lula de La Cruz", "227929160", new DateTime(1958, 04, 05), "Rua dos Lobos", "932951883", "jose.socrates@RDtelecom.com", "7920-005", "Cliente", false, "Beja", new DateTime(2020, 08, 28), 0, 2);
-            GaranteUtilizadores(bd, "Paula Piruvato", "213154145", new DateTime(1992, 09, 04), "Largo dos Cadeirões", "935777153", "ana.brito@RDtelecom.com", "7920-002", "Cliente", false, "Beja", new DateTime(2021, 02, 30), 0, 2);
-            GaranteUtilizadores(bd, "Thomas Lourenço", "244040737", new DateTime(1979, 04, 06), "Praça do Ultramar", "928969741", "luis.neto@RDtelecom.com", "7801-857", "Cliente", false, "Beja", new DateTime(2020, 10, 28), 0, 2);
-            GaranteUtilizadores(bd, "Luís Smith", "206451326", new DateTime(1975, 06, 08), "Moitinhas", "960155584", "freitas.mondego@RDtelecom.com", "7665-803", "Cliente", false, "Beja", new DateTime(2020, 12, 05), 0, 2);
-            GaranteUtilizadores(bd, "Márcia Wood", "226962938", new DateTime(1972, 11, 27), "Ribeira de Torquinhos", "921733321", "joao.cardoso@RDtelecom.com", "7665-814", "Cliente", false, "Beja", new DateTime(2020, 12, 05), 0, 2);
-            GaranteUtilizadores(bd, "Jerónimo Graciano", "294559604", new DateTime(1956, 05, 22), "Rua da Cova da Burra", "928999965", "rita.brandao@RDtelecom.com", "7700-003", "Cliente", false, "Beja", new DateTime(2021, 01, 05), 0, 2);
+            GaranteUtilizadores(bd, "Ramos de Oliveira", "234325003", new DateTime(2001, 01, 19), "Beco da Rua Acima", "963125884", "eduardo.pires@gmail.com", "7960-002", "Cliente", false, "Beja", new DateTime(2021, 01, 05), 0, 2);
+            GaranteUtilizadores(bd, "Catarina Alves", "274113490", new DateTime(1995, 09, 21), "Marmelar", "932789991", "gloria.ascencao@gmail.com", "7960-001", "Cliente", false, "Beja", new DateTime(2020, 10, 17), 0, 2);
+            GaranteUtilizadores(bd, "Rui del Nascimiento", "255721188", new DateTime(1965, 10, 11), "Rua Longa", "921029661", "maria.aparecida@gmail.com", "7940-160", "Cliente", false, "Beja", new DateTime(2020, 10, 25), 0, 2);
+            GaranteUtilizadores(bd, "Vasco Barreiros", "296928135", new DateTime(1962, 02, 25), "Avenida Manuel Álvaro Lopes Pereira", "927477781", "bernado.ribeiro@gmail.com", "3800-625", "Cliente", false, "Beja", new DateTime(2020, 12, 05), 0, 2);
+            GaranteUtilizadores(bd, "Mário Botelho", "222784261", new DateTime(1987, 07, 16), "Albergaria dos Fusos", "923148000", "amadeu.almeida@gmail.com", "7940-411", "Cliente", false, "Beja", new DateTime(2020, 08, 26), 0, 2);
+            GaranteUtilizadores(bd, "Lula de La Cruz", "227929160", new DateTime(1958, 04, 05), "Rua dos Lobos", "932951883", "jose.socrates@gmail.com", "7920-005", "Cliente", false, "Beja", new DateTime(2020, 08, 28), 0, 2);
+            GaranteUtilizadores(bd, "Paula Piruvato", "213154145", new DateTime(1992, 09, 04), "Largo dos Cadeirões", "935777153", "ana.brito@gmail.com", "7920-002", "Cliente", false, "Beja", new DateTime(2021, 02, 30), 0, 2);
+            GaranteUtilizadores(bd, "Thomas Lourenço", "244040737", new DateTime(1979, 04, 06), "Praça do Ultramar", "928969741", "luis.neto@gmail.com", "7801-857", "Cliente", false, "Beja", new DateTime(2020, 10, 28), 0, 2);
+            GaranteUtilizadores(bd, "Luís Smith", "206451326", new DateTime(1975, 06, 08), "Moitinhas", "960155584", "freitas.mondego@gmail.com", "7665-803", "Cliente", false, "Beja", new DateTime(2020, 12, 05), 0, 2);
+            GaranteUtilizadores(bd, "Márcia Wood", "226962938", new DateTime(1972, 11, 27), "Ribeira de Torquinhos", "921733321", "joao.cardoso@gmail.com", "7665-814", "Cliente", false, "Beja", new DateTime(2020, 12, 05), 0, 2);
+            GaranteUtilizadores(bd, "Jerónimo Graciano", "294559604", new DateTime(1956, 05, 22), "Rua da Cova da Burra", "928999965", "rita.brandao@gmail.com", "7700-003", "Cliente", false, "Beja", new DateTime(2021, 01, 05), 0, 2);
 
             //    //-------------------------- 3 BRAGA------------------
-            GaranteUtilizadores(bd, "Fernando Couto", "379524520", new DateTime(1977, 03, 19), "Rua dos Bombeiros Voluntários", "960999231", "fernado.couto@RDtelecom.com", "4700-002", "Cliente", false, "Braga", new DateTime(2020, 12, 05), 0, 3);
-            GaranteUtilizadores(bd, "Deolinda Bacalhau", "311778135", new DateTime(2001, 05, 21), "Rua Professora Alda Brandão Real", "938784787", "deolinda.bacalhau@RDtelecom.com", "4700-002", "Cliente", false, "Braga", new DateTime(2020, 11, 17), 0, 3);
-            GaranteUtilizadores(bd, "Ivanilda Pessoa", "398444773", new DateTime(1977, 08, 01), "Rua da Sobreira Frossos", "923088821", "ivanilda.pessoa@RDtelecom.com", "4700-441", "Cliente", false, "Braga", new DateTime(2020, 12, 26), 0, 3);
-            GaranteUtilizadores(bd, "Onofre Galvão", "314065806", new DateTime(1969, 04, 30), "Largo de Maximinos", "928777413", "onofre.galvao@RDtelecom.com", "4700-999", "Cliente", false, "Braga", new DateTime(2020, 12, 10), 0, 3);
-            GaranteUtilizadores(bd, "Ian Coelho", "349413444", new DateTime(2002, 01, 31), "Largo de São Tiago", "92577963", "ian.coelho@RDtelecom.com", "4704-504", "Cliente", false, "Braga", new DateTime(2020, 11, 05), 0, 3);
-            GaranteUtilizadores(bd, "Ryan Oliveira", "304309028", new DateTime(1988, 03, 05), "Rua das Oliveiras", "920324433", "ryan.oliveira@RDtelecom.com", "4705-790", "Cliente", false, "Braga", new DateTime(2020, 11, 28), 0, 3);
-            GaranteUtilizadores(bd, "Marizete Gillot", "351103988", new DateTime(1956, 10, 04), "Rua dos Caixoteiros", "922008889", "marizete.gillot@RDtelecom.com", "4705-001", "Cliente", false, "Braga", new DateTime(2020, 10, 07), 0, 3);
-            GaranteUtilizadores(bd, "Beto da Alegria", "381587959", new DateTime(1957, 03, 17), "Rua Sem Nome", "925599841", "beto.alegria@RDtelecom.com", "4750-008", "Cliente", false, "Braga", new DateTime(2021, 01, 05), 0, 3);
-            GaranteUtilizadores(bd, "Pinheiro dos Santos", "328112283", new DateTime(1970, 02, 28), "Travessa do Rio da Guarda", "921113288", "pinheiro.santos@RDtelecom.com", "4765-489", "Cliente", false, "Braga", new DateTime(2021, 02, 05), 0, 3);
-            GaranteUtilizadores(bd, "Divina de Jesus", "104815809", new DateTime(1958, 11, 30), "Rua Cães de Pedra Lt 5", "921786632", "divina.jesus@RDtelecom.com", "4835-003", "Cliente", false, "Braga", new DateTime(2021, 02, 12), 0, 3);
-            GaranteUtilizadores(bd, "Irina Leite", "169622398", new DateTime(1999, 10, 27), "Rua da Madalena", "929993600", "irina.leite@RDtelecom.com", "4835-511", "Cliente", false, "Braga", new DateTime(2021, 01, 14), 0, 3);
+            GaranteUtilizadores(bd, "Fernando Couto", "379524520", new DateTime(1977, 03, 19), "Rua dos Bombeiros Voluntários", "960999231", "fernado.couto@gmail.com", "4700-002", "Cliente", false, "Braga", new DateTime(2020, 12, 05), 0, 3);
+            GaranteUtilizadores(bd, "Deolinda Bacalhau", "311778135", new DateTime(2001, 05, 21), "Rua Professora Alda Brandão Real", "938784787", "deolinda.bacalhau@gmail.com", "4700-002", "Cliente", false, "Braga", new DateTime(2020, 11, 17), 0, 3);
+            GaranteUtilizadores(bd, "Ivanilda Pessoa", "398444773", new DateTime(1977, 08, 01), "Rua da Sobreira Frossos", "923088821", "ivanilda.pessoa@gmail.com", "4700-441", "Cliente", false, "Braga", new DateTime(2020, 12, 26), 0, 3);
+            GaranteUtilizadores(bd, "Onofre Galvão", "314065806", new DateTime(1969, 04, 30), "Largo de Maximinos", "928777413", "onofre.galvao@gmail.com", "4700-999", "Cliente", false, "Braga", new DateTime(2020, 12, 10), 0, 3);
+            GaranteUtilizadores(bd, "Ian Coelho", "349413444", new DateTime(2002, 01, 31), "Largo de São Tiago", "92577963", "ian.coelho@gmail.com", "4704-504", "Cliente", false, "Braga", new DateTime(2020, 11, 05), 0, 3);
+            GaranteUtilizadores(bd, "Ryan Oliveira", "304309028", new DateTime(1988, 03, 05), "Rua das Oliveiras", "920324433", "ryan.oliveira@gmail.com", "4705-790", "Cliente", false, "Braga", new DateTime(2020, 11, 28), 0, 3);
+            GaranteUtilizadores(bd, "Marizete Gillot", "351103988", new DateTime(1956, 10, 04), "Rua dos Caixoteiros", "922008889", "marizete.gillot@gmail.com", "4705-001", "Cliente", false, "Braga", new DateTime(2020, 10, 07), 0, 3);
+            GaranteUtilizadores(bd, "Beto da Alegria", "381587959", new DateTime(1957, 03, 17), "Rua Sem Nome", "925599841", "beto.alegria@gmail.com", "4750-008", "Cliente", false, "Braga", new DateTime(2021, 01, 05), 0, 3);
+            GaranteUtilizadores(bd, "Pinheiro dos Santos", "328112283", new DateTime(1970, 02, 28), "Travessa do Rio da Guarda", "921113288", "pinheiro.santos@gmail.com", "4765-489", "Cliente", false, "Braga", new DateTime(2021, 02, 05), 0, 3);
+            GaranteUtilizadores(bd, "Divina de Jesus", "104815809", new DateTime(1958, 11, 30), "Rua Cães de Pedra Lt 5", "921786632", "divina.jesus@gmail.com", "4835-003", "Cliente", false, "Braga", new DateTime(2021, 02, 12), 0, 3);
+            GaranteUtilizadores(bd, "Irina Leite", "169622398", new DateTime(1999, 10, 27), "Rua da Madalena", "929993600", "irina.leite@gmail.com", "4835-511", "Cliente", false, "Braga", new DateTime(2021, 01, 14), 0, 3);
 
             //    //-------------------------- 4 BRAGANÇA------------------
-            GaranteUtilizadores(bd, "Natally Domingues", "190328274", new DateTime(1974, 06, 19), "Bairro Moinho de Vento", "939088858", "natally.domingues@RDtelecom.com", "5140-005", "Cliente", false, "Bragança", new DateTime(2020, 11, 13), 0, 4);
-            GaranteUtilizadores(bd, "Nicolau Figueiras", "128593598", new DateTime(2001, 01, 21), "Quinta Lameira de Ferro", "932100091", "nicolau.figueiras@RDtelecom.com", "5140-135", "Cliente", false, "Bragança", new DateTime(2020, 10, 27), 0, 4);
-            GaranteUtilizadores(bd, "John Dias", "106481150", new DateTime(1987, 09, 03), "Rua Sem Nome 218 Bairro Além do Rio ", "966853331", "john.dias@RDtelecom.com", "5300-001", "Cliente", false, "Bragança", new DateTime(2020, 10, 25), 0, 4);
-            GaranteUtilizadores(bd, "Maria Leal", "121325539", new DateTime(1969, 09, 30), "Rua da Fragata", "923456396", "maria.leal@RDtelecom.com", "5385-101", "Cliente", false, "Bragança", new DateTime(2020, 11, 12), 0, 4);
-            GaranteUtilizadores(bd, "Isabel dos Santinhos", "124336760", new DateTime(1957, 05, 31), "Valbom Pitez", "922788556", "isabel.santinhos@RDtelecom.com", "5385-132", "Cliente", false, "Bragança", new DateTime(2020, 12, 07), 0, 4);
-            GaranteUtilizadores(bd, "Rui Fragona", "133933784", new DateTime(1988, 03, 07), "Azenha do Areal", "920975411", "rui.fragona@RDtelecom.com", "5370-131", "Cliente", false, "Bragança", new DateTime(2020, 12, 18), 0, 4);
-            GaranteUtilizadores(bd, "Dunildo de Boa Esperança", "160594944", new DateTime(2000, 10, 04), "Vale de Lobo", "929693777", "dunildo.esperanca@RDtelecom.com", "5370-102", "Cliente", false, "Bragança", new DateTime(2020, 12, 24), 0, 4);
-            GaranteUtilizadores(bd, "Carla Dorys", "220963959", new DateTime(1995, 08, 17), "Vilar Seco", "963991087", "carla.dorys@RDtelecom.com", "5350-204", "Cliente", false, "Bragança", new DateTime(2020, 10, 05), 0, 4);
-            GaranteUtilizadores(bd, "Birna de Oliveira", "218499124", new DateTime(1980, 02, 28), "Rua dos Combatentes da Grande Guerra", "930100852", "birna.oliveira@RDtelecom.com", "5301-861", "Cliente", false, "Bragança", new DateTime(2021, 03, 05), 0, 4);
-            GaranteUtilizadores(bd, "João Salgado", "259012629", new DateTime(1966, 11, 30), "Rua Cova da Beira", "926698880", "joao.salgado@RDtelecom.com", "5300-869", "Cliente", false, "Bragança", new DateTime(2021, 01, 05), 0, 4);
-            GaranteUtilizadores(bd, "Feitosa Pauleta", "235592650", new DateTime(1972, 10, 27), "Rotunda do Lavrador Bairro da Braguinha ", "921038825", "feitosa.pauleta@RDtelecom.com", "5300-420", "Cliente", false, "Bragança", new DateTime(2021, 02, 21), 0, 4);
+            GaranteUtilizadores(bd, "Natally Domingues", "190328274", new DateTime(1974, 06, 19), "Bairro Moinho de Vento", "939088858", "natally.domingues@gmail.com", "5140-005", "Cliente", false, "Bragança", new DateTime(2020, 11, 13), 0, 4);
+            GaranteUtilizadores(bd, "Nicolau Figueiras", "128593598", new DateTime(2001, 01, 21), "Quinta Lameira de Ferro", "932100091", "nicolau.figueiras@gmail.com", "5140-135", "Cliente", false, "Bragança", new DateTime(2020, 10, 27), 0, 4);
+            GaranteUtilizadores(bd, "John Dias", "106481150", new DateTime(1987, 09, 03), "Rua Sem Nome 218 Bairro Além do Rio ", "966853331", "john.dias@gmail.com", "5300-001", "Cliente", false, "Bragança", new DateTime(2020, 10, 25), 0, 4);
+            GaranteUtilizadores(bd, "Maria Leal", "121325539", new DateTime(1969, 09, 30), "Rua da Fragata", "923456396", "maria.leal@gmail.com", "5385-101", "Cliente", false, "Bragança", new DateTime(2020, 11, 12), 0, 4);
+            GaranteUtilizadores(bd, "Isabel dos Santinhos", "124336760", new DateTime(1957, 05, 31), "Valbom Pitez", "922788556", "isabel.santinhos@gmail.com", "5385-132", "Cliente", false, "Bragança", new DateTime(2020, 12, 07), 0, 4);
+            GaranteUtilizadores(bd, "Rui Fragona", "133933784", new DateTime(1988, 03, 07), "Azenha do Areal", "920975411", "rui.fragona@gmail.com", "5370-131", "Cliente", false, "Bragança", new DateTime(2020, 12, 18), 0, 4);
+            GaranteUtilizadores(bd, "Dunildo de Boa Esperança", "160594944", new DateTime(2000, 10, 04), "Vale de Lobo", "929693777", "dunildo.esperanca@gmail.com", "5370-102", "Cliente", false, "Bragança", new DateTime(2020, 12, 24), 0, 4);
+            GaranteUtilizadores(bd, "Carla Dorys", "220963959", new DateTime(1995, 08, 17), "Vilar Seco", "963991087", "carla.dorys@gmail.com", "5350-204", "Cliente", false, "Bragança", new DateTime(2020, 10, 05), 0, 4);
+            GaranteUtilizadores(bd, "Birna de Oliveira", "218499124", new DateTime(1980, 02, 28), "Rua dos Combatentes da Grande Guerra", "930100852", "birna.oliveira@gmail.com", "5301-861", "Cliente", false, "Bragança", new DateTime(2021, 03, 05), 0, 4);
+            GaranteUtilizadores(bd, "João Salgado", "259012629", new DateTime(1966, 11, 30), "Rua Cova da Beira", "926698880", "joao.salgado@gmail.com", "5300-869", "Cliente", false, "Bragança", new DateTime(2021, 01, 05), 0, 4);
+            GaranteUtilizadores(bd, "Feitosa Pauleta", "235592650", new DateTime(1972, 10, 27), "Rotunda do Lavrador Bairro da Braguinha ", "921038825", "feitosa.pauleta@gmail.com", "5300-420", "Cliente", false, "Bragança", new DateTime(2021, 02, 21), 0, 4);
 
             //    //-------------------------- 5 CASTELO BRANCO------------------
-            GaranteUtilizadores(bd, "Cláudia Vieira", "187114781", new DateTime(1965, 06, 19), "Rua das Rosas", "933897771", "claudia.vieira@RDtelecom.com", "6250-004", "Cliente", false, "Castelo Branco", new DateTime(2020, 10, 11), 0, 5);
-            GaranteUtilizadores(bd, "Diogo Andrade", "151327912", new DateTime(1999, 01, 21), "Sítio do Cabecinho", "937333852", "diogo.andrade@RDtelecom.com", "6250-111", "Cliente", false, "Castelo Branco", new DateTime(2020, 09, 05), 0, 5);
-            GaranteUtilizadores(bd, "Maria Ruah", "137352603", new DateTime(1988, 02, 03), "Quinta de Valverdinho", "963013347", "maria.ruah@RDtelecom.com", "6250-163", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 03), 0, 5);
-            GaranteUtilizadores(bd, "Florbela Antunes", "132809338", new DateTime(1980, 09, 30), "Rua do Curral", "929913645", "florbela.antunes@RDtelecom.com", "6215-001", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 20), 0, 5);
-            GaranteUtilizadores(bd, "António Antunes", "137252226", new DateTime(1974, 05, 31), "Rua Marquês de Ávila e Bolama", "928329961", "antonio.antunes@RDtelecom.com", "6201-001", "Cliente", false, "Castelo Branco", new DateTime(2020, 12, 22), 0, 5);
-            GaranteUtilizadores(bd, "Liliana Aveiro", "188164138", new DateTime(2000, 03, 07), "Viela do Castelo", "928881759", "liliana.aveiro@RDtelecom.com", "6200-227", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 18), 0, 5);
-            GaranteUtilizadores(bd, "Maria Pedroso", "179189093", new DateTime(2000, 10, 04), "Travessa das Trapas", "924688158", "maria.pedroso@RDtelecom.com", "6200-237", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 17), 0, 5);
-            GaranteUtilizadores(bd, "Pedro Fernandes", "101788460", new DateTime(1957, 08, 17), "Bairro da Formiguinha Vila do Carvalho", "966333357", "pedro.fernandes@RDtelecom.com", "6200-241", "Cliente", false, "Castelo Branco", new DateTime(2021, 01, 13), 0, 5);
-            GaranteUtilizadores(bd, "Miguel Moniz", "116037490", new DateTime(1962, 02, 30), "Rua das Tendas", "933212789", "miguel.moniz@RDtelecom.com", "6200-699", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 11), 0, 5);
-            GaranteUtilizadores(bd, "Felisberto Ortiz", "123718805", new DateTime(1971, 02, 30), "Travessa dos Escabelados", "922111366", "felisberto.ortiz@RDtelecom.com", "6200-742", "Cliente", false, "Castelo Branco", new DateTime(2021, 02, 20), 0, 5);
-            GaranteUtilizadores(bd, "António Sanchez", "124414680", new DateTime(1976, 11, 27), "Rua Canada", "925688710", "antonio.sanchez@RDtelecom.com", "6005-002", "Cliente", false, "Castelo Branco", new DateTime(2021, 01, 13), 0, 5);
+            GaranteUtilizadores(bd, "Cláudia Vieira", "187114781", new DateTime(1965, 06, 19), "Rua das Rosas", "933897771", "claudia.vieira@gmail.com", "6250-004", "Cliente", false, "Castelo Branco", new DateTime(2020, 10, 11), 0, 5);
+            GaranteUtilizadores(bd, "Diogo Andrade", "151327912", new DateTime(1999, 01, 21), "Sítio do Cabecinho", "937333852", "diogo.andrade@gmail.com", "6250-111", "Cliente", false, "Castelo Branco", new DateTime(2020, 09, 05), 0, 5);
+            GaranteUtilizadores(bd, "Maria Ruah", "137352603", new DateTime(1988, 02, 03), "Quinta de Valverdinho", "963013347", "maria.ruah@gmail.com", "6250-163", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 03), 0, 5);
+            GaranteUtilizadores(bd, "Florbela Antunes", "132809338", new DateTime(1980, 09, 30), "Rua do Curral", "929913645", "florbela.antunes@gmail.com", "6215-001", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 20), 0, 5);
+            GaranteUtilizadores(bd, "António Antunes", "137252226", new DateTime(1974, 05, 31), "Rua Marquês de Ávila e Bolama", "928329961", "antonio.antunes@gmail.com", "6201-001", "Cliente", false, "Castelo Branco", new DateTime(2020, 12, 22), 0, 5);
+            GaranteUtilizadores(bd, "Liliana Aveiro", "188164138", new DateTime(2000, 03, 07), "Viela do Castelo", "928881759", "liliana.aveiro@gmail.com", "6200-227", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 18), 0, 5);
+            GaranteUtilizadores(bd, "Maria Pedroso", "179189093", new DateTime(2000, 10, 04), "Travessa das Trapas", "924688158", "maria.pedroso@gmail.com", "6200-237", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 17), 0, 5);
+            GaranteUtilizadores(bd, "Pedro Fernandes", "101788460", new DateTime(1957, 08, 17), "Bairro da Formiguinha Vila do Carvalho", "966333357", "pedro.fernandes@gmail.com", "6200-241", "Cliente", false, "Castelo Branco", new DateTime(2021, 01, 13), 0, 5);
+            GaranteUtilizadores(bd, "Miguel Moniz", "116037490", new DateTime(1962, 02, 30), "Rua das Tendas", "933212789", "miguel.moniz@gmail.com", "6200-699", "Cliente", false, "Castelo Branco", new DateTime(2020, 11, 11), 0, 5);
+            GaranteUtilizadores(bd, "Felisberto Ortiz", "123718805", new DateTime(1971, 02, 30), "Travessa dos Escabelados", "922111366", "felisberto.ortiz@gmail.com", "6200-742", "Cliente", false, "Castelo Branco", new DateTime(2021, 02, 20), 0, 5);
+            GaranteUtilizadores(bd, "António Sanchez", "124414680", new DateTime(1976, 11, 27), "Rua Canada", "925688710", "antonio.sanchez@gmail.com", "6005-002", "Cliente", false, "Castelo Branco", new DateTime(2021, 01, 13), 0, 5);
 
             //    //-------------------------- 6 COIMBRA-----------------
-            GaranteUtilizadores(bd, "Patrícia Gomes", "132814714", new DateTime(1999, 07, 01), "Rua do Norte", "929152221", "patricia.gomes@RDtelecom.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 10, 05), 0, 6);
-            GaranteUtilizadores(bd, "Marlene Santos", "146552504", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "933334121", "marlene.satos@RDtelecom.com", "3030-253", "Cliente", false, "Coimbra", new DateTime(2020, 12, 01), 0, 6);
-            GaranteUtilizadores(bd, "João Ferreira", "125308655", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "929150021", "joao.ferreira@RDtelecom.com", "3084-501", "Cliente", false, "Coimbra", new DateTime(2020, 11, 26), 0, 6);
-            GaranteUtilizadores(bd, "Tânia Sousa", "164157174", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "927004121", "tania-sousa@RDtelecom.com", "3400-215", "Cliente", false, "Coimbra", new DateTime(2020, 10, 27), 0, 6);
-            GaranteUtilizadores(bd, "Rute Martins", "137414625", new DateTime(1979, 10, 30), "Cruz de Ferro", "929152229", "rute.martins@RDtelecom.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 09, 25), 0, 6);
-            GaranteUtilizadores(bd, "Paulo Pedra", "173407951", new DateTime(1999, 07, 01), "Rua do Norte", "929155521", "paulo.pedra@RDtelecom.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 10, 11), 0, 6);
-            GaranteUtilizadores(bd, "Helder Copeto", "145533590", new DateTime(1999, 07, 01), "Rua do Norte", "929122221", "helder.copeto@RDtelecom.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 10, 11), 0, 6);
-            GaranteUtilizadores(bd, "Miriam Falcão", "149807074", new DateTime(2000, 01, 01), "Vale Derradeiro", "928884121", "miriam.falcao@RDtelecom.com", "3320-002", "Cliente", false, "Coimbra", new DateTime(2020, 10, 11), 0, 6);
-            GaranteUtilizadores(bd, "Célia Tomate", "113263295", new DateTime(1980, 09, 11), "Seladinhas", "929133321", "celia.tomate@RDtelecom.com", "3320-367", "Cliente", false, "Coimbra", new DateTime(2021, 02, 18), 0, 6);
-            GaranteUtilizadores(bd, "Tadeu Leão", "174464681", new DateTime(1975, 02, 08), "Flor da Rosa", "929159991", "tadeu.leao@RDtelecom.com", "3040-471", "Cliente", false, "Coimbra", new DateTime(2021, 03, 11), 0, 6);
-            GaranteUtilizadores(bd, "Harley Guerra", "148342205", new DateTime(1955, 12, 24), "Beco da Alegria", "929222121", "harley.guerra@RDtelecom.com", "3025-129", "Cliente", false, "Coimbra", new DateTime(2021, 02, 20), 0, 6);
-            GaranteUtilizadores(bd, "Afonso Freira", "118233580", new DateTime(1956, 12, 05), "Beco das Cruzes", "929004121", "afonso.freira@RDtelecom.com", "3000-133 ", "Cliente", false, "Coimbra", new DateTime(2021, 01, 11), 0, 6);
+            GaranteUtilizadores(bd, "Patrícia Gomes", "132814714", new DateTime(1999, 07, 01), "Rua do Norte", "929152221", "patricia.gomes@gmail.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 10, 05), 0, 6);
+            GaranteUtilizadores(bd, "Marlene Santos", "146552504", new DateTime(1988, 11, 21), "Rua Particular Ladeira do Baptista", "933334121", "marlene.satos@gmail.com", "3030-253", "Cliente", false, "Coimbra", new DateTime(2020, 12, 01), 0, 6);
+            GaranteUtilizadores(bd, "João Ferreira", "125308655", new DateTime(1978, 07, 01), "Avenida Saraiva de Carvalho", "929150021", "joao.ferreira@gmail.com", "3084-501", "Cliente", false, "Coimbra", new DateTime(2020, 11, 26), 0, 6);
+            GaranteUtilizadores(bd, "Tânia Sousa", "164157174", new DateTime(1969, 06, 06), "Pátio do Cabo do Lugar", "927004121", "tania-sousa@gmail.com", "3400-215", "Cliente", false, "Coimbra", new DateTime(2020, 10, 27), 0, 6);
+            GaranteUtilizadores(bd, "Rute Martins", "137414625", new DateTime(1979, 10, 30), "Cruz de Ferro", "929152229", "rute.martins@gmail.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 09, 25), 0, 6);
+            GaranteUtilizadores(bd, "Paulo Pedra", "173407951", new DateTime(1999, 07, 01), "Rua do Norte", "929155521", "paulo.pedra@gmail.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 10, 11), 0, 6);
+            GaranteUtilizadores(bd, "Helder Copeto", "145533590", new DateTime(1999, 07, 01), "Rua do Norte", "929122221", "helder.copeto@gmail.com", "3000-295", "Cliente", false, "Coimbra", new DateTime(2020, 10, 11), 0, 6);
+            GaranteUtilizadores(bd, "Miriam Falcão", "149807074", new DateTime(2000, 01, 01), "Vale Derradeiro", "928884121", "miriam.falcao@gmail.com", "3320-002", "Cliente", false, "Coimbra", new DateTime(2020, 10, 11), 0, 6);
+            GaranteUtilizadores(bd, "Célia Tomate", "113263295", new DateTime(1980, 09, 11), "Seladinhas", "929133321", "celia.tomate@gmail.com", "3320-367", "Cliente", false, "Coimbra", new DateTime(2021, 02, 18), 0, 6);
+            GaranteUtilizadores(bd, "Tadeu Leão", "174464681", new DateTime(1975, 02, 08), "Flor da Rosa", "929159991", "tadeu.leao@gmail.com", "3040-471", "Cliente", false, "Coimbra", new DateTime(2021, 03, 11), 0, 6);
+            GaranteUtilizadores(bd, "Harley Guerra", "148342205", new DateTime(1955, 12, 24), "Beco da Alegria", "929222121", "harley.guerra@gmail.com", "3025-129", "Cliente", false, "Coimbra", new DateTime(2021, 02, 20), 0, 6);
+            GaranteUtilizadores(bd, "Afonso Freira", "118233580", new DateTime(1956, 12, 05), "Beco das Cruzes", "929004121", "afonso.freira@gmail.com", "3000-133 ", "Cliente", false, "Coimbra", new DateTime(2021, 01, 11), 0, 6);
 
 
             //    //-------------------------- 7 EVORA-----------------
-            GaranteUtilizadores(bd, "Andreia Alves", "226173461", new DateTime(2001, 07, 01), "Vale de Pegas", "921996654", "andreia.alves@RDtelecom.com", "7490-120", "Cliente", false, "Évora", new DateTime(2020, 10, 17), 0, 7);
-            GaranteUtilizadores(bd, "João Correia", "265149207", new DateTime(1999, 11, 21), "Rua João de Deus", "936889914", "joao.correia@RDtelecom.com", "7250-142", "Cliente", false, "Évora", new DateTime(2020, 09, 28), 0, 7);
-            GaranteUtilizadores(bd, "Ricardo da Gama", "278404324", new DateTime(1975, 07, 01), "Rua da Liberdade", "920111963", "ricardo.gama@RDtelecom.com", "7220-002", "Cliente", false, "Évora", new DateTime(2020, 09, 26), 0, 7);
-            GaranteUtilizadores(bd, "Inês Castro", "214553698", new DateTime(1969, 06, 08), "Rua dos Irmãos", "927000148", "ines.castro@RDtelecom.com", "7220-003", "Cliente", false, "Évora", new DateTime(2020, 11, 13), 0, 7);
-            GaranteUtilizadores(bd, "Andressa Ribeiro", "201479745", new DateTime(1962, 03, 30), "Praceta do Brasil", "928000147", "andressa.ribeiro@RDtelecom.com", "7200-479", "Cliente", false, "Évora", new DateTime(2020, 11, 07), 0, 7);
-            GaranteUtilizadores(bd, "Pablo Abrunhosa", "239385853", new DateTime(1980, 07, 01), "Rua Projectada à Avenida Tomás Alcaide", "926999953", "pablo.abrunhosa@RDtelecom.com", "7100-130", "Cliente", false, "Évora", new DateTime(2020, 11, 05), 0, 7);
-            GaranteUtilizadores(bd, "Ramon Marques", "286791862", new DateTime(1999, 07, 01), "Travessa das Amendoeiras", "920123395", "ramon.marques@RDtelecom.com", "7090-006", "Cliente", false, "Évora", new DateTime(2020, 10, 03), 0, 7);
-            GaranteUtilizadores(bd, "Mariana da Serenidade", "240339380", new DateTime(1999, 01, 01), "Bairro Ferragolo", "922999698", "mariana.serenidade@RDtelecom.com", "7080-109", "Cliente", false, "Évora", new DateTime(2020, 11, 26), 0, 7);
-            GaranteUtilizadores(bd, "Dilma Rosas", "264773268", new DateTime(1958, 09, 21), "Casa de Pau", "920888147", "dilma.rosas@RDtelecom.com", "7050-634", "Cliente", false, "Évora", new DateTime(2020, 11, 26), 0, 7);
-            GaranteUtilizadores(bd, "Vicente Silva", "249853442", new DateTime(1965, 02, 08), "Largo das Alterações", "931459321", "vicente.silva@RDtelecom.com", "7000-502", "Cliente", false, "Évora", new DateTime(2021, 01, 26), 0, 7); ;
-            GaranteUtilizadores(bd, "Flascotter Pereira", "250372339", new DateTime(1995, 03, 24), "Rua Francisco Soares Lusitano", "966321010", "flascotter.pereira@RDtelecom.com", "7004-511", "Cliente", false, "Évora", new DateTime(2021, 01, 26), 0, 7);
-            GaranteUtilizadores(bd, "Sara Moedas", "254578870", new DateTime(1956, 05, 05), "Largo dos Colegiais 2", "933299871", "sara.moedas@RDtelecom.com", "7004-516", "Cliente", false, "Évora", new DateTime(2021, 02, 26), 0, 7);
+            GaranteUtilizadores(bd, "Andreia Alves", "226173461", new DateTime(2001, 07, 01), "Vale de Pegas", "921996654", "andreia.alves@gmail.com", "7490-120", "Cliente", false, "Évora", new DateTime(2020, 10, 17), 0, 7);
+            GaranteUtilizadores(bd, "João Correia", "265149207", new DateTime(1999, 11, 21), "Rua João de Deus", "936889914", "joao.correia@gmail.com", "7250-142", "Cliente", false, "Évora", new DateTime(2020, 09, 28), 0, 7);
+            GaranteUtilizadores(bd, "Ricardo da Gama", "278404324", new DateTime(1975, 07, 01), "Rua da Liberdade", "920111963", "ricardo.gama@gmail.com", "7220-002", "Cliente", false, "Évora", new DateTime(2020, 09, 26), 0, 7);
+            GaranteUtilizadores(bd, "Inês Castro", "214553698", new DateTime(1969, 06, 08), "Rua dos Irmãos", "927000148", "ines.castro@gmail.com", "7220-003", "Cliente", false, "Évora", new DateTime(2020, 11, 13), 0, 7);
+            GaranteUtilizadores(bd, "Andressa Ribeiro", "201479745", new DateTime(1962, 03, 30), "Praceta do Brasil", "928000147", "andressa.ribeiro@gmail.com", "7200-479", "Cliente", false, "Évora", new DateTime(2020, 11, 07), 0, 7);
+            GaranteUtilizadores(bd, "Pablo Abrunhosa", "239385853", new DateTime(1980, 07, 01), "Rua Projectada à Avenida Tomás Alcaide", "926999953", "pablo.abrunhosa@gmail.com", "7100-130", "Cliente", false, "Évora", new DateTime(2020, 11, 05), 0, 7);
+            GaranteUtilizadores(bd, "Ramon Marques", "286791862", new DateTime(1999, 07, 01), "Travessa das Amendoeiras", "920123395", "ramon.marques@gmail.com", "7090-006", "Cliente", false, "Évora", new DateTime(2020, 10, 03), 0, 7);
+            GaranteUtilizadores(bd, "Mariana da Serenidade", "240339380", new DateTime(1999, 01, 01), "Bairro Ferragolo", "922999698", "mariana.serenidade@gmail.com", "7080-109", "Cliente", false, "Évora", new DateTime(2020, 11, 26), 0, 7);
+            GaranteUtilizadores(bd, "Dilma Rosas", "264773268", new DateTime(1958, 09, 21), "Casa de Pau", "920888147", "dilma.rosas@gmail.com", "7050-634", "Cliente", false, "Évora", new DateTime(2020, 11, 26), 0, 7);
+            GaranteUtilizadores(bd, "Vicente Silva", "249853442", new DateTime(1965, 02, 08), "Largo das Alterações", "931459321", "vicente.silva@gmail.com", "7000-502", "Cliente", false, "Évora", new DateTime(2021, 01, 26), 0, 7); ;
+            GaranteUtilizadores(bd, "Flascotter Pereira", "250372339", new DateTime(1995, 03, 24), "Rua Francisco Soares Lusitano", "966321010", "flascotter.pereira@gmail.com", "7004-511", "Cliente", false, "Évora", new DateTime(2021, 01, 26), 0, 7);
+            GaranteUtilizadores(bd, "Sara Moedas", "254578870", new DateTime(1956, 05, 05), "Largo dos Colegiais 2", "933299871", "sara.moedas@gmail.com", "7004-516", "Cliente", false, "Évora", new DateTime(2021, 02, 26), 0, 7);
 
             //    //-------------------------- 8 FARO-----------------
-            GaranteUtilizadores(bd, "Miguel Rossi", "253871166", new DateTime(1999, 07, 01), "Rua da Viola ", "925874990", "miguel.rossi@RDtelecom.com", "8000-274", "Cliente", false, "Faro", new DateTime(2020, 12, 28), 0, 8);
-            GaranteUtilizadores(bd, "Martina Castilho", "287333248", new DateTime(1988, 11, 21), "Rua do Bocage", "930662145", "martina.castilho@RDtelecom.com", "8004-002", "Cliente", false, "Faro", new DateTime(2020, 12, 06), 0, 8);
-            GaranteUtilizadores(bd, "Romeo Ximenes", "247989940", new DateTime(1978, 07, 01), "Areal Gordo", "932777410", "romeo.ximenes@RDtelecom.com", "8005-409", "Cliente", false, "Faro", new DateTime(2020, 11, 17), 0, 8);
-            GaranteUtilizadores(bd, "John Pitt", "219245061", new DateTime(1969, 06, 06), "Travessa do Borrego", "933699520", "john.pitt@RDtelecom.com", "8125-002", "Cliente", false, "Faro", new DateTime(2020, 09, 17), 0, 8);
-            GaranteUtilizadores(bd, "Zézinho Camarrinha", "288869397", new DateTime(1979, 10, 30), "Beco das Palmeiras", "921238802", "zezinho.camarrinha@RDtelecom.com", "8125-609", "Cliente", false, "Faro", new DateTime(2020, 10, 19), 0, 8);
-            GaranteUtilizadores(bd, "Luna Smith", "205571000", new DateTime(1999, 07, 01), "Beco Condestável", "925677717", "luna.smith@RDtelecom.com", "8125-636", "Cliente", false, "Faro", new DateTime(2020, 10, 27), 0, 8);
-            GaranteUtilizadores(bd, "Luísa Salvador", "261067010", new DateTime(1999, 06, 01), "Beco dos Bitas", "936299902", "luisa.salvador@RDtelecom.com", "8200-002", "Cliente", false, "Faro", new DateTime(2020, 10, 26), 0, 8);
-            GaranteUtilizadores(bd, "Ana Cacho", "221649549", new DateTime(2000, 01, 01), "Rua das Telecomunicações", "920333001", "ana.cacho@RDtelecom.com", "8201-871", "Cliente", false, "Faro", new DateTime(2020, 11, 17), 0, 8);
-            GaranteUtilizadores(bd, "Fernando Rock", "200024078", new DateTime(1980, 09, 11), "Caminho Municipal", "967399974", "fernando.rock@RDtelecom.com", "8201-877", "Cliente", false, "Faro", new DateTime(2021, 03, 17), 0, 8);
-            GaranteUtilizadores(bd, "Miguel Feliz", "112022740", new DateTime(1975, 02, 08), "Avenida dos Descobrimentos", "921327771", "miguel.feliz@RDtelecom.com", "8601-852", "Cliente", false, "Faro", new DateTime(2021, 02, 17), 0, 8);
-            GaranteUtilizadores(bd, "Maria Ferrari", "175059500", new DateTime(1955, 12, 24), "Rua 25 de Abril", "917866623", "maria.ferrari@RDtelecom.com", "8801-005", "Cliente", false, "Faro", new DateTime(2021, 01, 28), 0, 8);
-            GaranteUtilizadores(bd, "Bruno da Câmara Pereira", "173713785", new DateTime(1956, 12, 05), "Monte Olimpio", "917300725", "bruno.pereira@RDtelecom.com", "8900-106", "Cliente", false, "Faro", new DateTime(2021, 01, 15), 0, 8);
+            GaranteUtilizadores(bd, "Miguel Rossi", "253871166", new DateTime(1999, 07, 01), "Rua da Viola ", "925874990", "miguel.rossi@gmail.com", "8000-274", "Cliente", false, "Faro", new DateTime(2020, 12, 28), 0, 8);
+            GaranteUtilizadores(bd, "Martina Castilho", "287333248", new DateTime(1988, 11, 21), "Rua do Bocage", "930662145", "martina.castilho@gmail.com", "8004-002", "Cliente", false, "Faro", new DateTime(2020, 12, 06), 0, 8);
+            GaranteUtilizadores(bd, "Romeo Ximenes", "247989940", new DateTime(1978, 07, 01), "Areal Gordo", "932777410", "romeo.ximenes@gmail.com", "8005-409", "Cliente", false, "Faro", new DateTime(2020, 11, 17), 0, 8);
+            GaranteUtilizadores(bd, "John Pitt", "219245061", new DateTime(1969, 06, 06), "Travessa do Borrego", "933699520", "john.pitt@gmail.com", "8125-002", "Cliente", false, "Faro", new DateTime(2020, 09, 17), 0, 8);
+            GaranteUtilizadores(bd, "Zézinho Camarrinha", "288869397", new DateTime(1979, 10, 30), "Beco das Palmeiras", "921238802", "zezinho.camarrinha@gmail.com", "8125-609", "Cliente", false, "Faro", new DateTime(2020, 10, 19), 0, 8);
+            GaranteUtilizadores(bd, "Luna Smith", "205571000", new DateTime(1999, 07, 01), "Beco Condestável", "925677717", "luna.smith@gmail.com", "8125-636", "Cliente", false, "Faro", new DateTime(2020, 10, 27), 0, 8);
+            GaranteUtilizadores(bd, "Luísa Salvador", "261067010", new DateTime(1999, 06, 01), "Beco dos Bitas", "936299902", "luisa.salvador@gmail.com", "8200-002", "Cliente", false, "Faro", new DateTime(2020, 10, 26), 0, 8);
+            GaranteUtilizadores(bd, "Ana Cacho", "221649549", new DateTime(2000, 01, 01), "Rua das Telecomunicações", "920333001", "ana.cacho@gmail.com", "8201-871", "Cliente", false, "Faro", new DateTime(2020, 11, 17), 0, 8);
+            GaranteUtilizadores(bd, "Fernando Rock", "200024078", new DateTime(1980, 09, 11), "Caminho Municipal", "967399974", "fernando.rock@gmail.com", "8201-877", "Cliente", false, "Faro", new DateTime(2021, 03, 17), 0, 8);
+            GaranteUtilizadores(bd, "Miguel Feliz", "112022740", new DateTime(1975, 02, 08), "Avenida dos Descobrimentos", "921327771", "miguel.feliz@gmail.com", "8601-852", "Cliente", false, "Faro", new DateTime(2021, 02, 17), 0, 8);
+            GaranteUtilizadores(bd, "Maria Ferrari", "175059500", new DateTime(1955, 12, 24), "Rua 25 de Abril", "917866623", "maria.ferrari@gmail.com", "8801-005", "Cliente", false, "Faro", new DateTime(2021, 01, 28), 0, 8);
+            GaranteUtilizadores(bd, "Bruno da Câmara Pereira", "173713785", new DateTime(1956, 12, 05), "Monte Olimpio", "917300725", "bruno.pereira@gmail.com", "8900-106", "Cliente", false, "Faro", new DateTime(2021, 01, 15), 0, 8);
 
 
             //    //-------------------------- 9 GUARDA-----------------
-            GaranteUtilizadores(bd, "Alicia Sancho", "191045012", new DateTime(1988, 07, 01), "Ponte do Abade", "926000852", "alicia.sancho@RDtelecom.com", "3570-191", "Cliente", false, "Guarda", new DateTime(2020, 11, 03), 0, 9);
-            GaranteUtilizadores(bd, "Mateo Jesus", "100156320", new DateTime(1964, 11, 21), "Rua Quebra Costas", "931122589", "mateo.jesus@RDtelecom.com", "5155-003", "Cliente", false, "Guarda", new DateTime(2020, 10, 18), 0, 9);
-            GaranteUtilizadores(bd, "Antonnella Conti", "124152384", new DateTime(1954, 08, 01), "Zurrão", "920007410", "antonnella.conti@RDtelecom.com", "6260-196", "Cliente", false, "Guarda", new DateTime(2020, 09, 20), 0, 9);
-            GaranteUtilizadores(bd, "Nuno Gatti", "188733698", new DateTime(1970, 02, 06), "Carvalhal da Louça", "923111789", "nuno.gatti@RDtelecom.com", "6270-131", "Cliente", false, "Guarda", new DateTime(2020, 10, 28), 0, 9);
-            GaranteUtilizadores(bd, "Patrícia Carbone", "140198016", new DateTime(1980, 03, 30), "Rua Amadeus Mozart", "966961149", "patricia.carbone@RDtelecom.com", "6300-509", "Cliente", false, "Guarda", new DateTime(2020, 12, 28), 0, 9);
-            GaranteUtilizadores(bd, "Pedro Guerra", "178896896", new DateTime(1999, 08, 01), "Muxagata", "923499987", "pedro.guerra@RDtelecom.com", "6370-361", "Cliente", false, "Guarda", new DateTime(2020, 10, 28), 0, 9);
-            GaranteUtilizadores(bd, "Célia Valente", "184714370", new DateTime(1999, 07, 01), "Juncais", "910999658", "celia.valente@RDtelecom.com", "6370-332", "Cliente", false, "Guarda", new DateTime(2020, 11, 28), 0, 9);
-            GaranteUtilizadores(bd, "Rosa Serra", "139163085", new DateTime(2000, 01, 01), "Quinta da Costa", "92800532", "rosa.serra@RDtelecom.com", "6324-004", "Cliente", false, "Guarda", new DateTime(2020, 12, 05), 0, 9);
-            GaranteUtilizadores(bd, "Ricardo Estrela", "138133743", new DateTime(1987, 09, 17), "Parada", "963991456", "ricardo.estrla@RDtelecom.com", "6355-142", "Cliente", false, "Guarda", new DateTime(2021, 02, 28), 0, 9);
-            GaranteUtilizadores(bd, "Carlos Fechaduras", "131192051", new DateTime(1859, 05, 08), "Senouras", "925999874", "carlos.fechaduras@RDtelecom.com", "6355-170", "Cliente", false, "Guarda", new DateTime(2021, 03, 01), 0, 9);
-            GaranteUtilizadores(bd, "Álvaro Bruxelas", "163833320", new DateTime(1958, 12, 31), "Beco da Alegria", "91055800", "alvaro.bruxelas@RDtelecom.com", "6355-170", "Cliente", false, "Guarda", new DateTime(2021, 01, 20), 0, 9);
-            GaranteUtilizadores(bd, "Isamara Lobão", "104089440", new DateTime(1956, 12, 05), "Lajeosa", "936000077", "isamara.lobao@RDtelecom.com", "6320-161", "Cliente", false, "Guarda", new DateTime(2021, 01, 28), 0, 9);
+            GaranteUtilizadores(bd, "Alicia Sancho", "191045012", new DateTime(1988, 07, 01), "Ponte do Abade", "926000852", "alicia.sancho@gmail.com", "3570-191", "Cliente", false, "Guarda", new DateTime(2020, 11, 03), 0, 9);
+            GaranteUtilizadores(bd, "Mateo Jesus", "100156320", new DateTime(1964, 11, 21), "Rua Quebra Costas", "931122589", "mateo.jesus@gmail.com", "5155-003", "Cliente", false, "Guarda", new DateTime(2020, 10, 18), 0, 9);
+            GaranteUtilizadores(bd, "Antonnella Conti", "124152384", new DateTime(1954, 08, 01), "Zurrão", "920007410", "antonnella.conti@gmail.com", "6260-196", "Cliente", false, "Guarda", new DateTime(2020, 09, 20), 0, 9);
+            GaranteUtilizadores(bd, "Nuno Gatti", "188733698", new DateTime(1970, 02, 06), "Carvalhal da Louça", "923111789", "nuno.gatti@gmail.com", "6270-131", "Cliente", false, "Guarda", new DateTime(2020, 10, 28), 0, 9);
+            GaranteUtilizadores(bd, "Patrícia Carbone", "140198016", new DateTime(1980, 03, 30), "Rua Amadeus Mozart", "966961149", "patricia.carbone@gmail.com", "6300-509", "Cliente", false, "Guarda", new DateTime(2020, 12, 28), 0, 9);
+            GaranteUtilizadores(bd, "Pedro Guerra", "178896896", new DateTime(1999, 08, 01), "Muxagata", "923499987", "pedro.guerra@gmail.com", "6370-361", "Cliente", false, "Guarda", new DateTime(2020, 10, 28), 0, 9);
+            GaranteUtilizadores(bd, "Célia Valente", "184714370", new DateTime(1999, 07, 01), "Juncais", "910999658", "celia.valente@gmail.com", "6370-332", "Cliente", false, "Guarda", new DateTime(2020, 11, 28), 0, 9);
+            GaranteUtilizadores(bd, "Rosa Serra", "139163085", new DateTime(2000, 01, 01), "Quinta da Costa", "92800532", "rosa.serra@gmail.com", "6324-004", "Cliente", false, "Guarda", new DateTime(2020, 12, 05), 0, 9);
+            GaranteUtilizadores(bd, "Ricardo Estrela", "138133743", new DateTime(1987, 09, 17), "Parada", "963991456", "ricardo.estrla@gmail.com", "6355-142", "Cliente", false, "Guarda", new DateTime(2021, 02, 28), 0, 9);
+            GaranteUtilizadores(bd, "Carlos Fechaduras", "131192051", new DateTime(1859, 05, 08), "Senouras", "925999874", "carlos.fechaduras@gmail.com", "6355-170", "Cliente", false, "Guarda", new DateTime(2021, 03, 01), 0, 9);
+            GaranteUtilizadores(bd, "Álvaro Bruxelas", "163833320", new DateTime(1958, 12, 31), "Beco da Alegria", "91055800", "alvaro.bruxelas@gmail.com", "6355-170", "Cliente", false, "Guarda", new DateTime(2021, 01, 20), 0, 9);
+            GaranteUtilizadores(bd, "Isamara Lobão", "104089440", new DateTime(1956, 12, 05), "Lajeosa", "936000077", "isamara.lobao@gmail.com", "6320-161", "Cliente", false, "Guarda", new DateTime(2021, 01, 28), 0, 9);
 
             //    //-------------------------- 10 LEIRIA-----------------
-            GaranteUtilizadores(bd, "Amílcar Malho", "174926960", new DateTime(1967, 03, 01), "Rua dos Inácios", "923888144", "amilcar.malho@RDtelecom.com", "2400-773", "Cliente", false, "Leiria", new DateTime(2020, 10, 18), 0, 10);
-            GaranteUtilizadores(bd, "Joana de Sá", "298515989", new DateTime(1966, 11, 21), "Rua do Futuro", "931114711", "joana.sa@RDtelecom.com", "2400-760", "Cliente", false, "Leiria", new DateTime(2020, 09, 25), 0, 10);
-            GaranteUtilizadores(bd, "João Cabral", "297389955", new DateTime(2000, 06, 01), "Moinho do Rato", "925687708", "joao.cabral@RDtelecom.com", "2410-528", "Cliente", false, "Leiria", new DateTime(2020, 10, 25), 0, 10);
-            GaranteUtilizadores(bd, "Ilídio Brazeta", "259304727", new DateTime(1999, 06, 09), "Rua de Saint-Maur-Des-Fosses", "963999547", "ilidio.brazeta@RDtelecom.com", "2414-001", "Cliente", false, "Leiria", new DateTime(2020, 10, 08), 0, 10);
-            GaranteUtilizadores(bd, "Ricardo Caramelo", "240926803", new DateTime(1984, 02, 30), "Estrada da Mata Marrazes", "921457880", "ricardo.caramelo@RDtelecom.com", "2419-001", "Cliente", false, "Leiria", new DateTime(2020, 10, 03), 0, 10);
-            GaranteUtilizadores(bd, "João Figo", "210911891", new DateTime(1999, 07, 11), "Rua de Santa Margarida", "923099958", "joao.figo@RDtelecom.com", "2420-999", "Cliente", false, "Leiria", new DateTime(2020, 11, 28), 0, 10);
-            GaranteUtilizadores(bd, "Romina Santos", "201022117", new DateTime(1999, 07, 01), "Beco Grilo", "931477779", "romina.santos@RDtelecom.com", "2460-005", "Cliente", false, "Leiria", new DateTime(2020, 11, 17), 0, 10);
-            GaranteUtilizadores(bd, "Rui Rosa", "248554140", new DateTime(2000, 01, 01), "Rua Mercedes e Carlos Campeão", "968541100", "rui.rosa@RDtelecom.com", "2460-006", "Cliente", false, "Leiria", new DateTime(2020, 11, 12), 0, 10);
-            GaranteUtilizadores(bd, "Vanda Ruivo", "251055809", new DateTime(1980, 10, 11), "Bolo", "922388809", "vanda.ruivo@RDtelecom.com", "3280-113", "Cliente", false, "Leiria", new DateTime(2020, 11, 03), 0, 10);
-            GaranteUtilizadores(bd, "Tiago Andrade", "219730024", new DateTime(1975, 08, 08), "Sapateira", "967365333", "tiago.andrade@RDtelecom.com", "3280-123", "Cliente", false, "Leiria", new DateTime(2020, 11, 03), 0, 10);
-            GaranteUtilizadores(bd, "Marta Martinelli", "280206054", new DateTime(1988, 12, 24), "Rua dos Lavadouros", "910258977", "marta.martinelli@RDtelecom.com", "2525-123", "Cliente", false, "Leiria", new DateTime(2021, 03, 03), 0, 10);
-            GaranteUtilizadores(bd, "Joaquim Vitale", "252516800", new DateTime(1996, 12, 05), "Picha", "939300650", "joaquim.vitale@RDtelecom.com", "3270-143", "Cliente", false, "Leiria", new DateTime(2021, 01, 03), 0, 10);
+            GaranteUtilizadores(bd, "Amílcar Malho", "174926960", new DateTime(1967, 03, 01), "Rua dos Inácios", "923888144", "amilcar.malho@gmail.com", "2400-773", "Cliente", false, "Leiria", new DateTime(2020, 10, 18), 0, 10);
+            GaranteUtilizadores(bd, "Joana de Sá", "298515989", new DateTime(1966, 11, 21), "Rua do Futuro", "931114711", "joana.sa@gmail.com", "2400-760", "Cliente", false, "Leiria", new DateTime(2020, 09, 25), 0, 10);
+            GaranteUtilizadores(bd, "João Cabral", "297389955", new DateTime(2000, 06, 01), "Moinho do Rato", "925687708", "joao.cabral@gmail.com", "2410-528", "Cliente", false, "Leiria", new DateTime(2020, 10, 25), 0, 10);
+            GaranteUtilizadores(bd, "Ilídio Brazeta", "259304727", new DateTime(1999, 06, 09), "Rua de Saint-Maur-Des-Fosses", "963999547", "ilidio.brazeta@gmail.com", "2414-001", "Cliente", false, "Leiria", new DateTime(2020, 10, 08), 0, 10);
+            GaranteUtilizadores(bd, "Ricardo Caramelo", "240926803", new DateTime(1984, 02, 30), "Estrada da Mata Marrazes", "921457880", "ricardo.caramelo@gmail.com", "2419-001", "Cliente", false, "Leiria", new DateTime(2020, 10, 03), 0, 10);
+            GaranteUtilizadores(bd, "João Figo", "210911891", new DateTime(1999, 07, 11), "Rua de Santa Margarida", "923099958", "joao.figo@gmail.com", "2420-999", "Cliente", false, "Leiria", new DateTime(2020, 11, 28), 0, 10);
+            GaranteUtilizadores(bd, "Romina Santos", "201022117", new DateTime(1999, 07, 01), "Beco Grilo", "931477779", "romina.santos@gmail.com", "2460-005", "Cliente", false, "Leiria", new DateTime(2020, 11, 17), 0, 10);
+            GaranteUtilizadores(bd, "Rui Rosa", "248554140", new DateTime(2000, 01, 01), "Rua Mercedes e Carlos Campeão", "968541100", "rui.rosa@gmail.com", "2460-006", "Cliente", false, "Leiria", new DateTime(2020, 11, 12), 0, 10);
+            GaranteUtilizadores(bd, "Vanda Ruivo", "251055809", new DateTime(1980, 10, 11), "Bolo", "922388809", "vanda.ruivo@gmail.com", "3280-113", "Cliente", false, "Leiria", new DateTime(2020, 11, 03), 0, 10);
+            GaranteUtilizadores(bd, "Tiago Andrade", "219730024", new DateTime(1975, 08, 08), "Sapateira", "967365333", "tiago.andrade@gmail.com", "3280-123", "Cliente", false, "Leiria", new DateTime(2020, 11, 03), 0, 10);
+            GaranteUtilizadores(bd, "Marta Martinelli", "280206054", new DateTime(1988, 12, 24), "Rua dos Lavadouros", "910258977", "marta.martinelli@gmail.com", "2525-123", "Cliente", false, "Leiria", new DateTime(2021, 03, 03), 0, 10);
+            GaranteUtilizadores(bd, "Joaquim Vitale", "252516800", new DateTime(1996, 12, 05), "Picha", "939300650", "joaquim.vitale@gmail.com", "3270-143", "Cliente", false, "Leiria", new DateTime(2021, 01, 03), 0, 10);
 
 
             //    //-------------------------- 11 LISBOA-----------------
-            GaranteUtilizadores(bd, "Geraldo Fraga", "283068396", new DateTime(1968, 08, 01), "Rua Brito Aranha", "924888230", "geraldo.fraga@RDtelecom.com", "1000-007", "Cliente", false, "Lisboa", new DateTime(2020, 10, 13), 0, 11);
-            GaranteUtilizadores(bd, "Celeste Djata", "245604693", new DateTime(1969, 11, 28), "Avenida dos Defensores de Chaves", "931182456", "celeste.djata@RDtelecom.com", "1049-004", "Cliente", false, "Lisboa", new DateTime(2020, 10, 18), 0, 11);
-            GaranteUtilizadores(bd, "Carla Costa", "216326117", new DateTime(1978, 05, 01), "Largo das Palmeiras", "931773888", "carla.costa@RDtelecom.com", "1050-168", "Cliente", false, "Lisboa", new DateTime(2020, 10, 14), 0, 11);
-            GaranteUtilizadores(bd, "Daniele Lucas", "290364272", new DateTime(1973, 08, 06), "Avenida de Berna", "917133335", "daniele.lucas@RDtelecom.com", "1067-001", "Cliente", false, "Lisboa", new DateTime(2020, 11, 08), 0, 11);
-            GaranteUtilizadores(bd, "Davide Ramos", "276497961", new DateTime(1986, 10, 30), "Vila Celeste Rua Garcia", "961999620", "davide.ramos@RDtelecom.com", "1070-136", "Cliente", false, "Lisboa", new DateTime(2020, 12, 18), 0, 11);
-            GaranteUtilizadores(bd, "Diana Leite", "214102351", new DateTime(1999, 07, 01), "Beco Benformoso", "967422226", "diana.leite@RDtelecom.com", "1100-008", "Cliente", false, "Lisboa", new DateTime(2020, 11, 09), 0, 11);
-            GaranteUtilizadores(bd, "Dunildo Fernandes", "252014456", new DateTime(1988, 07, 01), "Largo Cabeço da Bola", "937888813", "dunildo.fernandes@RDtelecom.com", "1150-008", "Cliente", false, "Lisboa", new DateTime(2020, 11, 02), 0, 11);
-            GaranteUtilizadores(bd, "Beatriz Testa", "249546264", new DateTime(2000, 01, 01), "Beco da Bempostinha", "933336110", "beatriz.testa@RDtelecom.com", "1150-006", "Cliente", false, "Lisboa", new DateTime(2020, 10, 10), 0, 11);
-            GaranteUtilizadores(bd, "Pedro Farina", "235700576", new DateTime(2000, 09, 29), "Rua dos Anjos", "969999789", "pedro.farina@RDtelecom.com", "1169-004", "Cliente", false, "Lisboa", new DateTime(2020, 10, 18), 0, 11);
-            GaranteUtilizadores(bd, "Bernardino Caputo", "280722664", new DateTime(1975, 02, 08), "Rua dos Lusíadas", "919320005", "bernardino.caputo@RDtelecom.com", "1349-006", "Cliente", false, "Lisboa", new DateTime(2021, 03, 10), 0, 11);
-            GaranteUtilizadores(bd, "Pablo Medina", "216419433", new DateTime(1955, 08, 24), "Cabeça Gorda", "935555789", "pablo.medina@RDtelecom.com", "2565-001", "Cliente", false, "Lisboa", new DateTime(2021, 02, 23), 0, 11);
-            GaranteUtilizadores(bd, "Eva Simões", "279983395", new DateTime(1969, 12, 18), "Avenida João de Belas", "930222789", "eva.simoes@RDtelecom.com", "2605-203", "Cliente", false, "Lisboa", new DateTime(2021, 01, 18), 0, 11);
+            GaranteUtilizadores(bd, "Geraldo Fraga", "283068396", new DateTime(1968, 08, 01), "Rua Brito Aranha", "924888230", "geraldo.fraga@gmail.com", "1000-007", "Cliente", false, "Lisboa", new DateTime(2020, 10, 13), 0, 11);
+            GaranteUtilizadores(bd, "Celeste Djata", "245604693", new DateTime(1969, 11, 28), "Avenida dos Defensores de Chaves", "931182456", "celeste.djata@gmail.com", "1049-004", "Cliente", false, "Lisboa", new DateTime(2020, 10, 18), 0, 11);
+            GaranteUtilizadores(bd, "Carla Costa", "216326117", new DateTime(1978, 05, 01), "Largo das Palmeiras", "931773888", "carla.costa@gmail.com", "1050-168", "Cliente", false, "Lisboa", new DateTime(2020, 10, 14), 0, 11);
+            GaranteUtilizadores(bd, "Daniele Lucas", "290364272", new DateTime(1973, 08, 06), "Avenida de Berna", "917133335", "daniele.lucas@gmail.com", "1067-001", "Cliente", false, "Lisboa", new DateTime(2020, 11, 08), 0, 11);
+            GaranteUtilizadores(bd, "Davide Ramos", "276497961", new DateTime(1986, 10, 30), "Vila Celeste Rua Garcia", "961999620", "davide.ramos@gmail.com", "1070-136", "Cliente", false, "Lisboa", new DateTime(2020, 12, 18), 0, 11);
+            GaranteUtilizadores(bd, "Diana Leite", "214102351", new DateTime(1999, 07, 01), "Beco Benformoso", "967422226", "diana.leite@gmail.com", "1100-008", "Cliente", false, "Lisboa", new DateTime(2020, 11, 09), 0, 11);
+            GaranteUtilizadores(bd, "Dunildo Fernandes", "252014456", new DateTime(1988, 07, 01), "Largo Cabeço da Bola", "937888813", "dunildo.fernandes@gmail.com", "1150-008", "Cliente", false, "Lisboa", new DateTime(2020, 11, 02), 0, 11);
+            GaranteUtilizadores(bd, "Beatriz Testa", "249546264", new DateTime(2000, 01, 01), "Beco da Bempostinha", "933336110", "beatriz.testa@gmail.com", "1150-006", "Cliente", false, "Lisboa", new DateTime(2020, 10, 10), 0, 11);
+            GaranteUtilizadores(bd, "Pedro Farina", "235700576", new DateTime(2000, 09, 29), "Rua dos Anjos", "969999789", "pedro.farina@gmail.com", "1169-004", "Cliente", false, "Lisboa", new DateTime(2020, 10, 18), 0, 11);
+            GaranteUtilizadores(bd, "Bernardino Caputo", "280722664", new DateTime(1975, 02, 08), "Rua dos Lusíadas", "919320005", "bernardino.caputo@gmail.com", "1349-006", "Cliente", false, "Lisboa", new DateTime(2021, 03, 10), 0, 11);
+            GaranteUtilizadores(bd, "Pablo Medina", "216419433", new DateTime(1955, 08, 24), "Cabeça Gorda", "935555789", "pablo.medina@gmail.com", "2565-001", "Cliente", false, "Lisboa", new DateTime(2021, 02, 23), 0, 11);
+            GaranteUtilizadores(bd, "Eva Simões", "279983395", new DateTime(1969, 12, 18), "Avenida João de Belas", "930222789", "eva.simoes@gmail.com", "2605-203", "Cliente", false, "Lisboa", new DateTime(2021, 01, 18), 0, 11);
 
             //    //-------------------------- 12 PORTALEGRE-----------------
-            GaranteUtilizadores(bd, "Paula Neves", "273840240", new DateTime(1987, 05, 01), "Torre Cimeira", "969693331", "paula.neves@RDtelecom.com", "6040-003", "Cliente", false, "Portalegre", new DateTime(2020, 09, 27), 0, 12);
-            GaranteUtilizadores(bd, "Filipe Pinto", "276500202", new DateTime(1988, 10, 21), "Rua do Poço", "936772214", "filipe.pinto@RDtelecom.com", "6050-106", "Cliente", false, "Portalegre", new DateTime(2020, 10, 29), 0, 12);
-            GaranteUtilizadores(bd, "Ryan Vieira", "138948780", new DateTime(1968, 07, 13), "Ribeiro do Buraco", "921322224", "ryan.vieira@RDtelecom.com", "7300-351", "Cliente", false, "Portalegre", new DateTime(2020, 10, 07), 0, 12);
-            GaranteUtilizadores(bd, "Rodrigo Amarelo", "166386367", new DateTime(1970, 06, 28), "Cubos", "928742214", "rodrigo.amarelo@RDtelecom.com", "7300-316", "Cliente", false, "Portalegre", new DateTime(2020, 12, 06), 0, 12);
-            GaranteUtilizadores(bd, "Rita Abrantes", "150944810", new DateTime(1984, 10, 07), "Praça do Município", "960000123", "rita.abrantes@RDtelecom.com", "7301-855", "Cliente", false, "Portalegre", new DateTime(2020, 11, 20), 0, 12);
-            GaranteUtilizadores(bd, "Luís Rico", "109665619", new DateTime(1982, 07, 18), "Travessa da Rua do Comércio", "911288898", "luis.rico@RDtelecom.com", "7301-857", "Cliente", false, "Portalegre", new DateTime(2020, 10, 25), 0, 12);
-            GaranteUtilizadores(bd, "Helder Conceição", "157260070", new DateTime(1973, 07, 01), "Rua das Encruzilhadas", "936236545", "helder.conceicao@RDtelecom.com", "7320-123", "Cliente", false, "Portalegre", new DateTime(2020, 10, 19), 0, 12);
-            GaranteUtilizadores(bd, "Mariza Falcão", "186849087", new DateTime(2000, 01, 01), "Portas do Sol", "968555523", "mariza.falcao@RDtelecom.com", "7350-002", "Cliente", false, "Portalegre", new DateTime(2020, 11, 13), 0, 12);
-            GaranteUtilizadores(bd, "Lúcio Junior", "122934156", new DateTime(1980, 09, 16), "Rua da Guarda", "961425888", "lucio.junior@RDtelecom.com", "7350-002", "Cliente", false, "Portalegre", new DateTime(2021, 02, 28), 0, 12);
-            GaranteUtilizadores(bd, "Tiago Silva", "157929582", new DateTime(1975, 02, 24), "Rua do Escorregadio", "916999985", "tiago.silva@RDtelecom.com", "7350-002", "Cliente", false, "Portalegre", new DateTime(2021, 01, 20), 0, 12);
-            GaranteUtilizadores(bd, "Ana Godinho", "194493148", new DateTime(1968, 12, 19), "Rua do Emigrante", "923611182", "ana.godinho@RDtelecom.com", "7370-001", "Cliente", false, "Portalegre", new DateTime(2021, 02, 22), 0, 12);
-            GaranteUtilizadores(bd, "Filipa Oliveira", "123458366", new DateTime(1956, 12, 05), "Rua Marciano Cipriano", "923654111", "filipa.oliveira@RDtelecom.com", "7370-002", "Cliente", false, "Portalegre", new DateTime(2021, 01, 13), 0, 12);
+            GaranteUtilizadores(bd, "Paula Neves", "273840240", new DateTime(1987, 05, 01), "Torre Cimeira", "969693331", "paula.neves@gmail.com", "6040-003", "Cliente", false, "Portalegre", new DateTime(2020, 09, 27), 0, 12);
+            GaranteUtilizadores(bd, "Filipe Pinto", "276500202", new DateTime(1988, 10, 21), "Rua do Poço", "936772214", "filipe.pinto@gmail.com", "6050-106", "Cliente", false, "Portalegre", new DateTime(2020, 10, 29), 0, 12);
+            GaranteUtilizadores(bd, "Ryan Vieira", "138948780", new DateTime(1968, 07, 13), "Ribeiro do Buraco", "921322224", "ryan.vieira@gmail.com", "7300-351", "Cliente", false, "Portalegre", new DateTime(2020, 10, 07), 0, 12);
+            GaranteUtilizadores(bd, "Rodrigo Amarelo", "166386367", new DateTime(1970, 06, 28), "Cubos", "928742214", "rodrigo.amarelo@gmail.com", "7300-316", "Cliente", false, "Portalegre", new DateTime(2020, 12, 06), 0, 12);
+            GaranteUtilizadores(bd, "Rita Abrantes", "150944810", new DateTime(1984, 10, 07), "Praça do Município", "960000123", "rita.abrantes@gmail.com", "7301-855", "Cliente", false, "Portalegre", new DateTime(2020, 11, 20), 0, 12);
+            GaranteUtilizadores(bd, "Luís Rico", "109665619", new DateTime(1982, 07, 18), "Travessa da Rua do Comércio", "911288898", "luis.rico@gmail.com", "7301-857", "Cliente", false, "Portalegre", new DateTime(2020, 10, 25), 0, 12);
+            GaranteUtilizadores(bd, "Helder Conceição", "157260070", new DateTime(1973, 07, 01), "Rua das Encruzilhadas", "936236545", "helder.conceicao@gmail.com", "7320-123", "Cliente", false, "Portalegre", new DateTime(2020, 10, 19), 0, 12);
+            GaranteUtilizadores(bd, "Mariza Falcão", "186849087", new DateTime(2000, 01, 01), "Portas do Sol", "968555523", "mariza.falcao@gmail.com", "7350-002", "Cliente", false, "Portalegre", new DateTime(2020, 11, 13), 0, 12);
+            GaranteUtilizadores(bd, "Lúcio Junior", "122934156", new DateTime(1980, 09, 16), "Rua da Guarda", "961425888", "lucio.junior@gmail.com", "7350-002", "Cliente", false, "Portalegre", new DateTime(2021, 02, 28), 0, 12);
+            GaranteUtilizadores(bd, "Tiago Silva", "157929582", new DateTime(1975, 02, 24), "Rua do Escorregadio", "916999985", "tiago.silva@gmail.com", "7350-002", "Cliente", false, "Portalegre", new DateTime(2021, 01, 20), 0, 12);
+            GaranteUtilizadores(bd, "Ana Godinho", "194493148", new DateTime(1968, 12, 19), "Rua do Emigrante", "923611182", "ana.godinho@gmail.com", "7370-001", "Cliente", false, "Portalegre", new DateTime(2021, 02, 22), 0, 12);
+            GaranteUtilizadores(bd, "Filipa Oliveira", "123458366", new DateTime(1956, 12, 05), "Rua Marciano Cipriano", "923654111", "filipa.oliveira@gmail.com", "7370-002", "Cliente", false, "Portalegre", new DateTime(2021, 01, 13), 0, 12);
              
                //-------------------------- 13 PORTO-----------------
-            GaranteUtilizadores(bd, "Patrícia Amaral", "146136560", new DateTime(1986, 03, 01), "Largo Escultor José Moreira da Silva", "969994000", "patricia.amaral@RDtelecom.com", "4000-312", "Cliente", false, "Porto", new DateTime(2020, 08, 05), 0, 13);
-            GaranteUtilizadores(bd, "João Santos", "134833236", new DateTime(1988, 11, 14), "Rua Latino Coelho Pares", "933777655", "joao.santos@RDtelecom.com", "4000-314", "Cliente", false, "Porto", new DateTime(2021, 01, 05), 0, 13);
-            GaranteUtilizadores(bd, "João Ferreira", "118889990", new DateTime(1963, 03, 01), "Rua de Moreira Ímpares", "923005564", "joao.ferreira@RDtelecom.com", "4000-346", "Cliente", false, "Porto", new DateTime(2020, 10, 11), 0, 13);
-            GaranteUtilizadores(bd, "Tânia Pereira", "222915277", new DateTime(1967, 06, 03), "Rua do Alto da Fontinha", "962221008", "tania.pereira@RDtelecom.com", "4000-007", "Cliente", false, "Porto", new DateTime(2020, 08, 12), 0, 13);
-            GaranteUtilizadores(bd, "Rute Pequena", "207335281", new DateTime(1975, 02, 30), "Rua Júlio Dinis Fast-Food Mister Pick Wick", "929994197", "rute.pequena@RDtelecom.com", "4050-001", "Cliente", false, "Porto", new DateTime(2020, 10, 17), 0, 13);
-            GaranteUtilizadores(bd, "Paulo Jorge", "272817996", new DateTime(1998, 07, 11), "Rua Júlio Dinis", "923222203", "paulo.jorge@RDtelecom.com", "4050-322", "Cliente", false, "Porto", new DateTime(2020, 08, 18), 0, 13);
-            GaranteUtilizadores(bd, "Helder Reis", "233644253", new DateTime(1999, 07, 01), "Travessa Marracuene", "923658890", "helder.reis@RDtelecom.com", "4050-357", "Cliente", false, "Porto", new DateTime(2020, 08, 26), 0, 13);
-            GaranteUtilizadores(bd, "Lucas Castilho", "280748604", new DateTime(1974, 01, 01), "Rua Guerra Junqueiro", "938882365", "tome.fernandes@RDtelecom.com", "4169-009", "Cliente", false, "Porto", new DateTime(2020, 08, 27), 0, 13);
-            GaranteUtilizadores(bd, "Tomé Fernades", "241553741", new DateTime(1985, 06, 11), "Rua do Campo Alegre", "927888608", "tome.fernandes@RDtelecom.com", "4169-007", "Cliente", false, "Porto", new DateTime(2020, 08, 25), 0, 13);
-            GaranteUtilizadores(bd, "Paula Andrade", "273948180", new DateTime(1962, 02, 08), "Rua Gonçalo Sampaio", "925332261", "paula.andrade@RDtelecom.com", "4169-001", "Cliente", false, "Porto", new DateTime(2020, 11, 10), 0, 13);
-            GaranteUtilizadores(bd, "Jacinto Dias", "200013980", new DateTime(1957, 03, 24), "Rua do Campo Alegre", "968022020", "jacinto.dias@RDtelecom.com", "4169 - 007", "Cliente", false, "Porto", new DateTime(2020, 10, 05), 0, 13);
-            GaranteUtilizadores(bd, "Amélia Paz", "256250090", new DateTime(1956, 08, 05), "Rua Professora Lucília Fernandes Canidelo", "932336459", "amelia.paz@RDtelecom.com", "4400-651", "Cliente", false, "Porto", new DateTime(2020, 12, 05), 0, 13);
+            GaranteUtilizadores(bd, "Patrícia Amaral", "146136560", new DateTime(1986, 03, 01), "Largo Escultor José Moreira da Silva", "969994000", "patricia.amaral@gmail.com", "4000-312", "Cliente", false, "Porto", new DateTime(2020, 08, 05), 0, 13);
+            GaranteUtilizadores(bd, "João Santos", "134833236", new DateTime(1988, 11, 14), "Rua Latino Coelho Pares", "933777655", "joao.santos@gmail.com", "4000-314", "Cliente", false, "Porto", new DateTime(2021, 01, 05), 0, 13);
+            GaranteUtilizadores(bd, "João Ferreira", "118889990", new DateTime(1963, 03, 01), "Rua de Moreira Ímpares", "923005564", "joao.ferreira@gmail.com", "4000-346", "Cliente", false, "Porto", new DateTime(2020, 10, 11), 0, 13);
+            GaranteUtilizadores(bd, "Tânia Pereira", "222915277", new DateTime(1967, 06, 03), "Rua do Alto da Fontinha", "962221008", "tania.pereira@gmail.com", "4000-007", "Cliente", false, "Porto", new DateTime(2020, 08, 12), 0, 13);
+            GaranteUtilizadores(bd, "Rute Pequena", "207335281", new DateTime(1975, 02, 30), "Rua Júlio Dinis Fast-Food Mister Pick Wick", "929994197", "rute.pequena@gmail.com", "4050-001", "Cliente", false, "Porto", new DateTime(2020, 10, 17), 0, 13);
+            GaranteUtilizadores(bd, "Paulo Jorge", "272817996", new DateTime(1998, 07, 11), "Rua Júlio Dinis", "923222203", "paulo.jorge@gmail.com", "4050-322", "Cliente", false, "Porto", new DateTime(2020, 08, 18), 0, 13);
+            GaranteUtilizadores(bd, "Helder Reis", "233644253", new DateTime(1999, 07, 01), "Travessa Marracuene", "923658890", "helder.reis@gmail.com", "4050-357", "Cliente", false, "Porto", new DateTime(2020, 08, 26), 0, 13);
+            GaranteUtilizadores(bd, "Lucas Castilho", "280748604", new DateTime(1974, 01, 01), "Rua Guerra Junqueiro", "938882365", "tome.fernandes@gmail.com", "4169-009", "Cliente", false, "Porto", new DateTime(2020, 08, 27), 0, 13);
+            GaranteUtilizadores(bd, "Tomé Fernades", "241553741", new DateTime(1985, 06, 11), "Rua do Campo Alegre", "927888608", "tome.fernandes@gmail.com", "4169-007", "Cliente", false, "Porto", new DateTime(2020, 08, 25), 0, 13);
+            GaranteUtilizadores(bd, "Paula Andrade", "273948180", new DateTime(1962, 02, 08), "Rua Gonçalo Sampaio", "925332261", "paula.andrade@gmail.com", "4169-001", "Cliente", false, "Porto", new DateTime(2020, 11, 10), 0, 13);
+            GaranteUtilizadores(bd, "Jacinto Dias", "200013980", new DateTime(1957, 03, 24), "Rua do Campo Alegre", "968022020", "jacinto.dias@gmail.com", "4169 - 007", "Cliente", false, "Porto", new DateTime(2020, 10, 05), 0, 13);
+            GaranteUtilizadores(bd, "Amélia Paz", "256250090", new DateTime(1956, 08, 05), "Rua Professora Lucília Fernandes Canidelo", "932336459", "amelia.paz@gmail.com", "4400-651", "Cliente", false, "Porto", new DateTime(2020, 12, 05), 0, 13);
 
             //    //-------------------------- 14 SANTAREM-----------------
-            GaranteUtilizadores(bd, "Patrícia Gomes", "233931945", new DateTime(2000, 07, 01), "Casal dos Florindos", "917899925", "patricia.gomes@RDtelecom.com", "2000-320", "Cliente", false, "Santarém", new DateTime(2020, 08, 05), 0, 14);
-            GaranteUtilizadores(bd, "Marlene Santos", "225618184", new DateTime(1987, 11, 21), "Casal da Igreja", "969951542", "marlene.satos@RDtelecom.com", "2000-336", "Cliente", false, "Santarém", new DateTime(2020, 08, 19), 0, 14);
-            GaranteUtilizadores(bd, "João Ferreira", "254315321", new DateTime(1978, 07, 01), "Dona Belida", "932007548", "joao.ferreira@RDtelecom.com", "2000-342", "Cliente", false, "Santarém", new DateTime(2021, 01, 17), 0, 14);
-            GaranteUtilizadores(bd, "Pedro Martins", "211155314", new DateTime(1969, 06, 06), "Avenida Bernardo Santareno", "963215699", "pedro.martins@RDtelecom.com", "2009-004", "Cliente", false, "Santarém", new DateTime(2021, 01, 05), 0, 14);
-            GaranteUtilizadores(bd, "Joana Lima", "226866920", new DateTime(1979, 10, 30), "Largo do Infante Santo", "923324100" ,"joana.lima@RDtelecom.com", "2009-002", "Cliente", false, "Santarém", new DateTime(2021, 01, 05), 0, 14);
-            GaranteUtilizadores(bd, "Patrícia Gomes", "270227300", new DateTime(1999, 04, 01), "Estrada Nacional 10", "925955574", "patricia.gomes@RDtelecom.com", "2139-503", "Cliente", false, "Santarém", new DateTime(2020, 12, 28), 0, 14);
-            GaranteUtilizadores(bd, "Irís Copeto", "294199098", new DateTime(1999, 09, 05), "Agolada", "965574088", "iris.copeto@RDtelecom.com", "2100-001", "Cliente", false, "Santarém", new DateTime(2020, 11, 12), 0, 14);
-            GaranteUtilizadores(bd, "Filipe Pais", "284740624", new DateTime(1987, 01, 01), "Varejola", "924898710", "filipe.pais@RDtelecom.com", "2100-377", "Cliente", false, "Santarém", new DateTime(2020, 12, 12), 0, 14);
-            GaranteUtilizadores(bd, "Amadeu Lourenço", "247047813", new DateTime(1965, 08, 17), "Louriceira", "920250005", "amadeu.lourenço@RDtelecom.com", "6120-116", "Cliente", false, "Santarém", new DateTime(2020, 11, 05), 0, 14);
-            GaranteUtilizadores(bd, "Amílcar Oliveira", "203980433", new DateTime(1974, 02, 10), "Estrada Nacional 10", "967369511", "amilcar.oliveira@RDtelecom.com", "2139-503", "Cliente", false, "Santarém", new DateTime(2020, 10, 05), 0, 14);
-            GaranteUtilizadores(bd, "Luísa Guerra", "235929190", new DateTime(1955, 08, 05), "Casal de Além", "922587776", "luisa.guerra@RDtelecom.com", "2025-150", "Cliente", false, "Santarém", new DateTime(2020, 08, 05), 0, 14);
-            GaranteUtilizadores(bd, "Afonso Freira", "211773441", new DateTime(1957, 07, 05), "Pisão", "931478521", "afonso.freira@RDtelecom.com", "2230-009", "Cliente", false, "Santarém", new DateTime(2020, 08, 05), 0, 14);
+            GaranteUtilizadores(bd, "Patrícia Gomes", "233931945", new DateTime(2000, 07, 01), "Casal dos Florindos", "917899925", "patricia.gomes@gmail.com", "2000-320", "Cliente", false, "Santarém", new DateTime(2020, 08, 05), 0, 14);
+            GaranteUtilizadores(bd, "Marlene Santos", "225618184", new DateTime(1987, 11, 21), "Casal da Igreja", "969951542", "marlene.satos@gmail.com", "2000-336", "Cliente", false, "Santarém", new DateTime(2020, 08, 19), 0, 14);
+            GaranteUtilizadores(bd, "João Ferreira", "254315321", new DateTime(1978, 07, 01), "Dona Belida", "932007548", "joao.ferreira@gmail.com", "2000-342", "Cliente", false, "Santarém", new DateTime(2021, 01, 17), 0, 14);
+            GaranteUtilizadores(bd, "Pedro Martins", "211155314", new DateTime(1969, 06, 06), "Avenida Bernardo Santareno", "963215699", "pedro.martins@gmail.com", "2009-004", "Cliente", false, "Santarém", new DateTime(2021, 01, 05), 0, 14);
+            GaranteUtilizadores(bd, "Joana Lima", "226866920", new DateTime(1979, 10, 30), "Largo do Infante Santo", "923324100" , "joana.lima@gmail.com", "2009-002", "Cliente", false, "Santarém", new DateTime(2021, 01, 05), 0, 14);
+            GaranteUtilizadores(bd, "Patrícia Gomes", "270227300", new DateTime(1999, 04, 01), "Estrada Nacional 10", "925955574", "patricia.gomes@gmail.com", "2139-503", "Cliente", false, "Santarém", new DateTime(2020, 12, 28), 0, 14);
+            GaranteUtilizadores(bd, "Irís Copeto", "294199098", new DateTime(1999, 09, 05), "Agolada", "965574088", "iris.copeto@gmail.com", "2100-001", "Cliente", false, "Santarém", new DateTime(2020, 11, 12), 0, 14);
+            GaranteUtilizadores(bd, "Filipe Pais", "284740624", new DateTime(1987, 01, 01), "Varejola", "924898710", "filipe.pais@gmail.com", "2100-377", "Cliente", false, "Santarém", new DateTime(2020, 12, 12), 0, 14);
+            GaranteUtilizadores(bd, "Amadeu Lourenço", "247047813", new DateTime(1965, 08, 17), "Louriceira", "920250005", "amadeu.lourenço@gmail.com", "6120-116", "Cliente", false, "Santarém", new DateTime(2020, 11, 05), 0, 14);
+            GaranteUtilizadores(bd, "Amílcar Oliveira", "203980433", new DateTime(1974, 02, 10), "Estrada Nacional 10", "967369511", "amilcar.oliveira@gmail.com", "2139-503", "Cliente", false, "Santarém", new DateTime(2020, 10, 05), 0, 14);
+            GaranteUtilizadores(bd, "Luísa Guerra", "235929190", new DateTime(1955, 08, 05), "Casal de Além", "922587776", "luisa.guerra@gmail.com", "2025-150", "Cliente", false, "Santarém", new DateTime(2020, 08, 05), 0, 14);
+            GaranteUtilizadores(bd, "Afonso Freira", "211773441", new DateTime(1957, 07, 05), "Pisão", "931478521", "afonso.freira@gmail.com", "2230-009", "Cliente", false, "Santarém", new DateTime(2020, 08, 05), 0, 14);
 
             //    //-------------------------- 15 SETUBAL-----------------
-            GaranteUtilizadores(bd, "Patrícia Varandas", "280863500", new DateTime(1986, 07, 01), "Praceta Bernardim Ribeiro", "914886951", "patricia.varandas@RDtelecom.com", "2800-002", "Cliente", false, "Setúbal", new DateTime(2020, 08, 05), 0, 15);
-            GaranteUtilizadores(bd, "Miguel Santos", "221444394", new DateTime(1988, 05, 21), "Praça Doutora Adelaide Coutinho", "960007878", "miguel.santos@RDtelecom.com", "2800-002", "Cliente", false, "Setúbal", new DateTime(2020, 08, 05), 0, 15);
-            GaranteUtilizadores(bd, "João Ferreira", "297310860", new DateTime(1978, 06, 01), "Rua Bulhão Pato", "926555826", "joao.ferreira@RDtelecom.com", "2800-003", "Cliente", false, "Setúbal", new DateTime(2020, 08, 05), 0, 15);
-            GaranteUtilizadores(bd, "Tânia Sousa", "104715111", new DateTime(1970, 06, 08), "Rua Capitão Leitão Ímpares", "965813310", "tania-sousa@RDtelecom.com", "2800-137", "Cliente", false, "Setúbal", new DateTime(2020, 11, 05), 0, 15);
-            GaranteUtilizadores(bd, "Rute Martins", "173067735", new DateTime(1968, 10, 30), "Pátio Albers", "926125822", "rute.martins@RDtelecom.com", "2830-320", "Cliente", false, "Setúbal", new DateTime(2020, 12, 11), 0, 15);
-            GaranteUtilizadores(bd, "Bernardo Pinto", "108452255", new DateTime(2000, 08, 01), "Travessa do Alto José Ferreira", "960001489", "bernardo.pinto@RDtelecom.com", "2830-381", "Cliente", false, "Setúbal", new DateTime(2020, 08, 19), 0, 15); ;
-            GaranteUtilizadores(bd, "Paula Neves", "176706160", new DateTime(1999, 11, 01), "Rua da Bandeira", "966788952", "paula.neves@RDtelecom.com", "2830-330", "Cliente", false, "Setúbal", new DateTime(2020, 08, 20), 0, 15);
-            GaranteUtilizadores(bd, "Miriam Palito", "367127822", new DateTime(2001, 01, 01), "Rua Professor Egas Moniz", "914852224", "miriam.palito@RDtelecom.com", "2830-357", "Cliente", false, "Setúbal", new DateTime(2021, 02, 27), 0, 15);
-            GaranteUtilizadores(bd, "Vanessa Albino", "301702780", new DateTime(1988, 09, 11), "Rua Fernando de Sousa", "923012374", "vanessa.albino@RDtelecom.com", "2844-001", "Cliente", false, "Setúbal", new DateTime(2020, 12, 30), 0, 15);
-            GaranteUtilizadores(bd, "Rosa Amarelo", "349842078", new DateTime(1975, 02, 11), "2890-200", "920777758", "rosa.amarelo@RDtelecom.com", "2890-200", "Cliente", false, "Setúbal", new DateTime(2020, 11, 05), 0, 02);
-            GaranteUtilizadores(bd, "Vanessa Rodrigues", "346354463", new DateTime(1955, 07, 28), "Estrada Nacional 5", "968520050", "vanessa.roduigues@RDtelecom.com", "2959-501", "Cliente", false, "Setúbal", new DateTime(2020, 09, 10), 0, 15);
-            GaranteUtilizadores(bd, "Afonso Pereira", "340319747", new DateTime(1956, 12, 30), "Monte das Parchanas", "968531999", "afonso.pereira@RDtelecom.com", "7595-002", "Cliente", false, "Setúbal", new DateTime(2020, 10, 28), 0, 15);
+            GaranteUtilizadores(bd, "Patrícia Varandas", "280863500", new DateTime(1986, 07, 01), "Praceta Bernardim Ribeiro", "914886951", "patricia.varandas@gmail.com", "2800-002", "Cliente", false, "Setúbal", new DateTime(2020, 08, 05), 0, 15);
+            GaranteUtilizadores(bd, "Miguel Santos", "221444394", new DateTime(1988, 05, 21), "Praça Doutora Adelaide Coutinho", "960007878", "miguel.santos@gmail.com", "2800-002", "Cliente", false, "Setúbal", new DateTime(2020, 08, 05), 0, 15);
+            GaranteUtilizadores(bd, "João Ferreira", "297310860", new DateTime(1978, 06, 01), "Rua Bulhão Pato", "926555826", "joao.ferreira@gmail.com", "2800-003", "Cliente", false, "Setúbal", new DateTime(2020, 08, 05), 0, 15);
+            GaranteUtilizadores(bd, "Tânia Sousa", "104715111", new DateTime(1970, 06, 08), "Rua Capitão Leitão Ímpares", "965813310", "tania-sousa@gmail.com", "2800-137", "Cliente", false, "Setúbal", new DateTime(2020, 11, 05), 0, 15);
+            GaranteUtilizadores(bd, "Rute Martins", "173067735", new DateTime(1968, 10, 30), "Pátio Albers", "926125822", "rute.martins@gmail.com", "2830-320", "Cliente", false, "Setúbal", new DateTime(2020, 12, 11), 0, 15);
+            GaranteUtilizadores(bd, "Bernardo Pinto", "108452255", new DateTime(2000, 08, 01), "Travessa do Alto José Ferreira", "960001489", "bernardo.pinto@gmail.com", "2830-381", "Cliente", false, "Setúbal", new DateTime(2020, 08, 19), 0, 15); ;
+            GaranteUtilizadores(bd, "Paula Neves", "176706160", new DateTime(1999, 11, 01), "Rua da Bandeira", "966788952", "paula.neves@gmail.com", "2830-330", "Cliente", false, "Setúbal", new DateTime(2020, 08, 20), 0, 15);
+            GaranteUtilizadores(bd, "Miriam Palito", "367127822", new DateTime(2001, 01, 01), "Rua Professor Egas Moniz", "914852224", "miriam.palito@gmail.com", "2830-357", "Cliente", false, "Setúbal", new DateTime(2021, 02, 27), 0, 15);
+            GaranteUtilizadores(bd, "Vanessa Albino", "301702780", new DateTime(1988, 09, 11), "Rua Fernando de Sousa", "923012374", "vanessa.albino@gmail.com", "2844-001", "Cliente", false, "Setúbal", new DateTime(2020, 12, 30), 0, 15);
+            GaranteUtilizadores(bd, "Rosa Amarelo", "349842078", new DateTime(1975, 02, 11), "2890-200", "920777758", "rosa.amarelo@gmail.com", "2890-200", "Cliente", false, "Setúbal", new DateTime(2020, 11, 05), 0, 02);
+            GaranteUtilizadores(bd, "Vanessa Rodrigues", "346354463", new DateTime(1955, 07, 28), "Estrada Nacional 5", "968520050", "vanessa.roduigues@gmail.com", "2959-501", "Cliente", false, "Setúbal", new DateTime(2020, 09, 10), 0, 15);
+            GaranteUtilizadores(bd, "Afonso Pereira", "340319747", new DateTime(1956, 12, 30), "Monte das Parchanas", "968531999", "afonso.pereira@gmail.com", "7595-002", "Cliente", false, "Setúbal", new DateTime(2020, 10, 28), 0, 15);
 
             //    //-------------------------- 16 VIANA DO CASTELO-----------------
-            GaranteUtilizadores(bd, "Pedro Gomes", "874024455", new DateTime(1995, 07, 11), "Largo da Oliveira", "918777654", "pedro.gomes@RDtelecom.com", "4900-003", "Cliente", false, "Viana do Castelo", new DateTime(2020, 08, 05), 0, 16);
-            GaranteUtilizadores(bd, "Marlene Pereira", "884995283", new DateTime(1988, 11, 21), "Estrada de Santo António", "965896690", "marlene.pereira@RDtelecom.com", "4900-006", "Cliente", false, "Viana do Castelo", new DateTime(2020, 10, 05), 0, 16);
-            GaranteUtilizadores(bd, "João Ferreira", "863523650", new DateTime(1977, 07, 01), "Largo do Pião", "963555337", "joao.ferreira@RDtelecom.com", "4900-102", "Cliente", false, "Viana do Castelo", new DateTime(2020, 11, 05), 0, 16);
-            GaranteUtilizadores(bd, "Tânia Sousa", "896105300", new DateTime(1969, 06, 06), "Rua Paula Ferreira", "967520333", "tania-sousa@RDtelecom.com", "4900-862", "Cliente", false, "Viana do Castelo", new DateTime(2020, 09, 05), 0, 16);
-            GaranteUtilizadores(bd, "Rute Martins", "836156277", new DateTime(1979, 10, 30), "Rua de São Pedro de Areosa", "923552252", "rute.martins@RDtelecom.com", "4900-902", "Cliente", false, "Viana do Castelo", new DateTime(2021, 01, 05), 0, 16);
-            GaranteUtilizadores(bd, "Luís Bernardo", "856393940", new DateTime(2000, 07, 16), "Travessa dos Sobreiros", "934777723", "luis.bernardo@RDtelecom.com", "4900-914", "Cliente", false, "Viana do Castelo", new DateTime(2021, 02, 05), 0, 16);
-            GaranteUtilizadores(bd, "Helder Vicente", "814819974", new DateTime(1999, 07, 17), "Rua de Monserrate", "966555112", "helder.vicente@RDtelecom.com", "4904 - 859", "Cliente", false, "Viana do Castelo", new DateTime(2020, 11, 17), 0, 16);
-            GaranteUtilizadores(bd, "António Santos", "892848677", new DateTime(2001, 05, 01), "Rua Pedro Homem de Melo", "963322259", "antonio.santos@RDtelecom.com", "4904-861", "Cliente", false, "Viana do Castelo", new DateTime(2020, 09, 28), 0, 16);
-            GaranteUtilizadores(bd, "Célia Pimento", "803570180", new DateTime(1980, 09, 11), "Rua Santiago da Barra", "923696007", "celia.pimento@RDtelecom.com", "4904-882", "Cliente", false, "Viana do Castelo", new DateTime(2020, 08, 30), 0, 16);
-            GaranteUtilizadores(bd, "Paulo Feliz", "828853312", new DateTime(1975, 02, 08), "Estrada de Santa Luzia", "911111033", "paulo.feliz@RDtelecom.com", "4904-858", "Cliente", false, "Viana do Castelo", new DateTime(2020, 10, 14), 0, 16);
-            GaranteUtilizadores(bd, "Joaquim Guerra", "823701514", new DateTime(1959, 08, 24), "Avenida Capitão Gaspar de Castro", "965333311", "joaquim.guerra@RDtelecom.com", "4904-873", "Cliente", false, "Viana do Castelo", new DateTime(2020, 12, 17), 0, 16);
-            GaranteUtilizadores(bd, "Afonso Freira", "870545140", new DateTime(1956, 07, 26), "Monterrão", "932654877", "afonso.freira@RDtelecom.com", "4940-003", "Cliente", false, "Viana do Castelo", new DateTime(2020, 10, 13), 0, 16);
+            GaranteUtilizadores(bd, "Pedro Gomes", "874024455", new DateTime(1995, 07, 11), "Largo da Oliveira", "918777654", "pedro.gomes@gmail.com", "4900-003", "Cliente", false, "Viana do Castelo", new DateTime(2020, 08, 05), 0, 16);
+            GaranteUtilizadores(bd, "Marlene Pereira", "884995283", new DateTime(1988, 11, 21), "Estrada de Santo António", "965896690", "marlene.pereira@gmail.com", "4900-006", "Cliente", false, "Viana do Castelo", new DateTime(2020, 10, 05), 0, 16);
+            GaranteUtilizadores(bd, "João Ferreira", "863523650", new DateTime(1977, 07, 01), "Largo do Pião", "963555337", "joao.ferreira@gmail.com", "4900-102", "Cliente", false, "Viana do Castelo", new DateTime(2020, 11, 05), 0, 16);
+            GaranteUtilizadores(bd, "Tânia Sousa", "896105300", new DateTime(1969, 06, 06), "Rua Paula Ferreira", "967520333", "tania-sousa@gmail.com", "4900-862", "Cliente", false, "Viana do Castelo", new DateTime(2020, 09, 05), 0, 16);
+            GaranteUtilizadores(bd, "Rute Martins", "836156277", new DateTime(1979, 10, 30), "Rua de São Pedro de Areosa", "923552252", "rute.martins@gmail.com", "4900-902", "Cliente", false, "Viana do Castelo", new DateTime(2021, 01, 05), 0, 16);
+            GaranteUtilizadores(bd, "Luís Bernardo", "856393940", new DateTime(2000, 07, 16), "Travessa dos Sobreiros", "934777723", "luis.bernardo@gmail.com", "4900-914", "Cliente", false, "Viana do Castelo", new DateTime(2021, 02, 05), 0, 16);
+            GaranteUtilizadores(bd, "Helder Vicente", "814819974", new DateTime(1999, 07, 17), "Rua de Monserrate", "966555112", "helder.vicente@gmail.com", "4904 - 859", "Cliente", false, "Viana do Castelo", new DateTime(2020, 11, 17), 0, 16);
+            GaranteUtilizadores(bd, "António Santos", "892848677", new DateTime(2001, 05, 01), "Rua Pedro Homem de Melo", "963322259", "antonio.santos@gmail.com", "4904-861", "Cliente", false, "Viana do Castelo", new DateTime(2020, 09, 28), 0, 16);
+            GaranteUtilizadores(bd, "Célia Pimento", "803570180", new DateTime(1980, 09, 11), "Rua Santiago da Barra", "923696007", "celia.pimento@gmail.com", "4904-882", "Cliente", false, "Viana do Castelo", new DateTime(2020, 08, 30), 0, 16);
+            GaranteUtilizadores(bd, "Paulo Feliz", "828853312", new DateTime(1975, 02, 08), "Estrada de Santa Luzia", "911111033", "paulo.feliz@gmail.com", "4904-858", "Cliente", false, "Viana do Castelo", new DateTime(2020, 10, 14), 0, 16);
+            GaranteUtilizadores(bd, "Joaquim Guerra", "823701514", new DateTime(1959, 08, 24), "Avenida Capitão Gaspar de Castro", "965333311", "joaquim.guerra@gmail.com", "4904-873", "Cliente", false, "Viana do Castelo", new DateTime(2020, 12, 17), 0, 16);
+            GaranteUtilizadores(bd, "Afonso Freira", "870545140", new DateTime(1956, 07, 26), "Monterrão", "932654877", "afonso.freira@gmail.com", "4940-003", "Cliente", false, "Viana do Castelo", new DateTime(2020, 10, 13), 0, 16);
 
             //    //-------------------------- 17 VILA REAL-----------------
-            GaranteUtilizadores(bd, "Patrícia Avillar", "866085220", new DateTime(2001, 09, 01), "Passagem", "966999985", "patricia.avillar@RDtelecom.com", "5000-004", "Cliente", false, "Vila Real", new DateTime(2020, 08, 05), 0, 17);
-            GaranteUtilizadores(bd, "Marlene Pacheco", "867120487", new DateTime(1988, 12, 21), "Cabana", "932000120", "marlene.pacheco@RDtelecom.com", "5000-008", "Cliente", false, "Vila Real", new DateTime(2020, 10, 05), 0, 17);
-            GaranteUtilizadores(bd, "Filipe Ferreira", "838298222", new DateTime(1975, 08, 01), " Camatoga", "925889950", "filipe.ferreira@RDtelecom.com", "5040-001", "Cliente", false, "Vila Real", new DateTime(2020, 08, 27), 0, 17);
-            GaranteUtilizadores(bd, "Bruna Sousa", "833248723", new DateTime(1969, 04, 06), "Porto Rei", "920025992", "bruna.sousa@RDtelecom.com", "5040-117", "Cliente", false, "Vila Real", new DateTime(2020, 08, 28), 0, 17);
-            GaranteUtilizadores(bd, "António Martins", "811951200", new DateTime(1985, 10, 30), "Covinhas", "96777025", "antonio.martins@RDtelecom.com", "5050-103", "Cliente", false, "Vila Real", new DateTime(2020, 10, 05), 0, 17);
-            GaranteUtilizadores(bd, "Inês Silva", "816333076", new DateTime(1973, 07, 01), "Salgueiral", "927771003", "ines.silva@RDtelecom.com", "5050-007", "Cliente", false, "Vila Real", new DateTime(2020, 11, 05), 0, 17);
-            GaranteUtilizadores(bd, "Pedro Andrade", "846489538", new DateTime(2001, 07, 11), "Rua da Barreira", "925644585", "pedro.andrade@RDtelecom.com", "5070-003", "Cliente", false, "Vila Real", new DateTime(2021, 01, 05), 0, 17);
-            GaranteUtilizadores(bd, "Vanessa Monteiro", "891658122", new DateTime(1976, 01, 01), "Rua da Ponte Nova", "963233668", "vanessa.monteiro@RDtelecom.com", "5070-003", "Cliente", false, "Vila Real", new DateTime(2020, 12, 05), 0, 17);
-            GaranteUtilizadores(bd, "Manuela Fonseca", "800463919", new DateTime(1995, 09, 11), "Rua Amadeu Necho", "925626922", "manuela.fonseca@RDtelecom.com", "5070-008", "Cliente", false, "Vila Real", new DateTime(2020, 08, 19), 0, 17);
-            GaranteUtilizadores(bd, "Kelvin Antunes", "822729687", new DateTime(1987, 02, 11), "Estrada Municipal", "962002025", "kelvin.antunes@RDtelecom.com", "5070-173", "Cliente", false, "Vila Real", new DateTime(2020, 08, 27), 0, 17);
-            GaranteUtilizadores(bd, "Rita Godinho", "884984958", new DateTime(1966, 10, 24), "Porto Rei", "923690101", "rita.godinho@RDtelecom.com", "5040-117", "Cliente", false, "Vila Real", new DateTime(2020, 08, 01), 0, 17);
-            GaranteUtilizadores(bd, "Bernardo Marques", "894369750", new DateTime(1958, 09, 05), "Povoação", "938899227", "bernardo.marques@RDtelecom.com", "5040-295", "Cliente", false, "Vila Real", new DateTime(2020, 11, 05), 0, 17);
+            GaranteUtilizadores(bd, "Patrícia Avillar", "866085220", new DateTime(2001, 09, 01), "Passagem", "966999985", "patricia.avillar@gmail.com", "5000-004", "Cliente", false, "Vila Real", new DateTime(2020, 08, 05), 0, 17);
+            GaranteUtilizadores(bd, "Marlene Pacheco", "867120487", new DateTime(1988, 12, 21), "Cabana", "932000120", "marlene.pacheco@gmail.com", "5000-008", "Cliente", false, "Vila Real", new DateTime(2020, 10, 05), 0, 17);
+            GaranteUtilizadores(bd, "Filipe Ferreira", "838298222", new DateTime(1975, 08, 01), " Camatoga", "925889950", "filipe.ferreira@gmail.com", "5040-001", "Cliente", false, "Vila Real", new DateTime(2020, 08, 27), 0, 17);
+            GaranteUtilizadores(bd, "Bruna Sousa", "833248723", new DateTime(1969, 04, 06), "Porto Rei", "920025992", "bruna.sousa@gmail.com", "5040-117", "Cliente", false, "Vila Real", new DateTime(2020, 08, 28), 0, 17);
+            GaranteUtilizadores(bd, "António Martins", "811951200", new DateTime(1985, 10, 30), "Covinhas", "96777025", "antonio.martins@gmail.com", "5050-103", "Cliente", false, "Vila Real", new DateTime(2020, 10, 05), 0, 17);
+            GaranteUtilizadores(bd, "Inês Silva", "816333076", new DateTime(1973, 07, 01), "Salgueiral", "927771003", "ines.silva@gmail.com", "5050-007", "Cliente", false, "Vila Real", new DateTime(2020, 11, 05), 0, 17);
+            GaranteUtilizadores(bd, "Pedro Andrade", "846489538", new DateTime(2001, 07, 11), "Rua da Barreira", "925644585", "pedro.andrade@gmail.com", "5070-003", "Cliente", false, "Vila Real", new DateTime(2021, 01, 05), 0, 17);
+            GaranteUtilizadores(bd, "Vanessa Monteiro", "891658122", new DateTime(1976, 01, 01), "Rua da Ponte Nova", "963233668", "vanessa.monteiro@gmail.com", "5070-003", "Cliente", false, "Vila Real", new DateTime(2020, 12, 05), 0, 17);
+            GaranteUtilizadores(bd, "Manuela Fonseca", "800463919", new DateTime(1995, 09, 11), "Rua Amadeu Necho", "925626922", "manuela.fonseca@gmail.com", "5070-008", "Cliente", false, "Vila Real", new DateTime(2020, 08, 19), 0, 17);
+            GaranteUtilizadores(bd, "Kelvin Antunes", "822729687", new DateTime(1987, 02, 11), "Estrada Municipal", "962002025", "kelvin.antunes@gmail.com", "5070-173", "Cliente", false, "Vila Real", new DateTime(2020, 08, 27), 0, 17);
+            GaranteUtilizadores(bd, "Rita Godinho", "884984958", new DateTime(1966, 10, 24), "Porto Rei", "923690101", "rita.godinho@gmail.com", "5040-117", "Cliente", false, "Vila Real", new DateTime(2020, 08, 01), 0, 17);
+            GaranteUtilizadores(bd, "Bernardo Marques", "894369750", new DateTime(1958, 09, 05), "Povoação", "938899227", "bernardo.marques@gmail.com", "5040-295", "Cliente", false, "Vila Real", new DateTime(2020, 11, 05), 0, 17);
 
             //    //-------------------------- 18 VISEU-----------------
-            GaranteUtilizadores(bd, "Paula Gomes", "847487059", new DateTime(2000, 06, 11), "Beco do Areal", "965416300", "paula.gomes@RDtelecom.com", "3430-505", "Cliente", false, "Viseu", new DateTime(2021, 02, 05), 0, 18);
-            GaranteUtilizadores(bd, "Marlene Santinho", "899136206", new DateTime(1988, 07, 09), "Avenida Madre Rita Amada de Jesus", "928321888", "marlene.santinho@RDtelecom.com", "3500-179", "Cliente", false, "Viseu", new DateTime(2021, 01, 05), 0, 18);
-            GaranteUtilizadores(bd, "João Monteiro", "864420773", new DateTime(1986, 03, 01), "Rua Nova Jugueiros", "965658448", "joao.monteiro@RDtelecom.com", "3500-003", "Cliente", false, "Viseu", new DateTime(2020, 08, 05), 0, 18);
-            GaranteUtilizadores(bd, "Tânia Laranjo", "897727509", new DateTime(1969, 09, 06), "Rua Imaculado Coração de Maria", "932339632", "tania.laranjo@RDtelecom.com", "3500-236", "Cliente", false, "Viseu", new DateTime(2020, 10, 05), 0, 18);
-            GaranteUtilizadores(bd, "Anabela Moreria", "830646272", new DateTime(1964, 10, 23), "Rua 31 de Janeiro", "933332005", "anabela.moreira@RDtelecom.com", "3500-217", "Cliente", false, "Viseu", new DateTime(2020, 12, 05), 0, 18);
-            GaranteUtilizadores(bd, "Bruno Fernandes", "859511839", new DateTime(1999, 07, 24), "Rua Viscondessa de São Caetano", "910220008", "bruno.fernandes@RDtelecom.com", "3500-185", "Cliente", false, "Viseu", new DateTime(2021, 02, 12), 0, 18);
-            GaranteUtilizadores(bd, "Bruno Nogueira", "831822546", new DateTime(1999, 06, 21), "Rua do Hospital", "923333318", "bruno.nogueira@RDtelecom.com", "3500-161", "Cliente", false, "Viseu", new DateTime(2021, 01, 17), 0, 18);
-            GaranteUtilizadores(bd, "Ana Gomes", "818443383", new DateTime(2000, 01, 28), "Estrada Nacional 16", "968498749", "ana.gomes@RDtelecom.com", "3519-002", "Cliente", false, "Viseu", new DateTime(2020, 11, 28), 0, 18);
-            GaranteUtilizadores(bd, "Rita Rocha", "858391015", new DateTime(1984, 09, 11), "Cadraço", "920006552", "rita.rocha@RDtelecom.com", "3475-003", "Cliente", false, "Viseu", new DateTime(2020, 10, 25), 0, 18);
-            GaranteUtilizadores(bd, "Joana Dias", "815841531", new DateTime(1987, 02, 08), "Pedrogão", "921336668", "joana.dias@RDtelecom.com", "3475-004", "Cliente", false, "Viseu", new DateTime(2020, 12, 17), 0, 18);
-            GaranteUtilizadores(bd, "Maria Bastos", "868745251", new DateTime(1960, 07, 24), "Abóboda", "914444255", "maria.bastos@RDtelecom.com", "3475-007", "Cliente", false, "Viseu", new DateTime(2020, 11, 09), 0, 18);
-            GaranteUtilizadores(bd, "Luís Neto", "871557380", new DateTime(1979, 10, 05), "Rua Doutor Sebastião Alcantara", "937193333", "luis.neto@RDtelecom.com", "3534-002", "Cliente", false, "Viseu", new DateTime(2021, 03, 14), 0, 18);
+            GaranteUtilizadores(bd, "Paula Gomes", "847487059", new DateTime(2000, 06, 11), "Beco do Areal", "965416300", "paula.gomes@gmail.com", "3430-505", "Cliente", false, "Viseu", new DateTime(2021, 02, 05), 0, 18);
+            GaranteUtilizadores(bd, "Marlene Santinho", "899136206", new DateTime(1988, 07, 09), "Avenida Madre Rita Amada de Jesus", "928321888", "marlene.santinho@gmail.com", "3500-179", "Cliente", false, "Viseu", new DateTime(2021, 01, 05), 0, 18);
+            GaranteUtilizadores(bd, "João Monteiro", "864420773", new DateTime(1986, 03, 01), "Rua Nova Jugueiros", "965658448", "joao.monteiro@gmail.com", "3500-003", "Cliente", false, "Viseu", new DateTime(2020, 08, 05), 0, 18);
+            GaranteUtilizadores(bd, "Tânia Laranjo", "897727509", new DateTime(1969, 09, 06), "Rua Imaculado Coração de Maria", "932339632", "tania.laranjo@gmail.com", "3500-236", "Cliente", false, "Viseu", new DateTime(2020, 10, 05), 0, 18);
+            GaranteUtilizadores(bd, "Anabela Moreria", "830646272", new DateTime(1964, 10, 23), "Rua 31 de Janeiro", "933332005", "anabela.moreira@gmail.com", "3500-217", "Cliente", false, "Viseu", new DateTime(2020, 12, 05), 0, 18);
+            GaranteUtilizadores(bd, "Bruno Fernandes", "859511839", new DateTime(1999, 07, 24), "Rua Viscondessa de São Caetano", "910220008", "bruno.fernandes@gmail.com", "3500-185", "Cliente", false, "Viseu", new DateTime(2021, 02, 12), 0, 18);
+            GaranteUtilizadores(bd, "Bruno Nogueira", "831822546", new DateTime(1999, 06, 21), "Rua do Hospital", "923333318", "bruno.nogueira@gmail.com", "3500-161", "Cliente", false, "Viseu", new DateTime(2021, 01, 17), 0, 18);
+            GaranteUtilizadores(bd, "Ana Gomes", "818443383", new DateTime(2000, 01, 28), "Estrada Nacional 16", "968498749", "ana.gomes@gmail.com", "3519-002", "Cliente", false, "Viseu", new DateTime(2020, 11, 28), 0, 18);
+            GaranteUtilizadores(bd, "Rita Rocha", "858391015", new DateTime(1984, 09, 11), "Cadraço", "920006552", "rita.rocha@gmail.com", "3475-003", "Cliente", false, "Viseu", new DateTime(2020, 10, 25), 0, 18);
+            GaranteUtilizadores(bd, "Joana Dias", "815841531", new DateTime(1987, 02, 08), "Pedrogão", "921336668", "joana.dias@gmail.com", "3475-004", "Cliente", false, "Viseu", new DateTime(2020, 12, 17), 0, 18);
+            GaranteUtilizadores(bd, "Maria Bastos", "868745251", new DateTime(1960, 07, 24), "Abóboda", "914444255", "maria.bastos@gmail.com", "3475-007", "Cliente", false, "Viseu", new DateTime(2020, 11, 09), 0, 18);
+            GaranteUtilizadores(bd, "Luís Neto", "871557380", new DateTime(1979, 10, 05), "Rua Doutor Sebastião Alcantara", "937193333", "luis.neto@gmail.com", "3534-002", "Cliente", false, "Viseu", new DateTime(2021, 03, 14), 0, 18);
 
             //    //-------------------------- 19 AÇORES-----------------
-            GaranteUtilizadores(bd, "Paula Mendes", "885803973", new DateTime(2000, 06, 01), "À Fonseca ", "930001114", "paula.mendes@RDtelecom.com", "9700-302", "Cliente", false, "Açores", new DateTime(2020, 07, 01), 0, 19);
-            GaranteUtilizadores(bd, "Joana Santos", "802477259", new DateTime(1989, 11, 11), "Outeiro de São Mateus", "968880005", "joana.santos@RDtelecom.com", "9700-305", "Cliente", false, "Açores", new DateTime(2021, 01, 01), 0, 19);
-            GaranteUtilizadores(bd, "Pedro Ferreira", "807758604", new DateTime(1974, 07, 01), "Presas", "963332008", "pedro.ferreira@RDtelecom.com", "9700-308", "Cliente", false, "Açores", new DateTime(2020, 09, 01), 0, 19);
-            GaranteUtilizadores(bd, "Fernanda Sousa", "892395559", new DateTime(1969, 08, 06), "Rua Nova", "961322298", "Fernanda.sousa@RDtelecom.com", "9700-132", "Cliente", false, "Açores", new DateTime(2020, 12, 10), 0, 19);
-            GaranteUtilizadores(bd, "Rita Martins", "898142938", new DateTime(1979, 11, 30), "Praça Doutor Sousa Júnior ", "938888789", "rita.martins@RDtelecom.com", "9700-007", "Cliente", false, "Açores", new DateTime(2020, 10, 11), 0, 19);
-            GaranteUtilizadores(bd, "João Patrício", "863866247", new DateTime(2001, 07, 01), "Abaixo do Fragoso", "965811111", "joao.patricio@RDtelecom.com", "9880-101", "Cliente", false, "Açores", new DateTime(2020, 12, 28), 0, 19);
-            GaranteUtilizadores(bd, "Helder Machado", "803990936", new DateTime(1999, 07, 01), "Bairro do Carrapacho", "915235555", "Helder.machado@RDtelecom.com", "9880-120", "Cliente", false, "Açores", new DateTime(2020, 11, 01), 0, 19);
-            GaranteUtilizadores(bd, "Luís Falcão", "809441578", new DateTime(2000, 11, 01), "Bacelo", "925871444", "miriam.falcao@RDtelecom.com", "9880-103", "Cliente", false, "Açores", new DateTime(2020, 07, 16), 0, 19);
-            GaranteUtilizadores(bd, "Vanessa Ribeiro", "862023769", new DateTime(1980, 09, 11), "Avenida Mousinho de Albuquerque", "926557999", "vanessa.ribeiro@RDtelecom.com", "9880-999", "Cliente", false, "Açores", new DateTime(2020, 09, 21), 0, 19);
-            GaranteUtilizadores(bd, "Rafael Leão", "846019183", new DateTime(1975, 02, 24), "Pedras Brancas", "961733331", "rafael.leao@RDtelecom.com", "9880-171", "Cliente", false, "Açores", new DateTime(2020, 09, 05), 0, 19);
-            GaranteUtilizadores(bd, "Célia Francisca", "851087574", new DateTime(1955, 08, 24), "Fajã da Isabel Pereira", "911111821", "celia.francisca@RDtelecom.com", "9800-101", "Cliente", false, "Açores", new DateTime(2020, 10, 01), 0, 19);
-            GaranteUtilizadores(bd, "Rita Freira", "851596118", new DateTime(1956, 06, 05), "Ribeira D'Água", "932228541", "rita.freira@RDtelecom.com", "9800-209", "Cliente", false, "Açores", new DateTime(2021, 02, 05), 0, 19);
+            GaranteUtilizadores(bd, "Paula Mendes", "885803973", new DateTime(2000, 06, 01), "À Fonseca ", "930001114", "paula.mendes@gmail.com", "9700-302", "Cliente", false, "Açores", new DateTime(2020, 07, 01), 0, 19);
+            GaranteUtilizadores(bd, "Joana Santos", "802477259", new DateTime(1989, 11, 11), "Outeiro de São Mateus", "968880005", "joana.santos@gmail.com", "9700-305", "Cliente", false, "Açores", new DateTime(2021, 01, 01), 0, 19);
+            GaranteUtilizadores(bd, "Pedro Ferreira", "807758604", new DateTime(1974, 07, 01), "Presas", "963332008", "pedro.ferreira@gmail.com", "9700-308", "Cliente", false, "Açores", new DateTime(2020, 09, 01), 0, 19);
+            GaranteUtilizadores(bd, "Fernanda Sousa", "892395559", new DateTime(1969, 08, 06), "Rua Nova", "961322298", "Fernanda.sousa@gmail.com", "9700-132", "Cliente", false, "Açores", new DateTime(2020, 12, 10), 0, 19);
+            GaranteUtilizadores(bd, "Rita Martins", "898142938", new DateTime(1979, 11, 30), "Praça Doutor Sousa Júnior ", "938888789", "rita.martins@gmail.com", "9700-007", "Cliente", false, "Açores", new DateTime(2020, 10, 11), 0, 19);
+            GaranteUtilizadores(bd, "João Patrício", "863866247", new DateTime(2001, 07, 01), "Abaixo do Fragoso", "965811111", "joao.patricio@gmail.com", "9880-101", "Cliente", false, "Açores", new DateTime(2020, 12, 28), 0, 19);
+            GaranteUtilizadores(bd, "Helder Machado", "803990936", new DateTime(1999, 07, 01), "Bairro do Carrapacho", "915235555", "Helder.machado@gmail.com", "9880-120", "Cliente", false, "Açores", new DateTime(2020, 11, 01), 0, 19);
+            GaranteUtilizadores(bd, "Luís Falcão", "809441578", new DateTime(2000, 11, 01), "Bacelo", "925871444", "miriam.falcao@gmail.com", "9880-103", "Cliente", false, "Açores", new DateTime(2020, 07, 16), 0, 19);
+            GaranteUtilizadores(bd, "Vanessa Ribeiro", "862023769", new DateTime(1980, 09, 11), "Avenida Mousinho de Albuquerque", "926557999", "vanessa.ribeiro@gmail.com", "9880-999", "Cliente", false, "Açores", new DateTime(2020, 09, 21), 0, 19);
+            GaranteUtilizadores(bd, "Rafael Leão", "846019183", new DateTime(1975, 02, 24), "Pedras Brancas", "961733331", "rafael.leao@gmail.com", "9880-171", "Cliente", false, "Açores", new DateTime(2020, 09, 05), 0, 19);
+            GaranteUtilizadores(bd, "Célia Francisca", "851087574", new DateTime(1955, 08, 24), "Fajã da Isabel Pereira", "911111821", "celia.francisca@gmail.com", "9800-101", "Cliente", false, "Açores", new DateTime(2020, 10, 01), 0, 19);
+            GaranteUtilizadores(bd, "Rita Freira", "851596118", new DateTime(1956, 06, 05), "Ribeira D'Água", "932228541", "rita.freira@gmail.com", "9800-209", "Cliente", false, "Açores", new DateTime(2021, 02, 05), 0, 19);
 
             //    //-------------------------- 20 MADEIRA-----------------
             GaranteUtilizadores(bd, "Patrícia Passarinha", "859762505", new DateTime(2001, 07, 01), "Caminho Ribeira dos Socorridos ", "965388882", "patricia.passarinha@RDtelecom.com", "9000-617", "Cliente", false, "Madeira" , new DateTime(2020, 07, 01), 0, 20);
@@ -1195,24 +1195,3114 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.SaveChanges();
         }
 
-
         private static void InsereContratos(Projeto_Lab_WebContext bd)
         {
 
-         
+            if (bd.Contratos.Any()) return;
 
-          
+            bd.Contratos.AddRange(new Contratos[] {
+                new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 08, 05),
+                DataFim = new DateTime(2022, 08, 05),
+                Telefone = 234000000,
+                PrecoPacote = 16,
+                PromocaoDesc = 5,
+                PrecoFinal = 9,
+                Inactivo = false,
+                Morada ="Sargento Mor",
+                CodigoPostal ="3020-740",
+                DistritosId= 1,
+            },
+                     new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 07, 05),
+                DataFim = new DateTime(2022, 07, 05),
+                Telefone = 234000333,
+                PrecoPacote = 10,
+                PromocaoDesc = 5,
+                PrecoFinal = 5,
+                Inactivo = false,
+                Morada ="Rua Fernando Caldeira",
+                CodigoPostal ="3754-501",
+                DistritosId= 1,
+            },
+                    new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 07, 05),
+                DataFim = new DateTime(2022, 07, 05),
+                Telefone = 234000123,
+                PrecoPacote = 50,
+                PromocaoDesc = 5,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada ="Avenida Manuel Álvaro Lopes Pereira",
+                CodigoPostal ="Avenida Manuel Álvaro Lopes Pereira",
+                DistritosId= 1,
+            },
+                    new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 03, 05),
+                DataFim = new DateTime(2022, 03, 05),
+                Telefone = 234000123,
+                PrecoPacote = 50,
+                PromocaoDesc = 5,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada ="Avenida do Doutor Lourenço Peixinho",
+                CodigoPostal ="3804-501",
+                DistritosId= 1, 
+            },
+                new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2021, 03, 05),
+                DataFim = new DateTime(2023, 03, 05),
+                Telefone = 234000456,
+                PrecoPacote = 35,
+                PromocaoDesc = 5,
+                PrecoFinal = 30,
+                Inactivo = false,
+                Morada ="Largo 5 de Outubro Jardim dos Campos Pares", 
+                CodigoPostal ="3880-006",
+                DistritosId= 1,
+        },
+               new Contratos
+            {
+                NomePacote = "RD TV e Voz",
+                DataInicio = new DateTime(2020, 10, 05),
+                DataFim = new DateTime(2022, 10, 05),
+                Telefone = 234000880,
+                PrecoPacote = 50,
+                PromocaoDesc = 5,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada ="Travessa da Lomba",
+                CodigoPostal ="3865-003",
+                DistritosId= 1,
+        },
 
-            var pedro = GaranteUtilizadores(bd, "Pedro Machado", "212545585", new DateTime(1971, 07, 14), "Colónia Agrícola Casal 63", "935559453", "pedromachado@gmail.com", "3870-358", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 14);
-            var joaquim = GaranteUtilizadores(bd, "Joaquim Mendez", "532344565", new DateTime(1987, 12, 24), "R Indústria Porta 47", "915556899", "joaquimmendez@outlook.com", "3300-040", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 15);
-            var sandra = GaranteUtilizadores(bd, "Sandra Vieira", "221344545", new DateTime(1977, 02, 23), "R Poeta João Ruiz 6", "929355531", "sandravieira@gmail.com", "6230-355", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 16);
-            var sara = GaranteUtilizadores(bd, "Sara Siqueira", "543333222", new DateTime(1977, 01, 22), "R Doutor Alfredo Freitas 108", "915551820", "sarasiqueiraa@gmail.com", "3700-501", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 17);
-            var nelson = GaranteUtilizadores(bd, "Nelson Ramos", "321123456", new DateTime(1945, 07, 10), "R Indústria Porta 56", "929455563", "nelsonramos@outlook.com", "3220-066", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 18);
-            var danilo = GaranteUtilizadores(bd, "Danilo Pires", "332223455", new DateTime(1999, 06, 26), "Rua Jorge Sena 99", "965559604", "danilopires@live.com", "2650-499", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 19);
-            var monica = GaranteUtilizadores(bd, "Mônica Torres", "344321789", new DateTime(197, 02, 05), "Avenida Guerra Junqueiro 114", "921555922", "monicatorres@gmail.com", "2610-116", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 20);
-            var daniela = GaranteUtilizadores(bd, "Daniela Mata", "698767555", new DateTime(1974, 03, 13), "R Portela 64", "915551704", "daielamata@gmail.com", "3550-171", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 3);
-            var virgilio = GaranteUtilizadores(bd, "Virgílio Abreu", "678567454", new DateTime(1987, 04, 16), "R Padre João A L Ribeiro 88", "915559352", "virgilio_abreu@outlook.com", "3440-376", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 2);
-            var martim = GaranteUtilizadores(bd, "Martim Moniz", "612345432", new DateTime(1984, 08, 15), "R Poeta João Ruiz 90", "929455556", "martim_moniz@live.com", "6230-691", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 1);
+              new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 03, 17),
+                DataFim = new DateTime(2022, 03, 17),
+                Telefone = 234022000,
+                PrecoPacote = 50,
+                PromocaoDesc = 5,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada ="Rua Doutor Tomás Aquino",
+                CodigoPostal ="3800-523",
+                DistritosId= 1,
+        },
+
+              new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 03, 20),
+                DataFim = new DateTime(2022, 03, 20),
+                Telefone = 234002800,
+                PrecoPacote = 60,
+                PromocaoDesc = 5,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada ="Avenida do Doutor Lourenço Peixinho",
+                CodigoPostal ="3804-501",
+                DistritosId= 1,
+        },
+
+              new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 03, 10),
+                DataFim = new DateTime(2022, 03, 10),
+                Telefone = 234007450,
+                PrecoPacote = 50,
+                PromocaoDesc = 5,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada ="Viela da Capela",
+                CodigoPostal ="3810-002",
+                DistritosId= 1,
+        },
+
+               new Contratos
+            {
+                NomePacote = "Pacote RD - TV Premium + gaming",
+                DataInicio = new DateTime(2020, 09, 05),
+                DataFim = new DateTime(2022, 09, 05),
+                Telefone = 234123000,
+                PrecoPacote = 75,
+                PromocaoDesc = 5,
+                PrecoFinal = 70,
+                Inactivo = false,
+                Morada ="Rua do Jardim",
+                CodigoPostal ="3054-001",
+                DistritosId= 1,
+        },
+                   new Contratos
+            {
+                NomePacote = "Pacote RD - TV Premium + gaming",
+                DataInicio = new DateTime(2020, 11, 05),
+                DataFim = new DateTime(2022, 11, 05),
+                Telefone = 234123550,
+                PrecoPacote = 75,
+                PromocaoDesc = 5,
+                PrecoFinal = 70,
+                Inactivo = false,
+                Morada ="Rua do Jardim",
+                CodigoPostal ="3054-001",
+                DistritosId= 1,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 11, 05),
+                DataFim = new DateTime(2022, 11, 05),
+                Telefone = 284000000,
+                PrecoPacote = 60,
+                PromocaoDesc = 5,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada ="Beco da Rua Acima",
+                CodigoPostal ="7960-002",
+                DistritosId= 2, 
+        },
+                new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 12, 05),
+                DataFim = new DateTime(2022, 12, 05),
+                Telefone = 284000333,
+                PrecoPacote = 55,
+                PromocaoDesc = 5,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada ="Rua Fernando Caldeira",
+                CodigoPostal ="7960-001",
+                DistritosId= 2,
+        },
+                    new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 05, 05),
+                DataFim = new DateTime(2022, 05, 05),
+                Telefone = 284022000,
+                PrecoPacote = 45,
+                PromocaoDesc = 5,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada ="Rua Doutor Tomás Aquino",
+                CodigoPostal ="7940-160",
+                DistritosId= 2,
+        },
+                                new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 05, 10),
+                DataFim = new DateTime(2022, 05, 10),
+                Telefone = 284000123,
+                PrecoPacote = 45,
+                PromocaoDesc = 5,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada ="Avenida Manuel Álvaro Lopes Pereira",
+                CodigoPostal ="3800-625",
+                DistritosId= 2,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 05, 27),
+                DataFim = new DateTime(2022, 05, 27),
+                Telefone = 284002800,
+                PrecoPacote = 85,
+                PromocaoDesc = 5,
+                PrecoFinal = 80,
+                Inactivo = false,
+                Morada ="Avenida do Doutor Lourenço Peixinho",
+                CodigoPostal ="7940-411",
+                DistritosId= 2, 
+        },
+                   new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 05, 27),
+                DataFim = new DateTime(2022, 05, 27),
+                Telefone = 284007450,
+                PrecoPacote = 85,
+                PromocaoDesc = 5,
+                PrecoFinal = 80,
+                Inactivo = false,
+                Morada ="Viela da Capela",
+                CodigoPostal ="7920-005",
+                DistritosId= 2,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD - TV Premium + gaming",
+                DataInicio = new DateTime(2020, 05, 27),
+                DataFim = new DateTime(2022, 05, 27),
+                Telefone = 284007450,
+                PrecoPacote = 100,
+                PromocaoDesc = 10,
+                PrecoFinal = 90,
+                Inactivo = false,
+                Morada ="Rua do Jardim",
+                CodigoPostal ="7920-002",
+                DistritosId= 2, 
+        },
+                new Contratos
+            {
+                NomePacote = "RD TV e Voz",
+                DataInicio = new DateTime(2020, 05, 27),
+                DataFim = new DateTime(2022, 05, 27),
+                Telefone = 284023500,
+                PrecoPacote = 30,
+                PromocaoDesc = 2,
+                PrecoFinal = 28,
+                Inactivo = false,
+                Morada ="Avenida Comendador Augusto Martins Pereira",
+                CodigoPostal ="7801-857",
+                DistritosId= 2,
+        },
+                        new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 08, 27),
+                DataFim = new DateTime(2022, 08, 27),
+                Telefone = 284023500,
+                PrecoPacote = 30,
+                PromocaoDesc = 6,
+                PrecoFinal = 24,
+                Inactivo = false,
+                Morada ="Rua do Murtório Rochico",
+                CodigoPostal = "7665-803",
+                DistritosId = 2,
+        },
+                                new Contratos
+            {
+                NomePacote = "RD TV e Voz",
+                DataInicio = new DateTime(2020, 05, 27),
+                DataFim = new DateTime(2022, 05, 27),
+                Telefone = 284000880,
+                PrecoPacote = 30,
+                PromocaoDesc = 2,
+                PrecoFinal = 28,
+                Inactivo = false,
+                Morada ="Travessa da Lomba",
+                CodigoPostal ="7665-814",
+                DistritosId= 2,
+        }, 
+            new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 05, 08),
+                DataFim = new DateTime(2022, 05, 08),
+                Telefone = 284000456,
+                PrecoPacote = 30,
+                PromocaoDesc = 2,
+                PrecoFinal = 28,
+                Inactivo = false,
+                Morada ="Largo 5 de Outubro Jardim dos Campos Pares",
+                CodigoPostal ="7700-003",
+                DistritosId= 2,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 05, 08),
+                DataFim = new DateTime(2022, 05, 08),
+                Telefone = 257000000,
+                PrecoPacote = 70,
+                PromocaoDesc = 2,
+                PrecoFinal = 68,
+                Inactivo = false,
+                Morada ="Rua dos Bombeiros Voluntários",
+                CodigoPostal ="4700-002",
+                DistritosId= 3,
+        },
+               new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 07, 08),
+                DataFim = new DateTime(2022, 07, 08),
+                Telefone = 257000333,
+                PrecoPacote = 52,
+                PromocaoDesc = 2,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada ="Rua Professora Alda Brandão Real",
+                CodigoPostal ="4700-002",
+                DistritosId= 3,  
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 02, 08),
+                DataFim = new DateTime(2022, 02, 08),
+                Telefone = 257022000,
+                PrecoPacote = 52,
+                PromocaoDesc = 2,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada ="Rua da Sobreira Frossos",
+                CodigoPostal ="4700-441",
+                DistritosId= 3,
+        },
+                       new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 02, 14),
+                DataFim = new DateTime(2022, 02, 14),
+                Telefone = 257000123,
+                PrecoPacote = 52,
+                PromocaoDesc = 2,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada ="Rua Professora Alda Brandão Real",
+                CodigoPostal ="4700-999",
+                DistritosId= 3,
+        },
+                                  new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 02, 16),
+                DataFim = new DateTime(2022, 02, 16),
+                Telefone = 257002800,
+                PrecoPacote = 78,
+                PromocaoDesc = 18,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada ="Largo de São Tiago",
+                CodigoPostal ="4700-999",
+                DistritosId= 3,
+        },
+                                   new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 02, 12),
+                DataFim = new DateTime(2022, 02, 12),
+                Telefone = 257002800,
+                PrecoPacote = 78,
+                PromocaoDesc = 18,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada ="Rua das Oliveiras",
+                CodigoPostal ="4700-999",
+                DistritosId= 3,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD - TV Premium + gaming",
+                DataInicio = new DateTime(2020, 11, 08),
+                DataFim = new DateTime(2022, 11, 08),
+                Telefone = 257002800,
+                PrecoPacote = 108,
+                PromocaoDesc = 18,
+                PrecoFinal = 100,
+                Inactivo = false,
+                Morada ="Rua dos Caixoteiros",
+                CodigoPostal ="4705-001",
+                DistritosId= 3,
+        },
+               new Contratos
+            {
+                NomePacote = "RD TV e Voz",
+                DataInicio = new DateTime(2020, 11, 08),
+                DataFim = new DateTime(2022, 11, 08),
+                Telefone = 257023500,
+                PrecoPacote = 40,
+                PromocaoDesc = 8,
+                PrecoFinal = 32,
+                Inactivo = false,
+                Morada ="Rua Sem Nome",
+                CodigoPostal ="4705-008",
+                DistritosId= 3, 
+        },
+                    new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 11, 21),
+                DataFim = new DateTime(2022, 11, 21),
+                Telefone = 257099900,
+                PrecoPacote = 58,
+                PromocaoDesc = 8,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada ="Travessa do Rio da Guarda",
+                CodigoPostal ="4765-489",
+                DistritosId= 3,
+        },
+                             new Contratos
+            {
+                NomePacote = "RD TV e Voz",
+                DataInicio = new DateTime(2020, 11, 21),
+                DataFim = new DateTime(2022, 11, 21),
+                Telefone = 257000880,
+                PrecoPacote = 58,
+                PromocaoDesc = 10,
+                PrecoFinal = 48,
+                Inactivo = false,
+                Morada ="Rua Cães de Pedra Lt 5",
+                CodigoPostal ="4765-003",
+                DistritosId= 3, 
+        },
+            new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 12, 21),
+                DataFim = new DateTime(2022, 12, 21),
+                Telefone = 257000456,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada ="Rua da Madalena",
+                CodigoPostal ="4835-511",
+                DistritosId= 3,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2021, 01, 21),
+                DataFim = new DateTime(2023, 01, 21),
+                Telefone = 273000000,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada ="Bairro Moinho de Vento",
+                CodigoPostal ="5140-005",
+                DistritosId= 4,
+        },
+            new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 01, 21),
+                DataFim = new DateTime(2022, 01, 21),
+                Telefone = 273000333,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Professora Alda Brandão Real",
+                CodigoPostal ="5140-135",
+                DistritosId= 4, 
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 10, 21),
+                DataFim = new DateTime(2022, 10, 21),
+                Telefone = 273022000,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Quinta Lameira de Ferro ",
+                CodigoPostal ="5300-001",
+                DistritosId= 4,  
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 04, 21),
+                DataFim = new DateTime(2022, 04, 21),
+                Telefone = 273002800,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Valbom Pitez",
+                CodigoPostal ="5385-101",
+                DistritosId= 4,
+        },
+                   new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 04, 21),
+                DataFim = new DateTime(2022, 04, 21),
+                Telefone = 273002845,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Valbom Pitez",
+                CodigoPostal ="5385-132",
+                DistritosId= 4,
+        },
+                              new Contratos
+            {
+                NomePacote = "Pacote RD - Gaming",
+                DataInicio = new DateTime(2020, 04, 25),
+                DataFim = new DateTime(2022, 04, 25),
+                Telefone = 273002800,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Azenha do Areal",
+                CodigoPostal ="5370-131",
+                DistritosId= 4,
+        },
+                                                new Contratos
+            {
+                NomePacote = "Pacote RD - TV Premium + gaming",
+                DataInicio = new DateTime(2020, 04, 25),
+                DataFim = new DateTime(2022, 04, 25),
+                Telefone = 273123000,
+                PrecoPacote = 85,
+                PromocaoDesc = 10,
+                PrecoFinal = 75,
+                Inactivo = false,
+                Morada = "Vale de Lobo",
+                CodigoPostal ="5370-102",
+                DistritosId= 4,
+        },
+              new Contratos
+            {
+                NomePacote = "RD TV e Voz",
+                DataInicio = new DateTime(2020, 12, 25),
+                DataFim = new DateTime(2022, 12, 25),
+                Telefone = 273023500,
+                PrecoPacote = 85,
+                PromocaoDesc = 10,
+                PrecoFinal = 75,
+                Inactivo = false,
+                Morada = "Vilar Seco",
+                CodigoPostal ="5370-102",
+                DistritosId= 4,
+        },
+                new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 07, 25),
+                DataFim = new DateTime(2022, 07, 25),
+                Telefone = 273099900,
+                PrecoPacote = 65,
+                PromocaoDesc = 10,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Combatentes da Grande Guerra",
+                CodigoPostal ="5350-204",
+                DistritosId= 4,
+        },
+                      new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 07, 25),
+                DataFim = new DateTime(2022, 07, 25),
+                Telefone = 273000880,
+                PrecoPacote = 65,
+                PromocaoDesc = 10,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua Cova da Beir",
+                CodigoPostal ="5300-869",
+                DistritosId= 4, 
+        },
+             new Contratos
+            {
+                NomePacote = "RD Familiar",
+                DataInicio = new DateTime(2020, 07, 20),
+                DataFim = new DateTime(2022, 07, 20),
+                Telefone = 273000456,
+                PrecoPacote = 65,
+                PromocaoDesc = 10,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rotunda do Lavrador Bairro da Braguinha",
+                CodigoPostal ="5300-420",
+                DistritosId= 4,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 211050000,
+                PrecoPacote = 65,
+                PromocaoDesc = 10,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="1150-004",
+                DistritosId= 5,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 10, 20),
+                DataFim = new DateTime(2022, 10, 20),
+                Telefone = 211001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 5,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="1150-005",
+                DistritosId= 5,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2021, 02, 20),
+                DataFim = new DateTime(2023, 02, 20),
+                Telefone = 211020220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="1150-001",
+                DistritosId= 5,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 07, 20),
+                DataFim = new DateTime(2022, 07, 20),
+                Telefone = 211111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="1150-104",
+                DistritosId= 5,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 02),
+                DataFim = new DateTime(2022, 07, 02),
+                Telefone = 21123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="1150-024",
+                DistritosId= 5,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 20),
+                DataFim = new DateTime(2022, 03, 20),
+                Telefone = 211199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="1150-124",
+                DistritosId= 5,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 07, 20),
+                DataFim = new DateTime(2022, 07, 20),
+                Telefone = 211000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="1150-134",
+                DistritosId= 5,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 04, 10),
+                DataFim = new DateTime(2022, 04, 10),
+                Telefone = 211008000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="1150-254",
+                DistritosId= 5,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2021, 01, 11),
+                DataFim = new DateTime(2023, 01, 11),
+                Telefone = 211055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 2,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="1150-574",
+                DistritosId= 5,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 07, 12),
+                DataFim = new DateTime(2022, 07, 12),
+                Telefone = 211000700,
+                PrecoPacote = 70,
+                PromocaoDesc = 10,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="1150-744",
+                DistritosId= 5,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2021, 01, 20),
+                DataFim = new DateTime(2023, 01, 20),
+                Telefone = 211999000,
+                PrecoPacote = 35,
+                PromocaoDesc = 5,
+                PrecoFinal = 30,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="1150-024",
+                DistritosId= 5,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 20),
+                DataFim = new DateTime(2022, 10, 20),
+                Telefone = 244020000,
+                PrecoPacote = 65,
+                PromocaoDesc = 10,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="4450-004",
+                DistritosId= 6,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 08, 20),
+                DataFim = new DateTime(2022, 08, 20),
+                Telefone = 244001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 5,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="4450-005",
+                DistritosId= 6,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 244000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="4450-001",
+                DistritosId= 6,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2021, 01, 10),
+                DataFim = new DateTime(2023, 01, 10),
+                Telefone = 244111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="4450-104",
+                DistritosId= 6,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 01),
+                DataFim = new DateTime(2022, 07, 01),
+                Telefone = 244123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="4450-024",
+                DistritosId= 6,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 04, 17),
+                DataFim = new DateTime(2022, 04, 17),
+                Telefone = 244199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="4450-124",
+                DistritosId= 6,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 04, 04),
+                DataFim = new DateTime(2022, 04, 04),
+                Telefone = 244000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="4450-134",
+                DistritosId= 6,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2021, 01, 10),
+                DataFim = new DateTime(2023, 01, 10),
+                Telefone = 244000040,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="4450-254",
+                DistritosId= 6,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 244055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 2,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="4450-574",
+                DistritosId= 6,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 05, 18),
+                DataFim = new DateTime(2022, 05, 18),
+                Telefone = 244008000,
+                PrecoPacote = 70,
+                PromocaoDesc = 10,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="4450-744",
+                DistritosId= 6,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 08, 20),
+                DataFim = new DateTime(2022, 08, 20),
+                Telefone = 244999000,
+                PrecoPacote = 35,
+                PromocaoDesc = 5,
+                PrecoFinal = 30,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="4450-024",
+                DistritosId= 6,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 20),
+                DataFim = new DateTime(2022, 03, 20),
+                Telefone = 233000050,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="3350-004",
+                DistritosId= 7,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 12, 12),
+                DataFim = new DateTime(2022, 12, 12),
+                Telefone = 233001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="3350-005",
+                DistritosId= 7,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 30),
+                DataFim = new DateTime(2022, 01, 30),
+                Telefone = 233000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="3350-001",
+                DistritosId= 7,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 04, 06),
+                DataFim = new DateTime(2022, 04, 06),
+                Telefone = 233111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="3350-104",
+                DistritosId= 7,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 02),
+                DataFim = new DateTime(2022, 07, 02),
+                Telefone = 233123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="3350-024",
+                DistritosId= 7,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 08, 13),
+                DataFim = new DateTime(2022, 08, 13),
+                Telefone = 233199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="3350-124",
+                DistritosId= 7,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 12, 12),
+                DataFim = new DateTime(2022, 12, 12),
+                Telefone = 233000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="3350-134",
+                DistritosId= 7,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 02),
+                DataFim = new DateTime(2022, 01, 02),
+                Telefone = 233000003,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="3350-254",
+                DistritosId= 7,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 09, 20),
+                DataFim = new DateTime(2022, 09, 20),
+                Telefone = 233055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="3350-574",
+                DistritosId= 7,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2021, 01, 20),
+                DataFim = new DateTime(2023, 01, 20),
+                Telefone = 233000400,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="3350-744",
+                DistritosId= 7,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 233999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="3350-024",
+                DistritosId= 7,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 25),
+                DataFim = new DateTime(2022, 03, 25),
+                Telefone = 299000010,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="9950-004",
+                DistritosId= 8,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 01, 01),
+                DataFim = new DateTime(2022, 01, 01),
+                Telefone = 299001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="9950-005",
+                DistritosId= 8,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 05, 14),
+                DataFim = new DateTime(2022, 05, 14),
+                Telefone = 299000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="9950-001",
+                DistritosId= 8,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 05, 10),
+                DataFim = new DateTime(2022, 05, 10),
+                Telefone = 299111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="9950-104",
+                DistritosId= 8,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 07),
+                DataFim = new DateTime(2022, 03, 07),
+                Telefone = 299123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="9950-024",
+                DistritosId= 8,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2021, 02, 13),
+                DataFim = new DateTime(2023, 02, 13),
+                Telefone = 299199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="9950-124",
+                DistritosId= 8,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 11, 12),
+                DataFim = new DateTime(2022, 11, 12),
+                Telefone = 299000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="9950-134",
+                DistritosId= 8,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 10),
+                DataFim = new DateTime(2022, 02, 10),
+                Telefone = 299010000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="9950-254",
+                DistritosId= 8,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2021, 02, 20),
+                DataFim = new DateTime(2023, 02, 20),
+                Telefone = 299055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="9950-574",
+                DistritosId= 8,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 12, 20),
+                DataFim = new DateTime(2022, 12, 20),
+                Telefone = 299006000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="9950-744",
+                DistritosId= 8,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 299999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="9950-024",
+                DistritosId= 8,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2021, 02, 20),
+                DataFim = new DateTime(2023, 02, 20),
+                Telefone = 222008800,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="2250-004",
+                DistritosId= 9,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 02, 01),
+                DataFim = new DateTime(2022, 02, 01),
+                Telefone = 222001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="2250-005",
+                DistritosId= 9,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 15),
+                DataFim = new DateTime(2022, 02, 15),
+                Telefone = 222000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="2250-001",
+                DistritosId= 9,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2021, 01, 10),
+                DataFim = new DateTime(2023, 01, 10),
+                Telefone = 222111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="2250-104",
+                DistritosId= 9,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 07),
+                DataFim = new DateTime(2022, 01, 07),
+                Telefone = 222123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="2250-024",
+                DistritosId= 9,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 13),
+                DataFim = new DateTime(2022, 10, 13),
+                Telefone = 222199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="2250-124",
+                DistritosId= 9,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 11, 14),
+                DataFim = new DateTime(2022, 11, 14),
+                Telefone = 222000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="2250-134",
+                DistritosId= 9,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 05, 10),
+                DataFim = new DateTime(2022, 05, 10),
+                Telefone = 222007000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="2250-254",
+                DistritosId= 9,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 02, 12),
+                DataFim = new DateTime(2022, 02, 12),
+                Telefone = 222055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="2250-574",
+                DistritosId= 9,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 222005000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="2250-744",
+                DistritosId= 9,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 22),
+                DataFim = new DateTime(2022, 02, 22),
+                Telefone = 222999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="2250-024",
+                DistritosId= 9,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 20),
+                DataFim = new DateTime(2022, 03, 20),
+                Telefone = 266006000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="6650-004",
+                DistritosId= 10,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2021, 03, 03),
+                DataFim = new DateTime(2023, 03, 03),
+                Telefone = 266001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="6650-005",
+                DistritosId= 10,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 06, 20),
+                DataFim = new DateTime(2022, 06, 20),
+                Telefone = 266000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="6650-001",
+                DistritosId= 10,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2021, 02, 10),
+                DataFim = new DateTime(2023, 02, 10),
+                Telefone = 266111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="6650-104",
+                DistritosId= 10,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 06, 07),
+                DataFim = new DateTime(2022, 06, 07),
+                Telefone = 266123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal = "6650-024",
+                DistritosId= 10,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 06, 13),
+                DataFim = new DateTime(2022, 06, 13),
+                Telefone = 266199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="6650-124",
+                DistritosId= 10,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 11, 12),
+                DataFim = new DateTime(2022, 11, 12),
+                Telefone = 266000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="6650-134",
+                DistritosId= 10,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 01),
+                DataFim = new DateTime(2022, 03, 01),
+                Telefone = 266060000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="6650-254",
+                DistritosId= 10,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 01, 18),
+                DataFim = new DateTime(2022, 01, 18),
+                Telefone = 266055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="6650-574",
+                DistritosId= 10,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 03, 04),
+                DataFim = new DateTime(2022, 03, 04),
+                Telefone = 266000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="6650-744",
+                DistritosId= 10,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 06, 20),
+                DataFim = new DateTime(2022, 06, 20),
+                Telefone = 266999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="6650-024",
+                DistritosId= 10,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 20),
+                DataFim = new DateTime(2022, 10, 20),
+                Telefone = 255000800,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="5550-004",
+                DistritosId= 11,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 03, 12),
+                DataFim = new DateTime(2022, 03, 12),
+                Telefone = 255001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="5550-005",
+                DistritosId= 11,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 14),
+                DataFim = new DateTime(2022, 03, 14),
+                Telefone = 255000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="5550-001",
+                DistritosId= 11,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 10, 10),
+                DataFim = new DateTime(2022, 10, 10),
+                Telefone = 255511000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="5550-104",
+                DistritosId= 11,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 07),
+                DataFim = new DateTime(2022, 01, 07),
+                Telefone = 255123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="5550-024",
+                DistritosId= 11,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 13),
+                DataFim = new DateTime(2022, 07, 13),
+                Telefone = 255199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="5550-124",
+                DistritosId= 11,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 12, 12),
+                DataFim = new DateTime(2022, 12, 12),
+                Telefone = 255550099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="5550-134",
+                DistritosId= 11,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 25),
+                DataFim = new DateTime(2022, 01, 25),
+                Telefone = 255000050,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="5550-254",
+                DistritosId= 11,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 09, 10),
+                DataFim = new DateTime(2022, 09, 10),
+                Telefone = 255055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="5550-574",
+                DistritosId= 11,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 255000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="5550-744",
+                DistritosId= 11,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 255999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="5550-024",
+                DistritosId= 11,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 20),
+                DataFim = new DateTime(2022, 10, 20),
+                Telefone = 270000880,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="0250-004",
+                DistritosId= 12,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 04, 20),
+                DataFim = new DateTime(2022, 04, 20),
+                Telefone = 270001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="0250-005",
+                DistritosId= 12,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 270000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="0250-001",
+                DistritosId= 12,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 03, 15),
+                DataFim = new DateTime(2022, 03, 15),
+                Telefone = 270111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="0250-104",
+                DistritosId= 12,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 07),
+                DataFim = new DateTime(2022, 01, 07),
+                Telefone = 270123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="0250-024",
+                DistritosId= 12,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 04, 13),
+                DataFim = new DateTime(2022, 04, 13),
+                Telefone = 270199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="0250-124",
+                DistritosId= 12,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 06, 12),
+                DataFim = new DateTime(2022, 06, 12),
+                Telefone = 270001099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="0250-134",
+                DistritosId= 12,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 10),
+                DataFim = new DateTime(2022, 07, 10),
+                Telefone = 270007000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="0250-254",
+                DistritosId= 12,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 07, 05),
+                DataFim = new DateTime(2022, 07, 05),
+                Telefone = 270055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="0250-574",
+                DistritosId= 12,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 01, 10),
+                DataFim = new DateTime(2022, 01, 10),
+                Telefone = 270000800,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="0250-744",
+                DistritosId= 12,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 270999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="0250-024",
+                DistritosId= 12,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 20),
+                DataFim = new DateTime(2022, 10, 20),
+                Telefone = 278000000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="8250-004",
+                DistritosId= 13,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 07, 20),
+                DataFim = new DateTime(2022, 07, 20),
+                Telefone = 278001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="8250-005",
+                DistritosId= 13,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 17),
+                DataFim = new DateTime(2022, 03, 17),
+                Telefone = 278000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="8250-001",
+                DistritosId= 13,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 08, 24),
+                DataFim = new DateTime(2022, 08, 24),
+                Telefone = 278111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="8250-104",
+                DistritosId= 13,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 13),
+                DataFim = new DateTime(2022, 07, 13),
+                Telefone = 278123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="8250-024",
+                DistritosId= 13,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 13),
+                DataFim = new DateTime(2022, 01, 13),
+                Telefone = 278199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="8250-124",
+                DistritosId= 13,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 05, 12),
+                DataFim = new DateTime(2022, 05, 12),
+                Telefone = 278000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="8250-134",
+                DistritosId= 13,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 04, 10),
+                DataFim = new DateTime(2022, 04, 10),
+                Telefone = 278000000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="8250-254",
+                DistritosId= 13,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 04, 04),
+                DataFim = new DateTime(2022, 04, 04),
+                Telefone = 278055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="8250-574",
+                DistritosId= 13,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 01, 12),
+                DataFim = new DateTime(2022, 01, 12),
+                Telefone = 278000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="8250-744",
+                DistritosId= 13,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 08, 20),
+                DataFim = new DateTime(2022, 08, 20),
+                Telefone = 278999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="8250-024",
+                DistritosId= 13,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 09, 20),
+                DataFim = new DateTime(2022, 09, 20),
+                Telefone = 277000000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="7250-004",
+                DistritosId= 14,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 07, 20),
+                DataFim = new DateTime(2022, 07, 20),
+                Telefone = 275001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="5250-005",
+                DistritosId= 14,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 04, 30),
+                DataFim = new DateTime(2022, 04, 30),
+                Telefone = 275000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="5250-001",
+                DistritosId= 14,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 02, 10),
+                DataFim = new DateTime(2022, 02, 10),
+                Telefone = 275111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="5250-104",
+                DistritosId= 14,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 06, 07),
+                DataFim = new DateTime(2022, 06, 07),
+                Telefone = 275123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="5250-024",
+                DistritosId= 14,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 08, 13),
+                DataFim = new DateTime(2022, 08, 13),
+                Telefone = 275199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="5250-124",
+                DistritosId= 14,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 10, 12),
+                DataFim = new DateTime(2022, 10, 12),
+                Telefone = 275000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="5250-134",
+                DistritosId= 14,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 01),
+                DataFim = new DateTime(2022, 01, 01),
+                Telefone = 275000000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="5250-254",
+                DistritosId= 14,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 275055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="5250-574",
+                DistritosId= 14,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 03, 13),
+                DataFim = new DateTime(2022, 03, 13),
+                Telefone = 275000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="5250-744",
+                DistritosId= 14,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 05, 20),
+                DataFim = new DateTime(2022, 05, 20),
+                Telefone = 275999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="5250-024",
+                DistritosId= 14,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 20),
+                DataFim = new DateTime(2022, 10, 20),
+                Telefone = 277000000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="7250-004",
+                DistritosId= 15,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 01, 01),
+                DataFim = new DateTime(2022, 01, 01),
+                Telefone = 277001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="7250-005",
+                DistritosId= 15,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 12, 20),
+                DataFim = new DateTime(2022, 12, 20),
+                Telefone = 277000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="7250-001",
+                DistritosId= 15,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 10, 10),
+                DataFim = new DateTime(2022, 10, 10),
+                Telefone = 277111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="7250-104",
+                DistritosId= 15,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 07),
+                DataFim = new DateTime(2022, 07, 07),
+                Telefone = 277123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="7250-024",
+                DistritosId= 15,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 13),
+                DataFim = new DateTime(2022, 02, 13),
+                Telefone = 277199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="7250-124",
+                DistritosId= 15,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 11, 12),
+                DataFim = new DateTime(2022, 11, 12),
+                Telefone = 277000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="7250-134",
+                DistritosId= 15,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 11, 10),
+                DataFim = new DateTime(2022, 11, 10),
+                Telefone = 277000000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="7250-254",
+                DistritosId= 15,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 277055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="7250-574",
+                DistritosId= 15,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 277000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="7250-744",
+                DistritosId= 15,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 17),
+                DataFim = new DateTime(2022, 02, 17),
+                Telefone = 277999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="7250-024",
+                DistritosId= 15,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 05, 20),
+                DataFim = new DateTime(2022, 05, 20),
+                Telefone = 273000000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="3250-004",
+                DistritosId= 16,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 03, 12),
+                DataFim = new DateTime(2022, 03, 12),
+                Telefone = 273001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="3250-005",
+                DistritosId= 16,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 08, 20),
+                DataFim = new DateTime(2022, 08, 20),
+                Telefone = 273000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="3250-001",
+                DistritosId= 16,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 07, 10),
+                DataFim = new DateTime(2022, 07, 10),
+                Telefone = 274111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="3250-104",
+                DistritosId= 16,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 07),
+                DataFim = new DateTime(2022, 07, 07),
+                Telefone = 273123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="3250-024",
+                DistritosId= 16,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 08, 20),
+                DataFim = new DateTime(2022, 08, 20),
+                Telefone = 273199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="250-124",
+                DistritosId= 16,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 12, 12),
+                DataFim = new DateTime(2022, 12, 12),
+                Telefone = 273300099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="3250-134",
+                DistritosId= 16,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 04, 03),
+                DataFim = new DateTime(2022, 04, 03),
+                Telefone = 273000300,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="3250-254",
+                DistritosId= 16,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 12, 20),
+                DataFim = new DateTime(2022, 12, 20),
+                Telefone = 273055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="3250-574",
+                DistritosId= 16,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 02, 13),
+                DataFim = new DateTime(2022, 02, 13),
+                Telefone = 273000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="3250-744",
+                DistritosId= 16,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 273999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="3250-024",
+                DistritosId= 16,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2021, 02, 12),
+                DataFim = new DateTime(2023, 02, 12),
+                Telefone = 271000000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="1250-004",
+                DistritosId= 17,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2021, 01, 20),
+                DataFim = new DateTime(2023, 01, 20),
+                Telefone = 271001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="1250-005",
+                DistritosId= 17,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 02),
+                DataFim = new DateTime(2022, 02, 02),
+                Telefone = 271000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="1250-001",
+                DistritosId= 17,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 03, 10),
+                DataFim = new DateTime(2022, 03, 10),
+                Telefone = 271111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="1250-104",
+                DistritosId= 17,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 07),
+                DataFim = new DateTime(2022, 02, 07),
+                Telefone = 271123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="1250-024",
+                DistritosId= 17,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 13),
+                DataFim = new DateTime(2022, 10, 13),
+                Telefone = 271199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="1250-124",
+                DistritosId= 17,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 12, 12),
+                DataFim = new DateTime(2022, 12, 12),
+                Telefone = 271000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="1250-134",
+                DistritosId= 17,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 10),
+                DataFim = new DateTime(2022, 03, 10),
+                Telefone = 274100000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="1250-254",
+                DistritosId= 17,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 09, 05),
+                DataFim = new DateTime(2022, 09, 05),
+                Telefone = 271055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="1250-574",
+                DistritosId= 17,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 271000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="1250-744",
+                DistritosId= 17,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 271999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="1250-024",
+                DistritosId= 17,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 01),
+                DataFim = new DateTime(2022, 10, 01),
+                Telefone = 272000000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="2250-004",
+                DistritosId= 18,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 07, 20),
+                DataFim = new DateTime(2022, 07, 20),
+                Telefone = 272001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="2250-005",
+                DistritosId= 18,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 06, 01),
+                DataFim = new DateTime(2022, 06, 01),
+                Telefone = 272000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="2250-001",
+                DistritosId= 18,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 06, 10),
+                DataFim = new DateTime(2022, 06, 10),
+                Telefone = 272111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="2250-104",
+                DistritosId= 18,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 07),
+                DataFim = new DateTime(2022, 10, 07),
+                Telefone = 272123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="2250-024",
+                DistritosId= 18,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 13),
+                DataFim = new DateTime(2022, 01, 13),
+                Telefone = 272199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="2250-124",
+                DistritosId= 18,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 03, 02),
+                DataFim = new DateTime(2022, 03, 02),
+                Telefone = 272000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="2250-134",
+                DistritosId= 18,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 05, 10),
+                DataFim = new DateTime(2022, 05, 10),
+                Telefone = 272000000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="2250-254",
+                DistritosId= 18,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 09, 12),
+                DataFim = new DateTime(2022, 09, 12),
+                Telefone = 272055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="2250-574",
+                DistritosId= 18,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 272000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="2250-744",
+                DistritosId= 18,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 02, 20),
+                DataFim = new DateTime(2022, 02, 20),
+                Telefone = 272999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="2250-024",
+                DistritosId= 18,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 10, 20),
+                DataFim = new DateTime(2022, 10, 20),
+                Telefone = 279000000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="9250-004",
+                DistritosId= 19,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 03, 20),
+                DataFim = new DateTime(2022, 03, 20),
+                Telefone = 279001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="9250-005",
+                DistritosId= 19,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 279000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="9250-001",
+                DistritosId= 19,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 07, 10),
+                DataFim = new DateTime(2022, 07, 10),
+                Telefone = 279111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="9250-104",
+                DistritosId= 19,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 07, 23),
+                DataFim = new DateTime(2022, 07, 23),
+                Telefone = 279123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="9250-024",
+                DistritosId= 19,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 04, 13),
+                DataFim = new DateTime(2022, 04, 13),
+                Telefone = 279199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="9250-124",
+                DistritosId= 19,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 03, 12),
+                DataFim = new DateTime(2022, 03, 12),
+                Telefone = 279000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="9250-134",
+                DistritosId= 19,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 01, 01),
+                DataFim = new DateTime(2022, 01, 01),
+                Telefone = 279000000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="9250-254",
+                DistritosId= 19,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 09, 20),
+                DataFim = new DateTime(2022, 09, 20),
+                Telefone = 279055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal ="9250-574",
+                DistritosId= 19,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 05, 20),
+                DataFim = new DateTime(2022, 05, 20),
+                Telefone = 279000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="9250-744",
+                DistritosId= 19,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 279999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="9250-024",
+                DistritosId= 19,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 12),
+                DataFim = new DateTime(2022, 03, 12),
+                Telefone = 274700000,
+                PrecoPacote = 65,
+                PromocaoDesc = 15,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="7250-004",
+                DistritosId= 20,
+        },
+                  new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 10, 20),
+                DataFim = new DateTime(2022, 10, 20),
+                Telefone = 277001000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua Encarnada",
+                CodigoPostal ="7250-005",
+                DistritosId= 20,
+        },
+             new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 12, 20),
+                DataFim = new DateTime(2022, 12, 20),
+                Telefone = 277000220,
+                PrecoPacote = 45,
+                PromocaoDesc = 10,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua Direita",
+                CodigoPostal ="7250-001",
+                DistritosId= 20,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 10, 08),
+                DataFim = new DateTime(2022, 10, 08),
+                Telefone = 277111000,
+                PrecoPacote = 75,
+                PromocaoDesc = 20,
+                PrecoFinal = 55,
+                Inactivo = false,
+                Morada = "Rua dos Cravos",
+                CodigoPostal ="7250-104",
+                DistritosId= 20,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 02, 07),
+                DataFim = new DateTime(2022, 02, 07),
+                Telefone = 277123400,
+                PrecoPacote = 60,
+                PromocaoDesc = 25,
+                PrecoFinal = 35,
+                Inactivo = false,
+                Morada = "Rua da Primavera",
+                CodigoPostal ="7250-024",
+                DistritosId= 20,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 03, 13),
+                DataFim = new DateTime(2022, 03, 13),
+                Telefone = 277199000,
+                PrecoPacote = 50,
+                PromocaoDesc = 10,
+                PrecoFinal = 40,
+                Inactivo = false,
+                Morada = "Rua dos Amores",
+                CodigoPostal ="7250-124",
+                DistritosId= 20,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Familiar",
+                DataInicio = new DateTime(2020, 10, 12),
+                DataFim = new DateTime(2022, 10, 12),
+                Telefone = 277000099,
+                PrecoPacote = 60,
+                PromocaoDesc = 10,
+                PrecoFinal = 50,
+                Inactivo = false,
+                Morada = "Rua das Fontainhas",
+                CodigoPostal ="7250-134",
+                DistritosId= 20,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD4",
+                DataInicio = new DateTime(2020, 12, 10),
+                DataFim = new DateTime(2022, 12, 10),
+                Telefone = 277000000,
+                PrecoPacote = 55,
+                PromocaoDesc = 10,
+                PrecoFinal = 45,
+                Inactivo = false,
+                Morada = "Rua sem Nome",
+                CodigoPostal ="7250-254",
+                DistritosId= 20,
+        },
+               new Contratos
+            {
+                NomePacote = "Pacote RD3",
+                DataInicio = new DateTime(2020, 09, 01),
+                DataFim = new DateTime(2022, 09, 01),
+                Telefone = 277055000,
+                PrecoPacote = 37,
+                PromocaoDesc = 10,
+                PrecoFinal = 27,
+                Inactivo = false,
+                Morada = "Rua das Tulipas",
+                CodigoPostal = "7250-574",
+                DistritosId= 20,
+        },
+              new Contratos
+            {
+                NomePacote = "Pacote Gaming",
+                DataInicio = new DateTime(2020, 03, 12),
+                DataFim = new DateTime(2022, 03, 12),
+                Telefone = 277000000,
+                PrecoPacote = 75,
+                PromocaoDesc = 15,
+                PrecoFinal = 60,
+                Inactivo = false,
+                Morada = "Rua das Rosas",
+                CodigoPostal ="7250-744",
+                DistritosId= 20,
+        },
+            new Contratos
+            {
+                NomePacote = "Pacote TV e Voz",
+                DataInicio = new DateTime(2020, 01, 20),
+                DataFim = new DateTime(2022, 01, 20),
+                Telefone = 277999000,
+                PrecoPacote = 30,
+                PromocaoDesc = 5,
+                PrecoFinal = 25,
+                Inactivo = false,
+                Morada = "Rua da Toca",
+                CodigoPostal ="7250-024",
+                DistritosId= 20,
+        },
+
+        });
+            bd.SaveChanges();
+        }
+        private static void InsereContratos(Projeto_Lab_WebContext bd)
+        {
+
+
+            //var pedro = GaranteUtilizadores(bd, "Pedro Machado", "212545585", new DateTime(1971, 07, 14), "Colónia Agrícola Casal 63", "935559453", "pedromachado@gmail.com", "3870-358", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 14);
+            //var joaquim = GaranteUtilizadores(bd, "Joaquim Mendez", "532344565", new DateTime(1987, 12, 24), "R Indústria Porta 47", "915556899", "joaquimmendez@outlook.com", "3300-040", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 15);
+            //var sandra = GaranteUtilizadores(bd, "Sandra Vieira", "221344545", new DateTime(1977, 02, 23), "R Poeta João Ruiz 6", "929355531", "sandravieira@gmail.com", "6230-355", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 16);
+            //var sara = GaranteUtilizadores(bd, "Sara Siqueira", "543333222", new DateTime(1977, 01, 22), "R Doutor Alfredo Freitas 108", "915551820", "sarasiqueiraa@gmail.com", "3700-501", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 17);
+            //var nelson = GaranteUtilizadores(bd, "Nelson Ramos", "321123456", new DateTime(1945, 07, 10), "R Indústria Porta 56", "929455563", "nelsonramos@outlook.com", "3220-066", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 18);
+            //var danilo = GaranteUtilizadores(bd, "Danilo Pires", "332223455", new DateTime(1999, 06, 26), "Rua Jorge Sena 99", "965559604", "danilopires@live.com", "2650-499", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 19);
+            //var monica = GaranteUtilizadores(bd, "Mônica Torres", "344321789", new DateTime(197, 02, 05), "Avenida Guerra Junqueiro 114", "921555922", "monicatorres@gmail.com", "2610-116", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 20);
+            //var daniela = GaranteUtilizadores(bd, "Daniela Mata", "698767555", new DateTime(1974, 03, 13), "R Portela 64", "915551704", "daielamata@gmail.com", "3550-171", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 3);
+            //var virgilio = GaranteUtilizadores(bd, "Virgílio Abreu", "678567454", new DateTime(1987, 04, 16), "R Padre João A L Ribeiro 88", "915559352", "virgilio_abreu@outlook.com", "3440-376", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 2);
+            //var martim = GaranteUtilizadores(bd, "Martim Moniz", "612345432", new DateTime(1984, 08, 15), "R Poeta João Ruiz 90", "929455556", "martim_moniz@live.com", "6230-691", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 1);
 
             var operador1 = GaranteUtilizadores(bd, "Nuno Forte", "255255212", new DateTime(1998, 09, 29), "Rua das Flores", "925258737", "nuno_rpf@RDtelecom.com", "6300-706", "Operador", false, "Anadia", new DateTime(2020, 01, 01), 0, 4);
             var operador2 = GaranteUtilizadores(bd, "João Matos", "224443321", new DateTime(1970, 04, 21), "Rua da Maurícia Aradas", "965111755", "joao_matos@RDtelecom.com", "3810-433", "Operador", false, "Anadia", new DateTime(2020, 01, 01), 0, 5);
@@ -1397,8 +4487,25 @@ namespace Projeto_Lab_Web_Grupo3.Data
           });
             bd.SaveChanges();
         }
+        private static void InsereReclamcoes(Projeto_Lab_WebContext bd)
+        {
 
+            if (bd.Reclamacoes.Any()) return;
 
+            bd.Reclamacoes.AddRange(new Reclamacoes[] {
+            new Reclamacoes
+            {
+                Descricao = "Falha no telefone",
+                DataReclamacao =new DateTime(2021,02,03),
+                Resposta = "Falha resolvida",
+                EstadoResposta = true,
+                DataResolucao =new DateTime(2021,02,05),
+
+            },
+
+        });
+            bd.SaveChanges();
+        }
 
         //---------------------ADMINISTRADORES-----------------------
 
