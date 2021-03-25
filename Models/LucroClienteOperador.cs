@@ -15,6 +15,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public string ClienteNome { get; set; }
         public string OperadorNome { get; set; }
 
+        public string DistritoNome { get; set; }
+
 
     }
 }
