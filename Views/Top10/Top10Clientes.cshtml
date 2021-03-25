@@ -1,7 +1,7 @@
 ﻿@model Top10ViewModel
 
 @{
-    ViewData["Title"] = "Top 10 Clientes mais Antigos";
+    ViewData["Title"] = "Top 10 Clientes";
     Layout = "_LayoutAdmin";
 }
 
@@ -12,830 +12,1414 @@
             <section class="wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header"><i class="fa fa-file-text-o"></i>Top 10 Clientes por Distrito</h3>
+                        <h3 class="page-header"><i class="fas fa-medal"></i>Ranking de Clientes</h3>
                         <ol class="breadcrumb">
                             <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                            <li><i class="icon_document_alt"></i>Gerir Clientes</li>
-                            <li><i class="fa fa-file-text-o"></i>Consultar</li>
+                            <li><i class="icon_contacts_alt"></i>Gerir Clientes</li>
+                            <li><i class="fas fa-medal"></i>Ver Ranking</li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                        <p>Nesta página pode consultar o top 10 de clientes com os pacotes mais caros em cada distrito, bem como o top 10 de clientes mais antigos a nível nacional.</p>
+                        <br />
                         <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito1
+                            <header class="panel-heading tab-bg-primary ">
+                                <ul class="nav nav-tabs">
+                                    <li class="dropdown">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Norte<b class="caret" style="color:white"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li class=""><a data-toggle="tab" href="#viana">Viana do Castelo</a></li>
+                                            <li class=""><a data-toggle="tab" href="#braga">Braga</a></li>
+                                            <li class=""><a data-toggle="tab" href="#porto">Porto</a></li>
+                                            <li class=""><a data-toggle="tab" href="#vilareal">Vila Real</a></li>
+                                            <li class=""><a data-toggle="tab" href="#braganca">Bragança</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Centro<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a data-toggle="tab" href="#coimbra">Coimbra</a></li>
+                                            <li><a data-toggle="tab" href="#aveiro">Aveiro</a></li>
+                                            <li><a data-toggle="tab" href="#viseu">Viseu</a></li>
+                                            <li><a data-toggle="tab" href="#leiria">Leiria</a></li>
+                                            <li><a data-toggle="tab" href="#castelobranco">Castelo Branco</a></li>
+                                            <li><a data-toggle="tab" href="#guarda">Guarda</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Sul<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a data-toggle="tab" href="#lisboa">Lisboa</a></li>
+                                            <li><a data-toggle="tab" href="#setubal">Setúbal</a></li>
+                                            <li><a data-toggle="tab" href="#santarem">Santarém</a></li>
+                                            <li><a data-toggle="tab" href="#portalegre">Portalegre</a></li>
+                                            <li><a data-toggle="tab" href="#evora">Évora</a></li>
+                                            <li><a data-toggle="tab" href="#beja">Beja</a></li>
+                                            <li><a data-toggle="tab" href="#faro">Faro</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Ilhas<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a data-toggle="tab" href="#acores">Açores</a></li>
+                                            <li><a data-toggle="tab" href="#madeira">Madeira</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#antigos">+ Antigos</a>
+                                    </li>
+                                </ul>
+
                             </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesAveiro)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
                         </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito2
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesBeja)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito3
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesBraga)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito4
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesBraganca)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito5
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesCasteloBranco)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito6
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesCoimbra)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito7
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesEvora)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito8
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesFaro)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito9
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesGuarda)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito10
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesLeiria)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito11
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesLisboa)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito12
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesPortalegre)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito13
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesPorto)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito14
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesSantarem)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito15
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesSetubal)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito16
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesVianadoCastelo)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito17
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesVilaReal)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito18
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesViseu)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito19
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesAcores)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                @ViewBag.Distrito20
-                            </header>
-                            <table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Faturação
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.clientesMadeira)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ClienteNome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Lucro)
-                                            </td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes |</a>
-                                            </td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-
-                        </section>
+
+                        <div class="tab-content">
+                                <div id="aveiro" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Aveiro
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    int pos = 1;
+                                                    foreach (var item in Model.clientesAveiro)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                          
+                                <div id="beja" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Beja
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesBeja)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                           
+                           
+                                <div id="braga" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Braga
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesBraga)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                          
+                            
+                                <div id="braganca" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Braganca
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesBraganca)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                            
+            
+                                <div id="castelobranco" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.CasteloBranco
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesCasteloBranco)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                           
+                           
+                                <div id="coimbra" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Coimbra
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesCoimbra)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                           
+                            
+                                <div id="evora" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Evora
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesEvora)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                            
+                            
+                                <div id="faro" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Faro
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesFaro)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                            
+                            
+                                <div id="guarda" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Guarda
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesGuarda)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                          
+                          
+                                <div id="leiria" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Leiria
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesLeiria)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                           
+                            
+                                <div id="lisboa" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Lisboa
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesLisboa)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                           
+                            
+                                <div id="portalegre" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Portalegre
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesPortalegre)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                           
+                          
+                                <div id="porto" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Porto
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesPorto)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                          
+                            
+                                <div id="santarem" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Santarem
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesSantarem)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                        
+                          
+                                <div id="setubal" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Setubal
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesSetubal)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                         
+                           
+                                <div id="viana" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Viana
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesVianadoCastelo)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                           
+                            
+                                <div id="vilareal" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.VilaReal
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesVilaReal)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                      
+                         
+                                <div id="viseu" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Viseu
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesViseu)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                         
+                           
+                                <div id="madeira" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Madeira
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesMadeira)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                      
+                            
+                                <div id="acores" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            @ViewBag.Acores
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Faturação
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.clientesAcores)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                           
+                           
+                                <div id="antigos" class="tab-pane">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            Clientes mais antigos
+                                        </header>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th>
+                                                        Data de registo
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    pos = 1;
+                                                    foreach (var item in Model.ClientesAntigos)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @pos
+                                                                @switch (pos)
+                                                                {
+                                                                    case 1:
+                                                                        <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                        break;
+                                                                    case 2:
+                                                                        <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                        break;
+                                                                    case 3:
+                                                                        <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Nome)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.DataAtivacao)
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
+                                                            </td>
+                                                        </tr>
+                                                        pos++;
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+                                </div>
+                       
+                        </div>
                     </div>
                 </div>
             </section>

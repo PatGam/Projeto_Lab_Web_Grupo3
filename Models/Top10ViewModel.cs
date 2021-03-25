@@ -11,6 +11,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public List<Contratos> Contratos { get; set; }
         public List<Utilizadores> Utilizadores { get; set; }
 
+        public List<Utilizadores> ClientesAntigos { get; set; }
+
+
         public List<LucroClienteOperador> operadoresAveiro { get; set; }
 
         public List<LucroClienteOperador> operadoresBeja { get; set; }

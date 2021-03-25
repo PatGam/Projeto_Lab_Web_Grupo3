@@ -22,22 +22,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             bd = context;
         }
 
-        public async Task<IActionResult> Top10Antigos()
-        {
-
-            List<Utilizadores> clientesAntigos = await bd.Utilizadores
-                .Where(p => p.Role == "Cliente")
-                .OrderBy(p => p.DataAtivacao)
-                .Take(10)
-                .ToListAsync();
-
-            Top10ViewModel top10clientesAntigos = new Top10ViewModel
-            {
-                Utilizadores = clientesAntigos,
-            };
-            return View(top10clientesAntigos);
-        }
-
         public async Task<IActionResult> Top10Operadores()
         {
 
@@ -281,6 +265,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> Top10Clientes()
         {
 
+            List<Utilizadores> clientesAntigos = await bd.Utilizadores
+                .Where(p => p.Role == "Cliente")
+                .OrderBy(p => p.DataAtivacao)
+                .Take(10)
+                .ToListAsync();
+
             List<LucroClienteOperador> clientes = new List<LucroClienteOperador>();
             decimal lucro = 0;
             foreach (var cliente in bd.Utilizadores)
@@ -294,205 +284,210 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                             lucro += contrato.PrecoFinal;
                         }
                     }
-                    clientes.Add(new LucroClienteOperador() { UtilizadorId = cliente.UtilizadorId, DistritosId = cliente.DistritosId, Lucro = lucro, ClienteNome = cliente.Nome });
+                    var distrito = await bd.Distritos
+                        .FirstOrDefaultAsync(m => m.DistritosId == cliente.DistritosId);
+
+                    clientes.Add(new LucroClienteOperador() { UtilizadorId = cliente.UtilizadorId, DistritosId = cliente.DistritosId, 
+                        Lucro = lucro, ClienteNome = cliente.Nome, DistritoNome = distrito.Nome });
                     lucro = 0;
                 }
             }
 
             var nomeDistrito1 = await bd.Distritos
-                .FirstOrDefaultAsync(m => m.DistritosId == 1);
+                .FirstOrDefaultAsync(m => m.Nome == "Aveiro");
             var nomeDistrito2 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 2);
+              .FirstOrDefaultAsync(m => m.Nome == "Beja");
             var nomeDistrito3 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 3);
+              .FirstOrDefaultAsync(m => m.Nome == "Braga");
             var nomeDistrito4 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 4);
+              .FirstOrDefaultAsync(m => m.Nome == "Bragança");
             var nomeDistrito5 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 5);
+              .FirstOrDefaultAsync(m => m.Nome == "Castelo Branco");
             var nomeDistrito6 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 6);
+              .FirstOrDefaultAsync(m => m.Nome == "Coimbra");
             var nomeDistrito7 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 7);
+              .FirstOrDefaultAsync(m => m.Nome == "Évora");
             var nomeDistrito8 = await bd.Distritos
-                .FirstOrDefaultAsync(m => m.DistritosId == 8);
+                .FirstOrDefaultAsync(m => m.Nome == "Faro");
             var nomeDistrito9 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 9);
+              .FirstOrDefaultAsync(m => m.Nome == "Guarda");
             var nomeDistrito10 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 10);
+              .FirstOrDefaultAsync(m => m.Nome == "Leiria");
             var nomeDistrito11 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 11);
+              .FirstOrDefaultAsync(m => m.Nome == "Lisboa");
             var nomeDistrito12 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 12);
+              .FirstOrDefaultAsync(m => m.Nome == "Portalegre");
             var nomeDistrito13 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 13);
+              .FirstOrDefaultAsync(m => m.Nome == "Porto");
             var nomeDistrito14 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 14);
+              .FirstOrDefaultAsync(m => m.Nome == "Santarém");
             var nomeDistrito15 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 15);
+              .FirstOrDefaultAsync(m => m.Nome == "Setúbal");
             var nomeDistrito16 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 16);
+              .FirstOrDefaultAsync(m => m.Nome == "Viana do Castelo");
             var nomeDistrito17 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 17);
+              .FirstOrDefaultAsync(m => m.Nome == "Vila Real");
             var nomeDistrito18 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 18);
+              .FirstOrDefaultAsync(m => m.Nome == "Viseu");
             var nomeDistrito19 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 19);
+              .FirstOrDefaultAsync(m => m.Nome == "Açores");
             var nomeDistrito20 = await bd.Distritos
-              .FirstOrDefaultAsync(m => m.DistritosId == 20);
+              .FirstOrDefaultAsync(m => m.Nome == "Madeira");
 
-            ViewData["Distrito1"] = nomeDistrito1.Nome;
-            ViewData["Distrito2"] = nomeDistrito2.Nome;
-            ViewData["Distrito3"] = nomeDistrito3.Nome;
-            ViewData["Distrito4"] = nomeDistrito4.Nome;
-            ViewData["Distrito5"] = nomeDistrito5.Nome;
-            ViewData["Distrito6"] = nomeDistrito6.Nome;
-            ViewData["Distrito7"] = nomeDistrito7.Nome;
-            ViewData["Distrito8"] = nomeDistrito8.Nome;
-            ViewData["Distrito9"] = nomeDistrito9.Nome;
-            ViewData["Distrito10"] = nomeDistrito10.Nome;
-            ViewData["Distrito11"] = nomeDistrito11.Nome;
-            ViewData["Distrito12"] = nomeDistrito12.Nome;
-            ViewData["Distrito13"] = nomeDistrito13.Nome;
-            ViewData["Distrito14"] = nomeDistrito14.Nome;
-            ViewData["Distrito15"] = nomeDistrito15.Nome;
-            ViewData["Distrito16"] = nomeDistrito16.Nome;
-            ViewData["Distrito17"] = nomeDistrito17.Nome;
-            ViewData["Distrito18"] = nomeDistrito18.Nome;
-            ViewData["Distrito19"] = nomeDistrito19.Nome;
-            ViewData["Distrito20"] = nomeDistrito20.Nome;
+            ViewData["Aveiro"] = nomeDistrito1.Nome;
+            ViewData["Beja"] = nomeDistrito2.Nome;
+            ViewData["Braga"] = nomeDistrito3.Nome;
+            ViewData["Braganca"] = nomeDistrito4.Nome;
+            ViewData["CasteloBranco"] = nomeDistrito5.Nome;
+            ViewData["Coimbra"] = nomeDistrito6.Nome;
+            ViewData["Evora"] = nomeDistrito7.Nome;
+            ViewData["Faro"] = nomeDistrito8.Nome;
+            ViewData["Guarda"] = nomeDistrito9.Nome;
+            ViewData["Leiria"] = nomeDistrito10.Nome;
+            ViewData["Lisboa"] = nomeDistrito11.Nome;
+            ViewData["Portalegre"] = nomeDistrito12.Nome;
+            ViewData["Porto"] = nomeDistrito13.Nome;
+            ViewData["Santarem"] = nomeDistrito14.Nome;
+            ViewData["Setubal"] = nomeDistrito15.Nome;
+            ViewData["Viana"] = nomeDistrito16.Nome;
+            ViewData["VilaReal"] = nomeDistrito17.Nome;
+            ViewData["Viseu"] = nomeDistrito18.Nome;
+            ViewData["Acores"] = nomeDistrito19.Nome;
+            ViewData["Madeira"] = nomeDistrito20.Nome;
 
 
             List<LucroClienteOperador> clientesAveiro = clientes
-                .Where(p => p.DistritosId == 1)
+                .Where(p => p.DistritoNome == "Aveiro")
                 .OrderByDescending(p => p.Lucro)
                 .Take(10)
                 .ToList();
 
             List<LucroClienteOperador> clientesBeja = clientes
-             .Where(p => p.DistritosId == 2)
+             .Where(p => p.DistritoNome == "Beja")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesBraga = clientes
-             .Where(p => p.DistritosId == 3)
+             .Where(p => p.DistritoNome == "Braga")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesBraganca = clientes
-             .Where(p => p.DistritosId == 4)
+             .Where(p => p.DistritoNome == "Bragança")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesCasteloBranco = clientes
-             .Where(p => p.DistritosId == 5)
+             .Where(p => p.DistritoNome == "Castelo Branco")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesCoimbra = clientes
-             .Where(p => p.DistritosId == 6)
+             .Where(p => p.DistritoNome == "Coimbra")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesEvora = clientes
-             .Where(p => p.DistritosId == 7)
+             .Where(p => p.DistritoNome == "Évora")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesFaro = clientes
-             .Where(p => p.DistritosId == 8)
+             .Where(p => p.DistritoNome == "Faro")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesGuarda = clientes
-             .Where(p => p.DistritosId == 9)
+             .Where(p => p.DistritoNome == "Guarda")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesLeiria = clientes
-             .Where(p => p.DistritosId == 10)
+             .Where(p => p.DistritoNome == "Leiria")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesLisboa = clientes
-             .Where(p => p.DistritosId == 11)
+             .Where(p => p.DistritoNome == "Lisboa")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesPortalegre = clientes
-             .Where(p => p.DistritosId == 12)
+             .Where(p => p.DistritoNome == "Portalegre")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesPorto = clientes
-             .Where(p => p.DistritosId == 13)
+             .Where(p => p.DistritoNome == "Porto")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesSantarem = clientes
-             .Where(p => p.DistritosId == 14)
+             .Where(p => p.DistritoNome == "Santarém")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesSetubal = clientes
-             .Where(p => p.DistritosId == 15)
+             .Where(p => p.DistritoNome == "Setúbal")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesVianadoCastelo = clientes
-             .Where(p => p.DistritosId == 16)
+             .Where(p => p.DistritoNome == "Viana do Castelo")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesVilaReal = clientes
-             .Where(p => p.DistritosId == 17)
+             .Where(p => p.DistritoNome == "Vila Real")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesViseu = clientes
-             .Where(p => p.DistritosId == 18)
+             .Where(p => p.DistritoNome == "Viseu")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             List<LucroClienteOperador> clientesAcores = clientes
-             .Where(p => p.DistritosId == 19)
+             .Where(p => p.DistritoNome == "Açores")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
 
             List<LucroClienteOperador> clientesMadeira = clientes
-             .Where(p => p.DistritosId == 20)
+             .Where(p => p.DistritoNome == "Madeira")
              .OrderByDescending(p => p.Lucro)
              .Take(10)
              .ToList();
 
             Top10ViewModel top10clientes = new Top10ViewModel
             {
+                ClientesAntigos = clientesAntigos,
                 clientesAveiro = clientesAveiro,
                 clientesBeja = clientesBeja,
                 clientesBraga = clientesBraga,

@@ -144,12 +144,13 @@
                             <ul class="sub">
                                 @*Especificar aqui o asp-route, para diferenciar as páginas*@
                                 <li>
-                                    Consultar
+                                    <a class="">Consultar</a>
                                     <ul>
                                         <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientes" asp-route-tipoUtil="Cliente">NIF</a></li>
                                         <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexClientesDistritos" asp-route-tipoUtil="Cliente">Distrito</a></li>
                                     </ul>
                                 </li>
+                                <li><a class="" a asp-area="" asp-controller="Top10" asp-action="Top10Clientes">Ver Ranking</a></li>
                                 <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="CreateClientes" asp-route-tipoUtil="Cliente">Criar</a></li>
                             </ul>
                         </li>
@@ -173,12 +174,13 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    Consultar
+                                    <a class="">Consultar</a>
                                     <ul>
                                         <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexFuncionarios" asp-route-tipoUtil="Func">NIF</a></li>
                                         <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="IndexFuncionariosDistritos" asp-route-tipoUtil="Func">Distritos</a></li>
                                     </ul>
                                 </li>
+                                <li><a class="" a asp-area="" asp-controller="Top10" asp-action="Top10Operadores">Ver Ranking</a></li>
                                 <li><a class="" a asp-area="" asp-controller="Utilizadores" asp-action="CreateFuncionarios" asp-route-tipoUtil="Func">Criar</a></li>
                             </ul>
 
