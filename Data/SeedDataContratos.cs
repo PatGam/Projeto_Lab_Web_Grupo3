@@ -11,8 +11,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
     public class SeedDataContratos
     {
 
-
-
         internal static void InsereContratos(Projeto_Lab_WebContext bd)
         {
             if (bd.Contratos.Any()) return;
@@ -44,6 +42,8 @@ namespace Projeto_Lab_Web_Grupo3.Data
             var aveirocliente12 = GaranteUtilizadores(bd, "Rita de Brandão2", "510065112", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985575", "rita.brandao2@gmail.com", "3880-007", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
             var aveirocliente13 = GaranteUtilizadores(bd, "Rita de Brandão3", "509688977", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985576", "rita.brandao3@gmail.com", "3880-008", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
             var aveirocliente14 = GaranteUtilizadores(bd, "Rita de Brandão4", "508948576", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929985577", "rita.brandao4@gmail.com", "3880-009", "Cliente", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
+            var aveirocliente15 = GaranteUtilizadores(bd, "Cliente", "506719693", new DateTime(2000, 01, 19), "Sargento Mor", "921233389", "cliente@RDtelecom.com", "3020-740", "Cliente", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
+
 
             //Clientes de Beja
             var bejacliente1 = GaranteUtilizadores(bd, "Ramos de Oliveira", "234325003", new DateTime(2001, 01, 19), "Beco da Rua Acima", "963125884", "eduardo.pires@gmail.com", "7960-002", "Cliente", false, "Beja", new DateTime(2021, 01, 05), 0, 2);
@@ -332,6 +332,8 @@ namespace Projeto_Lab_Web_Grupo3.Data
             var aveirooperador9 = GaranteUtilizadores(bd, "Freitas Aveiro", "172501482", new DateTime(1975, 02, 08), "Rua do Murtório Rochico ", "961477784", "freitas.mondego@RDtelecom.com", "3865-299", "Operador", false, "Aveiro", new DateTime(2020, 10, 02), 0, 1);
             var aveirooperador10 = GaranteUtilizadores(bd, "João Aveiro", "265371988", new DateTime(1958, 12, 27), "Travessa da Lomba", "923212322", "joao.cardoso@RDtelecom.com", "3865-003", "Operador", false, "Aveiro", new DateTime(2021, 01, 05), 0, 1); ;
             var aveirooperador11 = GaranteUtilizadores(bd, "Rita Aveiro", "244225834", new DateTime(1956, 08, 27), "Largo 5 de Outubro Jardim dos Campos Pares", "929988774", "rita.brandao@RDtelecom.com", "3880-006", "Operador", false, "Aveiro", new DateTime(2021, 02, 05), 0, 1);
+            var aveiroperador12 = GaranteUtilizadores(bd, "Operador", "506719693", new DateTime(2000, 01, 19), "Sargento Mor", "921233389", "operador@RDtelecom.com", "3020-740", "Operador", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
+
 
             //    //-------------------------- 2 BEJA------------------
             var bejaoperador1 = GaranteUtilizadores(bd, "Ramos RD Beja", "286714957", new DateTime(2001, 01, 19), "Beco da Rua Acima", "963125474", "eduardo.pires@RDtelecom.com", "7960-002", "Operador", false, "Beja", new DateTime(2021, 01, 05), 0, 2);
@@ -632,6 +634,26 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.Contratos.AddRange(new Contratos[] {
 
                 //Contratos dos Operadores de Aveiro
+                new Contratos
+                     {
+                    UtilizadorId = aveirocliente15.UtilizadorId,
+                    ClienteId = aveirocliente15.UtilizadorId,
+                    FuncionarioId = aveiroperador12.UtilizadorId,
+                    PacoteId = pacoteRD4.PacoteId,
+                    PromocoesId = natalM.PromocoesId,
+                    DataInicio = natalM.DataInicio,
+                    DataFim = natalM.DataInicio.AddYears(2),
+                    Telefone = 236111111,
+                    PrecoPacote = pacoteRD4.Preco,
+                    NomePacote = pacoteRD4.Nome,
+                    PromocaoDesc = natalM.PromocaoDesc,
+                    PrecoFinal = pacoteRD4.Preco - natalM.PromocaoDesc,
+                    Inactivo = false,
+                    Morada = aveirocliente15.Morada,
+                    CodigoPostal = aveirocliente15.CodigoPostal,
+                    DistritosId = aveiro.DistritosId,
+                },
+
                   new Contratos
                      {
                     UtilizadorId = aveirocliente1.UtilizadorId,
