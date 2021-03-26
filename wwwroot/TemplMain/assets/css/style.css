@@ -1663,7 +1663,7 @@ h2#dlg-header {
 # Header Personal Data
 --------------------------------------------------------------*/
 #headerPData {
-    height: 870px;
+    height: 750px;
     width: 260px;
     z-index: 3;
     margin-top: 15px;
@@ -1674,7 +1674,7 @@ h2#dlg-header {
     background: -o-linear-gradient(top, #87c4e4, #0d5e87);
     background: -moz-linear-gradient(top, #87c4e4, #0d5e87);
     background: linear-gradient(top, #87c4e4, #0d5e87);
-    border-radius: 0% 25%;
+    border-radius: 0% 20%;
     position: absolute;
 }
 
@@ -1706,7 +1706,7 @@ h2#dlg-header {
 */
 .navbarPData {
     padding: 0;
-    margin-top: 80px;
+    margin-top: 20px;
 }
 
 
@@ -1725,7 +1725,7 @@ h2#dlg-header {
         align-items: center;
         justify-content: space-between;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 501;
         color: #fff;
         white-space: nowrap;
         transition: 0.3s;
@@ -2096,4 +2096,46 @@ div#slider {
     .featurestv {
         background-attachment: scroll;
     }
+}
+
+
+/*----Tables-----*/
+table {
+    width: 100%;
+    table-layout: fixed;
+    background: #fff;
+    background: -webkit-linear-gradient(top, #0d5e87, #1879aa);
+    background: -o-linear-gradient(top, #0d5e87, #1879aa);
+    background: -moz-linear-gradient(top, #0d5e87, #1879aa);
+    background: linear-gradient(top, #0d5e87, #1879aa);
+}
+
+.tbl-header {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.tbl-content {
+    height: 300px;
+    overflow-x: auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+th {
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
 }
