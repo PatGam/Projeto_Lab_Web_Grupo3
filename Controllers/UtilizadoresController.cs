@@ -123,51 +123,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         [Authorize(Roles = "Administrador,Operador")]
-        public async Task<IActionResult> IndexClientesDistritos(string distrito, int pagina = 1)
+        public IActionResult IndexClientesDistritos()
         {
 
+            return View();
 
 
 
-            //string que especifica o asp-router
-            //ViewData["TipoUtil"] = tipoUtil;
-            //return View(await _context.Utilizadores.ToListAsync());
-
-            if (distrito != null)
-            {
-                Paginacao paginacao = new Paginacao
-                {
-                    TotalItems = await _context.Utilizadores.Where(p => distrito == null || p.Distritos.Nome.Contains(distrito)).CountAsync(),
-                    PaginaAtual = pagina
-
-                };
-
-                List<Utilizadores> utilizadores = await _context.Utilizadores.Where(p => p.Distritos.Nome.Contains(distrito) && p.Inactivo == false && p.Role == "Cliente")
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
-
-                UtilizadoresViewModel model1 = new UtilizadoresViewModel
-                {
-                    Utilizador = utilizadores,
-                    Paginacao = paginacao,
-                    distrito = distrito,
-
-                };
-
-                return View(model1);
-
-            }
-            else
-            {
-                UtilizadoresViewModel model2 = new UtilizadoresViewModel
-                {
-                    distrito = distrito
-                };
-
-                return View(model2);
-
-            }
+            
         }
 
 
@@ -850,10 +813,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
 
 
-        public IActionResult Viana_do_Castelo()
-        {
-            return View();
-        }
+        
     }
 
     
