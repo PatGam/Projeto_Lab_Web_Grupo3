@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Projeto_Lab_Web_Grupo3.Models;
+
 namespace Projeto_Lab_Web_Grupo3.Data
 {
     public class SeedDataContratos
