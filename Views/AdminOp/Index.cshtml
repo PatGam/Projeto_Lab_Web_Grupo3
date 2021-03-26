@@ -45,8 +45,31 @@
                 </div>
             </div>
 
+            @if (User.IsInRole("Operador"))
+            {
+                <div> <h1 style="text-align:center">Os meus números</h1></div>
+
+            
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="info-box linkedin-bg">
+                        <div class="title">Número contratos</div>
+                        <i class="fas fa-check"></i>
+                        <div class="count"> @ViewBag.Meuscontratos</div>
+
+                    </div>
+                </div>
+          
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="info-box teal-bg">
+                        <div class="title">Faturação Mensal</div>
+                        <i class="fas fa-calculator"></i>
+                        <div class="count"> € @ViewBag.faturacao</div>
+                    </div>
+                </div>
+            }
 
         </div>
+
         <div class="row">
             <h4 style="text-align:center">Contamos consigo todos os dias para aumentar estes números. Bom trabalho!</h4>
         </div>
