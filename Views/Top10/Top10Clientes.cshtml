@@ -1534,14 +1534,14 @@
                                                             Nome
                                                         </th>
                                                         <th>
-                                                            Faturação
+                                                            Data de registo
                                                         </th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
-                                                    @foreach (var item in Model.clientesAcores)
+                                                    @foreach (var item in Model.ClientesAntigos)
                                                     {
                                                         <tr>
                                                             <td>
@@ -1563,10 +1563,10 @@
 
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                                @Html.DisplayFor(modelItem => item.Nome)
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => item.Lucro)
+                                                                @Html.DisplayFor(modelItem => item.DataAtivacao)
                                                             </td>
                                                             <td>
                                                                 <a class="btn btn-info btn-sm" title="Saiba mais informação sobre este cliente" asp-area="" asp-controller="Utilizadores" asp-action="Details" asp-route-id="@item.UtilizadorId">Detalhes</a>
