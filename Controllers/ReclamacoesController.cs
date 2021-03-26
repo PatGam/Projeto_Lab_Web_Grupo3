@@ -12,17 +12,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 {
     public class ReclamacoesController : Controller
     {
-        private readonly Projeto_Lab_WebContext _context;
+        private readonly Projeto_Lab_WebContext bd;
 
         public ReclamacoesController(Projeto_Lab_WebContext context)
         {
-            _context = context;
+            bd = context;
         }
 
         // GET: Reclamacoes
         public async Task<IActionResult> Index()
         {
-            var projeto_Lab_WebContext = _context.Reclamacoes.Include(r => r.Cliente).Include(r => r.Funcionario);
+            var projeto_Lab_WebContext = bd.Reclamacoes.Include(r => r.Cliente).Include(r => r.Funcionario);
             return View(await projeto_Lab_WebContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var reclamacoes = await _context.Reclamacoes
+            var reclamacoes = await bd.Reclamacoes
                 .Include(r => r.Cliente)
                 .Include(r => r.Funcionario)
                 .FirstOrDefaultAsync(m => m.ReclamacaoId == id);
@@ -49,8 +49,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // GET: Reclamacoes/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome");
-            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome");
+            ViewData["ClienteId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
+            ViewData["FuncionarioId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
             return View();
         }
 
@@ -63,12 +63,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(reclamacoes);
-                await _context.SaveChangesAsync();
+                bd.Add(reclamacoes);
+                await bd.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
+            ViewData["ClienteId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
+            ViewData["FuncionarioId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
             return View(reclamacoes);
         }
 
@@ -80,13 +80,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var reclamacoes = await _context.Reclamacoes.FindAsync(id);
+            var reclamacoes = await bd.Reclamacoes.FindAsync(id);
             if (reclamacoes == null)
             {
                 return NotFound();
             }
-            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
+            ViewData["ClienteId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
+            ViewData["FuncionarioId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
             return View(reclamacoes);
         }
 
@@ -106,8 +106,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 try
                 {
-                    _context.Update(reclamacoes);
-                    await _context.SaveChangesAsync();
+                    bd.Update(reclamacoes);
+                    await bd.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -122,8 +122,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
-            ViewData["FuncionarioId"] = new SelectList(_context.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
+            ViewData["ClienteId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome", reclamacoes.ClienteId);
+            ViewData["FuncionarioId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome", reclamacoes.FuncionarioId);
             return View(reclamacoes);
         }
 
@@ -135,7 +135,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return NotFound();
             }
 
-            var reclamacoes = await _context.Reclamacoes
+            var reclamacoes = await bd.Reclamacoes
                 .Include(r => r.Cliente)
                 .Include(r => r.Funcionario)
                 .FirstOrDefaultAsync(m => m.ReclamacaoId == id);
@@ -152,15 +152,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var reclamacoes = await _context.Reclamacoes.FindAsync(id);
-            _context.Reclamacoes.Remove(reclamacoes);
-            await _context.SaveChangesAsync();
+            var reclamacoes = await bd.Reclamacoes.FindAsync(id);
+            bd.Reclamacoes.Remove(reclamacoes);
+            await bd.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ReclamacoesExists(int id)
         {
-            return _context.Reclamacoes.Any(e => e.ReclamacaoId == id);
+            return bd.Reclamacoes.Any(e => e.ReclamacaoId == id);
         }
     }
 }

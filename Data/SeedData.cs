@@ -30,6 +30,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InserePacotes(bd);
             InsereServicosPacotes(bd);
             InserePromocoesPacotes(bd);
+            InsereReclamacoes(bd);
 
             //InsereContratos(bd);
             //InsereTiposClientes(bd);
@@ -1358,7 +1359,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         //  });
         //    bd.SaveChanges();
         //}
-        private static void InsereReclamcoes(Projeto_Lab_WebContext bd)
+        private static void InsereReclamacoes(Projeto_Lab_WebContext bd)
         {
 
             if (bd.Reclamacoes.Any()) return;
@@ -1401,6 +1402,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=aveirocliente1.UtilizadorId,
                 FuncionarioId=aveirooperador2.UtilizadorId,
+                Inactivo = false,
 
             },
              new Reclamacoes
@@ -1413,6 +1415,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=bejacliente4.UtilizadorId,
                 FuncionarioId=bejaoperador5.UtilizadorId,
+                 Inactivo = false,
 
             },
               new Reclamacoes
@@ -1425,6 +1428,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=bragacliente7.UtilizadorId,
                 FuncionarioId=bragaoperador6.UtilizadorId,
+                 Inactivo = false,
 
             },
                new Reclamacoes
@@ -1437,6 +1441,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=bragancacliente11.UtilizadorId,
                 FuncionarioId=bragancaoperador1.UtilizadorId,
+                 Inactivo = false,
 
             },
                 new Reclamacoes
@@ -1449,6 +1454,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=castelobrancocliente7.UtilizadorId,
                 FuncionarioId=castelobrancoperador7.UtilizadorId,
+                 Inactivo = false,
 
             },
                  new Reclamacoes
@@ -1461,6 +1467,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=coimbracliente7.UtilizadorId,
                 FuncionarioId=coimbraoperador10.UtilizadorId,
+                 Inactivo = false,
 
             },
                   new Reclamacoes
@@ -1473,6 +1480,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=evoracliente12.UtilizadorId,
                 FuncionarioId=evoraoperador3.UtilizadorId,
+                 Inactivo = false,
 
             },
                    new Reclamacoes
@@ -1485,6 +1493,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=farocliente1.UtilizadorId,
                 FuncionarioId=farooperador10.UtilizadorId,
+                 Inactivo = false,
 
             },
                     new Reclamacoes
@@ -1497,6 +1506,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=aveirocliente1.UtilizadorId,
                 FuncionarioId=aveirooperador2.UtilizadorId,
+                 Inactivo = false,
 
             },
                      new Reclamacoes
@@ -1509,6 +1519,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=guardacliente9.UtilizadorId,
                 FuncionarioId=guardaoperador12.UtilizadorId,
+                 Inactivo = false,
 
             },
 

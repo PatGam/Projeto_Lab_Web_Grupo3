@@ -5,51 +5,126 @@
     Layout = "_LayoutAdmin";
 }
 
-<section id="main-content">
-    <section class="wrapper">
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <div class="container row p-0 m-0">
-            <div class="col-lg-12">
-                <h3 class="page-header"><i class="fa fa-inbox" aria-hidden="true"></i>Reclamações</h3>
-                <ol class="breadcrumb">
-                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
 
 
-                </ol>
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <h1>Reclamações</h1>
+                        </header>
+                        <div class="card border-info mb-4">
+                            <div class="card-body">
+
+
+                            </div>
+                        </div>
+
+                        @*<p>
+                                <a asp-action="Create">Create New</a>
+                            </p>*@
+                        <table class="table table-striped table-advance table-hover">
+                            <thead>
+                                <tr>
+                                    @if (User.IsInRole("Operador"))
+                                    {
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Descricao)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataReclamacao)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Cliente)
+                                        </th>
+
+                                    }
+                                    @if (User.IsInRole("Cliente"))
+                                    {
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Resposta)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataResposta)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EstadoResposta)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EstadoResolução)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataResolucao)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Funcionario)
+                                        </th>
+                                    }
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        @if (User.IsInRole("Operador"))
+                                        {
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Descricao)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DataReclamacao)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                                            </td>
+                                        }
+                                        @if (User.IsInRole("Cliente"))
+                                        {
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Resposta)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DataResposta)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EstadoResposta)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EstadoResolução)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DataResolucao)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Funcionario.Nome)
+                                            </td>
+                                        }
+
+
+                                    <td>
+
+
+                                        <a asp-action="Details" asp-route-id="@item.ReclamacaoId">Detalhes</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.ReclamacaoId">Arquivar</a> |
+                                        <a asp-action="Edit" asp-route-id="@item.ReclamacaoId">Responder ao Cliente</a> 
+
+                                    </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </section>
+                </div>
             </div>
-            <div class="col-3 offset-3">
-            </div>
-            <div class="col-12 border p-3">
-                <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            @if (User.IsInRole("Operador"))
-                            {
-                                <th>Descrição</th>
-                                <th>Data Reclamação</th>
-                                <th>Cliente</th>
-                                @*<th>Resposta</th>*@
-                            }
-                            @if (User.IsInRole("Cliente"))
-                            {
-                                <th>Data Resposta</th>
-                                <th>Estado Resposta</th>
-                                <th>Estado Resolução</th>
-                                <th>Data Resolução</th>
-                                <th>Funcionário</th>
-                            }
-
-
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
+        </section>
     </section>
 </section>
-
-@section Scripts{
-    <script src="~/js/Reclamacoes.js"></script>
-}
