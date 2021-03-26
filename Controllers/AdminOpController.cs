@@ -71,24 +71,24 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 receita += item.PrecoFinal;
             }
 
-            // -----------------------------------------------------
+           
 
-            //var funcionario = bd.Utilizadores.SingleOrDefault(c => c.Email == User.Identity.Name);
+            var funcionario = bd.Utilizadores.SingleOrDefault(c => c.Email == User.Identity.Name);
 
 
-            //List<Contratos> MeusContratos = await bd.Contratos
-            //    .Where(p => p.FuncionarioId==funcionario.UtilizadorId)
-            //    .ToListAsync();
-            //int contagemMeusContratos = MeusContratos.Count();
+            List<Contratos> MeusContratos = await bd.Contratos
+                .Where(p => p.FuncionarioId == funcionario.UtilizadorId)
+                .ToListAsync();
+            int contagemMeusContratos = MeusContratos.Count();
 
-            
-            //decimal faturacao = 0;
-            //foreach (var item in MeusContratos)
-            //{
 
-            //    faturacao += item.PrecoFinal;
-                
-            //}
+            decimal faturacao = 0;
+            foreach (var item in MeusContratos)
+            {
+
+                faturacao += item.PrecoFinal;
+
+            }
 
             HomeGestaoViewModel modelo = new HomeGestaoViewModel
             {
@@ -99,8 +99,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["contratos"] = contagemContratos;
             ViewData["receita"] = receita;
             ViewData["func"] = contagemFunc;
-            //ViewData["faturacao"] = faturacao;
-            //ViewData["Meuscontratos"] = contagemMeusContratos;
+            ViewData["faturacao"] = faturacao;
+            ViewData["Meuscontratos"] = contagemMeusContratos;
 
 
             return View(modelo);
