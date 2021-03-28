@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Projeto_Lab_Web_Grupo3.Data;
+using Projeto_Lab_Web_Grupo3.Services;
 
 namespace Projeto_Lab_Web_Grupo3
 {
@@ -26,7 +27,7 @@ namespace Projeto_Lab_Web_Grupo3
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {  
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -54,8 +55,14 @@ namespace Projeto_Lab_Web_Grupo3
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.AddTransient<IEmailSender, AuthMessageSender>();
+
+            services.AddMvc();
+
             services.AddDbContext<Projeto_Lab_WebContext>(options => options.UseSqlServer(
            Configuration.GetConnectionString("Projeto_Lab_WebContext"))
+
 
            );
         }
