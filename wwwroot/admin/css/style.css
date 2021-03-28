@@ -502,15 +502,15 @@ table tr th { color: #688a7e;}
 
 
 #sidebar {
-
     width: 190px;
-
     height: 100%;
-
     position: fixed;
-
-    background: #85949c;
-
+    background: #fff;
+    background: -webkit-linear-gradient(top, #305b97, #78a8e2);
+    background: -o-linear-gradient(top, #305b97, #78a8e2);
+    background: -moz-linear-gradient(top, #305b97, #78a8e2);
+    background: linear-gradient(top, #305b97, #78a8e2);
+    
 }
 
 
