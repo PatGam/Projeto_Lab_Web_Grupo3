@@ -224,13 +224,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
                 var distritos = bd.Distritos.ToList();
 
-                servicosPacotesViewModel.ListaDistritos = distritos.Select(s => new Checkbox()
-                {
-                    Id = s.DistritosId,
-                    NomeDistrito = s.Nome,
-                    Selecionado = false
-                }).ToList();
-
                 return View(servicosPacotesViewModel);
 
             }
@@ -290,27 +283,25 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
             await bd.SaveChangesAsync();
 
+            List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
 
-            //foreach (var item in servicosPacotesViewModel.ListaDistritos)
-            //{
-            //    if (item.Selecionado == true)
-            //    {
-            //        promocoesDosPacotes.Add(new PromocoesPacotes() { PromocoesId = promocaoId, PacoteId = item.Id });
-            //    }
-            //}
-            //foreach (var item in promocoesDosPacotes)
-            //{
-            //    bd.PromocoesPacotes.Add(item);
-            //}
-            //await bd.SaveChangesAsync();
-
-
-            //ViewBag.Mensagem = "Promoção adicionado com sucesso.";
-            //return View("Sucesso");
+            foreach (var item in servicosPacotesViewModel.ListaDistritos)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in distritoscomPacotes)
+            {
+                bd.DistritosPacotes.Add(item);
+            }
+            await bd.SaveChangesAsync();
 
 
-            ViewBag.Mensagem = "Pacote adicionado com sucesso.";
+            ViewBag.Mensagem = "Promoção adicionado com sucesso.";
             return View("Sucesso");
+
 
         }
 
@@ -381,15 +372,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
                 .ThenInclude(c => c.Servico)
                 .AsNoTracking()
-                .SingleOrDefaultAsync(p => p.PacoteId == id);
+                .SingleOrDefaultAsync(p => p.PacoteId == (int)id);
 
-            var listaServicos = bd.Servicos.Select(s => new Checkbox()
+            var listaDistritos = bd.Distritos.Select(s => new Checkbox()
             {
-                Id = s.ServicoId,
-                Nome = s.Nome,
-                TipoServico = s.TipoServicoId,
-                NomeTipoServico = s.TipoServicos.Nome,
-                Selecionado = s.ServicosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
+                Id = s.DistritosId,
+                NomeDistrito = s.Nome,
+                Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
 
             }).ToList();
 
@@ -397,8 +386,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             servicosPacotesViewModel.Nome = pacote.Nome;
             servicosPacotesViewModel.Descricao = pacote.Descricao;
             servicosPacotesViewModel.Preco = pacote.Preco;
-            //servicosPacotesViewModel.ListaServicos = listaServicos;
             servicosPacotesViewModel.PacoteId = (int)id;
+            servicosPacotesViewModel.ListaDistritos = listaDistritos;
+
 
             return View(servicosPacotesViewModel);
         }
@@ -411,7 +401,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, ServicosPacotesViewModel servicosPacotesViewModel, IFormFile Imagem)
         {
-
+            id = servicosPacotesViewModel.PacoteId;
             List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
             Pacotes pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
                 .ThenInclude(c => c.Servico)
@@ -429,32 +419,89 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             int pacoteId = pacote.PacoteId;
 
-            //foreach (var servico in servicosPacotesViewModel.ListaServicos)
-            //{
-            //    if (servico.Selecionado == true)
-            //    {
-            //        servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servico.Id });
-            //    }
-            //}
+            //Listas de Serviços
 
-            var ListaServicosPacotes = bd.ServicosPacotes.Where(p => p.PacoteId == id).ToList();
-            var resultado = ListaServicosPacotes.Except(servicosNosPacotes).ToList();
-            foreach (var servicoPacote in resultado)
+            var servico1id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico1);
+            var servico2id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico2);
+            var servico3id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico3);
+            var servico4id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico4);
+            var servico5id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico5);
+
+            var servicosPreviamenteIncluidos = bd.ServicosPacotes
+                .Where(p => p.PacoteId == id)
+                .ToList();
+
+            foreach (var item in servicosPreviamenteIncluidos)
             {
-                bd.ServicosPacotes.Remove(servicoPacote);
+                bd.ServicosPacotes.Remove(item);
                 await bd.SaveChangesAsync();
             }
-            var novaListaServicosPacotes = bd.ServicosPacotes.Where(p => p.PacoteId == id).ToList();
-            foreach (var servico in servicosNosPacotes)
+
+            if (servico1id.Nome != "---")
             {
-                if (!novaListaServicosPacotes.Contains(servico))
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico1 });
+            }
+
+            if (servico2id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico2 });
+            }
+
+            if (servico3id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico3 });
+            }
+
+            if (servico4id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico4 });
+            }
+
+            if (servico5id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico5 });
+            }
+
+
+            foreach (var item in servicosNosPacotes)
+            {
+                bd.ServicosPacotes.Add(item);
+            }
+            await bd.SaveChangesAsync();
+
+
+
+            //Checklist de Distritos
+            List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
+
+            foreach (var item in servicosPacotesViewModel.ListaDistritos)
+            {
+                if (item.Selecionado == true)
                 {
-                    bd.ServicosPacotes.Add(servico);
+                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
+                }
+            }
+
+            var listaDistritosPacotes = bd.DistritosPacotes.Where(p => p.PacoteId == id).ToList();
+            var resultado = listaDistritosPacotes.Except(distritoscomPacotes).ToList();
+
+            foreach (var distrito in resultado)
+            {
+                bd.DistritosPacotes.Remove(distrito);
+                await bd.SaveChangesAsync();
+            }
+
+            var novalistaDistritosPacotes = bd.DistritosPacotes.Where(p => p.PacoteId == id).ToList();
+
+            foreach (var distrito in distritoscomPacotes)
+            {
+                if (!novalistaDistritosPacotes.Contains(distrito))
+                {
+                    bd.DistritosPacotes.Add(distrito);
                     await bd.SaveChangesAsync();
                 }
             }
 
-            
             ViewBag.Mensagem = "Pacote alterado com sucesso";
             return View("Sucesso");
         }
