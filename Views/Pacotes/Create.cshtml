@@ -92,9 +92,9 @@
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" value="">
-                                                @Html.DisplayFor(z => Model.ListaDistritos[i].Nome)
+                                                @Html.DisplayFor(z => Model.ListaDistritos[i].NomeDistrito)
                                             </label>
-                                            @Html.HiddenFor(x => Model.ListaDistritos[i].NomeDistrito)
+                                            @Html.HiddenFor(x => Model.ListaDistritos[i].Id)
                                             @Html.CheckBoxFor(z => Model.ListaDistritos[i].Selecionado)
                                         </div>
                                     }

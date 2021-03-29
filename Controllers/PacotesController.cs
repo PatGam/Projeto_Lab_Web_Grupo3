@@ -290,27 +290,25 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
             await bd.SaveChangesAsync();
 
+            List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
 
-            //foreach (var item in servicosPacotesViewModel.ListaDistritos)
-            //{
-            //    if (item.Selecionado == true)
-            //    {
-            //        promocoesDosPacotes.Add(new PromocoesPacotes() { PromocoesId = promocaoId, PacoteId = item.Id });
-            //    }
-            //}
-            //foreach (var item in promocoesDosPacotes)
-            //{
-            //    bd.PromocoesPacotes.Add(item);
-            //}
-            //await bd.SaveChangesAsync();
-
-
-            //ViewBag.Mensagem = "Promoção adicionado com sucesso.";
-            //return View("Sucesso");
+            foreach (var item in servicosPacotesViewModel.ListaDistritos)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in distritoscomPacotes)
+            {
+                bd.DistritosPacotes.Add(item);
+            }
+            await bd.SaveChangesAsync();
 
 
-            ViewBag.Mensagem = "Pacote adicionado com sucesso.";
+            ViewBag.Mensagem = "Promoção adicionado com sucesso.";
             return View("Sucesso");
+
 
         }
 
