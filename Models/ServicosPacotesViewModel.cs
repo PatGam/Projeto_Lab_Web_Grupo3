@@ -34,7 +34,12 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public List<Tipos_Sevicos> TiposServicos { get; set; }
 
-        public List<Checkbox> ListaDistritos { get; set; }
+        public List<Checkbox> ListaDistritosCentro {get; set; }
+        public List<Checkbox> ListaDistritosNorte { get; set; }
+
+        public List<Checkbox> ListaDistritosSul { get; set; }
+
+        public List<Checkbox> ListaDistritosIlhas { get; set; }
 
         public int Servico1 { get; set; }
 
