@@ -83,10 +83,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 int contagemMeusContratos = MeusContratos.Count();
 
 
+                //DateTime now = DateTime.Now;
+                //var startDate = new DateTime(now.Year, now.Month, 1);
+                //var endDate = startDate.AddMonths(1).AddDays(-1);
                 decimal faturacao = 0;
                 foreach (var item in MeusContratos)
                 {
-
+                    
                     faturacao += item.PrecoFinal;
 
                 }
