@@ -5196,7 +5196,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataCriacao = dataInicio,
                     DataInactivo = new DateTime(2020, 12, 30),
                     Imagem = new byte[0],
-                    DistritosId = distrito
+                    
 
                 };
                 bd.Pacotes.Add(pacotes);

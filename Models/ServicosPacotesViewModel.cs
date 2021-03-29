@@ -30,12 +30,11 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public List<PromocoesPacotes> PromocoesPacotes { get; set; }
         public Paginacao Paginacao { get; set; }
         public string NomePesquisar { get; set; }
-        public List<Checkbox> ListaServicos { get; set; }
-
         public List<Servicos> ListasServicos { get; set; }
 
         public List<Tipos_Sevicos> TiposServicos { get; set; }
 
+        public List<Checkbox> ListaDistritos { get; set; }
 
         public int Servico1 { get; set; }
 

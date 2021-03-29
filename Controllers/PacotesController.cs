@@ -87,7 +87,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 Pacotes = pacotes,
                 ServicosPacotes = servicos,
-                PromocoesPacotes = promocoes,
+                //PromocoesPacotes = promocoes,
             };
             
            
@@ -151,12 +151,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
 
-            servicosPacotesViewModel.ListaServicos = servicos.Select(s => new Checkbox()
+            var distritos = bd.Distritos.ToList();
+
+            servicosPacotesViewModel.ListaDistritos = distritos.Select(s => new Checkbox()
             {
-                Id = s.ServicoId,
-                Nome = s.Nome,
-                TipoServico = s.TipoServicoId,
-                NomeTipoServico = s.TipoServicos.Nome,
+                Id = s.DistritosId,
+                NomeDistrito = s.Nome,
                 Selecionado = false
             }).ToList();
 
@@ -222,14 +222,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 ViewData["Lista4"] = new SelectList(Lista4, "ServicoId", "Nome");
                 ViewData["Lista5"] = new SelectList(Lista5, "ServicoId", "Nome");
 
+                var distritos = bd.Distritos.ToList();
 
-
-                servicosPacotesViewModel.ListaServicos = servicos.Select(s => new Checkbox()
+                servicosPacotesViewModel.ListaDistritos = distritos.Select(s => new Checkbox()
                 {
-                    Id = s.ServicoId,
-                    Nome = s.Nome,
-                    TipoServico = s.TipoServicoId,
-                    NomeTipoServico = s.TipoServicos.Nome,
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
                     Selecionado = false
                 }).ToList();
 
@@ -290,9 +288,25 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 bd.ServicosPacotes.Add(item);
             }
-
-
             await bd.SaveChangesAsync();
+
+
+            //foreach (var item in servicosPacotesViewModel.ListaDistritos)
+            //{
+            //    if (item.Selecionado == true)
+            //    {
+            //        promocoesDosPacotes.Add(new PromocoesPacotes() { PromocoesId = promocaoId, PacoteId = item.Id });
+            //    }
+            //}
+            //foreach (var item in promocoesDosPacotes)
+            //{
+            //    bd.PromocoesPacotes.Add(item);
+            //}
+            //await bd.SaveChangesAsync();
+
+
+            //ViewBag.Mensagem = "Promoção adicionado com sucesso.";
+            //return View("Sucesso");
 
 
             ViewBag.Mensagem = "Pacote adicionado com sucesso.";
@@ -383,7 +397,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             servicosPacotesViewModel.Nome = pacote.Nome;
             servicosPacotesViewModel.Descricao = pacote.Descricao;
             servicosPacotesViewModel.Preco = pacote.Preco;
-            servicosPacotesViewModel.ListaServicos = listaServicos;
+            //servicosPacotesViewModel.ListaServicos = listaServicos;
             servicosPacotesViewModel.PacoteId = (int)id;
 
             return View(servicosPacotesViewModel);
@@ -415,13 +429,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             int pacoteId = pacote.PacoteId;
 
-            foreach (var servico in servicosPacotesViewModel.ListaServicos)
-            {
-                if (servico.Selecionado == true)
-                {
-                    servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servico.Id });
-                }
-            }
+            //foreach (var servico in servicosPacotesViewModel.ListaServicos)
+            //{
+            //    if (servico.Selecionado == true)
+            //    {
+            //        servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servico.Id });
+            //    }
+            //}
 
             var ListaServicosPacotes = bd.ServicosPacotes.Where(p => p.PacoteId == id).ToList();
             var resultado = ListaServicosPacotes.Except(servicosNosPacotes).ToList();

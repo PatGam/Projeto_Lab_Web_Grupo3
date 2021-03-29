@@ -15,6 +15,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         {
             PromocoesPacotes = new HashSet<PromocoesPacotes>();
             ServicosPacotes = new HashSet<ServicosPacotes>();
+            DistritosPacotes = new HashSet<DistritosPacotes>();
+          
         }
 
         [Key]
@@ -54,8 +56,11 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Data de inactivação")]
         public DateTime DataInactivo { get; set; }
 
-        public int DistritosId { get; set; }
-        public Distritos Distritos { get; set; }
+        //public int DistritosId { get; set; }
+        //public Distritos Distritos { get; set; }
+
+        [InverseProperty("Pacote")]
+        public virtual ICollection<DistritosPacotes> DistritosPacotes { get; set; }
     }
 
 }

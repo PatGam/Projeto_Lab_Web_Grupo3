@@ -12,6 +12,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public string NomePacote { get; set; }
 
+        public string NomeDistrito { get; set; }
+
         public int TipoServico { get; set; }
 
         public string NomeTipoServico { get; set; }
