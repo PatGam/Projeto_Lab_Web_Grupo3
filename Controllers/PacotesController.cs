@@ -224,13 +224,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
                 var distritos = bd.Distritos.ToList();
 
-                servicosPacotesViewModel.ListaDistritos = distritos.Select(s => new Checkbox()
-                {
-                    Id = s.DistritosId,
-                    NomeDistrito = s.Nome,
-                    Selecionado = false
-                }).ToList();
-
                 return View(servicosPacotesViewModel);
 
             }
@@ -425,6 +418,60 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             await bd.SaveChangesAsync();
 
             int pacoteId = pacote.PacoteId;
+
+            //Listas de Serviços
+
+            var servico1id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico1);
+            var servico2id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico2);
+            var servico3id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico3);
+            var servico4id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico4);
+            var servico5id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico5);
+
+            var servicosPreviamenteIncluidos = bd.ServicosPacotes
+                .Where(p => p.PacoteId == id)
+                .ToList();
+
+            foreach (var item in servicosPreviamenteIncluidos)
+            {
+                bd.ServicosPacotes.Remove(item);
+                await bd.SaveChangesAsync();
+            }
+
+            if (servico1id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico1 });
+            }
+
+            if (servico2id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico2 });
+            }
+
+            if (servico3id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico3 });
+            }
+
+            if (servico4id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico4 });
+            }
+
+            if (servico5id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico5 });
+            }
+
+
+            foreach (var item in servicosNosPacotes)
+            {
+                bd.ServicosPacotes.Add(item);
+            }
+            await bd.SaveChangesAsync();
+
+
+
+            //Checklist de Distritos
             List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
 
             foreach (var item in servicosPacotesViewModel.ListaDistritos)
