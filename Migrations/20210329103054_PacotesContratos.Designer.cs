@@ -10,32 +10,16 @@ using Projeto_Lab_Web_Grupo3.Data;
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    [Migration("20210316170304_BencaoJesus")]
-    partial class BencaoJesus
+    [Migration("20210329103054_PacotesContratos")]
+    partial class PacotesContratos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.12")
+                .HasAnnotation("ProductVersion", "3.1.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.ModeloER.Distritos", b =>
-                {
-                    b.Property<int>("DistritosId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DistritosId");
-
-                    b.ToTable("Distritos");
-                });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
                 {
@@ -117,6 +101,47 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.ToTable("Contratos");
                 });
 
+            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Distritos", b =>
+                {
+                    b.Property<int>("DistritosId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DistritosId");
+
+                    b.ToTable("Distritos");
+                });
+
+            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.DistritosPacotes", b =>
+                {
+                    b.Property<int>("DistritosPacotesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Distrito_Pacote_Id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DistritosId")
+                        .HasColumnName("Distrito_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PacoteId")
+                        .HasColumnName("Pacote_Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("DistritosPacotesId");
+
+                    b.HasIndex("DistritosId");
+
+                    b.HasIndex("PacoteId");
+
+                    b.ToTable("DistritosPacotes");
+                });
+
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Pacotes", b =>
                 {
                     b.Property<int>("PacoteId")
@@ -135,7 +160,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
 
-                    b.Property<int>("DistritosId")
+                    b.Property<int?>("DistritosId")
                         .HasColumnType("int");
 
                     b.Property<byte[]>("Imagem")
@@ -258,6 +283,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
                     b.Property<int>("FuncionarioId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Inactivo")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Resposta")
                         .HasColumnType("nvarchar(max)");
@@ -461,7 +489,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Contratos", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.ModeloER.Distritos", "Distritos")
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Distritos", "Distritos")
                         .WithMany("Contratos")
                         .HasForeignKey("DistritosId")
                         .HasConstraintName("FK_Distritos_Contratos")
@@ -486,18 +514,31 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.DistritosPacotes", b =>
+                {
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Distritos", "Distritos")
+                        .WithMany("DistritosPacotes")
+                        .HasForeignKey("DistritosId")
+                        .HasConstraintName("FK_Distritos_Pacotes_Distritos")
+                        .IsRequired();
+
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Pacotes", "Pacote")
+                        .WithMany("DistritosPacotes")
+                        .HasForeignKey("PacoteId")
+                        .HasConstraintName("FK_Distritos_Pacotes_Pacotes")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Pacotes", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.ModeloER.Distritos", "Distritos")
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Distritos", null)
                         .WithMany("Pacotes")
-                        .HasForeignKey("DistritosId")
-                        .HasConstraintName("FK_Distritos_Pacotes")
-                        .IsRequired();
+                        .HasForeignKey("DistritosId");
                 });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Promocoes", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.ModeloER.Distritos", "Distritos")
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Distritos", "Distritos")
                         .WithMany("Promocoes")
                         .HasForeignKey("DistritosId")
                         .HasConstraintName("FK_Distritos_Promocoes")
@@ -575,7 +616,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Utilizadores", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.ModeloER.Distritos", "Distritos")
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Distritos", "Distritos")
                         .WithMany("Utilizadores")
                         .HasForeignKey("DistritosId")
                         .HasConstraintName("FK_Distritos_Utilizadores")

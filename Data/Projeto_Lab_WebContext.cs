@@ -29,6 +29,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             public virtual DbSet<Tipos_Sevicos> TiposServicos { get; set; }
             public virtual DbSet<Distritos> Distritos { get; set; }
             public virtual DbSet<ServicosContratos> ServicosContratos { get; set; }
+            public virtual DbSet<DistritosPacotes> DistritosPacotes { get; set; }
 
 
 
@@ -173,16 +174,52 @@ namespace Projeto_Lab_Web_Grupo3.Data
                         .HasConstraintName("FK_Distritos_Promocoes");
             });
 
-            modelBuilder.Entity<Pacotes>(entity =>
+            //modelBuilder.Entity<Pacotes>(entity =>
+            //{
+            //    entity.HasOne(d => d.Distritos)
+            //            .WithMany(p => p.Pacotes)
+            //            .HasForeignKey(d => d.DistritosId)
+            //            .OnDelete(DeleteBehavior.ClientSetNull)
+            //            .HasConstraintName("FK_Distritos_Pacotes");
+            //});
+
+            modelBuilder.Entity<PromocoesPacotes>(entity =>
             {
-                entity.HasOne(d => d.Distritos)
-                        .WithMany(p => p.Pacotes)
-                        .HasForeignKey(d => d.DistritosId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Distritos_Pacotes");
+                entity.HasIndex(e => e.PacoteId);
+
+                entity.HasIndex(e => e.PromocoesId);
+
+                entity.HasOne(d => d.Pacote)
+                    .WithMany(p => p.PromocoesPacotes)
+                    .HasForeignKey(d => d.PacoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Promocoes_Pacotes_Pacotes");
+
+                entity.HasOne(d => d.Promocoes)
+                    .WithMany(p => p.PromocoesPacotes)
+                    .HasForeignKey(d => d.PromocoesId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Promocoes_Pacotes_Promocoes");
             });
 
+            modelBuilder.Entity<DistritosPacotes>(entity =>
+            {
+                entity.HasIndex(e => e.DistritosId);
 
+                entity.HasIndex(e => e.PacoteId);
+
+                entity.HasOne(d => d.Pacote)
+                    .WithMany(p => p.DistritosPacotes)
+                    .HasForeignKey(d => d.PacoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Distritos_Pacotes_Pacotes");
+
+                entity.HasOne(d => d.Distritos)
+                    .WithMany(p => p.DistritosPacotes)
+                    .HasForeignKey(d => d.DistritosId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Distritos_Pacotes_Distritos");
+            });
 
 
             //modelBuilder.Entity<Clientes>() // Lado N
