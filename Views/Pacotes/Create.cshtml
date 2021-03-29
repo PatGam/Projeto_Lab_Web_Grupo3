@@ -86,16 +86,59 @@
 
                             <div class="form-group">
                                 <label class="control-label col-lg-2" for="inputSuccess">Distritos com o pacote</label>
-                                <div class="col-lg-10">
-                                    @for (int i = 0; i < Model.ListaDistritos.Capacity; i++)
+                                <div class="col-lg-3">
+                                    Zona Norte
+                                    @for (int i = 0; i < Model.ListaDistritosNorte.Capacity; i++)
                                     {
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" value="">
-                                                @Html.DisplayFor(z => Model.ListaDistritos[i].NomeDistrito)
+                                                @Html.DisplayFor(z => Model.ListaDistritosNorte[i].NomeDistrito)
                                             </label>
-                                            @Html.HiddenFor(x => Model.ListaDistritos[i].Id)
-                                            @Html.CheckBoxFor(z => Model.ListaDistritos[i].Selecionado)
+                                            @Html.HiddenFor(x => Model.ListaDistritosNorte[i].Id)
+                                            @Html.CheckBoxFor(z => Model.ListaDistritosNorte[i].Selecionado)
+                                        </div>
+                                    }
+                                </div>
+                                <div class="col-lg-3">
+                                    Zona Centro
+                                    @for (int i = 0; i < Model.ListaDistritosCentro.Capacity; i++)
+                                    {
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                @Html.DisplayFor(z => Model.ListaDistritosCentro[i].NomeDistrito)
+                                            </label>
+                                            @Html.HiddenFor(x => Model.ListaDistritosCentro[i].Id)
+                                            @Html.CheckBoxFor(z => Model.ListaDistritosCentro[i].Selecionado)
+                                        </div>
+                                    }
+                                </div>
+                                <div class="col-lg-3">
+                                    Zona Sul
+                                    @for (int i = 0; i < Model.ListaDistritosSul.Capacity; i++)
+                                    {
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                @Html.DisplayFor(z => Model.ListaDistritosSul[i].NomeDistrito)
+                                            </label>
+                                            @Html.HiddenFor(x => Model.ListaDistritosSul[i].Id)
+                                            @Html.CheckBoxFor(z => Model.ListaDistritosSul[i].Selecionado)
+                                        </div>
+                                    }
+                                </div>
+                                <div class="col-lg-6">
+                                    Ilhas
+                                    @for (int i = 0; i < Model.ListaDistritosIlhas.Capacity; i++)
+                                    {
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                @Html.DisplayFor(z => Model.ListaDistritosIlhas[i].NomeDistrito)
+                                            </label>
+                                            @Html.HiddenFor(x => Model.ListaDistritosIlhas[i].Id)
+                                            @Html.CheckBoxFor(z => Model.ListaDistritosIlhas[i].Selecionado)
                                         </div>
                                     }
                                 </div>
