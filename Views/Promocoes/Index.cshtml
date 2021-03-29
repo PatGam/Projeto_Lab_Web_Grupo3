@@ -37,6 +37,29 @@
                                 <th></th>
                             </tr>
                         </thead>
+                        <tbody>
+                            @foreach (var  item in @Model.Promocoes){
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataInicio) 
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataFim)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PromocaoDesc)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.PromocoesId">Editar</a>
+                                    <a asp-action="Details" asp-route-id="@item.PromocoesId">Detalhes</a>
+                                    <a asp-action="Delete" asp-route-id="@item.PromocoesId">Arquivar</a>
+                                </td>
+                            </tr>
+    }
+                        </tbody>
                     </table>
                 </div>
             </div>

@@ -36,6 +36,24 @@
                                 <th></th>
                             </tr>
                         </thead>
+                        <tbody>
+                            @foreach (var item in @Model.Pacotes)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nome)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelitem => item.Preco)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.PacoteId">Editar</a>
+                                        <a asp-action="Details" asp-route-id="@item.PacoteId">Detalhes</a>
+                                        <a asp-action="Delete" asp-route-id="@item.PacoteId">Arquivar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -43,8 +61,7 @@
     </section>
 </section>
 
-@section Scripts{
+@section Scripts {
+    
     <script src="~/js/PacotesList.js"></script>
 }
-
-
