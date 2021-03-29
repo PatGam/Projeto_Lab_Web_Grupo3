@@ -79,6 +79,22 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-lg-2" for="inputSuccess">Distritos com o pacote</label>
+                                <div class="col-lg-10">
+                                    @for (int i = 0; i < 20; i++)
+                                    {
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                @Html.DisplayFor(z => Model.ListaDistritos[i].NomeDistrito)
+                                            </label>
+                                            @Html.HiddenFor(x => Model.ListaDistritos[i].Id)
+                                            @Html.CheckBoxFor(z => Model.ListaDistritos[i].Selecionado)
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
 
                                     <input asp-for="Imagem" type="hidden" />

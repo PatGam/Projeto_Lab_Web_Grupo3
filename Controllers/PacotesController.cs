@@ -379,15 +379,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
                 .ThenInclude(c => c.Servico)
                 .AsNoTracking()
-                .SingleOrDefaultAsync(p => p.PacoteId == id);
+                .SingleOrDefaultAsync(p => p.PacoteId == (int)id);
 
-            var listaServicos = bd.Servicos.Select(s => new Checkbox()
+            var listaDistritos = bd.Distritos.Select(s => new Checkbox()
             {
-                Id = s.ServicoId,
-                Nome = s.Nome,
-                TipoServico = s.TipoServicoId,
-                NomeTipoServico = s.TipoServicos.Nome,
-                Selecionado = s.ServicosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
+                Id = s.DistritosId,
+                NomeDistrito = s.Nome,
+                Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
 
             }).ToList();
 
@@ -395,8 +393,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             servicosPacotesViewModel.Nome = pacote.Nome;
             servicosPacotesViewModel.Descricao = pacote.Descricao;
             servicosPacotesViewModel.Preco = pacote.Preco;
-            //servicosPacotesViewModel.ListaServicos = listaServicos;
             servicosPacotesViewModel.PacoteId = (int)id;
+            servicosPacotesViewModel.ListaDistritos = listaDistritos;
+
 
             return View(servicosPacotesViewModel);
         }
@@ -409,7 +408,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, ServicosPacotesViewModel servicosPacotesViewModel, IFormFile Imagem)
         {
-
+            id = servicosPacotesViewModel.PacoteId;
             List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
             Pacotes pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
                 .ThenInclude(c => c.Servico)
@@ -426,33 +425,36 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             await bd.SaveChangesAsync();
 
             int pacoteId = pacote.PacoteId;
+            List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
 
-            //foreach (var servico in servicosPacotesViewModel.ListaServicos)
-            //{
-            //    if (servico.Selecionado == true)
-            //    {
-            //        servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servico.Id });
-            //    }
-            //}
-
-            var ListaServicosPacotes = bd.ServicosPacotes.Where(p => p.PacoteId == id).ToList();
-            var resultado = ListaServicosPacotes.Except(servicosNosPacotes).ToList();
-            foreach (var servicoPacote in resultado)
+            foreach (var item in servicosPacotesViewModel.ListaDistritos)
             {
-                bd.ServicosPacotes.Remove(servicoPacote);
+                if (item.Selecionado == true)
+                {
+                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
+                }
+            }
+
+            var listaDistritosPacotes = bd.DistritosPacotes.Where(p => p.PacoteId == id).ToList();
+            var resultado = listaDistritosPacotes.Except(distritoscomPacotes).ToList();
+
+            foreach (var distrito in resultado)
+            {
+                bd.DistritosPacotes.Remove(distrito);
                 await bd.SaveChangesAsync();
             }
-            var novaListaServicosPacotes = bd.ServicosPacotes.Where(p => p.PacoteId == id).ToList();
-            foreach (var servico in servicosNosPacotes)
+
+            var novalistaDistritosPacotes = bd.DistritosPacotes.Where(p => p.PacoteId == id).ToList();
+
+            foreach (var distrito in distritoscomPacotes)
             {
-                if (!novaListaServicosPacotes.Contains(servico))
+                if (!novalistaDistritosPacotes.Contains(distrito))
                 {
-                    bd.ServicosPacotes.Add(servico);
+                    bd.DistritosPacotes.Add(distrito);
                     await bd.SaveChangesAsync();
                 }
             }
 
-            
             ViewBag.Mensagem = "Pacote alterado com sucesso";
             return View("Sucesso");
         }
