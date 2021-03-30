@@ -85,8 +85,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-lg-2" for="inputSuccess">Distritos com o pacote</label>
-                                <div class="col-lg-3">
+                                <label class="control-label col-md-2" for="inputSuccess">Distritos com o pacote</label>
+                                <div class="col-md-2">
                                     Zona Norte
                                     @for (int i = 0; i < Model.ListaDistritosNorte.Capacity; i++)
                                     {
@@ -100,7 +100,7 @@
                                         </div>
                                     }
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-md-2">
                                     Zona Centro
                                     @for (int i = 0; i < Model.ListaDistritosCentro.Capacity; i++)
                                     {
@@ -114,7 +114,7 @@
                                         </div>
                                     }
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-md-2">
                                     Zona Sul
                                     @for (int i = 0; i < Model.ListaDistritosSul.Capacity; i++)
                                     {
@@ -128,7 +128,7 @@
                                         </div>
                                     }
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-md-2">
                                     Ilhas
                                     @for (int i = 0; i < Model.ListaDistritosIlhas.Capacity; i++)
                                     {
@@ -143,12 +143,12 @@
                                     }
                                 </div>
                             </div>
-                                <div class="form-group">
-                                    <div class="col-lg-offset-2 col-lg-10">
-                                        <input type="submit" value="Criar novo pacote" class="btn btn-success" />
-                                        <a class="btn btn-danger" asp-action="Index">Volta à lista</a>
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <input type="submit" value="Criar novo pacote" class="btn btn-success" />
+                                    <a class="btn btn-danger" asp-action="Index">Volta à lista</a>
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </section>
