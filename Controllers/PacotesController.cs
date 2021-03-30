@@ -424,48 +424,43 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
 
-            var pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
-                .ThenInclude(c => c.Servico)
+            var pacote = await bd.Pacotes.Include(p => p.DistritosPacotes)
+                .ThenInclude(c => c.Distritos)
                 .AsNoTracking()
-                .SingleOrDefaultAsync(p => p.PacoteId == (int)id);
+                .SingleOrDefaultAsync(p => p.PacoteId == (int)id);  
 
-            var distritosCentro = bd.Distritos.Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
-            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
-                .ToList();
-
-            var distritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
+            var listaDistritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
             || p.Nome == "Vila Real" || p.Nome == "Bragança")
-                .ToList();
+                .Select(p => new Checkbox()
+            {
+                Id = p.DistritosId,
+                NomeDistrito = p.Nome,
+                Selecionado = p.DistritosPacotes.Any(p => p.PacoteId == pacote.PacoteId) ? true : false
+            }).ToList();
 
-            var distritosSul = bd.Distritos.Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
+            var listaDistritosCentro = bd.Distritos
+                .Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
+                .Select(s => new Checkbox()
+            {
+                Id = s.DistritosId,
+                NomeDistrito = s.Nome,
+                Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
+            }).ToList();
+
+            var listaDistritosSul = bd.Distritos
+                .Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
             || p.Nome == "Portalegre" || p.Nome == "Évora" || p.Nome == "Beja" || p.Nome == "Faro")
-                .ToList();
+                .Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
+                }).ToList();
 
-            var distritosIlhas = bd.Distritos.Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
-                .ToList();
-
-            var listaDistritosNorte = distritosNorte.Select(s => new Checkbox()
-            {
-                Id = s.DistritosId,
-                NomeDistrito = s.Nome,
-                Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
-            }).ToList();
-
-            var listaDistritosCentro = distritosCentro.Select(s => new Checkbox()
-            {
-                Id = s.DistritosId,
-                NomeDistrito = s.Nome,
-                Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
-            }).ToList();
-
-            var listaDistritosSul = distritosSul.Select(s => new Checkbox()
-            {
-                Id = s.DistritosId,
-                NomeDistrito = s.Nome,
-                Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
-            }).ToList();
-
-            var listaDistritosIlhas = distritosIlhas.Select(s => new Checkbox()
+            var listaDistritosIlhas = bd.Distritos
+                .Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
+                .Select(s => new Checkbox()
             {
                 Id = s.DistritosId,
                 NomeDistrito = s.Nome,
@@ -480,8 +475,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             servicosPacotesViewModel.ListaDistritosIlhas = listaDistritosIlhas;
             servicosPacotesViewModel.ListaDistritosNorte = listaDistritosNorte;
             servicosPacotesViewModel.ListaDistritosSul = listaDistritosSul;
-
-
 
             return View(servicosPacotesViewModel);
         }
