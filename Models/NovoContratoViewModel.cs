@@ -18,13 +18,16 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public List<Pacotes> Pacotes { get; set; }
 
+        public List<Distritos> Distritos { get; set; }
 
+
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
         [Column("Data_inicio", TypeName = "date")]
         [Display(Name = "Data de Início")]
         public DateTime DataInicio { get; set; }
 
-
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
         [Column("Data_Fim", TypeName = "date")]
         [Display(Name = "Data de Fim")]
@@ -54,6 +57,15 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public int PacoteId { get; set; }
 
         public int PromocoesId { get; set; }
+
+        [Display(Name = "Distrito")]
+
+        public int DistritosId { get; set; }
+
+        public bool UmAno {get; set;}
+
+        public bool DoisAnos { get; set; }
+
 
 
     }
