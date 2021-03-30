@@ -34,6 +34,8 @@
                             <input type="hidden" asp-for="Morada" value="@ViewBag.Morada" />
                             <input type="hidden" asp-for="CodigoPostal" value="@ViewBag.CodigoPostal" />
                             <input type="hidden" asp-for="Telefone" value="@ViewBag.Telefone" />
+                            <input type="hidden" asp-for="DistritosId" value="@ViewBag.DistritosId" />
+
                             <div class="form-group">
                                 <label asp-for="PacoteId" class="col-sm-2 control-label"></label>
                                 <div class="col-sm-10">
@@ -43,15 +45,21 @@
                             <div class="form-group">
                                 <label asp-for="DataInicio" class="col-sm-2 control-label"></label>
                                 <div class="col-sm-10">
-                                    <input asp-for="DataInicio" class="form-control" />
+                                    <input asp-for="DataInicio" class="form-control"  value="@DateTime.Now" />
                                     <span asp-validation-for="DataInicio" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label asp-for="DataFim" class="col-sm-2 control-label"></label>
-                                <div class="col-sm-10">
-                                    <input asp-for="DataFim" class="form-control" />
-                                    <span asp-validation-for="DataFim" class="text-danger"></span>
+                                <label class="control-label col-lg-2" for="inputSuccess">Período de fidelização</label>
+                                <div class="col-lg-10">
+                                    <label class="checkbox-inline">
+                                        <input asp-for="UmAno" type="checkbox" id="inlineCheckbox1" 
+                                               > Um ano
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input asp-for="DoisAnos" type="checkbox" id="inlineCheckbox2"> Dois Anos
+                                    </label>
+                                   
                                 </div>
                             </div>
                             <div class="form-group">

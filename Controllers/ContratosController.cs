@@ -211,6 +211,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ViewData["ClienteId"] = cliente;
             ViewData["ClienteNome"] = clienteId.Nome;
+            ViewData["DistritosId"] = new SelectList(bd.Distritos, "DistritosId", "Nome");
+
             Contratos contratos = new Contratos();
             NovoContratoViewModel novoContrato = new NovoContratoViewModel
             {
@@ -226,15 +228,27 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["Morada"] = novoContrato.Morada;
             ViewData["CodigoPostal"] = novoContrato.CodigoPostal;
             ViewData["Telefone"] = novoContrato.Telefone;
+            ViewData["DistritosId"] = novoContrato.DistritosId;
+
 
             int id = novoContrato.UtilizadorId;
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
 
+           
             return View(novoContrato);
         }
 
         public async Task<IActionResult> Create4(NovoContratoViewModel novoContrato)
         {
+            if (novoContrato.UmAno == true)
+            {
+                novoContrato.DataFim = novoContrato.DataInicio.AddYears(1);
+            }
+            else if (novoContrato.DoisAnos == true)
+            {
+                novoContrato.DataFim = novoContrato.DataInicio.AddYears(2);
+            }
+
             ViewData["ClienteId"] = novoContrato.ClienteId;
             var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == novoContrato.ClienteId);
             ViewData["ClienteNome"] = clienteId.Nome;
@@ -246,6 +260,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["Telefone"] = novoContrato.Telefone;
             ViewData["DataInicio"] = novoContrato.DataInicio;
             ViewData["DataFim"] = novoContrato.DataFim;
+            ViewData["DistritosId"] = novoContrato.DistritosId;
+            var distritoId = bd.Distritos.SingleOrDefault(e => e.DistritosId == novoContrato.DistritosId);
+            ViewData["DistritoNome"] = distritoId.Nome;
+
 
             List<Promocoes> promocoes = await bd.PromocoesPacotes.Where(p => p.PacoteId == novoContrato.PacoteId)
                             .Include(c => c.Promocoes)
@@ -343,6 +361,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.DataFim = novoContrato.DataFim;
             contratos.DataInicio = novoContrato.DataInicio;
             contratos.Morada = novoContrato.Morada;
+            contratos.DistritosId = novoContrato.DistritosId;
+
 
             bd.Add(contratos);
             await bd.SaveChangesAsync();
