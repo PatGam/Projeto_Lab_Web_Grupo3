@@ -213,6 +213,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
                 cliente = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == clienteId);
+                ViewData["ClienteId"] = cliente.UtilizadorId;
                 ViewData["ClienteNome"] = cliente.Nome;
             }
 
@@ -242,60 +243,93 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return View(contrato);
             }
 
-            NovoContratoPasso2ViewModel novoContrato = new NovoContratoPasso2ViewModel
+            NovoContratoPasso3ViewModel contratoPasso3 = new NovoContratoPasso3ViewModel
             {
-                ClienteId = contrato.ClienteId
-            };
+                ClienteId = contrato.ClienteId,
+                Morada = contrato.Morada,
+                DistritosId = contrato.DistritosId,
+                CodigoPostal = contrato.CodigoPostal,
+                Telefone = contrato.Telefone
 
-            return View("Create3", novoContrato);
+            };
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+
+            return View("Create3", contratoPasso3);
 
         }
 
-        public IActionResult Create3(NovoContratoViewModel novoContrato)
+        public IActionResult Create3(NovoContratoPasso3ViewModel contratoPasso3, string s ="s")
         {
            
-            ViewData["ClienteId"] = novoContrato.ClienteId;
-            ViewData["Morada"] = novoContrato.Morada;
-            ViewData["CodigoPostal"] = novoContrato.CodigoPostal;
-            ViewData["Telefone"] = novoContrato.Telefone;
-            ViewData["DistritosId"] = novoContrato.DistritosId;
+            ViewData["ClienteId"] = contratoPasso3.ClienteId;
+            ViewData["Morada"] = contratoPasso3.Morada;
+            ViewData["CodigoPostal"] = contratoPasso3.CodigoPostal;
+            ViewData["Telefone"] = contratoPasso3.Telefone;
+            ViewData["DistritosId"] = contratoPasso3.DistritosId;
 
-
-            int id = novoContrato.UtilizadorId;
+            int id = contratoPasso3.ClienteId;
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
 
            
-            return View(novoContrato);
+            return View(contratoPasso3);
         }
 
-        public async Task<IActionResult> Create4(NovoContratoViewModel novoContrato)
+
+        [HttpPost]
+        public IActionResult Create3(NovoContratoPasso3ViewModel contratoPasso3)
         {
-            if (novoContrato.UmAno == true)
+            if (!ModelState.IsValid)
             {
-                novoContrato.DataFim = novoContrato.DataInicio.AddYears(1);
+                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+                return View(contratoPasso3);
             }
-            else if (novoContrato.DoisAnos == true)
+            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+
+            NovoContratoPasso4ViewModel contratoPasso4 = new NovoContratoPasso4ViewModel
             {
-                novoContrato.DataFim = novoContrato.DataInicio.AddYears(2);
+                ClienteId = contratoPasso3.ClienteId,
+                Morada = contratoPasso3.Morada,
+                DistritosId = contratoPasso3.DistritosId,
+                CodigoPostal = contratoPasso3.CodigoPostal,
+                Telefone = contratoPasso3.Telefone,
+                PacoteId = contratoPasso3.PacoteId,
+                DataInicio = contratoPasso3.DataInicio,
+                UmAno = contratoPasso3.UmAno,
+                DoisAnos = contratoPasso3.DoisAnos,
+
+            };
+
+            return View("Create4", contratoPasso4);
+
+        }
+        public async Task<IActionResult> Create4(NovoContratoPasso4ViewModel contratoPasso4)
+        {
+            if (contratoPasso4.UmAno == true)
+            {
+                contratoPasso4.DataFim = contratoPasso4.DataInicio.AddYears(1);
+            }
+            else if (contratoPasso4.DoisAnos == true)
+            {
+                contratoPasso4.DataFim = contratoPasso4.DataInicio.AddYears(2);
             }
 
-            ViewData["ClienteId"] = novoContrato.ClienteId;
-            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == novoContrato.ClienteId);
+            ViewData["ClienteId"] = contratoPasso4.ClienteId;
+            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == contratoPasso4.ClienteId);
             ViewData["ClienteNome"] = clienteId.Nome;
-            ViewData["PacoteId"] = novoContrato.PacoteId;
-            var pacoteId = bd.Pacotes.SingleOrDefault(e => e.PacoteId == novoContrato.PacoteId);
+            ViewData["PacoteId"] = contratoPasso4.PacoteId;
+            var pacoteId = bd.Pacotes.SingleOrDefault(e => e.PacoteId == contratoPasso4.PacoteId);
             ViewData["PacoteNome"] = pacoteId.Nome;
-            ViewData["Morada"] = novoContrato.Morada;
-            ViewData["CodigoPostal"] = novoContrato.CodigoPostal;
-            ViewData["Telefone"] = novoContrato.Telefone;
-            ViewData["DataInicio"] = novoContrato.DataInicio;
-            ViewData["DataFim"] = novoContrato.DataFim;
-            ViewData["DistritosId"] = novoContrato.DistritosId;
-            var distritoId = bd.Distritos.SingleOrDefault(e => e.DistritosId == novoContrato.DistritosId);
+            ViewData["Morada"] = contratoPasso4.Morada;
+            ViewData["CodigoPostal"] = contratoPasso4.CodigoPostal;
+            ViewData["Telefone"] = contratoPasso4.Telefone;
+            ViewData["DataInicio"] = contratoPasso4.DataInicio;
+            ViewData["DataFim"] = contratoPasso4.DataFim;
+            ViewData["DistritosId"] = contratoPasso4.DistritosId;
+            var distritoId = bd.Distritos.SingleOrDefault(e => e.DistritosId == contratoPasso4.DistritosId);
             ViewData["DistritoNome"] = distritoId.Nome;
 
 
-            List<Promocoes> promocoes = await bd.PromocoesPacotes.Where(p => p.PacoteId == novoContrato.PacoteId)
+            List<Promocoes> promocoes = await bd.PromocoesPacotes.Where(p => p.PacoteId == contratoPasso4.PacoteId)
                             .Include(c => c.Promocoes)
                             .Select(c => c.Promocoes)
                             .Where(c => c.DataInicio < DateTime.Now && c.DataFim > DateTime.Now)
@@ -303,7 +337,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ViewData["PromocoesId"] = new SelectList(promocoes, "PromocoesId", "Nome");
 
-            return View(novoContrato);
+            return View(contratoPasso4);
         }
 
 
@@ -313,7 +347,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Operador")]
-        public async Task<IActionResult> Create5(NovoContratoViewModel novoContrato, Contratos contratos)
+        public async Task<IActionResult> Create5(NovoContratoPasso4ViewModel contratoPasso4, Contratos contratos)
         {
             if (!ModelState.IsValid)
             {
@@ -332,7 +366,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             contratos.FuncionarioId = funcionarioEmail.UtilizadorId;
 
             //Código que vai buscar o preço do pacote
-            contratos.PacoteId = novoContrato.PacoteId;
+            contratos.PacoteId = contratoPasso4.PacoteId;
             var pacoteid = bd.Pacotes.SingleOrDefault(e => e.PacoteId == contratos.PacoteId);
             contratos.PrecoPacote = pacoteid.Preco;
 
@@ -352,7 +386,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
             }
 
-            contratos.PromocoesId = novoContrato.PromocoesId;
+            contratos.PromocoesId = contratoPasso4.PromocoesId;
 
             bool PromoDisponivel = false;
             foreach (var promocao in PromocoesDisponiveis)
@@ -386,12 +420,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             //Cálculo do PrecoFinal
             contratos.PrecoFinal = contratos.PrecoPacote - contratos.PromocaoDesc;
 
-            contratos.ClienteId = novoContrato.ClienteId;
-            contratos.CodigoPostal = novoContrato.CodigoPostal;
-            contratos.DataFim = novoContrato.DataFim;
-            contratos.DataInicio = novoContrato.DataInicio;
-            contratos.Morada = novoContrato.Morada;
-            contratos.DistritosId = novoContrato.DistritosId;
+            contratos.ClienteId = contratoPasso4.ClienteId;
+            contratos.CodigoPostal = contratoPasso4.CodigoPostal;
+            contratos.DataFim = contratoPasso4.DataFim;
+            contratos.DataInicio = contratoPasso4.DataInicio;
+            contratos.Morada = contratoPasso4.Morada;
+            contratos.DistritosId = contratoPasso4.DistritosId;
 
 
             bd.Add(contratos);

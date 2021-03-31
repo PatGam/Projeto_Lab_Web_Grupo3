@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,6 +13,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public int ClienteId { get; set; }
         public Utilizadores Cliente { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date)]
+        [Display(Name = "Data de Início")]
         public DateTime DataInicio { get; set; }
 
         public DateTime DataFim { get; set; }

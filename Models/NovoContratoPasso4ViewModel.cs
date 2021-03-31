@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Projeto_Lab_Web_Grupo3.Models
 {
-    public class NovoContratoPasso3ViewModel
+    public class NovoContratoPasso4ViewModel
     {
         public int ClienteId { get; set; }
+
+        public int UtilizadorId { get; set; }
+
         public Utilizadores Cliente { get; set; }
 
-
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        [DataType(DataType.Date)]
-        [Display(Name = "Data de Início")]
         public DateTime DataInicio { get; set; }
+
+        public DateTime DataFim { get; set; }
 
         public int Telefone { get; set; }
 
@@ -25,6 +26,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         
         public string CodigoPostal { get; set; }
 
+
+      
         public int PacoteId { get; set; }
 
         public int PromocoesId { get; set; }
