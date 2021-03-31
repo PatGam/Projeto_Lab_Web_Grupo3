@@ -24,7 +24,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         // GET: Pacotes
         [Authorize(Roles = "Administrador,Operador")]
-        public async Task<IActionResult> Index(string nomePesquisar , int pagina = 1)
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
             Paginacao paginacao = new Paginacao
             {
@@ -80,7 +80,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             if (pacotes == null)
             {
-                return View ("Inexistente");
+                return View("Inexistente");
             }
 
             ServicosPacotesViewModel modelo = new ServicosPacotesViewModel
@@ -89,11 +89,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 ServicosPacotes = servicos,
                 //PromocoesPacotes = promocoes,
             };
-            
-           
-            
+
+
+
             return base.View(modelo);
-            
+
         }
 
         // GET: Pacotes/Create
@@ -121,24 +121,24 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 switch (item.TipoServicoId)
                 {
                     case 1:
-                    Lista1.Add(item);
-                    break;
+                        Lista1.Add(item);
+                        break;
 
                     case 2:
-                    Lista2.Add(item);
-                    break;
+                        Lista2.Add(item);
+                        break;
 
                     case 3:
-                    Lista3.Add(item);
-                    break;
+                        Lista3.Add(item);
+                        break;
 
                     case 4:
-                    Lista4.Add(item);
-                    break;
+                        Lista4.Add(item);
+                        break;
 
                     case 5:
-                    Lista5.Add(item);
-                    break;
+                        Lista5.Add(item);
+                        break;
                 }
             }
 
@@ -151,7 +151,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
 
-            var distritosCentro = bd.Distritos.Where(p => p.Nome=="Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            var distritosCentro = bd.Distritos.Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
             || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
                 .ToList();
 
@@ -165,7 +165,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             var distritosIlhas = bd.Distritos.Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
                 .ToList();
-            
+
             servicosPacotesViewModel.ListaDistritosCentro = distritosCentro.Select(s => new Checkbox()
             {
                 Id = s.DistritosId,
@@ -224,7 +224,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var servico3id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico3);
             var servico4id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico4);
             var servico5id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico5);
-         
+
 
             if (servico1id.Nome != "---")
             {
@@ -251,11 +251,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico5 });
             }
 
-            if(servicosNosPacotes.Count == 0)
+            if (servicosNosPacotes.Count == 0)
             {
-               
+
                 ModelState.AddModelError("Servico1", "O pacote deve ter pelo menos um serviço associado.");
-   
+
             }
 
             List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
@@ -410,7 +410,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
             await bd.SaveChangesAsync();
 
-            
+
 
             ViewBag.Mensagem = "Pacote adicionado com sucesso.";
             return View("Sucesso");
@@ -447,24 +447,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["Tipo4"] = tiposServicos[3].Nome;
             ViewData["Tipo5"] = tiposServicos[4].Nome;
 
-            var servicosPacotes = bd.ServicosPacotes
-                 .Where(p => p.PacoteId == id)
-                 .ToList();
-            
-            List<Servicos> servicosIncluidos = new List<Servicos>();
-
-            foreach (var servicoincluido in servicosPacotes)
-            {
-                foreach ( var servico in bd.Servicos)
-                {
-                    if(servico.ServicoId == servicoincluido.ServicoId)
-                    {
-                        servicosIncluidos.Add(servico);
-                    }
-                }
-            }
-
-            
             List<Servicos> Lista1 = new List<Servicos>();
             List<Servicos> Lista2 = new List<Servicos>();
             List<Servicos> Lista3 = new List<Servicos>();
@@ -497,16 +479,42 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
             }
 
-            foreach(var servico in servicosIncluidos)
+
+
+            var servicosIncluidos = bd.ServicosPacotes
+                .Include(p => p.Servico)
+                 .Where(p => p.PacoteId == id)
+                 .ToList();
+
+            int servico1 = 0; int servico2 = 0; int servico3 = 0; int servico4 = 0; int servico5 = 0;
+
+            foreach (var item in servicosIncluidos)
             {
-                foreach (var item in Lista1)
+                switch (item.Servico.TipoServicoId)
                 {
-                    if(servico.ServicoId == item.ServicoId)
-                    {
-                        Lista1.First().ServicoId = item.ServicoId;
-                    }
+                    case 1:
+                    servico1 = item.ServicoId;
+                    break;
+
+                    case 2:
+                        servico2 = item.ServicoId;
+                        break;
+
+                    case 3:
+                        servico3 = item.ServicoId;
+                        break;
+
+                    case 4:
+                        servico4 = item.ServicoId;
+                        break;
+                    case 5:
+                        servico5 = item.ServicoId;
+                        break;
+                    default:
+                        break;
                 }
             }
+
             ViewData["Lista1"] = new SelectList(Lista1, "ServicoId", "Nome");
             ViewData["Lista2"] = new SelectList(Lista2, "ServicoId", "Nome");
             ViewData["Lista3"] = new SelectList(Lista3, "ServicoId", "Nome");
@@ -515,25 +523,46 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
 
-            
+            if (servico1 != 0)
+            {
+                servicosPacotesViewModel.Servico1 = servico1;
+            }
+            if (servico2 != 0)
+            {
+                servicosPacotesViewModel.Servico2 = servico2;
+            }
+            if (servico3 != 0)
+            {
+                servicosPacotesViewModel.Servico3 = servico3;
+            }
+            if (servico4 != 0)
+            {
+                servicosPacotesViewModel.Servico4 = servico4;
+            }
+            if (servico5 != 0)
+            {
+                servicosPacotesViewModel.Servico5 = servico5;
+            }
+
+
             var listaDistritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
             || p.Nome == "Vila Real" || p.Nome == "Bragança")
                 .Select(p => new Checkbox()
-            {
-                Id = p.DistritosId,
-                NomeDistrito = p.Nome,
-                Selecionado = p.DistritosPacotes.Any(p => p.PacoteId == pacote.PacoteId) ? true : false
-            }).ToList();
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPacotes.Any(p => p.PacoteId == pacote.PacoteId) ? true : false
+                }).ToList();
 
             var listaDistritosCentro = bd.Distritos
                 .Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
             || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
                 .Select(s => new Checkbox()
-            {
-                Id = s.DistritosId,
-                NomeDistrito = s.Nome,
-                Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
-            }).ToList();
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
+                }).ToList();
 
             var listaDistritosSul = bd.Distritos
                 .Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
@@ -548,11 +577,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var listaDistritosIlhas = bd.Distritos
                 .Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
                 .Select(s => new Checkbox()
-            {
-                Id = s.DistritosId,
-                NomeDistrito = s.Nome,
-                Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
-            }).ToList();
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = s.DistritosPacotes.Any(s => s.PacoteId == pacote.PacoteId) ? true : false
+                }).ToList();
 
             servicosPacotesViewModel.Nome = pacote.Nome;
             servicosPacotesViewModel.Descricao = pacote.Descricao;
@@ -748,7 +777,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> GetAll()
         {
             var servicos = await bd.Pacotes
-                .Select(s => new { s.PacoteId, s.Nome, s.Preco, s.Inactivo})
+                .Select(s => new { s.PacoteId, s.Nome, s.Preco, s.Inactivo })
                 .Where(i => i.Inactivo == false)
                 .ToListAsync();
             return Json(new { data = servicos });
@@ -758,7 +787,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
-            var pacoteFromDb = await bd.Pacotes.FirstOrDefaultAsync(s => s.PacoteId== id);
+            var pacoteFromDb = await bd.Pacotes.FirstOrDefaultAsync(s => s.PacoteId == id);
             if (pacoteFromDb == null)
             {
                 return Json(new { success = false, message = "Erro ao arquivar o pacote" });

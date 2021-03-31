@@ -204,31 +204,56 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             }
         }
-        public IActionResult Create2(int cliente)
+        
+        public IActionResult Create2(int? clienteId, NovoContratoPasso2ViewModel contrato = null)
         {
-            //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
-            var clienteId = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == cliente);
+            Utilizadores cliente = null;
 
-            ViewData["ClienteId"] = cliente;
-            ViewData["ClienteNome"] = clienteId.Nome;
+            if (clienteId != null)
+            {
+                //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
+                cliente = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == clienteId);
+                ViewData["ClienteNome"] = cliente.Nome;
+            }
+
+            if (contrato == null)
+            {
+                if (cliente == null)
+                {
+                    // todo: mandar erro e voltar ao 1º passo
+                }
+
+                contrato = new NovoContratoPasso2ViewModel();
+                contrato.Cliente = cliente;
+                
+            }
+
             ViewData["DistritosId"] = new SelectList(bd.Distritos, "DistritosId", "Nome");
 
-            Contratos contratos = new Contratos();
-            NovoContratoViewModel novoContrato = new NovoContratoViewModel
+            return View(contrato);
+        }
+
+        [HttpPost]
+        public IActionResult Create2(NovoContratoPasso2ViewModel contrato)
+        {
+            if (!ModelState.IsValid)
             {
-                Contratos = contratos,
+                ViewData["DistritosId"] = new SelectList(bd.Distritos, "DistritosId", "Nome");
+                return View(contrato);
+            }
+
+            NovoContratoPasso2ViewModel novoContrato = new NovoContratoPasso2ViewModel
+            {
+                ClienteId = contrato.ClienteId
             };
 
-            return View(novoContrato);
+            return View("Create3", novoContrato);
+
         }
 
         public IActionResult Create3(NovoContratoViewModel novoContrato)
         {
-            if(!ModelState.IsValid)
-            {
-                int cliente = novoContrato.ClienteId;
-                RedirectToAction("Create2", "Contratos", new { id = cliente });
-            }
+           
             ViewData["ClienteId"] = novoContrato.ClienteId;
             ViewData["Morada"] = novoContrato.Morada;
             ViewData["CodigoPostal"] = novoContrato.CodigoPostal;
