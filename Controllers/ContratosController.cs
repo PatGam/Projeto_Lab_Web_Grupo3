@@ -224,6 +224,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         public IActionResult Create3(NovoContratoViewModel novoContrato)
         {
+            if(!ModelState.IsValid)
+            {
+                int cliente = novoContrato.ClienteId;
+                RedirectToAction("Create2", "Contratos", new { id = cliente });
+            }
             ViewData["ClienteId"] = novoContrato.ClienteId;
             ViewData["Morada"] = novoContrato.Morada;
             ViewData["CodigoPostal"] = novoContrato.CodigoPostal;
