@@ -207,6 +207,95 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> Create(ServicosPacotesViewModel servicosPacotesViewModel, Pacotes pacotes, ServicosPacotes servicosPacotes, IFormFile Imagem)
         {
 
+            List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
+            pacotes.Nome = servicosPacotesViewModel.Nome;
+            pacotes.Descricao = servicosPacotesViewModel.Descricao;
+            pacotes.Preco = servicosPacotesViewModel.Preco;
+            pacotes.Inactivo = false;
+            pacotes.Imagem = servicosPacotesViewModel.Imagem;
+            AtualizaImagem(pacotes, Imagem);
+            //acrescenta data de criação
+            pacotes.DataCriacao = DateTime.Now;
+
+            int pacoteId = pacotes.PacoteId;
+
+            var servico1id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico1);
+            var servico2id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico2);
+            var servico3id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico3);
+            var servico4id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico4);
+            var servico5id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico5);
+         
+
+            if (servico1id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico1 });
+            }
+
+            if (servico2id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico2 });
+            }
+
+            if (servico3id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico3 });
+            }
+
+            if (servico4id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico4 });
+            }
+
+            if (servico5id.Nome != "---")
+            {
+                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico5 });
+            }
+
+            if(servicosNosPacotes.Count == 0)
+            {
+               
+                ModelState.AddModelError("Servico1", "O pacote deve ter pelo menos um serviço associado.");
+   
+            }
+
+            List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
+
+            foreach (var item in servicosPacotesViewModel.ListaDistritosCentro)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in servicosPacotesViewModel.ListaDistritosIlhas)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in servicosPacotesViewModel.ListaDistritosNorte)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in servicosPacotesViewModel.ListaDistritosSul)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
+                }
+            }
+
+            if (distritoscomPacotes.Count == 0)
+            {
+
+                ModelState.AddModelError("ListaDistritosCentro", "O pacote que está a criar não vai ficar disponível em nenhum distrito");
+
+            }
+
             if (!ModelState.IsValid)
             {
                 var servicos = bd.Servicos.ToList();
@@ -256,107 +345,75 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 ViewData["Lista4"] = new SelectList(Lista4, "ServicoId", "Nome");
                 ViewData["Lista5"] = new SelectList(Lista5, "ServicoId", "Nome");
 
-                var distritos = bd.Distritos.ToList();
+                var distritosCentro = bd.Distritos.Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
+                .ToList();
+
+                var distritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
+                || p.Nome == "Vila Real" || p.Nome == "Bragança")
+                    .ToList();
+
+                var distritosSul = bd.Distritos.Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
+                || p.Nome == "Portalegre" || p.Nome == "Évora" || p.Nome == "Beja" || p.Nome == "Faro")
+                    .ToList();
+
+                var distritosIlhas = bd.Distritos.Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
+                    .ToList();
+
+                servicosPacotesViewModel.ListaDistritosCentro = distritosCentro.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                servicosPacotesViewModel.ListaDistritosNorte = distritosNorte.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                servicosPacotesViewModel.ListaDistritosSul = distritosSul.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                servicosPacotesViewModel.ListaDistritosIlhas = distritosIlhas.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
 
                 return View(servicosPacotesViewModel);
 
             }
 
-            List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
-
-            pacotes.Nome = servicosPacotesViewModel.Nome;
-            pacotes.Descricao = servicosPacotesViewModel.Descricao;
-            pacotes.Preco = servicosPacotesViewModel.Preco;
-            pacotes.Inactivo = false;
-            pacotes.Imagem = servicosPacotesViewModel.Imagem;
-            AtualizaImagem(pacotes, Imagem);
-            //acrescenta data de criação
-            pacotes.DataCriacao = DateTime.Now;
-            
-
             bd.Pacotes.Add(pacotes);
             await bd.SaveChangesAsync();
-            int pacoteId = pacotes.PacoteId;
 
-            var servico1id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico1);
-            var servico2id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico2);
-            var servico3id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico3);
-            var servico4id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico4);
-            var servico5id = bd.Servicos.SingleOrDefault(e => e.ServicoId == servicosPacotesViewModel.Servico5);
-         
-
-            if (servico1id.Nome != "---")
-            {
-                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico1 });
-            }
-
-            if (servico2id.Nome != "---")
-            {
-                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico2 });
-            }
-
-            if (servico3id.Nome != "---")
-            {
-                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico3 });
-            }
-
-            if (servico4id.Nome != "---")
-            {
-                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico4 });
-            }
-
-            if (servico5id.Nome != "---")
-            {
-                servicosNosPacotes.Add(new ServicosPacotes() { PacoteId = pacoteId, ServicoId = servicosPacotesViewModel.Servico5 });
-            }
-
-
-            foreach (var item in servicosNosPacotes)
-            {
-                bd.ServicosPacotes.Add(item);
-            }
-            await bd.SaveChangesAsync();
-
-            List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
-
-            foreach (var item in servicosPacotesViewModel.ListaDistritosCentro)
-            {
-                if (item.Selecionado == true)
-                {
-                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
-                }
-            }
-            foreach (var item in servicosPacotesViewModel.ListaDistritosIlhas)
-            {
-                if (item.Selecionado == true)
-                {
-                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
-                }
-            }
-            foreach (var item in servicosPacotesViewModel.ListaDistritosNorte)
-            {
-                if (item.Selecionado == true)
-                {
-                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
-                }
-            }
-            foreach (var item in servicosPacotesViewModel.ListaDistritosSul)
-            {
-                if (item.Selecionado == true)
-                {
-                    distritoscomPacotes.Add(new DistritosPacotes() { PacoteId = pacoteId, DistritosId = item.Id });
-                }
-            }
+            pacoteId = pacotes.PacoteId;
             foreach (var item in distritoscomPacotes)
             {
+                item.PacoteId = pacoteId;
                 bd.DistritosPacotes.Add(item);
             }
             await bd.SaveChangesAsync();
 
+            foreach (var item in servicosNosPacotes)
+            {
+                item.PacoteId = pacoteId;
+                bd.ServicosPacotes.Add(item);
+            }
+            await bd.SaveChangesAsync();
 
-            ViewBag.Mensagem = "Promoção adicionado com sucesso.";
+            
+
+            ViewBag.Mensagem = "Pacote adicionado com sucesso.";
             return View("Sucesso");
-
 
         }
 
