@@ -1,4 +1,4 @@
-﻿@model NovoContratoViewModel
+﻿@model NovoContratoPasso2ViewModel
 
 @{
     Layout = "_LayoutAdmin";
@@ -27,12 +27,11 @@
                         Criar novo contrato
                     </header>
                     <div class="panel-body">
-                        <form asp-action="Create3" class="form-horizontal">
+                        <form asp-action="Create2" class="form-horizontal">
                             <div asp-validation-summary="All" class="text-danger"></div>
-                            <input type="hidden" asp-for="UtilizadorId" value="@ViewBag.ClienteId">
                             <input type="hidden" asp-for="ClienteId" value="@ViewBag.ClienteId">
                             <div class="form-group">
-                                <label asp-for="UtilizadorId" class="control-label col-sm-2">Cliente</label>
+                                <label asp-for="Cliente.Nome" class="control-label col-sm-2">Cliente</label>
                                 <div class="col-sm-10">
                                     <input id="disabledInput" class="form-control" value="@ViewBag.ClienteNome" readonly="readonly">
                                 </div>
