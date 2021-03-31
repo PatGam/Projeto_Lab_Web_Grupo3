@@ -379,12 +379,35 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var servicos = bd.Servicos.ToList();
             var tiposServicos = bd.TiposServicos.ToList();
 
+            var pacote = await bd.Pacotes.Include(p => p.DistritosPacotes)
+                .ThenInclude(c => c.Distritos)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(p => p.PacoteId == (int)id);
+
             ViewData["Tipo1"] = tiposServicos[0].Nome;
             ViewData["Tipo2"] = tiposServicos[1].Nome;
             ViewData["Tipo3"] = tiposServicos[2].Nome;
             ViewData["Tipo4"] = tiposServicos[3].Nome;
             ViewData["Tipo5"] = tiposServicos[4].Nome;
 
+            var servicosPacotes = bd.ServicosPacotes
+                 .Where(p => p.PacoteId == id)
+                 .ToList();
+            
+            List<Servicos> servicosIncluidos = new List<Servicos>();
+
+            foreach (var servicoincluido in servicosPacotes)
+            {
+                foreach ( var servico in bd.Servicos)
+                {
+                    if(servico.ServicoId == servicoincluido.ServicoId)
+                    {
+                        servicosIncluidos.Add(servico);
+                    }
+                }
+            }
+
+            
             List<Servicos> Lista1 = new List<Servicos>();
             List<Servicos> Lista2 = new List<Servicos>();
             List<Servicos> Lista3 = new List<Servicos>();
@@ -416,6 +439,17 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                         break;
                 }
             }
+
+            foreach(var servico in servicosIncluidos)
+            {
+                foreach (var item in Lista1)
+                {
+                    if(servico.ServicoId == item.ServicoId)
+                    {
+                        Lista1.First().ServicoId = item.ServicoId;
+                    }
+                }
+            }
             ViewData["Lista1"] = new SelectList(Lista1, "ServicoId", "Nome");
             ViewData["Lista2"] = new SelectList(Lista2, "ServicoId", "Nome");
             ViewData["Lista3"] = new SelectList(Lista3, "ServicoId", "Nome");
@@ -424,11 +458,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ServicosPacotesViewModel servicosPacotesViewModel = new ServicosPacotesViewModel();
 
-            var pacote = await bd.Pacotes.Include(p => p.DistritosPacotes)
-                .ThenInclude(c => c.Distritos)
-                .AsNoTracking()
-                .SingleOrDefaultAsync(p => p.PacoteId == (int)id);  
-
+            
             var listaDistritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
             || p.Nome == "Vila Real" || p.Nome == "Bragança")
                 .Select(p => new Checkbox()
