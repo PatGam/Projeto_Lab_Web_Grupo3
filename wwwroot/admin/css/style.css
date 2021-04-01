@@ -205,11 +205,11 @@ table tr th { color: #688a7e;}
     width: 190px;
     height: 100%;
     position: fixed;
-    background: #2b3d78;
-    background: -webkit-linear-gradient(top, #2b3d78, #e1e7f1);
-    background: -o-linear-gradient(top, #2b3d78, #e1e7f1);
-    background: -moz-linear-gradient(top, #2b3d78, #e1e7f1);
-    background: linear-gradient(top, #2b3d78, #e1e7f1);
+    background: #88b2ce;
+    background: -webkit-linear-gradient(bottom, #88b2ce, #5278ac);
+    background: -o-linear-gradient(bottom, #88b2ce, #5278ac);
+    background: -moz-linear-gradient(bottom, #88b2ce, #5278ac);
+    background: linear-gradient(bottom, #88b2ce, #5278ac);
     margin-top: 70px;
 }
 
@@ -250,7 +250,7 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 
 
 ul.sidebar-menu li ul.sub li {
-    background: #a8aaca;
+    
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
@@ -394,29 +394,20 @@ ul.sidebar-menu li a{
 
 }*/
 
-ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-
-    background: #a1b2db;
-
-    color: #fff;
-
-    display: block;
-
-    /*border-radius: 4px;
+    ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
+        background: #5278ac;
+        color: #fff;
+        display: block;
+        /*border-radius: 4px;
 
     -webkit-border-radius: 4px;*/
 
-    -webkit-transition: all 0.3s ease;
-
-    -moz-transition: all 0.3s ease;
-
-    -o-transition: all 0.3s ease;
-
-    -ms-transition: all 0.3s ease;
-
-    transition: all 0.3s ease;
-
-}
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
 
 ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
 
@@ -664,10 +655,13 @@ ul.sidebar-menu li.active a i {
     right: 0;
     z-index: 1002;
     height: 70px;
-    z-index: 997;
     transition: all 0.5s;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(top, #bacfe0, #e1e7f1);
+    background: #d1d9db;
+    background: -webkit-linear-gradient(top, #d1d9db, #d7e8f2);
+    background: -o-linear-gradient(top, #d1d9db, #d7e8f2);
+    background: -moz-linear-gradient(top, #d1d9db, #d7e8f2);
+    background: linear-gradient(top, #d1d9db, #d7e8f2);
     border-radius: 0 0 10% 10%;
 }
 
