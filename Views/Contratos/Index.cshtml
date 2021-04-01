@@ -14,6 +14,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Os meus contratos</h4>
                         </div>
+
                         <div class="row">
                             <table class="table-bordered">
                                 <tr>
@@ -51,6 +52,10 @@
 
                             </table>
                         </div>
+                        @foreach (var item in Model.Contratos)
+                        {
+                            <a class="button-form-btn m-t-25" asp-area="" asp-controller="Contratos" asp-action="Create2" asp-route-clienteId=@item.UtilizadorId>Associar contrato</a>
+                        }
                     </div>
                 </div>
             </div>
