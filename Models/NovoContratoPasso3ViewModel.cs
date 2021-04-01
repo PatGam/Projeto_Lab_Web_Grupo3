@@ -17,6 +17,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Data de Início")]
         public DateTime DataInicio { get; set; }
 
+        public DateTime DataFim { get; set; }
+
+
         public int Telefone { get; set; }
 
         
@@ -27,7 +30,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public int PacoteId { get; set; }
 
-        public int PromocoesId { get; set; }
+
+        public int? PromocoesId { get; set; }
 
 
         public int DistritosId { get; set; }

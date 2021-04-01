@@ -90,14 +90,15 @@ else
                                         Criar novo contrato
                                     </header>
                                     <div class="panel-body">
-                                        <form asp-action="Create3" class="form-horizontal">
-                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <form asp-action="CriarContratoPasso3Validacao" class="form-horizontal">
+                                            <div asp-validation-summary="All" class="text-danger"></div>
 
                                             <input type="hidden" asp-for="ClienteId" value="@ViewBag.ClienteId">
                                             <input type="hidden" asp-for="Morada" value="@ViewBag.Morada" />
                                             <input type="hidden" asp-for="CodigoPostal" value="@ViewBag.CodigoPostal" />
                                             <input type="hidden" asp-for="Telefone" value="@ViewBag.Telefone" />
                                             <input type="hidden" asp-for="DistritosId" value="@ViewBag.DistritosId" />
+
 
                                             <div class="form-group">
                                                 <label asp-for="PacoteId" class="col-sm-2 control-label"></label>

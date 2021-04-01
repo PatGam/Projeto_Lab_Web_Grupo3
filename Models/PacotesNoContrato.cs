@@ -2,43 +2,24 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-using Projeto_Lab_Web_Grupo3.Models;
-#nullable disable
+using System.Linq;
+using System.Threading.Tasks;
+
 namespace Projeto_Lab_Web_Grupo3.Models
 {
-    public partial class Contratos
+    public class PacotesNoContrato
     {
         [Key]
         [Column("Contrato_Id")]
+        public int PacotesNoContratoId { get; set; }
+
+        //UtilizadorId = ClienteId
         public int ContratoId { get; set; }
-
-        //UtilizadorId = ClienteId
-        public int UtilizadorId { get; set; }
-        public Utilizadores Utilizadores { get; set; }
-
-
-        //UtilizadorId = ClienteId
-        [Display(Name = "Nome do cliente")]
-        public int ClienteId { get; set; }
-
-        [Display(Name = "Funcionário responsável")]
-        public int FuncionarioId { get; set; }
-
-        [Display(Name = "Pacote utilizado")]
+        public Contratos Contratos { get; set; }
 
         public int PacoteId { get; set; }
 
         public Pacotes Pacotes { get; set; }
-
-        public string NomePacote { get; set; }
-
-
-        [Display(Name = "Promoção aplicada")]
-        public int PromocoesId { get; set; }
-
-        public Promocoes Promocoes { get; set; }
-
 
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
@@ -52,9 +33,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Column("Data_Fim", TypeName = "date")]
         [Display(Name = "Data de Fim")]
         public DateTime DataFim { get; set; }
-        [Column("Telefone")]
-        [RegularExpression(@"(2\d{8})", ErrorMessage = "Telefone Inválido")]
-        public int Telefone { get; set; }
+
+
         [Column("Preco_pacote", TypeName = "decimal(18, 2)")]
         //[RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage = "O valor tem ser superior a 0")]
         [Display(Name = "Preço do Pacote")]
@@ -83,20 +63,12 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [Display(Name = "Código Postal")]
         public string CodigoPostal { get; set; }
 
-        public virtual ICollection<ServicosContratos> ServicosContratos { get; set; }
-
-        public virtual ICollection<PacotesNoContrato> PacotesNoContrato { get; set; }
-
         public int DistritosId { get; set; }
         public Distritos Distritos { get; set; }
-        //[ForeignKey(nameof(ClienteId))]
-        //[InverseProperty(nameof(Clientes.Contratos))]
-        //public virtual Clientes Cliente { get; set; }
-        //[ForeignKey(nameof(FuncionarioId))]
-        //[InverseProperty(nameof(Funcionarios.Contratos))]
-        //public virtual Funcionarios Funcionario { get; set; }
-        //[ForeignKey(nameof(PromocoesPacotes))]
-        //[InverseProperty("Contratos")]
-        //public virtual PromocoesPacotes PromocoesPacotesNavigation { get; set; }
+
+        public virtual ICollection<ServicosContratos> ServicosContratos { get; set; }
+
+
+
     }
 }

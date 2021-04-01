@@ -1,0 +1,228 @@
+﻿@model NovoContratoPasso4ViewModel
+
+
+@if (User.IsInRole("Cliente"))
+{
+    Layout = "_LayoutPData";
+
+    <container>
+        <div class="container bg-white mt-5 mb-5 ">
+            <div class="row offset-3">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Associar novo pacote
+                            </header>
+                            <div class="panel-body">
+                                <form asp-action="Create5" class="form-horizontal">
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                    Confirme se todos os dados que introduziu estão corretos e verifique a promoção a ser aplicada.
+                                    <input type="hidden" asp-for="UtilizadorId" value="@ViewBag.ClienteId">
+                                    <input type="hidden" class="form-control" asp-for="PacoteId" value="@ViewBag.PacoteId" />
+                                    <input type="hidden" class="form-control" asp-for="DistritosId" value="@ViewBag.DistritosId" />
+
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <input type="hidden" asp-for="ClienteId" value="@ViewBag.ClienteId">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="UtilizadorId" class="control-label col-sm-2">Cliente</label>
+                                        <div class="col-sm-10">
+                                            <input id="disabledInput" class="form-control" value="@ViewBag.ClienteNome" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="Morada"></label>
+                                        <div class="col-sm-10">
+                                            <input asp-for="Morada" class="form-control" value="@ViewBag.Morada" readonly="readonly" />
+                                            <span asp-validation-for="Morada" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="CodigoPostal"></label>
+                                        <div class="col-sm-10">
+                                            <input asp-for="CodigoPostal" class="form-control" value="@ViewBag.CodigoPostal" readonly="readonly" />
+                                            <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DistritosId" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-10">
+                                            <input id="disabledInput" class="form-control" value="@ViewBag.DistritoNome" readonly="readonly" />
+                                            <span asp-validation-for="DistritosId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Telefone" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" asp-for="Telefone" value="@ViewBag.Telefone" readonly="readonly" />
+                                            <span asp-validation-for="Telefone" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="PacoteId" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-10">
+                                            <input id="disabledInput" class="form-control" value="@ViewBag.PacoteNome" readonly="readonly" />
+                                            <span asp-validation-for="PacoteId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="DataInicio" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-10">
+                                            <input id="disabledInput" class="form-control" value="@ViewBag.DataInicio" readonly="readonly" />
+                                            <span asp-validation-for="DataInicio" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DataFim" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-10">
+                                            <input id="disabledInput" class="form-control" value="@Model.DataFim" readonly="readonly" />
+                                            <span asp-validation-for="DataFim" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Promoção em vigor</label>
+                                        <div class="col-sm-10">
+                                            <select asp-for="PromocoesId" class="form-control" asp-items="ViewBag.PromocoesId"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <a class="btn btn-danger" asp-action="Create">Cancelar</a>
+                                            <input type="submit" class="btn btn-success" value="Criar novo contrato" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </container>
+
+
+                }
+                else
+                {
+                Layout = "_LayoutAdmin";
+                ViewData["Title"] = "Criar";
+
+                @*Formulario final e opção de aplicar a promoção*@
+
+                <section id="main-content">
+                    <section class="wrapper">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3 class="page-header"><i class="fa fa-file-text-o"></i>Contratos</h3>
+                                <ol class="breadcrumb">
+                                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                                    <li><i class="icon_document_alt"></i>Contratos</li>
+                                    <li><i class="fa fa-file-text-o"></i>Criar</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <section class="panel">
+                                    <header class="panel-heading">
+                                        Criar novo contrato
+                                    </header>
+                                    <div class="panel-body">
+                                        <form asp-action="Create5" class="form-horizontal">
+                                            <div asp-validation-summary="All" class="text-danger"></div>
+                                            Confirme se todos os dados que introduziu estão corretos e verifique a promoção a ser aplicada.
+                                            <input type="hidden" asp-for="UtilizadorId" value="@ViewBag.ClienteId">
+                                            <input type="hidden" class="form-control" asp-for="PacoteId" value="@ViewBag.PacoteId" />
+                                            <input type="hidden" class="form-control" asp-for="DistritosId" value="@ViewBag.DistritosId" />
+
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    <input type="hidden" asp-for="ClienteId" value="@ViewBag.ClienteId">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="UtilizadorId" class="control-label col-sm-2">Cliente</label>
+                                                <div class="col-sm-10">
+                                                    <input id="disabledInput" class="form-control" value="@ViewBag.ClienteNome" readonly="readonly">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" asp-for="Morada"></label>
+                                                <div class="col-sm-10">
+                                                    <input asp-for="Morada" class="form-control" value="@ViewBag.Morada" readonly="readonly" />
+                                                    <span asp-validation-for="Morada" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" asp-for="CodigoPostal"></label>
+                                                <div class="col-sm-10">
+                                                    <input asp-for="CodigoPostal" class="form-control" value="@ViewBag.CodigoPostal" readonly="readonly" />
+                                                    <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="DistritosId" class="col-sm-2 control-label"></label>
+                                                <div class="col-sm-10">
+                                                    <input id="disabledInput" class="form-control" value="@ViewBag.DistritoNome" readonly="readonly" />
+                                                    <span asp-validation-for="DistritosId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Telefone" class="col-sm-2 control-label"></label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" asp-for="Telefone" value="@ViewBag.Telefone" readonly="readonly" />
+                                                    <span asp-validation-for="Telefone" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="PacoteId" class="col-sm-2 control-label"></label>
+                                                <div class="col-sm-10">
+                                                    <input id="disabledInput" class="form-control" value="@ViewBag.PacoteNome" readonly="readonly" />
+                                                    <span asp-validation-for="PacoteId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="DataInicio" class="col-sm-2 control-label"></label>
+                                                <div class="col-sm-10">
+                                                    <input id="disabledInput" class="form-control" value="@ViewBag.DataInicio" readonly="readonly" />
+                                                    <span asp-validation-for="DataInicio" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="DataFim" class="col-sm-2 control-label"></label>
+                                                <div class="col-sm-10">
+                                                    <input id="disabledInput" class="form-control" value="@Model.DataFim" readonly="readonly" />
+                                                    <span asp-validation-for="DataFim" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Promoção em vigor</label>
+                                                <div class="col-sm-10">
+                                                    <select asp-for="PromocoesId" class="form-control" asp-items="ViewBag.PromocoesId"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                    <a class="btn btn-danger" asp-action="Create">Cancelar</a>
+                                                    <input type="submit" class="btn btn-success" value="Criar novo contrato" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                }
+
+                @section Scripts {
+                    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                }
