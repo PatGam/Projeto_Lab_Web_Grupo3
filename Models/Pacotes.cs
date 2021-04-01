@@ -57,6 +57,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public DateTime DataInactivo { get; set; }
 
         //public int DistritosId { get; set; }
+
+        //[Display(Name = "Distrito")]
         //public Distritos Distritos { get; set; }
 
         [InverseProperty("Pacote")]
