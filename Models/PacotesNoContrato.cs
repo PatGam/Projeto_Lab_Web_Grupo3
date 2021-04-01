@@ -14,10 +14,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public int PacotesNoContratoId { get; set; }
 
         //UtilizadorId = ClienteId
-        public int UtilizadorId { get; set; }
-        public Utilizadores Utilizadores { get; set; }
-
-        //UtilizadorId = ClienteId
         public int ContratoId { get; set; }
         public Contratos Contratos { get; set; }
 

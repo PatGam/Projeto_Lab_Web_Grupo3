@@ -31,6 +31,9 @@ namespace Projeto_Lab_Web_Grupo3.Data
             public virtual DbSet<ServicosContratos> ServicosContratos { get; set; }
             public virtual DbSet<DistritosPacotes> DistritosPacotes { get; set; }
 
+        public virtual DbSet<PacotesNoContrato> PacotesNoContrato { get; set; }
+
+
 
 
 
@@ -45,6 +48,30 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<PacotesNoContrato>(entity =>
+            {
+               
+                entity.HasOne(d => d.Pacotes)
+                    .WithMany(p => p.PacotesNoContrato)
+                    .HasForeignKey(d => d.PacoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PacotesNoContrato_Pacotes");
+
+                entity.HasOne(d => d.Contratos)
+                    .WithMany(p => p.PacotesNoContrato)
+                    .HasForeignKey(d => d.ContratoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PacotesNoContrato_Contratos");
+
+
+                entity.HasOne(d => d.Distritos)
+                        .WithMany(p => p.PacotesNoContrato)
+                        .HasForeignKey(d => d.DistritosId)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_PacotesNoContrato_Distritos");
+            });
+
+
             modelBuilder.Entity<Contratos>(entity =>
             {
                 entity.HasOne(d => d.Utilizadores)

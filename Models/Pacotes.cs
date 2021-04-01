@@ -61,6 +61,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [InverseProperty("Pacote")]
         public virtual ICollection<DistritosPacotes> DistritosPacotes { get; set; }
+
+        public virtual ICollection<PacotesNoContrato> PacotesNoContrato { get; set; }
+
     }
 
 }

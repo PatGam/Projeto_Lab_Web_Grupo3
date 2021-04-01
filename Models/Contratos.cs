@@ -85,6 +85,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public virtual ICollection<ServicosContratos> ServicosContratos { get; set; }
 
+        public virtual ICollection<PacotesNoContrato> PacotesNoContrato { get; set; }
+
         public int DistritosId { get; set; }
         public Distritos Distritos { get; set; }
         //[ForeignKey(nameof(ClienteId))]
