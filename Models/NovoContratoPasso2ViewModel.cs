@@ -11,15 +11,16 @@ namespace Projeto_Lab_Web_Grupo3.Models
     public class NovoContratoPasso2ViewModel
     {
         public int ClienteId { get; set; }
-        public Utilizadores Cliente { get; set; }
+        //public Utilizadores Cliente { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        [DataType(DataType.Date)]
-        [Display(Name = "Data de Início")]
+        public string NomeCliente { get; set; }
+
+        
         public DateTime DataInicio { get; set; }
 
         public DateTime DataFim { get; set; }
 
+        [Required]
         [RegularExpression(@"(2\d{8})", ErrorMessage = "Telefone Inválido")]
         public int Telefone { get; set; }
 
@@ -41,7 +42,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public int PromocoesId { get; set; }
 
         [Display(Name = "Distrito")]
-
         public int DistritosId { get; set; }
 
         public bool UmAno { get; set; }

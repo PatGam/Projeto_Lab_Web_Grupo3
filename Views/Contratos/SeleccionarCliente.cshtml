@@ -25,14 +25,14 @@
                     <div class="panel-body">
                         Insira na barra de pesquisa o NIF do cliente a que pretende associar um novo contrato.
                         <br />
-                        <form class="form-horizontal " asp-action="Create" method="get">
+                        <form class="form-horizontal " asp-action="SeleccionarCliente" method="get">
                             <div class="form-group">
                                 <div class="col-lg-10">
                                     <input name="nifPesquisa" type="search" value="@Model.nifPesquisa" class="form-control input-lg m-bot15" placeholder="Inserir NIF">
                                 </div>
                                 <div class="col-lg-10">
                                     <input type="submit" value="Pesquisar" class="btn btn-success btn-lg" />
-                                    <a asp-action="Create" class="btn btn-primary btn-lg">Limpar</a>
+                                    <a asp-action="SeleccionarCliente" class="btn btn-primary btn-lg">Limpar</a>
                                 </div>
                             </div>
 
@@ -97,7 +97,7 @@
                                                     </td>
 
                                                     <td>
-                                                        <a class="btn btn-primary" asp-area="" asp-controller="Contratos" asp-action="Create2" asp-route-clienteId=@item.UtilizadorId>Associar contrato</a>
+                                                        <a class="btn btn-primary" asp-area="" asp-controller="Contratos" asp-action="CriarContratoPasso2" asp-route-clienteId="@item.UtilizadorId">Associar contrato</a>
 
                                                     </td>
 

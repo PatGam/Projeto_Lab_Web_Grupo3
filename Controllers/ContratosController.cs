@@ -166,7 +166,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         // GET: Contratos/Create
         [Authorize(Roles = "Operador")]
-        public async Task<IActionResult> Create(string nifPesquisa, int pagina = 1)
+        public async Task<IActionResult> SeleccionarCliente(string nifPesquisa, int pagina = 1)
         {
             if (nifPesquisa != null)
             {
@@ -205,29 +205,20 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
         }
         
-        public IActionResult Create2(int? clienteId, NovoContratoPasso2ViewModel contrato = null)
+        public IActionResult CriarContratoPasso2(int? clienteId/* NovoContratoPasso2ViewModel contrato = null*/)
         {
             Utilizadores cliente = null;
-
+            NovoContratoPasso2ViewModel contrato = new NovoContratoPasso2ViewModel();
             if (clienteId != null)
             {
                 //função que vai buscar o ClienteId à tabela utilizadores, para lhe atribuir o nome;
                 cliente = bd.Utilizadores.SingleOrDefault(e => e.UtilizadorId == clienteId);
-                ViewData["ClienteId"] = cliente.UtilizadorId;
-                ViewData["ClienteNome"] = cliente.Nome;
+                if (contrato == null) contrato = new NovoContratoPasso2ViewModel();
+
+                contrato.NomeCliente = cliente.Nome;
+                contrato.ClienteId = cliente.UtilizadorId;
             }
 
-            if (contrato == null)
-            {
-                if (cliente == null)
-                {
-                    // todo: mandar erro e voltar ao 1º passo
-                }
-
-                contrato = new NovoContratoPasso2ViewModel();
-                contrato.Cliente = cliente;
-                
-            }
 
             ViewData["DistritosId"] = new SelectList(bd.Distritos, "DistritosId", "Nome");
 
@@ -235,30 +226,31 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create2(NovoContratoPasso2ViewModel contrato)
+        public IActionResult CriarContratoPasso2Validacao(NovoContratoPasso2ViewModel contrato)
         {
             if (!ModelState.IsValid)
             {
                 ViewData["DistritosId"] = new SelectList(bd.Distritos, "DistritosId", "Nome");
                 return View(contrato);
             }
-
-            NovoContratoPasso3ViewModel contratoPasso3 = new NovoContratoPasso3ViewModel
+            else
             {
-                ClienteId = contrato.ClienteId,
-                Morada = contrato.Morada,
-                DistritosId = contrato.DistritosId,
-                CodigoPostal = contrato.CodigoPostal,
-                Telefone = contrato.Telefone
+                NovoContratoPasso3ViewModel contratoPasso3 = new NovoContratoPasso3ViewModel
+                {
+                    ClienteId = contrato.ClienteId,
+                    Morada = contrato.Morada,
+                    DistritosId = contrato.DistritosId,
+                    CodigoPostal = contrato.CodigoPostal,
+                    Telefone = contrato.Telefone
 
-            };
-            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+                };
+                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
 
-            return View("Create3", contratoPasso3);
-
+                return RedirectToAction("CriarContratoPasso3", contratoPasso3);
+            }
         }
 
-        public IActionResult Create3(NovoContratoPasso3ViewModel contratoPasso3, string s ="s")
+        public IActionResult CriarContratoPasso3(NovoContratoPasso3ViewModel contratoPasso3)
         {
            
             ViewData["ClienteId"] = contratoPasso3.ClienteId;
@@ -276,33 +268,37 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
 
         [HttpPost]
-        public IActionResult Create3(NovoContratoPasso3ViewModel contratoPasso3)
+        public IActionResult CriarContratoPasso3Validacao(NovoContratoPasso3ViewModel contratoPasso3)
         {
             if (!ModelState.IsValid)
             {
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
                 return View(contratoPasso3);
             }
-            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
 
-            NovoContratoPasso4ViewModel contratoPasso4 = new NovoContratoPasso4ViewModel
+            else
             {
-                ClienteId = contratoPasso3.ClienteId,
-                Morada = contratoPasso3.Morada,
-                DistritosId = contratoPasso3.DistritosId,
-                CodigoPostal = contratoPasso3.CodigoPostal,
-                Telefone = contratoPasso3.Telefone,
-                PacoteId = contratoPasso3.PacoteId,
-                DataInicio = contratoPasso3.DataInicio,
-                UmAno = contratoPasso3.UmAno,
-                DoisAnos = contratoPasso3.DoisAnos,
+                NovoContratoPasso4ViewModel contratoPasso4 = new NovoContratoPasso4ViewModel
+                {
+                    ClienteId = contratoPasso3.ClienteId,
+                    Morada = contratoPasso3.Morada,
+                    DistritosId = contratoPasso3.DistritosId,
+                    CodigoPostal = contratoPasso3.CodigoPostal,
+                    Telefone = contratoPasso3.Telefone,
+                    PacoteId = contratoPasso3.PacoteId,
+                    DataInicio = contratoPasso3.DataInicio,
+                    UmAno = contratoPasso3.UmAno,
+                    DoisAnos = contratoPasso3.DoisAnos,
 
-            };
+                };
+                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
 
-            return View("Create4", contratoPasso4);
+                return RedirectToAction("CriarContratoPasso4", contratoPasso4);
+            }
+            
 
         }
-        public async Task<IActionResult> Create4(NovoContratoPasso4ViewModel contratoPasso4)
+        public async Task<IActionResult> CriarContratoPasso4(NovoContratoPasso4ViewModel contratoPasso4)
         {
             if (contratoPasso4.UmAno == true)
             {
