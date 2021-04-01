@@ -9,55 +9,61 @@
             <div class="row offset-3">
                 <div class="col-lg-7">
                     <div class="p-3 m-t-25 py-5">
-                        <div class="panel-body">
-                            <form asp-action="Create2" class="form-horizontal">
-                                <div asp-validation-summary="All" class="text-danger"></div>
-                                <input type="hidden" asp-for="ClienteId" value="@ViewBag.ClienteId">
-                                <div class="form-group">
-                                    <label asp-for="Cliente.Nome" class="control-label col-sm-2">Cliente</label>
-                                    <div class="col-sm-10">
-                                        <input id="disabledInput" class="form-control" value="@ViewBag.ClienteNome" readonly="readonly">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Associar novo pacote
+                            </header>
+                            <div class="panel-body">
+                                <form asp-action="Create2" class="form-horizontal">
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                    <input type="hidden" asp-for="ClienteId" value="@ViewBag.ClienteId">
+                                    <div class="form-group">
+                                        <label asp-for="Cliente.Nome" class="control-label col-sm-2">Cliente</label>
+                                        <div class="col-sm-10">
+                                            <input id="disabledInput" class="form-control" value="@ViewBag.ClienteNome" readonly="readonly">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label" asp-for="Morada"></label>
-                                    <div class="col-sm-10">
-                                        <input asp-for="Morada" class="form-control" />
-                                        <span asp-validation-for="Morada" class="text-danger"></span>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="Morada"></label>
+                                        <div class="col-sm-10">
+                                            <input asp-for="Morada" class="form-control" />
+                                            <span asp-validation-for="Morada" class="text-danger"></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label" asp-for="CodigoPostal"></label>
-                                    <div class="col-sm-10">
-                                        <input asp-for="CodigoPostal" class="form-control" />
-                                        <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="CodigoPostal"></label>
+                                        <div class="col-sm-10">
+                                            <input asp-for="CodigoPostal" class="form-control" />
+                                            <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="DistritosId" class="col-sm-2 control-label"></label>
-                                    <div class="col-sm-10">
-                                        <select asp-for="DistritosId" class="form-control" asp-items="ViewBag.DistritosId"></select>
+                                    <div class="form-group">
+                                        <label asp-for="DistritosId" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-10">
+                                            <select asp-for="DistritosId" class="form-control" asp-items="ViewBag.DistritosId"></select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Telefone" class="col-sm-2 control-label"></label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" asp-for="Telefone" />
-                                        <span asp-validation-for="Telefone" class="text-danger"></span>
+                                    <div class="form-group">
+                                        <label asp-for="Telefone" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" asp-for="Telefone" />
+                                            <span asp-validation-for="Telefone" class="text-danger"></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-lg-offset-2 col-lg-10">
-                                        <a class="btn btn-danger" asp-action="Create">Cancelar</a>
-                                        <input type="submit" class="btn btn-success" value="Seguinte" />
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <a class="btn btn-danger" asp-action="Create">Cancelar</a>
+                                            <input type="submit" class="btn btn-success" value="Seguinte" />
 
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
+                                </form>
+                            </div>
+                            </section>
                     </div>
                 </div>
-                </div>                
+                </div>     
+            </div>
                 </container>
                 }
             else
