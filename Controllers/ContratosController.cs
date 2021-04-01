@@ -244,13 +244,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                     Telefone = contrato.Telefone
 
                 };
-                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
 
                 return RedirectToAction("CriarContratoPasso3", contratoPasso3);
             }
         }
 
-        public IActionResult CriarContratoPasso3(NovoContratoPasso3ViewModel contratoPasso3)
+        public async Task<IActionResult> CriarContratoPasso3Async(NovoContratoPasso3ViewModel contratoPasso3)
         {
            
             ViewData["ClienteId"] = contratoPasso3.ClienteId;
@@ -260,19 +259,31 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["DistritosId"] = contratoPasso3.DistritosId;
 
             int id = contratoPasso3.ClienteId;
-            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
 
-           
+            List<Pacotes> pacotesDisponiveis = await bd.DistritosPacotes.Where(p => p.DistritosId == contratoPasso3.DistritosId)
+                            .Include(c => c.Pacote)
+                            .Select(c => c.Pacote)
+                            .Where(c => c.Inactivo == false)
+                            .ToListAsync();
+
+            ViewData["PacoteId"] = new SelectList(pacotesDisponiveis, "PacoteId", "Nome");
+
             return View(contratoPasso3);
         }
 
 
         [HttpPost]
-        public IActionResult CriarContratoPasso3Validacao(NovoContratoPasso3ViewModel contratoPasso3)
+        public async Task<IActionResult> CriarContratoPasso3ValidacaoAsync(NovoContratoPasso3ViewModel contratoPasso3)
         {
             if (!ModelState.IsValid)
             {
-                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+                List<Pacotes> pacotesDisponiveis = await bd.DistritosPacotes.Where(p => p.DistritosId == contratoPasso3.DistritosId)
+                            .Include(c => c.Pacote)
+                            .Select(c => c.Pacote)
+                            .Where(c => c.Inactivo == false)
+                            .ToListAsync();
+
+                ViewData["PacoteId"] = new SelectList(pacotesDisponiveis, "PacoteId", "Nome");
                 return View(contratoPasso3);
             }
 

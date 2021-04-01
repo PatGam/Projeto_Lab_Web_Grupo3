@@ -107,7 +107,10 @@ namespace Projeto_Lab_Web_Grupo3
                 SeedData.PreencheDados(bd);
                 SeedDataContratos.InsereContratos(bd);
                 SeedDataContratos.InsereServicosContratos(bd);
+                SeedDataContratos.InsereDistritosNosPacotes(bd);
                 SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
+
+
             }
         }
     }

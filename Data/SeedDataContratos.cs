@@ -5248,5 +5248,30 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         }
 
+        internal static void InsereDistritosNosPacotes(Projeto_Lab_WebContext bd)
+        {
+            if (bd.DistritosPacotes.Any()) return;
+            List<Pacotes> Pacotes = new List<Pacotes>();
+            List<Distritos> Distritos = new List<Distritos>();
+            List<DistritosPacotes> DistritosPacotes = new List<DistritosPacotes>();
+
+
+            foreach (var pacote in bd.Pacotes)
+            {
+                foreach (var distrito in bd.Distritos)
+                {
+                    DistritosPacotes.Add(new DistritosPacotes() { PacoteId = pacote.PacoteId, DistritosId = distrito.DistritosId });
+                }
+
+            }
+            foreach (var item in DistritosPacotes)
+            {
+                bd.DistritosPacotes.Add(item);
+            }
+            bd.SaveChanges();
+
+
+        }
+
     }
 }
