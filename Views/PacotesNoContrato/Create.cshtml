@@ -1,80 +1,87 @@
 ﻿@model Projeto_Lab_Web_Grupo3.Models.PacotesNoContrato
 
-@{
-    ViewData["Title"] = "Create";
-}
+@if (User.IsInRole("Cliente"))
+{
+    Layout = "_LayoutPData";
+    ViewData["Title"] = "Associar Pacote";
 
-<h1>Create</h1>
+    <container>
+        <div class="container bg-white mt-5 mb-5 ">
+            <div class="row offset-3">
+                <div class="col-lg-10">
+                    <div class="p-3 m-t-25 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Associar Pacote</h4>
+                        </div>                        
+                            <form asp-action="Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="ContratoId" class="control-label"></label>
+                                    <select asp-for="ContratoId" class="form-control" asp-items="ViewBag.ContratoId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PacoteId" class="control-label"></label>
+                                    <select asp-for="PacoteId" class="form-control" asp-items="ViewBag.PacoteId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DataInicio" class="control-label"></label>
+                                    <input asp-for="DataInicio" class="form-control" />
+                                    <span asp-validation-for="DataInicio" class="text-danger"></span>
+                                </div>
+                                @*<div class="form-group">
+                                        <label asp-for="DataFim" class="control-label"></label>
+                                        <input asp-for="DataFim" class="form-control" />
+                                        <span asp-validation-for="DataFim" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="PrecoPacote" class="control-label"></label>
+                                        <input asp-for="PrecoPacote" class="form-control" />
+                                        <span asp-validation-for="PrecoPacote" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="PromocaoDesc" class="control-label"></label>
+                                        <input asp-for="PromocaoDesc" class="form-control" />
+                                        <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="PrecoFinal" class="control-label"></label>
+                                        <input asp-for="PrecoFinal" class="form-control" />
+                                        <span asp-validation-for="PrecoFinal" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" asp-for="Inactivo" /> @Html.DisplayNameFor(model => model.Inactivo)
+                                        </label>
+                                    </div>*@
+                                <div class="form-group">
+                                    <label asp-for="Morada" class="control-label"></label>
+                                    <input asp-for="Morada" class="form-control" />
+                                    <span asp-validation-for="Morada" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="CodigoPostal" class="control-label"></label>
+                                    <input asp-for="CodigoPostal" class="form-control" />
+                                    <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DistritosId" class="control-label"></label>
+                                    <select asp-for="DistritosId" class="form-control" asp-items="ViewBag.DistritosId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>
+                            </form>                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </container>
 
-<h4>PacotesNoContrato</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ContratoId" class="control-label"></label>
-                <select asp-for="ContratoId" class ="form-control" asp-items="ViewBag.ContratoId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="PacoteId" class="control-label"></label>
-                <select asp-for="PacoteId" class ="form-control" asp-items="ViewBag.PacoteId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataInicio" class="control-label"></label>
-                <input asp-for="DataInicio" class="form-control" />
-                <span asp-validation-for="DataInicio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataFim" class="control-label"></label>
-                <input asp-for="DataFim" class="form-control" />
-                <span asp-validation-for="DataFim" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PrecoPacote" class="control-label"></label>
-                <input asp-for="PrecoPacote" class="form-control" />
-                <span asp-validation-for="PrecoPacote" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PromocaoDesc" class="control-label"></label>
-                <input asp-for="PromocaoDesc" class="form-control" />
-                <span asp-validation-for="PromocaoDesc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PrecoFinal" class="control-label"></label>
-                <input asp-for="PrecoFinal" class="form-control" />
-                <span asp-validation-for="PrecoFinal" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Inactivo" /> @Html.DisplayNameFor(model => model.Inactivo)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Morada" class="control-label"></label>
-                <input asp-for="Morada" class="form-control" />
-                <span asp-validation-for="Morada" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CodigoPostal" class="control-label"></label>
-                <input asp-for="CodigoPostal" class="form-control" />
-                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DistritosId" class="control-label"></label>
-                <select asp-for="DistritosId" class ="form-control" asp-items="ViewBag.DistritosId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+                    <div>
+                        <a asp-action="Index">Voltar</a>
+                    </div>
+                    }
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+                    @section Scripts {
+                        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                    }
