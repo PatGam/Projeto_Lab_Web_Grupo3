@@ -1,87 +1,96 @@
 ﻿@model Projeto_Lab_Web_Grupo3.Models.PacotesNoContrato
 
-@{
-    ViewData["Title"] = "Delete";
+@if (User.IsInRole("Cliente"))
+{
+    Layout = "_LayoutPData";
+    ViewData["Title"] = "Desassociar Pacote";
+
+    <container>
+        <div class="container bg-white mt-5 mb-5 ">
+            <div class="row offset-3">
+                <div class="col-lg-10">
+                    <div class="p-3 m-t-25 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Desassociar Pacote</h4>
+                        </div>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Contratos)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Contratos.CodigoPostal)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Pacotes)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Pacotes.Nome)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.DataInicio)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.DataInicio)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.DataFim)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.DataFim)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.PrecoPacote)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.PrecoPacote)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.PromocaoDesc)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.PromocaoDesc)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.PrecoFinal)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.PrecoFinal)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Inactivo)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Inactivo)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Morada)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Morada)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.CodigoPostal)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.CodigoPostal)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Distritos)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Distritos.Nome)
+                            </dd>
+                        </dl>
+
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="PacotesNoContratoId" />
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            <a asp-action="Index">Back to List</a>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </container>
 }
-
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>PacotesNoContrato</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contratos)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contratos.CodigoPostal)
-        </dd class>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pacotes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pacotes.Nome)
-        </dd class>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataInicio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataInicio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataFim)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataFim)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecoPacote)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecoPacote)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PromocaoDesc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PromocaoDesc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecoFinal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecoFinal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Inactivo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Inactivo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Morada)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Morada)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodigoPostal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CodigoPostal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Distritos)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Distritos.Nome)
-        </dd class>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="PacotesNoContratoId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
