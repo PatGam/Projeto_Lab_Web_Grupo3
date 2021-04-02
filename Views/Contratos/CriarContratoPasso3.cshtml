@@ -40,11 +40,11 @@
                                     <div class="form-group">
                                         <label class="control-label col-lg-2" for="inputSuccess">Período de fidelização</label>
                                         <div class="col-lg-10">
-                                            <label class="checkbox-inline">
-                                                <input asp-for="UmAno" type="checkbox" id="inlineCheckbox1"> Um ano
+                                            <label class="radio">
+                                                <input asp-for="UmAno" name="optionsRadios" type="radio" id="optionsRadios1" value="radio1" checked> Um ano
                                             </label>
-                                            <label class="checkbox-inline">
-                                                <input asp-for="DoisAnos" type="checkbox" id="inlineCheckbox2"> Dois Anos
+                                            <label class="radio">
+                                                <input asp-for="DoisAnos" name="optionsRadios" type="radio" id="optionRadios2" value="radio2"> Dois Anos
                                             </label>
 
                                         </div>
@@ -116,13 +116,12 @@ else
                                             <div class="form-group">
                                                 <label class="control-label col-lg-2" for="inputSuccess">Período de fidelização</label>
                                                 <div class="col-lg-10">
-                                                    <label class="checkbox-inline">
-                                                        <input asp-for="UmAno" type="checkbox" id="inlineCheckbox1"> Um ano
+                                                    <label class="radio">
+                                                        <input asp-for="UmAno" name="optionsRadios" type="radio" id="optionsRadios1" value="radio1" checked> Um ano
                                                     </label>
-                                                    <label class="checkbox-inline">
-                                                        <input asp-for="DoisAnos" type="checkbox" id="inlineCheckbox2"> Dois Anos
+                                                    <label class="radio">
+                                                        <input asp-for="DoisAnos" name="optionsRadios" type="radio" id="optionRadios2" value="radio2"> Dois Anos
                                                     </label>
-
                                                 </div>
                                             </div>
                                             <div class="form-group">
