@@ -662,7 +662,7 @@ ul.sidebar-menu li.active a i {
     background: -o-linear-gradient(top, #d1d9db, #d7e8f2);
     background: -moz-linear-gradient(top, #d1d9db, #d7e8f2);
     background: linear-gradient(top, #d1d9db, #d7e8f2);
-    border-radius: 0 0 10% 10%;
+    border-radius: 0% 0% 100px 0%;
 }
 
     #header .logo h1 {
