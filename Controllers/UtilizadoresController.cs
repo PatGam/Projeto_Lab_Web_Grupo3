@@ -771,44 +771,114 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             return _context.Utilizadores.Any(e => e.UtilizadorId == id);
         }
+        public IActionResult ClientesAveiro()
+        {
+            return View();
+        }
 
+        public IActionResult ClientesBeja()
+        {
+            return View();
+        }
 
-        #region API Calls
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllFuncionarios()
-        //{
-        //    var funcionarios = await _context.Utilizadores
-        //        .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.DataNascimento, s.Morada, s.Telemovel, s.Email, s.Role, s.Inactivo })
-        //        .Where(i => i.Inactivo == false && i.Role == "Administrador" || i.Role == "Operador")
-        //        .ToListAsync();
-        //    return Json(new { data = funcionarios });
-        //}
-        #endregion
+        public IActionResult ClientesBraga()
+        {
+            return View();
+        }
+
+        public IActionResult ClientesBraganca()
+        {
+            return View();
+        }
+
+        public IActionResult ClientesCasteloBranco()
+        {
+            return View();
+        }
+
+        public IActionResult ClientesCoimbra()
+        {
+            return View();
+        }
+
+        public IActionResult ClientesSetubal()
+        {
+            return View();
+        }
+
 
         #region API Calls
         [HttpGet]
-        public async Task<IActionResult> GetAllClientesVC()
+        public async Task<IActionResult> GetAllClientesAveiro()
         {
             var clientes = await _context.Utilizadores
-                .Select(s => new { s.UtilizadorId, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
-                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 16)
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 1)
                 .ToListAsync();
             return Json(new { data = clientes });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesBeja()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 2)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
 
-        //[HttpDelete]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    var clientesFromDb = await _context.Utilizadores.FirstOrDefaultAsync(s => s.UtilizadorId == id);
-        //    if (clientesFromDb == null)
-        //    {
-        //        return Json(new { success = false, message = "Erro ao eliminar o cliente" });
-        //    }
-        //    _context.Utilizadores.Remove(clientesFromDb);
-        //    await _context.SaveChangesAsync();
-        //    return Json(new { success = true, message = "O Cliente foi eliminado com sucesso" });
-        //}
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesBraga()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 3)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesBraganca()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 4)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesCasteloBranco()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 5)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesCoimbra()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 6)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesSetubal()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 15)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+      
+
         #endregion
 
 
