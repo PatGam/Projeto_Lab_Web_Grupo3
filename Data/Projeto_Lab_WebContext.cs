@@ -248,6 +248,25 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     .HasConstraintName("FK_Distritos_Pacotes_Distritos");
             });
 
+            modelBuilder.Entity<DistritosPromocoes>(entity =>
+            {
+                entity.HasIndex(e => e.DistritosId);
+
+                entity.HasIndex(e => e.PromocoesId);
+
+                entity.HasOne(d => d.Promocao)
+                    .WithMany(p => p.DistritosPromocoes)
+                    .HasForeignKey(d => d.PromocoesId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Distritos_Promocoes_Promocoes");
+
+                entity.HasOne(d => d.Distrito)
+                    .WithMany(p => p.DistritosPromocoes)
+                    .HasForeignKey(d => d.DistritosId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Distritos_Promocoes_Distritos");
+            });
+
 
             //modelBuilder.Entity<Clientes>() // Lado N
             //      .HasOne(p => p.TiposClientes) // um produto tem uma categoria

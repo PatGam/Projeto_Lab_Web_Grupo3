@@ -14,6 +14,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public Promocoes()
         {
             PromocoesPacotes = new HashSet<PromocoesPacotes>();
+            DistritosPromocoes = new HashSet<DistritosPromocoes>();
+
         }
 
         [Key]
@@ -47,7 +49,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [InverseProperty("Promocoes")]
         public virtual ICollection<PromocoesPacotes> PromocoesPacotes { get; set; }
 
-  
+        public virtual ICollection<DistritosPromocoes> DistritosPromocoes { get; set; }
+
+
         public virtual ICollection<Contratos> Contratos { get; set; }
 
         public int DistritosId { get; set; }
