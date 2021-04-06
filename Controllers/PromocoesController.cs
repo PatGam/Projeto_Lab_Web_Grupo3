@@ -138,6 +138,50 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var pacotes = bd.Pacotes.ToList();
 
             PromocoesPacotesViewModel promocoesPacotesViewModel = new PromocoesPacotesViewModel();
+
+            var distritosCentro = bd.Distritos.Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
+                .ToList();
+
+            var distritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
+            || p.Nome == "Vila Real" || p.Nome == "Bragança")
+                .ToList();
+
+            var distritosSul = bd.Distritos.Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
+            || p.Nome == "Portalegre" || p.Nome == "Évora" || p.Nome == "Beja" || p.Nome == "Faro")
+                .ToList();
+
+            var distritosIlhas = bd.Distritos.Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
+                .ToList();
+
+            promocoesPacotesViewModel.ListaDistritosCentro = distritosCentro.Select(s => new Checkbox()
+            {
+                Id = s.DistritosId,
+                NomeDistrito = s.Nome,
+                Selecionado = false
+            }).ToList();
+
+            promocoesPacotesViewModel.ListaDistritosNorte = distritosNorte.Select(s => new Checkbox()
+            {
+                Id = s.DistritosId,
+                NomeDistrito = s.Nome,
+                Selecionado = false
+            }).ToList();
+
+            promocoesPacotesViewModel.ListaDistritosSul = distritosSul.Select(s => new Checkbox()
+            {
+                Id = s.DistritosId,
+                NomeDistrito = s.Nome,
+                Selecionado = false
+            }).ToList();
+
+            promocoesPacotesViewModel.ListaDistritosIlhas = distritosIlhas.Select(s => new Checkbox()
+            {
+                Id = s.DistritosId,
+                NomeDistrito = s.Nome,
+                Selecionado = false
+            }).ToList();
+
             promocoesPacotesViewModel.ListaPacotes = pacotes.Select(s => new Checkbox()
             {
                 Id = s.PacoteId,
@@ -168,6 +212,51 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                     Selecionado = false
                 }).ToList();
 
+                var distritosCentro = bd.Distritos.Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
+                .ToList();
+
+                var distritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
+                || p.Nome == "Vila Real" || p.Nome == "Bragança")
+                    .ToList();
+
+                var distritosSul = bd.Distritos.Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
+                || p.Nome == "Portalegre" || p.Nome == "Évora" || p.Nome == "Beja" || p.Nome == "Faro")
+                    .ToList();
+
+                var distritosIlhas = bd.Distritos.Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
+                    .ToList();
+
+                promocoesPacotesViewModel.ListaDistritosCentro = distritosCentro.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                promocoesPacotesViewModel.ListaDistritosNorte = distritosNorte.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                promocoesPacotesViewModel.ListaDistritosSul = distritosSul.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                promocoesPacotesViewModel.ListaDistritosIlhas = distritosIlhas.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                
+
                 return View(promocoesPacotesViewModel);
             }
 
@@ -197,8 +286,44 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
             await bd.SaveChangesAsync();
 
+            List<DistritosPromocoes> distritoscomPromocoes = new List<DistritosPromocoes>();
 
-            ViewBag.Mensagem = "Promoção adicionado com sucesso.";
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosCentro)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosIlhas)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosNorte)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosSul)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+
+            foreach (var item in distritoscomPromocoes)
+            {
+                bd.DistritosPromocoes.Add(item);
+            }
+            await bd.SaveChangesAsync();
+
+            ViewBag.Mensagem = "Promoção adicionada com sucesso.";
             return View("Sucesso");
 
         }
@@ -222,12 +347,54 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             }).ToList();
 
+            var listaDistritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
+            || p.Nome == "Vila Real" || p.Nome == "Bragança")
+                .Select(p => new Checkbox()
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPromocoes.Any(p => p.PromocoesId == promocao.PromocoesId) ? true : false
+                }).ToList();
+
+            var listaDistritosCentro = bd.Distritos
+                .Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
+                .Select(p => new Checkbox()
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPromocoes.Any(p => p.PromocoesId == promocao.PromocoesId) ? true : false
+                }).ToList();
+
+            var listaDistritosSul = bd.Distritos
+                .Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
+            || p.Nome == "Portalegre" || p.Nome == "Évora" || p.Nome == "Beja" || p.Nome == "Faro")
+                .Select(p => new Checkbox()
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPromocoes.Any(p => p.PromocoesId == promocao.PromocoesId) ? true : false
+                }).ToList();
+
+            var listaDistritosIlhas = bd.Distritos
+                .Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
+                .Select(p => new Checkbox()
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPromocoes.Any(p => p.PromocoesId == promocao.PromocoesId) ? true : false
+                }).ToList();
+
             promocoesPacotesViewModel.Nome = promocao.Nome;
             promocoesPacotesViewModel.Descricao = promocao.Descricao;
             promocoesPacotesViewModel.DataInicio = promocao.DataInicio;
             promocoesPacotesViewModel.DataFim = promocao.DataFim;
             promocoesPacotesViewModel.PromocaoDesc = promocao.PromocaoDesc;
             promocoesPacotesViewModel.ListaPacotes = listaPacotes;
+            promocoesPacotesViewModel.ListaDistritosCentro = listaDistritosCentro;
+            promocoesPacotesViewModel.ListaDistritosIlhas = listaDistritosIlhas;
+            promocoesPacotesViewModel.ListaDistritosNorte = listaDistritosNorte;
+            promocoesPacotesViewModel.ListaDistritosSul = listaDistritosSul;
             promocoesPacotesViewModel.PromocoesId = (int)id;
 
             return View(promocoesPacotesViewModel);
@@ -286,7 +453,57 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
             }
 
+            //Checklist de Distritos
+            List<DistritosPromocoes> distritoscomPromocoes = new List<DistritosPromocoes>();
 
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosCentro)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosIlhas)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosNorte)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosSul)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+
+            }
+            var listaDistritosPromocoes = bd.DistritosPromocoes.Where(p => p.PromocoesId == id).ToList();
+            var resultado2 = listaDistritosPromocoes.Except(distritoscomPromocoes).ToList();
+
+            foreach (var distrito in resultado2)
+            {
+                bd.DistritosPromocoes.Remove(distrito);
+                await bd.SaveChangesAsync();
+            }
+
+            var novalistaDistritosPromocoes = bd.DistritosPromocoes.Where(p => p.PromocoesId == id).ToList();
+
+            foreach (var distrito in distritoscomPromocoes)
+            {
+                if (!novalistaDistritosPromocoes.Contains(distrito))
+                {
+                    bd.DistritosPromocoes.Add(distrito);
+                    await bd.SaveChangesAsync();
+                }
+            }
             ViewBag.Mensagem = "Promoção alterada com sucesso";
             return View("Sucesso");
         }
@@ -357,7 +574,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
         #endregion
 
-        // GET: Promocoes/Edit/5
+        // GET: Promocoes/EditOperadores
         [Authorize(Roles = "Operador")]
         public async Task<IActionResult> EditOperadores(int? id)
         {
@@ -376,18 +593,60 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             }).ToList();
 
+            var listaDistritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
+            || p.Nome == "Vila Real" || p.Nome == "Bragança")
+                .Select(p => new Checkbox()
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPromocoes.Any(p => p.PromocoesId == promocao.PromocoesId) ? true : false
+                }).ToList();
+
+            var listaDistritosCentro = bd.Distritos
+                .Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
+                .Select(p => new Checkbox()
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPromocoes.Any(p => p.PromocoesId == promocao.PromocoesId) ? true : false
+                }).ToList();
+
+            var listaDistritosSul = bd.Distritos
+                .Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
+            || p.Nome == "Portalegre" || p.Nome == "Évora" || p.Nome == "Beja" || p.Nome == "Faro")
+                .Select(p => new Checkbox()
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPromocoes.Any(p => p.PromocoesId == promocao.PromocoesId) ? true : false
+                }).ToList();
+
+            var listaDistritosIlhas = bd.Distritos
+                .Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
+                .Select(p => new Checkbox()
+                {
+                    Id = p.DistritosId,
+                    NomeDistrito = p.Nome,
+                    Selecionado = p.DistritosPromocoes.Any(p => p.PromocoesId == promocao.PromocoesId) ? true : false
+                }).ToList();
+
             promocoesPacotesViewModel.Nome = promocao.Nome;
             promocoesPacotesViewModel.Descricao = promocao.Descricao;
             promocoesPacotesViewModel.DataInicio = promocao.DataInicio;
             promocoesPacotesViewModel.DataFim = promocao.DataFim;
             promocoesPacotesViewModel.PromocaoDesc = promocao.PromocaoDesc;
             promocoesPacotesViewModel.ListaPacotes = listaPacotes;
+            promocoesPacotesViewModel.ListaDistritosCentro = listaDistritosCentro;
+            promocoesPacotesViewModel.ListaDistritosIlhas = listaDistritosIlhas;
+            promocoesPacotesViewModel.ListaDistritosNorte = listaDistritosNorte;
+            promocoesPacotesViewModel.ListaDistritosSul = listaDistritosSul;
             promocoesPacotesViewModel.PromocoesId = (int)id;
 
             return View(promocoesPacotesViewModel);
         }
 
-        // POST: Promocoes/Edit/5
+        // POST: Promocoes/EditOperadores
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -401,7 +660,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 //.AsNoTracking()
                 .SingleOrDefaultAsync(p => p.PromocoesId == id);
 
-            
             int promocaoId = promocao.PromocoesId;
 
             foreach (var pacote in promocoesPacotesViewModel.ListaPacotes)
@@ -431,9 +689,60 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
             }
 
+            //Checklist de Distritos
+            List<DistritosPromocoes> distritoscomPromocoes = new List<DistritosPromocoes>();
 
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosCentro)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosIlhas)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosNorte)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+            }
+            foreach (var item in promocoesPacotesViewModel.ListaDistritosSul)
+            {
+                if (item.Selecionado == true)
+                {
+                    distritoscomPromocoes.Add(new DistritosPromocoes() { PromocoesId = promocaoId, DistritosId = item.Id });
+                }
+
+            }
+            var listaDistritosPromocoes = bd.DistritosPromocoes.Where(p => p.PromocoesId == id).ToList();
+            var resultado2 = listaDistritosPromocoes.Except(distritoscomPromocoes).ToList();
+
+            foreach (var distrito in resultado2)
+            {
+                bd.DistritosPromocoes.Remove(distrito);
+                await bd.SaveChangesAsync();
+            }
+
+            var novalistaDistritosPromocoes = bd.DistritosPromocoes.Where(p => p.PromocoesId == id).ToList();
+
+            foreach (var distrito in distritoscomPromocoes)
+            {
+                if (!novalistaDistritosPromocoes.Contains(distrito))
+                {
+                    bd.DistritosPromocoes.Add(distrito);
+                    await bd.SaveChangesAsync();
+                }
+            }
             ViewBag.Mensagem = "Promoção alterada com sucesso";
             return View("Sucesso");
         }
+
     }
 }

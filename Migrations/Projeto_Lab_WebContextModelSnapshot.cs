@@ -289,7 +289,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
 
-                    b.Property<int>("DistritosId")
+                    b.Property<int?>("DistritosId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Inactivo")
@@ -664,11 +664,9 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.Promocoes", b =>
                 {
-                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Distritos", "Distritos")
+                    b.HasOne("Projeto_Lab_Web_Grupo3.Models.Distritos", null)
                         .WithMany("Promocoes")
-                        .HasForeignKey("DistritosId")
-                        .HasConstraintName("FK_Distritos_Promocoes")
-                        .IsRequired();
+                        .HasForeignKey("DistritosId");
                 });
 
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.PromocoesPacotes", b =>

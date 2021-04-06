@@ -31,6 +31,9 @@ namespace Projeto_Lab_Web_Grupo3.Data
             public virtual DbSet<ServicosContratos> ServicosContratos { get; set; }
             public virtual DbSet<DistritosPacotes> DistritosPacotes { get; set; }
 
+        public virtual DbSet<DistritosPromocoes> DistritosPromocoes { get; set; }
+
+
         public virtual DbSet<PacotesNoContrato> PacotesNoContrato { get; set; }
 
 
@@ -192,24 +195,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                         .HasConstraintName("FK_Distritos_Utilizadores");
             });
 
-            modelBuilder.Entity<Promocoes>(entity =>
-            {
-                entity.HasOne(d => d.Distritos)
-                        .WithMany(p => p.Promocoes)
-                        .HasForeignKey(d => d.DistritosId)
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Distritos_Promocoes");
-            });
-
-            //modelBuilder.Entity<Pacotes>(entity =>
-            //{
-            //    entity.HasOne(d => d.Distritos)
-            //            .WithMany(p => p.Pacotes)
-            //            .HasForeignKey(d => d.DistritosId)
-            //            .OnDelete(DeleteBehavior.ClientSetNull)
-            //            .HasConstraintName("FK_Distritos_Pacotes");
-            //});
-
+           
             modelBuilder.Entity<PromocoesPacotes>(entity =>
             {
                 entity.HasIndex(e => e.PacoteId);

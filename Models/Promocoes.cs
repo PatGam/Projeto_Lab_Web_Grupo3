@@ -54,10 +54,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public virtual ICollection<Contratos> Contratos { get; set; }
 
-        public int DistritosId { get; set; }
-        public Distritos Distritos { get; set; }
-
-
         [Display(Name = "Inactivo")]
         public bool Inactivo { get; set; }
     }
