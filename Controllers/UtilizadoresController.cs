@@ -801,12 +801,155 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View();
         }
 
-        public IActionResult ClientesSetubal()
+        public IActionResult ClientesEvora()
         {
             return View();
         }
 
+        public IActionResult ClientesFaro()
+        {
+            return View();
+        }
 
+        public IActionResult ClientesGuarda()
+        {
+            return View();
+        }
+
+        public IActionResult ClientesLeiria()
+        {
+            return View();
+        }
+        public IActionResult ClientesLisboa()
+        {
+            return View();
+        }
+        public IActionResult ClientesPortalegre()
+        {
+            return View();
+        }
+        public IActionResult ClientesPorto()
+        {
+            return View();
+        }
+        public IActionResult ClientesSantarem()
+        {
+            return View();
+        }
+        public IActionResult ClientesSetubal()
+        {
+            return View();
+        }
+        public IActionResult ClientesVianaCastelo()
+        {
+            return View();
+        }
+        public IActionResult ClientesVilaReal()
+        {
+            return View();
+        }
+        public IActionResult ClientesViseu()
+        {
+            return View();
+        }
+        public IActionResult ClientesAcores()
+        {
+            return View();
+        }
+        public IActionResult ClientesMadeira()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresAveiro()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresBeja()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresBraga()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresBraganca()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresCasteloBranco()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresCoimbra()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresEvora()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresFaro()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresGuarda()
+        {
+            return View();
+        }
+
+        public IActionResult OperadoresLeiria()
+        {
+            return View();
+        }
+        public IActionResult OperadoresLisboa()
+        {
+            return View();
+        }
+        public IActionResult OperadoresPortalegre()
+        {
+            return View();
+        }
+        public IActionResult OperadoresPorto()
+        {
+            return View();
+        }
+        public IActionResult OperadoresSantarem()
+        {
+            return View();
+        }
+        public IActionResult OperadoresSetubal()
+        {
+            return View();
+        }
+        public IActionResult OperadoresVianaCastelo()
+        {
+            return View();
+        }
+        public IActionResult OperadoresVilaReal()
+        {
+            return View();
+        }
+        public IActionResult OperadoresViseu()
+        {
+            return View();
+        }
+        public IActionResult OperadoresAcores()
+        {
+            return View();
+        }
+        public IActionResult OperadoresMadeira()
+        {
+            return View();
+        }
         #region API Calls
         [HttpGet]
         public async Task<IActionResult> GetAllClientesAveiro()
@@ -869,6 +1012,86 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetAllClientesEvora()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 7)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesFaro()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 8)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesGuarda()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 9)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesLeiria()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 10)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesLisboa()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 11)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesPortalegre()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 12)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesPorto()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 13)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesSantarem()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 14)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
         public async Task<IActionResult> GetAllClientesSetubal()
         {
             var clientes = await _context.Utilizadores
@@ -877,13 +1100,262 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 .ToListAsync();
             return Json(new { data = clientes });
         }
-      
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesVianaCastelo()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 16)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesVilaReal()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 17)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesViseu()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 18)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesAcores()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 19)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientesMadeira()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Cliente" && i.DistritosId == 20)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresAveiro()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 1)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresBeja()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 2)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresBraga()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 3)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresBraganca()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 4)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresCasteloBranco()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 5)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresCoimbra()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 6)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresEvora()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 7)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadorFaro()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 8)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresGuarda()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 9)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresLeiria()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 10)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresLisboa()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 11)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresPortalegre()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 12)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresPorto()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 13)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresSantarem()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 14)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresSetubal()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 15)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresVianaCastelo()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 16)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresVilaReal()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 17)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresViseu()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 18)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresAcores()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 19)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOperadoresMadeira()
+        {
+            var clientes = await _context.Utilizadores
+                .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
+                .Where(i => i.Inactivo == false && i.Role == "Operador" && i.DistritosId == 20)
+                .ToListAsync();
+            return Json(new { data = clientes });
+        }
 
         #endregion
 
 
 
-        
+
     }
 
     
