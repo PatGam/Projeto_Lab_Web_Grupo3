@@ -515,6 +515,77 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(top10clientes);
         }
 
+        public async Task<IActionResult> VistaCliente()
+        {
 
+            var cliente = bd.Utilizadores.SingleOrDefault(c => c.Email == User.Identity.Name);
+            int clienteId = cliente.UtilizadorId;
+
+            ViewData["ClienteId"] = cliente.UtilizadorId;
+
+
+            int distritoDoCliente = cliente.DistritosId;
+
+            List<Utilizadores> clientesDoDistrito = await bd.Utilizadores
+                .Where(p => p.Role == "Cliente" && p.DistritosId == distritoDoCliente)
+                .ToListAsync();
+
+            List<LucroClienteOperador> clientes = new List<LucroClienteOperador>();
+            decimal lucro = 0;
+
+            foreach (var item in clientesDoDistrito)
+            {
+                foreach (var contrato in bd.Contratos)
+                {
+                    if (contrato.UtilizadorId == item.UtilizadorId)
+                    {
+                        lucro += contrato.PrecoFinal;
+                    }
+                }
+                var distrito = await bd.Distritos
+                    .FirstOrDefaultAsync(m => m.DistritosId == item.DistritosId);
+
+                clientes.Add(new LucroClienteOperador()
+                {
+                    UtilizadorId = item.UtilizadorId,
+                    DistritosId = item.DistritosId,
+                    Lucro = lucro,
+                    ClienteNome = item.Nome,
+                    DistritoNome = distrito.Nome
+                });
+                lucro = 0;
+            }
+        
+            List<LucroClienteOperador> top10ComOCliente = clientes
+                .OrderByDescending(p => p.Lucro)
+                .Take(10)
+                .ToList();
+
+            var distritonome = await bd.Distritos
+                    .FirstOrDefaultAsync(m => m.DistritosId == cliente.DistritosId);
+
+            ViewData["Distrito"] = distritonome.Nome;
+
+            int posicaoCliente = 0;
+
+            foreach (var item in top10ComOCliente)
+            {
+                if(item.UtilizadorId == cliente.UtilizadorId)
+                {
+                    posicaoCliente = top10ComOCliente.IndexOf(item) + 1;
+                }
+            }
+
+            ViewData["PosicaoCliente"] = posicaoCliente;
+
+
+            Top10ViewModel top10clientes = new Top10ViewModel
+            {
+                vistaCliente = top10ComOCliente
+            };
+
+            return View(top10clientes);
+        }
+    
     }
 }

@@ -94,6 +94,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public List<LucroClienteOperador> clientesMadeira { get; set; }
 
+        public List<LucroClienteOperador> vistaCliente { get; set; }
+
+
         public int UtilizadorId { get; set; }        
 
 

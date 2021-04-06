@@ -1,0 +1,111 @@
+﻿@model Top10ViewModel
+
+@{ 
+    Layout = "_LayoutPData";
+}
+
+
+    <container>
+        <div class="container bg-white mt-5 mb-5 ">
+            <div class="row offset-3">
+                <div class="col-lg-7">
+                    <div class="p-3 m-t-25 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Ranking</h4>
+                        </div>
+                        <p>Nesta página pode consultar a sua posição no top 10 de clientes do seu distrito </p>
+
+                        @if (ViewBag.PosicaoCliente != 0)
+                        {
+                            <p>Parabéns, é o @ViewBag.PosicaoCliente º melhor cliente do seu distrito! Obrigado pela sua preferência. </p>
+                        }
+                        else
+                        {
+                            <p>De momento não faz parte do top 10 do seu distrito. Adquira mais serviços com a RD Telecom!</p>
+                        }
+                        <section class="panel">
+                            <header class="panel-heading">
+                                @ViewBag.Distrito
+                            </header>
+
+                            @{int pos = 1;
+                                if (Model.vistaCliente.Count() == 0)
+                                {
+                                    <p>O distrito não tem clientes registados.</p>
+
+                                }
+                                else
+                                {
+                                    <table class="table table-striped table-advance table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                </th>
+                                                <th>
+                                                    Nome
+                                                </th>
+                                                <th>
+                                                    Faturação
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @foreach (var item in Model.vistaCliente)
+                                            {
+
+                                                <tr>
+                                                    <td>
+                                                        @pos
+                                                        @switch (pos)
+                                                        {
+                                                            case 1:
+                                                                <i class="fas fa-trophy" style="color:#ff9c00"></i>
+                                                                break;
+                                                            case 2:
+                                                                <i class="fas fa-trophy" style="color:#808080"></i>
+                                                                break;
+                                                            case 3:
+                                                                <i class="fas fa-trophy" style="color:#7f3c0d"></i>
+                                                                break;
+                                                            default:
+                                                                break;
+                                                        }
+
+                                                    </td>
+                                                    @if (item.UtilizadorId == ViewBag.ClienteId)
+                                                    {
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.ClienteNome)
+                                                        </td>
+                                                        <td>
+                                                            € @Html.DisplayFor(modelItem => item.Lucro)
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>
+                                                            *******
+                                                        </td>
+                                                        <td>
+                                                            *********
+                                                        </td>
+                                                    }
+
+
+                                                </tr>
+                                                pos++;
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                }
+                            }
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </container>
+}

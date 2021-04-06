@@ -36,9 +36,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         public virtual DbSet<PacotesNoContrato> PacotesNoContrato { get; set; }
 
-
-
-
+        public virtual DbSet<FaturacaoOperadores> FaturacaoOperadores { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
@@ -253,13 +251,19 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     .HasConstraintName("FK_Distritos_Promocoes_Distritos");
             });
 
+            modelBuilder.Entity<FaturacaoOperadores>(entity =>
+            {
 
-            //modelBuilder.Entity<Clientes>() // Lado N
-            //      .HasOne(p => p.TiposClientes) // um produto tem uma categoria
-            //      .WithMany(c => c.Clientes) // que por sua vez tem vários produtos
-            //      .HasForeignKey(p => p.TipoClienteId) // chave estrangeira
-            //      .OnDelete(DeleteBehavior.Restrict) // não permitir o cascade delete
-            //      .HasConstraintName("FK_Clientes_TiposClientes");
+                entity.HasOne(d => d.Utilizadores)
+                    .WithMany(p => p.FaturacaoOperadores)
+                    .HasForeignKey(d => d.UtilizadorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_FaturacaoOperadores_Utilizadores");
+
+
+            });
+
+
 
             OnModelCreatingPartial(modelBuilder);
             }
