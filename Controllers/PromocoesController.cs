@@ -356,5 +356,84 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return Json(new { success = true, message = "A Promoção foi eliminado com sucesso" });
         }
         #endregion
+
+        // GET: Promocoes/Edit/5
+        [Authorize(Roles = "Operador")]
+        public async Task<IActionResult> EditOperadores(int? id)
+        {
+            PromocoesPacotesViewModel promocoesPacotesViewModel = new PromocoesPacotesViewModel();
+
+            var promocao = await bd.Promocoes.Include(p => p.PromocoesPacotes)
+                .ThenInclude(c => c.Pacote)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(p => p.PromocoesId == id);
+
+            var listaPacotes = bd.Pacotes.Select(s => new Checkbox()
+            {
+                Id = s.PacoteId,
+                NomePacote = s.Nome,
+                Selecionado = s.PromocoesPacotes.Any(s => s.PromocoesId == promocao.PromocoesId) ? true : false
+
+            }).ToList();
+
+            promocoesPacotesViewModel.Nome = promocao.Nome;
+            promocoesPacotesViewModel.Descricao = promocao.Descricao;
+            promocoesPacotesViewModel.DataInicio = promocao.DataInicio;
+            promocoesPacotesViewModel.DataFim = promocao.DataFim;
+            promocoesPacotesViewModel.PromocaoDesc = promocao.PromocaoDesc;
+            promocoesPacotesViewModel.ListaPacotes = listaPacotes;
+            promocoesPacotesViewModel.PromocoesId = (int)id;
+
+            return View(promocoesPacotesViewModel);
+        }
+
+        // POST: Promocoes/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditOperadores(PromocoesPacotesViewModel promocoesPacotesViewModel)
+        {
+            List<PromocoesPacotes> promocoesDosPacotes = new List<PromocoesPacotes>();
+            int id = promocoesPacotesViewModel.PromocoesId;
+            Promocoes promocao = await bd.Promocoes.Include(p => p.PromocoesPacotes)
+                .ThenInclude(c => c.Pacote)
+                //.AsNoTracking()
+                .SingleOrDefaultAsync(p => p.PromocoesId == id);
+
+            
+            int promocaoId = promocao.PromocoesId;
+
+            foreach (var pacote in promocoesPacotesViewModel.ListaPacotes)
+            {
+                if (pacote.Selecionado == true)
+                {
+                    promocoesDosPacotes.Add(new PromocoesPacotes() { PromocoesId = promocaoId, PacoteId = pacote.Id });
+                }
+            }
+
+            var ListaPromocoesPacotes = bd.PromocoesPacotes.Where(p => p.PromocoesId == id).ToList();
+            var resultado = ListaPromocoesPacotes.Except(promocoesDosPacotes).ToList();
+
+            foreach (var promocaoPacote in resultado)
+            {
+                bd.PromocoesPacotes.Remove(promocaoPacote);
+                await bd.SaveChangesAsync();
+            }
+
+            var novaListaPromocoesPacotes = bd.PromocoesPacotes.Where(p => p.PromocoesId == id).ToList();
+            foreach (var pacote in promocoesDosPacotes)
+            {
+                if (!novaListaPromocoesPacotes.Contains(pacote))
+                {
+                    bd.PromocoesPacotes.Add(pacote);
+                    await bd.SaveChangesAsync();
+                }
+            }
+
+
+            ViewBag.Mensagem = "Promoção alterada com sucesso";
+            return View("Sucesso");
+        }
     }
 }

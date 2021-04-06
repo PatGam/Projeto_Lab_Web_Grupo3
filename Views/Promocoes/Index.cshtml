@@ -53,9 +53,18 @@
                                     @Html.DisplayFor(modelItem => item.PromocaoDesc)
                                 </td>
                                 <td>
-                                    <a asp-action="Edit" asp-route-id="@item.PromocoesId">Editar</a>
-                                    <a asp-action="Details" asp-route-id="@item.PromocoesId">Detalhes</a>
-                                    <a asp-action="Delete" asp-route-id="@item.PromocoesId">Arquivar</a>
+                                    @if (User.IsInRole("Operador"))
+                                    {
+                                        <a asp-action="EditOperadores" asp-route-id="@item.PromocoesId">Atribuir a pacotes/distritos</a>
+                                        <a asp-action="Details" asp-route-id="@item.PromocoesId">Detalhes</a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@item.PromocoesId">Editar</a>
+                                        <a asp-action="Details" asp-route-id="@item.PromocoesId">Detalhes</a>
+                                        <a asp-action="Delete" asp-route-id="@item.PromocoesId">Arquivar</a>
+                                    }
+
                                 </td>
                             </tr>
     }
