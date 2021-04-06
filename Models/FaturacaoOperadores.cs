@@ -19,8 +19,11 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public int Mes { get; set; }
 
+        public int Ano { get; set; }
+
         public string NomeMes { get; set; }
 
+        [Column(TypeName = "decimal(30, 2)")]
         public decimal TotalFaturacao { get; set; }
 
 

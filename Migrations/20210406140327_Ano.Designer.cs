@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projeto_Lab_Web_Grupo3.Data;
 
 namespace Projeto_Lab_Web_Grupo3.Migrations
 {
     [DbContext(typeof(Projeto_Lab_WebContext))]
-    partial class Projeto_Lab_WebContextModelSnapshot : ModelSnapshot
+    [Migration("20210406140327_Ano")]
+    partial class Ano
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,27 +167,6 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                     b.ToTable("DistritosPromocoes");
                 });
 
-            modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.EnvioDeFaturas", b =>
-                {
-                    b.Property<int>("EnvioDeFaturasId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DataDeEnvio")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Enviado")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Texto")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("EnvioDeFaturasId");
-
-                    b.ToTable("EnvioDeFaturas");
-                });
-
             modelBuilder.Entity("Projeto_Lab_Web_Grupo3.Models.FaturacaoOperadores", b =>
                 {
                     b.Property<int>("FaturacaoOperadoresId")
@@ -204,7 +185,7 @@ namespace Projeto_Lab_Web_Grupo3.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalFaturacao")
-                        .HasColumnType("decimal(30, 2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UtilizadorId")
                         .HasColumnType("int");

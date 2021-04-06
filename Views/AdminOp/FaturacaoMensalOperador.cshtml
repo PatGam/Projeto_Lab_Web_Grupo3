@@ -1,0 +1,53 @@
+﻿@model FaturacaoMensalViewModel
+
+@{
+    ViewData["Title"] = "Faturação Mensal";
+    Layout = "_LayoutAdmin";
+}
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header"><i class="fas fa-medal"></i>Faturação Mensal</h3>
+                        <ol class="breadcrumb">
+                            <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                            <li><i class="icon_contacts_alt"></i>Faturação Mensal</li>
+                        </ol>
+                    </div>
+                </div>
+                @{
+                    for (int i = ViewBag.PrimeiroAno; i <= ViewBag.AnoCorrente; i++)
+                    {
+                        @i
+                        <table>
+                            @foreach (var item in Model.faturacaoOperadores)
+                            {
+                                if(item.Ano == i)
+                                {
+
+                               
+                                <tr>
+                                    <td>
+                                        @item.NomeMes
+                                    </td>
+                                    <td>
+                                        @item.TotalFaturacao
+                                    </td>
+                                </tr>
+                                }
+                            }
+                        </table>
+                    }
+                    }
+
+                <table>
+                </table>
+
+            </section>
+            </section>
+        </section>
+    </body>
