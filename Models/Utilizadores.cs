@@ -92,6 +92,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public int DistritosId { get; set; }
         public Distritos Distritos { get; set; }
+
+        public virtual ICollection<FaturacaoOperadores> FaturacaoOperadores { get; set; }
+
     }
 }
 
