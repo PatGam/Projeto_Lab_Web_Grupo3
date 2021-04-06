@@ -7,6 +7,7 @@
 
 <!--main content start-->
 <section id="main-content">
+
     <section class="wrapper">
         <!--overview start-->
         <div class="row">
@@ -47,9 +48,10 @@
 
             @if (User.IsInRole("Operador"))
             {
+
                 <div> <h1 style="text-align:center">Os meus números</h1></div>
 
-            
+
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="info-box linkedin-bg">
                         <div class="title">Número contratos</div>
@@ -58,7 +60,14 @@
 
                     </div>
                 </div>
-          
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box orange-bg">
+                        <i class="far fa-file-alt"></i>
+                        <div class="count">@ViewBag.reclamacoes</div>
+                        <div class="title">Novas Reclamações</div>
+                    </div>
+                </div>
+
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="info-box teal-bg">
                         <div class="title">Faturação Mensal</div>
@@ -66,6 +75,11 @@
                         <div class="count"> € @ViewBag.faturacao</div>
                     </div>
                 </div>
+                @if (ViewBag.reclamacoes > 0)
+                {
+                    @await Component.InvokeAsync("Notyf")
+                }
+
             }
 
         </div>
@@ -73,6 +87,6 @@
         <div class="row">
             <h4 style="text-align:center">Contamos consigo todos os dias para aumentar estes números. Bom trabalho!</h4>
         </div>
-        </section>
     </section>
+</section>
 

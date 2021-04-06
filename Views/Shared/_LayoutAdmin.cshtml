@@ -167,12 +167,12 @@
                                 </ul>
                             </li>
                             @*<li>
-                                <a class="" a asp-area="" asp-controller="Servicos" asp-action="Index">
-                                    <i class="icon_piechart"></i>
-                                    <span>Gerir Promoções</span>
+                                    <a class="" a asp-area="" asp-controller="Servicos" asp-action="Index">
+                                        <i class="icon_piechart"></i>
+                                        <span>Gerir Promoções</span>
 
-                                </a>
-                            </li>*@
+                                    </a>
+                                </li>*@
                         }
 
                         @if (User.IsInRole("Operador"))
@@ -236,9 +236,10 @@
 
                                 <ul class="sub">
                                     <li><a class="" a asp-area="" asp-controller="Reclamacoes" asp-action="Index">Reclamações Ativas</a></li>
-                                    <li><a class="" a asp-area="" asp-controller="Reclamacoes" asp-action="Create">Reclamações Arquivadas</a></li>
+                                    <li><a class="" a asp-area="" asp-controller="Reclamacoes" asp-action="">Reclamações Arquivadas</a></li>
                                 </ul>
                             </li>
+
                         }
 
                         @if (User.IsInRole("Cliente"))
@@ -251,9 +252,9 @@
                                     @*<span class="menu-arrow arrow_carrot-right"></span>*@
                                 </a>
                                 @*<ul class="sub">
-                                    <li><a class="" href="form_component.html">Form Elements</a></li>
-                                    <li><a class="" href="form_validation.html">Form Validation</a></li>
-                                </ul>*@
+                                        <li><a class="" href="form_component.html">Form Elements</a></li>
+                                        <li><a class="" href="form_validation.html">Form Validation</a></li>
+                                    </ul>*@
                             </li>
                             <li class="sub-menu">
                                 <a a asp-area="" asp-controller="Contratos" asp-action="Index" class="">
@@ -262,10 +263,10 @@
                                     @*<span class="menu-arrow arrow_carrot-right"></span>*@
                                 </a>
                                 @*<ul class="sub">
-                                    <li><a class="" href="general.html">Elements</a></li>
-                                    <li><a class="" href="buttons.html">Buttons</a></li>
-                                    <li><a class="" href="grids.html">Grids</a></li>
-                                </ul>*@
+                                        <li><a class="" href="general.html">Elements</a></li>
+                                        <li><a class="" href="buttons.html">Buttons</a></li>
+                                        <li><a class="" href="grids.html">Grids</a></li>
+                                    </ul>*@
                             </li>
                             <li>
                                 <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
@@ -286,9 +287,9 @@
                     </ul>
                 </div>
             </aside>
-            </div>
-    </section>    
-    
+        </div>
+    </section>
+
     <!-- javascripts -->
     <script src="~/admin/js/jquery.js"></script>
     <script src="~/admin/js/jquery-ui-1.10.4.min.js"></script>
@@ -379,7 +380,7 @@
             });
         });
     </script>
-   
+
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

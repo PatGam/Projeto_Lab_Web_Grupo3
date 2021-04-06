@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Projeto_Lab_Web_Grupo3.Data;
 using Projeto_Lab_Web_Grupo3.Models;
 using Microsoft.EntityFrameworkCore;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using AspNetCoreHero.ToastNotification;
 
 namespace Projeto_Lab_Web_Grupo3.Controllers
 {
@@ -65,6 +67,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var Contratos = bd.Contratos.ToList();
             int contagemContratos = Contratos.Count();
 
+            var Reclamacoes = bd.Reclamacoes.ToList();
+            int contagemReclamacoes = Reclamacoes.Count();
+
             decimal receita = 0;
             foreach (var item in Contratos)
             {
@@ -95,6 +100,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
                 ViewData["faturacao"] = faturacao;
                 ViewData["Meuscontratos"] = contagemMeusContratos;
+
             }
 
 
@@ -107,13 +113,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["contratos"] = contagemContratos;
             ViewData["receita"] = receita;
             ViewData["func"] = contagemFunc;
-            
+            ViewData["reclamacoes"] = contagemReclamacoes;
+
 
 
             return View(modelo);
         }
-
-
 
 
 
