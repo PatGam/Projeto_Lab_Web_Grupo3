@@ -455,9 +455,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Contratos/Edit/5
-        [Authorize(Roles = "Operador")]
-        public async Task<IActionResult> Edit(int? id)
+        [Authorize(Roles = "Cliente")]
+        public async Task<IActionResult> AlterarPacote(int? id)
         {
+
+            
+
             if (id == null)
             {
                 return NotFound();
@@ -468,9 +471,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 return View("Inexistente");
             }
-            ViewData["UtilizadorId"] = new SelectList(bd.Utilizadores, "UtilizadorId", "Nome");
+
             ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
-            //ViewData["PromocoesId"] = new SelectList(bd.Promocoes, "PromocoesId", "Nome", contratos.PromocoesPacotesId);
             return View(contratos);
         }
 
@@ -479,11 +481,39 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Operador")]
-        public async Task<IActionResult> Edit(int id, [Bind("ContratoId,ClienteId, Nif, FuncionarioId,DataInicio,PrecoFinal,DataFim,PrecoPacote,PromocaoDesc,NomeCliente,NomeFuncionario,Telefone")] Contratos contratos)
+        public async Task<IActionResult> AlterarPacote(int id,  Contratos contratos)
         {
+            contratos.ContratoId = id;
+            //Código que vai buscar o preço do pacote
+            contratos.PacoteId = contratos.PacoteId;
+            var pacoteid = bd.Pacotes.SingleOrDefault(e => e.PacoteId == contratos.PacoteId);
+            contratos.PrecoPacote = pacoteid.Preco;
+
+            //Código que vai buscar o nome do pacote
+            contratos.NomePacote = pacoteid.Nome;
+
+            var promocao = await bd.PromocoesPacotes.Where(p => p.PacoteId == contratos.PacoteId)
+                            .Include(c => c.Promocoes)
+                            .Select(c => c.Promocoes)
+                            .Where(c => c.DataInicio < DateTime.Now && c.DataFim > DateTime.Now)
+                            .FirstOrDefaultAsync();
+
+            if(promocao.PromocaoDesc != 0)
+            {
+                contratos.PromocaoDesc = promocao.PromocaoDesc;
+
+            }
+            else
+            {
+                contratos.PromocaoDesc = 0;
+            }
+
+            //Cálculo do PrecoFinal
+            contratos.PrecoFinal = contratos.PrecoPacote - contratos.PromocaoDesc;
+
             if (id != contratos.ContratoId)
             {
+                ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
                 return NotFound();
             }
 
@@ -510,7 +540,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
             }
 
-            return View("Sucesso");
+            return View("SucessoClientes");
         }
 
         // GET: Contratos/Delete/5

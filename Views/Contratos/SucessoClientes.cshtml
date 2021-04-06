@@ -1,0 +1,65 @@
+﻿@if (User.IsInRole("Cliente"))
+{
+    Layout = "_LayoutPData";
+    ViewData["Title"] = "Sucesso";
+
+    <body>
+        <!-- container section start -->
+        <section id="container" class="">
+            <section id="main-content">
+                <section class="wrapper">
+                    <div class="row offset-3">
+                        <div class="col-lg-7">
+                            <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4 class="text-right">Dados Pessoais</h4>
+                                </div>
+                                <p class="m-b-10">Sucesso! O seu pacote foi atualizado!</p>
+                                <a class="button-form-btn" asp-action="Index">
+                                    Voltar aos meus contratos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+    </body>
+}
+else
+{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Sucesso";
+
+
+    <body>
+        <!-- container section start -->
+        <section id="container" class="">
+            <section id="main-content">
+                <section class="wrapper">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    @*<h1>Editar</h1>*@
+                                </header>
+                                <div class="card text-white bg-success mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@ViewBag.Title</h5>
+                                        <p class="card-text">@ViewBag.Mensagem</p>
+
+                                        <div>
+                                            <a class="btn btn-primary" asp-action="IndexClientes">
+                                                Ver lista de clientes
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+    </body>
+}
