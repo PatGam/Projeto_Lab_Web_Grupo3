@@ -48,11 +48,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: PacotesNoContrato/Create
-        public IActionResult Create()
+        public IActionResult Create(int ContratoId)
         {
-            ViewData["ContratoId"] = new SelectList(_context.Contratos, "ContratoId", "CodigoPostal");
-            ViewData["DistritosId"] = new SelectList(_context.Distritos, "DistritosId", "Nome");
             ViewData["PacoteId"] = new SelectList(_context.Pacotes, "PacoteId", "Nome");
+            ViewData["ContratoId"] = ContratoId;
+
+
             return View();
         }
 
@@ -63,8 +64,23 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PacotesNoContratoId,ContratoId,PacoteId,DataInicio,DataFim,PrecoPacote,PromocaoDesc,PrecoFinal,Inactivo,Morada,CodigoPostal,DistritosId")] PacotesNoContrato pacotesNoContrato)
         {
+            var contrato = await _context.Contratos.FirstOrDefaultAsync(m => m.ContratoId == pacotesNoContrato.ContratoId);
+            pacotesNoContrato.DistritosId = contrato.DistritosId;
+            pacotesNoContrato.DataInicio = DateTime.Today;
+            pacotesNoContrato.DataFim = DateTime.Today.AddYears(2);
+            pacotesNoContrato.Inactivo = false;
+
+            //Código que vai buscar o preço do pacote
+            
+            var pacoteid = _context.Pacotes.SingleOrDefault(e => e.PacoteId == pacotesNoContrato.PacoteId);
+            pacotesNoContrato.PrecoPacote = pacoteid.Preco;
+
+            //Cálculo do PrecoFinal
+            pacotesNoContrato.PrecoFinal = pacotesNoContrato.PrecoPacote;
+
             if (ModelState.IsValid)
             {
+
                 _context.Add(pacotesNoContrato);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
