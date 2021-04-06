@@ -29,7 +29,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
         public IActionResult Index()
         {
-            _notyf.Custom("Existem novas reclamações por responder.", 10, "#FF6347", "fa fa-home");
+            _notyf.Custom("Existem novas reclamações por responder.", 15, "#FF6347", "fa fa-home");
             return View();
             
         }

@@ -61,7 +61,7 @@ namespace Projeto_Lab_Web_Grupo3
             services.AddTransient<IEmailSender, AuthMessageSender>();
 
             services.AddMvc();
-            services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
+            services.AddNotyf(config => { config.DurationInSeconds = 15; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
 
             services.AddDbContext<Projeto_Lab_WebContext>(options => options.UseSqlServer(
            Configuration.GetConnectionString("Projeto_Lab_WebContext"))
