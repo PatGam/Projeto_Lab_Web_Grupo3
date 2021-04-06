@@ -38,6 +38,9 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         public virtual DbSet<FaturacaoOperadores> FaturacaoOperadores { get; set; }
 
+        public virtual DbSet<EnvioDeFaturas> EnvioDeFaturas { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
                 if (!optionsBuilder.IsConfigured)
