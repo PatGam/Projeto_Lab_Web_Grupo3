@@ -540,7 +540,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores/Edit/5
-        [Authorize(Roles = "Administrador,Cliente")]
+        [Authorize(Roles = "Administrador, Cliente")]
         public async Task<IActionResult> EditClientes(int? id)
         {
 
@@ -638,7 +638,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         // GET: Utilizadores/Edit/5
-        [Authorize(Roles = "Administrador,Cliente")]
+        [Authorize(Roles = "Administrador,Operador, Cliente")]
         public async Task<IActionResult> EditFuncionarios(int? id)
         {
             if (id == null)

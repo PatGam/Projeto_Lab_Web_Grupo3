@@ -56,13 +56,14 @@
                     <!--logo end-->
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <ul class="pull-right m-t-10">
-                            <h7>Bem-Vindo/a @User.Identity.Name!</h7>
+                <ul class="pull-right m-t-10">
+                    <h7>Bem-Vindo/a @User.Identity.Name!</h7>
 
-                            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                <button type="submit" class="button-form-btn">Logout</button>
-                            </form>
-                        </ul>
+                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="button-form-btn">Logout</button>
+                    </form>
+                        <a asp-area="" asp-controller="AdminOp" asp-action="ContaPessoal" class="button-form-btn">Gerir Conta</a>
+                </ul>
                     }
                 </nav>
             </header>

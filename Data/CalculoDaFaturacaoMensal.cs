@@ -11,10 +11,11 @@ namespace Projeto_Lab_Web_Grupo3.Data
     {
         internal static void CalculoFaturacaoOperadores(Projeto_Lab_WebContext bd)
         {
+            if (bd.FaturacaoOperadores.Any()) return;
+
             List<Contratos> contratos = new List<Contratos>();
 
             List<Utilizadores> operadores = new List<Utilizadores>();
-
 
             foreach (var item in bd.Contratos)
             {
@@ -42,6 +43,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
             decimal lucromensal = 0;
 
+            
             foreach (var operador in operadores)
             {
                     for (int ano = primeiroano; ano <= anocorrente; ano++)
@@ -87,15 +89,12 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
                                 }
                             }
-                            faturacaoOperadores.Add(new FaturacaoOperadores() { UtilizadorId = operador.UtilizadorId, TotalFaturacao = lucromensal, Mes = mes, Ano = ano });
+                            faturacaoOperadores.Add(new FaturacaoOperadores() { UtilizadorId = operador.UtilizadorId, TotalFaturacao = lucromensal, Mes = mes, Ano = ano, NomeMes = NomesDoMes(mes) });
                             lucromensal = 0;
                         }
 
                     }
                 }
-            
-                    
-
             foreach (var item in faturacaoOperadores)
             {
                 bd.FaturacaoOperadores.Add(item);
@@ -104,5 +103,55 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.SaveChanges();
 
         }
+
+        internal static string NomesDoMes(int mes)
+        {
+            string NomedoMes = "";
+            switch (mes)
+            {
+                case 1:
+                    NomedoMes = "Janeiro";
+                    break;
+                case 2:
+                    NomedoMes = "Fevereiro";
+                    break;
+                case 3:
+                    NomedoMes = "Março";
+                    break;
+                case 4:
+                    NomedoMes = "Abril";
+                    break;
+                case 5:
+                    NomedoMes = "Maio";
+                    break;
+                case 6:
+                    NomedoMes = "Junho";
+                    break;
+                case 7:
+                    NomedoMes = "Julho";
+                    break;
+                case 8:
+                    NomedoMes = "Agosto";
+                    break;
+                case 9:
+                    NomedoMes = "Setembro";
+                    break;
+                case 10:
+                    NomedoMes = "Outubro";
+                    break;
+                case 11:
+                    NomedoMes = "Novembro";
+                    break;
+                case 12:
+                    NomedoMes = "Dezembro";
+                    break;
+                
+                default:
+                    break;
+            }
+
+            return NomedoMes;
+        }
+
     }
 }
