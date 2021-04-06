@@ -566,6 +566,19 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             ViewData["Distrito"] = distritonome.Nome;
 
+            int posicaoCliente = 0;
+
+            foreach (var item in top10ComOCliente)
+            {
+                if(item.UtilizadorId == cliente.UtilizadorId)
+                {
+                    posicaoCliente = top10ComOCliente.IndexOf(item) + 1;
+                }
+            }
+
+            ViewData["PosicaoCliente"] = posicaoCliente;
+
+
             Top10ViewModel top10clientes = new Top10ViewModel
             {
                 vistaCliente = top10ComOCliente
