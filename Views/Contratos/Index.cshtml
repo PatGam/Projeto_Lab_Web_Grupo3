@@ -52,7 +52,7 @@
                         </div>
                         @foreach (var item in Model.Contratos)
                         {
-                            <a class="button-form-btn m-t-25" asp-area="" asp-controller="PacotesNoContrato" asp-action="Create" asp-route-clienteId=@item.UtilizadorId>Associar Pacote</a>
+                            <a class="button-form-btn m-t-25" asp-area="" asp-controller="Contratos" asp-action="AlterarPacote" asp-route-id="@item.ContratoId">Alterar Pacote</a>
                         }
                     </div>
                 </div>

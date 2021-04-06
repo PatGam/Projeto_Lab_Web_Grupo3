@@ -89,14 +89,6 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public int DistritosId { get; set; }
         public Distritos Distritos { get; set; }
-        //[ForeignKey(nameof(ClienteId))]
-        //[InverseProperty(nameof(Clientes.Contratos))]
-        //public virtual Clientes Cliente { get; set; }
-        //[ForeignKey(nameof(FuncionarioId))]
-        //[InverseProperty(nameof(Funcionarios.Contratos))]
-        //public virtual Funcionarios Funcionario { get; set; }
-        //[ForeignKey(nameof(PromocoesPacotes))]
-        //[InverseProperty("Contratos")]
-        //public virtual PromocoesPacotes PromocoesPacotesNavigation { get; set; }
+
     }
 }

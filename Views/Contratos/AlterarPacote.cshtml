@@ -1,0 +1,71 @@
+﻿@model Projeto_Lab_Web_Grupo3.Models.Contratos
+
+@{
+    Layout = "_LayoutPData";
+}
+
+<container>
+    <div class="container bg-white mt-5 mb-5">
+        <div class="row offset-3">
+            <div class="col-lg-7">
+                <div class="p-3 m-t-25 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Alterar pacote associado ao contrato</h4>
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        <b>Atenção!</b> Ao alterar o pacote associado ao seu contrato, irá perder a promoção previamente aplicada.
+                    </div>
+                    <form asp-action="AlterarPacote">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="UtilizadorId" class="form-control" asp-items="ViewBag.UtilizadorId" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="ClienteId" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="FuncionarioId" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Telefone" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            Pacote
+                            <select asp-for="PacoteId" class="form-control" asp-items="ViewBag.PacoteId"></select>
+
+                        </div>
+                        <div class="form-group">
+
+                            <input type="hidden" asp-for="PromocoesId" class="form-control" asp-items="ViewBag.PromocoesId" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="DataInicio" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="DataFim" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Morada" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="CodigoPostal" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="DistritosId" class="form-control" />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" class="btn btn-success" />
+                            <a asp-action="Index" class="btn btn-info">Voltar Atrás</a>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+    </div>
+</container>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
