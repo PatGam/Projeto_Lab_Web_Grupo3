@@ -124,6 +124,32 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(modelo);
         }
 
+        public async Task<IActionResult> ContaPessoal()
+        {
+
+            var funcionario = bd.Utilizadores.SingleOrDefault(c => c.Email == User.Identity.Name);
+
+            List<FaturacaoOperadores> faturacaoDoOperador = await bd.FaturacaoOperadores
+                .Where(p => p.UtilizadorId == funcionario.UtilizadorId)
+                .OrderBy(p => p.Ano)
+                .ThenBy(p=> p.Mes)
+                .ToListAsync();
+
+            ViewData[ "PrimeiroAno"] = faturacaoDoOperador[0].Ano;
+            ViewData["AnoCorrente"] = DateTime.Now.Year;
+
+            var distrito = bd.Distritos.SingleOrDefault(c => c.DistritosId == funcionario.DistritosId);
+
+            FaturacaoMensalViewModel faturacaoMensalViewModel = new FaturacaoMensalViewModel
+            {
+                distrito = distrito,
+                funcionario = funcionario,
+                faturacaoOperadores = faturacaoDoOperador
+            };
+
+            return View(faturacaoMensalViewModel);
+        }
+
 
 
     }

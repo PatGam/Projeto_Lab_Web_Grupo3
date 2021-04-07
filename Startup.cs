@@ -112,6 +112,7 @@ namespace Projeto_Lab_Web_Grupo3
                 SeedDataContratos.InsereContratos(bd);
                 SeedDataContratos.InsereServicosContratos(bd);
                 SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
+                CalculoDaFaturacaoMensal.CalculoFaturacaoOperadores(bd);
             }
         }
     }
