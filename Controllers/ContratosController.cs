@@ -205,7 +205,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
         }
         
-        public IActionResult CriarContratoPasso2(int? clienteId/* NovoContratoPasso2ViewModel contrato = null*/)
+        public IActionResult CriarContratoPasso2(int? clienteId)
         {
             Utilizadores cliente = null;
             NovoContratoPasso2ViewModel contrato = new NovoContratoPasso2ViewModel();
@@ -250,7 +250,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
         }
 
-        public IActionResult CriarContratoPasso3(NovoContratoPasso3ViewModel contratoPasso3)
+        public async Task<IActionResult> CriarContratoPasso3(NovoContratoPasso3ViewModel contratoPasso3)
         {
            
             ViewData["ClienteId"] = contratoPasso3.ClienteId;
@@ -259,8 +259,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["Telefone"] = contratoPasso3.Telefone;
             ViewData["DistritosId"] = contratoPasso3.DistritosId;
 
+            var pacotesDoDistrito = await bd.DistritosPacotes
+                .Where(c => c.DistritosId == contratoPasso3.DistritosId)
+                .Include(c => c.Pacote)
+                .Select(c => c.Pacote)
+                .ToListAsync();
+
             int id = contratoPasso3.ClienteId;
-            ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
+            ViewData["PacoteId"] = new SelectList(pacotesDoDistrito, "PacoteId", "Nome");
 
            
             return View(contratoPasso3);
@@ -272,6 +278,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             if (!ModelState.IsValid)
             {
+
                 ViewData["PacoteId"] = new SelectList(bd.Pacotes, "PacoteId", "Nome");
                 return View(contratoPasso3);
             }
@@ -325,12 +332,32 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["DistritoNome"] = distritoId.Nome;
 
 
-            List<Promocoes> promocoes = await bd.PromocoesPacotes.Where(p => p.PacoteId == contratoPasso4.PacoteId)
+            List<Promocoes> promocoesPacotes = await bd.PromocoesPacotes.Where(p => p.PacoteId == contratoPasso4.PacoteId)
                             .Include(c => c.Promocoes)
                             .Select(c => c.Promocoes)
-                            .Where(c => c.DataInicio < DateTime.Now && c.DataFim > DateTime.Now)
+                            .Where(c => c.DataInicio < DateTime.Now && c.DataFim > DateTime.Now && c.Inactivo == false)
                             .ToListAsync();
 
+            var promocoesDistritos = await bd.DistritosPromocoes
+                .Where(c => c.DistritosId == contratoPasso4.DistritosId)
+                .Include(c => c.Promocao)
+                .Select(c => c.Promocao)
+                .ToListAsync();
+
+            List<Promocoes> promocoes = new List<Promocoes>();
+
+            foreach (var item in promocoesPacotes)
+            {
+                foreach (var promocao in promocoesDistritos)
+                {
+                    if (item.PromocoesId == promocao.PromocoesId)
+                    {
+                        promocoes.Add(promocao);
+                    }
+                }
+            }
+
+            
             ViewData["PromocoesId"] = new SelectList(promocoes, "PromocoesId", "Nome");
 
             return View(contratoPasso4);

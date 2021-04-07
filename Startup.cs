@@ -109,8 +109,7 @@ namespace Projeto_Lab_Web_Grupo3
             if (env.IsDevelopment())
             {
                 SeedData.PreencheDados(bd);
-                SeedDataContratos.InsereContratos(bd);
-                SeedDataContratos.InsereServicosContratos(bd);
+                SeedDataContratos.InsereDadosContratos(bd);
                 SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
                 CalculoDaFaturacaoMensal.CalculoFaturacaoOperadores(bd);
             }
