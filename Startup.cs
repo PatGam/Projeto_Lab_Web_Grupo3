@@ -13,6 +13,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Projeto_Lab_Web_Grupo3.Data;
 using Projeto_Lab_Web_Grupo3.Services;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 
 namespace Projeto_Lab_Web_Grupo3
 {
@@ -59,6 +61,7 @@ namespace Projeto_Lab_Web_Grupo3
             services.AddTransient<IEmailSender, AuthMessageSender>();
 
             services.AddMvc();
+            services.AddNotyf(config => { config.DurationInSeconds = 15; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
 
             services.AddDbContext<Projeto_Lab_WebContext>(options => options.UseSqlServer(
            Configuration.GetConnectionString("Projeto_Lab_WebContext"))
@@ -91,6 +94,7 @@ namespace Projeto_Lab_Web_Grupo3
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseNotyf();
 
             app.UseEndpoints(endpoints =>
             {
