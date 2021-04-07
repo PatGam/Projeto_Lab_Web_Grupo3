@@ -211,8 +211,8 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GaranteUtilizadores(bd, "Tiago Silva", "157929582", new DateTime(1975, 02, 24), "Rua do Escorregadio", "916999985", "tiago.silva@gmail.com", "7350-002", "Cliente", false, "Portalegre", new DateTime(2021, 01, 20), 0, 12);
             GaranteUtilizadores(bd, "Ana Godinho", "194493148", new DateTime(1968, 12, 19), "Rua do Emigrante", "923611182", "ana.godinho@gmail.com", "7370-001", "Cliente", false, "Portalegre", new DateTime(2021, 02, 22), 0, 12);
             GaranteUtilizadores(bd, "Filipa Oliveira", "123458366", new DateTime(1956, 12, 05), "Rua Marciano Cipriano", "923654111", "filipa.oliveira@gmail.com", "7370-002", "Cliente", false, "Portalegre", new DateTime(2021, 01, 13), 0, 12);
-             
-               //-------------------------- 13 PORTO-----------------
+
+            //-------------------------- 13 PORTO-----------------
             GaranteUtilizadores(bd, "Patrícia Amaral", "146136560", new DateTime(1986, 03, 01), "Largo Escultor José Moreira da Silva", "969994000", "patricia.amaral@gmail.com", "4000-312", "Cliente", false, "Porto", new DateTime(2020, 08, 05), 0, 13);
             GaranteUtilizadores(bd, "João Santos", "134833236", new DateTime(1988, 11, 14), "Rua Latino Coelho Pares", "933777655", "joao.santos@gmail.com", "4000-314", "Cliente", false, "Porto", new DateTime(2021, 01, 05), 0, 13);
             GaranteUtilizadores(bd, "João Ferreira", "118889990", new DateTime(1963, 03, 01), "Rua de Moreira Ímpares", "923005564", "joao.ferreira@gmail.com", "4000-346", "Cliente", false, "Porto", new DateTime(2020, 10, 11), 0, 13);
@@ -231,7 +231,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GaranteUtilizadores(bd, "Marlene Santos", "225618184", new DateTime(1987, 11, 21), "Casal da Igreja", "969951542", "marlene.satos@gmail.com", "2000-336", "Cliente", false, "Santarém", new DateTime(2020, 08, 19), 0, 14);
             GaranteUtilizadores(bd, "João Ferreira", "254315321", new DateTime(1978, 07, 01), "Dona Belida", "932007548", "joao.ferreira@gmail.com", "2000-342", "Cliente", false, "Santarém", new DateTime(2021, 01, 17), 0, 14);
             GaranteUtilizadores(bd, "Pedro Martins", "211155314", new DateTime(1969, 06, 06), "Avenida Bernardo Santareno", "963215699", "pedro.martins@gmail.com", "2009-004", "Cliente", false, "Santarém", new DateTime(2021, 01, 05), 0, 14);
-            GaranteUtilizadores(bd, "Joana Lima", "226866920", new DateTime(1979, 10, 30), "Largo do Infante Santo", "923324100" , "joana.lima@gmail.com", "2009-002", "Cliente", false, "Santarém", new DateTime(2021, 01, 05), 0, 14);
+            GaranteUtilizadores(bd, "Joana Lima", "226866920", new DateTime(1979, 10, 30), "Largo do Infante Santo", "923324100", "joana.lima@gmail.com", "2009-002", "Cliente", false, "Santarém", new DateTime(2021, 01, 05), 0, 14);
             GaranteUtilizadores(bd, "Patrícia Gomes", "270227300", new DateTime(1999, 04, 01), "Estrada Nacional 10", "925955574", "patricia.gomes@gmail.com", "2139-503", "Cliente", false, "Santarém", new DateTime(2020, 12, 28), 0, 14);
             GaranteUtilizadores(bd, "Irís Copeto", "294199098", new DateTime(1999, 09, 05), "Agolada", "965574088", "iris.copeto@gmail.com", "2100-001", "Cliente", false, "Santarém", new DateTime(2020, 11, 12), 0, 14);
             GaranteUtilizadores(bd, "Filipe Pais", "284740624", new DateTime(1987, 01, 01), "Varejola", "924898710", "filipe.pais@gmail.com", "2100-377", "Cliente", false, "Santarém", new DateTime(2020, 12, 12), 0, 14);
@@ -311,7 +311,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GaranteUtilizadores(bd, "Rita Freira", "851596118", new DateTime(1956, 06, 05), "Ribeira D'Água", "932228541", "rita.freira@gmail.com", "9800-209", "Cliente", false, "Açores", new DateTime(2021, 02, 05), 0, 19);
 
             //    //-------------------------- 20 MADEIRA-----------------
-            GaranteUtilizadores(bd, "Patrícia Passarinha", "859762505", new DateTime(2001, 07, 01), "Caminho Ribeira dos Socorridos ", "965388882", "patricia.passarinha@RDtelecom.com", "9000-617", "Cliente", false, "Madeira" , new DateTime(2020, 07, 01), 0, 20);
+            GaranteUtilizadores(bd, "Patrícia Passarinha", "859762505", new DateTime(2001, 07, 01), "Caminho Ribeira dos Socorridos ", "965388882", "patricia.passarinha@RDtelecom.com", "9000-617", "Cliente", false, "Madeira", new DateTime(2020, 07, 01), 0, 20);
             GaranteUtilizadores(bd, "Marlene Lavrador", "800551257", new DateTime(1968, 11, 21), "2ª Travessa Caminho Arieiro de Baixo", "938555566", "marlene.Lavrador@RDtelecom.com", "9000-602", "Cliente", false, "Madeira", new DateTime(2020, 08, 01), 0, 20);
             GaranteUtilizadores(bd, "Petra Fernandes", "893337951", new DateTime(1988, 09, 01), "Azinhaga Vargem", "96872222", "petra.fernandes@RDtelecom.com", "9000-730", "Cliente", false, "Madeira", new DateTime(2021, 01, 01), 0, 20);
             GaranteUtilizadores(bd, "Vânia Fernandes", "819972525", new DateTime(1969, 07, 06), "Avenida Colégio Militar ", "912330000", "Vania.fernandes@RDtelecom.com", "9000-996", "Cliente", false, "Madeira", new DateTime(2021, 02, 01), 0, 20);
@@ -612,7 +612,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             Utilizadores utilizadores = bd.Utilizadores.FirstOrDefault(c => c.Nome == nome);
             if (utilizadores == null)
             {
-                utilizadores = new Utilizadores { Nome = nome, Nif = nif, DataNascimento = datanascimento, Morada = morada, Concelho = concelho, Telemovel = telemovel, Email = email, CodigoPostal = codigopostal, Role = role, Inactivo = inactivo, DataAtivacao = dataativacao, Pontos=pontos, DistritosId = distrito };
+                utilizadores = new Utilizadores { Nome = nome, Nif = nif, DataNascimento = datanascimento, Morada = morada, Concelho = concelho, Telemovel = telemovel, Email = email, CodigoPostal = codigopostal, Role = role, Inactivo = inactivo, DataAtivacao = dataativacao, Pontos = pontos, DistritosId = distrito };
                 bd.Utilizadores.Add(utilizadores);
                 bd.SaveChanges();
             }
@@ -654,10 +654,10 @@ namespace Projeto_Lab_Web_Grupo3.Data
 
         private static void InsereDistritos(Projeto_Lab_WebContext bd)
         {
-            GaranteDistritos(bd,  "Aveiro");
-            GaranteDistritos(bd,  "Beja");
-            GaranteDistritos(bd,  "Braga");
-            GaranteDistritos(bd,  "Bragança");
+            GaranteDistritos(bd, "Aveiro");
+            GaranteDistritos(bd, "Beja");
+            GaranteDistritos(bd, "Braga");
+            GaranteDistritos(bd, "Bragança");
             GaranteDistritos(bd, "Castelo Branco");
             GaranteDistritos(bd, "Coimbra");
             GaranteDistritos(bd, "Évora");
@@ -676,12 +676,12 @@ namespace Projeto_Lab_Web_Grupo3.Data
             GaranteDistritos(bd, "Madeira");
         }
 
-        private static Distritos GaranteDistritos(Projeto_Lab_WebContext bd,  string nome)
+        private static Distritos GaranteDistritos(Projeto_Lab_WebContext bd, string nome)
         {
             Distritos distritos = bd.Distritos.FirstOrDefault(e => e.Nome == nome);
             if (distritos == null)
             {
-                distritos = new Distritos(){  Nome = nome };
+                distritos = new Distritos() { Nome = nome };
                 bd.Distritos.Add(distritos);
                 bd.SaveChanges();
             }
@@ -970,7 +970,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataCriacao = dataInicio,
                     DataInactivo = new DateTime(2020, 12, 30),
                     Imagem = new byte[0],
-                   
+
 
                 };
                 bd.Pacotes.Add(pacotes);
@@ -1000,7 +1000,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         }
 
 
-        
+
 
         //-------------------TIPOS DE CLIENTES--------------------------
 
@@ -1162,7 +1162,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             bd.SaveChanges();
         }
 
-       
+
         //private static void InsereContratos(Projeto_Lab_WebContext bd)
         //{
         //    //var pedro = GaranteUtilizadores(bd, "Pedro Machado", "212545585", new DateTime(1971, 07, 14), "Colónia Agrícola Casal 63", "935559453", "pedromachado@gmail.com", "3870-358", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 14);
@@ -1248,9 +1248,9 @@ namespace Projeto_Lab_Web_Grupo3.Data
         //            PrecoFinal = pacoteRDGaming.Preco - pascoaL.PromocaoDesc,
         //            Inactivo = false,
         //     },
-                    
-                    
-             
+
+
+
         //     //new Contratos
         //     //   {
         //     //       //ContratoId=4,
@@ -1402,7 +1402,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 EstadoResolução = true,
                 ClienteId=aveirocliente1.UtilizadorId,
                 FuncionarioId=aveirooperador2.UtilizadorId,
-                Inactivo = false,
+                Inactivo = true,
 
             },
              new Reclamacoes

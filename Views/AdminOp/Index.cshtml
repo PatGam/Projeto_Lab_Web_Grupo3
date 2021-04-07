@@ -45,6 +45,23 @@
                     <div class="title">Receita</div>
                 </div>
             </div>
+            @if (User.IsInRole("Administrador"))
+            {
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box orange-bg">
+                        <i class="far fa-file-alt"></i>
+                        <div class="count">@ViewBag.reclamacoes</div>
+                        <div class="title">Novas Reclamações</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box orange-bg">
+                        <i class="far fa-file-alt"></i>
+                        <div class="count">@ViewBag.reclamacoesfechadas</div>
+                        <div class="title">Reclamações Resolvidas</div>
+                    </div>
+                </div>
+            }
 
             @if (User.IsInRole("Operador"))
             {
@@ -65,6 +82,13 @@
                         <i class="far fa-file-alt"></i>
                         <div class="count">@ViewBag.reclamacoes</div>
                         <div class="title">Novas Reclamações</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box orange-bg">
+                        <i class="far fa-file-alt"></i>
+                        <div class="count">@ViewBag.reclamacoesfechadas</div>
+                        <div class="title">Reclamações Resolvidas</div>
                     </div>
                 </div>
 

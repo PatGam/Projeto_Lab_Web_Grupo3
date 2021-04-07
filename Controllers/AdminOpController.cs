@@ -67,8 +67,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var Contratos = bd.Contratos.ToList();
             int contagemContratos = Contratos.Count();
 
-            var Reclamacoes = bd.Reclamacoes.ToList();
+            var Reclamacoes = bd.Reclamacoes.Where(r =>r.Inactivo == false).ToList();
             int contagemReclamacoes = Reclamacoes.Count();
+
+            var Reclamacoes1 = bd.Reclamacoes.Where(r => r.Inactivo == true).ToList();
+            int reclamacoesfechadas = Reclamacoes1.Count();
+           
 
             decimal receita = 0;
             foreach (var item in Contratos)
@@ -114,7 +118,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             ViewData["receita"] = receita;
             ViewData["func"] = contagemFunc;
             ViewData["reclamacoes"] = contagemReclamacoes;
-
+            ViewData["reclamacoesfechadas"] = reclamacoesfechadas;
 
 
             return View(modelo);
