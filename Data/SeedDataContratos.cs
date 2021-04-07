@@ -10,7 +10,14 @@ namespace Projeto_Lab_Web_Grupo3.Data
 {
     public class SeedDataContratos
     {
+        internal static void InsereDadosContratos(Projeto_Lab_WebContext bd)
+        {
+            InsereContratos(bd);
+            InsereServicosContratos(bd);
+            InsereDistritosPacotes(bd);
+            InsereDistritosPromocoes(bd);
 
+        }
         internal static void InsereContratos(Projeto_Lab_WebContext bd)
         {
             if (bd.Contratos.Any()) return;
@@ -5245,6 +5252,54 @@ namespace Projeto_Lab_Web_Grupo3.Data
             }
             bd.SaveChanges();
 
+
+        }
+
+        internal static void InsereDistritosPacotes(Projeto_Lab_WebContext bd)
+        {
+            if (bd.DistritosPacotes.Any()) return;
+            List<Pacotes> pacotes = new List<Pacotes>();
+            List<Distritos> distritos = new List<Distritos>();
+            List<DistritosPacotes> distritospacotes = new List<DistritosPacotes>();
+
+
+            foreach (var pacote in bd.Pacotes)
+            {
+                foreach (var distrito in bd.Distritos)
+                {
+                    distritospacotes.Add(new DistritosPacotes{ PacoteId = pacote.PacoteId, DistritosId = distrito.DistritosId });
+                    
+                }
+            }
+            foreach (var item in distritospacotes)
+            {
+                bd.DistritosPacotes.Add(item);
+            }
+            bd.SaveChanges();
+
+
+        }
+
+        internal static void InsereDistritosPromocoes(Projeto_Lab_WebContext bd)
+        {
+            if (bd.DistritosPromocoes.Any()) return;
+           
+            List<DistritosPromocoes> distritospromocoes = new List<DistritosPromocoes>();
+
+
+            foreach (var promocao in bd.Promocoes)
+            {
+                foreach (var distrito in bd.Distritos)
+                {
+                    distritospromocoes.Add(new DistritosPromocoes { PromocoesId = promocao.PromocoesId, DistritosId = distrito.DistritosId });
+
+                }
+            }
+            foreach (var item in distritospromocoes)
+            {
+                bd.DistritosPromocoes.Add(item);
+            }
+            bd.SaveChanges();
 
         }
 
