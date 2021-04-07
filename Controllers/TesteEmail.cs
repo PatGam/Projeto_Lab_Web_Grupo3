@@ -57,11 +57,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         {
             var contratos = await bd.Contratos.ToListAsync();
             string email; string assunto; string mensagem;
-            foreach (var item in contratos)
+            for (int i = 0; i < 10; i++)
             {
-                
-                var cliente = await bd.Utilizadores.FirstOrDefaultAsync(m => m.UtilizadorId == item.UtilizadorId);
-                decimal preco = item.PrecoFinal;
+                //var cliente = await bd.Utilizadores.FirstOrDefaultAsync(m => m.UtilizadorId == item.UtilizadorId);
+                decimal preco = 20;
+                //decimal preco = item.PrecoFinal;
                 //email = cliente.Email;
                 email = "patriciaimpressoes@gmail.com";
                 DateTime hoje = DateTime.Today;
@@ -76,15 +76,15 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 {
                     //email destino, assunto do email, mensagem a enviar
                     await _emailSender.SendEmailAsync(email, assunto, mensagem);
-                    
+
 
                 }
                 catch (Exception)
                 {
                     return RedirectToAction("EmailFalhou");
                 }
-               
             }
+
             return RedirectToAction("EmailEnviado");
 
 
