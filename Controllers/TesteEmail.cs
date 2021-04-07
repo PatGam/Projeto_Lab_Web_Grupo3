@@ -56,6 +56,21 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         public async Task<IActionResult> TesteEnvioEmail()
         {
             var contratos = await bd.Contratos.ToListAsync();
+            var emailenviado = await bd.EnvioDeFaturas.ToListAsync();
+
+            DateTime hoje = DateTime.Today;
+            DateTime mespassado = hoje.AddMonths(-1);
+            int mes = mespassado.Month;
+
+            foreach (var item in emailenviado)
+            {
+                if (item.mes == mes)
+                {
+                    return RedirectToAction("EmailsJaEnviados");
+                }
+            }
+
+            
             string email; string assunto; string mensagem;
             for (int i = 0; i < 10; i++)
             {
@@ -64,11 +79,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 //decimal preco = item.PrecoFinal;
                 //email = cliente.Email;
                 email = "patriciaimpressoes@gmail.com";
-                DateTime hoje = DateTime.Today;
-                DateTime mespassado = hoje.AddMonths(-1);
-                int mes = mespassado.Month;
+                
                 string NomeMes = NomesDoMes(mes);
-
                 assunto = "Faturação RD Telecom";
                 mensagem = "Caro/a cliente, informamos que tem a pagar " + preco + "€ da fatura do mês " + NomeMes + ". Obrigado pela sua preferência!";
 
@@ -85,6 +97,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
             }
 
+            emailenviado.Add(new EnvioDeFaturas() { DataDeEnvio = DateTime.Today, Enviado = true, mes = mes });
+            foreach (var item in emailenviado)
+            {
+                bd.EnvioDeFaturas.Add(item);
+            }
+            await bd.SaveChangesAsync();
             return RedirectToAction("EmailEnviado");
 
 
@@ -92,6 +110,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         public ActionResult EmailEnviado()
+        {
+            return View();
+        }
+
+        public ActionResult EmailsJaEnviados()
         {
             return View();
         }

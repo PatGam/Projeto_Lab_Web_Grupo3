@@ -13,6 +13,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public DateTime DataDeEnvio { get; set; }
 
+        public int mes { get; set; }
+
         public bool Enviado { get; set; }
 
         public string Texto { get; set; }
