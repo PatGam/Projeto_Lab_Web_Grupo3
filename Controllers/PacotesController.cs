@@ -603,6 +603,102 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, ServicosPacotesViewModel servicosPacotesViewModel, IFormFile Imagem)
         {
+            if (!ModelState.IsValid)
+            {
+                var servicos = bd.Servicos.ToList();
+                var tiposServicos = bd.TiposServicos.ToList();
+
+                ViewData["Tipo1"] = tiposServicos[0].Nome;
+                ViewData["Tipo2"] = tiposServicos[1].Nome;
+                ViewData["Tipo3"] = tiposServicos[2].Nome;
+                ViewData["Tipo4"] = tiposServicos[3].Nome;
+                ViewData["Tipo5"] = tiposServicos[4].Nome;
+
+                List<Servicos> Lista1 = new List<Servicos>();
+                List<Servicos> Lista2 = new List<Servicos>();
+                List<Servicos> Lista3 = new List<Servicos>();
+                List<Servicos> Lista4 = new List<Servicos>();
+                List<Servicos> Lista5 = new List<Servicos>();
+
+                foreach (var item in servicos)
+                {
+                    switch (item.TipoServicoId)
+                    {
+                        case 1:
+                            Lista1.Add(item);
+                            break;
+
+                        case 2:
+                            Lista2.Add(item);
+                            break;
+
+                        case 3:
+                            Lista3.Add(item);
+                            break;
+
+                        case 4:
+                            Lista4.Add(item);
+                            break;
+
+                        case 5:
+                            Lista5.Add(item);
+                            break;
+                    }
+                }
+
+                ViewData["Lista1"] = new SelectList(Lista1, "ServicoId", "Nome");
+                ViewData["Lista2"] = new SelectList(Lista2, "ServicoId", "Nome");
+                ViewData["Lista3"] = new SelectList(Lista3, "ServicoId", "Nome");
+                ViewData["Lista4"] = new SelectList(Lista4, "ServicoId", "Nome");
+                ViewData["Lista5"] = new SelectList(Lista5, "ServicoId", "Nome");
+
+                var distritosCentro = bd.Distritos.Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
+                .ToList();
+
+                var distritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
+                || p.Nome == "Vila Real" || p.Nome == "Bragança")
+                    .ToList();
+
+                var distritosSul = bd.Distritos.Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
+                || p.Nome == "Portalegre" || p.Nome == "Évora" || p.Nome == "Beja" || p.Nome == "Faro")
+                    .ToList();
+
+                var distritosIlhas = bd.Distritos.Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
+                    .ToList();
+
+                servicosPacotesViewModel.ListaDistritosCentro = distritosCentro.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                servicosPacotesViewModel.ListaDistritosNorte = distritosNorte.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                servicosPacotesViewModel.ListaDistritosSul = distritosSul.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                servicosPacotesViewModel.ListaDistritosIlhas = distritosIlhas.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                return View(servicosPacotesViewModel);
+
+            }
+
             id = servicosPacotesViewModel.PacoteId;
             List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
             Pacotes pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
