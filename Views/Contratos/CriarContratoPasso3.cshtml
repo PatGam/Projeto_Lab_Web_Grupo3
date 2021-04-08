@@ -116,11 +116,11 @@ else
                                             <div class="form-group">
                                                 <label class="control-label col-lg-2" for="inputSuccess">Período de fidelização</label>
                                                 <div class="col-lg-10">
-                                                    <label class="radio">
-                                                        <input asp-for="UmAno" name="optionsRadios" type="radio" id="optionsRadios1" value="radio1" checked> Um ano
+                                                    <label class="checkbox-inline">
+                                                        <input asp-for="UmAno" type="checkbox" id="inlineCheckbox1" { onclick = "SingleCheckbox(this)" }> Um ano
                                                     </label>
-                                                    <label class="radio">
-                                                        <input asp-for="DoisAnos" name="optionsRadios" type="radio" id="optionRadios2" value="radio2"> Dois Anos
+                                                    <label class="checkbox-inline">
+                                                        <input asp-for="DoisAnos" type="checkbox" id="inlineCheckbox2" { onclick = "SingleCheckbox(this)" }> Dois Anos
                                                     </label>
                                                 </div>
                                             </div>
@@ -140,6 +140,18 @@ else
                 </section>
 }
 
+<script>
+    var SingleCheckbox = function (rb) {
+    var id = rb.id, uncheck;
+    if (id == 'inlineCheckbox1') {
+        uncheck = document.getElementById('inlineCheckbox2');
+    } else {
+        uncheck = document.getElementById('inlineCheckbox1');
+    }
+
+    uncheck.checked = false;
+}
+</script>
                 @section Scripts {
                     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
                 }
