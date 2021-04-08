@@ -1222,7 +1222,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllOperadorFaro()
+        public async Task<IActionResult> GetAllOperadoresFaro()
         {
             var clientes = await _context.Utilizadores
                 .Select(s => new { s.UtilizadorId, s.Nome, s.Nif, s.Telemovel, s.Role, s.Inactivo, s.DistritosId })
