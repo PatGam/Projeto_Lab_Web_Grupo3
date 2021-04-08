@@ -1661,7 +1661,7 @@ h2#dlg-header {
 # Header Personal Data
 --------------------------------------------------------------*/
 #headerPData {
-    height: 750px;
+    height: 960px;
     width: 260px;
     z-index: 3;
     margin-top: 15px;
