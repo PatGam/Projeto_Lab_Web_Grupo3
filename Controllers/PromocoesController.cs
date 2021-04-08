@@ -615,7 +615,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             promocoes.Inactivo = true;
             bd.Update(promocoes);
             await bd.SaveChangesAsync();
-            ViewBag.Mensagem = "A Promoção foi eliminada com sucesso";
+            ViewBag.Mensagem = "A Promoção foi arquivada com sucesso";
             return View("Sucesso");
         }
 

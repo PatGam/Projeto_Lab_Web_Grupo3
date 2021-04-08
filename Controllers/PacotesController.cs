@@ -879,7 +879,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             pacotes.DataInactivo = DateTime.Now;
             bd.Update(pacotes);
             await bd.SaveChangesAsync();
-            ViewBag.Mensagem = "O Pacote foi eliminado com sucesso";
+            ViewBag.Mensagem = "O Pacote foi arquivado com sucesso";
             return View("Sucesso");
         }
 
