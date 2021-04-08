@@ -69,7 +69,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
                     string NomeMes = NomesDoMes(mes);
                     assunto = "Faturação RD Telecom";
-                    mensagem = "Caro/a cliente, informamos que tem a pagar " + preco + "€ da fatura do mês " + NomeMes + ". Obrigado pela sua preferência!";
+                    mensagem = "Caro/a cliente, informamos que tem a pagar " + preco + "€ da fatura de " + NomeMes + ". Obrigado pela sua preferência!";
 
                     try
                     {
