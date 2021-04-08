@@ -2154,12 +2154,12 @@ td {
     cursor: pointer;
 }*/
 
-.cardpac{
-    position: relative;   
+.cardpac {
+    position: relative;
     height: 480px;
     padding: 15px;
     border-radius: 20px;
-    background-image: linear-gradient(135deg, #ff677d 10%, #cd6684 100%);
+    background-image: linear-gradient(135deg, #6baccf 10%, #ebf0f2 100%);
     box-shadow: 0 2px 20px rgba(0,0,0,0.5);
     transform-style: preserve-3d;
     transform: perspective();
@@ -2193,6 +2193,36 @@ td {
 body .js-tilt-glare{
     pointer-events: none;
 }
+
+.cardpac ul {
+    padding: 0;
+    list-style: none;
+    color: #999;
+    text-align: left;
+    line-height: 20px;
+}
+
+    .cardpac ul li {
+        padding-bottom: 12px;
+    }
+
+    .cardpac ul i {
+        color: #0069a0;
+        font-size: 18px;
+        padding-right: 4px;
+    }
+
+    .cardpac ul .na {
+        color: #ccc;
+    }
+
+        .cardpac ul .na i {
+            color: #ccc;
+        }
+
+        .cardpac ul .na span {
+            text-decoration: line-through;
+        }
 
 
 /*----Checkbox---*/
