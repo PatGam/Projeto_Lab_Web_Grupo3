@@ -39,6 +39,8 @@
                         <tbody>
                             @foreach (var item in @Model.Pacotes)
                             {
+                                @if (@item.Inactivo == false)
+                                {
                                 <tr>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Nome)
@@ -52,7 +54,8 @@
                                         <a asp-action="Delete" asp-route-id="@item.PacoteId">Arquivar</a>
                                     </td>
                                 </tr>
-                            }
+                                    }
+                                }
                         </tbody>
                     </table>
                 </div>

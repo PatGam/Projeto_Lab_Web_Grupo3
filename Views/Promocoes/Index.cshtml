@@ -39,6 +39,7 @@
                         </thead>
                         <tbody>
                             @foreach (var  item in @Model.Promocoes){
+                                @if(@item.Inactivo == false) { 
                             <tr>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Nome)
@@ -67,7 +68,8 @@
 
                                 </td>
                             </tr>
-    }
+                                }
+                            }
                         </tbody>
                     </table>
                 </div>
