@@ -603,8 +603,6 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, ServicosPacotesViewModel servicosPacotesViewModel, IFormFile Imagem)
         {
-          
-
             id = servicosPacotesViewModel.PacoteId;
             List<ServicosPacotes> servicosNosPacotes = new List<ServicosPacotes>();
             Pacotes pacote = await bd.Pacotes.Include(p => p.ServicosPacotes)
@@ -618,7 +616,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             pacote.Imagem = servicosPacotesViewModel.Imagem;
             AtualizaImagem(pacote, Imagem);
 
-           
+            bd.Update(pacote);
+            await bd.SaveChangesAsync();
 
             int pacoteId = pacote.PacoteId;
 
@@ -636,9 +635,10 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             foreach (var item in servicosPreviamenteIncluidos)
             {
+
                 bd.ServicosPacotes.Remove(item);
-                await bd.SaveChangesAsync();
             }
+            await bd.SaveChangesAsync();
 
             if (servico1id.Nome != "---")
             {
@@ -671,6 +671,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 ModelState.AddModelError("Servico1", "O pacote deve ter pelo menos um serviço associado.");
 
             }
+
+            
 
             //Checklist de Distritos
             List<DistritosPacotes> distritoscomPacotes = new List<DistritosPacotes>();
@@ -722,6 +724,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
 
             var novalistaDistritosPacotes = bd.DistritosPacotes.Where(p => p.PacoteId == id).ToList();
+
+            
+
             if (!ModelState.IsValid)
             {
                 var servicos = bd.Servicos.ToList();
@@ -817,16 +822,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 return View(servicosPacotesViewModel);
 
             }
-            bd.Update(pacote);
-            await bd.SaveChangesAsync();
-
             foreach (var item in servicosNosPacotes)
             {
                 item.PacoteId = pacote.PacoteId;
                 bd.ServicosPacotes.Add(item);
-            }
-            await bd.SaveChangesAsync();
+                await bd.SaveChangesAsync();
 
+
+            }
             foreach (var distrito in distritoscomPacotes)
             {
                 if (!novalistaDistritosPacotes.Contains(distrito))
@@ -834,8 +837,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                     distrito.PacoteId = pacote.PacoteId;
                     bd.DistritosPacotes.Add(distrito);
                     await bd.SaveChangesAsync();
+
                 }
             }
+
+            
 
             ViewBag.Mensagem = "Pacote alterado com sucesso";
             return View("Sucesso");
