@@ -23,20 +23,18 @@
                         <button data-dismiss="alert" class="close close-sm" type="button">
                             <i class="icon-remove"></i>
                         </button>
-                        As faturas deste mês já foram enviadas!
+                        As faturas do mês passado já foram enviadas!
                     </div>
                 </div>
             }
             @if (Model.enviado == false)
             {
-                <div class="panel-body">
-                    <div class="alert alert-success fade in">
-                        <button data-dismiss="alert" class="close close-sm" type="button">
-                            <i class="icon-remove"></i>
-                        </button>
-                        As faturas deste mês já foram enviadas!
-                    </div>
-                </div>
+        <div class="alert alert-block alert-danger fade in">
+            <button data-dismiss="alert" class="close close-sm" type="button">
+                <i class="icon-remove"></i>
+            </button>
+            <strong>Erro</strong> O envio das faturas do mês passado falhou. Contacte a assistência
+        </div>
             }
 
         </div>

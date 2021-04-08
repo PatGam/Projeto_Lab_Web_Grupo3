@@ -54,29 +54,36 @@
                             </td>
                         </tr>
                         <tr>
-
                             <th>Pacotes com a promoção</th>
-
                             @if (Model.PromocoesPacotes.Count() == 0)
-
                             {
-
                                 <td>A promoção não tem pacotes associados.</td>
-
-
                             }
                             else
                             {
                                 <td>
-
                                     @foreach (var item in Model.PromocoesPacotes)
                                     {
                                         @Html.DisplayFor(modelItem => item.Pacote.Nome)
                                         <br />
                                     }
-
-                                    <a class="btn btn-success" asp-area="" asp-controller="PromocoesPacotes" asp-route-promocoesId="@Model.Promocoes.PromocoesId" asp-action="Create">Adicionar pacote</a>
-
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            <th>Distritos com a promoção</th>
+                            @if (Model.DistritosPromocoes.Count() == 0)
+                            {
+                                <td>A promoção não está associada a nenhum distrito.</td>
+                            }
+                            else
+                            {
+                                <td>
+                                    @foreach (var item in Model.DistritosPromocoes)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Distrito.Nome)
+                                        <br />
+                                    }
                                 </td>
                             }
                         </tr>
