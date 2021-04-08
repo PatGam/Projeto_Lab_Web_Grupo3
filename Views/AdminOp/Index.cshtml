@@ -45,6 +45,8 @@
                     <div class="title">Receita</div>
                 </div>
             </div>
+
+            
             @if (User.IsInRole("Administrador"))
             {
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -63,7 +65,6 @@
                 </div>
             }
 
-            <a asp-area="" asp-controller="TesteEmail" asp-action="TesteEnvioEmail" class="btn btn-success btn-lg" >Enviar faturas</a>
 
             @if (User.IsInRole("Operador"))
             {
@@ -112,7 +113,31 @@
             }
 
         </div>
+        <div class=" row">
+            @if (Model.enviado == true)
+            {
+                <div class="panel-body">
+                    <div class="alert alert-success fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        As faturas deste mês já foram enviadas!
+                    </div>
+                </div>
+            }
+            @if (Model.enviado == false)
+            {
+                <div class="panel-body">
+                    <div class="alert alert-success fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        As faturas deste mês já foram enviadas!
+                    </div>
+                </div>
+            }
 
+        </div>
         <div class="row">
             <h4 style="text-align:center">Contamos consigo todos os dias para aumentar estes números. Bom trabalho!</h4>
         </div>

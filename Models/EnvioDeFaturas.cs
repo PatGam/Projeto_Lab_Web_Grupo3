@@ -15,6 +15,9 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public int mes { get; set; }
 
+        public int ano { get; set; }
+
+
         public bool Enviado { get; set; }
 
         public string Texto { get; set; }
