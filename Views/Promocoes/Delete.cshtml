@@ -12,7 +12,7 @@
                 <h3 class="page-header"><i class="icon_cart"></i>Promoções</h3>
             </div>
         </div>
-        <h3>Tem a certeza que deseja apagar a promoção @Html.DisplayFor(model => model.Nome)?</h3>
+        <h3>Tem a certeza que deseja arquivar a promoção @Html.DisplayFor(model => model.Nome)?</h3>
         <div class="row">
             <div class="col-sm-6">
                 <section class="panel">
@@ -54,7 +54,7 @@
 
                     <form asp-action="Delete">
                         <input type="hidden" asp-for="PromocoesId" />
-                        <input type="submit" value="Apagar" class="btn btn-danger" />
+                        <input type="submit" value="Arquivar" class="btn btn-danger" />
                         <a class="btn btn-success" asp-action="Index">Cancelar</a>
                     </form>
                     </section>
