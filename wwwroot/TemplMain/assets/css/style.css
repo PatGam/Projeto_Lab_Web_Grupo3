@@ -2101,7 +2101,7 @@ table {
     width: 100%;
     table-layout: fixed;
     background: #fff;
-    background: -webkit-linear-gradient(top, #0d5e87, #1879aa);
+    background: -webkit-linear-gradient(top, #4fa0c8, #b3daee);
     background: -o-linear-gradient(top, #0d5e87, #1879aa);
     background: -moz-linear-gradient(top, #0d5e87, #1879aa);
     background: linear-gradient(top, #0d5e87, #1879aa);

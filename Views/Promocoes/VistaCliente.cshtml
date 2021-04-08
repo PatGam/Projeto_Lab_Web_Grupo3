@@ -15,35 +15,38 @@
                         </div>                    
                     </div>
                     <div class="container">
-                        @foreach (var item in Model.Pacotes)
-                        {
-                        <div class="col-lg-6">
-                            <div class="cardpac" data-tilt data-tilt-max="30" data-tilt-glare data-tilt-max-glare="0.55">
-                                <div class="category">
-                                    <div class="sub-head">
-                                        <h2>@Html.DisplayFor(modelItem => item.Pacote.Nome)</h2>
+                        <div class="row">
+                            @foreach (var item in Model.Pacotes)
+                            {
+
+                                <div class="col-lg-6">
+                                    <div class="cardpac" data-tilt data-tilt-max="30" data-tilt-glare data-tilt-max-glare="0.55">
+                                        <div class="category">
+                                            <div class="sub-head">
+                                                <h2>@Html.DisplayFor(modelItem => item.Pacote.Nome)</h2>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <h5><del>€ @Html.DisplayFor(modelItem => item.Pacote.Preco)</del></h5><p>- @Html.DisplayFor(modelItem => item.Promocao.PromocaoDesc)</p>
+                                            <h4>€ @(item.Pacote.Preco - item.Promocao.PromocaoDesc)<span>/mês</span></h4>
+                                            <ul>
+                                                @foreach (var servico in item.Servicos)
+                                                {
+
+                                                    <li><i class="@(servico.TipoServicos.Icone)"></i>@Html.DisplayFor(modelItem => servico.Nome)</li>
+                                                }
+                                            </ul>
+                                        </div>
+                                        <label class="button-form-btn" for="dialog_state">
+                                            <i class="icon ion-ios-upload-outline"></i> Aderir
+                                        </label>
                                     </div>
                                 </div>
-                                <div class="description">
-                                    <h5><del>€ @Html.DisplayFor(modelItem => item.Pacote.Preco)</del></h5><p>- @Html.DisplayFor(modelItem => item.Promocao.PromocaoDesc)</p>
-                                    <h4>€ @(item.Pacote.Preco - item.Promocao.PromocaoDesc)<span>/mês</span></h4>
-                                    <ul>
-                                        @foreach (var servico in item.Servicos)
-                                        {
 
-                                            <li><i class="@(servico.TipoServicos.Icone)"></i>@Html.DisplayFor(modelItem => servico.Nome)</li>
-                                        }
-                                    </ul>
-                                </div>
-                                <label class="button-form-btn" for="dialog_state">
-                                    <i class="icon ion-ios-upload-outline"></i> Aderir
-                                </label>
+                            }
                             </div>
                         </div>
-
-                        }
                     </div>
-                </div>
                 </div>
             </div>        
     </container>
