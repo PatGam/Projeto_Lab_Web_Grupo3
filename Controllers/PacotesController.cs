@@ -87,7 +87,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                 Pacotes = pacotes,
                 ServicosPacotes = servicos,
-                //PromocoesPacotes = promocoes,
+                PromocoesPacotes = promocoes,
             };
 
 

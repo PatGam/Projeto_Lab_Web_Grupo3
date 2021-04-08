@@ -101,7 +101,7 @@
     </section>
 }
 else*@
-{
+@{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
@@ -127,14 +127,9 @@ else*@
                                 <td>
                                     @Html.DisplayFor(model => model.Pacotes.Nome)
                                 </td>
-
-
-
                             </tr>
                             <tr>
                                 <th>
-
-
                                     @Html.DisplayNameFor(model => model.Pacotes.Descricao)
                                 </th>
                                 <td>
@@ -157,22 +152,7 @@ else*@
                                 <td>
                                     @Html.DisplayFor(model => model.Pacotes.Preco)
                                 </td>
-                            </tr>
-
-
-
-
-
-
-
-
-
-                            @*<dt class="col-sm-2">
-                                    @Html.DisplayNameFor(model => model.Pacotes.ServicosPacotes)
-                                </dt>
-                                <dd class="col-sm-10">
-                                    @Html.DisplayFor(model => model.Pacotes.ServicosPacotes)
-                                </dd>*@
+                            </tr> 
                             <tr>
                                 <th>Serviços neste Pacote</th>
                                 @if (Model.ServicosPacotes.Count() == 0)
@@ -181,51 +161,34 @@ else*@
                                 }
                                 else
                                 {
-
-
-
                                     <td>
 
                                         @foreach (var item in Model.ServicosPacotes)
                                         {
-
-
                                             @Html.DisplayFor(modelItem => item.Servico.Nome)
                                             <br />
-
-
-
                                         }
-                                        <a class="btn btn-success" asp-area="" asp-controller="ServicosPacotes" asp-action="Create">Adicionar Servico</a>
                                     </td>
                                 }
                             </tr>
-
                             <tr>
-
                                 <th>Promoções neste Pacote</th>
 
-                                @if (Model.PromocoesPacotes.Count == 0)
+                                @if (Model.PromocoesPacotes.Count() == 0)
                                 {
                                     <td>Não existem promoções para mostrar.</td>
                                 }
                                 else
                                 {
 
-
-
                                     <td>
-
 
                                         @foreach (var item in Model.PromocoesPacotes)
                                         {
 
                                             @Html.DisplayFor(modelItem => item.Promocoes.Nome)
                                             <br />
-
-
                                         }
-                                        <a class="btn btn-success" asp-area="" asp-controller="PromocoesPacotes" asp-action="Create">Adicionar Promoção</a>
                                     </td>
 
                                 }
