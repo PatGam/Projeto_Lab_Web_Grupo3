@@ -273,8 +273,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             promocoes.PromocaoDesc = promocoesPacotesViewModel.PromocaoDesc;
             promocoes.Inactivo = false;
 
-            bd.Promocoes.Add(promocoes);
-            await bd.SaveChangesAsync();
+            
             int promocaoId = promocoes.PromocoesId;
 
             foreach (var item in promocoesPacotesViewModel.ListaPacotes)
@@ -284,11 +283,11 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                     promocoesDosPacotes.Add(new PromocoesPacotes() { PromocoesId = promocaoId, PacoteId = item.Id });
                 }
             }
-            foreach (var item in promocoesDosPacotes)
+            if (promocoesDosPacotes.Count == 0)
             {
-                bd.PromocoesPacotes.Add(item);
+                ModelState.AddModelError("ListaPacotes", "A promoção que está a criar não vai ficar disponível para nenhum pacote");
             }
-            await bd.SaveChangesAsync();
+            
 
             List<DistritosPromocoes> distritoscomPromocoes = new List<DistritosPromocoes>();
 
@@ -321,8 +320,82 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 }
             }
 
+            if (distritoscomPromocoes.Count == 0)
+            {
+                ModelState.AddModelError("ListaDistritosNorte", "A promoção que está a criar não vai ficar disponível em nenhum distrito");
+            }
+            if (!ModelState.IsValid)
+            {
+                var pacotes = bd.Pacotes.ToList();
+
+                promocoesPacotesViewModel.ListaPacotes = pacotes.Select(s => new Checkbox()
+                {
+                    Id = s.PacoteId,
+                    NomePacote = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                var distritosCentro = bd.Distritos.Where(p => p.Nome == "Coimbra" || p.Nome == "Aveiro" || p.Nome == "Viseu"
+            || p.Nome == "Leiria" || p.Nome == "Castelo Branco" || p.Nome == "Guarda")
+                .ToList();
+
+                var distritosNorte = bd.Distritos.Where(p => p.Nome == "Viana do Castelo" || p.Nome == "Braga" || p.Nome == "Porto"
+                || p.Nome == "Vila Real" || p.Nome == "Bragança")
+                    .ToList();
+
+                var distritosSul = bd.Distritos.Where(p => p.Nome == "Lisboa" || p.Nome == "Setúbal" || p.Nome == "Santarém"
+                || p.Nome == "Portalegre" || p.Nome == "Évora" || p.Nome == "Beja" || p.Nome == "Faro")
+                    .ToList();
+
+                var distritosIlhas = bd.Distritos.Where(p => p.Nome == "Açores" || p.Nome == "Madeira")
+                    .ToList();
+
+                promocoesPacotesViewModel.ListaDistritosCentro = distritosCentro.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                promocoesPacotesViewModel.ListaDistritosNorte = distritosNorte.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                promocoesPacotesViewModel.ListaDistritosSul = distritosSul.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+                promocoesPacotesViewModel.ListaDistritosIlhas = distritosIlhas.Select(s => new Checkbox()
+                {
+                    Id = s.DistritosId,
+                    NomeDistrito = s.Nome,
+                    Selecionado = false
+                }).ToList();
+
+
+
+                return View(promocoesPacotesViewModel);
+            }
+
+            bd.Promocoes.Add(promocoes);
+            await bd.SaveChangesAsync();
+
+            foreach (var item in promocoesDosPacotes)
+            {
+                item.PromocoesId = promocoes.PromocoesId;
+                bd.PromocoesPacotes.Add(item);
+            }
+            await bd.SaveChangesAsync();
+
             foreach (var item in distritoscomPromocoes)
             {
+                item.PromocoesId = promocoes.PromocoesId;
                 bd.DistritosPromocoes.Add(item);
             }
             await bd.SaveChangesAsync();
