@@ -1,13 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Projeto_Lab_Web_Grupo3.Models;
+using Projeto_Lab_Web_Grupo3.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Projeto_Lab_Web_Grupo3.Data;
-using Projeto_Lab_Web_Grupo3.Models;
 using Microsoft.EntityFrameworkCore;
-using AspNetCoreHero.ToastNotification.Abstractions;
-using AspNetCoreHero.ToastNotification;
+using System.IO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace Projeto_Lab_Web_Grupo3.Controllers
 {
@@ -15,15 +20,79 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
     {
 
         private readonly Projeto_Lab_WebContext bd;
+        private readonly IEmailSender _emailSender;
 
-        public AdminOpController(Projeto_Lab_WebContext context)
+
+        public AdminOpController(IEmailSender emailSender, IWebHostEnvironment env, Projeto_Lab_WebContext context)
         {
             bd = context;
+            _emailSender = emailSender;
+
         }
 
 
         public async Task<IActionResult> Index()
         {
+
+            var contratos = await bd.Contratos.ToListAsync();
+            var emailenviado = await bd.EnvioDeFaturas.ToListAsync();
+
+            DateTime hoje = DateTime.Today;
+            DateTime mespassado = hoje.AddMonths(-1);
+            int mes = mespassado.Month;
+            int ano = mespassado.Year;
+
+            bool enviado = false;
+
+            foreach (var item in emailenviado)
+            {
+                if (item.mes == mes && item.ano==ano)
+                {
+                    enviado = true;
+                }
+                else
+                {
+                    enviado = false;
+                }
+            }
+
+            if(enviado==false)
+            {
+                string email; string assunto; string mensagem;
+                for (int i = 0; i < 10; i++)
+                {
+                    //var cliente = await bd.Utilizadores.FirstOrDefaultAsync(m => m.UtilizadorId == item.UtilizadorId);
+                    decimal preco = 20;
+                    //decimal preco = item.PrecoFinal;
+                    //email = cliente.Email;
+                    email = "patriciaimpressoes@gmail.com";
+
+                    string NomeMes = NomesDoMes(mes);
+                    assunto = "Faturação RD Telecom";
+                    mensagem = "Caro/a cliente, informamos que tem a pagar " + preco + "€ da fatura do mês " + NomeMes + ". Obrigado pela sua preferência!";
+
+                    try
+                    {
+                        //email destino, assunto do email, mensagem a enviar
+                        await _emailSender.SendEmailAsync(email, assunto, mensagem);
+
+                        enviado = true;
+                    }
+                    catch (Exception)
+                    {
+                        enviado = false;
+                    }
+                }
+
+                emailenviado.Add(new EnvioDeFaturas() { DataDeEnvio = DateTime.Today, Enviado = true, mes = mes, ano = ano });
+                foreach (var item in emailenviado)
+                {
+                    bd.EnvioDeFaturas.Add(item);
+                }
+                await bd.SaveChangesAsync();
+
+            }
+
             List<InfoPacoteViewModel> ListaPacotes = new List<InfoPacoteViewModel>();
 
             foreach (var pacote in bd.Pacotes)
@@ -108,8 +177,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             }
 
 
-                HomeGestaoViewModel modelo = new HomeGestaoViewModel
+            HomeGestaoViewModel modelo = new HomeGestaoViewModel
             {
+                enviado = enviado,
                 Pacotes = ListaPacotes,
             };
             
@@ -150,6 +220,54 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(faturacaoMensalViewModel);
         }
 
+        internal static string NomesDoMes(int mes)
+        {
+            string NomedoMes = "";
+            switch (mes)
+            {
+                case 1:
+                    NomedoMes = "Janeiro";
+                    break;
+                case 2:
+                    NomedoMes = "Fevereiro";
+                    break;
+                case 3:
+                    NomedoMes = "Março";
+                    break;
+                case 4:
+                    NomedoMes = "Abril";
+                    break;
+                case 5:
+                    NomedoMes = "Maio";
+                    break;
+                case 6:
+                    NomedoMes = "Junho";
+                    break;
+                case 7:
+                    NomedoMes = "Julho";
+                    break;
+                case 8:
+                    NomedoMes = "Agosto";
+                    break;
+                case 9:
+                    NomedoMes = "Setembro";
+                    break;
+                case 10:
+                    NomedoMes = "Outubro";
+                    break;
+                case 11:
+                    NomedoMes = "Novembro";
+                    break;
+                case 12:
+                    NomedoMes = "Dezembro";
+                    break;
+
+                default:
+                    break;
+            }
+
+            return NomedoMes;
+        }
 
 
     }
