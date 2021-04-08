@@ -62,8 +62,7 @@
 
                     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                         <button type="submit" class="button-form-btn">Logout</button>
-                    </form>
-                        <a asp-area="" asp-controller="AdminOp" asp-action="ContaPessoal" class="button-form-btn">Gerir Conta</a>
+                    </form>                        
                 </ul>
                     }
                 </nav>
@@ -242,49 +241,7 @@
                                 </ul>
                             </li>
 
-                        }
-
-                        @if (User.IsInRole("Cliente"))
-                        {
-
-                            <li class="sub-menu">
-                                <a a asp-area="" asp-controller="Clientes" asp-action="Details">
-                                    <i class="icon_document_alt"></i>
-                                    <span>Dados Pessoais</span>
-                                    @*<span class="menu-arrow arrow_carrot-right"></span>*@
-                                </a>
-                                @*<ul class="sub">
-                                        <li><a class="" href="form_component.html">Form Elements</a></li>
-                                        <li><a class="" href="form_validation.html">Form Validation</a></li>
-                                    </ul>*@
-                            </li>
-                            <li class="sub-menu">
-                                <a a asp-area="" asp-controller="Contratos" asp-action="Index" class="">
-                                    <i class="icon_desktop"></i>
-                                    <span>Ver Contratos</span>
-                                    @*<span class="menu-arrow arrow_carrot-right"></span>*@
-                                </a>
-                                @*<ul class="sub">
-                                        <li><a class="" href="general.html">Elements</a></li>
-                                        <li><a class="" href="buttons.html">Buttons</a></li>
-                                        <li><a class="" href="grids.html">Grids</a></li>
-                                    </ul>*@
-                            </li>
-                            <li>
-                                <a class="" a asp-area="" asp-controller="Pacotes" asp-action="Index">
-                                    <i class="icon_genius"></i>
-                                    <span>Pacotes disponíveis</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="" a asp-area="" asp-controller="Promocoes" asp-action="Index">
-                                    <i class="icon_piechart"></i>
-                                    <span>Promoções em vigor</span>
-
-                                </a>
-
-                            </li>
-                        }
+                        }                        
                         </nav>
                     </ul>
                 </div>
