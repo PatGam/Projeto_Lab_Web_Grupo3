@@ -573,7 +573,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrador,Cliente")]
-        public async Task<IActionResult> EditClientes(int id, [Bind("UtilizadorId,Nome,Nif,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role")] Utilizadores utilizadores)
+        public async Task<IActionResult> EditClientes(int id, [Bind("UtilizadorId,Nome,Nif,DataNascimento,Morada,Telemovel,Email,CodigoPostal,Role, Concelho")] Utilizadores utilizadores)
         {
             var login = await _context.Utilizadores.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
 
@@ -616,6 +616,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                         utilizadores.Role = "Cliente";
                         _context.Update(utilizadores);
                         await _context.SaveChangesAsync();
+                        ViewBag.Mensagem = "Informação do Cliente editada com sucesso.";
+                        return View("SucessoClientes");
                     }
                     catch (DbUpdateConcurrencyException)
                     {
@@ -629,11 +631,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                         }
                     }
                 }
-                ViewBag.Mensagem = "Informação do Cliente editada com sucesso.";
-                return View("SucessoClientes");
-            }
+                else
+                {
+                    return View(utilizadores);
+                }
                 
-
+            }
             
         }
 
