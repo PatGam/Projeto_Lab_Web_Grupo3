@@ -195,9 +195,12 @@ else*@
                             </tr>
                         </table>
                         <div>
-                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Pacotes.PacoteId">Editar</a>
-                            <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
-                        </div>
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Pacotes.PacoteId">Editar</a>
+                            }
+                                <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
+                            </div>
 
 
                     </section>

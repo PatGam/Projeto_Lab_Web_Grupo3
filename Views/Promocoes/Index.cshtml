@@ -56,14 +56,24 @@
                                 <td>
                                     @if (User.IsInRole("Operador"))
                                     {
-                                        <a asp-action="EditOperadores" asp-route-id="@item.PromocoesId">Atribuir a pacotes/distritos</a>
-                                        <a asp-action="Details" asp-route-id="@item.PromocoesId">Detalhes</a>
-                                    }
+                                    <a asp-action="EditOperadores" asp-route-id="@item.PromocoesId" class='btn btn-success'>
+                                        <i class="fa fa-layer-group" aria-hidden="true"></i>
+                                    </a>
+                                        <a asp-action="Details" asp-route-id="@item.PromocoesId" class='btn btn-primary'>
+                                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        </a>                                    }
                                     else
                                     {
-                                        <a asp-action="Edit" asp-route-id="@item.PromocoesId">Editar</a>
-                                        <a asp-action="Details" asp-route-id="@item.PromocoesId">Detalhes</a>
-                                        <a asp-action="Delete" asp-route-id="@item.PromocoesId">Arquivar</a>
+                                        <a asp-action="Edit" asp-route-id="@item.PromocoesId" class='btn btn btn-warning'>
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.PromocoesId" class='btn btn-primary'>
+                                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        </a>
+                                        <a class='btn btn-danger '  asp-action="Delete" asp-route-id="@item.PromocoesId">
+                                            <i class="icon_close_alt2"></i>
+                                        </a>
+ 
                                     }
 
                                 </td>

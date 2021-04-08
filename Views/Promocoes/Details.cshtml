@@ -89,9 +89,12 @@
                         </tr>
                     </table>
                     <br />
-                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Promocoes.PromocoesId">Editar</a>
-                    <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
-                </section>
+                    @if (User.IsInRole("Administrador"))
+                    {
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Promocoes.PromocoesId">Editar</a>
+                    }
+                        <a class="btn btn-info" asp-action="Index">Voltar Atrás</a>
+                    </section>
             </div>
         </div>
     </section>
