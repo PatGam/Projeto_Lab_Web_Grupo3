@@ -15,6 +15,29 @@
                 <h3 class="page-header"><i class="fa fa-laptop"></i> Bem-vindo/a</h3>
             </div>
         </div>
+        <div class=" row">
+            @if (Model.enviado == true)
+            {
+                <div class="panel-body">
+                    <div class="alert alert-success fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        As faturas do mês passado já foram enviadas!
+                    </div>
+                </div>
+            }
+            @if (Model.enviado == false)
+            {
+        <div class="alert alert-block alert-danger fade in">
+            <button data-dismiss="alert" class="close close-sm" type="button">
+                <i class="icon-remove"></i>
+            </button>
+            <strong>Erro</strong> O envio das faturas do mês passado falhou. Contacte a assistência
+        </div>
+            }
+
+        </div>
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="info-box purple-bg">
@@ -46,7 +69,7 @@
                 </div>
             </div>
 
-            
+
             @if (User.IsInRole("Administrador"))
             {
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -113,31 +136,7 @@
             }
 
         </div>
-        <div class=" row">
-            @if (Model.enviado == true)
-            {
-                <div class="panel-body">
-                    <div class="alert alert-success fade in">
-                        <button data-dismiss="alert" class="close close-sm" type="button">
-                            <i class="icon-remove"></i>
-                        </button>
-                        As faturas deste mês já foram enviadas!
-                    </div>
-                </div>
-            }
-            @if (Model.enviado == false)
-            {
-                <div class="panel-body">
-                    <div class="alert alert-success fade in">
-                        <button data-dismiss="alert" class="close close-sm" type="button">
-                            <i class="icon-remove"></i>
-                        </button>
-                        As faturas deste mês já foram enviadas!
-                    </div>
-                </div>
-            }
 
-        </div>
         <div class="row">
             <h4 style="text-align:center">Contamos consigo todos os dias para aumentar estes números. Bom trabalho!</h4>
         </div>

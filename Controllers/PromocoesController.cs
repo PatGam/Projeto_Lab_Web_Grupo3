@@ -107,6 +107,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var pacotes = await bd.PromocoesPacotes.Where(s => s.PromocoesId == id)
                .Include(s => s.Pacote)
                .ToListAsync();
+            var distritos = await bd.DistritosPromocoes.Where(s => s.PromocoesId == id)
+               .Include(s => s.Distrito)
+               .ToListAsync();
 
             int count = 0;
             foreach (var item in bd.PromocoesPacotes.ToList())
@@ -126,6 +129,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             {
                  Promocoes = promocoes,
                  PromocoesPacotes = pacotes, 
+                 DistritosPromocoes = distritos,
 
             };
             return base.View(modelo);
