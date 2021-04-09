@@ -56,18 +56,17 @@
                     <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/RD_MLogo2.png"></a>
                     <!--logo end-->
                     @if (SignInManager.IsSignedIn(User))
-                    {
-                <ul class="pull-right m-t-10">
+                    {                
                     <h7>Bem-Vindo/a @User.Identity.Name!</h7>
-
-                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                        <button type="submit" class="button-form-btn">Logout</button>
-                    </form>
-                    @if (User.IsInRole("Operador"))
-                    {
-                        <a asp-area="" asp-controller="AdminOp" asp-action="ContaPessoal" class="button-form-btn">Conta Pessoal</a>
-                    }
-                    </ul>
+                    <div class="btnfix">
+                        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button class="button-form-btn">Logout</button>
+                        </form>
+                        @if (User.IsInRole("Operador"))
+                        {
+                            <a asp-area="" asp-controller="AdminOp" asp-action="ContaPessoal" class="button-form-btn">Conta Pessoal</a>
+                        }
+                    </div>
                     }
                 </nav>
             </header>
