@@ -89,6 +89,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public int DistritosId { get; set; }
         public Distritos Distritos { get; set; }
-
+        [InverseProperty("Contratos")]
+        public virtual ICollection<Reclamacoes> Reclamacao { get; set; }
     }
 }

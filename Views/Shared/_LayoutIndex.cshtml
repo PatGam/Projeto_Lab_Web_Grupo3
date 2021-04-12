@@ -37,7 +37,7 @@
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bem-Vindo/a @User.Identity.Name!</a>
-                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">                        
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                         <button type="submit" class="nav-link btn btn-link btn-get-started">Logout</button>
                     </form>
                 }
@@ -95,7 +95,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="TVBase">Televisão <i class="fas fa-tv"></i></a>
-                            </li>                           
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Ajuda  <i class="fas fa-question"></i></a>
                                 <ul>
@@ -109,7 +109,9 @@
                                         <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link scrollto active" asp-area="" asp-controller="Reclamacoes" asp-action="Create">Enviar Reclamação </a>
+                                        <a class="nav-link scrollto active" asp-area="" asp-controller="Reclamacoes" asp-action="Create">
+                                            Enviar Reclamação <i class="fa fa-inbox" aria-hidden="true"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </li>
@@ -195,7 +197,7 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-angle-up"></i></a>
 
 
-     <!-- Optional JavaScript -->
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -209,9 +211,9 @@
     <script src="~/TemplMain/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="~/TemplMain/assets/js/main.js"></script>  
+    <script src="~/TemplMain/assets/js/main.js"></script>
 
-    
+
     <script src="~/js/site.js" asp-append-version="true"></script> POR VERIFICAR-->
 
     @RenderSection("Scripts", required: false)
