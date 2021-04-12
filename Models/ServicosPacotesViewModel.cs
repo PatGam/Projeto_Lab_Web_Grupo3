@@ -41,6 +41,11 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public List<Checkbox> ListaDistritosIlhas { get; set; }
 
+        public List<DistritosPacotes> DistritosPacotes { get; set; }
+
+
+        
+
         public int Servico1 { get; set; }
 
         public int Servico2 { get; set; }
@@ -51,6 +56,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         [Display(Name = "Imagem ilustrativa")]
         public byte[] Imagem { get; set; }
+
+
 
 
 
