@@ -87,7 +87,10 @@
                                         <a class="nav-link scrollto active" asp-area="" asp-controller="" asp-action="">Contacta-nos  <i class="fas fa-feather"></i></a>
                                     </li>
                                 </ul>
-                            </li>
+                                @if (ViewBag.RespostaOperador != null)
+                                {
+                                    @await Component.InvokeAsync("Notyf")
+                                }
                         </ul>
                     }
                     @if (!User.Identity.IsAuthenticated)

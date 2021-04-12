@@ -150,7 +150,9 @@
                         <a class="nav-link scrollto active" asp-area="" asp-controller="Top10" asp-action="VistaCliente">Ranking<i class="fas fa-trophy"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="Reclamacoes" asp-action="VistaCliente">Reclamações<i class="far fa-angry"></i></a>
+                        <a class="nav-link scrollto active" asp-area="" asp-controller="Reclamacoes" asp-action="ViewCliente">
+                            Reclamações<i class="fa fa-inbox" aria-hidden="true"></i>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -212,7 +214,7 @@
     <!-- Template Main JS File -->
     <script src="~/TemplMain/assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.4.1/vanilla-tilt.min.js"></script>
-   
+
     @*<script src="~/js/site.js" asp-append-version="true"></script> POR VERIFICAR-->*@
 
     @RenderSection("Scripts", required: false)

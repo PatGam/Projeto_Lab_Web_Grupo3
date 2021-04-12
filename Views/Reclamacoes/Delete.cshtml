@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Delete";
-    Layout = "_LayoutAdmin";
+    Layout = "_LayoutPData";
 }
 
 <section id="main-content">
@@ -17,10 +17,10 @@
                 <section class="panel">
                     <table class="table table-bordered">
                         <tr>
-                            <th >
+                            <th>
                                 @Html.DisplayNameFor(model => model.Descricao)
                             </th>
-                            <td >
+                            <td>
                                 @Html.DisplayFor(model => model.Descricao)
                             </td>
                         </tr>
@@ -41,7 +41,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th >
+                            <th>
                                 @Html.DisplayNameFor(model => model.DataResposta)
                             </th>
                             <td>
@@ -52,17 +52,39 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.EstadoResposta)
                             </th>
-                            <td>
-                                @Html.DisplayFor(model => model.EstadoResposta)
-                            </td>
+
+                            @if (Model.EstadoResposta == true)
+                            {
+                                <td class="col-sm-7">
+                                    Sim
+                                </td>
+ }
+                            else
+                            {
+                                <td class="col-sm-7">
+                                    Não
+                                </td>
+                            }
+
+
+
                         </tr>
                         <tr>
                             <th>
                                 @Html.DisplayNameFor(model => model.EstadoResolução)
                             </th>
-                            <td>
-                                @Html.DisplayFor(model => model.EstadoResolução)
-                            </td>
+                            @if (Model.EstadoResolução == true)
+                            {
+                                <td class="col-sm-7">
+                                    Sim
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="col-sm-7">
+                                    Não
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <th>
@@ -72,30 +94,15 @@
                                 @Html.DisplayFor(model => model.DataResolucao)
                             </td>
                         </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Cliente)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Cliente.Nome)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Funcionario)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Funcionario.Nome)
-                            </td>
-                        </tr>
 
-                        
+
+
                     </table>
 
                     <form asp-action="Delete">
                         <input type="hidden" asp-for="ReclamacaoId" />
-                        <input type="submit" value="Arquivar" class="btn btn-danger" /> |
-                        <a asp-action="Index">Cancelar</a>
+                        <input type="submit" value="Marcar Como Resolvida" class="btn btn-primary" /> |
+                        <a asp-action="ViewCliente"  class="btn btn-warning">Cancelar</a>
                     </form>
                 </section>
             </div>

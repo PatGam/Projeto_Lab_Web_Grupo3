@@ -32,7 +32,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             var natalM = GaranteExistenciaPromocoes(bd, "NatalM", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes médios", new DateTime(2020, 12, 01), new DateTime(2021, 01, 31), 4, 99m, false);
             var natalL = GaranteExistenciaPromocoes(bd, "NatalL", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes grandes", new DateTime(2020, 12, 01), new DateTime(2021, 01, 31), 5, 99m, false);
 
-           //-----------------------CLIENTES-------------------------------------------
+            //-----------------------CLIENTES-------------------------------------------
 
             //Clientes de Aveiro
             var aveirocliente1 = GaranteUtilizadores(bd, "Eduardo Pires", "237051974", new DateTime(2000, 01, 19), "Sargento Mor", "921233367", "eduardo.pires@RD-Telecom.com", "3020-740", "Cliente", false, "Aveiro", new DateTime(2020, 08, 05), 0, 1);
@@ -41,7 +41,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             var aveirocliente4 = GaranteUtilizadores(bd, "Bernardo Ribeiro", "291231438", new DateTime(1969, 03, 25), "Avenida Manuel Álvaro Lopes Pereira", "929662587", "bernado.ribeiro@RD-Telecom.com", "3800-625", "Cliente", false, "Aveiro", new DateTime(2020, 10, 17), 0, 1);
             var aveirocliente5 = GaranteUtilizadores(bd, "Amadeu Almeida", "249861585", new DateTime(1979, 07, 16), "Avenida do Doutor Lourenço Peixinho", "921212245", "amadeu.almeida@RD-Telecom.com", "3804-501", "Cliente", false, "Aveiro", new DateTime(2020, 12, 28), 0, 1);
             var aveirocliente6 = GaranteUtilizadores(bd, "José Socrates", "269768807", new DateTime(1958, 05, 05), "Viela da Capela", "920128801", "jose.socrates@RD-Telecom.com", "3810-002", "Cliente", false, "Aveiro", new DateTime(2020, 08, 17), 0, 1);
-            var aveirocliente7  = GaranteUtilizadores(bd, "Ana Brito", "243552530", new DateTime(2000, 09, 04), "Rua do Jardim", "929630030", "ana.brito@RD-Telecom.com", "3054-001", "Cliente", false, "Aveiro", new DateTime(2020, 08, 19), 0, 1);
+            var aveirocliente7 = GaranteUtilizadores(bd, "Ana Brito", "243552530", new DateTime(2000, 09, 04), "Rua do Jardim", "929630030", "ana.brito@RD-Telecom.com", "3054-001", "Cliente", false, "Aveiro", new DateTime(2020, 08, 19), 0, 1);
             var aveirocliente8 = GaranteUtilizadores(bd, "Luís Neto", "205291546", new DateTime(1985, 04, 04), "Avenida Comendador Augusto Martins Pereira", "920256647", "luis.neto@RD-Telecom.com", "3744-002", "Cliente", false, "Aveiro", new DateTime(2020, 08, 28), 0, 1);
             var aveirocliente9 = GaranteUtilizadores(bd, "Freitas do Mondego", "286228831", new DateTime(1975, 02, 08), "Rua do Murtório Rochico ", "961557784", "freitas.mondego@RD-Telecom.com", "3865-299", "Cliente", false, "Aveiro", new DateTime(2020, 10, 02), 0, 1);
             var aveirocliente10 = GaranteUtilizadores(bd, "João Cardoso", "266992528", new DateTime(1958, 12, 27), "Travessa da Lomba", "923298822", "joao.cardoso@RD-Telecom.com", "3865-003", "Cliente", false, "Aveiro", new DateTime(2021, 01, 05), 0, 1); ;
@@ -137,7 +137,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             var evoracliente7 = GaranteUtilizadores(bd, "Ramon Marques", "286791862", new DateTime(1999, 07, 01), "Travessa das Amendoeiras", "920123395", "ramon.marques@RD-Telecom.com", "7090-006", "Cliente", false, "Évora", new DateTime(2020, 10, 03), 0, 7);
             var evoracliente8 = GaranteUtilizadores(bd, "Mariana da Serenidade", "240339380", new DateTime(1999, 01, 01), "Bairro Ferragolo", "922999698", "mariana.serenidade@RD-Telecom.com", "7080-109", "Cliente", false, "Évora", new DateTime(2020, 11, 26), 0, 7);
             var evoracliente9 = GaranteUtilizadores(bd, "Dilma Rosas", "264773268", new DateTime(1958, 09, 21), "Casa de Pau", "920888147", "dilma.rosas@RD-Telecom.com", "7050-634", "Cliente", false, "Évora", new DateTime(2020, 11, 26), 0, 7);
-            var evoracliente10 = GaranteUtilizadores(bd, "Vicente Silva", "249853442", new DateTime(1965, 02, 08), "Largo das Alterações", "931459321", "vicente.silva@RD-Telecom.com", "7000-502", "Cliente", false, "Évora", new DateTime(2021, 01, 26), 0, 7); 
+            var evoracliente10 = GaranteUtilizadores(bd, "Vicente Silva", "249853442", new DateTime(1965, 02, 08), "Largo das Alterações", "931459321", "vicente.silva@RD-Telecom.com", "7000-502", "Cliente", false, "Évora", new DateTime(2021, 01, 26), 0, 7);
             var evoracliente11 = GaranteUtilizadores(bd, "Flascotter Pereira", "250372339", new DateTime(1995, 03, 24), "Rua Francisco Soares Lusitano", "966321010", "flascotter.pereira@RD-Telecom.com", "7004-511", "Cliente", false, "Évora", new DateTime(2021, 01, 26), 0, 7);
             var evoracliente12 = GaranteUtilizadores(bd, "Sara Moedas", "254578870", new DateTime(1956, 05, 05), "Largo dos Colegiais 2", "933299871", "sara.moedas@RD-Telecom.com", "7004-516", "Cliente", false, "Évora", new DateTime(2021, 02, 26), 0, 7);
 
@@ -535,7 +535,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             var setubaloperador9 = GaranteUtilizadores(bd, "Vanessa RD Setúbal", "188485481", new DateTime(1988, 09, 11), "Rua Fernando de Sousa", "923355874", "vanessa.albino@RDtelecom.com", "2844-001", "Operador", false, "Setúbal", new DateTime(2020, 12, 30), 0, 15);
             var setubaloperador10 = GaranteUtilizadores(bd, "Rosa RD Setúbal", "180639439", new DateTime(1975, 02, 11), "2890-200", "920333658", "rosa.amarelo@RDtelecom.com", "2890-200", "Operador", false, "Setúbal", new DateTime(2020, 11, 05), 0, 15);
             var setubaloperador11 = GaranteUtilizadores(bd, "Vanessa RD Setúbal", "164580247", new DateTime(1955, 07, 28), "Estrada Nacional 5", "968321450", "vanessa.roduigues@RDtelecom.com", "2959-501", "Operador", false, "Setúbal", new DateTime(2020, 09, 10), 0, 15);
-            var setubaloperador12= GaranteUtilizadores(bd, "Afonso RD Setúbal", "178949655", new DateTime(1956, 12, 30), "Monte das Parchanas", "968532000", "afonso.pereira@RDtelecom.com", "7595-002", "Operador", false, "Setúbal", new DateTime(2020, 10, 28), 0, 15);
+            var setubaloperador12 = GaranteUtilizadores(bd, "Afonso RD Setúbal", "178949655", new DateTime(1956, 12, 30), "Monte das Parchanas", "968532000", "afonso.pereira@RDtelecom.com", "7595-002", "Operador", false, "Setúbal", new DateTime(2020, 10, 28), 0, 15);
 
             //    //-------------------------- 16 VIANA DO CASTELO-----------------
             var vianaoperador1 = GaranteUtilizadores(bd, "Pedro RD Viana", "283312491", new DateTime(1995, 07, 11), "Largo da Oliveira", "918654654", "pedro.gomes@RDtelecom.com", "4900-003", "Operador", false, "Viana do Castelo", new DateTime(2020, 08, 05), 0, 16);
@@ -636,7 +636,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             var pacoteTvVoz = GarantePacotes(bd, "RD TV e Voz", 25, "Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão", false, new DateTime(2021, 03, 01), 1);
             var pacoteRDFamiliar = GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.", false, new DateTime(2021, 03, 01), 1);
 
-         
+
 
             bd.Contratos.AddRange(new Contratos[] {
 
@@ -894,7 +894,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                      {
                     UtilizadorId = aveirocliente13.UtilizadorId,
                     ClienteId = aveirocliente13.UtilizadorId,
-                    FuncionarioId = aveirooperador11.UtilizadorId,
+                    FuncionarioId = aveiroperador12.UtilizadorId,
                     PacoteId = pacoteRDGaming.PacoteId,
                     PromocoesId = natalM.PromocoesId,
                     DataInicio = natalM.DataInicio,
@@ -909,6 +909,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     CodigoPostal = aveirocliente13.CodigoPostal,
                     DistritosId = aveiro.DistritosId,
                           },
+
 
 
                 //Contratos dos Operadores de Beja
@@ -5203,7 +5204,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
                     DataCriacao = dataInicio,
                     DataInactivo = new DateTime(2020, 12, 30),
                     Imagem = new byte[0],
-                    
+
 
                 };
                 bd.Pacotes.Add(pacotes);
@@ -5217,7 +5218,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
             Promocoes promocoes = bd.Promocoes.FirstOrDefault(c => c.Nome == nome);
             if (promocoes == null)
             {
-                promocoes = new Promocoes { Nome = nome, Descricao = descricao, DataInicio = dataInicio, DataFim = datafim, PromocaoDesc = promocaoDesc, Inactivo = inactivo};
+                promocoes = new Promocoes { Nome = nome, Descricao = descricao, DataInicio = dataInicio, DataFim = datafim, PromocaoDesc = promocaoDesc, Inactivo = inactivo };
                 bd.Promocoes.Add(promocoes);
                 bd.SaveChanges();
             }
@@ -5267,8 +5268,8 @@ namespace Projeto_Lab_Web_Grupo3.Data
             {
                 foreach (var distrito in bd.Distritos)
                 {
-                    distritospacotes.Add(new DistritosPacotes{ PacoteId = pacote.PacoteId, DistritosId = distrito.DistritosId });
-                    
+                    distritospacotes.Add(new DistritosPacotes { PacoteId = pacote.PacoteId, DistritosId = distrito.DistritosId });
+
                 }
             }
             foreach (var item in distritospacotes)
@@ -5283,7 +5284,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         internal static void InsereDistritosPromocoes(Projeto_Lab_WebContext bd)
         {
             if (bd.DistritosPromocoes.Any()) return;
-           
+
             List<DistritosPromocoes> distritospromocoes = new List<DistritosPromocoes>();
 
 

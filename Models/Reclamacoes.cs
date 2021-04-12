@@ -30,6 +30,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
 
         public bool EstadoResposta { get; set; }
 
+        public int ContratoId { get; set; }
         public bool EstadoResolução { get; set; }
 
         [DataType(DataType.Date)]
@@ -41,6 +42,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public int FuncionarioId { get; set; }
 
 
+
         [ForeignKey(nameof(ClienteId))]
         [InverseProperty(nameof(Utilizadores.ReclamacoesCliente))]
         public virtual Utilizadores Cliente { get; set; }
@@ -48,9 +50,12 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [ForeignKey(nameof(FuncionarioId))]
         [InverseProperty(nameof(Utilizadores.ReclamacoesFuncionario))]
         public virtual Utilizadores Funcionario { get; set; }
-
+        [Display(Name ="Arquivado")]
         public bool Inactivo { get; set; }
 
 
+        [ForeignKey(nameof(ContratoId))]
+        [InverseProperty("Reclamacao")]
+        public virtual Contratos Contratos { get; set; }
     }
 }
