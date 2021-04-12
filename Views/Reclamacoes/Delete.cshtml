@@ -5,107 +5,114 @@
     Layout = "_LayoutPData";
 }
 
-<section id="main-content">
-    <section class="wrapper">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="page-header">Arquivar Reclamação</h3>
+<container>
+    <div class="container bg-white mt-5 mb-5 ">
+        <div class="row offset-3">
+            <div class="col-lg-7">
+                <div class="p-3 m-t-25 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Arquivar Reclamação</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <section class="panel">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Descricao)
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Descricao)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataReclamacao)
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(model => model.DataReclamacao)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Resposta)
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Resposta)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataResposta)
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(model => model.DataResposta)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EstadoResposta)
+                                        </th>
+
+                                        @if (Model.EstadoResposta == true)
+                                        {
+                                            <td class="col-sm-7">
+                                                Sim
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td class="col-sm-7">
+                                                Não
+                                            </td>
+                                        }
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EstadoResolução)
+                                        </th>
+                                        @if (Model.EstadoResolução == true)
+                                        {
+                                            <td class="col-sm-7">
+                                                Sim
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td class="col-sm-7">
+                                                Não
+                                            </td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataResolucao)
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(model => model.DataResolucao)
+                                        </td>
+                                    </tr>
+
+
+
+                                </table>
+
+                                <form asp-action="Delete">
+                                    <input type="hidden" asp-for="ReclamacaoId" />
+                                    <input type="submit" value="Marcar Como Resolvida" class="btn btn-primary" /> |
+                                    <a asp-area="" asp-controller="Reclamacoes" asp-action="Create" class="btn btn-primary">
+                                        Enviar nova reclamação
+                                    </a> |
+                                    <a asp-action="ViewCliente" class="btn btn-warning">Cancelar</a>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <section class="panel">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Descricao)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Descricao)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DataReclamacao)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.DataReclamacao)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Resposta)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.Resposta)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DataResposta)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.DataResposta)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.EstadoResposta)
-                            </th>
-
-                            @if (Model.EstadoResposta == true)
-                            {
-                                <td class="col-sm-7">
-                                    Sim
-                                </td>
- }
-                            else
-                            {
-                                <td class="col-sm-7">
-                                    Não
-                                </td>
-                            }
-
-
-
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.EstadoResolução)
-                            </th>
-                            @if (Model.EstadoResolução == true)
-                            {
-                                <td class="col-sm-7">
-                                    Sim
-                                </td>
-                            }
-                            else
-                            {
-                                <td class="col-sm-7">
-                                    Não
-                                </td>
-                            }
-                        </tr>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DataResolucao)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(model => model.DataResolucao)
-                            </td>
-                        </tr>
-
-
-
-                    </table>
-
-                    <form asp-action="Delete">
-                        <input type="hidden" asp-for="ReclamacaoId" />
-                        <input type="submit" value="Marcar Como Resolvida" class="btn btn-primary" /> |
-                        <a asp-action="ViewCliente"  class="btn btn-warning">Cancelar</a>
-                    </form>
-                </section>
-            </div>
-        </div>
-    </section>
-</section>
+    </div>
+</container>

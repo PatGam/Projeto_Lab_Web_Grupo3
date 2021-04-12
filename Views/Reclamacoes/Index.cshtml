@@ -64,12 +64,18 @@
                                             @Html.DisplayNameFor(model => model.DataReclamacao)
                                         </th>
                                         <th>
-                                            @Html.DisplayNameFor(model => model.Cliente.Nome)
+                                            @Html.DisplayNameFor(model => model.Cliente)
                                         </th>
                                         <th>
                                             @Html.DisplayNameFor(model => model.Inactivo)
                                         </th>
 
+
+
+
+
+
+                                    <tr />
 
 
                                 </thead>
@@ -86,7 +92,7 @@
                                                 @Html.DisplayFor(modelItem => item.DataReclamacao)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Cliente)
+                                                @Html.DisplayFor(model => model.Cliente)
                                             </td>
                                             @if (item.Inactivo == false)
                                             {
@@ -100,10 +106,6 @@
                                                     Sim
                                                 </td>
                                             }
-
-
-                                            
-
 
 
 
