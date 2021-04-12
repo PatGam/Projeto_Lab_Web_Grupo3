@@ -77,6 +77,9 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             var promocoes = await bd.PromocoesPacotes.Where(m => m.PacoteId == id)
                 .Include(l => l.Promocoes)
                 .ToListAsync();
+            var distritos = await bd.DistritosPacotes.Where(m => m.PacoteId == id)
+                .Include(l => l.Distritos)
+                .ToListAsync();
 
             if (pacotes == null)
             {
@@ -88,6 +91,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                 Pacotes = pacotes,
                 ServicosPacotes = servicos,
                 PromocoesPacotes = promocoes,
+                DistritosPacotes = distritos,
             };
 
 

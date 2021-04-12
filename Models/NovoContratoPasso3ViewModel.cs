@@ -28,6 +28,8 @@ namespace Projeto_Lab_Web_Grupo3.Models
         
         public string CodigoPostal { get; set; }
 
+        [Display(Name = "Pacote utilizado")]
+
         public int PacoteId { get; set; }
 
 
