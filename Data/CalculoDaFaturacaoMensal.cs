@@ -9,7 +9,63 @@ namespace Projeto_Lab_Web_Grupo3.Data
 {
     public class CalculoDaFaturacaoMensal
     {
-        internal static void CalculoFaturacaoOperadores(Projeto_Lab_WebContext bd)
+        internal static void CalculoFaturacaoOperadoresMensal(Projeto_Lab_WebContext bd)
+        {
+
+            DateTime hoje = DateTime.Today;
+            DateTime mespassado = hoje.AddMonths(-1);
+            int mes = mespassado.Month;
+            int ano = mespassado.Year;
+            decimal lucromensal = 0;
+
+            DateTime primeirodiamespassado = new DateTime(ano, mes, 1);
+            DateTime primeirodiamescorrente = new DateTime(hoje.Year, hoje.Month, 1);
+            List<FaturacaoOperadores> faturacaomensal = new List<FaturacaoOperadores>();
+
+            foreach (var item in bd.FaturacaoOperadores)
+            {
+                if (item.Mes == mes && item.Ano == ano)
+                {
+                    faturacaomensal.Add(item);
+                }
+            }
+            if (faturacaomensal.Count == 0)
+            {
+                List<FaturacaoOperadores> faturacaoOperadores = new List<FaturacaoOperadores>();
+
+                List<Utilizadores> operadores = new List<Utilizadores>();
+                foreach (var item in bd.Utilizadores)
+                {
+                    if (item.Role == "Operador")
+                        operadores.Add(item);
+                }
+
+                foreach (var operador in operadores)
+                {
+                    foreach (var contrato in bd.Contratos)
+                    {
+                        if (contrato.DataInicio >= primeirodiamespassado && contrato.DataInicio < primeirodiamescorrente)
+                        {
+                            if (contrato.FuncionarioId == operador.UtilizadorId)
+                            {
+                                lucromensal += contrato.PrecoFinal;
+                            }
+                        }
+                    }
+                    faturacaoOperadores.Add(new FaturacaoOperadores() { UtilizadorId = operador.UtilizadorId, TotalFaturacao = lucromensal, Mes = mes, Ano = ano, NomeMes = NomesDoMes(mes) });
+                    lucromensal = 0;
+                }
+
+                foreach (var item in faturacaoOperadores)
+                {
+                    bd.FaturacaoOperadores.Add(item);
+
+                }
+                bd.SaveChanges();
+            }
+
+        }
+            internal static void CalculoFaturacaoOperadoresTeste(Projeto_Lab_WebContext bd)
         {
             if (bd.FaturacaoOperadores.Any()) return;
 

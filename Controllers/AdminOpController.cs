@@ -21,13 +21,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
         private readonly Projeto_Lab_WebContext bd;
         private readonly IEmailSender _emailSender;
-
+        
 
         public AdminOpController(IEmailSender emailSender, IWebHostEnvironment env, Projeto_Lab_WebContext context)
         {
             bd = context;
             _emailSender = emailSender;
-
+           
         }
 
 
@@ -59,13 +59,12 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             if(enviado==false)
             {
                 string email; string assunto; string mensagem;
-                for (int i = 0; i < 10; i++)
+                foreach (var item in bd.Contratos)
+      
                 {
-                    //var cliente = await bd.Utilizadores.FirstOrDefaultAsync(m => m.UtilizadorId == item.UtilizadorId);
-                    decimal preco = 20;
-                    //decimal preco = item.PrecoFinal;
-                    //email = cliente.Email;
-                    email = "patriciaimpressoes@gmail.com";
+                    var cliente = await bd.Utilizadores.FirstOrDefaultAsync(m => m.UtilizadorId == item.UtilizadorId);
+                    decimal preco = item.PrecoFinal;
+                    email = cliente.Email;
 
                     string NomeMes = NomesDoMes(mes);
                     assunto = "Faturação RD Telecom";
@@ -194,13 +193,35 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(modelo);
         }
 
-        public async Task<IActionResult> ContaPessoal()
+        public async Task<IActionResult> ContaPessoal(int ano)
         {
-
+            DateTime hoje = DateTime.Today;
+            int anoCorrente = hoje.Year;
+            if (ano == 0)
+            {
+                ano = anoCorrente;
+            }
             var funcionario = bd.Utilizadores.SingleOrDefault(c => c.Email == User.Identity.Name);
 
             List<FaturacaoOperadores> faturacaoDoOperador = await bd.FaturacaoOperadores
                 .Where(p => p.UtilizadorId == funcionario.UtilizadorId)
+                .OrderBy(p => p.Ano)
+                .ThenBy(p => p.Mes)
+                .ToListAsync();
+
+            var PrimeiroContrato = faturacaoDoOperador.First();
+            int PrimeiroAno = PrimeiroContrato.Ano;
+
+            List<int> Anos = new List<int>();
+            for (int i = PrimeiroAno; i <= anoCorrente; i++)
+            {
+                Anos.Add(i);
+            }
+
+            ViewData["Anos"] = new SelectList(Anos);
+
+            List<FaturacaoOperadores> faturacaoDoOperadorPorAno = await bd.FaturacaoOperadores
+                .Where(p => p.UtilizadorId == funcionario.UtilizadorId && p.Ano == ano)
                 .OrderBy(p => p.Ano)
                 .ThenBy(p=> p.Mes)
                 .ToListAsync();
@@ -210,11 +231,13 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             var distrito = bd.Distritos.SingleOrDefault(c => c.DistritosId == funcionario.DistritosId);
 
+
             FaturacaoMensalViewModel faturacaoMensalViewModel = new FaturacaoMensalViewModel
             {
                 distrito = distrito,
                 funcionario = funcionario,
-                faturacaoOperadores = faturacaoDoOperador
+                faturacaoOperadores = faturacaoDoOperadorPorAno,
+                ano = ano
             };
 
             return View(faturacaoMensalViewModel);
