@@ -14,6 +14,10 @@ namespace Projeto_Lab_Web_Grupo3.Models
         
         public Distritos distrito { get; set; }
 
+        public int ano { get; set; }
+
+        public string id { get; set; }
+
 
     }
 }
