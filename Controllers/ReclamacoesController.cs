@@ -229,7 +229,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                ViewBag.Mensagem = "Resposta enviada com sucesso";
+                return View("SucessoOperador");
             }
 
 
@@ -321,7 +322,8 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             reclamacoes.Inactivo = true;
             bd.Update(reclamacoes);
             await bd.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Mensagem = "Reclamação arquivada com sucesso";
+            return View("Sucesso");
 
         }
         private bool ReclamacoesExists(int id)
