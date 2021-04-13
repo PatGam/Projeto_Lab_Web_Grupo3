@@ -25,7 +25,7 @@ namespace Projeto_Lab_Web_Grupo3.Models
         public DateTime DataResposta { get; set; }
 
         public bool EstadoResposta { get; set; }
-        [Display(Name = "Estado Resolução")]
+        [Display(Name = "Resolvido")]
         public bool EstadoResolução { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Data de Resolução")]
