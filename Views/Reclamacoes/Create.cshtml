@@ -31,31 +31,16 @@
                                             <div class="col-lg-7">
                                                 <div class="p-3 m-t-25 py-5">
 
-                                                    @*<div class="form-group">
-                                                        
-                                                        <label asp-for="ClienteId" class="col-sm-2 control-label"></label>
-                                                        <div class="col-sm-10">
-                                                            <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
-                                                        </div>
 
-
-                                                    </div>*@
                                                     <div class="form-group">
+                                                        <p>Enviar nova reclamação:</p>
                                                         <label for="exampleFormControlTextarea1" class="col-sm-2 control-label" asp-for="Descricao"></label>
                                                         <div class="col-sm-10">
                                                             <textarea type="text" id="exampleFormControlTextarea1" rows="3" asp-for="Descricao" class="form-control"></textarea>
                                                             <span asp-validation-for="Descricao" class="text-danger"></span>
                                                         </div>
                                                     </div>
-                                                    @*<div class="form-group">
-                                                        <label asp-for="DataReclamacao" class="col-sm-2 control-label"></label>
-                                                        <div class="col-sm-10">
-                                                            <input asp-for="DataReclamacao" class="form-control" />
-                                                            <span asp-validation-for="DataReclamacao" class="text-danger"></span>
 
-                                                        </div>
-
-                                                    </div>*@
 
                                                     <div class="col-lg-offset-2 col-lg-10">
                                                         <input type="submit" class="btn btn-primary" value="Enviar Reclamação" />

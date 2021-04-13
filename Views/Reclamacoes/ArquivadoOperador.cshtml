@@ -56,9 +56,7 @@
                                         <th>
                                             @Html.DisplayNameFor(model => model.Cliente)
                                         </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Inactivo)
-                                        </th>
+
 
 
 
@@ -82,20 +80,9 @@
                                                 @Html.DisplayFor(modelItem => item.DataReclamacao)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(model => model.Cliente)
+                                                @Html.DisplayFor(modelItem => item.Cliente.Nome)
                                             </td>
-                                            @if (item.Inactivo == false)
-                                            {
-                                                <td class="text-center">
-                                                    Não
-                                                </td>
-                                            }
-                                            else
-                                            {
-                                                <td class="text-center">
-                                                    Sim
-                                                </td>
-                                            }
+
 
 
 
