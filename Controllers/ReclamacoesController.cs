@@ -38,6 +38,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             };
 
             List<Reclamacoes> reclamacoes = await bd.Reclamacoes.Where(p => nomePesquisar == null || p.Cliente.Nome.Contains(nomePesquisar) || p.Cliente.Nif.Contains(nomePesquisar))
+                .Where(p => p.Inactivo == false)
                   .OrderBy(p => p.Cliente.Nome)
 
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
@@ -54,6 +55,36 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
 
             return base.View(modelo);
         }
+        public async Task<IActionResult> ArquivadoOperador(string nomePesquisar, int pagina = 1)
+        {
+
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await bd.Reclamacoes
+
+                         .CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Reclamacoes> reclamacoes = await bd.Reclamacoes.Where(p => p.Inactivo == true || p.Cliente.Nome.Contains(nomePesquisar) || p.Cliente.Nif.Contains(nomePesquisar))
+                
+                  .OrderBy(p => p.Cliente.Nome)
+
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+
+            ReclamacoesViewModel ArquivadoOperador = new ReclamacoesViewModel
+            {
+                Paginacao = paginacao,
+                Reclamacoes = reclamacoes,
+                NomePesquisar = nomePesquisar
+            };
+
+            return View(ArquivadoOperador);
+        }
+
         // GET: Reclamacoes
 
         public async Task<IActionResult> ViewCliente()
@@ -110,22 +141,22 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Cliente")]
-        public async Task<IActionResult> Create(ReclamacoesViewModel reclamacoesViewModel, Reclamacoes reclamacao, int  id)
+        public async Task<IActionResult> Create(ReclamacoesViewModel reclamacoesViewModel, Reclamacoes reclamacao, int id)
         {
             if (ModelState.IsValid)
             {
                 var cliente = bd.Utilizadores.SingleOrDefault(c => c.Email == User.Identity.Name);
                 var contrato = bd.Contratos.SingleOrDefault(c => c.UtilizadorId == cliente.UtilizadorId);
-                
+
                 reclamacao.Cliente = cliente;
-                
+
                 reclamacao.ContratoId = contrato.ContratoId;
                 reclamacao.FuncionarioId = contrato.FuncionarioId;
 
                 reclamacao.EstadoResolução = false;
                 reclamacao.EstadoResposta = false;
                 reclamacao.DataReclamacao = DateTime.Now;
-                
+
                 reclamacao.Inactivo = false;
                 reclamacao.Descricao = reclamacoesViewModel.Descricao;
                 reclamacao.ReclamacaoId = reclamacoesViewModel.ReclamacaoId;
@@ -159,14 +190,14 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             reclamacoesViewModel.ContratoId = reclamacao.ContratoId;
             reclamacoesViewModel.ClienteId = reclamacao.ClienteId;
             reclamacoesViewModel.Resposta = reclamacao.Resposta;
-            
-        
+
+
             reclamacoesViewModel.EstadoResposta = reclamacao.EstadoResposta;
             reclamacoesViewModel.EstadoResolução = reclamacao.EstadoResolução;
-       
-            
 
-            
+
+
+
 
 
 
