@@ -13,68 +13,80 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Minhas Reclamações</h4>
                     </div>
-                    <table class="table table-striped table-advance table-hover">
-                        <thead>
-
+                    @if (Model.Reclamacoes.Count == 0)
+                    {
+                        <table class="table table-striped table-advance table-hover">
                             <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Resposta)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.DataResposta)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Inactivo)
-                                </th>
-
-                                <th>
-                                    @Html.DisplayNameFor(model => model.DataResolucao)
-                                </th>
-
+                                <td>Não existem reclamações a mostrar.</td>
                             </tr>
+                        </table>
+                    }
+                    else
+                    {
+                        <table class="table table-striped table-advance table-hover">
+                            <thead>
 
-
-
-                        <thead />
-
-
-
-                        @foreach (var item in Model.Reclamacoes)
-                        {
-                            <tbody>
                                 <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Resposta)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DataResposta)
-                                    </td>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Resposta)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DataResposta)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inactivo)
+                                    </th>
 
-
-                                    @if (item.Inactivo == true)
-                                    {
-                                        <td class="text-center">
-                                            Sim
-                                        </td>
-                                    }
-                                    else
-                                    {
-                                        <td class="text-center">
-                                            Não
-                                        </td>
-                                    }
-
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DataResolucao)
-                                    </td>
-
-                                    <td><a  asp-action="Delete" asp-route-id="@item.ReclamacaoId">Ver Detalhes</a> </td>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DataResolucao)
+                                    </th>
 
                                 </tr>
-                           
-                            </tbody>
-                        }
-                    </table>
+
+
+
+                            <thead />
+
+
+
+                            @foreach (var item in Model.Reclamacoes)
+                            {
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Resposta)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataResposta)
+                                        </td>
+
+
+                                        @if (item.Inactivo == true)
+                                        {
+                                            <td class="text-center">
+                                                Sim
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-center">
+                                                Não
+                                            </td>
+                                        }
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataResolucao)
+                                        </td>
+
+                                        <td><a asp-action="Delete" asp-route-id="@item.ReclamacaoId">Ver Detalhes</a> </td>
+
+                                    </tr>
+
+                                </tbody>
+                            }
+                        </table>
+                    }
+
                 </div>
             </div>
         </div>
