@@ -1042,28 +1042,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
             }
         }
 
-
-
-
-        //-------------------TIPOS DE CLIENTES--------------------------
-
-        private static void InsereTiposClientes(Projeto_Lab_WebContext bd)
-
-        {
-            GaranteExistenciaTiposClientes(bd, "Particular");
-            GaranteExistenciaTiposClientes(bd, "Empresa");
-        }
-        internal static void GaranteExistenciaTiposClientes(Projeto_Lab_WebContext bd, string nome)
-        {
-            Tipos_Clientes tipos_Clientes = bd.Tipos_Clientes.FirstOrDefault(c => c.Nome == nome);
-            if (tipos_Clientes == null)
-            {
-                tipos_Clientes = new Tipos_Clientes { Nome = nome };
-                bd.Tipos_Clientes.Add(tipos_Clientes);
-                bd.SaveChanges();
-            }
-        }
-
         //---------------------------------PromocoesPacotes------------------------------
         private static void InserePromocoesPacotes(Projeto_Lab_WebContext bd)
         {
@@ -1206,202 +1184,7 @@ namespace Projeto_Lab_Web_Grupo3.Data
         }
 
 
-        //private static void InsereContratos(Projeto_Lab_WebContext bd)
-        //{
-        //    //var pedro = GaranteUtilizadores(bd, "Pedro Machado", "212545585", new DateTime(1971, 07, 14), "Colónia Agrícola Casal 63", "935559453", "pedromachado@RD-Telecom.com", "3870-358", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 14);
-        //    //var joaquim = GaranteUtilizadores(bd, "Joaquim Mendez", "532344565", new DateTime(1987, 12, 24), "R Indústria Porta 47", "915556899", "joaquimmendez@outlook.com", "3300-040", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 15);
-        //    //var sandra = GaranteUtilizadores(bd, "Sandra Vieira", "221344545", new DateTime(1977, 02, 23), "R Poeta João Ruiz 6", "929355531", "sandravieira@RD-Telecom.com", "6230-355", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 16);
-        //    //var sara = GaranteUtilizadores(bd, "Sara Siqueira", "543333222", new DateTime(1977, 01, 22), "R Doutor Alfredo Freitas 108", "915551820", "sarasiqueiraa@RD-Telecom.com", "3700-501", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 17);
-        //    //var nelson = GaranteUtilizadores(bd, "Nelson Ramos", "321123456", new DateTime(1945, 07, 10), "R Indústria Porta 56", "929455563", "nelsonramos@outlook.com", "3220-066", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 18);
-        //    //var danilo = GaranteUtilizadores(bd, "Danilo Pires", "332223455", new DateTime(1999, 06, 26), "Rua Jorge Sena 99", "965559604", "danilopires@live.com", "2650-499", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 19);
-        //    //var monica = GaranteUtilizadores(bd, "Mônica Torres", "344321789", new DateTime(197, 02, 05), "Avenida Guerra Junqueiro 114", "921555922", "monicatorres@RD-Telecom.com", "2610-116", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 20);
-        //    //var daniela = GaranteUtilizadores(bd, "Daniela Mata", "698767555", new DateTime(1974, 03, 13), "R Portela 64", "915551704", "daielamata@RD-Telecom.com", "3550-171", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 3);
-        //    //var virgilio = GaranteUtilizadores(bd, "Virgílio Abreu", "678567454", new DateTime(1987, 04, 16), "R Padre João A L Ribeiro 88", "915559352", "virgilio_abreu@outlook.com", "3440-376", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 2);
-        //    //var martim = GaranteUtilizadores(bd, "Martim Moniz", "612345432", new DateTime(1984, 08, 15), "R Poeta João Ruiz 90", "929455556", "martim_moniz@live.com", "6230-691", "Cliente", false, "Anadia", new DateTime(2020, 01, 01), 0, 1);
-
-        //    var operador1 = GaranteUtilizadores(bd, "Nuno Forte", "255255212", new DateTime(1998, 09, 29), "Rua das Flores", "925258737", "nuno_rpf@RDtelecom.com", "6300-706", "Operador", false, "Anadia", new DateTime(2020, 01, 01), 0, 4);
-        //    var operador2 = GaranteUtilizadores(bd, "João Matos", "224443321", new DateTime(1970, 04, 21), "Rua da Maurícia Aradas", "965111755", "joao_matos@RDtelecom.com", "3810-433", "Operador", false, "Anadia", new DateTime(2020, 01, 01), 0, 5);
-        //    var operador3 = GaranteUtilizadores(bd, "Maria de Fátima", "256678987", new DateTime(1963, 02, 02), "Rua da Prata", "927895737", "m.fatima@RDtelecom.com", "1149-005", "Operador", false, "Anadia", new DateTime(2020, 01, 01), 0, 6);
-
-        //    var pacoteRD4 = GarantePacotes(bd, "Pacote RD4", 55, "O pacote RD4 destacou-se por apresentar a melhor relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade", false, new DateTime(2021, 03, 01),1);
-        //    var pacoteRD3 = GarantePacotes(bd, "Pacote RD3", 45, "O pacote RD3 destacou-se por apresentar a uma ótima relação do mercado entre velocidade de internet, número de canais de televisão disponibilizados e minutos em chamadas no telefone fixo face à mensalidade para quem não quer ter um telemóvel associado ao pacote.", false, new DateTime(2021, 03, 01),1);
-        //    var pacoteRDGaming = GarantePacotes(bd, "Pacote RD - Gaming", 55, "A oferta Pacote RD - Gaming é ideal para", false, new DateTime(2021, 03, 01),1);
-        //    var pacoteRDGPremium = GarantePacotes(bd, "Pacote RD - TV Premium + gaming", 65, "A oferta Pacote RD - TV Premium + gaming destacou - se na categoria de “Melhor pacote para Gaming” por apresentar a melhor relação ao nível do número de canais dedicado ao universo cinematográfico(canais base, exclusivos e premium) face ao custo mensal, bem como uma internet de alta velocidade para não haver falhas durante os jogos.", false, new DateTime(2021, 03, 01), 1);
-        //    var pacoteTvVoz = GarantePacotes(bd, "RD TV e Voz", 25, "Este Pacote RD TV e Voz é ideal para os clientes que querem ver televisão", false, new DateTime(2021, 03, 01), 1);
-        //    var pacoteRDFamiliar = GarantePacotes(bd, "RD Familiar", 45, "Pacote ideal para os momentos de lazer em família.", false, new DateTime(2021, 03, 01), 1);
-
-
-        //    var pascoaS = GaranteExistenciaPromocoes(bd, "PascoaS", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes pequenos", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 2, 99m, false, 1);
-        //    var pascoaM = GaranteExistenciaPromocoes(bd, "PascoaM", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes médios", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 3, 99m, false, 2);
-        //    var pascoaL = GaranteExistenciaPromocoes(bd, "PascoaL", "Desconto aplicável durante a época da Páscoa para novas adesões, para pacotes grandes", new DateTime(2021, 03, 01), new DateTime(2021, 04, 30), 4, 99m, false, 4);
-        //    var VeraoS = GaranteExistenciaPromocoes(bd, "VerãoS", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes pequenos", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 1, 99m, false, 5);
-        //    var VeraoM = GaranteExistenciaPromocoes(bd, "VerãoM", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes médio", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 2, 59m, false, 3);
-        //    var VeraoL = GaranteExistenciaPromocoes(bd, "VerãoL", "Desconto aplicável durante a época de Verão para novas adesões, para pacotes grandes", new DateTime(2021, 07, 01), new DateTime(2021, 08, 31), 3, 99m, false, 9);
-        //    var NatalS = GaranteExistenciaPromocoes(bd, "NatalS", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes pequenos", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 3, 99m, false, 7);
-        //    var NatalM = GaranteExistenciaPromocoes(bd, "NatalM", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes médios", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 4, 99m, false, 19);
-        //    var NatalL = GaranteExistenciaPromocoes(bd, "NatalL", "Desconto aplicável durante a época de Natal para novas adesões, para pacotes grandes", new DateTime(2021, 12, 01), new DateTime(2022, 01, 31), 5, 99m, false, 5);
-
-
-        //    if (bd.Contratos.Any()) return;
-        //    bd.Contratos.AddRange(new Contratos[] {
-        //            new Contratos
-        //        {
-        //            UtilizadorId= pedro.UtilizadorId,
-        //            ClienteId= pedro.UtilizadorId,
-        //            FuncionarioId=operador1.UtilizadorId,
-        //            PacoteId = pacoteRD3.PacoteId,
-        //            PromocoesId = pascoaL.PromocoesId,
-        //            DataInicio=new DateTime(2021,07,02),
-        //            DataFim=new DateTime(2023,07,02),
-        //            Telefone=213695748,
-        //            PrecoPacote = pacoteRD3.Preco,
-        //            PromocaoDesc = pascoaL.PromocaoDesc,
-        //            PrecoFinal = pacoteRD3.Preco - pascoaL.PromocaoDesc,
-        //            Inactivo = false,
-
-        //        },
-        //    new Contratos
-        //        {
-        //           UtilizadorId= sandra.UtilizadorId,
-        //            ClienteId= sandra.UtilizadorId,
-        //            FuncionarioId=operador2.UtilizadorId,
-        //            PacoteId = pacoteRDGaming.PacoteId,
-        //            PromocoesId = pascoaL.PromocoesId,
-        //            DataInicio=new DateTime(2021,07,03),
-        //            DataFim=new DateTime(2023,07,03),
-        //            Telefone=213695748,
-        //            PrecoPacote = pacoteRDGaming.Preco,
-        //            PromocaoDesc = pascoaL.PromocaoDesc,
-        //            PrecoFinal = pacoteRDGaming.Preco - pascoaL.PromocaoDesc,
-        //            Inactivo = false,
-
-        //        },
-        //     new Contratos
-        //        {
-        //            UtilizadorId= monica.UtilizadorId,
-        //            ClienteId= monica.UtilizadorId,
-        //            FuncionarioId=operador2.UtilizadorId,
-        //            PacoteId = pacoteRDGaming.PacoteId,
-        //            PromocoesId = pascoaL.PromocoesId,
-        //            DataInicio=new DateTime(2021,07,02),
-        //            DataFim=new DateTime(2023,07,02),
-        //            Telefone=215421367,
-        //            PrecoPacote = pacoteRDGaming.Preco,
-        //            PromocaoDesc = pascoaL.PromocaoDesc,
-        //            PrecoFinal = pacoteRDGaming.Preco - pascoaL.PromocaoDesc,
-        //            Inactivo = false,
-        //     },
-
-
-
-        //     //new Contratos
-        //     //   {
-        //     //       //ContratoId=4,
-        //     //       ClienteId=4,
-        //     //       FuncionarioId=8,
-        //     //       DataInicio=new DateTime(2021,07,03),
-        //     //       PrecoFinal=42.41m,
-        //     //       DataFim=new DateTime(2023,07,03),
-        //     //       PromocoesPacotes=2,
-        //     //       PrecoPacote=45.00m,
-        //     //       PromocaoDesc=2.59m,
-        //     //       NomeCliente="Sara Siqueira",
-        //     //       NomeFuncionario="Paula Melo",
-        //     //       Telefone=219632541,
-        //     //   },
-        //     //new Contratos
-        //     //   {
-        //     //       //ContratoId=5,
-        //     //       ClienteId=5,
-        //     //       FuncionarioId=7,
-        //     //       DataInicio=new DateTime(2021,03,05),
-        //     //       PrecoFinal=60.01m,
-        //     //       DataFim=new DateTime(2023,03,05),
-        //     //       PromocoesPacotes=4,
-        //     //       PrecoPacote=65.00m,
-        //     //       PromocaoDesc=4.99m,
-        //     //       NomeCliente="Nelson Ramos",
-        //     //       NomeFuncionario="Luís Madeira",
-        //     //       Telefone=213564789,
-        //     //   },
-        //     //new Contratos
-        //     //   {
-        //     //       //ContratoId=6,
-        //     //       ClienteId=6,
-        //     //       FuncionarioId=7,
-        //     //       DataInicio=new DateTime(2021,03,25),
-        //     //       PrecoFinal=51.01m,
-        //     //       DataFim=new DateTime(2023,03,25),
-        //     //       PromocoesPacotes=5,
-        //     //       PrecoPacote=50.00m,
-        //     //       PromocaoDesc=3.99m,
-        //     //       NomeCliente="Danilo Pires",
-        //     //       NomeFuncionario="Luís Madeira",
-        //     //       Telefone=215632123,
-        //     //   },
-        //     //new Contratos
-        //     //   {
-        //     //       //ContratoId=7,
-        //     //       ClienteId=7,
-        //     //       FuncionarioId=6,
-        //     //       DataInicio=new DateTime(2021,04,01),
-        //     //       PrecoFinal=22.01m,
-        //     //       DataFim=new DateTime(2023,04,01),
-        //     //       PromocoesPacotes=6,
-        //     //       PrecoPacote=25.00m,
-        //     //       PromocaoDesc=2.99m,
-        //     //       NomeCliente="Mônica Torres",
-        //     //       NomeFuncionario="Inês Reis",
-        //     //       Telefone=213154689,
-        //     //   },
-        //     //new Contratos
-        //     //   {
-        //     //       //ContratoId=8,
-        //     //       ClienteId=8,
-        //     //       FuncionarioId=10,
-        //     //       DataInicio=new DateTime(2021,07,03),
-        //     //       PrecoFinal=42.41m,
-        //     //       DataFim=new DateTime(2023,07,03),
-        //     //       PromocoesPacotes=2,
-        //     //       PrecoPacote=45.00m,
-        //     //       PromocaoDesc=2.59m,
-        //     //       NomeCliente="Daniela Mata",
-        //     //       NomeFuncionario="Marta Machado",
-        //     //       Telefone=216335559,
-        //     //   },
-        //     //new Contratos
-        //     //   {
-        //     //       //ContratoId=9,
-        //     //       ClienteId=9,
-        //     //       FuncionarioId=1,
-        //     //       DataInicio=new DateTime(2021,08,01),
-        //     //       PrecoFinal=61.01m,
-        //     //       DataFim=new DateTime(2023,08,01),
-        //     //       PromocoesPacotes=1,
-        //     //       PrecoPacote=65.00m,
-        //     //       PromocaoDesc=3.99m,
-        //     //       NomeCliente="Virgílio Abreu",
-        //     //       NomeFuncionario="Nuno Forte",
-        //     //       Telefone=211145965,
-        //     //   },
-        //     //new Contratos
-        //     //   {
-        //     //       //ContratoId=10,
-        //     //       ClienteId=10,
-        //     //       FuncionarioId=3,
-        //     //       DataInicio=new DateTime(2021,08,04),
-        //     //       PrecoFinal=61.01m,
-        //     //       DataFim=new DateTime(2023,08,04),
-        //     //       PromocoesPacotes=1,
-        //     //       PrecoPacote=65.00m,
-        //     //       PromocaoDesc=3.99m,
-        //     //       NomeCliente="Martim Moniz",
-        //     //       NomeFuncionario="Maria de Fátima",
-        //     //       Telefone=215648565,
-        //     //   },
-        //  });
-        //    bd.SaveChanges();
-        //}
+       
         private static void InsereReclamacoes(Projeto_Lab_WebContext bd)
         {
 
@@ -1578,7 +1361,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
             await CriaRoleSeNecessario(gestorRoles, ROLE_ADIMINISTRADOR);
             await CriaRoleSeNecessario(gestorRoles, ROLE_CLIENTE);
             await CriaRoleSeNecessario(gestorRoles, ROLE_OPERADOR);
-            //await CriaRoleSeNecessario(gestorRoles, "PodeAlterarPrecoProdutos");
         }
 
         private static async Task CriaRoleSeNecessario(RoleManager<IdentityRole> gestorRoles, string funcao)
@@ -1589,12 +1371,6 @@ namespace Projeto_Lab_Web_Grupo3.Data
                 await gestorRoles.CreateAsync(role);
             }
         }
-
-        //internal static async Task InsereAdministradorPadraoAsync(UserManager<IdentityUser> gestorUtilizadores)
-        //{
-        //    IdentityUser utilizador = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_ADMIN_PADRAO, PASSWORD_UTILIZADOR_ADMIN_PADRAO);
-        //    await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, utilizador, ROLE_ADIMINISTRADOR);
-        //}
 
         private static async Task AdicionaUtilizadorRoleSeNecessario(UserManager<IdentityUser> gestorUtilizadores, IdentityUser utilizador, string role)
         {

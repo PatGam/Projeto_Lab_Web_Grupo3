@@ -56,15 +56,12 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [RegularExpression(@"(2\d{8})", ErrorMessage = "Telefone Inválido")]
         public int Telefone { get; set; }
         [Column("Preco_pacote", TypeName = "decimal(18, 2)")]
-        //[RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage = "O valor tem ser superior a 0")]
         [Display(Name = "Preço do Pacote")]
         public decimal PrecoPacote { get; set; }
         [Column("Promocao_desc", TypeName = "decimal(18, 2)")]
-        //[RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage = "O valor tem ser superior a 0")]
         [Display(Name = "Desconto da Promoção")]
         public decimal PromocaoDesc { get; set; }
         [Column("Preco_Final", TypeName = "decimal(18, 2)")]
-        //[RegularExpression(@"^([0-9]*[1-9][0-9]*(\,[0-9]+)?|[0]+\,[0-9]*[1-9][0-9]*)$", ErrorMessage = "O valor tem ser superior a 0")]
         [Display(Name = "Preço Final")]
         public decimal PrecoFinal { get; set; }
 

@@ -30,7 +30,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
            
         }
 
-
+        [Authorize(Roles = "Administrador,Operador")]
         public async Task<IActionResult> Index()
         {
 
@@ -193,6 +193,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(modelo);
         }
 
+        [Authorize(Roles = "Administrador,Operador")]
         public async Task<IActionResult> ContaPessoal(int ano)
         {
             DateTime hoje = DateTime.Today;
@@ -243,6 +244,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             return View(faturacaoMensalViewModel);
         }
 
+        [Authorize(Roles = "Administrador,Operador")]
         public async Task<IActionResult> FaturacaoMensalOperador(int ano)
         {
             DateTime hoje = DateTime.Today;
