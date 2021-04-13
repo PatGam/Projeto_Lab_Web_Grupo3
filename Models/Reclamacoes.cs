@@ -27,10 +27,11 @@ namespace Projeto_Lab_Web_Grupo3.Models
         [DataType(DataType.Date)]
         [Display(Name = "Data de Resposta")]
         public DateTime DataResposta { get; set; }
-
+        [Display(Name = "Respondido")]
         public bool EstadoResposta { get; set; }
 
         public int ContratoId { get; set; }
+        [Display(Name = "Resolvido")]
         public bool EstadoResolução { get; set; }
 
         [DataType(DataType.Date)]
