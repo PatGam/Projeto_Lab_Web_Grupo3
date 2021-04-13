@@ -9,7 +9,7 @@ body {
 }
 
 a {
-    color: #0069a0;
+    color: #c9dbe4;
     text-decoration: none;
 }
 
@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .whtspace{
-    margin-bottom: 360px;
+    margin-bottom: 40%;
 }
 
 /*--------------------------------------------------------------
@@ -1587,6 +1587,69 @@ h2#dlg-header {
     font-size: 1.75em;
 }
 
+/*---Button 3---*/
+.button-form-btn3 {
+    font-size: 16px;
+    color: #0a76ad;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    height: 50px;
+    width: 50%;
+    border-radius: 25px;
+    background: #1879aa;
+    background: -webkit-linear-gradient(top, #87c4e4, #0a76ad);
+    background: -o-linear-gradient(top, #87c4e4, #0a76ad);
+    background: -moz-linear-gradient(top, #87c4e4, #0a76ad);
+    background: linear-gradient(top, #87c4e4, #0a76ad);
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    border: 3px solid white;    
+    cursor: pointer;
+}
+
+    .button-form-btn3::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .button-form-btn3:hover {
+        color: #fff;
+    }
+
+        .button-form-btn3:hover:before {
+            opacity: 0;
+        }
+
+.icon {
+    vertical-align: middle;
+    line-height: inherit;
+    font-size: 1.75em;
+}
 
 /* Console */
 #console {
@@ -2139,6 +2202,10 @@ td {
     font-size: 17px;
     color: #fff;
     border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+.td .a{
+    color: #c1e0e1;
 }
 
 .iconbg1 {

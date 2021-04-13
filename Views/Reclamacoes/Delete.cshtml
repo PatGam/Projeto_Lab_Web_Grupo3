@@ -8,13 +8,13 @@
 <container>
     <div class="container bg-white mt-5 mb-5 ">
         <div class="row offset-3">
-            <div class="col-lg-7">
+            <div class="col-lg-10">
                 <div class="p-3 m-t-25 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-5">
                         <h4 class="text-right">Arquivar Reclamação</h4>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-lg-8">
                             <section class="panel">
                                 <table class="table table-bordered">
                                     <tr>
@@ -56,13 +56,13 @@
 
                                         @if (Model.EstadoResposta == true)
                                         {
-                                            <td class="col-sm-7">
+                                            <td class="col-lg-7">
                                                 Sim
                                             </td>
                                         }
                                         else
                                         {
-                                            <td class="col-sm-7">
+                                            <td class="col-lg-7">
                                                 Não
                                             </td>
                                         }
@@ -76,13 +76,13 @@
                                         </th>
                                         @if (Model.EstadoResolução == true)
                                         {
-                                            <td class="col-sm-7">
+                                            <td class="col-lg-7">
                                                 Sim
                                             </td>
                                         }
                                         else
                                         {
-                                            <td class="col-sm-7">
+                                            <td class="col-lg-7">
                                                 Não
                                             </td>
                                         }
@@ -100,7 +100,7 @@
 
                                 </table>
 
-                                <form asp-action="Delete">
+                                <form asp-action="Delete" class="mb-5">
                                     <input type="hidden" asp-for="ReclamacaoId" />
                                     <input type="submit" value="Marcar Como Resolvida" class="btn btn-primary" /> |
                                     <a asp-area="" asp-controller="Reclamacoes" asp-action="Create" class="btn btn-primary">
@@ -114,5 +114,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 </container>
