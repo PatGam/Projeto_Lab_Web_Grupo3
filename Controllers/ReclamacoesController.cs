@@ -38,6 +38,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             };
 
             List<Reclamacoes> reclamacoes = await bd.Reclamacoes.Where(p => nomePesquisar == null || p.Cliente.Nome.Contains(nomePesquisar) || p.Cliente.Nif.Contains(nomePesquisar))
+                .Include(p => p.Cliente)
                 .Where(p => p.Inactivo == false)
                   .OrderBy(p => p.Cliente.Nome)
 
@@ -67,7 +68,7 @@ namespace Projeto_Lab_Web_Grupo3.Controllers
             };
 
             List<Reclamacoes> reclamacoes = await bd.Reclamacoes.Where(p => p.Inactivo == true || p.Cliente.Nome.Contains(nomePesquisar) || p.Cliente.Nif.Contains(nomePesquisar))
-                
+                 .Include(p => p.Cliente)
                   .OrderBy(p => p.Cliente.Nome)
 
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
