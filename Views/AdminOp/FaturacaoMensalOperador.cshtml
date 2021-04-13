@@ -8,46 +8,115 @@
 <body>
     <!-- container section start -->
     <section id="container" class="">
+        <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header"><i class="fas fa-medal"></i>Faturação Mensal</h3>
+                        <h3 class="page-header"><i class="fa fa-user-md"></i> Conta Pessoal</h3>
                         <ol class="breadcrumb">
                             <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                            <li><i class="icon_contacts_alt"></i>Faturação Mensal</li>
+
+                            <li><i class="fa fa-user-md"></i>Conta Pessoal</li>
                         </ol>
                     </div>
                 </div>
-                @{
-                    for (int i = ViewBag.PrimeiroAno; i <= ViewBag.AnoCorrente; i++)
-                    {
-                        @i
-                        <table>
-                            @foreach (var item in Model.faturacaoOperadores)
-                            {
-                                if(item.Ano == i)
-                                {
+                <div class="row">
+                    <!-- profile-widget -->
+                    <div class="col-lg-12">
+                        <div class="profile-widget profile-widget-info">
+                            <div class="panel-body">
+                                <div class="col-lg-2 col-sm-2">
+                                    <h4>@Model.funcionario.Nome</h4>
+                                    <div class="follow-ava">
+                                        <img src="~/images/operator.png" alt="">
+                                    </div>
+                                    <h6>@Model.funcionario.Role</h6>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 follow-info">
+                                    <p><i class="icon_pin_alt"></i>@Model.distrito.Nome</p>
 
-                               
-                                <tr>
-                                    <td>
-                                        @item.NomeMes
-                                    </td>
-                                    <td>
-                                        @item.TotalFaturacao
-                                    </td>
-                                </tr>
-                                }
-                            }
-                        </table>
-                    }
-                    }
+                                </div>
 
-                <table>
-                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- page start-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading tab-bg-info">
+                                <ul class="nav nav-tabs">
+                                    <li >
+                                        <a asp-area="" asp-controller="AdminOp" asp-action="ContaPessoal">
+                                            <i class="icon-user"></i>
+                                            Perfil
+                                        </a>
+                                    </li>
 
-            </section>
+                                    <li class="active">
+                                        <a asp-area="" asp-controller="AdminOp" asp-action="FaturacaoMensalOperador">
+                                            <i class="icon-home"></i>
+                                            Faturação Mensal
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a asp-area="" asp-controller="Utilizadores" asp-action="EditFuncionarios" asp-route-id="@Model.funcionario.UtilizadorId">
+                                            <i class="icon-envelope"></i>
+                                            Atualizar Dados Pessoais
+                                        </a>
+                                    </li>
+                                </ul>
+                            </header>
+                            <div class="panel-body">
+                                <div class="tab-content">
+                                   
+                                    <div id="faturacaomensal" class="tab-pane active">
+                                        <section class="panel">
+                                            <div class="col-sm-6">
+                                                <form asp-action="FaturacaoMensalOperador" method="get">
+                                                    <div class="form-group">
+                                                        <p>Selecione o ano de faturação que pretende consultar</p>
+                                                        <select asp-for="ano" class="form-control" asp-items="ViewBag.Anos"></select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Mostrar" class="btn btn-primary" />
+                                                    </div>
+                                                </form>
+                                                <h4>Faturação do ano @Model.ano</h4>
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Mês</th>
+                                                            <th>Faturação</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.faturacaoOperadores)
+                                                        {
+                                                            {
+                                                                <tr>
+                                                                    <td> @item.NomeMes</td>
+                                                                    <td> @item.TotalFaturacao</td>
+
+                                                                </tr>
+                                                            }
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
             </section>
         </section>
-    </body>
+    </section>
+    </section>
+    </section>
+</body>

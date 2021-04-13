@@ -16,9 +16,24 @@ namespace Projeto_Lab_Web_Grupo3.Data
             InsereServicosContratos(bd);
             InsereDistritosPacotes(bd);
             InsereDistritosPromocoes(bd);
+            InsereEmails(bd);
+
 
         }
-        internal static void InsereContratos(Projeto_Lab_WebContext bd)
+
+        internal static void InsereEmails(Projeto_Lab_WebContext bd)
+        {
+            if (bd.EnvioDeFaturas.Any()) return;
+
+                EnvioDeFaturas enviodefaturas = new EnvioDeFaturas { mes = 3, ano = 2021 };
+                bd.EnvioDeFaturas.Add(enviodefaturas);
+                bd.SaveChanges();
+            
+
+        }
+
+
+            internal static void InsereContratos(Projeto_Lab_WebContext bd)
         {
             if (bd.Contratos.Any()) return;
 
