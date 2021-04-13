@@ -45,12 +45,13 @@
                                 </tr>
                             </table>
                         }
-
-
-
-
                         else
                         {
+
+
+
+
+
                             <table class="table table-striped table-advance table-hover">
                                 <thead>
                                     <tr>
@@ -92,7 +93,7 @@
                                                 @Html.DisplayFor(modelItem => item.DataReclamacao)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(model => model.Cliente)
+                                                @Html.DisplayFor(model => model.Cliente.Nome)
                                             </td>
                                             @if (item.Inactivo == false)
                                             {
@@ -122,6 +123,8 @@
                                 </tbody>
                             </table>
                         }
+
+
 
                         <nav>
                             <ul class="pagination justify-content-end">
