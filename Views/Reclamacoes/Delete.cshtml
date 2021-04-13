@@ -6,15 +6,15 @@
 }
 
 <container>
-    <div class="container bg-white mt-5 mb-5 ">
-        <div class="row offset-3">
-            <div class="col-lg-10">
+    <div class="container bg-white mt-5">
+        <div class="row offset-2">
+            <div class="col-lg-12">
                 <div class="p-3 m-t-25 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-5">
+                    <div class="d-flex justify-content-between align-items-center">
                         <h4 class="text-right">Arquivar Reclamação</h4>
                     </div>
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-10">
                             <section class="panel">
                                 <table class="table table-bordered">
                                     <tr>
@@ -99,15 +99,14 @@
 
 
                                 </table>
-
-                                <form asp-action="Delete" class="mb-5">
+                                <div class="row">                                    
+                                <form asp-action="Delete">
                                     <input type="hidden" asp-for="ReclamacaoId" />
-                                    <input type="submit" value="Marcar Como Resolvida" class="btn btn-primary" /> |
-                                    <a asp-area="" asp-controller="Reclamacoes" asp-action="Create" class="btn btn-primary">
-                                        Enviar nova reclamação
-                                    </a> |
-                                    <a asp-action="ViewCliente" class="btn btn-warning">Cancelar</a>
+                                    <input type="submit" value="Marcar Como Resolvida" class="button-form-btn2 col-lg-4" />
+                                    <a asp-area="" asp-controller="Reclamacoes" asp-action="Create" class="button-form-btn2 col-lg-4">Enviar nova reclamação</a>
+                                    <a asp-action="ViewCliente" class="button-form-btn4 col-lg-4 offset-1">Cancelar</a>
                                 </form>
+                                        </div>                                    
                             </section>
                         </div>
                     </div>
